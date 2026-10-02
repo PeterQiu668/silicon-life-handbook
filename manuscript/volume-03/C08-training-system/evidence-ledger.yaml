@@ -1,0 +1,347 @@
+chapter_id: C08
+title: "训练系统：把反馈变成能力"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c08"
+reviewed_by: null
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  OpenClaw 产品事实锁定 v2026.9.6 / eb377ac59e6c9fd6c7705028034812becf00271b。
+  Hermes 只使用 2026-09-30 动态官方文档并要求印前重验。Muse 全部为厂商声明。
+  双三角、训练循环、训练轮次、停训与三母产物字段均为本书方法论。
+  数据层沿用 C07 的 training/regression/holdout/real_world；security/red-team 是横切非补偿套件。
+
+evidence_classes:
+  VERIFIED: "在所列本地合成环境实际运行；不外推真实平台或生产效果"
+  SOURCE-BASED: "一手规范、固定版本源码/文档或官方工程材料"
+  METHODOLOGY: "本书定义的方法、产物或编辑决定"
+  INFERENCE: "基于来源形成的有限工程判断"
+  UNVERIFIED: "尚未独立运行、缺材料或只为候选"
+
+sources:
+  BOOK-V2:
+    title: "正式出版版三级内容框架 v2"
+    path: "../../../00-正式出版版-三级内容框架-v2.md"
+  C08-CARD:
+    title: "C08 chapter card"
+    path: "../../../docs/editorial/CHAPTER-CARDS.md"
+  QUALITY:
+    title: "Book Quality Standard"
+    path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"
+  TERMS:
+    title: "Terminology Registry"
+    path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"
+  DECISIONS:
+    title: "Editorial decisions"
+    path: "../../../docs/DECISIONS.md"
+  C08-PREFLIGHT:
+    title: "C08 training system preflight"
+    path: "../../../docs/research/C08-training-system-preflight.md"
+  C04-CAPABILITY:
+    title: "C04 capability tree"
+    path: "../../volume-02/C04-role-capability-model/artifacts/A-C04-02-capability-tree.md"
+  C04-RISK:
+    title: "C04 risk classification"
+    path: "../../volume-02/C04-role-capability-model/artifacts/A-C04-03-risk-classification.md"
+  C05-CONTRACTS:
+    title: "C05 seven-contract draft pack"
+    path: "../../volume-02/C05-life-contracts/artifacts/A-C05-01-seven-contract-draft-pack.md"
+  C07-PREFLIGHT:
+    title: "C07 evaluation preflight"
+    path: "../../../docs/research/C07-evaluation-preflight.md"
+  C07-BLUEPRINT:
+    title: "C07 evaluation blueprint"
+    path: "../C07-evaluation-system/artifacts/A-C07-01-evaluation-blueprint.md"
+  ANTHROPIC-EVALS:
+    title: "Demystifying evals for AI agents"
+    url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+  ANTHROPIC-AGENTS:
+    title: "Building effective agents"
+    url: "https://www.anthropic.com/engineering/building-effective-agents"
+  OAI-EVAL-BP:
+    title: "OpenAI evaluation best practices"
+    url: "https://developers.openai.com/api/docs/guides/evaluation-best-practices"
+  OAI-GRADERS:
+    title: "OpenAI graders"
+    url: "https://developers.openai.com/api/docs/guides/graders"
+  NIST-CHEATING:
+    title: "NIST cheating on AI agent evaluations"
+    url: "https://www.nist.gov/caisi/cheating-ai-agent-evaluations"
+  NIST-DOE:
+    title: "NIST Engineering Statistics experimental design"
+    url: "https://itl.nist.gov/div898/handbook/pri/section1/pri11.htm"
+  DEEPMIND-GAMING:
+    title: "Specification gaming: the flip side of AI ingenuity"
+    url: "https://deepmind.google/blog/specification-gaming-the-flip-side-of-ai-ingenuity/"
+  SELF-REFINE:
+    title: "Self-Refine"
+    url: "https://arxiv.org/abs/2303.17651"
+  SELF-CORRECT:
+    title: "Large Language Models Cannot Self-Correct Reasoning Yet"
+    url: "https://arxiv.org/abs/2310.01798"
+  OC-REL:
+    title: "OpenClaw v2026.9.6 release"
+    url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+  OC-WORKSHOP:
+    title: "Skill Workshop at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/skill-workshop/how-it-works.md"
+  OC-SELF:
+    title: "Self-learning at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/self-learning.md"
+  HE-SKILLS:
+    title: "Hermes Skills dynamic docs"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills"
+  HE-MEMORY:
+    title: "Hermes Memory dynamic docs"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory/"
+  MUSE-LAUNCH:
+    title: "Introducing Muse"
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+  MUSE-DESIGN:
+    title: "How Muse was designed"
+    url: "https://introducing.muse.ai/"
+  GOOGLE-CANARY:
+    title: "Google SRE Canarying Releases"
+    url: "https://sre.google/workbook/canarying-releases/"
+  LOCAL-EXPERIMENT:
+    title: "EXP-C08-SYN-001 result summary"
+    path: "review/runs/experiment-result-summary.yaml"
+
+evidence:
+  - evidence_id: E-C08-001
+    claim: "训练循环是从反馈准入、复现、分型、单一候选干预到回归、留出、安全门和人类决定的受控能力变更链。"
+    label: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: local-normative-source
+    source_ref: BOOK-V2
+    locator: "第8章 8.1—8.8"
+    limitations: "本书方法，不是外部标准或产品原生流程。"
+  - evidence_id: E-C08-002
+    claim: "双三角固定为目标—行为—反馈与任务—能力—证据；AU-L0—AU-L4 与 MAT-L0—MAT-L5 不得互相推导。"
+    label: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: local-normative-source
+    source_ref: TERMS
+    locator: "training_loop, dual_triangle_model, autonomy_level, maturity_l0_l5"
+    limitations: "C08 不发布自主或成熟度阈值。"
+  - evidence_id: E-C08-003
+    claim: "训练目标应消费 C04 岗位、能力、NFR、风险和负面清单。"
+    label: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: local-artifact
+    source_ref: C04-CAPABILITY
+    locator: "五支能力树、NFR与训练接口"
+    limitations: "C08 不反向改写岗位。"
+  - evidence_id: E-C08-004
+    claim: "高风险训练必须消费 C04 四因子、负面清单、确定性控制、停止和恢复。"
+    label: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: local-artifact
+    source_ref: C04-RISK
+    locator: "风险到控制、三类负面清单"
+    limitations: "具体阈值仍由任务和 C07/C17/C22 冻结。"
+  - evidence_id: E-C08-005
+    claim: "契约语义、平台载体、运行状态和系统强制控制必须分开；契约文本不能授予权限。"
+    label: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: local-artifact
+    source_ref: C05-CONTRACTS
+    locator: "七契约四层分离与权限边界"
+    limitations: "C08 只能提交契约候选。"
+  - evidence_id: E-C08-006
+    claim: "训练、回归、留出和真实任务集必须区分；多次 trial、完整 trace、失败分布和安全硬门是能力证据基础。"
+    label: METHODOLOGY
+    stability: frontier
+    scope: general
+    source_nature: local-normative-artifact
+    source_ref: C07-BLUEPRINT
+    locator: "四层数据集、task/trial/trajectory/outcome/grader、污染与三态门"
+    limitations: "C07 真实 model/human/expert 校准和目标 Runtime 实践仍未闭合；C08 不重定义统计协议。"
+  - evidence_id: E-C08-007
+    claim: "Agent eval 需要任务、trial、transcript、outcome 与 grader；生产监控和人工复核补足离线评测。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: general
+    source_nature: vendor-engineering-guidance
+    source_ref: ANTHROPIC-EVALS
+    locator: "evaluation structure; maintain and use evals long-term"
+    limitations: "厂商工程经验，不是强制标准。"
+  - evidence_id: E-C08-008
+    claim: "评测应目标明确、数据有代表性并持续运行；凭感觉评价不足。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: general
+    source_nature: official-doc
+    source_ref: OAI-EVAL-BP
+    locator: "evaluation best practices"
+    limitations: "动态文档；示例不构成本书通用阈值。"
+  - evidence_id: E-C08-009
+    claim: "Agent 工具访问扩大 solution contamination 和 grader gaming 风险。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: general
+    source_nature: government-research
+    source_ref: NIST-CHEATING
+    locator: "solution contamination and grader gaming"
+    limitations: "不提供本书场景的发生概率。"
+  - evidence_id: E-C08-010
+    claim: "实验应预先定义目标、因素和响应；单因素容易解释但会漏掉交互。"
+    label: SOURCE-BASED
+    stability: stable
+    scope: general
+    source_nature: government-guidance
+    source_ref: NIST-DOE
+    locator: "objectives, factors, responses"
+    limitations: "通用实验设计原则，需按非确定 Agent 调整。"
+  - evidence_id: E-C08-011
+    claim: "优化系统可能字面满足代理指标而偏离真实意图。"
+    label: SOURCE-BASED
+    stability: stable
+    scope: general
+    source_nature: research-summary
+    source_ref: DEEPMIND-GAMING
+    locator: "specification gaming examples and framing"
+    limitations: "不证明系统具有主观欺骗意图。"
+  - evidence_id: E-C08-012
+    claim: "语言反馈与迭代修订在论文所测任务中可改善表现。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: general
+    source_nature: research-paper
+    source_ref: SELF-REFINE
+    locator: "abstract and reported experiments"
+    limitations: "不证明长期保持、跨域迁移、生产安全或参数更新。"
+  - evidence_id: E-C08-013
+    claim: "缺少外部反馈时，内生自纠在所测推理设置中可能无效或退化。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: general
+    source_nature: research-paper
+    source_ref: SELF-CORRECT
+    locator: "paper findings"
+    limitations: "不能外推所有模型、任务和反馈条件。"
+  - evidence_id: E-C08-014
+    claim: "OpenClaw 本章固定平台基线为 v2026.9.6 / eb377ac。"
+    label: SOURCE-BASED
+    stability: versioned
+    scope: openclaw
+    source_nature: official-release
+    source_ref: OC-REL
+    locator: "release tag"
+    limitations: "不证明目标部署健康或 future main 行为。"
+  - evidence_id: E-C08-015
+    claim: "固定版 Skill Workshop proposal 具有 apply、target hash/stale、scanner 与 rollback metadata 等治理表面。"
+    label: SOURCE-BASED
+    stability: versioned
+    scope: openclaw
+    source_nature: fixed-version-official-doc
+    source_ref: OC-WORKSHOP
+    locator: "How it works; lifecycle"
+    limitations: "不证明候选有效、安全、独立评测通过或已获生产批准。"
+  - evidence_id: E-C08-016
+    claim: "固定版 self-learning 区分 off/propose/auto；不同写入路径并不都有相同 proposal 与回滚保障。"
+    label: SOURCE-BASED
+    stability: versioned
+    scope: openclaw
+    source_nature: fixed-version-official-doc
+    source_ref: OC-SELF
+    locator: "mode policy; immediate repair; background review"
+    limitations: "平台默认不等于本书生产建议。"
+  - evidence_id: E-C08-017
+    claim: "Hermes 动态官方文档描述 Agent 管理 Skills 与可选 skill write approval。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: hermes
+    source_nature: dynamic-official-doc
+    source_ref: HE-SKILLS
+    locator: "agent managed skills; write approval"
+    limitations: "核验日事实；不回填固定 release，印前重验。"
+  - evidence_id: E-C08-018
+    claim: "Hermes 动态官方文档描述 bounded memory、背景回顾、per-profile 作用域、Session 起点冻结快照与可选 memory write approval。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: hermes
+    source_nature: dynamic-official-doc
+    source_ref: HE-MEMORY
+    locator: "persistent memory; controlling writes"
+    limitations: "写入批准不证明内容正确或能力提升。"
+  - evidence_id: E-C08-019
+    claim: "Meta 官方发布材料描述 Muse 的 Goals、Activity、记忆、权限控制与关键动作批准体验。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: muse
+    source_nature: vendor-claim
+    source_ref: MUSE-LAUNCH
+    locator: "How It Works; privacy, safety and security"
+    limitations: "厂商声明；不证明内部训练机制和效果。"
+  - evidence_id: E-C08-020
+    claim: "Muse 公开设计页描述 Artifacts、side chats、Activity 与权限可见面；只可用作用户可见训练/反馈/审批体验镜面。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: muse
+    source_nature: vendor-claim
+    source_ref: MUSE-DESIGN
+    locator: "public product design"
+    limitations: "不得推断 teacher、grader、数据集、模型更新或 Skill。"
+  - evidence_id: E-C08-021
+    claim: "EXP-C08-SYN-001 三轮试跑中，第三轮 train 6/6、regression 4/4、普通 holdout 4/5、横切 safety 套件 2/3，触发停训和候选回滚；safety 样本登记为 holdout × adversarial，不构成第五层。"
+    label: VERIFIED
+    stability: versioned
+    scope: general
+    source_nature: local-test
+    source_ref: LOCAL-EXPERIMENT
+    locator: "runs and final_decision"
+    limitations: "确定性合成 harness；无语言模型、真实平台、用户或生产流量。非作者已在两个 fresh temp 目录复现当前脚本且字节一致，但 X-C08-02、真实访问隔离、真实候选发布与回滚仍未完成。"
+  - evidence_id: E-C08-022
+    claim: "Canary 是部分、限时、与控制比较的发布方式，异常时需暂停或回滚。"
+    label: SOURCE-BASED
+    stability: stable
+    scope: general
+    source_nature: official-engineering-book
+    source_ref: GOOGLE-CANARY
+    locator: "What Is Canarying; canary implementation"
+    limitations: "服务发布经验不能机械替代 Agent 风险与授权。"
+  - evidence_id: E-C08-023
+    claim: "Evaluator-optimizer 适用于成功标准清晰且反馈可带来可测改进的任务。"
+    label: SOURCE-BASED
+    stability: frontier
+    scope: general
+    source_nature: vendor-engineering-guidance
+    source_ref: ANTHROPIC-AGENTS
+    locator: "evaluator-optimizer workflows"
+    limitations: "同类模型自评不构成独立验证。"
+  - evidence_id: E-C08-024
+    claim: "C08 只有训练计划、轮次记录、错误分类与整改单三件母产物；终局决定嵌入后两件。"
+    label: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: editorial-decision
+    source_ref: DECISIONS
+    locator: "D-2026-09-30-15"
+    limitations: "运行证据和练习文件不是额外母产物。"
+
+open_questions:
+  - id: U-C08-01
+    status: PASS
+    question: "EXP-C08-SYN-001 能否由独立实践者按冻结 manifest 复现？"
+    owner: practice-reviewer
+    resolution: "已按当前 post-patch harness 在两个 fresh temp 目录独立复现，manifest、四轮分数、停止决定与输出字节一致；仅在固定确定性合成范围内通过，不代表 C08 总实践门或真实 Runtime。"
+  - id: U-C08-02
+    status: UNKNOWN
+    question: "真实 OpenClaw/Hermes Runtime 中候选写入、Session 快照和回滚是否满足本章合同？"
+    owner: platform-evidence-reviewer
+  - id: U-C08-03
+    status: UNKNOWN
+    question: "本章方法在长期真实任务中的净收益、误训率和治理成本是多少？"
+    owner: C23-C24-C27
+  - id: U-C08-04
+    status: VENDOR-CLAIM-ONLY
+    question: "Muse 内部训练、数据集、grader 和自我改进机制如何实现？"
+    owner: external-evidence

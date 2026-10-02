@@ -1,0 +1,190 @@
+---
+audit_id: C14-source-audit-20260930
+chapter_id: C14
+audit_type: independent-source-and-claim-audit
+audited_on: "2026-09-30"
+reviewer_role: evidence-reviewer
+chapter_status: drafting
+scope: "Evidence ledger、正文引用、本地来源、外部一手来源与作者合成运行的事实完整性"
+mutated_author_files: false
+independent_practice_performed: false
+
+summary:
+  ledger_sources: 37
+  local_sources: 25
+  local_sources_present: 25
+  external_sources: 12
+  external_http_200: 11
+  external_automation_blocked_but_content_checked: 1
+  sources_used_by_claims: 33
+  unused_sources: [C03, C05, C18-P, C22-P]
+  claims: 28
+  claim_ids_unique: true
+  claims_referenced_by_chapter: 28
+  orphan_chapter_evidence_refs: 0
+  missing_chapter_evidence_refs: 0
+  fixed_release_tags_resolved: 2
+
+fixed_release_resolution:
+  - source_id: OC-REL
+    repository: openclaw/openclaw
+    tag: v2026.9.6
+    tag_object_sha: ce5bbdc244ee937246cc1700d1b224d020c3b599
+    target_type: commit
+    target_sha: eb377ac59e6c9fd6c7705028034812becf00271b
+    verdict: PASS
+  - source_id: HE-REL
+    repository: NousResearch/hermes-agent
+    tag: v2026.8.13
+    release_name_observed: "Hermes Agent v0.20.1"
+    tag_object_sha: 4e693dc685b5716e7da22656eccc6ece37c5db72
+    target_type: commit
+    target_sha: f80f453ae0679347e38abc917c7f94f717bf96c5
+    verdict: PASS
+
+local_sources:
+  - {source_id: BOOK-V2, exists: true, used: true}
+  - {source_id: QUALITY, exists: true, used: true}
+  - {source_id: C14-CARD, exists: true, used: true}
+  - {source_id: TERMS, exists: true, used: true}
+  - {source_id: DECISIONS, exists: true, used: true}
+  - {source_id: PREFLIGHT, exists: true, used: true}
+  - {source_id: C03, exists: true, used: false}
+  - {source_id: C04-RISK, exists: true, used: true}
+  - {source_id: C05, exists: true, used: false}
+  - {source_id: C06, exists: true, used: true}
+  - {source_id: C09, exists: true, used: true}
+  - {source_id: C11, exists: true, used: true}
+  - {source_id: C13, exists: true, used: true}
+  - {source_id: C13-SM, exists: true, used: true}
+  - {source_id: C15-P, exists: true, used: true}
+  - {source_id: C16-P, exists: true, used: true}
+  - {source_id: C17-P, exists: true, used: true}
+  - {source_id: C18-P, exists: true, used: false}
+  - {source_id: C19-P, exists: true, used: true}
+  - {source_id: C21-P, exists: true, used: true}
+  - {source_id: C22-P, exists: true, used: false}
+  - {source_id: C24-P, exists: true, used: true}
+  - {source_id: LOCAL-INPUT, exists: true, used: true}
+  - {source_id: LOCAL-RUN, exists: true, used: true}
+  - {source_id: LOCAL-SCRIPT, exists: true, used: true}
+
+external_sources:
+  - source_id: OC-REL
+    http_status: 200
+    identity: FIXED-RELEASE
+    semantic_support: "tag v2026.9.6 解引用到固定提交 eb377ac59e6c9fd6c7705028034812becf00271b"
+    verdict: PASS
+  - source_id: OC-PERM
+    http_status: 200
+    identity: FIXED-DOC
+    semantic_support: "多层 tool/agent policy、Node pairing 身份与非逐命令批准边界"
+    verdict: PASS
+  - source_id: OC-APPROVAL
+    http_status: 200
+    identity: FIXED-DOC
+    semantic_support: "exec approvals 叠加于 tool policy/elevated，较窄层不能放宽上游 deny；不构成敌对多租户业务授权"
+    verdict: PASS
+  - source_id: OC-BINDING
+    http_status: 200
+    identity: FIXED-DOC
+    semantic_support: "binding 只选择 Agent，不授予访问权限"
+    verdict: PASS
+  - source_id: OC-TRUST
+    http_status: 200
+    identity: FIXED-DOC
+    semantic_support: "单 Gateway 信任边界、单操作者或互信团队假设；session key 是路由选择器而非授权 token"
+    verdict: PASS
+  - source_id: HE-REL
+    http_status: 200
+    identity: FIXED-RELEASE-ANCHOR
+    semantic_support: "Hermes Agent v0.20.1 / tag v2026.8.13 的发行身份"
+    verdict: PASS
+  - source_id: HE-SEC
+    http_status: 200
+    identity: DYNAMIC-OFFICIAL
+    checked_on: "2026-09-30"
+    semantic_support: "dangerous-command prompt、allowlist、session 持续性与容器相关安全说明"
+    verdict: PASS_WITH_DYNAMIC_RECHECK
+  - source_id: MUSE-NEWS
+    http_status: 200
+    identity: VENDOR-CLAIM
+    semantic_support: "Muse 公开产品与安全控制陈述；不能证明内部实现或效果"
+    verdict: PASS_AS_VENDOR_CLAIM
+  - source_id: MUSE-SEC
+    http_status: 200
+    identity: VENDOR-CLAIM
+    semantic_support: "Sentinel、scoped capabilities、JIT 与 takeover 的厂商说明"
+    verdict: PASS_AS_VENDOR_CLAIM
+  - source_id: NIST-ID
+    http_status: 403
+    identity: PRIMARY-PROJECT-PAGE
+    checked_on: "2026-09-30"
+    access_note: "批量 HTTP 客户端被站点拒绝；官方页面经浏览器内容核验，当前状态为 Soliciting Comments，不能写成定稿标准。"
+    semantic_support: "软件与 AI Agent 身份和授权的问题域；不证明本书六字段 schema 是 NIST 标准"
+    verdict: PASS_WITH_ACCESS_LIMITATION
+  - source_id: NIST-BLOG
+    http_status: 200
+    identity: PRIMARY-GUIDANCE-BLOG
+    semantic_support: "委托权衰减、窄授权与人类审批疲劳；属于指导材料而非正式标准"
+    verdict: PASS_WITH_IDENTITY_LIMITATION
+  - source_id: MCP-2026
+    http_status: 200
+    identity: STANDARD-PRIMARY-RELEASE-BLOG
+    semantic_support: "issuer validation、credential binding 等协议授权硬化；不覆盖业务责任、自主等级或组织审批"
+    verdict: PASS
+
+claim_results:
+  - {evidence_id: E-C14-001, verdict: PASS, note: "四轴不可互推是本书方法，未伪装平台事实。"}
+  - {evidence_id: E-C14-002, verdict: PASS, note: "AU-L0—AU-L4 与 v2、章节卡、术语表和 D19 一致。"}
+  - {evidence_id: E-C14-003, verdict: PASS, note: "七种行为未被扩写为七级。"}
+  - {evidence_id: E-C14-004, verdict: PASS, note: "AU 与 MAT 命名空间分离。"}
+  - {evidence_id: E-C14-005, verdict: PASS, note: "四因子为联合硬门且阈值留给组织。"}
+  - {evidence_id: E-C14-006, verdict: PASS, note: "五维半径明确为本书 schema。"}
+  - {evidence_id: E-C14-007, verdict: PASS, note: "聊天意图与可核验 authority evidence 分离。"}
+  - {evidence_id: E-C14-008, verdict: PASS, note: "六项为方法最小集合，未称 NIST 标准字段。"}
+  - {evidence_id: E-C14-009, verdict: PASS, note: "委托衰减及 identity graph 限制完整。"}
+  - {evidence_id: E-C14-010, verdict: PASS, note: "撤销传播是方法要求，平台实测仍保留 RR。"}
+  - {evidence_id: E-C14-011, verdict: PASS, note: "最小权限、JIT、双人复核与 break-glass 职责不互代。"}
+  - {evidence_id: E-C14-012, verdict: PASS, note: "双人复核要求独立身份并保留身份图验证缺口。"}
+  - {evidence_id: E-C14-013, verdict: PASS, note: "break-glass 控制与法律/组织批准边界清楚。"}
+  - {evidence_id: E-C14-014, verdict: PASS, note: "终态与状态转移语义闭合。"}
+  - {evidence_id: E-C14-015, verdict: PASS, note: "取消、停止确认、回滚和 UNKNOWN 对账分离。"}
+  - {evidence_id: E-C14-016, verdict: PASS, note: "重大变化触发再认证，阈值未伪造。"}
+  - {evidence_id: E-C14-017, verdict: PASS, note: "trigger、authority 与 D21 completion 分离。"}
+  - {evidence_id: E-C14-018, verdict: PASS, note: "OpenClaw 固定 policy 收敛语义受固定文档支持。"}
+  - {evidence_id: E-C14-019, verdict: PASS, note: "exec approval 是附加收紧层且不代替业务授权。"}
+  - {evidence_id: E-C14-020, verdict: PASS, note: "Binding、Pairing 与动作授权分离。"}
+  - {evidence_id: E-C14-021, verdict: PASS, note: "Gateway 信任模型和 approval 非敌对多租户授权的限制准确。"}
+  - {evidence_id: E-C14-022, verdict: PASS, note: "Hermes 固定发行锚点与动态安全页没有倒填。"}
+  - {evidence_id: E-C14-023, verdict: PASS, note: "Muse 保持 VENDOR-CLAIM。"}
+  - {evidence_id: E-C14-024, verdict: PASS_WITH_LIMITATION, note: "MCP 支持协议层硬化；不覆盖业务授权是本书边界推论。"}
+  - {evidence_id: E-C14-025, verdict: PASS, note: "规范陈述准确；作者夹具的 real-world 层标注另在交叉门登记。"}
+  - {evidence_id: E-C14-026, verdict: PASS, note: "目录恰好三件母产物。"}
+  - {evidence_id: E-C14-027, verdict: PASS_IN_DECLARED_SYNTHETIC_SCOPE, note: "28 trial、11/14/3、零外部副作用与保存结果及 fresh 复跑一致。"}
+  - {evidence_id: E-C14-028, verdict: PASS_IN_DECLARED_SYNTHETIC_SCOPE, note: "所列攻击与恢复场景均在输入/结果中可定位。"}
+
+author_run_integrity:
+  method: "将作者 runner 与 input 复制到两个 fresh 临时目录分别执行；比较两个 fresh 输出与保存输出。"
+  trial_count: 28
+  task_ids_unique: true
+  trial_ids_unique: true
+  gate_distribution: {PASS: 11, FAIL: 14, REVIEW_REQUIRED: 3}
+  all_expected_matched: true
+  external_side_effects_zero: true
+  results_sha256: c9c4868f5456954e61d6f668596d7703e58b32d4421939f94731a8adda0b2ce7
+  summary_sha256: e093bb2096e35af6609f292ff6e88dfefc4938a0817eb1aa0fb566366a8964db
+  byte_identical_across_fresh_runs: true
+  byte_identical_to_saved_outputs: true
+  limitation: "只核验 E-C14-027/028 的保存结果完整性，不是两项练习的独立实践签核。"
+
+open_items:
+  - issue_id: P1-X14-01
+    area: cross-consistency
+    item: "6 个 offline-synthetic/mock trial 直接标为 representative real-world，和 D22 的真实任务来源语义冲突。"
+    blocks: cross_gate
+  - issue_id: P2-F14-01
+    area: evidence-hygiene
+    item: "C03、C05、C18-P、C22-P 登记为 source，但没有被任一 claim 使用。"
+    blocks: none
+...

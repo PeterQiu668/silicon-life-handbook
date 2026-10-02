@@ -1,0 +1,42 @@
+{
+  "all_artifacts_byte_identical": true,
+  "fresh_temp_runs": [
+    {
+      "authority_root_digest": "sha256:1a564231b1b67933efd00a561df3045024cc2bf79ff6e62e8405c535fb64ef78",
+      "authority_sha256": "338b10fb93b12ff6d70e9d0509fa6c258b8dea9dd577809306e3b2ea045442d8",
+      "decision_digest": "ebfb66124bd62f37335fecdd36c8c36c171b560d3b8a5acbefda055028654946",
+      "distribution": {
+        "FAIL": 19,
+        "PASS": 1,
+        "REVIEW_REQUIRED": 2
+      },
+      "input_sha256": "6e723aa247336e8f76aa14f833f5c4895656bf5c60f30f871df394859994636f",
+      "negative_attack_count": 73,
+      "negative_fail_open_count": 0,
+      "negative_file_sha256": "74ce3b84487482ca48c9e2ef0684f30783497b3908d5891ace95854a5e0a59c5",
+      "negative_suite_digest": "7b0d70bf538f67613055e68f422eddff030009eb0af6a1afc445348c1c9626a6",
+      "result_file_sha256": "4f238e3a1b91a9f02e7e0871c3c0a39773baffef089043970939cc6e5a5d8a20",
+      "run": 1
+    },
+    {
+      "authority_root_digest": "sha256:1a564231b1b67933efd00a561df3045024cc2bf79ff6e62e8405c535fb64ef78",
+      "authority_sha256": "338b10fb93b12ff6d70e9d0509fa6c258b8dea9dd577809306e3b2ea045442d8",
+      "decision_digest": "ebfb66124bd62f37335fecdd36c8c36c171b560d3b8a5acbefda055028654946",
+      "distribution": {
+        "FAIL": 19,
+        "PASS": 1,
+        "REVIEW_REQUIRED": 2
+      },
+      "input_sha256": "6e723aa247336e8f76aa14f833f5c4895656bf5c60f30f871df394859994636f",
+      "negative_attack_count": 73,
+      "negative_fail_open_count": 0,
+      "negative_file_sha256": "74ce3b84487482ca48c9e2ef0684f30783497b3908d5891ace95854a5e0a59c5",
+      "negative_suite_digest": "7b0d70bf538f67613055e68f422eddff030009eb0af6a1afc445348c1c9626a6",
+      "result_file_sha256": "4f238e3a1b91a9f02e7e0871c3c0a39773baffef089043970939cc6e5a5d8a20",
+      "run": 2
+    }
+  ],
+  "practice_gate": "REVIEW_REQUIRED",
+  "real_platform_execution": "NOT_RUN",
+  "schema_version": "c19.security.fresh-temp-reproduction.v2.2"
+}

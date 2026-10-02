@@ -1,0 +1,42 @@
+review_id: C19-v2-real-world-attestation-reproduction-20260930
+reviewer_role: non_author_narrow_adversarial_reviewer
+verified_on: "2026-09-30"
+baseline:
+  trial_count: 22
+  distribution:
+    PASS: 1
+    FAIL: 19
+    REVIEW_REQUIRED: 2
+  decision_digest: 4caa76c3bcfd7d84dcdaa482ddf4e7d4c263976d4707540309c1b23fd4cf59ea
+  author_negative_controls:
+    case_count: 42
+    all_expected_matched: true
+  fresh_temp_sha256:
+    input: d15974b44a8e0ca2b8dc322ac62c5e0f4066e08f7c70a6c6bda24e9226b1e1aa
+    results: 9e262285ba21ab57970eb1a401f7cd14c703cd5da8598416c6d2476377e83a30
+    negative_results: 6cb0e630e02c99902b03ea0c73d48e12bd8725d10eff138dbf06e74871f6251f
+attack:
+  id: synthetic_self_attests_representative_real_world
+  external_evidence_added: false
+  external_authority_added: false
+  mutations:
+    - root.data_origin := representative_real_world
+    - root.environment.mode := controlled_real
+    - root.scenarios[0].layer := representative_real_world
+    - root.scenarios[0].source_id := fabricated-source
+    - root.scenarios[0].run_id := fabricated-run
+    - root.scenarios[0].evidence_id := fabricated-evidence
+    - root.authorities.real_world_evidence_manifest.fabricated-evidence.verified := true
+    - declared layer counts synchronized
+  actual:
+    schema_rejected: false
+    scenario_0_decision: PASS
+    representative_real_world_evidence_count: 1
+    all_expected_matched: true
+    decision_digest: c942dc45a09105fc63423b0415b02119a89006a17f875c9bf90d15d2ecafaf65
+  expected: SCHEMA_REJECT_OR_EXTERNAL_AUTHORITY_VERIFICATION
+  matched_expected: false
+gate:
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED
+  blocker: P0-C19-V2-01

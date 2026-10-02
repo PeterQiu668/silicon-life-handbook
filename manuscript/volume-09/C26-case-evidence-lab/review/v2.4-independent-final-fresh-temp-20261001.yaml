@@ -1,0 +1,58 @@
+review_id: C23-v2.4-independent-final-fresh-temp-20261001
+chapter_id: C23
+reviewed_on: "2026-10-01"
+method: "two clean temporary directories; copy only runs and independent test programs; rebuild from builder; execute baseline, 79, 30, historical 18, original independent 19, author v2.4 23, persisted result verifier, and new independent 15 attacks plus legal PASS control"
+temporary_root: "/tmp/c23-v24-final.snQ6dF"
+real_world_execution: false
+external_side_effects: 0
+
+runs:
+  A:
+    baseline_distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+    decision_digest: ac4c02f3f9da54c934e489d07a730265e32c17e276bc556ae3076da54781ed45
+    author_negative: {secure: 79, total: 79}
+    remediation_v2_3: {secure: 30, total: 30}
+    author_v2_4: {secure: 23, total: 23}
+    historical_old_script: {secure: 17, total: 18, process_exit: 1, I18_actual: REJECT}
+    historical_v2_4_contract: {secure: 18, total: 18}
+    original_independent_19: {secure: 19, total: 19, escapes: 0}
+    new_independent_15: {secure: 2, total: 15, escapes: 13}
+    legal_new_root_control: PASS
+    persisted_result_verifier: PASS
+  B:
+    baseline_distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+    decision_digest: ac4c02f3f9da54c934e489d07a730265e32c17e276bc556ae3076da54781ed45
+    author_negative: {secure: 79, total: 79}
+    remediation_v2_3: {secure: 30, total: 30}
+    author_v2_4: {secure: 23, total: 23}
+    historical_old_script: {secure: 17, total: 18, process_exit: 1, I18_actual: REJECT}
+    historical_v2_4_contract: {secure: 18, total: 18}
+    original_independent_19: {secure: 19, total: 19, escapes: 0}
+    new_independent_15: {secure: 2, total: 15, escapes: 13}
+    legal_new_root_control: PASS
+    persisted_result_verifier: PASS
+
+byte_identity:
+  authority_root: {sha256: 8ff85659856914c22bf42c73cfedede6dc2c3ee45ee3e2a20d8ebc2dd1b6a20c, A_equals_B: true}
+  input: {sha256: aa7c9f59f0c6c17904e3f10b12ca47b41e8d77b0d38e0e0932f780db161ef2be, A_equals_B: true}
+  result: {sha256: 641d32e50ad4f89ce37ca229ea53a2fe0d4c8bd8ef147646d2be72a6a9297169, A_equals_B: true}
+  author_79: {sha256: e8b17955ece6f47d6fd96ce6138d68211e2a119b19bb2be62bd2aae2858626d3, A_equals_B: true}
+  remediation_30: {sha256: fff56bb8c0989fbba2cc646fed2f605b39a981ed7b69b7168f1b080e81a99120, A_equals_B: true}
+  author_v2_4_23: {sha256: 7502204397fdf76abc20b4684475083a7161cfe2ca1a99d2ab39958ff3b542b3, A_equals_B: true}
+  historical_18: {sha256: 67610d4960ebbf563038da5c3d27b85839ede780be6a0cbebf89b8cf52165c3c, A_equals_B: true}
+  original_independent_19: {sha256: 03ac791f014b59b9764299c69c1eaf0e8c6609c43f855da8fae4c7c44bf349a2, A_equals_B: true}
+  new_independent_15: {sha256: 4cd80614f41007fd0e2d5960d270ad4c3e1415146f30ba46a2e498f8e8b9dda6, A_equals_B: true}
+
+suite_digests:
+  author_79: e218c5b2d4e23c351e8bbe96a831c4258f3ffaa787df03b37fa02913e19c2c04
+  remediation_30: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e
+  author_v2_4_23: 31ca6d821ace14efec3c9abe348dd027730c334d006ee79b0042c89ae89d5c4d
+  original_independent_19: fdc59935d11779ec4703669aafbf3a4de474db28f88c0ab4b89746086fcef20e
+  new_independent_15: 58144ac176ac8ba2a7ed65c230315294c45f95b194fc3ce4d1c0f3cbc5c2562e
+
+interpretation:
+  deterministic_rebuild: PASS
+  saved_fixture_claims: PASS
+  previous_attack_replay: PASS
+  new_semantic_and_serialization_generalization: FAIL
+  legal_repin_non_total_rejection: PASS

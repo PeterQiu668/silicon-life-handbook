@@ -1,0 +1,84 @@
+chapter_id: C22
+title: "安全模型与信任边界"
+status: drafting
+verified_on: "2026-10-01"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md", title: "framework v2"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "chapter card"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terminology"}
+  DECISIONS: {path: "../../../docs/DECISIONS.md", title: "decisions"}
+  PREFLIGHT: {path: "../../../docs/research/C22-security-trust-boundary-preflight.md", title: "C22 preflight"}
+  C05: {path: "../../volume-02/C05-life-contracts/chapter.md", title: "C05"}
+  C06: {path: "../../volume-02/C06-runtime-architecture/chapter.md", title: "C06"}
+  C14: {path: "../../volume-05/C14-tool-mcp-engineering/chapter.md", title: "C14"}
+  C15: {path: "../../volume-05/C15-skill-engineering/chapter.md", title: "C15"}
+  C17: {path: "../../volume-06/C17-autonomy-authorization/chapter.md", title: "C17"}
+  C20: {path: "../../volume-07/C20-routing-handoff-concurrency/chapter.md", title: "C20"}
+  C21: {path: "../../volume-07/C21-a2a-artifact-trust/chapter.md", title: "C21"}
+  OWASP: {url: "https://genai.owasp.org/download/52117/", title: "OWASP Agentic Applications 2026"}
+  NIST: {url: "https://www.nist.gov/news-events/news/2026/02/new-concept-paper-identity-and-authority-software-agents", title: "NIST agent identity concept paper"}
+  MCP: {url: "https://modelcontextprotocol.io/docs/2025-11-25/tutorials/security/security_best_practices", title: "MCP security best practices"}
+  OC-TRUST: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/trust-model.md", title: "OpenClaw trust model fixed"}
+  OC-SANDBOX: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/sandboxing/modes-scope-and-backend.md", title: "OpenClaw sandbox fixed"}
+  OC-POLICY: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/tool-permissions.md", title: "OpenClaw permissions fixed"}
+  OC-SECRETS: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/secrets/runtime-model.md", title: "OpenClaw secrets fixed"}
+  HE-SEC: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/SECURITY.md", title: "Hermes SECURITY fixed"}
+  HE-DYN: {url: "https://hermes-agent.nousresearch.com/docs/user-guide/security", title: "Hermes dynamic security docs"}
+  MUSE: {url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse", title: "Muse safety vendor claim"}
+  LOCAL-IN: {path: "review/runs/synthetic-security-input.yaml", title: "synthetic input"}
+  LOCAL-AUTH: {path: "review/runs/frozen-security-authority.yaml", title: "externally frozen authority bundle"}
+  LOCAL-OUT: {path: "review/runs/synthetic-security-results.yaml", title: "synthetic result"}
+  LOCAL-BUILDER: {path: "review/runs/build-security-fixture.py", title: "deterministic raw-state fixture builder"}
+  LOCAL-NEG: {path: "review/runs/security-negative-regression-results.yaml", title: "closed-world negative regression"}
+  LOCAL-FRESH23: {path: "review/runs/v2.3-fresh-temp-reproduction.yaml", title: "v2.3 fresh-temp reproduction"}
+  LOCAL-EFFECT24: {path: "review/runs/v2.4-effect-time-readback-regression-results.yaml", title: "v2.4 effect-time and independent-readback regression"}
+  LOCAL-FRESH24: {path: "review/runs/v2.4-fresh-temp-reproduction.yaml", title: "v2.4 fresh-temp reproduction"}
+  LOCAL-REMEDIATION24: {path: "review/v2.4-effect-time-readback-remediation.md", title: "v2.4 author-side remediation record"}
+claims:
+  - {evidence_id: E-C22-001, claim: "模型和Agent不是可信安全主体，边界来自系统控制。", class: METHODOLOGY, source_ids: [OC-TRUST, PREFLIGHT]}
+  - {evidence_id: E-C22-002, claim: "外部网页、工具结果、Memory、Skill、Plugin、Card和Handoff均是不可信输入表面。", class: METHODOLOGY, source_ids: [OWASP, PREFLIGHT]}
+  - {evidence_id: E-C22-003, claim: "提示注入不能靠更强提示词根治。", class: METHODOLOGY, source_ids: [OWASP, PREFLIGHT]}
+  - {evidence_id: E-C22-004, claim: "安全模型需明确资产、主体、客体、攻击者和信任边界。", class: METHODOLOGY, source_ids: [PREFLIGHT, NIST]}
+  - {evidence_id: E-C22-005, claim: "九层纵深防御SEC-L0—SEC-L8依次包括业务、身份、授权、工具、凭证、隔离、出口、供应链、响应层；SEC前缀不得与AU/MAT层级混用。", class: METHODOLOGY, source_ids: [PREFLIGHT, OWASP, TERMS]}
+  - {evidence_id: E-C22-006, claim: "人格/行为契约不替代认证、授权、policy、sandbox或audit。", class: METHODOLOGY, source_ids: [C05, OC-TRUST]}
+  - {evidence_id: E-C22-007, claim: "身份、会话、租户和授权是不同对象。", class: METHODOLOGY, source_ids: [C06, NIST]}
+  - {evidence_id: E-C22-008, claim: "委托权限只能衰减，每跳重新验证。", class: METHODOLOGY, source_ids: [C17, C20]}
+  - {evidence_id: E-C22-009, claim: "SecretRef与凭证代理避免把secret value交给模型。", class: IMPLEMENTATION-PRINCIPLE, source_ids: [OC-SECRETS, PREFLIGHT]}
+  - {evidence_id: E-C22-010, claim: "短期token需绑定scope、audience、对象、动作、TTL和撤销。", class: METHODOLOGY, source_ids: [MCP, NIST]}
+  - {evidence_id: E-C22-011, claim: "出网allowlist仍需DNS/IP/redirect复验和DLP。", class: METHODOLOGY, source_ids: [MCP, PREFLIGHT]}
+  - {evidence_id: E-C22-012, claim: "sandbox需区分mode、scope、backend。", class: IMPLEMENTATION-FACT, source_ids: [OC-SANDBOX]}
+  - {evidence_id: E-C22-013, claim: "sandbox不自动保护mount、network、secret或进程内Plugin。", class: METHODOLOGY, source_ids: [OC-SANDBOX, HE-SEC]}
+  - {evidence_id: E-C22-014, claim: "最小权限、职责分离、JIT、双人复核和elevated互不替代。", class: METHODOLOGY, source_ids: [C17, PREFLIGHT]}
+  - {evidence_id: E-C22-015, claim: "审批必须绑定主体、动作、对象、参数、位置、时间和内容digest。", class: METHODOLOGY, source_ids: [C17, PREFLIGHT]}
+  - {evidence_id: E-C22-016, claim: "MCP需防confused deputy、SSRF与token passthrough。", class: STANDARD-FACT, source_ids: [MCP]}
+  - {evidence_id: E-C22-017, claim: "Tool结果与schema、Skill资源、Plugin manifest都不能默认可信。", class: METHODOLOGY, source_ids: [C14, C15, OWASP]}
+  - {evidence_id: E-C22-018, claim: "Plugin capability consent不是OS containment。", class: METHODOLOGY, source_ids: [PREFLIGHT, HE-SEC]}
+  - {evidence_id: E-C22-019, claim: "Memory内容不能产生authority evidence。", class: METHODOLOGY, source_ids: [C17, PREFLIGHT]}
+  - {evidence_id: E-C22-020, claim: "外发、交易、删除、身份和生产变更必须确定性硬门。", class: METHODOLOGY, source_ids: [C17, C14, PREFLIGHT]}
+  - {evidence_id: E-C22-021, claim: "安全硬失败不可被质量或效率平均。", class: METHODOLOGY, source_ids: [QUALITY, DECISIONS]}
+  - {evidence_id: E-C22-022, claim: "安全闭环包含预防、检测、止损、取证、恢复、通报、再测与残余。", class: METHODOLOGY, source_ids: [PREFLIGHT, OWASP]}
+  - {evidence_id: E-C22-023, claim: "人类对目标、授权、例外与组织后果负最终责任。", class: METHODOLOGY, source_ids: [C17, NIST]}
+  - {evidence_id: E-C22-024, claim: "OpenClaw固定版以模型不可信和单Gateway信任边界为前提。", class: IMPLEMENTATION-FACT, source_ids: [OC-TRUST]}
+  - {evidence_id: E-C22-025, claim: "OpenClaw tool policy可在多层继续收紧，但不等于sandbox。", class: IMPLEMENTATION-FACT, source_ids: [OC-POLICY, OC-SANDBOX]}
+  - {evidence_id: E-C22-026, claim: "Hermes固定安全边界强调对抗性模型需OS级隔离，动态文档分栏。", class: IMPLEMENTATION-FACT, source_ids: [HE-SEC, HE-DYN]}
+  - {evidence_id: E-C22-027, claim: "Muse Sentinel/privsep/authd/egress仅为VENDOR-CLAIM。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C22-028, claim: "OWASP是风险指导，NIST为concept paper，MCP覆盖协议相关控制，均非产品安全认证。", class: SOURCE-BOUNDARY, source_ids: [OWASP, NIST, MCP]}
+  - {evidence_id: E-C22-029, claim: "不宣称根治prompt injection、不可攻破或绝对安全。", class: SCOPE, source_ids: [PREFLIGHT, QUALITY]}
+  - {evidence_id: E-C22-030, claim: "C14真实授权实践仍RR；C20 v3.2交叉修订待非作者复核；C21 v2事实/交叉修订待非作者复核，相关接口只能受限消费并在门禁变化后回归。", class: PROJECT-STATE, source_ids: [PREFLIGHT, C05, C06, C14, C15, C17, C20, C21]}
+  - {evidence_id: E-C22-031, claim: "C19恰好三件母产物。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C22-032, claim: "确定性builder生成独立冻结authority root与23份scenario raw state；v2.4 runner从session、授权、effect、独立readback、audit、事故恢复及测试谱系推导，固定集分布2 PASS、20 FAIL、1 RR，91项作者负测与9项历史独立攻击全部fail closed。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-BUILDER, LOCAL-AUTH, LOCAL-IN, LOCAL-OUT, LOCAL-NEG, LOCAL-FRESH24]}
+  - {evidence_id: E-C22-033, claim: "作者夹具真实层0、安全红队横切、外部副作用0；D21与effect计数由验证记录动态派生；离线runner拒绝真实层，因此接受记录的真实层计数只能为0。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-AUTH, LOCAL-IN, LOCAL-OUT, LOCAL-NEG, DECISIONS]}
+  - {evidence_id: E-C22-034, claim: "日志需防篡改且被测Agent不能覆盖。", class: METHODOLOGY, source_ids: [PREFLIGHT, OWASP]}
+  - {evidence_id: E-C22-035, claim: "撤销必须传播到缓存、Node、sandbox、子Agent与远端会话。", class: METHODOLOGY, source_ids: [PREFLIGHT, C17]}
+  - {evidence_id: E-C22-036, claim: "scenario只能引用预注册authority root，不能携带或改写principal、delegation、approval、grant、SecretRef、egress、input、audit、incident或recovery registry。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-AUTH, LOCAL-IN, LOCAL-OUT]}
+  - {evidence_id: E-C22-037, claim: "canonical mount、policy-derived egress、registry化input、冻结session、effect/receipt/独立readback/audit对象链、incident/recovery effect链及test definition/evidence构成v2.4闭合强制链。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-AUTH, LOCAL-OUT, LOCAL-NEG, LOCAL-FRESH24]}
+  - {evidence_id: E-C22-038, claim: "orphan receipt、NONE携带external/receipt、terminal effect缺少audit、事故无最低控制、关键残余与NOT_NEEDED并存、scenario自报layer/security/shadow均为硬FAIL；硬失败不被UNKNOWN补偿。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-OUT, LOCAL-NEG, LOCAL-FRESH24]}
+  - {evidence_id: E-C22-039, claim: "v2.4 fresh-temp两次重建的input、authority、result、negative result与summary逐字节一致；该复现仍不构成真实Runtime安全证明。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-FRESH24, LOCAL-OUT, LOCAL-NEG]}
+  - {evidence_id: E-C22-040, claim: "每个terminal effect在executed_at重验Session、Delegation、Approval、Grant与Credential并绑定同一authorization snapshot；冻结独立readback、executor/observer分离、executed<=receipt<=readback<=evaluation及audit三摘要/三时间均受硬门约束，25项v2.3独立攻击与9项v2.4近邻攻击为34/34、escape 0。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-AUTH, LOCAL-OUT, LOCAL-EFFECT24, LOCAL-FRESH24, LOCAL-REMEDIATION24]}
+open_questions:
+  - {id: OQ-C22-01, question: "上游C14/C20/C18独立门完成后的接口回归？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C22-02, question: "目标真实部署的Gateway、OS、sandbox与egress姿态？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C22-03, question: "组织credential broker与tamper-evident audit选型？", disposition: REVIEW_REQUIRED}

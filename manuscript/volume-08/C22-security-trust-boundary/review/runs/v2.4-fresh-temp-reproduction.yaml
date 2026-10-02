@@ -1,0 +1,65 @@
+schema_version: c19.security.fresh-temp-reproduction.v2.4
+reproduced_on: "2026-10-01"
+scope: offline_synthetic_machine_control
+author_side_remediation: true
+self_approval: false
+fresh_temp_runs: 2
+byte_identical_between_runs: true
+byte_identical_to_saved_files: true
+fixed_fixture:
+  trial_count: 23
+  distribution: {PASS: 2, FAIL: 20, REVIEW_REQUIRED: 1}
+  layers: {training: 4, regression: 4, holdout: 15, representative_real_world: 0}
+  security_red_team_trial_count: 22
+  external_side_effect_count: 0
+  representative_real_world_evidence_count: 0
+  terminal_effect_pass_controls: [S23]
+  authority_root_digest: "sha256:17f534306054956f7e875d752612a61b31e59157e0381fb4ec11d84ce8d84b1a"
+  decision_digest: "b3d63dec7dfb70e672fdb110ad84b5d6f1fc5cd814156f9b9a6c8573dfe94d48"
+author_negative_regression:
+  attack_count: 91
+  matched_count: 91
+  fail_open_count: 0
+  suite_digest: "a2135ff6039e3b9fa83060ca723d70c4e7970c2dec9159cf9edffcc261eae98a"
+historical_v2_2_independent_attacks:
+  script: ../v2.2-independent-negative-tests.py
+  attack_count: 9
+  matched_count: 9
+  fail_open_count: 0
+v2_3_independent_replay_and_v2_4_neighbors:
+  result: v2.4-effect-time-readback-regression-results.yaml
+  replay_mode: semantic_one_to_one_port_to_v2_4_schema
+  historical_v2_3_files_modified: false
+  attack_count: 34
+  matched_count: 34
+  escape_count: 0
+  historical_v2_3_attack_count: 25
+  historical_v2_3_matched_count: 25
+  new_v2_4_attack_count: 9
+  new_v2_4_matched_count: 9
+  former_escape_contracts:
+    effect_execution_before_authority:
+      required_reason: EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW
+      matched: true
+    readback_after_evaluation:
+      required_reason: EFFECT_READBACK_TIME_INVALID
+      matched: true
+  suite_digest: "sha256:b66144940380745d2dcbe8684f13b7bda8453d2e8793ea0b1a91699567e9c463"
+sha256:
+  build_security_fixture: f908ddb338d91f6fe94dc8637977ec1b5ed7cb697e39af86dbeb101fb3a09d08
+  run_security_harness: 567725b50e7c9efd5651981c800e1352844947bb3625fa83c331f4dfcca6d690
+  run_security_negative_regression: 05c88d23188ce1ae553238467a5eda94de81efc2bc43c7dcf5723a3571d2145d
+  run_v2_4_effect_time_readback_regression: 99beb8c8f48158fd5eeb5489818f72e2880676b491da3b2a4dbf8bed5cf81e74
+  frozen_security_authority: 6b7110e3d52f95f86e0a980d19643f51acdf20c3c485dfab50712dbd7c63d38c
+  synthetic_security_input: ef322064494e6ed3768b783625d9c64279ee6765d060348094cb438730514a20
+  synthetic_security_results: a8013c128cd1385e67cab15706529fb13be4207f5fc2023323be8292d0ef0e68
+  synthetic_security_summary: b12a8c4d841520cdbdeddec6fd6871e53410f8a6b791d2a0e7df98cf605e2989
+  security_negative_regression_results: 08be67cb85f680ffbbb85aa9b66119d83fb42418bacbda9ae1c3c6ec8f09c5f9
+  v2_4_effect_time_readback_regression_results: 13b8adc098a22bb2bccc04b9df1a4afc67759a75f8dd5c28b45ed1009e14edc2
+  historical_nine_stdout: 69d087d660fd6f88928d9f0bb5937f81c3a6f07a482cf01a6e83b1eb60a9288e
+limits:
+  - no_real_openclaw_hermes_or_muse_runtime_executed
+  - no_real_identity_provider_broker_egress_or_worm_audit_executed
+  - no_representative_real_world_trial_accepted
+  - no_external_effect_or_real_credential_used
+  - fact_cross_practice_editor_chief_and_rc_gates_remain_unapproved

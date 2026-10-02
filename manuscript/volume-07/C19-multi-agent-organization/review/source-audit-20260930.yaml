@@ -1,0 +1,163 @@
+---
+audit_id: C16-source-audit-20260930
+chapter_id: C16
+audit_type: independent-source-and-version-audit
+verified_on: "2026-09-30"
+reviewer_role: non-author-evidence-reviewer
+scope:
+  ledger_claims: 25
+  declared_sources: 22
+  local_sources: 13
+  external_sources: 9
+summary:
+  ledger_claim_ids_unique: true
+  ledger_claims_referenced_by_package: 25
+  sources_used_by_claims: 22
+  unused_sources: 0
+  missing_source_ids: 0
+  local_sources_resolvable: 13
+  external_endpoints_reached: 9
+  claim_results:
+    PASS: 23
+    FAIL: 0
+    REVIEW_REQUIRED: 2
+  fact_gate: REVIEW_REQUIRED
+  practice_gate_reviewed: false
+  release_candidate_authorized: false
+
+local_sources:
+  - {source_id: BOOK, path: "../../../00-正式出版版-三级内容框架-v2.md", reachable: true, identity: LOCAL-CONTRACT}
+  - {source_id: QUALITY, path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", reachable: true, identity: LOCAL-NORMATIVE}
+  - {source_id: CARD, path: "../../../docs/editorial/CHAPTER-CARDS.md", reachable: true, identity: LOCAL-CONTRACT}
+  - {source_id: TERMS, path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", reachable: true, identity: LOCAL-NORMATIVE}
+  - {source_id: PREFLIGHT, path: "../../../docs/research/C16-multi-agent-organization-preflight.md", reachable: true, identity: LOCAL-RESEARCH}
+  - {source_id: LEGACY, path: "../../../docs/research/legacy-content-map.md", reachable: true, identity: LOCAL-RESEARCH}
+  - {source_id: C03, path: "../../volume-01/C03-strength-standard/chapter.md", reachable: true, identity: LOCAL-FORMAL-DRAFT}
+  - {source_id: C04, path: "../../volume-02/C04-role-capability-model/chapter.md", reachable: true, identity: LOCAL-FORMAL-DRAFT}
+  - {source_id: C06, path: "../../volume-02/C06-runtime-architecture/chapter.md", reachable: true, identity: LOCAL-FORMAL-DRAFT}
+  - {source_id: C09, path: "../../volume-03/C09-interaction-system/chapter.md", reachable: true, identity: LOCAL-FORMAL-DRAFT}
+  - {source_id: C14, path: "../../volume-05/C14-autonomy-authorization/chapter.md", reachable: true, identity: LOCAL-FORMAL-DRAFT, limitation: "事实与交叉已有独立记录；实践、编辑、总编和RC未签。"}
+  - {source_id: LOCAL-IN, path: "review/runs/synthetic-organization-input.yaml", reachable: true, identity: LOCAL-SYNTHETIC-FIXTURE}
+  - {source_id: LOCAL-OUT, path: "review/runs/synthetic-organization-results.yaml", reachable: true, identity: LOCAL-SYNTHETIC-RESULT}
+
+external_sources:
+  - source_id: OA-GUIDE
+    url: "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/"
+    reachable: true
+    access_note: "浏览器读取成功；命令行无浏览器上下文时返回403，不构成内容断链。"
+    identity: OFFICIAL-GUIDE-DYNAMIC
+    supports: "单体优先、确定性方案可满足时不必上Agent、多Agent会增加复杂度与开销。"
+    does_not_support: "任意场景的多Agent效果量或行业普遍领先。"
+  - source_id: ANTHROPIC-MAR
+    url: "https://www.anthropic.com/engineering/multi-agent-research-system"
+    reachable: true
+    identity: OFFICIAL-ENGINEERING-REPORT
+    supports: "开放研究场景的orchestrator-worker、独立上下文、并行工作面、重复劳动与显著token/协调成本。"
+    does_not_support: "把内部研究评测外推为所有任务的多Agent净收益；也不单独证明同源共识一定错误。"
+  - source_id: A2A-1
+    url: "https://a2a-protocol.org/latest/specification/"
+    reachable: true
+    observed_release: "1.0.0"
+    identity: OFFICIAL-STANDARD-DYNAMIC-ALIAS
+    supports: "Agent Card、Task、Message、Artifact、异步交互、版本协商；授权范围仍由实现或扩展定义。"
+    limitation: "latest别名可漂移；出版可追溯引用应改为https://a2a-protocol.org/v1.0.0/specification/。"
+  - source_id: OC-MULTI
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/multi-agent.md"
+    reachable: true
+    identity: OPENCLAW-FIXED-COMMIT
+    fixed_commit: eb377ac59e6c9fd6c7705028034812becf00271b
+    supports: "agents.entries、bindings、独立workspace/state/session边界及workspace不等于sandbox。"
+  - source_id: OC-ROUTING
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/channels/channel-routing.md"
+    reachable: true
+    identity: OPENCLAW-FIXED-COMMIT
+    fixed_commit: eb377ac59e6c9fd6c7705028034812becf00271b
+    supports: "Binding与路由选择目标Agent/session；不产生业务胜任或授权结论。"
+  - source_id: OC-SUB
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/subagents.md"
+    reachable: true
+    identity: OPENCLAW-FIXED-COMMIT
+    fixed_commit: eb377ac59e6c9fd6c7705028034812becf00271b
+    supports: "subagent自有session、默认announce、可选sandbox、独立工具策略入口及agents.entries.*.subagents.allowAgents。"
+    contradiction: "正文写成agents.list[].subagents.allowAgents；固定版公开字段为agents.entries.*.subagents.allowAgents。"
+  - source_id: HERMES-REL
+    url: "https://github.com/NousResearch/hermes-agent/tree/f80f453ae0679347e38abc917c7f94f717bf96c5"
+    reachable: true
+    identity: HERMES-FIXED-COMMIT
+    fixed_commit: f80f453ae0679347e38abc917c7f94f717bf96c5
+    observed_tag: v2026.8.13
+    observed_package_version: "0.20.1"
+    supports: "固定源码身份；pyproject.toml与hermes_cli/__init__.py在该提交均标0.20.1。"
+  - source_id: HERMES-DOC
+    url: "https://hermes-agent.nousresearch.com/docs/"
+    reachable: true
+    identity: OFFICIAL-DOC-DYNAMIC
+    supports: "当前profiles/bots/subagents/delegation能力索引。"
+    limitation: "不能把2026-09-30动态网页字段或取消语义倒填为0.20.1固定事实。"
+  - source_id: MUSE
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+    reachable: true
+    identity: VENDOR-CLAIM
+    supports: "Muse、Secure VM、独立Sentinel、后台任务、敏感动作审批与审计轨迹的Meta陈述。"
+    does_not_support: "该页没有swarms或subagents表述，不能单独支撑E-C16-016及正文对应句。"
+    candidate_primary_source_not_in_ledger: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+
+version_identity:
+  openclaw:
+    declared: "v2026.9.6 / eb377ac59e6c9fd6c7705028034812becf00271b"
+    verified: true
+    evidence: "Git tag v2026.9.6 dereferences to eb377ac59e6c9fd6c7705028034812becf00271b。"
+  hermes:
+    declared: "0.20.1 / f80f453ae0679347e38abc917c7f94f717bf96c5"
+    verified: true
+    evidence: "Git tag v2026.8.13 points to该提交；固定pyproject与__init__均标0.20.1。"
+  muse:
+    declared: "VENDOR-CLAIM only"
+    verified: true
+    limitation: "只有厂商公开材料，不推断内部效果或完整组织实现。"
+  a2a:
+    declared: "1.0 interoperability mirror"
+    verified: true
+    observed_release: "1.0.0"
+    limitation: "账本使用latest动态别名，建议固定1.0.0路径。"
+
+blocking_findings:
+  - issue_id: P0-F16-01
+    status: REVIEW_REQUIRED
+    affected_evidence: E-C16-013
+    rule: P0-04
+    finding: "正文的agents.list[].subagents.allowAgents不是固定版规范字段。"
+    close_when: "改为agents.entries.*.subagents.allowAgents，并对正文、账本语义和固定链接回归。"
+  - issue_id: P0-F16-02
+    status: REVIEW_REQUIRED
+    affected_evidence: E-C16-016
+    rule: P0-03/P0-12
+    finding: "MUSE账本来源不包含swarms/subagents，当前引用不支持对应句。"
+    close_when: "加入并绑定Meta安全文章的一手固定标题/日期，或把正文和claim降为当前发布页实际支持的Sentinel双Agent镜面。"
+
+nonblocking_findings:
+  - issue_id: P1-F16-03
+    status: OPEN
+    affected_evidence: E-C16-017
+    finding: "A2A 1.0内容当前成立，但账本使用latest动态别名。"
+    close_when: "改用v1.0.0固定规范URL并保留印前更新检查。"
+  - issue_id: P2-F16-04
+    status: OPEN
+    affected_evidence: E-C16-022
+    finding: "保存运行有15个唯一task_id、45个唯一trial_id和45个唯一(task_id,trial_id)对；正文‘45个唯一task/trial’应避免被理解为45个唯一任务。"
+    close_when: "改写为15个任务、每项3次、45个唯一trial_id。"
+
+independent_run_observation:
+  scope: completeness-only
+  practice_gate_effect: none
+  fresh_runs: 2
+  fresh_fresh_byte_identical: true
+  fresh_saved_byte_identical: true
+  results_sha256: acd0327e8d9a8595dfe327e39a483e20387e7cdbccf8b2f089604eaa19382dc1
+  summary_sha256: 9cef578e78e921971cd13775d8fbcc5b99edf386a508fb456213871a6955d653
+  run_count: 45
+  unique_task_ids: 15
+  unique_trial_ids: 45
+  distribution: {PASS: 12, FAIL: 27, REVIEW_REQUIRED: 6}
+  zero_external_effects: true
+  limitation: "仅复算确定性与保存结果；未独立执行两项练习，未运行真实OpenClaw/Hermes/Muse/A2A。"

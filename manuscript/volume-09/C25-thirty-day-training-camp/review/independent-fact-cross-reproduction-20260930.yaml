@@ -1,0 +1,39 @@
+review_id: C22-independent-fact-cross-reproduction-20260930
+reviewer_role: non_author_fact_cross_reviewer
+verified_on: "2026-09-30"
+baseline:
+  trial_count: 20
+  distribution:
+    PASS: 3
+    FAIL: 11
+    REVIEW_REQUIRED: 6
+  representative_real_world_count: 0
+  external_side_effect_count: 0
+  decision_digest: 19430eeea363d4edaecc3ff0696aaff20de8187fb6cb4b6dc193d90b9bf9a3cc
+  input_sha256: 068cd68a35aab9bb1b34801f858a4a5241afeb84e7b84255975f2a5fb9519566
+  result_sha256: d29e83413f5cdcfeda89ee808dc33b7b136ae69f2174bcbf1cdcbebeb2916403
+attacks:
+  - {id: authority_expired_time, expected: FAIL, actual: PASS}
+  - {id: authority_agent_approver, expected: FAIL, actual: PASS}
+  - {id: owners_alias_same_principal, expected: FAIL, actual: PASS}
+  - {id: baseline_fake_digest, expected: FAIL_OR_REVIEW_REQUIRED, actual: PASS}
+  - {id: runtime_latest_and_fake_controls, expected: FAIL, actual: PASS}
+  - {id: duplicate_evidence_ids, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: day_negative_budget, expected: SCHEMA_REJECT_OR_FAIL, actual: PASS}
+  - {id: duplicate_day_evidence, expected: FAIL, actual: PASS}
+  - {id: multiple_interventions, expected: FAIL_OR_REVIEW_REQUIRED, actual: PASS}
+  - {id: negative_costs_self_report_budget, expected: SCHEMA_REJECT_OR_FAIL, actual: PASS}
+  - {id: graduation_invalid_enum, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: unknown_nested_field, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: scenario_invalid_case, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: security_slices_wrong_type, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: day_id_not_calendar, expected: SCHEMA_REJECT_OR_FAIL, actual: PASS}
+summary:
+  attack_count: 15
+  fail_open_count: 15
+  all_expected_matched: false
+gate:
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED
+  p0_open: [P0-C22-01, P0-C22-02, P0-C22-03, P0-C22-04]

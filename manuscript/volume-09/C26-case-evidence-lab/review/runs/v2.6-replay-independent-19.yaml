@@ -1,0 +1,208 @@
+{
+  "attack_count": 15,
+  "baseline_decision_digest": "f6e09c739da1f66259ccebdcf2a07c0ef3ba3832a89a9c53d927dc3144af6fd2",
+  "baseline_distribution": {
+    "FAIL": 25,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 5
+  },
+  "escape_count": 0,
+  "legal_pass_control": "PASS",
+  "schema_version": "c23.v2.4.independent-final-negative.v1",
+  "secure_attack_count": 15,
+  "suite_digest": "110e85f226b5966639366cd9447b0bb6434a04e61fe9f943562e97b7d32e6e85",
+  "tests": [
+    {
+      "actual": "REJECT",
+      "coverage": "P0-01/P0-05",
+      "layer": "semantic_legal_repin",
+      "message": "artifact_registry: duplicate semantic key",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "K01_PARALLEL_CONTRADICTORY_D21_EVIDENCE"
+    },
+    {
+      "actual": "REJECT",
+      "coverage": "P0-01",
+      "layer": "semantic_legal_repin",
+      "message": "principal_registry: duplicate semantic key",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "K02_DUPLICATE_PRINCIPAL_SEMANTIC_TRUTH"
+    },
+    {
+      "actual": "REJECT",
+      "coverage": "P0-01",
+      "layer": "semantic_legal_repin",
+      "message": "scenarios: incomplete exact release_registry projection",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "K03_UNPROJECTED_REVOKED_RELEASE_TWIN"
+    },
+    {
+      "actual": "REJECT",
+      "coverage": "P0-01",
+      "layer": "semantic_legal_repin",
+      "message": "scenarios: incomplete exact budget_registry projection",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "K04_UNPROJECTED_REVOKED_BUDGET_TWIN"
+    },
+    {
+      "actual": "FAIL",
+      "coverage": "P0-02/P0-05",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "K05_D21_PRECEDES_SUPPORTING_ARTIFACTS"
+    },
+    {
+      "actual": "FAIL",
+      "coverage": "P0-02/P0-03",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "K06_FAILURE_PRECEDES_ITS_TRIAL"
+    },
+    {
+      "actual": "FAIL",
+      "coverage": "P0-03",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "K07_FAILURE_LOG_PAYLOAD_NOT_CLOSED"
+    },
+    {
+      "actual": "FAIL",
+      "coverage": "P0-04",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "K08_COHERENT_EXTERNAL_EFFECT"
+    },
+    {
+      "actual": "FAIL",
+      "coverage": "P0-06",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "K09_ADAPTER_EVIDENCE_WRONG_KIND"
+    },
+    {
+      "actual": "REJECT",
+      "coverage": "fairness",
+      "layer": "semantic_legal_repin",
+      "message": "budget_registry.BUDGET.BASELINE.S01: budget contract digest mismatch",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "K10_EQUAL_TOTAL_UNFAIR_COST_COMPOSITION"
+    },
+    {
+      "actual": "FAIL",
+      "coverage": "P0-06/fairness",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "K11_MIGRATION_CONTRACT_NOT_BOUND_TO_BUDGET"
+    },
+    {
+      "actual": "FAIL",
+      "coverage": "case-identity",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "K12_VENDOR_SOURCE_SYNTHETIC_IDENTITY_MISMATCH"
+    },
+    {
+      "actual": "REJECT",
+      "coverage": "P0-07/full-result-digest",
+      "layer": "serialized_result_verifier",
+      "message": "json: duplicate object key trial_count",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "K13_RESULT_DUPLICATE_TOP_LEVEL_COUNT"
+    },
+    {
+      "actual": "REJECT",
+      "coverage": "P0-07/full-result-digest",
+      "layer": "serialized_result_verifier",
+      "message": "json: duplicate object key verdict",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "K14_RESULT_DUPLICATE_NESTED_VERDICT"
+    },
+    {
+      "actual": "REJECT",
+      "coverage": "P0-07/full-result-digest",
+      "layer": "serialized_result_verifier",
+      "message": "json: duplicate object key authority_root_digest",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "K15_RESULT_DUPLICATE_PROVENANCE_ROOT"
+    },
+    {
+      "actual": "PASS",
+      "coverage": "legal-repin",
+      "layer": "non_total_rejection_control",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "PASS"
+      ],
+      "test_id": "K16_LEGAL_NEW_ROOT_PASS_CONTROL"
+    }
+  ]
+}

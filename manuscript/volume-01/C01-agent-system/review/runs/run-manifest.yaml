@@ -1,0 +1,42 @@
+schema_version: "1.0"
+chapter_id: "C01"
+run_suite_id: "C01-AUTHOR-PRACTICE-2026-09-30"
+status: "completed-author-run-not-independent"
+executed_on: "2026-09-30"
+executor_role: "chapter-author-as-practice-runner"
+independent_final_approval: false
+environment:
+  kind: "deterministic-text-only-sandbox"
+  external_network_used: false
+  production_system_used: false
+  real_credentials_used: false
+  personal_data_used: false
+  external_state_changes: false
+input_fingerprints:
+  X-C01-01:
+    path: "exercises/X-C01-01-boundary-audit.md"
+    sha256: "b7e211157bc0e13bb8d0bd213a7f223aae7ae49a7c980ba575b2dbb7cdf9f5a6"
+  X-C01-02:
+    path: "exercises/X-C01-02-transfer-test.md"
+    sha256: "d5dd1e20caa9fb076556d592a5ac890a4302ce8ef601ce4ea1ffd99c716dfbfc"
+  A-C01-01:
+    path: "artifacts/A-C01-01-agent-system-boundary-card.md"
+    sha256: "4c9fb4993ac8e90833e1f5e9471d33220f72e57e2a4f1c039cc45756915f1fc2"
+  A-C01-02:
+    path: "artifacts/A-C01-02-bionic-mapping.md"
+    sha256: "312040202008d48ada48aa5d8cda0bdd0c599c562d651a1ec4374140671505ee"
+runs:
+  - run_id: "RUN-C01-01"
+    exercise_id: "X-C01-01"
+    record: "review/runs/RUN-C01-01-boundary-audit.md"
+    execution_result: "PASS"
+    audited_system_result: "REVIEW_REQUIRED"
+  - run_id: "RUN-C01-02"
+    exercise_id: "X-C01-02"
+    record: "review/runs/RUN-C01-02-transfer-test.md"
+    execution_result: "PASS"
+    audited_system_result: "NOT_APPLICABLE"
+final_practice_gate: "REVIEW_REQUIRED"
+final_practice_gate_reason: >-
+  两项练习在模拟环境可重复执行，但执行者同时是章节作者；本次结果不能替代另一位实践评审者的独立最终签核。
+

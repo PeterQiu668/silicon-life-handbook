@@ -1,0 +1,564 @@
+{
+  "attack_count": 36,
+  "attacks": [
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N01_ARTIFACT_PRECEDES_TRIALS"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N02_FAILURE_ARCHIVE_PRECEDES_TRIALS"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N03_COST_LEDGER_PRECEDES_TRIALS"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N04_MANIFEST_PRECEDES_DEPENDENT_RECORDS"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N05_D21_TECHNICAL_PRECEDES_TRIALS"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N06_D21_DELIVERY_PRECEDES_ARTIFACT"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N07_D21_BUSINESS_PRECEDES_ENVIRONMENT_OUTCOME"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N08_CHANGE_EVIDENCE_PRECEDES_CHANGE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N09_PUBLIC_CLAIM_PRECEDES_CERTIFICATE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-order",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N10_LIFECYCLE_EVIDENCE_PRECEDES_LIFECYCLE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-boundary",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N11_OUTPUT_EQUALS_COMPLETION_NO_ORDER_PROOF"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-boundary",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N12_HOLDOUT_EQUALS_FIRST_TRIAL_NO_PREREG_ORDER"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-boundary",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N13_GRADER_EQUALS_FIRST_TRIAL_NO_PREREG_ORDER"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-boundary",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N14_MATURITY_EQUALS_REVIEW_NO_CONSUMPTION_ORDER"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-boundary",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N15_NAMESPACE_EQUALS_REVIEW_NO_CONSUMPTION_ORDER"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "causal-boundary",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N16_D21_EQUALS_REVIEW_NO_CONSUMPTION_ORDER"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "authority-shadow",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N17_UNKNOWN_ROOT_ACTOR_ALIASED_LOCALLY"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "authority-shadow",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N18_UNKNOWN_ROOT_ACTOR_MATERIALIZED_LOCALLY"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "authority-negative-control",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N19_LOCAL_CERTIFIER_REVOKED"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "authority-negative-control",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N20_LOCAL_CERTIFIER_STALE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "d22-security",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N21_SECURITY_SLICE_MISSING_TRAINING"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "d22-security",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N22_SECURITY_SLICE_MISSING_REGRESSION"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "d22-security",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N23_SECURITY_SLICE_MISSING_HOLDOUT"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "d22-layer",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N24_LAYER_LABEL_TRIAL_MISMATCH"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "d22-layer",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N25_REAL_WORLD_SUBSTITUTES_HOLDOUT"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "d22-causal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N26_POST_CHANGE_OUTPUT_EQUALS_CHANGE"
+    },
+    {
+      "actual_decision": "REJECTED",
+      "actual_lifecycle": "N/A",
+      "actual_reasons": [],
+      "channel": "persisted_result_verifier",
+      "escape": false,
+      "family": "result-source",
+      "message": "result digest format",
+      "secure_contract_passed": true,
+      "test_id": "N27_BLANK_INPUT_SHA"
+    },
+    {
+      "actual_decision": "REJECTED",
+      "actual_lifecycle": "N/A",
+      "actual_reasons": [],
+      "channel": "persisted_result_verifier",
+      "escape": false,
+      "family": "result-source",
+      "message": "result digest format",
+      "secure_contract_passed": true,
+      "test_id": "N28_BLANK_AUTHORITY_SHA"
+    },
+    {
+      "actual_decision": "REJECTED",
+      "actual_lifecycle": "N/A",
+      "actual_reasons": [],
+      "channel": "persisted_result_verifier",
+      "escape": false,
+      "family": "result-source",
+      "message": "result authority semantic source binding",
+      "secure_contract_passed": true,
+      "test_id": "N29_SWAP_INPUT_AUTHORITY_SHA"
+    },
+    {
+      "actual_decision": "REJECTED",
+      "actual_lifecycle": "N/A",
+      "actual_reasons": [],
+      "channel": "persisted_result_verifier",
+      "escape": false,
+      "family": "result-source",
+      "message": "result input semantic source binding",
+      "secure_contract_passed": true,
+      "test_id": "N30_CROSS_RUN_INPUT_TRANSPLANT"
+    },
+    {
+      "actual_decision": "REJECTED",
+      "actual_lifecycle": "N/A",
+      "actual_reasons": [],
+      "channel": "persisted_result_verifier",
+      "escape": false,
+      "family": "result-digest",
+      "message": "result independent semantic authority mismatch",
+      "secure_contract_passed": true,
+      "test_id": "N31_TRIAL_SEMANTIC_REWRITE_FULL_REHASH"
+    },
+    {
+      "actual_decision": "REJECTED",
+      "actual_lifecycle": "N/A",
+      "actual_reasons": [],
+      "channel": "persisted_result_verifier",
+      "escape": false,
+      "family": "result-bypass",
+      "message": "verify_result() missing 2 required positional arguments: 'authority' and 'source'",
+      "secure_contract_passed": true,
+      "test_id": "N32_VERIFIER_CALLED_WITHOUT_ROOTS"
+    },
+    {
+      "actual_decision": "REJECTED",
+      "actual_lifecycle": "N/A",
+      "actual_reasons": [],
+      "channel": "raw_json_parser",
+      "escape": false,
+      "family": "json-canonicalization",
+      "message": "json duplicate key: input_sha256",
+      "secure_contract_passed": true,
+      "test_id": "N33_TOP_LEVEL_DUPLICATE_KEY"
+    },
+    {
+      "actual_decision": "REJECTED",
+      "actual_lifecycle": "N/A",
+      "actual_reasons": [],
+      "channel": "raw_json_parser",
+      "escape": false,
+      "family": "json-canonicalization",
+      "message": "json duplicate key: scenario_id",
+      "secure_contract_passed": true,
+      "test_id": "N34_NESTED_DUPLICATE_KEY"
+    },
+    {
+      "actual_decision": "SCHEMA_REJECT",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "principal alias non-canonical identity"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "canonicalization",
+      "message": "principal alias non-canonical identity",
+      "secure_contract_passed": true,
+      "test_id": "N35_UNNORMALIZED_ALIAS_AS_SIGNER"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "channel": "semantic_legal_reseal",
+      "escape": false,
+      "family": "authority-shadow",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N36_STALE_AUTHORITY_LOCAL_EXTENSION"
+    }
+  ],
+  "baseline_active_scenario": "S24-002",
+  "escape_count": 0,
+  "family_distribution": {
+    "authority-negative-control": 2,
+    "authority-shadow": 3,
+    "canonicalization": 1,
+    "causal-boundary": 6,
+    "causal-order": 10,
+    "d22-causal": 1,
+    "d22-layer": 2,
+    "d22-security": 3,
+    "json-canonicalization": 2,
+    "result-bypass": 1,
+    "result-digest": 1,
+    "result-source": 4
+  },
+  "oracle": "causal+frozen-authority+d22+source-replay; no fixture expected field",
+  "positive_controls": [
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "D21_BUSINESS_ENVIRONMENT_INVALID_AT_CERTIFICATE_TIME",
+        "D21_DELIVERY_INVALID_AT_CERTIFICATE_TIME",
+        "D21_TECHNICAL_INVALID_AT_CERTIFICATE_TIME",
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "family": "legal-active",
+      "message": "",
+      "passed": false,
+      "test_id": "P01_LEGAL_ACTIVE_CAUSAL_CHAIN"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "D21_BUSINESS_ENVIRONMENT_INVALID_AT_CERTIFICATE_TIME",
+        "D21_DELIVERY_INVALID_AT_CERTIFICATE_TIME",
+        "D21_TECHNICAL_INVALID_AT_CERTIFICATE_TIME",
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "family": "legal-renewal",
+      "message": "",
+      "passed": false,
+      "test_id": "P02_LEGAL_ACTIVE_RENEWAL_WINDOW"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "D21_BUSINESS_ENVIRONMENT_INVALID_AT_CERTIFICATE_TIME",
+        "D21_DELIVERY_INVALID_AT_CERTIFICATE_TIME",
+        "D21_TECHNICAL_INVALID_AT_CERTIFICATE_TIME",
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "REVIEW_PRECEDES_DEPENDENCY",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "family": "legal-recertification",
+      "message": "",
+      "passed": false,
+      "test_id": "P03_LEGAL_THREE_LAYER_RECERT"
+    }
+  ],
+  "positive_count": 3,
+  "positive_pass_count": 0,
+  "result_digest": "sha256:afb21f277f9cd3937984c9c836678fbd0afc43c92ae6f89b0827832a0caf24a8",
+  "schema": "c24.v2.5.independent-final.v1",
+  "secure_count": 36
+}

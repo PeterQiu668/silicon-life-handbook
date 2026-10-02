@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+__MACOSX/
+
+# 内部进度标记（不属于发布内容）
+*.done
+.chapter-id-migration-*
+
+# 临时文件
+*.bak
+*.tmp
+*.log
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 依赖
+node_modules/
+venv/
+.venv/
+
+# 大体积二进制（非手册内容）
+*.zip
+*.pdf
+*.tflite
+
+# 本地私有
+.env
+.env.*

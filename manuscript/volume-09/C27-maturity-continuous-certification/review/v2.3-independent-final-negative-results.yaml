@@ -1,0 +1,275 @@
+{
+  "attack_count": 21,
+  "attacks": [
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "EXPIRED",
+      "actual_reasons": [],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": true,
+      "family": "certificate-window",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N01_ZERO_DURATION_EXPIRED_CERTIFICATE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_EXCEEDS_COMMON_VALIDITY_WINDOW",
+        "CERTIFICATE_EXCEEDS_CONTINUOUS_EVIDENCE_WINDOW"
+      ],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": false,
+      "family": "certificate-window",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N02_CERTIFICATE_EXCEEDS_COMMON_WINDOW_BY_ONE_SECOND"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CANONICAL_ROLE_CONFLICT"
+      ],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": false,
+      "family": "alias-canonicalization",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N03_LIFECYCLE_OWNER_AUTHOR_ALIAS"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CANONICAL_ROLE_CONFLICT"
+      ],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": false,
+      "family": "alias-canonicalization",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N04_REVIEWER_AUTHOR_ALIAS"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CANONICAL_ROLE_CONFLICT"
+      ],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": false,
+      "family": "alias-canonicalization",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N05_CHANGE_OWNER_APPROVER_AUTHOR_ALIAS"
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": true,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N06_MATERIAL_CHANGE_SINGLE_TRAINING_TRIAL"
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": true,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N07_MATERIAL_CHANGE_MISMATCHED_TRIAL_OUTPUT"
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": true,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N08_MATERIAL_CHANGE_PUBLIC_CLAIM_AS_RETEST_EVIDENCE"
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": true,
+      "family": "external-effect-derivation",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N09_EXTERNAL_NONE_WITH_APPLIED_OBSERVATIONS"
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": true,
+      "family": "external-effect-derivation",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N10_EXTERNAL_FAILED_WITH_APPLIED_OBSERVATIONS"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "EXTERNAL_EFFECT_RECEIPT_OR_READBACK_INVALID",
+        "OFFLINE_CONFIRMED_EXTERNAL_SUCCESS_REJECTED"
+      ],
+      "blackbox_frozen_binding_rejects": true,
+      "escape": false,
+      "family": "external-effect-derivation",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "N11_EXTERNAL_APPLIED_TOP_FALSE"
+    },
+    {
+      "actual": "ACCEPTED",
+      "escape": true,
+      "family": "success-count",
+      "layer": "persisted-result-verifier",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N12_COHERENT_REAL_SUCCESS_REHASH"
+    },
+    {
+      "actual": "ACCEPTED",
+      "escape": true,
+      "family": "success-count",
+      "layer": "persisted-result-verifier",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N13_COHERENT_EXTERNAL_SUCCESS_REHASH"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "success-count",
+      "layer": "persisted-result-verifier",
+      "message": "result aggregate observed_external_effects",
+      "secure_contract_passed": true,
+      "test_id": "N14_COHERENT_OBSERVED_EXTERNAL_REHASH"
+    },
+    {
+      "actual": "ACCEPTED",
+      "escape": true,
+      "family": "result-replay",
+      "layer": "persisted-result-verifier",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N15_COHERENT_DECISION_LIFECYCLE_REHASH"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "result-digest",
+      "layer": "persisted-result-verifier",
+      "message": "result trial count",
+      "secure_contract_passed": true,
+      "test_id": "N16_STALE_DIGEST_MUTATION"
+    },
+    {
+      "actual": "ACCEPTED",
+      "escape": true,
+      "family": "json-duplicate-key",
+      "layer": "serialized-json-boundary",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N17_INPUT_DUPLICATE_TOP_LEVEL_NOW"
+    },
+    {
+      "actual": "ACCEPTED",
+      "escape": true,
+      "family": "json-duplicate-key",
+      "layer": "serialized-json-boundary",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N18_INPUT_DUPLICATE_NESTED_BUDGET"
+    },
+    {
+      "actual": "ACCEPTED",
+      "escape": true,
+      "family": "json-duplicate-key",
+      "layer": "serialized-json-boundary",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N19_AUTHORITY_DUPLICATE_ROOT_DIGEST"
+    },
+    {
+      "actual": "ACCEPTED",
+      "escape": true,
+      "family": "json-duplicate-key",
+      "layer": "serialized-json-boundary",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N20_RESULT_DUPLICATE_TOP_LEVEL_TRIAL_COUNT"
+    },
+    {
+      "actual": "ACCEPTED",
+      "escape": true,
+      "family": "json-duplicate-key",
+      "layer": "serialized-json-boundary",
+      "message": "",
+      "secure_contract_passed": false,
+      "test_id": "N21_RESULT_DUPLICATE_NESTED_DECISION"
+    }
+  ],
+  "authority_sha256": "sha256:40cf9bf2f7b6de4f5a75b3a3f0f93a645755f6d5d1357c0f8749fe20fd025a7c",
+  "escape_count": 14,
+  "input_sha256": "sha256:ffb3cfb77ce07a916ff3ae8784f2008fcc9e145a582ba8be048ae3439c039619",
+  "limits": {
+    "editor_chief_rc": "NOT_AUTHORIZED",
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_certificate_issued": false,
+    "real_external_effect_executed": false,
+    "real_runtime_executed": false
+  },
+  "oracle_source": "reviewer_defined_without_author_expected",
+  "positive_controls": [
+    {
+      "decision": "PASS",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P01_UNCHANGED_ACTIVE_PASS"
+    },
+    {
+      "decision": "PASS",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P02_LEGAL_RENEWAL_PASS"
+    }
+  ],
+  "positive_count": 2,
+  "positive_pass_count": 2,
+  "result_sha256": "sha256:0d617a6d80e45eb1d0d7db541249ef61863a2268499828602765542e538cf432",
+  "review_role": "non_author",
+  "runner_sha256": "sha256:657661ba9cd072c6e4dab932f2da66e3606a0d81b4770332a9aa6ae3b7513a62",
+  "schema": "c24.cert.v2.3-independent-final-negative.v1",
+  "scope": "offline_synthetic_semantic_serialized_and_result_integrity",
+  "secure_count": 7,
+  "suite_digest": "sha256:196d24e4ef35d0a6bdec789311cf1534b529081351454111d80a8c88a142c0d7"
+}

@@ -1,0 +1,139 @@
+---
+audit_id: C17-source-audit-20260930
+chapter_id: C17
+reviewer_role: non_author_fact_and_cross_reviewer
+verified_on: "2026-09-30"
+scope: "evidence ledger sources, claim closure, version identity, local run integrity"
+fact_gate: REVIEW_REQUIRED
+cross_gate: REVIEW_REQUIRED
+chapter_status: drafting
+release_candidate_authorized: false
+
+summary:
+  source_count: 23
+  local_source_count: 10
+  external_source_count: 11
+  local_run_source_count: 2
+  claim_count: 32
+  claims_referenced_in_chapter: 32
+  missing_claim_references: 0
+  orphan_claim_references: 0
+  used_source_count: 20
+  unused_sources: [QUALITY, TERMS, OC-DELEGATE]
+  external_http_200: 10
+  external_http_404: 1
+  blocking_source_id: OC-SESSION
+
+fixed_version_resolution:
+  openclaw:
+    release: v2026.9.6
+    annotated_tag_object: ce5bbdc244ee937246cc1700d1b224d020c3b599
+    commit: eb377ac59e6c9fd6c7705028034812becf00271b
+    verdict: PASS
+  hermes:
+    release_tag: v2026.8.13
+    package_version: 0.20.1
+    annotated_tag_object: 4e693dc685b5716e7da22656eccc6ece37c5db72
+    commit: f80f453ae0679347e38abc917c7f94f717bf96c5
+    verdict: PASS
+  a2a:
+    declared_protocol_line: "1.0"
+    ledger_url: "https://a2a-protocol.org/latest/specification/"
+    observed_version_on_review_date: "1.0.0"
+    required_fixed_url: "https://a2a-protocol.org/v1.0.0/specification/"
+    verdict: REVIEW_REQUIRED
+  muse:
+    identity: VENDOR-CLAIM
+    internal_routing_inference_present: false
+    verdict: PASS
+
+sources:
+  - {source_id: BOOK, kind: local, reachable: true, used_by_claim: true, verdict: PASS, note: "三级框架存在。"}
+  - {source_id: QUALITY, kind: local, reachable: true, used_by_claim: false, verdict: REVIEW_REQUIRED, note: "来源登记但未被任何 claim 消费；属证据卫生 P2。"}
+  - {source_id: CARD, kind: local, reachable: true, used_by_claim: true, verdict: PASS, note: "C17 章节卡、三产物和边界可定位。"}
+  - {source_id: TERMS, kind: local, reachable: true, used_by_claim: false, verdict: REVIEW_REQUIRED, note: "来源登记但未被任何 claim 消费；属证据卫生 P2。"}
+  - {source_id: PREFLIGHT, kind: local, reachable: true, used_by_claim: true, verdict: PASS, note: "C17 方法、平台证据和边界均可定位；其中 C16 状态已被后续审校推进。"}
+  - {source_id: C06, kind: local, reachable: true, used_by_claim: true, verdict: PASS, note: "Binding、Queue 和 runtime 定义权。"}
+  - {source_id: C09, kind: local, reachable: true, used_by_claim: true, verdict: PASS, note: "任务与过程/产物/环境三证接口。"}
+  - {source_id: C11, kind: local, reachable: true, used_by_claim: true, verdict: PASS, note: "工具副作用、幂等、receipt 和 UNKNOWN。"}
+  - {source_id: C14, kind: local, reachable: true, used_by_claim: true, verdict: PASS, note: "事实/交叉已通过；实践仍 REVIEW_REQUIRED。"}
+  - {source_id: C16, kind: local, reachable: true, used_by_claim: true, verdict: PASS, note: "事实/交叉已 PASS WITH LIMITATIONS；实践未审。C17 当前状态描述已滞后。"}
+  - {source_id: A2A-SPEC, kind: external_standard, http_status: 200, stable_identity: false, used_by_claim: true, verdict: REVIEW_REQUIRED, note: "内容当前为 1.0.0，但 /latest/ 可漂移；应固定 /v1.0.0/specification/。"}
+  - {source_id: OC-BIND, kind: openclaw_fixed, http_status: 200, commit_pinned: true, used_by_claim: true, verdict: PASS, note: "固定文档支持 Binding 将入口消息映射到 Agent；不产生业务授权。"}
+  - {source_id: OC-LANES, kind: openclaw_fixed, http_status: 200, commit_pinned: true, used_by_claim: true, verdict: PASS_WITH_LIMITATION, note: "支持 session 串行化、所有权歧义和容量边界；CAS/lease/fencing 是本书方法，不是该页平台事实。"}
+  - {source_id: OC-HANDOFF, kind: openclaw_fixed, http_status: 200, commit_pinned: true, used_by_claim: true, verdict: PASS, note: "支持唯一 completion owner、新 admission、不复活旧权限、timeout 不取消及非全局 exactly-once。"}
+  - {source_id: OC-SESSION, kind: openclaw_fixed, http_status: 404, commit_pinned: true, used_by_claim: true, verdict: FAIL, note: "账本路径 docs/tools/session-tool.md 不存在；固定提交中的正确文件是 docs/concepts/session-tool.md。影响 E-C17-006 与 E-C17-024 的可解引用性。"}
+  - {source_id: OC-OPS, kind: openclaw_fixed, http_status: 200, commit_pinned: true, used_by_claim: true, verdict: PASS, note: "支持 accepted 不等于完成、Stop 范围、未完成取消报错及父完成/超时不自动取消。"}
+  - {source_id: OC-ANNOUNCE, kind: openclaw_fixed, http_status: 200, commit_pinned: true, used_by_claim: true, verdict: PASS, note: "status 来自 runtime outcome；需要交付时 NO_REPLY/无输出是 missing deliverable，不算静默交付。"}
+  - {source_id: OC-DELEGATE, kind: openclaw_fixed, http_status: 200, commit_pinned: true, used_by_claim: false, verdict: REVIEW_REQUIRED, note: "来源有效但未被 claim 消费；属证据卫生 P2。"}
+  - {source_id: HERMES-FIXED, kind: hermes_fixed, http_status: 200, commit_pinned: true, used_by_claim: true, verdict: PASS_WITH_LIMITATION, note: "固定仓库可找到 delegation.md 与 subagent_lifecycle.py，支持隔离上下文、final summary 和工具不可扩大；账本仅指仓库根，建议改为精确固定文件。"}
+  - {source_id: HERMES-DYNAMIC, kind: hermes_dynamic, http_status: 200, checked_on: "2026-09-30", used_by_claim: true, verdict: PASS, note: "与固定来源分栏；不得倒填 0.20.1。"}
+  - {source_id: MUSE, kind: vendor_claim, http_status: 200, checked_on: "2026-09-30", used_by_claim: true, verdict: PASS, note: "仅支持后台工作、敏感动作批准和审计体验；正文没有推断内部路由/Handoff/并发实现。"}
+  - {source_id: LOCAL-IN, kind: local_run, reachable: true, used_by_claim: true, verdict: PASS_WITH_LIMITATION, note: "20 场景×3；没有 D22 layer/provenance 字段，fault 是预分类标签。"}
+  - {source_id: LOCAL-OUT, kind: local_run, reachable: true, used_by_claim: true, verdict: PASS_WITH_LIMITATION, note: "60 trial、12/45/3、零外部副作用和保存哈希可复算；只证明冻结查表夹具确定性。"}
+
+claim_verdicts:
+  - {evidence_id: E-C17-001, verdict: PASS}
+  - {evidence_id: E-C17-002, verdict: PASS}
+  - {evidence_id: E-C17-003, verdict: PASS}
+  - {evidence_id: E-C17-004, verdict: PASS}
+  - {evidence_id: E-C17-005, verdict: PASS}
+  - {evidence_id: E-C17-006, verdict: REVIEW_REQUIRED, note: "语义成立，但 OC-SESSION 固定链接 404。"}
+  - {evidence_id: E-C17-007, verdict: PASS}
+  - {evidence_id: E-C17-008, verdict: PASS_WITH_LIMITATION, note: "Transport ACK 有标准锚；Object/Responsibility ACK 明确是本书方法。"}
+  - {evidence_id: E-C17-009, verdict: PASS}
+  - {evidence_id: E-C17-010, verdict: PASS}
+  - {evidence_id: E-C17-011, verdict: PASS}
+  - {evidence_id: E-C17-012, verdict: PASS}
+  - {evidence_id: E-C17-013, verdict: PASS}
+  - {evidence_id: E-C17-014, verdict: PASS_WITH_LIMITATION, note: "平台页只直接支持 session 单写和所有权约束；CAS/lease/fencing 是方法论。"}
+  - {evidence_id: E-C17-015, verdict: PASS}
+  - {evidence_id: E-C17-016, verdict: PASS}
+  - {evidence_id: E-C17-017, verdict: PASS}
+  - {evidence_id: E-C17-018, verdict: PASS}
+  - {evidence_id: E-C17-019, verdict: PASS}
+  - {evidence_id: E-C17-020, verdict: PASS}
+  - {evidence_id: E-C17-021, verdict: PASS}
+  - {evidence_id: E-C17-022, verdict: PASS}
+  - {evidence_id: E-C17-023, verdict: PASS}
+  - {evidence_id: E-C17-024, verdict: REVIEW_REQUIRED, note: "平台语义由 OC-OPS 和固定正确路径支持，但账本 OC-SESSION 404。"}
+  - {evidence_id: E-C17-025, verdict: PASS}
+  - {evidence_id: E-C17-026, verdict: PASS_WITH_LIMITATION, note: "内容受固定 delegation.md/lifecycle.py 支持；建议将 HERMES-FIXED 收窄到精确文件。"}
+  - {evidence_id: E-C17-027, verdict: PASS_WITH_LIMITATION, note: "A2A 语义准确；证据 URL 需从 latest 固定为 v1.0.0。"}
+  - {evidence_id: E-C17-028, verdict: PASS}
+  - {evidence_id: E-C17-029, verdict: PASS}
+  - {evidence_id: E-C17-030, verdict: REVIEW_REQUIRED, note: "C16 已完成事实/交叉门；当前应写 fact/cross pass with limitations, practice pending。"}
+  - {evidence_id: E-C17-031, verdict: PASS}
+  - {evidence_id: E-C17-032, verdict: PASS_IN_DECLARED_SYNTHETIC_SCOPE, note: "fresh-temp 双复跑与保存文件逐字节一致；不证明练习、平台或生产行为。"}
+
+run_observations:
+  fresh_temp_runs: 2
+  outputs_byte_equal: true
+  output_sha256: 427e55a038907e4cf4f029fa8c1b8a3f74b5c52e2a4295ea64f07092e3291a21
+  saved_output_equal: true
+  decision_digest: 53b10730056f80d302de285d36bf4fc7cf9103fdb1a808a7a7445f7012b03231
+  distribution: {PASS: 12, FAIL: 45, REVIEW_REQUIRED: 3}
+  unique_trial_ids_in_saved_fixture: true
+  external_side_effect_count: 0
+  d22_layer_fields_present: false
+  security_is_separate_scenario_kind: true
+  representative_real_world_executed: UNKNOWN_NOT_RECORDED
+  decision_derivation:
+    expected_field_used_for_decision: false
+    fault_label_used_as_decision_selector: true
+    common_contract_used_for_decision: false
+    unknown_fault_fails_closed: false
+    duplicate_ids_rejected: false
+  negative_mutations:
+    - {mutation: "task_version=-1, risk=critical, budget=0, permission_snapshot=revoked", runner_exit: 0, decision_digest_unchanged: true, verdict: FAIL}
+    - {mutation: "unauthorized_route -> unauthorized_route_typo", runner_exit: 0, resulting_decision: PASS, all_expected_matched: false, verdict: FAIL}
+    - {mutation: "duplicate scenario id S01", runner_exit: 0, trial_count: 60, unique_task_trial_pairs: 57, verdict: FAIL}
+
+issues:
+  - {id: P0-F17-01, severity: P0, gate: fact, status: OPEN, title: "固定 OpenClaw Session 来源 404", affected: [E-C17-006, E-C17-024]}
+  - {id: P1-F17-02, severity: P1, gate: fact, status: OPEN, title: "A2A 1.0 使用可漂移 latest URL"}
+  - {id: P1-F17-03, severity: P1, gate: fact_and_cross, status: OPEN, title: "C16 依赖状态已滞后"}
+  - {id: P1-X17-01, severity: P1, gate: cross, status: OPEN, title: "作者运行缺 D22 四层与真实来源计数"}
+  - {id: P1-X17-02, severity: P1, gate: cross, status: OPEN, title: "runner 按预分类 fault 查表且遇未知值 fail-open"}
+  - {id: P2-F17-04, severity: P2, gate: fact, status: OPEN, title: "三个 ledger source 未被 claim 使用"}
+  - {id: P2-F17-05, severity: P2, gate: fact, status: OPEN, title: "Hermes fixed 来源粒度过粗"}

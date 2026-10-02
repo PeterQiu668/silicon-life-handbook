@@ -1,0 +1,69 @@
+{
+  "schema_version": "c10-stateful-lifecycle-input.v1",
+  "experiment_id": "C10-X02-STATEFUL-SYNTHETIC-20260930",
+  "contract_date": "2026-09-30",
+  "scope": {
+    "synthetic_only": true,
+    "network": "not_used_by_runner",
+    "credentials": false,
+    "real_subject_data": false,
+    "real_runtime_or_provider": false,
+    "claim_boundary": "Executes an in-memory state machine for lifecycle controls; it does not prove deletion or restoration on a real platform or provider."
+  },
+  "compaction": {
+    "gold_slots": {
+      "forbid_external_send": true,
+      "object_id": "OBJ-C10-0042",
+      "approval_scope": "draft_only",
+      "approval_valid_until": "2026-09-30T18:00:00+08:00",
+      "external_effects": ["none"],
+      "pending_items": ["owner_review"],
+      "recovery_point": "SNAP-C10-0001"
+    },
+    "good_summary": {
+      "forbid_external_send": true,
+      "object_id": "OBJ-C10-0042",
+      "approval_scope": "draft_only",
+      "approval_valid_until": "2026-09-30T18:00:00+08:00",
+      "external_effects": ["none"],
+      "pending_items": ["owner_review"],
+      "recovery_point": "SNAP-C10-0001"
+    },
+    "bad_summary": {
+      "forbid_external_send": false,
+      "object_id": "OBJ-C10-0420",
+      "approval_scope": "external_send",
+      "approval_valid_until": "2026-10-30T18:00:00+08:00",
+      "external_effects": ["none"],
+      "pending_items": [],
+      "recovery_point": "SNAP-C10-0001"
+    },
+    "critical_slots": ["forbid_external_send", "object_id", "approval_scope", "approval_valid_until", "external_effects", "pending_items", "recovery_point"]
+  },
+  "records": [
+    {"memory_id": "MEM-KEEP", "value": "project-a-blue", "status": "active", "lineage_root": "MEM-KEEP"},
+    {"memory_id": "MEM-OLD", "value": "consent-all-channels", "status": "superseded", "superseded_by": "MEM-NEW", "lineage_root": "MEM-OLD"},
+    {"memory_id": "MEM-NEW", "value": "consent-withdrawn", "status": "active", "supersedes": "MEM-OLD", "lineage_root": "MEM-NEW"},
+    {"memory_id": "MEM-SUPPRESS", "value": "do-not-auto-inject", "status": "suppressed", "lineage_root": "MEM-SUPPRESS"},
+    {"memory_id": "MEM-EXPIRE", "value": "old-price", "status": "expired", "lineage_root": "MEM-EXPIRE"},
+    {"memory_id": "MEM-DELETE", "value": "synthetic-delete-target", "status": "active", "lineage_root": "MEM-DELETE"}
+  ],
+  "initial_surfaces": {
+    "curated": ["MEM-KEEP", "MEM-OLD", "MEM-NEW", "MEM-SUPPRESS", "MEM-EXPIRE", "MEM-DELETE"],
+    "episodic": ["MEM-OLD", "MEM-NEW", "MEM-DELETE"],
+    "index": ["MEM-KEEP", "MEM-OLD", "MEM-NEW", "MEM-SUPPRESS", "MEM-EXPIRE", "MEM-DELETE"],
+    "cache": ["MEM-DELETE"],
+    "session": ["MEM-KEEP", "MEM-DELETE"],
+    "summary": ["MEM-OLD", "MEM-DELETE"],
+    "artifact": ["MEM-DELETE"],
+    "export": ["MEM-DELETE"]
+  },
+  "physical_delete": {
+    "target": "MEM-DELETE",
+    "declared_surfaces": ["curated", "episodic", "index", "cache", "session", "summary"],
+    "residual_surfaces": ["artifact", "export", "backup"],
+    "residual_owner": "synthetic-data-owner",
+    "residual_deadline": "2026-10-07",
+    "concurrent_derived_id": "MEM-DELETE-DERIVED"
+  }
+}

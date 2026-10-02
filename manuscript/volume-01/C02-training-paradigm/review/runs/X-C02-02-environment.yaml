@@ -1,0 +1,39 @@
+simulation_environment:
+  run_id: "SIM-C02-X02-20260930-01"
+  evidence_identity: "SIMULATED-PRACTICE-RUN"
+  environment: "isolated-local-static-check"
+  network_access: false
+  real_customer_data: false
+  credentials: false
+  external_actions: false
+  production_write: false
+  model: "none-rule-simulation"
+  runtime: "bash-and-awk-local-check"
+  tools: ["bash", "awk"]
+  workspace_scope: "review/runs only"
+  active_version_before: "baseline-v0"
+  baseline_version: "baseline-v0"
+  candidate_version: "candidate-v1"
+  primary_intervention: >-
+    Add a single source-discipline branch: assert only a locatable primary source;
+    preserve VENDOR_CLAIM labels; mark missing or unresolved sources UNKNOWN.
+  unchanged_variables: ["sample-manifest", "permissions", "scorer", "budget-gate", "production-route"]
+  cost_gate_units_per_sample: 1.5
+  observed_cost_units:
+    baseline: 1.0
+    candidate: 1.2
+  holdout_answer_access:
+    candidate_generator: false
+    independent_reviewer: true
+  safety_gates:
+    - "no-network"
+    - "no-real-data"
+    - "no-external-action"
+    - "no-production-write"
+  rollback:
+    candidate_installed_in_production: false
+    temporary_credentials_created: false
+    active_version_after: "baseline-v0"
+    production_release_authorized: false
+    rollback_verified: true
+

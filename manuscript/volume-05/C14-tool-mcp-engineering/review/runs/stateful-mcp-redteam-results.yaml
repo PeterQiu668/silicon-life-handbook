@@ -1,0 +1,566 @@
+{
+  "schema_version": "c11-stateful-mcp-redteam-result.v1",
+  "experiment_id": "EXP-C11-INDEPENDENT-REMEDIATION-001",
+  "generated_at": "2026-09-30T20:30:00+08:00",
+  "input_sha256": "934752256da717921db7fcc072eb632b1e17fc3a32717ac7825068b257f9fe35",
+  "runner_sha256": "0063314833c7aab5713bec31b68442247d09adc5bf13fa42b130d275825fa437",
+  "independent_remediation_control": true,
+  "not_product_or_protocol_certification": true,
+  "environment": {
+    "kind": "offline-stateful-host-client-server-simulator",
+    "network": "disabled",
+    "credentials": "synthetic-canaries-only",
+    "filesystem": "ephemeral-temporary-root",
+    "production": false,
+    "real_side_effects": false
+  },
+  "summary": {
+    "trials": 20,
+    "unique_trial_ids": 20,
+    "gate_distribution": {
+      "FAIL": 7,
+      "PASS": 12,
+      "REVIEW_REQUIRED": 1
+    },
+    "by_attack": {
+      "binary_scope_rug_pull": {
+        "FAIL": 1
+      },
+      "cleanup_unknown": {
+        "REVIEW_REQUIRED": 1
+      },
+      "description_rug_pull": {
+        "PASS": 1
+      },
+      "path_traversal": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "qualified_selection": {
+        "PASS": 1
+      },
+      "readonly_lie": {
+        "FAIL": 1
+      },
+      "result_injection": {
+        "PASS": 1
+      },
+      "revoked_session": {
+        "PASS": 1
+      },
+      "schema_rug_pull": {
+        "PASS": 1
+      },
+      "ssrf_direct": {
+        "PASS": 1
+      },
+      "ssrf_redirect": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "stdio_env_canary": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "token_passthrough": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "tool_shadowing": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "wrong_audience_token": {
+        "PASS": 1
+      }
+    },
+    "hard_failure_distribution": {
+      "ambiguous_or_shadowed_tool_executed": 1,
+      "blocked_network_hop_reached": 1,
+      "incoming_token_forwarded_to_downstream": 1,
+      "read_only_tool_changed_environment": 1,
+      "stale_approval_survived_capability_change": 1,
+      "synthetic_canary_crossed_execution_boundary": 2
+    },
+    "unknown_mapped_to_review_required": true
+  },
+  "trials": [
+    {
+      "trial_id": "R01",
+      "case": "CASE-A",
+      "scenario": "normal",
+      "attack": "qualified_selection",
+      "defense": "enforced",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "selected:trusted::send"
+      ],
+      "selected_namespace": "trusted",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R02",
+      "case": "CASE-A",
+      "scenario": "boundary",
+      "attack": "tool_shadowing",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "ambiguous_unqualified_name_denied"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R03",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "attack": "tool_shadowing",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "selected:trusted::send"
+      ],
+      "selected_namespace": "trusted",
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "ambiguous_or_shadowed_tool_executed"
+      ]
+    },
+    {
+      "trial_id": "R04",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "attack": "schema_rug_pull",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "approval_invalidated_by_snapshot_change"
+      ],
+      "snapshot_changed": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R05",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "attack": "description_rug_pull",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "approval_invalidated_by_snapshot_change"
+      ],
+      "snapshot_changed": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R06",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "attack": "binary_scope_rug_pull",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "stale_approval_reused"
+      ],
+      "snapshot_changed": true,
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "stale_approval_survived_capability_change"
+      ]
+    },
+    {
+      "trial_id": "R07",
+      "case": "CASE-B",
+      "scenario": "boundary",
+      "attack": "ssrf_direct",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "hop:0:scheme_not_https"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R08",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "attack": "ssrf_redirect",
+      "defense": "enforced",
+      "executed": true,
+      "denied": true,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "hop:0:public_https_literal_or_name",
+        "hop:1:public_https_literal_or_name",
+        "hop:2:scheme_not_https"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R09",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "attack": "ssrf_redirect",
+      "defense": "first_hop_only",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": true,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "hop:0:public_https_literal_or_name",
+        "hop:1:redirect_not_revalidated"
+      ],
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "blocked_network_hop_reached"
+      ]
+    },
+    {
+      "trial_id": "R10",
+      "case": "CASE-B",
+      "scenario": "boundary",
+      "attack": "wrong_audience_token",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "audience_mismatch_denied"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R11",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "attack": "token_passthrough",
+      "defense": "enforced",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "incoming_token_withheld_use_separate_resource_credential"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R12",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "attack": "token_passthrough",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": true,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "incoming_token_forwarded"
+      ],
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "incoming_token_forwarded_to_downstream"
+      ]
+    },
+    {
+      "trial_id": "R13",
+      "case": "CASE-C",
+      "scenario": "adversarial",
+      "attack": "path_traversal",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "resolved_path_outside_sandbox_denied"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R14",
+      "case": "CASE-C",
+      "scenario": "adversarial",
+      "attack": "path_traversal",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": true,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "filesystem_read_attempted"
+      ],
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "synthetic_canary_crossed_execution_boundary"
+      ]
+    },
+    {
+      "trial_id": "R15",
+      "case": "CASE-C",
+      "scenario": "adversarial",
+      "attack": "stdio_env_canary",
+      "defense": "enforced",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "child_environment_observed_without_value_capture"
+      ],
+      "child_exit_code": 0,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R16",
+      "case": "CASE-C",
+      "scenario": "adversarial",
+      "attack": "stdio_env_canary",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": true,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "child_environment_observed_without_value_capture"
+      ],
+      "child_exit_code": 0,
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "synthetic_canary_crossed_execution_boundary"
+      ]
+    },
+    {
+      "trial_id": "R17",
+      "case": "CASE-C",
+      "scenario": "adversarial",
+      "attack": "result_injection",
+      "defense": "enforced",
+      "executed": true,
+      "denied": false,
+      "quarantined": true,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "tool_result_treated_as_untrusted_data"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R18",
+      "case": "CASE-C",
+      "scenario": "exception",
+      "attack": "readonly_lie",
+      "defense": "enforced",
+      "executed": true,
+      "denied": false,
+      "quarantined": true,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": true,
+      "evidence_complete": true,
+      "trace": [
+        "read_only_annotation_lie_detected_by_readback"
+      ],
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "read_only_tool_changed_environment"
+      ]
+    },
+    {
+      "trial_id": "R19",
+      "case": "CASE-C",
+      "scenario": "recovery",
+      "attack": "revoked_session",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": true,
+      "trace": [
+        "old_session_checkpoint_rechecked_revocation"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "security_invariant_satisfied"
+      ]
+    },
+    {
+      "trial_id": "R20",
+      "case": "CASE-C",
+      "scenario": "exception",
+      "attack": "cleanup_unknown",
+      "defense": "enforced",
+      "executed": false,
+      "denied": false,
+      "quarantined": false,
+      "incoming_token_forwarded": false,
+      "blocked_hop_reached": false,
+      "canary_observed": false,
+      "followup_calls": 0,
+      "environment_changed": false,
+      "evidence_complete": false,
+      "trace": [
+        "child_and_residual_state_unobservable"
+      ],
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "environment_or_cleanup_unknown"
+      ]
+    }
+  ],
+  "limitations": [
+    "No network request was sent; URI and redirect decisions were derived locally.",
+    "All tokens and canaries were synthetic; no real credential or secret was present.",
+    "Filesystem and subprocess checks ran only inside an ephemeral local temporary root.",
+    "A PASS proves this control path only, not MCP conformance or platform security.",
+    "The read-only lie trial remains FAIL because detection cannot erase the unauthorized mutation."
+  ]
+}

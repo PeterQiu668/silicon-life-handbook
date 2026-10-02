@@ -1,0 +1,223 @@
+---
+reproduction_id: C17-fact-cross-remediation-reproduction-20260930
+chapter_id: C17
+reviewer_role: non_author_fact_and_cross_reviewer
+verified_on: "2026-09-30"
+scope: "post-fix source, dependency-state, D22, deterministic reproduction, and negative mutation audit"
+author_files_modified: false
+fact_gate: PASS_WITH_LIMITATIONS
+cross_gate: REVIEW_REQUIRED
+practice_gate: not_reviewed
+editor_gate: not_reviewed
+chief_editor_gate: not_reviewed
+release_candidate_authorized: false
+
+source_remediation:
+  openclaw_session:
+    source_id: OC-SESSION
+    fixed_baseline: "v2026.9.6 / eb377ac59e6c9fd6c7705028034812becf00271b"
+    path: "docs/concepts/session-tool.md"
+    http_status: 200
+    verdict: PASS
+  a2a:
+    source_id: A2A-SPEC
+    version: "1.0.0"
+    url: "https://a2a-protocol.org/v1.0.0/specification/"
+    http_status: 200
+    verdict: PASS
+  hermes:
+    source_id: HERMES-FIXED
+    fixed_baseline: "0.20.1 / f80f453ae0679347e38abc917c7f94f717bf96c5"
+    path: "website/docs/user-guide/features/delegation.md"
+    http_status: 200
+    verdict: PASS
+  muse:
+    evidence_class: VENDOR-CLAIM
+    internal_routing_or_handoff_inferred: false
+    verdict: PASS
+  external_sources:
+    checked_count: 11
+    http_200_count: 11
+    verdict: PASS
+
+claim_and_dependency_state:
+  evidence_claim_count: 32
+  chapter_claim_references: 32
+  missing_claim_references: 0
+  orphan_claim_references: 0
+  source_count: 23
+  used_source_count: 20
+  unused_sources: [QUALITY, TERMS, OC-DELEGATE]
+  c14:
+    recorded_state: "fact/cross passed; v3.1 offline stateful machine control reproduced; real authorization practice limited"
+    verdict: PASS
+  c16:
+    recorded_state: "fact/cross PASS WITH LIMITATIONS; practice pending"
+    verdict: PASS
+
+fresh_temp_reproduction:
+  run_count: 2
+  both_exit_zero: true
+  results_byte_equal_between_runs: true
+  results_equal_saved_author_output: true
+  results_sha256: "43189c7af870af382672e21151d7218c0410b9a651146c7e771b6c03e49a2dad"
+  summaries_byte_equal_between_runs: true
+  summaries_equal_saved_author_summary: true
+  summary_sha256: "f033b55fca295a5ba30224a57d7788f3ba9843227498e99a22b73690e1959f33"
+  input_sha256: "5b5cc3d2507e621a45610326c770f085a95e34104a9a024b6ccaf28e71347545"
+  decision_digest: "ded2183899a81e1e6336cd96e0f8bc0792337bce60ba4d92c2cb542569a0ce8e"
+  scenario_count: 20
+  trials_per_scenario: 3
+  trial_count: 60
+  unique_task_trial_pairs: true
+  distribution: {PASS: 12, FAIL: 45, REVIEW_REQUIRED: 3}
+  external_side_effect_count: 0
+  verdict: PASS_IN_DECLARED_SYNTHETIC_SCOPE
+
+d22_and_security:
+  canonical_layers: [training, regression, holdout, representative_real_world]
+  by_layer:
+    training: {PASS: 3, FAIL: 9, REVIEW_REQUIRED: 0}
+    regression: {PASS: 6, FAIL: 12, REVIEW_REQUIRED: 0}
+    holdout: {PASS: 3, FAIL: 24, REVIEW_REQUIRED: 3}
+    representative_real_world: {PASS: 0, FAIL: 0, REVIEW_REQUIRED: 0}
+  representative_real_world_executed: false
+  representative_real_world_trial_count: 0
+  synthetic_shadow_trial_count: 12
+  shadow_layer: holdout
+  shadow_intended_target_layer: representative_real_world
+  security_red_team_role: cross_cutting_noncompensatory_slice
+  security_failures_noncompensatory: true
+  verdict: PASS
+
+negative_mutations:
+  - mutation_id: M-C17-01
+    mutation: "common_contract.permission_snapshot changed to unauthorized value"
+    expected: "non-zero exit before output"
+    exit_code: 1
+    output_created: false
+    observed_error: "ValueError: common permission snapshot is not currently authorized"
+    verdict: PASS
+  - mutation_id: M-C17-02
+    mutation: "common_contract.budget_units changed to 0"
+    expected: "non-zero exit before output"
+    exit_code: 1
+    output_created: false
+    observed_error: "ValueError: task version and budget must be positive"
+    verdict: PASS
+  - mutation_id: M-C17-03
+    mutation: "common_observation.yield.agent_status changed to ALIEN"
+    expected: "non-zero exit"
+    exit_code: 1
+    output_created: false
+    observed_error: "ValueError: unknown agent status"
+    verdict: PASS
+  - mutation_id: M-C17-04
+    mutation: "second scenario id changed to duplicate S01"
+    expected: "non-zero exit"
+    exit_code: 1
+    output_created: false
+    observed_error: "ValueError: scenario ids must be unique"
+    verdict: PASS
+  - mutation_id: M-C17-05
+    mutation: "synthetic scenario layer changed to representative_real_world and executed flag set true"
+    expected: "non-zero exit"
+    exit_code: 1
+    output_created: false
+    observed_error: "ValueError: synthetic fixture cannot claim representative_real_world execution"
+    verdict: PASS
+  - mutation_id: M-C17-06
+    mutation: "real-world source/run identifiers changed so they disagree with verified manifest"
+    expected: "non-zero exit"
+    exit_code: 1
+    output_created: false
+    observed_error: "ValueError: real-world source/run ids must match manifest"
+    verdict: PASS
+  - mutation_id: M-C17-07
+    mutation: "common_observation.route.capability_evidence_refs removed"
+    expected: "non-zero exit"
+    exit_code: 1
+    output_created: false
+    observed_error: "KeyError: capability_evidence_refs"
+    verdict: PASS_WITH_DIAGNOSTIC_LIMITATION
+  - mutation_id: M-C17-08
+    mutation: "S01 expected oracle changed from PASS to FAIL"
+    expected: "non-zero exit"
+    exit_code: 1
+    output_created: false
+    observed_error: "ValueError: one or more decisions do not match the frozen offline oracle"
+    verdict: PASS
+  - mutation_id: M-C17-09
+    mutation: "all four D21 values replaced by truthy string dummy"
+    expected: "non-zero exit because type/evidence validation must fail"
+    exit_code: 0
+    output_created: true
+    resulting_distribution: {PASS: 12, FAIL: 45, REVIEW_REQUIRED: 3}
+    verdict: FAIL
+    issue_id: P1-X17-R01
+  - mutation_id: M-C17-10
+    mutation: "unknown nested route.mystery_authority=true added"
+    expected: "non-zero exit under closed-world control schema"
+    exit_code: 0
+    output_created: true
+    resulting_distribution: {PASS: 12, FAIL: 45, REVIEW_REQUIRED: 3}
+    verdict: FAIL
+    issue_id: P1-X17-R02
+
+issue_closure:
+  - {issue_id: P0-F17-01, status: CLOSED, gate: fact}
+  - {issue_id: P1-F17-02, status: CLOSED, gate: fact}
+  - {issue_id: P1-F17-03, status: CLOSED, gate: fact_and_cross}
+  - {issue_id: P2-F17-05, status: CLOSED, gate: fact}
+  - {issue_id: P1-X17-01, status: CLOSED, gate: cross}
+  - {issue_id: P1-X17-02, status: PARTIALLY_CLOSED, gate: cross}
+  - {issue_id: P2-F17-04, status: OPEN_NONBLOCKING, gate: fact}
+
+open_issues:
+  - issue_id: P1-X17-R01
+    severity: P1
+    gate: cross
+    title: "D21 completion evidence remains caller-supplied truthy values"
+    status: OPEN
+    blocking: true
+    close_when:
+      - "D21 technical, delivery, and business/environment layers are represented by typed evidence objects"
+      - "completion booleans are derived from those evidence objects instead of accepted from caller input"
+      - "truthy strings, missing evidence, digest mismatch, and UNKNOWN environment evidence with reported_complete all fail closed"
+  - issue_id: P1-X17-R02
+    severity: P1
+    gate: cross
+    title: "nested control schemas accept unknown fields"
+    status: OPEN
+    blocking: true
+    close_when:
+      - "nested required, optional, allowed-key, and type schemas are explicit"
+      - "unknown authority, owner, receipt, and completion fields fail before result generation"
+      - "extensions, if needed, use a versioned namespace"
+      - "missing-field errors include scenario id and full field path"
+
+limitations:
+  - "No real OpenClaw or Hermes Runtime was executed."
+  - "No real A2A peer, channel, authorization system, or production side effect was exercised."
+  - "Representative real-world task count is zero."
+  - "This review is not an independent practice review and does not approve practice, editor, chief editor, or release-candidate gates."
+
+validation:
+  yaml_parse: PASS
+  frontmatter_parse: PASS
+  runner_py_compile: PASS
+  external_links: {checked: 11, http_200: 11, verdict: PASS}
+  claim_reference_closure: {claims: 32, referenced: 32, missing: 0, orphan: 0, verdict: PASS}
+  added_file_local_links: {broken: 0, verdict: PASS}
+  formal_validator:
+    verdict: PASS
+    c17_cjk_chars: 18149
+    note: "Production warnings for future chapter packages are outside C17."
+  book_validator:
+    verdict: FAIL_UNRELATED_EXISTING_LINK
+    error: "C15 post-fix-practice-review.md points to missing runs/post-fix-independent-drift-reproduction-20260930.yaml"
+    c17_related: false
+  scoped_diff:
+    only_added_files:
+      - "review/fact-cross-remediation-review.md"
+      - "review/fact-cross-remediation-reproduction-20260930.yaml"

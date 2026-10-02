@@ -1,0 +1,95 @@
+chapter_id: C26
+status: drafting
+approval_status: unapproved
+self_approval: false
+verified_on: "2026-10-01"
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"}
+  PREFLIGHT: {path: "../../../docs/research/C26-case-evidence-lab-preflight.md"}
+  C07: {path: "../../volume-03/C07-evaluation-system/chapter.md"}
+  C23: {path: "../../volume-08/C23-observability-cost-reliability/chapter.md"}
+  ANT: {url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"}
+  NIST: {url: "https://www.nist.gov/caisi/cheating-ai-agent-evaluations"}
+  OC: {url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"}
+  HE: {url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"}
+  MUSE: {url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"}
+  LOCAL: {path: "review/runs/synthetic-case-results.yaml"}
+  LOCAL-INPUT: {path: "review/runs/synthetic-case-input.yaml"}
+  LOCAL-ROOT: {path: "review/runs/frozen-evidence-root.yaml"}
+  LOCAL-NEGATIVE: {path: "review/runs/v2.5-replay-author-79.yaml"}
+  LOCAL-REPRO: {path: "review/runs/v2.5-remediation-validation.yaml"}
+  LOCAL-REMEDIATION: {path: "review/runs/v2.5-replay-remediation-30.yaml"}
+  LOCAL-HISTORICAL-REPLAY: {path: "review/runs/v2.3-historical-independent-replay.yaml"}
+  LOCAL-V23-NOTE: {path: "review/v2.3-author-remediation.md"}
+  LOCAL-V24-REMEDIATION: {path: "review/runs/v2.4-remediation-regression-results.yaml"}
+  LOCAL-V24-INDEPENDENT-19: {path: "review/runs/v2.4-independent-19-replay.yaml"}
+  LOCAL-V24-VALIDATION: {path: "review/runs/v2.4-remediation-validation.yaml"}
+  LOCAL-V24-NOTE: {path: "review/v2.4-author-remediation.md"}
+  LOCAL-V25-REMEDIATION: {path: "review/runs/v2.5-remediation-regression-results.yaml"}
+  LOCAL-V25-INDEPENDENT-15: {path: "review/runs/v2.5-replay-independent-15.yaml"}
+  LOCAL-V25-VALIDATION: {path: "review/runs/v2.5-remediation-validation.yaml"}
+  LOCAL-V25-NOTE: {path: "review/v2.5-author-remediation.md"}
+  LOCAL-V26-REMEDIATION: {path: "review/runs/v2.6-remediation-regression-results.yaml"}
+  LOCAL-V26-VALIDATION: {path: "review/runs/v2.6-remediation-validation.yaml"}
+  LOCAL-V26-NOTE: {path: "review/v2.6-author-remediation.md"}
+  LOCAL-V26-INDEPENDENT-36: {path: "review/runs/v2.6-replay-independent-36.yaml"}
+  LOCAL-V27-REMEDIATION: {path: "review/runs/v2.7-remediation-regression-results.yaml"}
+  LOCAL-V27-VALIDATION: {path: "review/runs/v2.7-remediation-validation.yaml"}
+  LOCAL-V27-NOTE: {path: "review/v2.7-author-remediation.md"}
+  LOCAL-V27-REPRO: {path: "review/v2.7-author-reproduction-20261001.yaml"}
+  LOCAL-V27-INDEPENDENT-24: {path: "review/runs/v2.7-replay-independent-24.yaml"}
+  LOCAL-V29-REMEDIATION: {path: "review/runs/v2.9-remediation-regression-results.yaml"}
+  LOCAL-V29-NOTE: {path: "review/v2.9-author-remediation.md"}
+  LOCAL-V29-REPRO: {path: "review/v2.9-author-reproduction-20261001.yaml"}
+  LOCAL-V29-PINS: {path: "review/runs/frozen-pin-registry.json"}
+  LOCAL-V30-REMEDIATION: {path: "review/runs/v3.0-remediation-regression-results.yaml"}
+  LOCAL-V30-NOTE: {path: "review/v3.0-author-remediation.md"}
+  LOCAL-V30-REPRO: {path: "review/v3.0-author-reproduction-20261001.yaml"}
+  SOURCE-INDEX: {path: "review/C26-prepublication-source-index.md"}
+claims:
+  - {evidence_id: E-C26-001, claim: "案例是可复核主张而非故事。", class: METHODOLOGY, source_ids: [ANT, PREFLIGHT]}
+  - {evidence_id: E-C26-002, claim: "成功失败需在同一合同并列。", class: METHODOLOGY, source_ids: [C07, PREFLIGHT]}
+  - {evidence_id: E-C26-003, claim: "C23定义案例结构不定义认证。", class: PROJECT-DECISION, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C26-004, claim: "营销和截图不是强证据。", class: METHODOLOGY, source_ids: [QUALITY, PREFLIGHT]}
+  - {evidence_id: E-C26-005, claim: "案例采用八段式档案。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-006, claim: "CASE-A保留多trial与安全切片。", class: METHODOLOGY, source_ids: [C07]}
+  - {evidence_id: E-C26-007, claim: "匿名映射不能改变事实。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-008, claim: "CASE-B衡量通知净价值。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-009, claim: "技术响应不等于交付。", class: PROJECT-DECISION, source_ids: [C23]}
+  - {evidence_id: E-C26-010, claim: "匿名真实不能由作者自证。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-011, claim: "CASE-C先保留单体基线。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-012, claim: "组织比较需公平合同。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-013, claim: "交接并发失败需保留。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-014, claim: "合成组织不冒充跨域互操作。", class: SOURCE-BOUNDARY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-015, claim: "失败先按责任域分类。", class: METHODOLOGY, source_ids: [C07]}
+  - {evidence_id: E-C26-016, claim: "聪明不等于可上岗。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-017, claim: "安全造假污染不可补偿。", class: PROJECT-DECISION, source_ids: [QUALITY, NIST]}
+  - {evidence_id: E-C26-018, claim: "恢复需原失败与近邻回归。", class: METHODOLOGY, source_ids: [C23]}
+  - {evidence_id: E-C26-019, claim: "迁移按语义和实现逐项比较。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-020, claim: "固定OpenClaw和Hermes版本。", class: VERSION-FACT, source_ids: [OC, HE]}
+  - {evidence_id: E-C26-021, claim: "资源不等则不能宣称领先。", class: METHODOLOGY, source_ids: [QUALITY]}
+  - {evidence_id: E-C26-022, claim: "迁移设计不等于真实运行。", class: SOURCE-BOUNDARY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-023, claim: "Muse仅VENDOR-CLAIM。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C26-024, claim: "同厂多页不是独立交叉验证。", class: SOURCE-BOUNDARY, source_ids: [MUSE]}
+  - {evidence_id: E-C26-025, claim: "公开观察不推出内部机制。", class: SOURCE-BOUNDARY, source_ids: [MUSE]}
+  - {evidence_id: E-C26-026, claim: "复现合同固定比较边界。", class: METHODOLOGY, source_ids: [ANT, PREFLIGHT]}
+  - {evidence_id: E-C26-027, claim: "案例只有五类身份。", class: PROJECT-DECISION, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-028, claim: "C23恰好三件母产物。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C26-029, claim: "公开需授权脱敏版权审查。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-030, claim: "病例隐喻不证明普遍因果。", class: METAPHOR-BOUNDARY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C26-031, claim: "两项练习要求独立复现和负测。", class: DELIVERABLE, source_ids: [CARD, PREFLIGHT]}
+  - {evidence_id: E-C26-032, claim: "案例关键反例构成硬门。", class: METHODOLOGY, source_ids: [QUALITY]}
+  - {evidence_id: E-C26-033, claim: "案例证据交C24独立认证。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C26-034, claim: "离线包不证明真实案例。", class: LOCAL-VALIDATION, source_ids: [LOCAL]}
+  - {evidence_id: E-C26-035, claim: "不知道和不适用是合法结论。", class: METHODOLOGY, source_ids: [QUALITY]}
+  - {evidence_id: E-C26-036, claim: "旧版事故材料只以RECONSTRUCTED身份用于方法示范，须重新匿名授权与版本复核。", class: SOURCE-BOUNDARY, source_ids: [SOURCE-INDEX, PREFLIGHT]}
+  - {evidence_id: E-C26-037, claim: "v2.3离线控制使用逐trial完整raw state、独立冻结suite manifest与registry root；runner不读取case名、expected或mutation。", class: LOCAL-VALIDATION, source_ids: [LOCAL-ROOT, LOCAL-INPUT, LOCAL]}
+  - {evidence_id: E-C26-038, claim: "离线runner在出结果前拒绝VERIFIED-REAL、ANONYMIZED-REAL及非空真实manifest；真实身份须经外部门。", class: LOCAL-VALIDATION, source_ids: [LOCAL-NEGATIVE, PREFLIGHT]}
+  - {evidence_id: E-C26-039, claim: "迁移控制绑定OpenClaw与Hermes固定且有效release、预算和环境，并用closed enum adapter对象核对task/input/budget/risk/permissions/data/eval、差异证据与运行分布。", class: LOCAL-VALIDATION, source_ids: [LOCAL-ROOT, LOCAL-INPUT, OC, HE]}
+  - {evidence_id: E-C26-040, claim: "32 trial分布2/24/6，79项原负测及30项v2.3整改近邻负测全部命中，双fresh-temp五类文件字节一致；只证明合成不变量。", class: LOCAL-VALIDATION, source_ids: [LOCAL-ROOT, LOCAL, LOCAL-NEGATIVE, LOCAL-REMEDIATION, LOCAL-REPRO]}
+  - {evidence_id: E-C26-041, claim: "冻结suite manifest精确绑定有序scenario inventory与四类证据投影；案例级作者任命和alias归一化阻止跨案例作者替换。", class: LOCAL-VALIDATION, source_ids: [LOCAL-ROOT, LOCAL-REMEDIATION, LOCAL-HISTORICAL-REPLAY, LOCAL-V23-NOTE, LOCAL-V24-REMEDIATION, LOCAL-V24-INDEPENDENT-19, LOCAL-V24-VALIDATION, LOCAL-V24-NOTE]}
+  - {evidence_id: E-C26-042, claim: "v2.6作者离线包把task、input、permission、dataset、grader五类authority与case/task/run/预算合同绑定，拒绝上一轮36项中的八类已知逃逸；新增24项定向攻击全部得到FAIL或结构拒绝，两个合法task/input authority重钉正邻为PASS。该证据仅覆盖固定合成schema、builder、runner与列举攻击，不证明真实案例、真实授权、真实平台或未枚举攻击。", class: LOCAL-VALIDATION, source_ids: [LOCAL-ROOT, LOCAL, LOCAL-V25-REMEDIATION, LOCAL-V25-INDEPENDENT-15, LOCAL-V25-VALIDATION, LOCAL-V25-NOTE, LOCAL-V26-REMEDIATION, LOCAL-V26-INDEPENDENT-36, LOCAL-V26-VALIDATION, LOCAL-V26-NOTE]}
+  - {evidence_id: E-C26-043, claim: "v2.7移除只验证自洽result摘要的公共路径，结果验证必须同时接收冻结source与authority root并重新执行语义；FAIL或REVIEW_REQUIRED即使同步改写reason、聚合和完整digest也会被拒绝。24项作者近邻攻击零逃逸，三个合法正控通过；该结论仅覆盖离线固定schema和已列攻击。", class: LOCAL-VALIDATION, source_ids: [LOCAL, LOCAL-INPUT, LOCAL-ROOT, LOCAL-V27-REMEDIATION, LOCAL-V27-INDEPENDENT-24, LOCAL-V27-VALIDATION, LOCAL-V27-REPRO, LOCAL-V27-NOTE]}
+  - {evidence_id: E-C26-044, claim: "v3.0可信验收入口只接收result/root/source原始JSON bytes、text或path及冻结registry中的具体pin_id；预解析dict被拒。可信核心把strict parser、规范化与摘要函数、完整evaluator函数图、authority/root校验和pin rows绑定到私有冻结命名空间，普通module-global重绑不再改变裁决；正式路径仍由固定runner摘要的fresh subprocess CLI执行。26项作者攻击覆盖v2.9两项真实逃逸、六类传递依赖逐项与组合patch、旧core、reload、未授权root及result-only canonical，零逃逸；七项正控含registry预授权repin且全部通过。结论只覆盖普通module-global重绑、固定代码摘要、离线合成schema和已列攻击；直接closure-cell写入、同机任意代码执行及真实实践明确不在证明范围，仍须非作者复核。", class: LOCAL-VALIDATION, source_ids: [LOCAL, LOCAL-INPUT, LOCAL-ROOT, LOCAL-V29-PINS, LOCAL-V29-REMEDIATION, LOCAL-V29-NOTE, LOCAL-V29-REPRO, LOCAL-V30-REMEDIATION, LOCAL-V30-NOTE, LOCAL-V30-REPRO]}

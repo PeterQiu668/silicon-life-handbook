@@ -1,0 +1,27 @@
+chapter_id: C11
+title: "外部化工作记忆与长任务续作"
+status: content_candidate_only
+verified_on: "2026-10-01"
+self_approval: false
+claims:
+  - evidence_id: E-C11-001
+    claim: "OpenAI API 提供长对话 compaction 机制，但压缩对象不等同于本书的可审计检查点。"
+    class: DYNAMIC-OFFICIAL
+    sources:
+      - title: "OpenAI API Compaction"
+        url: "https://developers.openai.com/api/docs/guides/compaction"
+  - evidence_id: E-C11-002
+    claim: "Anthropic 将上下文视为有限资源，并讨论按需检索、compaction 与外部进度文件。"
+    class: OFFICIAL-GUIDANCE
+    sources:
+      - title: "Effective context engineering for AI agents"
+        url: "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+      - title: "Effective harnesses for long-running agents"
+        url: "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+  - evidence_id: E-C11-003
+    claim: "prompt caching 复用相同前缀的计算状态，不能替代业务记忆和持久任务状态。"
+    class: DYNAMIC-OFFICIAL
+    sources:
+      - title: "OpenAI API Prompt caching"
+        url: "https://developers.openai.com/api/docs/guides/prompt-caching"
+

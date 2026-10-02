@@ -1,0 +1,745 @@
+{
+  "attack_count": 69,
+  "attacks": [
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-001_RESULT_DICT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: authority_root: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-002_ROOT_DICT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: source: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-003_SOURCE_DICT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-004_ALL_DICT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-005_BYTEARRAY"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "retired-object-api",
+      "message": "AttributeError: module 'c23_v30_independent_final' has no attribute 'verify_result'",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-006_OLD_VERIFY_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "retired-object-api",
+      "message": "AttributeError: module 'c23_v30_independent_final' has no attribute '_ORIGINAL_JSON_LOADS'",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-007_OLD_PRIVATE_JSON_ALIAS"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "retired-object-api",
+      "message": "TypeError: evaluate() takes 2 positional arguments but 3 were given",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-008_EVALUATE_THREE_OBJECTS"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-009_DUP_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: duplicate object key case_version",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-010_DUP_SOURCE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: duplicate object key suite_id",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-011_DUP_ROOT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: trailing content forbidden",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-012_TRAILING_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: trailing content forbidden",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-013_TRAILING_ROOT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: trailing content forbidden",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-014_TRAILING_SOURCE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: non-finite constant forbidden: NaN",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-015_NAN_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: non-finite constant forbidden: Infinity",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-016_INFINITY_SOURCE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: non-finite constant forbidden: NaN",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-017_NAN_ROOT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-018_INVALID_UTF8"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-019_STRING_PATH_NOT_PATH"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-root",
+      "message": "ValueError: pin: concrete authorized pin_id required",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-020_EMPTY_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-root",
+      "message": "ValueError: pin: concrete authorized pin_id required",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-021_PENDING_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-root",
+      "message": "ValueError: pin: id is not present in the release-pinned authority registry",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-022_UNKNOWN_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-root",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-023_CURRENT_WITH_REPIN_ROOT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-root",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-024_REPIN_WITH_CURRENT_ROOT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-root",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-025_UNAUTHORIZED_SELF_CONSISTENT_TRIO"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "semantic-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-026_FORGED_FAIL_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "semantic-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-027_FORGED_RR_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-028_PATCH_CANONICAL"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-029_PATCH_DIGEST"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-030_PATCH_STRICT_PARSER"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-031_PATCH_AUTHORITY_VALIDATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: environment: offline invariant violated",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-032_PATCH_DOCUMENT_VALIDATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-033_PATCH_PUBLIC_EVALUATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-034_PATCH_PRIVATE_EVALUATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-035_PATCH_ROOT_PAYLOAD"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: root: closed-world keys mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-036_PATCH_EXACT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-037_PATCH_SHA"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-038_PATCH_VALIDATE_RECORD"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-039_PATCH_INDEX_RECORDS"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-040_PATCH_DT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: root: unsupported schema",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-041_PATCH_SCHEMA_CONSTANT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-042_PATCH_RESULT_SCHEMA"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-043_PATCH_PIN_READER"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-044_PATCH_PIN_DIGEST"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-045_PATCH_RETIRED_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-dict",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-046_INJECT_CAPTURED_PIN_NAME"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "shared-module",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-047_PATCH_JSON_DUMPS"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "shared-module",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-048_PATCH_HASHLIB_SHA256"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-049_PATCH_UNIQUE_PAIRS"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "shared-module",
+      "message": "ValueError: json: non-finite constant forbidden: Infinity",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-050_PATCH_MATH_ISFINITE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-051_PATCH_PATH_TYPE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "combined-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-052_CANONICAL_PLUS_ROOT_VALIDATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "combined-global",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-053_PARSER_PLUS_EVALUATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "combined-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-054_AUTHORITY_PLUS_DOCUMENT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "combined-global",
+      "message": "ValueError: root: closed-world keys mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-055_DIGEST_EXACT_SHA"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "combined-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-056_ALL_PUBLIC_SEMANTICS"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "alias-reflection",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-057_SAVED_CORE_AFTER_PUBLIC_REBIND"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "alias-reflection",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-058_GETATTR_ALIAS_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "alias-reflection",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-059_PARTIAL_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "alias-reflection",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-060_MODULE_DICT_CANONICAL_REBIND"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "import-reload",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-061_FRESH_IMPORT_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "import-reload",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-062_FRESH_IMPORT_UNAUTHORIZED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "signature-default",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-063_SIGNATURE_DEFAULT_REBIND"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-064_CLI_FORGED_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-065_CLI_DUPLICATE_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-066_CLI_UNAUTHORIZED_TRIO"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: CLI missing source rejected",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-067_CLI_MISSING_SOURCE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: RuntimeError: verifier: runner code digest differs from the trusted release",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-068_CLI_RUNNER_DIGEST"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: pin registry: release-pinned file digest mismatch",
+      "observed": "REJECT",
+      "secure": true,
+      "test_id": "I30-069_CLI_PIN_REGISTRY_DIGEST"
+    }
+  ],
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "boundary_accept_count": 2,
+  "boundary_demonstration_count": 2,
+  "boundary_demonstrations": [
+    {
+      "message": "",
+      "observed": "ACCEPTED",
+      "scope": "out_of_scope_arbitrary_same_process",
+      "test_id": "I30-B01_DIRECT_CANONICAL_CELL"
+    },
+    {
+      "message": "",
+      "observed": "ACCEPTED",
+      "scope": "out_of_scope_arbitrary_same_process",
+      "test_id": "I30-B02_DIRECT_EVALUATOR_CELL"
+    }
+  ],
+  "escape_count": 0,
+  "escape_ids": [],
+  "input_sha256": "dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55",
+  "limits": {
+    "chief_editor_rc": "NOT_AUTHORIZED",
+    "direct_closure_cell_mutation": "OUT_OF_SCOPE_DEMONSTRATED",
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_authorization_and_copyright_reviewed": false,
+    "real_case_executed": false,
+    "real_external_effect_executed": false,
+    "real_runtime_migration_executed": false
+  },
+  "pin_registry_sha256": "8eb8868ca19e716f333ea1f5a85241ccadd47682fd9a78db171ee28826cdd5ad",
+  "positive_control_count": 9,
+  "positive_control_pass_count": 9,
+  "positive_controls": [
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C01_RAW_TEXT"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C02_RAW_BYTES"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C03_RAW_PATH"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C04_FRESH_CLI"
+    },
+    {
+      "expected": "PASS",
+      "family": "authorized-repin",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C05_AUTHORIZED_REPIN_RAW"
+    },
+    {
+      "expected": "PASS",
+      "family": "authorized-repin",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C06_AUTHORIZED_REPIN_CLI"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C07_SAVED_ALIAS_LEGAL"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C08_FRESH_IMPORT_LEGAL"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "I30-C09_GLOBALS_BROKEN_LEGAL"
+    }
+  ],
+  "result_sha256": "f80c718b45d18aef880422167afbe221d8145c8a3ff08a2a8bdb7b2531434ebe",
+  "role": "non_author_final_reviewer",
+  "root_sha256": "fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2",
+  "runner_sha256": "bbc3de6cebd20e4ad97d1519b38f4449aaa38a6442e4c0a5d9e9d519190d6053",
+  "schema_version": "c23.v3.0-independent-final.v1",
+  "secure_attack_count": 69,
+  "suite_digest": "ccebffdc30d75934e84c7a8add09b6c51538c3dee84ccba1bcef8e0f48fb75dc",
+  "verifier_sha256": "9462aa1e6f68b90b9d2c7e1fd6ef413e020cae219553e274988eea5106741061"
+}

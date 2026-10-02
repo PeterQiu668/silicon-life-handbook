@@ -1,0 +1,216 @@
+{
+  "attack_count": 22,
+  "attacks": [
+    {
+      "actual": "FAIL",
+      "attack_id": "plan-stage-escalation",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "plan-max-trials-expansion",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "plan-max-cost-expansion",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "plan-candidate-permission-expansion",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "CANARY_PERMISSION_EXPANSION",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "plan-both-permission-expansion",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "plan-window-expansion",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "plan-environment-substitution",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH",
+        "ROLLOUT_PLAN_ENVIRONMENT_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "zero-trial-ledger",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "TRIAL_LEDGER_BELOW_MINIMUM"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "one-trial-deleted",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "TRIAL_LEDGER_BELOW_MINIMUM"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "trial-cost-resealed-locally",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "TRIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "trial-dataset-resealed-locally",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "TRIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "trial-terminal-missing",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "TRIAL_REGISTRY_BINDING_INVALID",
+        "TRIAL_TERMINAL_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-self-authorized",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "EFFECT_AUTHORITY_INVALID",
+        "EFFECT_READBACK_INVALID",
+        "EFFECT_RECEIPT_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-fake-evidence-refs",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "EFFECT_AUTHORITY_INVALID",
+        "EFFECT_READBACK_INVALID",
+        "EFFECT_RECEIPT_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "active-webhook-without-manifest",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTOMATION_MANIFEST_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "active-schedule-wrong-manifest",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTOMATION_MANIFEST_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "task-manifest-object-mismatch",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTOMATION_MANIFEST_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-layer-self-claim",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCENARIO_HOLDOUT_REF_EVIDENCE_MISMATCH",
+        "SCENARIO_LAYER_EVIDENCE_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-task-trial-unregistered",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCENARIO_TASK_ID_EVIDENCE_MISMATCH",
+        "SCENARIO_TRIAL_ID_EVIDENCE_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-security-imaginary",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCENARIO_SECURITY_SLICES_EVIDENCE_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-security-valid-but-unexecuted",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCENARIO_SECURITY_SLICES_EVIDENCE_MISMATCH"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "scenario-holdout-ref-only",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "root.scenarios[0] non-holdout scenario cannot claim holdout lineage"
+      ]
+    }
+  ],
+  "escaped_count": 0,
+  "passed_count": 22,
+  "schema_version": "c21.lifecycle.negative.v2.3",
+  "suite_digest": "sha256:9b9728a4f7b643a81a2c3687a3f36b1c40a5283374931058c1cb70051f9af348"
+}

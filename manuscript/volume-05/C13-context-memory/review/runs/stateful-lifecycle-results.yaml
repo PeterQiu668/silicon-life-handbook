@@ -1,0 +1,444 @@
+{
+  "schema_version": "c10-stateful-lifecycle-result.v1",
+  "experiment_id": "C10-X02-STATEFUL-SYNTHETIC-20260930",
+  "generated_at": "2026-09-30",
+  "input_sha256": "de0efb94c53044f4049bdfb98e41319f92330101c3600bbfad75c890ea81169a",
+  "scope": {
+    "synthetic_only": true,
+    "network": "not_used_by_runner",
+    "credentials": false,
+    "real_subject_data": false,
+    "real_runtime_or_provider": false,
+    "claim_boundary": "Executes an in-memory state machine for lifecycle controls; it does not prove deletion or restoration on a real platform or provider."
+  },
+  "summary": {
+    "scenarios": 9,
+    "decision_distribution": {
+      "FAIL": 4,
+      "PASS": 5
+    },
+    "success_controls_passed": true,
+    "unsafe_failure_injections_caught": true,
+    "synthetic_state_machine_control_gate": "PASS",
+    "full_real_platform_practice_gate": "REVIEW_REQUIRED",
+    "real_external_residuals_verified": false
+  },
+  "tombstones": {
+    "MEM-DELETE": {
+      "operation": "physical_delete",
+      "generation": 1,
+      "lineage_root": "MEM-DELETE"
+    }
+  },
+  "scenarios": [
+    {
+      "scenario_id": "S01",
+      "name": "compaction_gold_slot_fidelity",
+      "decision": "PASS",
+      "hard_failure": null,
+      "checks": {
+        "gold_slot_count": 7,
+        "diff": {},
+        "high_risk_action_allowed": true
+      }
+    },
+    {
+      "scenario_id": "S02",
+      "name": "compaction_failure_injection",
+      "decision": "FAIL",
+      "hard_failure": "compaction_constraint_loss",
+      "checks": {
+        "diff": {
+          "forbid_external_send": {
+            "expected": true,
+            "observed": false
+          },
+          "object_id": {
+            "expected": "OBJ-C10-0042",
+            "observed": "OBJ-C10-0420"
+          },
+          "approval_scope": {
+            "expected": "draft_only",
+            "observed": "external_send"
+          },
+          "approval_valid_until": {
+            "expected": "2026-09-30T18:00:00+08:00",
+            "observed": "2026-10-30T18:00:00+08:00"
+          },
+          "pending_items": {
+            "expected": [
+              "owner_review"
+            ],
+            "observed": []
+          }
+        },
+        "failed_summary_quarantined": true,
+        "high_risk_action_allowed": false
+      }
+    },
+    {
+      "scenario_id": "S03",
+      "name": "four_forgetting_semantics",
+      "decision": "PASS",
+      "hard_failure": null,
+      "checks": {
+        "suppress_retained_not_injected": true,
+        "expire_retained_not_current": true,
+        "superseded_old_not_current": true,
+        "superseding_new_current": true,
+        "queries": {
+          "MEM-SUPPRESS": {
+            "curated": {
+              "raw_present": true,
+              "usable_for_current_action": false
+            },
+            "index": {
+              "raw_present": true,
+              "usable_for_current_action": false
+            },
+            "session": {
+              "raw_present": false,
+              "usable_for_current_action": false
+            },
+            "summary": {
+              "raw_present": false,
+              "usable_for_current_action": false
+            }
+          },
+          "MEM-EXPIRE": {
+            "curated": {
+              "raw_present": true,
+              "usable_for_current_action": false
+            },
+            "index": {
+              "raw_present": true,
+              "usable_for_current_action": false
+            },
+            "session": {
+              "raw_present": false,
+              "usable_for_current_action": false
+            },
+            "summary": {
+              "raw_present": false,
+              "usable_for_current_action": false
+            }
+          },
+          "MEM-OLD": {
+            "curated": {
+              "raw_present": true,
+              "usable_for_current_action": false
+            },
+            "index": {
+              "raw_present": true,
+              "usable_for_current_action": false
+            },
+            "session": {
+              "raw_present": false,
+              "usable_for_current_action": false
+            },
+            "summary": {
+              "raw_present": true,
+              "usable_for_current_action": false
+            }
+          },
+          "MEM-NEW": {
+            "curated": {
+              "raw_present": true,
+              "usable_for_current_action": true
+            },
+            "index": {
+              "raw_present": true,
+              "usable_for_current_action": true
+            },
+            "session": {
+              "raw_present": false,
+              "usable_for_current_action": false
+            },
+            "summary": {
+              "raw_present": false,
+              "usable_for_current_action": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "scenario_id": "S04",
+      "name": "physical_delete_declared_scope",
+      "decision": "PASS",
+      "hard_failure": null,
+      "checks": {
+        "declared_scope_zero": true,
+        "receipts": [
+          {
+            "surface": "curated",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-EXPIRE",
+              "MEM-KEEP",
+              "MEM-NEW",
+              "MEM-OLD",
+              "MEM-SUPPRESS"
+            ]
+          },
+          {
+            "surface": "episodic",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-NEW",
+              "MEM-OLD"
+            ]
+          },
+          {
+            "surface": "index",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-EXPIRE",
+              "MEM-KEEP",
+              "MEM-NEW",
+              "MEM-OLD",
+              "MEM-SUPPRESS"
+            ]
+          },
+          {
+            "surface": "cache",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": []
+          },
+          {
+            "surface": "session",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-KEEP"
+            ]
+          },
+          {
+            "surface": "summary",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-OLD"
+            ]
+          }
+        ],
+        "residual_report": {
+          "artifact": true,
+          "export": true,
+          "backup": true
+        },
+        "residual_owner": "synthetic-data-owner",
+        "residual_deadline": "2026-10-07",
+        "claimed_total_deletion": false
+      }
+    },
+    {
+      "scenario_id": "S05",
+      "name": "backup_restore_with_tombstone_replay",
+      "decision": "PASS",
+      "hard_failure": null,
+      "checks": {
+        "tombstone_replayed": true,
+        "declared_scope_zero_after_restore": true,
+        "superseding_value_survives": true,
+        "superseded_value_not_current": true,
+        "replay_receipts": [
+          {
+            "surface": "curated",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-EXPIRE",
+              "MEM-KEEP",
+              "MEM-NEW",
+              "MEM-OLD",
+              "MEM-SUPPRESS"
+            ]
+          },
+          {
+            "surface": "episodic",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-NEW",
+              "MEM-OLD"
+            ]
+          },
+          {
+            "surface": "index",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-EXPIRE",
+              "MEM-KEEP",
+              "MEM-NEW",
+              "MEM-OLD",
+              "MEM-SUPPRESS"
+            ]
+          },
+          {
+            "surface": "cache",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": []
+          },
+          {
+            "surface": "session",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-KEEP"
+            ]
+          },
+          {
+            "surface": "summary",
+            "removed": [
+              "MEM-DELETE"
+            ],
+            "remaining": [
+              "MEM-OLD"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S06",
+      "name": "backup_restore_without_tombstone_failure_injection",
+      "decision": "FAIL",
+      "hard_failure": "restore_resurrection",
+      "checks": {
+        "tombstone_replayed": false,
+        "resurrected": true,
+        "restored_surfaces_with_target": [
+          "curated",
+          "episodic",
+          "index",
+          "cache",
+          "session",
+          "summary"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S07",
+      "name": "concurrent_write_fence_and_second_scan",
+      "decision": "PASS",
+      "hard_failure": null,
+      "checks": {
+        "delete_start_generation": 1,
+        "late_write_generation": 2,
+        "late_write_id": "MEM-DELETE-DERIVED",
+        "second_scan_executed": true,
+        "lineage_zero_after_second_scan": true,
+        "second_scan_receipts": [
+          {
+            "surface": "curated",
+            "removed": [],
+            "remaining": [
+              "MEM-EXPIRE",
+              "MEM-KEEP",
+              "MEM-NEW",
+              "MEM-OLD",
+              "MEM-SUPPRESS"
+            ]
+          },
+          {
+            "surface": "episodic",
+            "removed": [],
+            "remaining": [
+              "MEM-NEW",
+              "MEM-OLD"
+            ]
+          },
+          {
+            "surface": "index",
+            "removed": [
+              "MEM-DELETE-DERIVED"
+            ],
+            "remaining": [
+              "MEM-EXPIRE",
+              "MEM-KEEP",
+              "MEM-NEW",
+              "MEM-OLD",
+              "MEM-SUPPRESS"
+            ]
+          },
+          {
+            "surface": "cache",
+            "removed": [
+              "MEM-DELETE-DERIVED"
+            ],
+            "remaining": []
+          },
+          {
+            "surface": "session",
+            "removed": [],
+            "remaining": [
+              "MEM-KEEP"
+            ]
+          },
+          {
+            "surface": "summary",
+            "removed": [],
+            "remaining": [
+              "MEM-OLD"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S08",
+      "name": "concurrent_write_without_second_scan_failure_injection",
+      "decision": "FAIL",
+      "hard_failure": "concurrent_delete_escape",
+      "checks": {
+        "second_scan_executed": false,
+        "late_write_escaped": true,
+        "surfaces": [
+          "index",
+          "cache"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S09",
+      "name": "index_only_delete_failure_injection",
+      "decision": "FAIL",
+      "hard_failure": "deletion_overclaim",
+      "checks": {
+        "index_zero": true,
+        "remaining_declared_surfaces": [
+          "curated",
+          "episodic",
+          "cache",
+          "session",
+          "summary"
+        ],
+        "claimed_total_deletion_allowed": false
+      }
+    }
+  ],
+  "limitations": [
+    "All records, surfaces, operations, receipts, generations, backups, and outcomes are synthetic and in memory.",
+    "No real OpenClaw, Hermes, Muse, provider, vector store, filesystem backup, customer, or data subject was tested.",
+    "Reported artifact, export, and backup residuals are fixture state, not an external deletion attestation.",
+    "A synthetic control PASS does not prove physical erasure, legal compliance, or recovery safety on a real deployment."
+  ]
+}

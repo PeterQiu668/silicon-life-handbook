@@ -1,0 +1,209 @@
+schema_version: "3.0"
+book_id: silicon-life-training-handbook
+title: "训虾手册：硅基生命训练学"
+subtitle: "AI Agent 训练与人机协同最佳实践指南"
+edition: "2026.10-training-science-candidate"
+as_of: "2026-10-01"
+language: zh-CN
+status: formal_candidate
+publication_note: "卷零、九卷二十七章训练学内容候选稿正在完成结构升级；真实平台实践、课程与案例权利、法律审查、专业编校、版式和印前复核仍为REVIEW_REQUIRED。"
+
+architecture:
+  volumes: 9
+  volume_zero: true
+  chapters: 27
+  body_third_level_sections: 202
+  appendices: 9
+  reading_model: "稳定原理正文 + 可更新实现附录 + 人机双入口"
+  chapter_cjk_chars: 479008
+  chapter_cjk_median: 18689
+  figures_target: [40, 60]
+  figures: 50
+  artifacts: 78
+  core_artifact_templates_in_book: 20
+  exercises: 55
+  evidence_ledgers: 27
+
+baseline:
+  openclaw:
+    role: primary_open_implementation
+    implementation_baseline:
+      version: "2026.9.6"
+      release_tag: "v2026.9.6"
+      commit: "eb377ac59e6c9fd6c7705028034812becf00271b"
+      verified_on: "2026-10-01"
+    current_latest_snapshot:
+      version: "2026.9.7"
+      release_tag: "v2026.9.7"
+      commit: "c074824a27c96d3983043f9eeb33823cd1772d8c"
+      published_at: "2026-09-30T04:44:14Z"
+      verified_on: "2026-10-01"
+    migration_status: "not_adopted_as_book_implementation_baseline"
+  hermes:
+    role: second_open_implementation
+    version: "0.20.1"
+    release_tag: "v2026.8.13"
+    commit: "f80f453ae0679347e38abc917c7f94f717bf96c5"
+    verified_on: "2026-10-01"
+  muse:
+    role: managed_agent_product_case
+    evidence_status: VENDOR-CLAIM
+    public_launch_date: "2026-09-08"
+    small_business_announcement_date: "2026-09-29"
+    verified_on: "2026-10-01"
+  standards:
+    mcp:
+      protocol_version: "2026-07-28"
+      release_tag: "2026-07-28"
+      verified_on: "2026-10-01"
+    a2a:
+      release_version: "1.0.1"
+      release_tag: "v1.0.1"
+      commit: "3303592588e388e62e0f69f701af531d2f4e3991"
+      verified_on: "2026-10-01"
+      dynamic_latest_limitation: "latest documentation is not a reproducible release identity"
+    agent_skills:
+      snapshot_commit: "69ef37e9424c0a7ea9dd2293b559e43ec8176379"
+      snapshot_date: "2026-10-01"
+      release_status: "no official tag located; commit snapshot is the reproducible identity"
+    opentelemetry:
+      core_semconv_version: "1.44.0"
+      core_release_tag: "v1.44.0"
+      core_commit: "e10a930844c6951757a43b849d364f7d056ac32b"
+      genai_snapshot_commit: "b31e9e8ea26ac1c086d3313d474e31d7c3f391ae"
+      genai_maturity: Development
+      snapshot_date: "2026-10-01"
+
+canonical_entries:
+  human: "manuscript/99-complete-manuscript.md"
+  agent: "AGENT-ENTRY.md"
+  source_packages: "manuscript/"
+  sources: "SOURCES.md"
+  editorial_audit: "EDITORIAL-AUDIT.md"
+  quality_standard: "docs/editorial/BOOK-QUALITY-STANDARD.md"
+  production_dashboard: "docs/editorial/PRODUCTION-DASHBOARD.md"
+  final_publication_readiness: "docs/editorial/FINAL-PUBLICATION-READINESS-2026-10-01.md"
+  framework: "00-正式出版版-三级内容框架-v3.md"
+  chapter_id_migration: "docs/editorial/CHAPTER-ID-MIGRATION-2026-10.md"
+  manager_brief: "deliverables/管理者执行摘要分册.md"
+
+source_order:
+  frontmatter: "manuscript/00-frontmatter.md"
+  volume_zero:
+    - "part-I-getting-started/00-formal-volume-zero.md"
+  volumes:
+    - id: V01
+      title: "定义强者"
+      chapters: [C01, C02, C03]
+    - id: V02
+      title: "塑造个体"
+      chapters: [C04, C05, C06]
+    - id: V03
+      title: "建立训练科学"
+      chapters: [C07, C08, C09]
+    - id: V04
+      title: "掌握任务执行技法"
+      chapters: [C10, C11, C12]
+    - id: V05
+      title: "建设能力基础设施"
+      chapters: [C13, C14, C15]
+    - id: V06
+      title: "形成可控主动性"
+      chapters: [C16, C17, C18]
+    - id: V07
+      title: "组建硅基组织"
+      chapters: [C19, C20, C21]
+    - id: V08
+      title: "进入生产治理"
+      chapters: [C22, C23, C24]
+    - id: V09
+      title: "实战与认证"
+      chapters: [C25, C26, C27]
+  embedded_resources:
+    exercise_policy: "55 个练习全文装订入附录 A；其中 49 个来自 2026.9 版，6 个来自新增执行技法章。"
+    artifact_policy: "以下 20 件核心模板全文装订入附录 B；其余 58 件为在线配套资源并保留稳定 ID。"
+    core_artifacts:
+      - "A-C01-01"
+      - "A-C02-01"
+      - "A-C03-01"
+      - "A-C04-01"
+      - "A-C05-01"
+      - "A-C06-01"
+      - "A-C07-01"
+      - "A-C08-01"
+      - "A-C09-01"
+      - "A-C10-01"
+      - "A-C10-02"
+      - "A-C11-01"
+      - "A-C11-02"
+      - "A-C12-01"
+      - "A-C12-03"
+      - "A-C13-02"
+      - "A-C17-01"
+      - "A-C20-02"
+      - "A-C22-01"
+      - "A-C27-01"
+  appendices:
+    - "manuscript/appendices/A-human-trainer-toolbox.md"
+    - "manuscript/appendices/B-agent-machine-readable-toolbox.md"
+    - "manuscript/appendices/C-openclaw-architecture-atlas.md"
+    - "manuscript/appendices/D-hermes-second-implementation-migration.md"
+    - "manuscript/appendices/E-muse-managed-agent-product-lessons.md"
+    - "manuscript/appendices/F-open-standards-interoperability.md"
+    - "manuscript/appendices/G-evaluation-certification-baseline-library.md"
+    - "manuscript/appendices/H-security-operations-incident-handbook.md"
+    - "manuscript/appendices/I-terms-sources-rights-versioning.md"
+  backmatter: "manuscript/90-backmatter.md"
+  generated_complete_manuscript: "manuscript/99-complete-manuscript.md"
+
+controlled_frameworks:
+  maturity: "MAT-L0—MAT-L5"
+  autonomy: "AU-L0—AU-L4"
+  progressive_loading: "LOAD-L1—LOAD-L4"
+  security_defense: "SEC-L0—SEC-L8"
+  drift: "D20: capability, personality, document, tool, goal; memory/context cross-category"
+  completion: "D21: technical execution, delivery visibility, business/environment acceptance"
+  evaluation: "D22: training, regression, holdout, representative_real_world; security red-team cross-cutting"
+  verdicts: [PASS, FAIL, REVIEW_REQUIRED]
+  evidence_labels: [VERSION-FACT, OFFICIAL-GUIDANCE, LOCAL-VALIDATION, METHODOLOGY, PROJECT-DECISION, INFERENCE, VENDOR-CLAIM]
+
+quality_gates:
+  standard: "docs/editorial/BOOK-QUALITY-STANDARD.md"
+  score_floor: 90
+  score_target: 94
+  non_compensatory:
+    - evidence_integrity
+    - authorization_and_security
+    - rights_and_privacy
+    - structural_completeness
+  chapter_gates: [writing, fact, practice, cross, chief]
+  real_platform_rule: "合成夹具通过不能替代真实凭证、真实网络、真实权限与真实外部终态验证。"
+
+excluded_from_formal_manuscript:
+  items:
+    - "legacy chapter tree under chapters/"
+    - "part-I-getting-started/ 下除 00-formal-volume-zero.md 之外的历史草稿"
+    - "_appendix-* legacy reference layers"
+    - "editorial plans, review evidence and run fixtures"
+    - "backup, archive and rebuild notes"
+    - "00-训虾手册-出版主稿.md"
+  reason: "这些材料保留作历史、研究、复现或编辑证据；正式范围由本清单定义的卷零、九卷、附录与结语构成。"
+
+build:
+  command: "python3 scripts/build-formal-book.py"
+  check_command: "python3 scripts/build-formal-book.py --check"
+  validator: "python3 scripts/validate-book.py"
+  formal_validator: "python3 scripts/validate-formal-manuscript.py --strict"
+  rule: "修改源章节或附录，不直接编辑生成文件。"
+  generated_manuscript:
+    lines: 27421
+    bytes: 2463254
+    sha256: "355a3a9e91d7027316bfbf6666b675e01f9782158d028357f80156c7a5602fe1"
+  verified_on: "2026-10-01"
+  verification_status: PASS
+
+license:
+  upstream_projects: "各自服从其许可与商标规则"
+  handbook: "TBD by author and publisher"
+  rights_gate: REVIEW_REQUIRED
+  note: "正式出版前须完成课程材料、案例、截图、商标、代码片段、原创文本和配套模板的版权与授权复核。"

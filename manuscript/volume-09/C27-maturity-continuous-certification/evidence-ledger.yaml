@@ -1,0 +1,118 @@
+chapter_id: C27
+title: "成熟度、毕业、晋级与持续认证"
+status: drafting
+verified_on: "2026-10-01"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md", title: "framework v2"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "C27 chapter card"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality standard"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terminology"}
+  DECISIONS: {path: "../../../docs/DECISIONS.md", title: "decisions", usage: background_reference_only, supports_current_claims: false}
+  PREFLIGHT: {path: "../../../docs/research/C27-maturity-certification-preflight.md", title: "C27 preflight"}
+  C03: {path: "../../volume-01/C03-strength-standard/chapter.md", title: "C03 strength"}
+  C07: {path: "../../volume-03/C07-evaluation-system/chapter.md", title: "C07 evaluation"}
+  C08: {path: "../../volume-03/C08-training-system/chapter.md", title: "C08 training", usage: background_reference_only, supports_current_claims: false}
+  C17: {path: "../../volume-06/C17-autonomy-authorization/chapter.md", title: "C17 authorization"}
+  C18: {path: "../../volume-06/C18-drift-improvement-governance/chapter.md", title: "C18 drift"}
+  C22: {path: "../../volume-08/C22-security-trust-boundary/chapter.md", title: "C22 security"}
+  C23: {path: "../../volume-08/C23-observability-cost-reliability/chapter.md", title: "C23 reliability"}
+  C24: {path: "../../volume-08/C24-governance-release-lifecycle/chapter.md", title: "C24 lifecycle"}
+  C25: {path: "../C25-thirty-day-training-camp/chapter.md", title: "C25 camp"}
+  C26: {path: "../C26-case-evidence-lab/chapter.md", title: "C26 cases"}
+  NIST-RMF: {url: "https://www.nist.gov/itl/ai-risk-management-framework", title: "NIST AI RMF"}
+  NIST-GENAI: {url: "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence", title: "NIST GenAI Profile", usage: background_reference_only, supports_current_claims: false}
+  NIST-CHEAT: {url: "https://www.nist.gov/caisi/cheating-ai-agent-evaluations", title: "NIST evaluation cheating"}
+  NIST-ID: {url: "https://www.nccoe.nist.gov/sites/default/files/2026-02/accelerating-the-adoption-of-software-and-ai-agent-identity-and-authorization-concept-paper.pdf", title: "NIST agent identity concept"}
+  OWASP: {url: "https://genai.owasp.org/download/52117/", title: "OWASP Agentic Top 10"}
+  ANT-EVAL: {url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents", title: "Anthropic agent evals"}
+  OAI-EVAL: {url: "https://developers.openai.com/api/docs/guides/evaluation-best-practices", title: "OpenAI evaluation best practices"}
+  OC: {url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6", title: "OpenClaw v2026.9.6"}
+  HE: {url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13", title: "Hermes v2026.8.13"}
+  MUSE: {url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", title: "Meta Muse"}
+  LOCAL-IN: {path: "review/runs/synthetic-certification-input.yaml", title: "synthetic input"}
+  LOCAL-OUT: {path: "review/runs/synthetic-certification-results.yaml", title: "synthetic results"}
+  LOCAL-AUTH: {path: "review/runs/frozen-certification-authority.yaml", title: "pinned synthetic authority root"}
+  LOCAL-NEG: {path: "review/runs/certification-negative-regression-results.yaml", title: "v2.1 negative regression"}
+  LOCAL-REPRO: {path: "review/runs/v2.1-fresh-temp-reproduction.yaml", title: "v2.1 fresh-temp reproduction"}
+  LOCAL-REM: {path: "review/v2.1-stateful-remediation.md", title: "v2.1 remediation record"}
+  LOCAL-V22: {path: "review/v2.2-stateful-remediation.md", title: "v2.2 event-clock and conflict-graph remediation"}
+  LOCAL-V22-REG: {path: "review/runs/v2.2-remediation-regression-results.yaml", title: "v2.2 double fresh-temp semantic and black-box regression"}
+  LOCAL-V23: {path: "review/v2.3-stateful-remediation.md", title: "v2.3 continuous evidence, post-change lineage and result integrity remediation", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V23-REG: {path: "review/runs/v2.3-final-remediation-regression-results.yaml", title: "v2.3 independent 25 replay and 20 near-neighbour regressions", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V23-REPRO: {path: "review/runs/v2.3-fresh-temp-reproduction.yaml", title: "v2.3 double fresh-temp reproduction", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V24: {path: "review/v2.4-stateful-remediation.md", title: "v2.4 certificate window, recertification lineage, independent measurement and replay remediation", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V24-REG: {path: "review/runs/v2.4-remediation-regression-results.yaml", title: "v2.4 29-test author regression and legal recertification control", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V24-REPLAY: {path: "review/runs/v2.4-replay-independent-21.yaml", title: "v2.4 replay of latest 21 independent attacks", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V24-REPRO: {path: "review/runs/v2.4-fresh-temp-reproduction.yaml", title: "v2.4 double fresh-temp reproduction", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V25: {path: "review/v2.5-stateful-remediation.md", title: "v2.5 causal authority D22 and result-source remediation", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V25-REG: {path: "review/runs/v2.5-remediation-regression-results.yaml", title: "v2.5 37-test author regression and three legal controls", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V25-REPRO: {path: "review/runs/v2.5-fresh-temp-reproduction.yaml", title: "v2.5 double fresh-temp reproduction", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V25-INDEPENDENT: {path: "review/v2.5-independent-final-fact-cross-review.md", title: "v2.5 independent final review identifying causal, principal-root and verifier gaps", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V26: {path: "review/v2.6-stateful-remediation.md", title: "v2.6 causal DAG, rooted principal and mandatory replay remediation"}
+  LOCAL-V26-REG: {path: "review/runs/v2.6-remediation-regression-results.yaml", title: "v2.6 43-test author regression and four legal controls", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V26-REPRO: {path: "review/runs/v2.6-fresh-temp-reproduction.yaml", title: "v2.6 double fresh-temp reproduction and historical replay ledger", usage: historical_trace_only, supports_current_claims: false}
+  LOCAL-V27: {path: "review/v2.7-positive-control-remediation.md", title: "legal renewal and material-change recertification positive-control remediation"}
+  LOCAL-V27-CONTRACTS: {path: "review/runs/v2.7-positive-control-contracts.yaml", title: "two preregistered closed-world positive-control contracts"}
+  LOCAL-V27-REG: {path: "review/runs/v2.7-positive-control-regression-results.yaml", title: "20 near-neighbour attacks and two complete legal positive controls"}
+  LOCAL-V27-REPRO: {path: "review/runs/v2.7-fresh-temp-reproduction.yaml", title: "double fresh-temp positive-control and preserved-regression reproduction"}
+  LEGACY-L1: {path: "../../../../openclaw-silicon-life-handbook/volume-04/模块1-从入门到业内最佳实践的进化阶梯.md", title: "legacy evolution ladder"}
+  LEGACY-L7: {path: "../../../../openclaw-silicon-life-handbook/volume-04/模块7-从新人虾到专家虾的完整路径.md", title: "legacy training path"}
+claims:
+  - {evidence_id: E-C27-001, claim: "证书必须绑定主体、范围、版本、任务、资源、风险、环境、期限与排除项。", class: METHODOLOGY, source_ids: [PREFLIGHT, NIST-RMF]}
+  - {evidence_id: E-C27-002, claim: "graduation、MAT、AU、authorization、certification互不替代。", class: PROJECT-DECISION, source_ids: [PREFLIGHT, C17, C25]}
+  - {evidence_id: E-C27-003, claim: "MAT不生成权限或具体authorization。", class: PROJECT-DECISION, source_ids: [C17, NIST-ID]}
+  - {evidence_id: E-C27-004, claim: "C24定义成熟度与持续认证程序。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C27-005, claim: "C24不颁发真实法定或外部证书。", class: SOURCE-BOUNDARY, source_ids: [PREFLIGHT, QUALITY]}
+  - {evidence_id: E-C27-006, claim: "无边界L4主张不可认证。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C27-007, claim: "MAT-L0至L5是本书方法论而非外部官方标准。", class: SOURCE-BOUNDARY, source_ids: [BOOK, PREFLIGHT]}
+  - {evidence_id: E-C27-008, claim: "MAT使用C03七维剖面且不增加第八维。", class: PROJECT-DECISION, source_ids: [C03, PREFLIGHT]}
+  - {evidence_id: E-C27-009, claim: "等级由最弱必要门限制且安全非补偿。", class: METHODOLOGY, source_ids: [QUALITY, C22]}
+  - {evidence_id: E-C27-010, claim: "MAT-L1要求窄域可重复和人工监督。", class: METHODOLOGY, source_ids: [C03, PREFLIGHT]}
+  - {evidence_id: E-C27-011, claim: "MAT-L2要求岗位闭环、TEV、留出和成本。", class: METHODOLOGY, source_ids: [C03, C07]}
+  - {evidence_id: E-C27-012, claim: "MAT-L3要求受控自主、撤销恢复和治理证据。", class: METHODOLOGY, source_ids: [C17, C22, C23]}
+  - {evidence_id: E-C27-013, claim: "MAT-L4要求真实协作、交接和故障隔离。", class: METHODOLOGY, source_ids: [C03, PREFLIGHT]}
+  - {evidence_id: E-C27-014, claim: "MAT-L5要求跨周期组织治理与持续认证。", class: METHODOLOGY, source_ids: [C24, PREFLIGHT]}
+  - {evidence_id: E-C27-015, claim: "个体认证profile需完整绑定范围字段。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C27-016, claim: "签名需绑定关键字段但不证明内容正确。", class: METHODOLOGY, source_ids: [C22, C26]}
+  - {evidence_id: E-C27-017, claim: "个体认证需要能力、安全、稳定、效率和治理五类证据。", class: METHODOLOGY, source_ids: [C07, C22, C23, C24]}
+  - {evidence_id: E-C27-018, claim: "不同grader回答不同问题且需校准。", class: OFFICIAL-GUIDANCE, source_ids: [ANT-EVAL, OAI-EVAL, C07]}
+  - {evidence_id: E-C27-019, claim: "允许的认证结论必须范围化并列限制。", class: METHODOLOGY, source_ids: [PREFLIGHT, QUALITY]}
+  - {evidence_id: E-C27-020, claim: "CASE-A只申请限定研究岗位MAT-L2。", class: METHODOLOGY, source_ids: [C26, PREFLIGHT]}
+  - {evidence_id: E-C27-021, claim: "组织认证对象含roster、责任、状态、并发和control plane。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C27-022, claim: "成员分数不得平均为组织证书。", class: METHODOLOGY, source_ids: [PREFLIGHT, C26]}
+  - {evidence_id: E-C27-023, claim: "组织协作门需要路由、双ACK、并发、权限衰减和终态。", class: METHODOLOGY, source_ids: [PREFLIGHT, C22]}
+  - {evidence_id: E-C27-024, claim: "CASE-C真实组织证据不足时保持provisional。", class: PROJECT-STATE, source_ids: [C26, PREFLIGHT]}
+  - {evidence_id: E-C27-025, claim: "六类证据互补且不可互相冒充。", class: METHODOLOGY, source_ids: [NIST-RMF, ANT-EVAL, PREFLIGHT]}
+  - {evidence_id: E-C27-026, claim: "证据冲突按终态和硬门处理而非投票。", class: METHODOLOGY, source_ids: [C07, C23]}
+  - {evidence_id: E-C27-027, claim: "D22四层且security横切，holdout需隔离。", class: PROJECT-DECISION, source_ids: [C07, NIST-CHEAT]}
+  - {evidence_id: E-C27-028, claim: "污染、最佳样本、失败隐藏和分母操纵破坏认证。", class: OFFICIAL-GUIDANCE, source_ids: [NIST-CHEAT, C26]}
+  - {evidence_id: E-C27-029, claim: "认证报告需完整分布、统计边界和全成本。", class: METHODOLOGY, source_ids: [C07, C23]}
+  - {evidence_id: E-C27-030, claim: "CASE-B申请MAT-L3需主动性授权和恢复证据。", class: METHODOLOGY, source_ids: [C17, C26]}
+  - {evidence_id: E-C27-031, claim: "三态裁决与五态证书生命周期不得混写。", class: PROJECT-DECISION, source_ids: [PREFLIGHT, TERMS]}
+  - {evidence_id: E-C27-032, claim: "有效期随风险和变化速度确定，重大变化触发复审。", class: METHODOLOGY, source_ids: [NIST-RMF, C18, C24]}
+  - {evidence_id: E-C27-033, claim: "高严重性事件先暂停，局部重测需证明隔离。", class: METHODOLOGY, source_ids: [C22, C23, C24]}
+  - {evidence_id: E-C27-034, claim: "撤证需通知、下架、联动权限并保留历史。", class: METHODOLOGY, source_ids: [PREFLIGHT, C24]}
+  - {evidence_id: E-C27-035, claim: "认证采用申请至持续监控十步程序。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C27-036, claim: "作者不能批准自身认证，高风险需要多专业独立评审。", class: METHODOLOGY, source_ids: [NIST-RMF, PREFLIGHT]}
+  - {evidence_id: E-C27-037, claim: "申诉由独立者处理且不能降低硬门。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C27-038, claim: "签名hash与时间线需核验，签名有效不证明事实正确。", class: METHODOLOGY, source_ids: [C22, C26]}
+  - {evidence_id: E-C27-039, claim: "生产反馈不会让Agent自我续证。", class: PROJECT-DECISION, source_ids: [C18, C24]}
+  - {evidence_id: E-C27-040, claim: "OpenClaw认证绑定固定v2026.9.6及本地证据。", class: VERSION-FACT, source_ids: [OC]}
+  - {evidence_id: E-C27-041, claim: "Hermes固定版需独立举证且不继承OpenClaw结果。", class: VERSION-FACT, source_ids: [HE]}
+  - {evidence_id: E-C27-042, claim: "Muse不可观测内部维度为UNKNOWN或VENDOR-CLAIM。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C27-043, claim: "执照与继续教育隐喻映射范围认证与再认证。", class: METAPHOR-BOUNDARY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C27-044, claim: "仿生隐喻不赋予Agent职业人格或自然晋级权。", class: METAPHOR-BOUNDARY, source_ids: [QUALITY, PREFLIGHT]}
+  - {evidence_id: E-C27-045, claim: "两练习覆盖重大变更、伪造、偏差、申诉和撤证。", class: DELIVERABLE, source_ids: [CARD, PREFLIGHT]}
+  - {evidence_id: E-C27-046, claim: "C24恰好交付三件母产物。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C27-047, claim: "核心失败模式不得由总分抵消。", class: METHODOLOGY, source_ids: [QUALITY, OWASP]}
+  - {evidence_id: E-C27-048, claim: "当前离线harness含60个完整raw-state场景，分布为6 PASS/52 FAIL/2 REVIEW_REQUIRED；正式输入无mutation/case/expected；离线真实层、真实证书与外部effect尝试均由状态动态计数并按三态合同处理。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT, LOCAL-V27-REPRO]}
+  - {evidence_id: E-C27-049, claim: "初版与v4等级材料仅作历史审查，规范权归当前MAT/AU/认证合同。", class: SOURCE-BOUNDARY, source_ids: [LEGACY-L1, LEGACY-L7, PREFLIGHT]}
+  - {evidence_id: E-C27-050, claim: "v2.1以冻结authority root和可信时钟约束完整状态；七项已知fail-open与作者25项负向回归关闭，历史记录保持可追溯。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-NEG, LOCAL-REPRO, LOCAL-REM]}
+  - {evidence_id: E-C27-051, claim: "v2.2按证书签发时点和各事件时点验证依赖，使用canonical principal职责冲突图和共同有效窗口；重大变化后自动暂停重测，外部effect UNKNOWN/PENDING至少RR，离线确认成功硬FAIL；双fresh-temp关闭18项semantic escape并保留合法PASS近邻。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT, LOCAL-AUTH, LOCAL-V22, LOCAL-V22-REG]}
+  - {evidence_id: E-C27-052, claim: "当前离线控制以冻结事件DAG、冻结canonical principal投影和强制source+authority重放约束结果。新增合法续证与重大变化后三层再认证两个完整正控后，固定60项为6 PASS/52 FAIL/2 REVIEW_REQUIRED；20项正控近邻攻击全部拒绝、2个完整正控均PASS，完整result replay通过；既有46项独立组合攻击和43项作者攻击原样回放仍全部非PASS。该证据只支持列明的离线合成控制，等待新的非作者复核，不外推真实Runtime或未枚举攻击。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT, LOCAL-AUTH, LOCAL-V26, LOCAL-V27, LOCAL-V27-CONTRACTS, LOCAL-V27-REG, LOCAL-V27-REPRO]}
+open_questions:
+  - {id: OQ-C27-01, question: "何时由具真实authority与独立性的机构运行首个认证？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C27-02, question: "上游章节独立门关闭后如何联合再验证？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C27-03, question: "真实组织、法域和高风险领域专家要求？", disposition: REVIEW_REQUIRED}

@@ -1,0 +1,298 @@
+{
+  "all_secure_contracts_passed": true,
+  "authority_root_file_sha256": "fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2",
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 0,
+  "input_sha256": "dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55",
+  "runner_sha256": "8d72a27cde1051eb620b96c8854ae539b0e9a6ef1a976e0aa17c860885ec3cf9",
+  "schema_version": "c23.v2.3.independent-adjacent-attacks.v1",
+  "secure_contract_passed_count": 19,
+  "suite_digest": "1a29b90739bbfd38c8b54e3961dce207824c520dbd16e4f646e0ba905c38d016",
+  "test_count": 19,
+  "tests": [
+    {
+      "actual": "REJECT",
+      "decision_digest": null,
+      "layer": "authorized_repin_semantics",
+      "message": "scenarios: incomplete exact d21_registry projection",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J01_UNPROJECTED_FAILED_D21"
+    },
+    {
+      "actual": "REJECT",
+      "decision_digest": null,
+      "layer": "authorized_repin_semantics",
+      "message": "scenarios: incomplete exact author_assignment_registry projection",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J02_REVIEWER_HAS_SECOND_ACTIVE_AUTHOR_ASSIGNMENT"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "dc7914163eeed7d5e8f2bcfe929906e726da1e64db0a834ee616b33c860629b2",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "EVIDENCE_OUTSIDE_AUTHORIZATION_ASSIGNMENT_WINDOW"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J03_AUTHOR_ASSIGNMENT_STARTS_AFTER_PUBLICATION"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "657e57dd5abcebff1c61748e8bae580063f647eb9f2ca7462bd3ff594339df99",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "D21_PRECEDES_TRIAL_FAILURE_OR_EFFECT",
+        "EVIDENCE_AFTER_EVALUATION",
+        "REVIEW_PRECEDES_EVIDENCE"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "J04_TRIAL_RECORDED_AFTER_EVALUATION"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "ee3d76f732fcfcfaeed89e2518a1a2230d6f0293d4c0055500e88ec7e6655881",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "EVIDENCE_OUTSIDE_AUTHORIZATION_ASSIGNMENT_WINDOW"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "J05_TRIAL_RECORDED_BEFORE_AUTHORIZATION"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "631112466dee54ebed73224c6d0b9e033716d8491d6a183b58685205bd08924a",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "PUBLICATION_PRECEDES_FAILURE_LOG",
+        "REVIEW_PRECEDES_EVIDENCE",
+        "REVIEW_PRECEDES_FAILURE_LOG"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "J06_PUBLICATION_AND_REVIEW_PRECEDE_TRIALS"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "5d283dcf69ef11bf21afaeea9d4edbc18744ee68fb05b3bab4b7642f13a73b45",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "RUN_DISTRIBUTION_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J07_PASS_TRIAL_POINTS_TO_ACTIVE_FAILURE"
+    },
+    {
+      "actual": "REJECT",
+      "decision_digest": null,
+      "layer": "authorized_repin_semantics",
+      "message": "failure_registry.FAILURE.S01.02: closed-world keys mismatch",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J08_TWO_FAILURES_SHARE_ONE_FAILURE_LOG"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "c312f3c6f3939ca5c96ac2f62913d97bb1abae32b3424fdf0e6e2505002246d9",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "RUN_DISTRIBUTION_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J09_UNLINKED_EXTRA_FAILURE_LOG"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "07ecd435056d1c30747dbadc764d454305ea0e67c15e490a84fbbca3aaf26aed",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "EFFECT_EXTERNAL_DERIVATION_MISMATCH",
+        "OFFLINE_EXTERNAL_EFFECT"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J10_EXTERNAL_WRITE_WITH_EXTERNAL_FALSE"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "89ddce956e2571ba6401e1d28f56697682f20f8157ee54249cb9383f5cd9055d",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "D21_EVIDENCE_SCHEMA_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "J11_D21_PASS_WITH_CONTRADICTORY_TECHNICAL_PAYLOAD"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "c8a862926225c38889ebea7ec70501ba9e7530945e720d615491024744091d93",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "MIGRATION_ADAPTER_CLASSIFICATION_INVALID",
+        "MIGRATION_ADAPTER_DIFFERENCE_REVIEW"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J12_NONCRITICAL_CATEGORY_WITH_AUTHORITY_CONTRACT"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "e767791c5669a7a370c43455424d627f74705e716f35547b9fb9b30614c7064a",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "MIGRATION_ADAPTER_CLASSIFICATION_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J13_NONCRITICAL_CATEGORY_ACCEPTS_SECURITY_CONTRACT"
+    },
+    {
+      "actual": "FAIL",
+      "decision_digest": "c78f46fb5bb0ff14de7f879c24b2d37c58f014cdbbb5a1daa53694cb0dde79ab",
+      "layer": "authorized_repin_semantics",
+      "message": "",
+      "reasons": [
+        "MIGRATION_ADAPTER_CLASSIFICATION_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "J14_MESSAGE_CATEGORY_ACCEPTS_D21_TERMINAL_CONTRACT"
+    },
+    {
+      "actual": "DIGEST_CHANGED",
+      "decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+      "layer": "exported_result_integrity",
+      "message": "",
+      "reasons": [],
+      "recomputed_digest": "b5f12ad3cd3be49473a50ee1dd16e5fa7903484931d267c8a98c2692bdc5ab1c",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "DIGEST_CHANGED"
+      ],
+      "test_id": "J15_RESULT_SCENARIO_IDENTITY_TAMPER"
+    },
+    {
+      "actual": "DIGEST_CHANGED",
+      "decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+      "layer": "exported_result_integrity",
+      "message": "",
+      "reasons": [],
+      "recomputed_digest": "b5f12ad3cd3be49473a50ee1dd16e5fa7903484931d267c8a98c2692bdc5ab1c",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "DIGEST_CHANGED"
+      ],
+      "test_id": "J16_RESULT_DISTRIBUTION_TAMPER"
+    },
+    {
+      "actual": "DIGEST_CHANGED",
+      "decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+      "layer": "exported_result_integrity",
+      "message": "",
+      "reasons": [],
+      "recomputed_digest": "b5f12ad3cd3be49473a50ee1dd16e5fa7903484931d267c8a98c2692bdc5ab1c",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "DIGEST_CHANGED"
+      ],
+      "test_id": "J17_RESULT_TRIAL_COUNT_TAMPER"
+    },
+    {
+      "actual": "DIGEST_CHANGED",
+      "decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+      "layer": "exported_result_integrity",
+      "message": "",
+      "reasons": [],
+      "recomputed_digest": "b5f12ad3cd3be49473a50ee1dd16e5fa7903484931d267c8a98c2692bdc5ab1c",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "DIGEST_CHANGED"
+      ],
+      "test_id": "J18_RESULT_ACCEPTED_REAL_COUNT_TAMPER"
+    },
+    {
+      "actual": "DIGEST_CHANGED",
+      "decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+      "layer": "exported_result_integrity",
+      "message": "",
+      "reasons": [],
+      "recomputed_digest": "b5f12ad3cd3be49473a50ee1dd16e5fa7903484931d267c8a98c2692bdc5ab1c",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "DIGEST_CHANGED"
+      ],
+      "test_id": "J19_RESULT_EXTERNAL_EFFECT_COUNT_TAMPER"
+    }
+  ]
+}

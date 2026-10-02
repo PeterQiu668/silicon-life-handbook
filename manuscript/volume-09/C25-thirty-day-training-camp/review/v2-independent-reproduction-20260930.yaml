@@ -1,0 +1,32 @@
+review_id: C22-v2-independent-reproduction-20260930
+reviewer_role: non_author_fact_cross_reviewer
+verified_on: "2026-09-30"
+author_v2_baseline:
+  trial_count: 20
+  distribution: {PASS: 3, FAIL: 11, REVIEW_REQUIRED: 6}
+  author_negative_controls_passed: 50
+  author_negative_controls_escaped: 0
+  representative_real_world_count: 0
+  external_side_effect_count: 0
+  decision_digest: 17ee58e076e2ea80177d73e787874aa60b73f305f89f0a20685f62e2a3c444a2
+independent_attacks:
+  - {id: day_wrong_subject_camp_and_refs, expected: FAIL, actual: PASS}
+  - {id: day_stopped_but_graduates, expected: FAIL, actual: PASS}
+  - {id: all_days_training_no_regression_or_holdout, expected: FAIL, actual: PASS}
+  - {id: cost_ledger_only_one_category, expected: FAIL, actual: PASS}
+  - {id: future_stop_receipt, expected: FAIL, actual: PASS}
+  - {id: future_stop_readback, expected: FAIL, actual: PASS}
+  - {id: unregistered_stop_issuer_and_observer, expected: FAIL, actual: PASS}
+  - {id: restore_fake_backup_and_checkpoint_refs, expected: FAIL, actual: PASS}
+  - {id: future_eval_baseline_and_dataset, expected: FAIL, actual: PASS}
+  - {id: short_unbound_day_evidence_digest, expected: FAIL, actual: PASS}
+summary:
+  attack_count: 10
+  matched_count: 0
+  fail_open_count: 10
+  all_expected_matched: false
+gate:
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED
+  p0_open: [P0-C22-v2.1-01, P0-C22-v2.1-02, P0-C22-v2.1-03, P0-C22-v2.1-04]

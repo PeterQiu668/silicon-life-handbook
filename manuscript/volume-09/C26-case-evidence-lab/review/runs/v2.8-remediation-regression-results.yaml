@@ -1,0 +1,275 @@
+{
+  "attack_count": 20,
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 0,
+  "escape_ids": [],
+  "positive_control_count": 5,
+  "positive_control_pass_count": 5,
+  "positive_controls": [
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V28-C01_PERSISTED_STRONG_VERIFY"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V28-C02_ALIAS_STRONG_VERIFY"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V28-C03_PARTIAL_WITH_SOURCE_ROOT"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V28-C04_DETERMINISTIC_REPLAY"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V28-C05_CLI_STRONG_VERIFY"
+    }
+  ],
+  "schema_version": "c23.v2.8.author-remediation-regression.v1",
+  "secure_attack_count": 20,
+  "suite_digest": "3df0d863eb6e7568e2b9110f881bc05e486efcb08d4d02f46692fb85a09f46f8",
+  "tests": [
+    {
+      "escape": false,
+      "family": "module-entrypoint-bypass",
+      "message": "AttributeError: module 'c23_v28_runner' has no attribute '_verify_result_envelope'",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-U01_DIRECT_OLD_ENVELOPE_FAIL_TO_PASS"
+    },
+    {
+      "escape": false,
+      "family": "module-entrypoint-bypass",
+      "message": "AttributeError: module 'c23_v28_runner' has no attribute '_verify_result_envelope'",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-U02_DIRECT_OLD_ENVELOPE_RR_TO_PASS"
+    },
+    {
+      "escape": false,
+      "family": "reflection-bypass",
+      "message": "AttributeError: no importable result acceptance callable binds result+root without source",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-03_REFLECTION_LOW_ARITY_FAIL"
+    },
+    {
+      "escape": false,
+      "family": "reflection-bypass",
+      "message": "AttributeError: no importable result acceptance callable binds result+root without source",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-04_REFLECTION_LOW_ARITY_RR"
+    },
+    {
+      "escape": false,
+      "family": "alias-bypass",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-05_ALIAS_FAIL_TO_PASS"
+    },
+    {
+      "escape": false,
+      "family": "alias-bypass",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-06_MODULE_DICT_ALIAS_RR_TO_PASS"
+    },
+    {
+      "escape": false,
+      "family": "partial-argument-bypass",
+      "message": "TypeError: verify_result() missing 1 required positional argument: 'source'",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-07_PARTIAL_MISSING_SOURCE"
+    },
+    {
+      "escape": false,
+      "family": "partial-argument-bypass",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-08_PARTIAL_COMPLETE_BUT_FORGED"
+    },
+    {
+      "escape": false,
+      "family": "argument-bypass",
+      "message": "TypeError: verify_result() missing 1 required positional argument: 'source'",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-09_POSITIONAL_SOURCE_OMITTED"
+    },
+    {
+      "escape": false,
+      "family": "argument-bypass",
+      "message": "ValueError: result verification requires source",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-10_SOURCE_NONE"
+    },
+    {
+      "escape": false,
+      "family": "argument-bypass",
+      "message": "ValueError: result verification requires authority_root",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-11_ROOT_NONE"
+    },
+    {
+      "escape": false,
+      "family": "argument-bypass",
+      "message": "ValueError: authority_root: closed-world keys mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-12_ROOT_SOURCE_SWAPPED"
+    },
+    {
+      "escape": false,
+      "family": "coherent-result-rewrite",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-13_FAIL_REASON_AND_DIGEST_REWRITE"
+    },
+    {
+      "escape": false,
+      "family": "coherent-result-rewrite",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-14_PASS_COUNT_AND_DIGEST_REWRITE"
+    },
+    {
+      "escape": false,
+      "family": "cross-case",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-15_CROSS_CASE_RESULT_TRANSPLANT"
+    },
+    {
+      "escape": false,
+      "family": "cross-case",
+      "message": "ValueError: scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-16_CROSS_CASE_SOURCE_TRANSPLANT"
+    },
+    {
+      "escape": false,
+      "family": "source-root-binding",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-17_SOURCE_RESEALED_ROOT_STALE"
+    },
+    {
+      "escape": false,
+      "family": "parser-boundary",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-18_RESULT_DUPLICATE_KEY"
+    },
+    {
+      "escape": false,
+      "family": "cli-semantic-replay",
+      "message": "ValueError: ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-19_CLI_FAIL_TO_PASS"
+    },
+    {
+      "escape": false,
+      "family": "partial-argument-bypass",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V28-20_KEYWORD_PARTIAL_RR_TO_PASS"
+    }
+  ]
+}

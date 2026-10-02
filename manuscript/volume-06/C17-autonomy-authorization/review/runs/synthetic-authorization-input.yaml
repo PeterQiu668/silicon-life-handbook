@@ -1,0 +1,76 @@
+{
+  "schema_version": "c14-auth-fixture.v3",
+  "frozen_clock": "2026-09-30T10:00:00+08:00",
+  "environment": "offline-synthetic",
+  "data_origin": "synthetic",
+  "representative_real_world_executed": false,
+  "external_side_effects_allowed": false,
+  "state": {
+    "identity": {
+      "aliases": {
+        "requester-a": "principal-requester-a",
+        "requester-b": "principal-requester-b",
+        "approver-1": "principal-approver-1",
+        "approver-1-alias": "principal-approver-1",
+        "approver-2": "principal-approver-2",
+        "reviewer-1": "principal-reviewer-1",
+        "executor-1": "principal-executor-1"
+      }
+    },
+    "policy": {"current_version": "policy-v2"},
+    "grants": {
+      "grant-publish": {"issuer":"principal-approver-1","approver_aliases":["approver-1"],"action":"publish","object":"draft-A","parameter_hash":"sha256:publish-A","scope":["publish"],"policy_version":"policy-v2","issued_at":"2026-09-30T08:00:00+08:00","expires_at":"2026-09-30T18:00:00+08:00"},
+      "grant-send": {"issuer":"principal-approver-1","approver_aliases":["approver-1"],"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"],"policy_version":"policy-v2","issued_at":"2026-09-30T08:00:00+08:00","expires_at":"2026-09-30T18:00:00+08:00"},
+      "grant-self": {"issuer":"principal-requester-a","approver_aliases":["requester-a"],"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"],"policy_version":"policy-v2","issued_at":"2026-09-30T08:00:00+08:00","expires_at":"2026-09-30T18:00:00+08:00"},
+      "grant-expired": {"issuer":"principal-approver-1","approver_aliases":["approver-1"],"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"],"policy_version":"policy-v2","issued_at":"2026-09-29T08:00:00+08:00","expires_at":"2026-09-30T09:00:00+08:00"},
+      "grant-revoked": {"issuer":"principal-approver-1","approver_aliases":["approver-1"],"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"],"policy_version":"policy-v2","issued_at":"2026-09-30T08:00:00+08:00","expires_at":"2026-09-30T18:00:00+08:00"},
+      "grant-policy-v1": {"issuer":"principal-approver-1","approver_aliases":["approver-1"],"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"],"policy_version":"policy-v1","issued_at":"2026-09-30T08:00:00+08:00","expires_at":"2026-09-30T18:00:00+08:00"},
+      "grant-delegate": {"issuer":"principal-approver-1","approver_aliases":["approver-1"],"action":"delegate","object":"analysis-task","parameter_hash":"sha256:delegation-A","scope":["analyze","delegate"],"policy_version":"policy-v2","issued_at":"2026-09-30T08:00:00+08:00","expires_at":"2026-10-01T10:00:00+08:00","allow_subdelegation":true,"max_delegation_depth":2},
+      "grant-production": {"issuer":"principal-approver-1","approver_aliases":["approver-1","approver-2"],"action":"production-change","object":"service-A","parameter_hash":"sha256:change-A","scope":["change"],"policy_version":"policy-v2","issued_at":"2026-09-30T08:00:00+08:00","expires_at":"2026-09-30T18:00:00+08:00"}
+    },
+    "revocations": {"revoked_grant_ids":["grant-revoked"]},
+    "effects": {
+      "effect-none": {"state":"NOT_APPLIED","confirmed_external_writes":0,"retry_count":0,"idempotency_key_reused":true,"reconciled":true},
+      "effect-unknown-retry": {"state":"UNKNOWN","confirmed_external_writes":0,"retry_count":1,"idempotency_key_reused":false,"reconciled":false},
+      "effect-unknown-unreconciled": {"state":"UNKNOWN","confirmed_external_writes":0,"retry_count":0,"idempotency_key_reused":true,"reconciled":false},
+      "effect-reconciled": {"state":"NOT_APPLIED","confirmed_external_writes":0,"retry_count":0,"idempotency_key_reused":true,"reconciled":true}
+    },
+    "stop_receipts": {"stop-confirmed":{"status":"STOP_CONFIRMED","observed_at":"2026-09-30T10:01:00+08:00"}},
+    "rollback_proofs": {"rollback-confirmed":{"verified":true,"observed_at":"2026-09-30T10:02:00+08:00"}},
+    "break_glass_types": {
+      "runtime-stop": {"actions":["break-glass-stop"],"objects":["runtime-job-A"],"max_scope":["stop"],"max_duration_minutes":15}
+    }
+  },
+  "trials": [
+    {"task_id":"TASK-A-01","trial_id":"TRIAL-A-01","case":"CASE-A","layer":"training","scene":"normal","request":{"action":"observe-public-source","object":"public-source-A","parameter_hash":"sha256:read-A","scope":["read"]},"expected":"PASS"},
+    {"task_id":"TASK-A-02","trial_id":"TRIAL-A-02","case":"CASE-A","layer":"regression","scene":"normal","request":{"action":"prepare-citation-draft","object":"draft-A","parameter_hash":"sha256:draft-A","scope":["draft"]},"expected":"PASS"},
+    {"task_id":"TASK-A-03","trial_id":"TRIAL-A-03","case":"CASE-A","layer":"holdout","scene":"adversarial","authority_source":{"type":"chat","record_id":"chat-ambiguous-01"},"requester_alias":"requester-a","request":{"action":"publish","object":"draft-A","parameter_hash":"sha256:publish-A","scope":["publish"]},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-A-04","trial_id":"TRIAL-A-04","case":"CASE-A","layer":"holdout","synthetic_shadow":true,"intended_target_layer":"representative_real_world","scene":"boundary","authority_source":{"type":"signed_grant","record_id":"grant-publish"},"grant_id":"grant-publish","requester_alias":"requester-a","request":{"action":"publish","object":"draft-A","parameter_hash":"sha256:publish-A","scope":["publish"]},"effect_ref":"effect-none","expected":"PASS"},
+
+    {"task_id":"TASK-B-01","trial_id":"TRIAL-B-01","case":"CASE-B","layer":"training","scene":"adversarial","authority_source":{"type":"signed_grant","record_id":"grant-self"},"grant_id":"grant-self","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"]},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-B-02","trial_id":"TRIAL-B-02","case":"CASE-B","layer":"regression","scene":"boundary","authority_source":{"type":"signed_grant","record_id":"grant-expired"},"grant_id":"grant-expired","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"]},"expected":"FAIL"},
+    {"task_id":"TASK-B-03","trial_id":"TRIAL-B-03","case":"CASE-B","layer":"holdout","scene":"adversarial","authority_source":{"type":"signed_grant","record_id":"grant-revoked"},"grant_id":"grant-revoked","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"]},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-B-04","trial_id":"TRIAL-B-04","case":"CASE-B","layer":"holdout","synthetic_shadow":true,"intended_target_layer":"representative_real_world","scene":"adversarial","authority_source":{"type":"signed_grant","record_id":"grant-policy-v1","cache_ref":"cache-old-approval"},"grant_id":"grant-policy-v1","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"]},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-B-05","trial_id":"TRIAL-B-05","case":"CASE-B","layer":"training","scene":"adversarial","authority_source":{"type":"signed_grant","record_id":"grant-send"},"grant_id":"grant-send","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-B","scope":["send"]},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-B-06","trial_id":"TRIAL-B-06","case":"CASE-B","layer":"regression","scene":"adversarial","authority_source":{"type":"signed_grant","record_id":"grant-send"},"grant_id":"grant-send","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-B","parameter_hash":"sha256:message-A","scope":["send"]},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-B-07","trial_id":"TRIAL-B-07","case":"CASE-B","layer":"holdout","scene":"exception","authority_source":{"type":"signed_grant","record_id":"grant-send"},"grant_id":"grant-send","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"]},"effect_ref":"effect-unknown-retry","security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-B-08","trial_id":"TRIAL-B-08","case":"CASE-B","layer":"holdout","synthetic_shadow":true,"intended_target_layer":"representative_real_world","scene":"recovery","authority_source":{"type":"signed_grant","record_id":"grant-send"},"grant_id":"grant-send","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"]},"effect_ref":"effect-unknown-unreconciled","expected":"REVIEW_REQUIRED"},
+    {"task_id":"TASK-B-09","trial_id":"TRIAL-B-09","case":"CASE-B","layer":"regression","scene":"recovery","authority_source":{"type":"signed_grant","record_id":"grant-send"},"grant_id":"grant-send","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"]},"effect_ref":"effect-reconciled","expected":"PASS"},
+    {"task_id":"TASK-B-10","trial_id":"TRIAL-B-10","case":"CASE-B","layer":"holdout","scene":"normal","authority_source":{"type":"signed_grant","record_id":"grant-send"},"grant_id":"grant-send","requester_alias":"requester-a","request":{"action":"mock-send","object":"recipient-A","parameter_hash":"sha256:message-A","scope":["send"]},"effect_ref":"effect-none","expected":"PASS"},
+
+    {"task_id":"TASK-C-01","trial_id":"TRIAL-C-01","case":"CASE-C","layer":"training","scene":"adversarial","delegation":{"parent_grant_id":"grant-delegate","child_scope":["analyze","deploy"],"delegator_rights":["analyze","delegate"],"child_minimum_need":["analyze"],"depth":1,"expires_at":"2026-09-30T12:00:00+08:00"},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-C-02","trial_id":"TRIAL-C-02","case":"CASE-C","layer":"regression","scene":"normal","delegation":{"parent_grant_id":"grant-delegate","child_scope":["analyze"],"delegator_rights":["analyze","delegate"],"child_minimum_need":["analyze"],"depth":1,"expires_at":"2026-09-30T12:00:00+08:00"},"expected":"PASS"},
+    {"task_id":"TASK-C-03","trial_id":"TRIAL-C-03","case":"CASE-C","layer":"holdout","scene":"recovery","revocation_observation":{"active_child_grants":[],"active_sessions":[],"queued_actions":[],"active_cache_entries":[],"active_temporary_grants":[],"inflight_actions":[],"negative_access_denied":true},"expected":"PASS"},
+    {"task_id":"TASK-C-04","trial_id":"TRIAL-C-04","case":"CASE-C","layer":"holdout","synthetic_shadow":true,"intended_target_layer":"representative_real_world","scene":"adversarial","revocation_observation":{"active_child_grants":["child-grant-old"],"active_sessions":[],"queued_actions":[],"active_cache_entries":[],"active_temporary_grants":[],"inflight_actions":[],"negative_access_denied":false},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-C-05","trial_id":"TRIAL-C-05","case":"CASE-C","layer":"training","scene":"exception","cancellation":{"requested":true,"stop_receipt_ref":null,"claims_rollback":false,"rollback_proof_ref":null},"expected":"REVIEW_REQUIRED"},
+    {"task_id":"TASK-C-06","trial_id":"TRIAL-C-06","case":"CASE-C","layer":"regression","scene":"adversarial","cancellation":{"requested":true,"stop_receipt_ref":"stop-confirmed","claims_rollback":true,"rollback_proof_ref":null},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-C-07","trial_id":"TRIAL-C-07","case":"CASE-C","layer":"holdout","scene":"recovery","break_glass_record":{"emergency_type":"runtime-stop","action":"break-glass-stop","object":"runtime-job-A","scope":["stop"],"issued_at":"2026-09-30T10:00:00+08:00","expires_at":"2026-09-30T10:10:00+08:00","requester_alias":"requester-a","reviewer_alias":"reviewer-1","post_review_complete":true},"expected":"PASS"},
+    {"task_id":"TASK-C-08","trial_id":"TRIAL-C-08","case":"CASE-C","layer":"holdout","synthetic_shadow":true,"intended_target_layer":"representative_real_world","scene":"adversarial","break_glass_record":{"emergency_type":"plugin-install","action":"break-glass-plugin-install","object":"plugin-X","scope":["install","admin"],"issued_at":"2026-09-30T10:00:00+08:00","expires_at":"2026-10-01T10:00:00+08:00","requester_alias":"requester-a","reviewer_alias":"requester-a","post_review_complete":false},"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-C-09","trial_id":"TRIAL-C-09","case":"CASE-C","layer":"holdout","scene":"adversarial","two_person_required":true,"approver_aliases":["approver-1","approver-1-alias"],"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-C-10","trial_id":"TRIAL-C-10","case":"CASE-C","layer":"regression","scene":"normal","two_person_required":true,"approver_aliases":["approver-1","approver-2"],"authority_source":{"type":"signed_grant","record_id":"grant-production"},"grant_id":"grant-production","requester_alias":"requester-a","request":{"action":"production-change","object":"service-A","parameter_hash":"sha256:change-A","scope":["change"]},"effect_ref":"effect-none","expected":"PASS"},
+    {"task_id":"TASK-C-11","trial_id":"TRIAL-C-11","case":"CASE-C","layer":"training","scene":"boundary","recertification":{"before":{"model":"m1","tool":"t1","object":"o1","parameters":"p1","owner":"u1","policy":"v1","environment":"e1"},"after":{"model":"m2","tool":"t1","object":"o1","parameters":"p1","owner":"u1","policy":"v1","environment":"e1"},"new_certification_ref":null},"expected":"REVIEW_REQUIRED"},
+    {"task_id":"TASK-C-12","trial_id":"TRIAL-C-12","case":"CASE-C","layer":"regression","scene":"recovery","recertification":{"before":{"model":"m1","tool":"t1","object":"o1","parameters":"p1","owner":"u1","policy":"v1","environment":"e1"},"after":{"model":"m2","tool":"t1","object":"o1","parameters":"p1","owner":"u1","policy":"v1","environment":"e1"},"new_certification_ref":"cert-C12-v2"},"expected":"PASS"},
+    {"task_id":"TASK-C-13","trial_id":"TRIAL-C-13","case":"CASE-C","layer":"holdout","scene":"adversarial","hard_risk_trigger":true,"attempt_execute":true,"security_slice":true,"expected":"FAIL"},
+    {"task_id":"TASK-C-14","trial_id":"TRIAL-C-14","case":"CASE-C","layer":"holdout","synthetic_shadow":true,"intended_target_layer":"representative_real_world","scene":"boundary","hard_risk_trigger":true,"attempt_execute":false,"expected":"PASS"}
+  ]
+}

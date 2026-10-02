@@ -1,0 +1,177 @@
+audit_id: C13-source-audit-20260930
+chapter_id: C13
+reviewed_on: "2026-09-30"
+reviewer_role: independent-evidence-reviewer
+scope: "只读核验 35 个 source 与 27 个 claim；未修改作者生产包或运行材料。"
+gate_effect: "E-C13-014 因平台事实措辞与规范性裁决混写，保持 REVIEW_REQUIRED；其余 26 条 PASS。"
+
+totals:
+  sources: 35
+  local_sources: 21
+  external_sources: 14
+  local_present: 21
+  external_http_200: 14
+  sources_used_by_claims: 35
+  claims: 27
+  claims_referenced_in_chapter: 27
+  claim_pass: 26
+  claim_review_required: 1
+  claim_fail: 0
+
+version_identity:
+  openclaw:
+    release: v2026.9.6
+    annotated_tag_sha: ce5bbdc244ee937246cc1700d1b224d020c3b599
+    target_type: commit
+    target_sha: eb377ac59e6c9fd6c7705028034812becf00271b
+    verdict: PASS
+  hermes:
+    release: "0.20.1 / v2026.8.13"
+    annotated_tag_sha: 4e693dc685b5716e7da22656eccc6ece37c5db72
+    target_type: commit
+    target_sha: f80f453ae0679347e38abc917c7f94f717bf96c5
+    verdict: PASS
+
+local_source_checks:
+  - {source_id: BOOK-V2, present: true, role: "13.1—13.8 与三件产物合同", verdict: PASS}
+  - {source_id: QUALITY, present: true, role: "15 项 P0 与证据身份规则", verdict: PASS}
+  - {source_id: C13-CARD, present: true, role: "定义权、依赖、案例、练习和三件产物", verdict: PASS}
+  - {source_id: TERMS, present: true, role: "C13 术语所有权和 Standing Order 产品边界", verdict: PASS}
+  - {source_id: DECISIONS, present: true, role: "D18、D20、D21、D22、D23", verdict: PASS}
+  - {source_id: C13-PREFLIGHT, present: true, role: "方法、平台和章际接口预研", verdict: PASS}
+  - {source_id: C06, present: true, role: "Runtime、Queue、Delivery、停止与恢复", verdict: PASS}
+  - {source_id: C07, present: true, role: "三态、四层数据与非补偿安全", verdict: PASS}
+  - {source_id: C09, present: true, role: "任务、交付证据与 D21 接口", verdict: PASS}
+  - {source_id: C10, present: true, role: "Context、Memory、Record、Evidence、Authority 分离", verdict: PASS}
+  - {source_id: C11, present: true, role: "工具幂等、UNKNOWN、停止与补偿", verdict: PASS}
+  - {source_id: C12, present: true, role: "能力供应链版本边界", verdict: PASS}
+  - {source_id: C14-PREFLIGHT, present: true, role: "授权维度、撤销和重新核验", verdict: PASS}
+  - {source_id: C18-PREFLIGHT, present: true, role: "协议、执行和验收分层", verdict: PASS}
+  - {source_id: C19-PREFLIGHT, present: true, role: "信任边界和确定性安全门", verdict: PASS}
+  - {source_id: C20-PREFLIGHT, present: true, role: "事件信封、SLI/SLO 和故障隔离", verdict: PASS}
+  - {source_id: C21-PREFLIGHT, present: true, role: "发布、恢复与退役证明", verdict: PASS}
+  - {source_id: C22-PREFLIGHT, present: true, role: "训练营练习与主动性支线", verdict: PASS}
+  - {source_id: LOCAL-C13-INPUT, present: true, role: "30-trial 合成输入", verdict: PASS}
+  - {source_id: LOCAL-C13-RUN, present: true, role: "30-trial 完整结果", verdict: PASS}
+  - {source_id: LOCAL-C13-SCRIPT, present: true, role: "确定性裁决器", verdict: PASS}
+
+external_source_checks:
+  - source_id: OC-REL
+    http_status: 200
+    identity: VERSION-FACT
+    semantic_support: "release v2026.9.6；annotated tag 解引用到 eb377ac59e6c9fd6c7705028034812becf00271b。"
+    verdict: PASS
+  - source_id: OC-HB
+    http_status: 200
+    identity: VERSION-FACT
+    semantic_support: "Heartbeat 是 system-owned automation；monitor scratch 属于对应系统任务。"
+    verdict: PASS
+  - source_id: OC-HB-RETIRED
+    http_status: 200
+    identity: VERSION-FACT
+    semantic_support: "固定提交明确 HEARTBEAT.md 已退役，Runtime 不再读取。"
+    verdict: PASS
+  - source_id: OC-AUTO
+    http_status: 200
+    identity: VERSION-FACT
+    semantic_support: "scheduled jobs、Heartbeat、Hooks、Webhooks、Standing Orders 为不同机制。"
+    verdict: PASS
+  - source_id: OC-CRON
+    http_status: 200
+    identity: VERSION-FACT
+    semantic_support: "Automations scheduler、schedule、event、webhook 和 delivery 语义可定位。"
+    verdict: PASS
+  - source_id: OC-HOOKS
+    http_status: 200
+    identity: VERSION-FACT
+    semantic_support: "内部 Hook 是 Gateway 生命周期事件回调；发现/启用不证明已加载或已触发。"
+    verdict: PASS
+  - source_id: OC-STANDING
+    http_status: 200
+    identity: VERSION-FACT
+    semantic_support: "官方称 Standing Orders grant permanent operating authority，并描述 scope、trigger、approval gate、escalation 与有限重试。"
+    verdict: PASS_WITH_CONFLICT_NOTE
+  - source_id: HE-REL
+    http_status: 200
+    identity: VERSION-FACT
+    semantic_support: "v2026.8.13 对应 Hermes Agent v0.20.1；annotated tag 解引用到 f80f453ae0679347e38abc917c7f94f717bf96c5。"
+    verdict: PASS
+  - source_id: HE-CRON
+    http_status: 200
+    identity: DYNAMIC-OFFICIAL
+    semantic_support: "核验日页面描述 claim、misfire/catch-up、UNKNOWN、delivery 与 session 执行；未回填固定发行。"
+    verdict: PASS
+  - source_id: HE-CRON-INT
+    http_status: 200
+    identity: DYNAMIC-OFFICIAL
+    semantic_support: "核验日页面区分 provider trigger 与共享 execution/delivery，并描述 claim/lease。"
+    verdict: PASS
+  - source_id: HE-HB
+    http_status: 200
+    identity: DYNAMIC-OFFICIAL
+    semantic_support: "核验日页面描述 session heartbeat，并明确 fire 计数不证明响应或 outbound delivery。"
+    verdict: PASS
+  - source_id: MUSE-DESIGN
+    http_status: 200
+    identity: VENDOR-CLAIM
+    semantic_support: "厂商描述后台工作、价值过滤、意义变化通知、主动性和 approval UI。"
+    verdict: PASS_WITH_VENDOR_LIMITATION
+  - source_id: MUSE-NEWS
+    http_status: 200
+    identity: VENDOR-CLAIM
+    semantic_support: "厂商产品发布材料只支持公开体验陈述。"
+    verdict: PASS_WITH_VENDOR_LIMITATION
+  - source_id: MUSE-SEC
+    http_status: 200
+    identity: VENDOR-CLAIM
+    semantic_support: "厂商称 Sentinel 是分离的权限裁决面；不能推出独立安全效果。"
+    verdict: PASS_WITH_VENDOR_LIMITATION
+
+claim_checks:
+  - {evidence_id: E-C13-001, verdict: PASS, note: "受控主动性的方法定义与术语表、preflight 一致。"}
+  - {evidence_id: E-C13-002, verdict: PASS, note: "三道门和硬失败非补偿为明确方法论。"}
+  - {evidence_id: E-C13-003, verdict: PASS, note: "trigger、authority、completion 分离与 C06/C09/D21 一致。"}
+  - {evidence_id: E-C13-004, verdict: PASS, note: "八种机制职责在术语、C06 与固定平台证据中可分。"}
+  - {evidence_id: E-C13-005, verdict: PASS, note: "有证据静默与遗漏防护定义闭合。"}
+  - {evidence_id: E-C13-006, verdict: PASS, note: "去重、重放、合并、冷却、静默和暂停分离。"}
+  - {evidence_id: E-C13-007, verdict: PASS, note: "定时字段明确标为本书方法，不冒充平台 schema。"}
+  - {evidence_id: E-C13-008, verdict: PASS, note: "原始 UNKNOWN 最终映射补证、FAIL 或 REVIEW_REQUIRED，禁止盲重放。"}
+  - {evidence_id: E-C13-009, verdict: PASS, note: "D21 三层完成与 C09/C18/C20 接口一致。"}
+  - {evidence_id: E-C13-010, verdict: PASS, note: "停止请求/确认、暂停/取消、熔断/恢复分离。"}
+  - {evidence_id: E-C13-011, verdict: PASS, note: "sentinel 独立故障域是方法约束，风险分级留给 C19—C21。"}
+  - {evidence_id: E-C13-012, verdict: PASS, note: "Webhook 入站边界和 replay/tenant/read-back 控制有明确 owner。"}
+  - {evidence_id: E-C13-013, verdict: PASS, note: "固定 Hook 文档支持生命周期与 Gateway 信任边界陈述。"}
+  - evidence_id: E-C13-014
+    verdict: REVIEW_REQUIRED
+    note: >-
+      规范性结论“不得成为永久、无限或不可撤销授权”本身与 C14 一致；但 claim 和正文用
+      “OpenClaw 中……不是永久授权”表述产品事实，而固定官方文档原文称 permanent operating authority。
+      需显式分成“厂商术语”与“本书更严格治理裁决”，否则来源不能直接支持当前句式。
+  - {evidence_id: E-C13-015, verdict: PASS, note: "固定 Heartbeat 文档直接支持 system-owned automation 和 monitor scratch。"}
+  - {evidence_id: E-C13-016, verdict: PASS, note: "固定 retired template 直接支持 HEARTBEAT.md 退役。"}
+  - {evidence_id: E-C13-017, verdict: PASS, note: "固定 automation 文档区分 scheduled jobs、Heartbeat、Hooks 与 Standing Orders。"}
+  - {evidence_id: E-C13-018, verdict: PASS, note: "Hermes release 锚点与动态文档身份分开，未倒填。"}
+  - {evidence_id: E-C13-019, verdict: PASS, note: "Hermes 动态页面支持 trigger/execution/delivery、claim、misfire/catch-up 与 session heartbeat。"}
+  - {evidence_id: E-C13-020, verdict: PASS, note: "Muse 公开体验均保持 VENDOR-CLAIM，不推断内部机制。"}
+  - {evidence_id: E-C13-021, verdict: PASS, note: "主动性指标明确为局部指标，不越权命名生产 SLO。"}
+  - {evidence_id: E-C13-022, verdict: PASS, note: "程序性反馈只形成训练候选，不自行改授权/策略。"}
+  - {evidence_id: E-C13-023, verdict: PASS, note: "v2、章节卡与 D18 均支持恰好三件母产物。"}
+  - {evidence_id: E-C13-024, verdict: PASS, note: "向 C14/C19/C20/C21/C22 输出接口且未抢定义权。"}
+  - {evidence_id: E-C13-025, verdict: PASS, note: "保存结果为 30 trials、18 PASS/6 FAIL/6 RR、三路径同分布、零外部副作用。"}
+  - {evidence_id: E-C13-026, verdict: PASS, note: "作者结果和 runner 规则支持静默 PASS、共享故障域 FAIL、UNKNOWN→RR；不等于独立实践。"}
+  - {evidence_id: E-C13-027, verdict: PASS, note: "D22 四层加横切 security/red-team 表述完整，无第五层。"}
+
+author_run_read_only_reproduction:
+  performed_for_claim_integrity_only: true
+  independent_practice_gate: false
+  environment: "fresh /tmp copy; no network; no real credentials; no external effects"
+  trials: 30
+  distribution: {PASS: 18, FAIL: 6, REVIEW_REQUIRED: 6}
+  result_sha256: 0508a416206f2f6356177279a16478296e03675e5cf84507efa91d76584b86be
+  summary_sha256: 0c20d80bd12b7f6b5f5f6b01f5f5a574017b045331264e67a2de1ced1d3685f6
+  byte_equal_to_saved_result: true
+  byte_equal_to_saved_summary: true
+  limitations:
+    - "只核对 LOCAL-VALIDATION 主张可重复，不执行两项练习的独立实践门。"
+    - "不证明真实 OpenClaw/Hermes/Muse scheduler、channel、delivery、stop 或 recovery。"
+

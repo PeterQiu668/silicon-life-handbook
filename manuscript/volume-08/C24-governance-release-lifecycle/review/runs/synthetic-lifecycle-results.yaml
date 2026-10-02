@@ -1,0 +1,2966 @@
+{
+  "authority_root_digest": "sha256:c03223f3537c558e0d2c2828ac498fd56cd950f354b84d8ab0b827c1f700aa09",
+  "by_layer": {
+    "holdout": {
+      "FAIL": 59,
+      "REVIEW_REQUIRED": 2
+    },
+    "regression": {
+      "FAIL": 12,
+      "PASS": 2
+    },
+    "representative_real_world": {},
+    "training": {
+      "FAIL": 3,
+      "PASS": 1
+    }
+  },
+  "decision_digest": "sha256:9071b8085481a4e774e1ad014d8f1db77e92bdb75cd817895131047db2f7b82e",
+  "distribution": {
+    "FAIL": 74,
+    "PASS": 3,
+    "REVIEW_REQUIRED": 2
+  },
+  "external_side_effect_count": 0,
+  "input_sha256": "485dbbe21030c0af4ea1c96b4deab5373472155577526b483ccba5dab056e81b",
+  "representative_real_world_count": 0,
+  "schema_version": "c21.lifecycle.result.v2.4",
+  "security_slice_trial_count": 58,
+  "task_trial_ids_unique": true,
+  "trial_count": 79,
+  "trials": [
+    {
+      "case_id": "CASE-A",
+      "decision": "PASS",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "training",
+      "reasons": [],
+      "scenario_id": "V24-001",
+      "security_slices": [],
+      "state_digest": "sha256:aed140285b7e5b7e6d38bde0139655e36c219f868608182406719514705c12b5",
+      "task_id": "C21-TASK-001",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-001",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "training",
+      "reasons": [
+        "RELEASE_CANONICAL_DIGEST_INVALID",
+        "RELEASE_COMPONENT_DIGEST_INVALID"
+      ],
+      "scenario_id": "V24-002",
+      "security_slices": [],
+      "state_digest": "sha256:3d5d18bec6434b55c7675fac4b298a840005b75d418d1fa1c0bce2af63da40c9",
+      "task_id": "C21-TASK-002",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-002",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:7b83c24e40630e81f175cded0c4e418d197612cb7d8ae977ed9ed13064404f04",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "training",
+      "reasons": [
+        "D21_BUSINESS_EVIDENCE_BINDING_INVALID",
+        "D21_DELIVERY_EVIDENCE_BINDING_INVALID",
+        "D21_ENVIRONMENT_EVIDENCE_BINDING_INVALID",
+        "D21_TECHNICAL_EVIDENCE_BINDING_INVALID",
+        "PUBLICATION_RELEASE_AUTHORITY_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID",
+        "RELEASE_CANONICAL_DIGEST_INVALID"
+      ],
+      "scenario_id": "V24-003",
+      "security_slices": [
+        "integrity"
+      ],
+      "state_digest": "sha256:2365e7a22a86e69b2c1ff324dfa2d9db02e0d452555f11700be797947b9fdf94",
+      "task_id": "C21-TASK-003",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-003",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "training",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_RELEASE_AUTHORITY_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-004",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:d7fa0ab6699fe6f6f3b94706e346cbcd69c260b69c60893a454dc949c4c4299b",
+      "task_id": "C21-TASK-004",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-004",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_RELEASE_AUTHORITY_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-005",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:2106feb412d1c4a393429bd6f756c52b6d7381e638e863fd970a3810284888ba",
+      "task_id": "C21-TASK-005",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-005",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_RELEASE_AUTHORITY_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-006",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:04743cf43555baedef4dbeca783438c0d3cb07e1a0661e8fb4faec8ca7b0137c",
+      "task_id": "C21-TASK-006",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-006",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_RELEASE_AUTHORITY_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-007",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:03b24a2d363bb818a3e6c85f012de3a01ef71e933bb56d8fa0c68bee70742e70",
+      "task_id": "C21-TASK-007",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-007",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_RELEASE_AUTHORITY_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-008",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:c138ed787011d045e3194156f376e95783c6b1d3e1728e03120ebaac667353e4",
+      "task_id": "C21-TASK-008",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-008",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "ACCOUNTABLE_OWNER_INVALID",
+        "D21_ENVIRONMENT_EVIDENCE_BINDING_INVALID",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "LEGAL_REVIEW_AUTHORITY_OR_TIME_INVALID",
+        "LEGAL_SCOPE_AUTHORITY_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID",
+        "RELEASE_OWNER_ROLE_INVALID"
+      ],
+      "scenario_id": "V24-009",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:a7f486289d5acd56abe6e8a822329b93879e10f8bfac43dab67de5ed56804cef",
+      "task_id": "C21-TASK-009",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-009",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "MIGRATION_CANONICAL_DIGEST_INVALID",
+        "MIGRATION_RECEIPT_INVALID"
+      ],
+      "scenario_id": "V24-010",
+      "security_slices": [],
+      "state_digest": "sha256:ac767bed9fd6e993d87a7aecd1ea5a2f16fa06ad7a64f2f709997925755b0bda",
+      "task_id": "C21-TASK-010",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-010",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "MIGRATION_RECEIPT_INVALID"
+      ],
+      "scenario_id": "V24-011",
+      "security_slices": [
+        "integrity"
+      ],
+      "state_digest": "sha256:4ae67720903d34930187cc817e3ae7b2b34729b80010173ac93ee981f98afc8f",
+      "task_id": "C21-TASK-011",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-011",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "MIGRATION_RECEIPT_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-012",
+      "security_slices": [],
+      "state_digest": "sha256:cce680be281d797528667a2f7f97d311f6dcefcdf64afe516a36ec6f220612ea",
+      "task_id": "C21-TASK-012",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-012",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "MIGRATION_RECEIPT_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-013",
+      "security_slices": [],
+      "state_digest": "sha256:52ebfa194d81bf031ca289c3c2c56d8f51b6b78cdf3005eaa7c4354885f046a5",
+      "task_id": "C21-TASK-013",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-013",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "BACKUP_MANIFEST_INVALID",
+        "RESTORE_PROOF_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-014",
+      "security_slices": [],
+      "state_digest": "sha256:4b028dd437d5adce1d1fb9ce7c5f4b2b25e0f697fcc2882a53435acace75d532",
+      "task_id": "C21-TASK-014",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-014",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "BACKUP_MANIFEST_BINDING_INVALID",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "scenario_id": "V24-015",
+      "security_slices": [
+        "integrity"
+      ],
+      "state_digest": "sha256:bdf6dbd37930e096458ecdf8908ffd2ee3ab5923908064d6de63a2ce11984404",
+      "task_id": "C21-TASK-015",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-015",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "BACKUP_COVERAGE_OR_INTEGRITY_FAILED",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "scenario_id": "V24-016",
+      "security_slices": [],
+      "state_digest": "sha256:ba552fcdbdcc8460cbeec56ab5f9aaf968c54162e30f5884e0debab9253f1c4f",
+      "task_id": "C21-TASK-016",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-016",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "LEGAL_SCOPE_AUTHORITY_INVALID",
+        "RESTORE_PROOF_INVALID"
+      ],
+      "scenario_id": "V24-017",
+      "security_slices": [],
+      "state_digest": "sha256:86aa3a76e78f9a43d7ffb6685e32093647ba838d2e91452498327b303dd6c8e6",
+      "task_id": "C21-TASK-017",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-017",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RESTORE_PROOF_INVALID"
+      ],
+      "scenario_id": "V24-018",
+      "security_slices": [
+        "integrity"
+      ],
+      "state_digest": "sha256:4df286e65ff4b14997a674a1dce23f37e2156dcd6534d984b03834af56d8e2f0",
+      "task_id": "C21-TASK-018",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-018",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RESTORE_PROOF_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-019",
+      "security_slices": [],
+      "state_digest": "sha256:bc028896131672fb0555465b3280556b993d138020b8060f9868a9894f6f61ac",
+      "task_id": "C21-TASK-019",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-019",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RESTORE_PROOF_FAILED"
+      ],
+      "scenario_id": "V24-020",
+      "security_slices": [
+        "authorization"
+      ],
+      "state_digest": "sha256:780dd5734008b45c6dac8fc52837507a8373dc8a31e0a49aabeafa1407660e58",
+      "task_id": "C21-TASK-020",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-020",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "D21_TECHNICAL_EVIDENCE_INVALID"
+      ],
+      "scenario_id": "V24-021",
+      "security_slices": [],
+      "state_digest": "sha256:9fd7b86050ee9a5f22ffddbfad692cd042567dc21a14b76ceb4f5ca7c9be195e",
+      "task_id": "C21-TASK-021",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-021",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "D21_TECHNICAL_EVIDENCE_BINDING_INVALID",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "scenario_id": "V24-022",
+      "security_slices": [],
+      "state_digest": "sha256:5a34df66b862a0fb59cedcf5e50e6a54dc7d9354d7cd4f2d83ed68b48f1b2bec",
+      "task_id": "C21-TASK-022",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-022",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "D21_DELIVERY_EVIDENCE_BINDING_INVALID",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "scenario_id": "V24-023",
+      "security_slices": [],
+      "state_digest": "sha256:e8abbf454f527c8a0e04f49f657c5938f3973753b957efdf5774526dc1cbbb3b",
+      "task_id": "C21-TASK-023",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-023",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {},
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "scenario_id": "V24-024",
+      "security_slices": [
+        "integrity"
+      ],
+      "state_digest": "sha256:b8639bb60465092e3e6407b586c464afabaac1a5d0eb67a6d6cc3f951b89d31e",
+      "task_id": "C21-TASK-024",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-024",
+      "validation_error": "scenario.V24-024.state evidence IDs must be globally unique"
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH",
+        "ROLLOUT_WINDOW_INVALID"
+      ],
+      "scenario_id": "V24-025",
+      "security_slices": [],
+      "state_digest": "sha256:758e97e804cc4379e6fad1e598b64ee22c5fd671a3c978592a6473a54bbd806d",
+      "task_id": "C21-TASK-025",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-025",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "REQUIRED_STOP_NOT_TRIGGERED",
+        "ROLLOUT_BUDGET_EXCEEDED",
+        "ROLLOUT_BUDGET_INVALID",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ],
+      "scenario_id": "V24-026",
+      "security_slices": [],
+      "state_digest": "sha256:b48a1c1fef3acc7aca057fa40e4f5715f2161256f62341a75729ef15bb3c3281",
+      "task_id": "C21-TASK-026",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-026",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "REQUIRED_STOP_NOT_TRIGGERED",
+        "ROLLOUT_BUDGET_EXCEEDED",
+        "ROLLOUT_BUDGET_INVALID",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ],
+      "scenario_id": "V24-027",
+      "security_slices": [],
+      "state_digest": "sha256:523ddf1c7e78b0599aabc8aecb32f6509f044387f53e1531550c284dd1f7848c",
+      "task_id": "C21-TASK-027",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-027",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {},
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "scenario_id": "V24-028",
+      "security_slices": [],
+      "state_digest": "sha256:e6934ed89c81fbd13038328fdac5919795b002ff6148352d8b6f55f0aca7855f",
+      "task_id": "C21-TASK-028",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-028",
+      "validation_error": "scenario.V24-028.state.trial_ledger[2] missing fields: ['dataset_ref', 'grader_ref', 'input_digest', 'subject_id', 'task_id', 'terminal_ref', 'trial_digest']"
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 22.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "REQUIRED_STOP_NOT_TRIGGERED",
+        "ROLLOUT_BUDGET_EXCEEDED",
+        "TRIAL_REGISTRY_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-029",
+      "security_slices": [],
+      "state_digest": "sha256:1b1bb33f8ea037fdb3efefd25d3a529a22910479c77afa67b13998d2374bdf73",
+      "task_id": "C21-TASK-029",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-029",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "CANARY_HARD_GATE_FAILED",
+        "REQUIRED_STOP_NOT_TRIGGERED"
+      ],
+      "scenario_id": "V24-030",
+      "security_slices": [
+        "quality"
+      ],
+      "state_digest": "sha256:e7c5e5e49dc2b4b249a177af4d3f464e7357cd5ddd6514e05fea25d628b31c87",
+      "task_id": "C21-TASK-030",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-030",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "CANARY_HARD_GATE_FAILED",
+        "REQUIRED_STOP_NOT_TRIGGERED"
+      ],
+      "scenario_id": "V24-031",
+      "security_slices": [
+        "security"
+      ],
+      "state_digest": "sha256:d283ab44d3787ad11c680cb17668906cd111c18f0c7a203d29f53b8952f9802a",
+      "task_id": "C21-TASK-031",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-031",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "CANARY_HARD_GATE_FAILED",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "STOP_RECEIPT_INVALID"
+      ],
+      "scenario_id": "V24-032",
+      "security_slices": [
+        "reliability"
+      ],
+      "state_digest": "sha256:e59110bec556e4fbc6c59c56280511aeba5d1042c578da817ac26bbd4dddad50",
+      "task_id": "C21-TASK-032",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-032",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "STOP_RECEIPT_BINDING_OR_TIME_INVALID"
+      ],
+      "scenario_id": "V24-033",
+      "security_slices": [
+        "recovery"
+      ],
+      "state_digest": "sha256:be4aa36421ff8e13d0e902bcacd6f3e4b829ceb71668443d967a4424c5796a1b",
+      "task_id": "C21-TASK-033",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-033",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "STOP_RECEIPT_BINDING_OR_TIME_INVALID"
+      ],
+      "scenario_id": "V24-034",
+      "security_slices": [
+        "recovery"
+      ],
+      "state_digest": "sha256:39ddff45dc3cca1baa6d8d9023ac3215eeca840c749bdc917589fb2382fa6f81",
+      "task_id": "C21-TASK-034",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-034",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-other",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "ACTIVE_RELEASE_MISMATCH"
+      ],
+      "scenario_id": "V24-035",
+      "security_slices": [],
+      "state_digest": "sha256:c3d065183cef7a9f391c17b4a89b6500998b40eb25a72c3444f43b65ddb8fb67",
+      "task_id": "C21-TASK-035",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-035",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {},
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "scenario_id": "V24-036",
+      "security_slices": [
+        "closed-world"
+      ],
+      "state_digest": "sha256:996d31b5f812adf56d80977a3c60b901fcd13bb1450fa9f3ee3039552bbced70",
+      "task_id": "C21-TASK-036",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-036",
+      "validation_error": "scenario.V24-036.state.credentials[0] unknown fields: ['unexpected']"
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {},
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "scenario_id": "V24-037",
+      "security_slices": [
+        "credentials"
+      ],
+      "state_digest": "sha256:8ae3ba432d3b5a0ce72034c656bae4dba54fb1e20d3f1e7c58ad1dd57a3531c9",
+      "task_id": "C21-TASK-037",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-037",
+      "validation_error": "scenario.V24-037.state.credentials[0].status invalid"
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {},
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "scenario_id": "V24-038",
+      "security_slices": [
+        "data"
+      ],
+      "state_digest": "sha256:cdf71cc9a5ddb3029a4d13e414b56ea934a361e712fa3435541f193c7fd9970d",
+      "task_id": "C21-TASK-038",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-038",
+      "validation_error": "scenario.V24-038.state.data_inventory[0] enum invalid"
+    },
+    {
+      "case_id": "CASE-A",
+      "decision": "PASS",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [],
+      "scenario_id": "V24-039",
+      "security_slices": [],
+      "state_digest": "sha256:6d52bf59352baf027473b2a3a6253ee56de22e80fa171f38da5d1fe5add126f6",
+      "task_id": "C21-TASK-039",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-039",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-A",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_LIFECYCLE_BINDING_INVALID",
+        "RETIREMENT_SIGNOFF_INVALID"
+      ],
+      "scenario_id": "V24-040",
+      "security_slices": [
+        "retirement"
+      ],
+      "state_digest": "sha256:ecb4e186c94bc636a85b638223e6ff949da7eb2a8b41f229857cb1ebd21d1678",
+      "task_id": "C21-TASK-040",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-040",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "RETIREMENT_CREDENTIAL_RESIDUAL"
+      ],
+      "scenario_id": "V24-041",
+      "security_slices": [
+        "credentials"
+      ],
+      "state_digest": "sha256:584c4ebf47d63e5a8bcfb4b2f678c7fd919723ea2ffec15295161d19e504d7c4",
+      "task_id": "C21-TASK-041",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-041",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "RETIREMENT_SESSION_RESIDUAL"
+      ],
+      "scenario_id": "V24-042",
+      "security_slices": [
+        "credentials"
+      ],
+      "state_digest": "sha256:57f2bb06a24cf8e5688e209d7334c65c174c2c7d2a86767082a5e0363b2f9e64",
+      "task_id": "C21-TASK-042",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-042",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "RETIREMENT_DELEGATION_RESIDUAL"
+      ],
+      "scenario_id": "V24-043",
+      "security_slices": [
+        "credentials"
+      ],
+      "state_digest": "sha256:2b68d97f2aca31d454e546ec794c437609ce5638f66568833e2a2be66a2d1d18",
+      "task_id": "C21-TASK-043",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-043",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "RETIREMENT_RESTORE_PATH_RESIDUAL"
+      ],
+      "scenario_id": "V24-044",
+      "security_slices": [
+        "recovery"
+      ],
+      "state_digest": "sha256:ed43a27c61907043b97a4ef96319a2bfa7e670b66e22eb7442eea53b2f42c85c",
+      "task_id": "C21-TASK-044",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-044",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "RETIREMENT_DATA_RESIDUAL"
+      ],
+      "scenario_id": "V24-045",
+      "security_slices": [
+        "privacy"
+      ],
+      "state_digest": "sha256:e35c033f7df3dd5e1ca5d5db38b0439dbf1526bb684d07f2ce86a9fe3df8f0b7",
+      "task_id": "C21-TASK-045",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-045",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_RESIDUAL_SCAN_UNKNOWN"
+      ],
+      "scenario_id": "V24-046",
+      "security_slices": [
+        "retirement"
+      ],
+      "state_digest": "sha256:7bb5f53bd4ddd296215bed6db1d7c882ae2914b6fb4968cf228a4950d15c3d9c",
+      "task_id": "C21-TASK-046",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-046",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_SIGNOFF_DECISION_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-047",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:cf07bfde5a3375d5c3390114d2635c64a84c8074106c432f75ce2e9869283ed2",
+      "task_id": "C21-TASK-047",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-047",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "REVIEW_REQUIRED"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "CANARY_HARD_GATE_FAILED",
+        "D21_TECHNICAL_UNKNOWN",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "REQUIRED_STOP_NOT_TRIGGERED"
+      ],
+      "scenario_id": "V24-048",
+      "security_slices": [
+        "quality",
+        "recovery"
+      ],
+      "state_digest": "sha256:adaafd6de8c7c2be2d068cb0034335d3aec46258cff1b015a6a38988b6066cfb",
+      "task_id": "C21-TASK-048",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-048",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_CREDENTIAL_RESIDUAL",
+        "RETIREMENT_RESIDUAL_SCAN_UNKNOWN"
+      ],
+      "scenario_id": "V24-049",
+      "security_slices": [
+        "credentials",
+        "retirement"
+      ],
+      "state_digest": "sha256:dcfbce00082ff9df09ae886ad876c54439da0ca353e66afd045c597ab83805bf",
+      "task_id": "C21-TASK-049",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-049",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "UNKNOWN",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "MIGRATION_TERMINAL_UNKNOWN"
+      ],
+      "scenario_id": "V24-050",
+      "security_slices": [],
+      "state_digest": "sha256:820340575e82af6fd6d0ef95d97e7346575cd1078a893e050e9da5a03ce68863",
+      "task_id": "C21-TASK-050",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-050",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "REVIEW_REQUIRED"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "D21_TECHNICAL_UNKNOWN",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "scenario_id": "V24-051",
+      "security_slices": [],
+      "state_digest": "sha256:daa6b41d5b1d15cf9261eb140efaac49791d8cad0db9540859c85619bda4fa63",
+      "task_id": "C21-TASK-051",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-051",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "REVIEW_REQUIRED",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "EFFECT_TERMINAL_UNKNOWN"
+      ],
+      "scenario_id": "V24-052",
+      "security_slices": [
+        "external-effect"
+      ],
+      "state_digest": "sha256:f2a7379b0930e3c709f1635bdaa761eeb15bc2a51f2ca3dda56262e9d152654c",
+      "task_id": "C21-TASK-052",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-052",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "PROFESSIONAL_REVIEW_REQUIRED",
+        "PUBLICATION_EVENT_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-053",
+      "security_slices": [
+        "legal"
+      ],
+      "state_digest": "sha256:2c4bd7c1cbcbf7e26ba0759397d2b3bf82cd46057d79294fe469da94191334b9",
+      "task_id": "C21-TASK-053",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-053",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "REVIEW_REQUIRED",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "ROLLBACK_TERMINAL_UNKNOWN"
+      ],
+      "scenario_id": "V24-054",
+      "security_slices": [
+        "recovery"
+      ],
+      "state_digest": "sha256:4fb4f80f24777f118901ab557849bb4b6313bb53eb46613492ac1eb9d1e28b75",
+      "task_id": "C21-TASK-054",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-054",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "PASS",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "NONE",
+      "layer": "regression",
+      "reasons": [],
+      "scenario_id": "V24-055",
+      "security_slices": [
+        "recovery"
+      ],
+      "state_digest": "sha256:7811b3fb165a484217df6f19070f17bbd4b5a6f3e141ab1cb0e48f4b31d2bbb6",
+      "task_id": "C21-TASK-055",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-055",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "ACTIVE_RELEASE_MISMATCH",
+        "ROLLBACK_ACTIVE_RELEASE_MISMATCH",
+        "ROLLBACK_RECEIPT_INVALID"
+      ],
+      "scenario_id": "V24-056",
+      "security_slices": [
+        "recovery"
+      ],
+      "state_digest": "sha256:1b1c037f5f717b41719b9564acb98e6c8bab0ee26b72536c073f0f84866aa0f0",
+      "task_id": "C21-TASK-056",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-056",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "MIGRATION_OWNER_ROLE_INVALID",
+        "MIGRATION_RECEIPT_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-057",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:8721641ac576e796ecae493bc13c08aad23441a3a72b711d112d32973bcc925e",
+      "task_id": "C21-TASK-057",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-057",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "BACKUP_MANIFEST_BINDING_INVALID",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "scenario_id": "V24-058",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:3f50d56a1b7247b33e0c68c14862b6863a1cd1ed86cb128de71abd34b6b7aa84",
+      "task_id": "C21-TASK-058",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-058",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RESTORE_PROOF_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-059",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:d43f23e3eedee5715a03aa4959aa7cb499969fa70bb10411aea3482e5839b1d9",
+      "task_id": "C21-TASK-059",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-059",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "ROLLOUT_OWNER_ROLE_INVALID",
+        "ROLLOUT_PLAN_APPROVAL_INVALID",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ],
+      "scenario_id": "V24-060",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:f1feef3696f21b8d6b7fc15639968e3632b3cbb30a59326c9ec71665ed6759a9",
+      "task_id": "C21-TASK-060",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-060",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {},
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "scenario_id": "V24-061",
+      "security_slices": [
+        "range"
+      ],
+      "state_digest": "sha256:a7642a1beb11808514e37dbead20e313c445deda10483a56778be4935b3aa9f9",
+      "task_id": "C21-TASK-061",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-061",
+      "validation_error": "scenario.V24-061.state.restore_proof_registry.restore-proof-21.rpo_minutes must be nonnegative"
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {},
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "scenario_id": "V24-062",
+      "security_slices": [
+        "range"
+      ],
+      "state_digest": "sha256:95ab043e5bd5570c87c37b84ab1e205ba67747ca7ed2d1e7fc4d0fa10b490ac1",
+      "task_id": "C21-TASK-062",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-062",
+      "validation_error": "scenario.V24-062.state.trial_ledger[0].cost must be finite number"
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "BACKUP_COVERAGE_OR_INTEGRITY_FAILED",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "scenario_id": "V24-063",
+      "security_slices": [
+        "integrity"
+      ],
+      "state_digest": "sha256:dc4ec22339ac938aeae3d2c9592a5aba6b66f66828f24d82ed548458c2d3070c",
+      "task_id": "C21-TASK-063",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-063",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "IRREVERSIBLE_MIGRATION_CONTROL_INVALID"
+      ],
+      "scenario_id": "V24-064",
+      "security_slices": [
+        "irreversible-change"
+      ],
+      "state_digest": "sha256:4b431992568518232ec2ee6bb9d62b59dcf31632c846f5f6b8a8ee8885adae54",
+      "task_id": "C21-TASK-064",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-064",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "D21_TECHNICAL_EVIDENCE_BINDING_INVALID",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "MIGRATION_CANONICAL_DIGEST_INVALID",
+        "MIGRATION_RECEIPT_BINDING_INVALID",
+        "RESTORE_PROOF_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-065",
+      "security_slices": [
+        "frozen-authority-root"
+      ],
+      "state_digest": "sha256:97beff1adc474d7253a9aa07bd5befa6ee98dcde80153f8934db1e94f7dd31c2",
+      "task_id": "C21-TASK-065",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-065",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "PRODUCTION",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "OFFLINE_PRODUCTION_CLAIM_FORBIDDEN",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ],
+      "scenario_id": "V24-066",
+      "security_slices": [
+        "offline-production"
+      ],
+      "state_digest": "sha256:ef288172b80e1dfdbe863a8516b537e4b718ed382daba18c374fbbce61656dc9",
+      "task_id": "C21-TASK-066",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-066",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH",
+        "ROLLOUT_SCOPE_DIGEST_INVALID",
+        "ROLLOUT_SCOPE_EMPTY",
+        "RUNTIME_SCOPE_BINDING_INVALID",
+        "TRIAL_SCOPE_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-067",
+      "security_slices": [
+        "scope"
+      ],
+      "state_digest": "sha256:d7c48ef1fe5e70157186473fc53d8460a9ee3c4b000a2e094bad0b1938f8f189",
+      "task_id": "C21-TASK-067",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-067",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "EFFECT_AUTHORITY_INVALID",
+        "EFFECT_READBACK_INVALID",
+        "EFFECT_RECEIPT_INVALID"
+      ],
+      "scenario_id": "V24-068",
+      "security_slices": [
+        "authorization"
+      ],
+      "state_digest": "sha256:74ad47a99c83a9463047173bf3feb14a6b191ad1ae411cbb9afefc5ab154e635",
+      "task_id": "C21-TASK-068",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-068",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "PAUSED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "LIFECYCLE_TERMINAL_RUNTIME_INCONSISTENT",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ],
+      "scenario_id": "V24-069",
+      "security_slices": [
+        "lifecycle"
+      ],
+      "state_digest": "sha256:80a1f492cc859777384aaa4782042f5c01d0b5fce52074a03d49ab86e7cb2761",
+      "task_id": "C21-TASK-069",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-069",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "AUTOMATION_MANIFEST_BINDING_INVALID",
+        "RUNTIME_OWNER_ROLE_INVALID"
+      ],
+      "scenario_id": "V24-070",
+      "security_slices": [
+        "authority"
+      ],
+      "state_digest": "sha256:31e31e7b6a45e3aa3de8a379524a9759d21b7ab04f5c90f4826f6bd52f0c1969",
+      "task_id": "C21-TASK-070",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-070",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "LEGAL_SCOPE_AUTHORITY_INVALID",
+        "PUBLICATION_EVENT_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-071",
+      "security_slices": [
+        "legal"
+      ],
+      "state_digest": "sha256:bfc861b7c9fca202298976403bc6ef8fb3a7a6fffcec2677ed2fe4c4fde7f69c",
+      "task_id": "C21-TASK-071",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-071",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "LEGAL_SCOPE_AUTHORITY_INVALID",
+        "RESTORE_ENVIRONMENT_AUTHORITY_INVALID"
+      ],
+      "scenario_id": "V24-072",
+      "security_slices": [
+        "environment",
+        "frozen-authority-root"
+      ],
+      "state_digest": "sha256:32b08e40157db9e876f6d8d38217eab9eb981d3bf7adfbac42bf5ecff67da1b4",
+      "task_id": "C21-TASK-072",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-072",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "ROLLED_BACK",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "ACTIVE_RELEASE_MISMATCH",
+        "LIFECYCLE_TERMINAL_RUNTIME_INCONSISTENT",
+        "ROLLBACK_ACTIVE_RELEASE_MISMATCH",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ],
+      "scenario_id": "V24-073",
+      "security_slices": [
+        "rollback"
+      ],
+      "state_digest": "sha256:ea1b1939cc59eec49ac72b7a94f71e6483bd1cc1ff0ad603291430d3e4861740",
+      "task_id": "C21-TASK-073",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-073",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "DATASET_REGISTRY_BINDING_INVALID",
+        "HOLDOUT_LINEAGE_OR_ISOLATION_INVALID",
+        "TRIAL_REGISTRY_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-074",
+      "security_slices": [
+        "holdout-isolation"
+      ],
+      "state_digest": "sha256:e8fcbe068db91c5ffff55451c94abe707511c36a866c3f21cf33555b071c5644",
+      "task_id": "C21-TASK-074",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-074",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "TASK_REGISTRY_BINDING_INVALID",
+        "TRIAL_REGISTRY_BINDING_INVALID",
+        "TRIAL_SCOPE_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-075",
+      "security_slices": [
+        "scope"
+      ],
+      "state_digest": "sha256:feb6d76a1161652e958e5805ecca9c0d658eaf74131616b09792c242e38f691b",
+      "task_id": "C21-TASK-075",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-075",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "AUTOMATION_MANIFEST_BINDING_INVALID",
+        "RUNTIME_SCOPE_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-076",
+      "security_slices": [
+        "scope"
+      ],
+      "state_digest": "sha256:4d9d7fde055d928712f17d357fcbe34431f0d4c7c8dddcc121735c7140bae03a",
+      "task_id": "C21-TASK-076",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-076",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "EFFECT_AUTHORITY_INVALID",
+        "EFFECT_READBACK_INVALID",
+        "EFFECT_RECEIPT_INVALID",
+        "EFFECT_SCOPE_BINDING_INVALID"
+      ],
+      "scenario_id": "V24-077",
+      "security_slices": [
+        "scope"
+      ],
+      "state_digest": "sha256:66f6bb45803cdc56f1553389425a101e55e203902e30b0138ad6d88656624d0b",
+      "task_id": "C21-TASK-077",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-077",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "NONE",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": false,
+        "rollout_stage": "CANARY",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "HOLDOUT_LINEAGE_OR_ISOLATION_INVALID"
+      ],
+      "scenario_id": "V24-078",
+      "security_slices": [
+        "holdout-isolation",
+        "frozen-authority-root"
+      ],
+      "state_digest": "sha256:b36408460e66a55fa24cefb3f8ca203a634374ae66ffcb5682bcd456bff1a8b9",
+      "task_id": "C21-TASK-078",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-078",
+      "validation_error": null
+    },
+    {
+      "case_id": "CASE-C",
+      "decision": "FAIL",
+      "derived": {
+        "active_release": "rel-21-v2",
+        "d21_states": {
+          "business": "PASS",
+          "delivery": "PASS",
+          "environment": "PASS",
+          "technical": "PASS"
+        },
+        "lifecycle_event_ref": "retirement-lifecycle-21",
+        "migration_status": "VERIFIED",
+        "publication_event_ref": "publication-release-21",
+        "publication_executed_at": "2026-09-30T11:20:00Z",
+        "release_digest": "sha256:5d6fb12d8dd637d8df58711ade334662559e99a17211979261baec2cefde4c8e",
+        "release_id": "rel-21-v2",
+        "retirement_requested": true,
+        "rollout_stage": "RETIRED",
+        "trial_cost": 4.5,
+        "trial_count": 2
+      },
+      "external_side_effects": 0,
+      "holdout_ref": "holdout-research-21",
+      "layer": "holdout",
+      "reasons": [
+        "LIFECYCLE_TERMINAL_RUNTIME_INCONSISTENT"
+      ],
+      "scenario_id": "V24-079",
+      "security_slices": [
+        "lifecycle"
+      ],
+      "state_digest": "sha256:b28c8fba2aced7954b79225485535271462c9687738d5c14fcaf58146f6d1e05",
+      "task_id": "C21-TASK-079",
+      "task_type": "research",
+      "trial_id": "C21-TRIAL-079",
+      "validation_error": null
+    }
+  ]
+}

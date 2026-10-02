@@ -1,0 +1,1278 @@
+## SOP · 本章怎么用
+
+> **实测环境**：OpenClaw 2026.9.4 (3a9d69d) · 2026-09-27 · macOS 26.5.1 · 本机 **236 skills** 已盘点 · 其中 **192 个含 `^name:` YAML frontmatter（82%）**
+> **本章定位**：v5.0 行业标准版 · 第 11 章（路径 `11-skill-registry`）· Skill 注册：对齐 Agent Skills 开放标准（接口层 3/4 · 能力层接入）
+> **预计用时**：速读 25 分钟 · 工程读 55 分钟 · 全读 80 分钟
+> **前置依赖**：第 9 章 MCP 绑定 / 第 10 章 A2A 绑定（接口层 1-2/4）概念已建立；理解"Skill = 单个 SKILL.md 文件"
+
+### 步骤 1 · 读完本章需要什么
+
+**前置章节**：
+- 第 10 章 · A2A 绑定（接口层 2/4，理解"能力如何被外部协议发现"）→ `chapters/10-a2a-binding/10-A2A绑定.md`
+- 第 12 章 · Plugin 入口（接口层 4/4，理解"Skill 是 Plugin 的构成单元"）→ `chapters/12-plugin-entrypoint/README.md`
+
+**前置文件**：
+- `~/.openclaw/workspace/references/silicon-life-handbook/openclaw-silicon-life-handbook-v2026.9-industry-standard/00-术语对照表·v3.0行业标准版.md`（35 条改名表，本章引用 #17 技能基因→Skill Gene / Reusable Capability Unit）
+- 本章同目录 6 文件：`README.md`（本文件）/ [`SKILL.md-frontmatter-规范.md`](./SKILL.md-frontmatter-规范.md) / [`8卷Skill写法适配.md`](./8卷Skill写法适配.md) / [`Anthropic-Skills-实拉对位.md`](./Anthropic-Skills-实拉对位.md) / [`Registry-表.md`](./Registry-表.md) / [`真名验证与勘误.md`](./真名验证与勘误.md)
+
+**前置命令**：
+```bash
+# 验证 OpenClaw 版本（Skill 结构基于此版本）
+openclaw --version 2>&1 | tail -1
+# 期望：OpenClaw 2026.9.4 (3a9d69d)
+
+# 本机 skills 真实盘点（SOP 引用 236 skills 的实测基线）
+ls ~/.openclaw/workspace/skills/ | wc -l
+# 期望：≈ 238（含 2 个非目录文件）；纯 skill 目录 = 236
+
+# 本机 YAML frontmatter 覆盖率
+grep -l '^name:' ~/.openclaw/workspace/skills/*/SKILL.md 2>/dev/null | wc -l
+# 期望：192（本机 2026-09-27 实测，即 192/236 ≈ 82%）
+```
+
+### 步骤 2 · 必做的 3 件事
+
+**1. 数你自己的 skill 库存 + frontmatter 覆盖率（先摸清现状）**
+
+本章 11.4 的核心判断是"OpenClaw 结构上兼容 Agent Skills，只是覆盖不全（192/236）"。**先在你本机复算一遍这两个数**——这决定了你要不要批量补 frontmatter。
+
+```bash
+# 复制粘贴：一次性算出"总数 / 有 frontmatter 数 / 覆盖率"
+cd ~/.openclaw/workspace/skills
+TOTAL=$(find . -maxdepth 1 -type d ! -name skills | wc -l | tr -d ' ')
+WITHFM=$(grep -l '^name:' */SKILL.md 2>/dev/null | wc -l | tr -d ' ')
+echo "skills 总数: $TOTAL  含 frontmatter: $WITHFM  覆盖率: $((WITHFM*100/TOTAL))%"
+# 期望（本机 2026-09-27）：skills 总数: 236  含 frontmatter: 192  覆盖率: 81%
+```
+
+**2. 写一个最小 SKILL.md（11.5 Step 2 的 6 字段模板）**
+
+Agent Skills 的核心是 `SKILL.md` + YAML frontmatter。11.2 节列了官方 6 字段规范。**照抄下面模板改 `name`/`description` 就能落地一个合规 skill**（本文件 11.5 节给了完整示例）。
+
+```bash
+# 复制粘贴：创建你自己的第一个合规 skill
+mkdir -p ~/.openclaw/workspace/skills/silicon-life-double-triangle
+cat > ~/.openclaw/workspace/skills/silicon-life-double-triangle/SKILL.md <<'YAML'
+---
+name: silicon-life-double-triangle
+description: 双三角模型训练法（Dual-Triangle Model: Expectation-Actuality-Feedback Loop）。
+  适用于训练硅基 agent 从响应型过渡到提案型。
+license: MIT
+metadata:
+  author: openclaw-silicon-life-handbook
+  version: "1.0"
+---
+
+# 双三角模型训练法（silicon-life-double-triangle）
+
+## 训练目标
+让 agent 学会自主生成期望值（Expectation），而不是等用户给指令。
+
+## 操作流程
+1. Observe 当前对话上下文
+2. Orient 自身期望与用户期望的差值
+3. Decide 是否提出 Proposition
+4. Act 提交 Proposition，等待反馈
+YAML
+
+# 验证 frontmatter 被解析
+grep -A1 '^name:' ~/.openclaw/workspace/skills/silicon-life-double-triangle/SKILL.md
+# 期望：name: silicon-life-double-triangle
+```
+
+**3. 对照 `Registry-表.md`，把你自己的 skill 登进 Registry**
+
+11.7 节澄清了 Skill（能力层）vs Plugin（分发层）的边界。**Skill Registry 是"能力目录"**——把你刚创建的 skill 按 `skill_id / owner / status / version` 登进本章的 Registry 表。
+
+```bash
+# 导出 Registry 表头（供你追加自己的一行）
+head -30 ~/.openclaw/workspace/references/silicon-life-handbook/openclaw-silicon-life-handbook-v2026.9-industry-standard/chapters/11-skill-registry/Registry-表.md
+# 期望：能看到 skill_id/owner/status/version 等列定义 + 9 个既有 skill
+```
+
+### 步骤 3 · 检查清单
+
+- [ ] **版本验证**：`openclaw --version` ≥ 9.4（Skill 结构基于 9.4）
+- [ ] **库存复算**：本机 skill 总数与 frontmatter 数已复算（本机基线 236 / 192 / 81%）
+- [ ] **最小 SKILL.md 落盘**：`~/.openclaw/workspace/skills/silicon-life-double-triangle/SKILL.md` 存在且 `^name:` 可被 grep 命中
+- [ ] **6 字段齐**：你的 SKILL.md frontmatter 至少含 `name` / `description` / `license` / `metadata.author` / `metadata.version`（详见 `SKILL.md-frontmatter-规范.md`）
+- [ ] **Registry 已登记**：你的 skill 已按 `skill_id/owner/status/version` 追加到 `Registry-表.md` 风格的表里
+- [ ] **术语规范**：用"可复用能力单元（Reusable Capability Unit）"作 Skill 的对外全称；"技能基因"（Skill Gene）属内部保留昵称，对外首次出现加英文全称
+- [ ] **勘误已读**：本章 11.3 的 3 条重大勘误（`plugins install` 存在 / agentskills.io 是开放标准 / 192-236 兼容）已读并接受
+
+### 步骤 4 · 常见错误（缩略版 · 完整版看 FAQ 卷）
+
+- ❌ **不要说 Anthropic Skills 是"私有规范"**——**agentskills.io（agentskills/agentskills）2025-12 已把它开放为标准**（Apache-2.0 · GitHub 2026-09-27 实拉 25 723 stars）——这是 v5.0 的第一条重大勘误（11.3 表 #2）
+- ❌ **不要说 `openclaw plugins install` 不存在**——**它存在**（plural 命令集，支持 path/archive/npm/git/clawhub/marketplace 6 种源）——第二条重大勘误（11.3 表 #1）
+- ❌ **不要把"28 个 SKILL.md 全量生成"当既成事实**——11.6 是**可行性结论**（8 卷中 7 卷可 Skill 化，**预计**生成 28 个），不是已完成产物
+- ❌ **不要把 Skill 和 Plugin 混为一谈**——Skill = 单文件"剧本"（Markdown · 跨平台）；Plugin = "剧组"（JSON5 + Code · 启动时加载 · 仅 OpenClaw）——边界见 11.7 表
+- ❌ **不要给 SKILL.md 用 JSON5 写 frontmatter**——SKILL.md frontmatter 是 **YAML**（`---` 包裹）；JSON5 是 Plugin 的 `openclaw.plugin.json` 格式（第 12 章）
+- ✅ **应该做**：skill 的 `description` 写清"什么时候该触发"——它决定 agent 的**渐进式披露（Progressive Disclosure）**能否命中
+- ✅ **应该做**：优先给**你自己的存量 skill** 补 `^name:` frontmatter（本机 44 个缺 frontmatter 的 skill 都能补），而不是另起炉灶写新 skill
+
+### 步骤 5 · 做完怎么验
+
+```bash
+# === 验证 1：版本正确 ===
+openclaw --version 2>&1 | tail -1
+# 期望：OpenClaw 2026.9.4 (3a9d69d)
+
+# === 验证 2：你的 skill 落盘 + 可被 grep 命中 ===
+test -f ~/.openclaw/workspace/skills/silicon-life-double-triangle/SKILL.md \
+  && echo "✓ SKILL.md exists" || echo "❌ missing"
+grep -q '^name:' ~/.openclaw/workspace/skills/silicon-life-double-triangle/SKILL.md \
+  && echo "✓ frontmatter name 命中" || echo "❌ invalid frontmatter"
+
+# === 验证 3：本机覆盖率复算（对照章节 192/236）===
+cd ~/.openclaw/workspace/skills
+echo "含 frontmatter: $(grep -l '^name:' */SKILL.md 2>/dev/null | wc -l) / $(find . -maxdepth 1 -type d ! -name skills | wc -l)"
+# 期望：192 / 236（本机 2026-09-27 实测）
+
+# === 验证 4：章节勘误真名命中（agentskills + 192）===
+grep -c "agentskills" ~/.openclaw/workspace/references/silicon-life-handbook/openclaw-silicon-life-handbook-v2026.9-industry-standard/chapters/11-skill-registry/README.md
+# 期望：≥ 3
+```
+
+**成功标志**：你的 skill 落盘且 `^name:` 命中 + 本机覆盖率复算对上 192/236 + 你能 60 秒讲清"Skill 和 Plugin 的 3 个区别"（范围 / 加载方式 / 跨平台）。
+
+### 步骤 6 · 验证完成后去哪
+
+- **下一章**：第 12 章 · Plugin 入口 → `chapters/12-plugin-entrypoint/README.md`（接口层 4/4 · 把 skill 打包成可安装 plugin）
+- **本章前置**：第 10 章 · A2A 绑定 → `chapters/10-a2a-binding/10-A2A绑定.md`
+- **规范深读**：`SKILL.md-frontmatter-规范.md`（6 字段边界值）→ `8卷Skill写法适配.md`（8 卷 → 28 skill 映射）
+- **实操**：本章 11.5 节 Plugin 路线 5 步（skill → plugin → registry，本机 ⏳ 未跑 `plugins install`）
+- **FAQ**：frontmatter 字段疑问 → `SKILL.md-frontmatter-规范.md`；勘误疑问 → `真名验证与勘误.md`；术语疑问 → `00-术语对照表·v3.0行业标准版.md`
+
+---
+
+## SOP · 诚实边界声明
+
+- ✅ **本章 SOP 基于本机实拉事实**：OpenClaw 2026.9.4 (3a9d69d)（`openclaw --version` 2026-09-27 实拉）· 本机 skills 目录 = 236 个 skill 目录（`find -maxdepth 1 -type d` 实测，含父目录为 237）· `grep -l '^name:'` = 192 个含 YAML frontmatter（覆盖率 81%）
+- ✅ **独立实拉（2026-09-27）**：`openclaw plugins install` 子命令存在（`plugins --help` 实测）· anthropics/skills 178 606 stars / agentskills/agentskills 25 723 stars（章节 GitHub API 现拉）
+- ⏳ **本章 SOP 未实测**：未在本机跑 `openclaw plugins install ~/.openclaw/workspace/skills/silicon-life-double-triangle`（命令存在但未执行）；未跑 `clawhub package publish --family skill`——步骤 5 接受"SKILL.md 落盘 + frontmatter 命中 + 覆盖率复算"作为通过条件
+- ⚠ **两处数字口径差异**：本章 11.3 摘要写"236 / 192"，11.4 对位表写"194/236=82%"——**192 与 194 相差 2**，建议以**实测 192**为准（本 SOP 用 192）；差异根因（是否含 2 个特殊目录）⏳ 待核
+- ⚠ **`ls | wc -l` 与 `find -type d` 口径不同**：`ls ~/.openclaw/workspace/skills/ | wc -l` 本机返回 **238**（含 2 个非目录文件），纯 skill 目录应为 **236**——SOP 步骤 1 已同时给出两种命令，避免误读
+- ⚠ **8 卷 → 28 skill 是可行性预估**，非已完成产物；实际生成需逐卷按 `8卷Skill写法适配.md` 执行
+- ⚠ **本机版本落后**：本机 2026.9.4 < 上游 2026.9.6 latest；Skill 结构若有 9.4/9.6 差异，本 SOP 以 9.4 为准
+
+### 附录 A · SKILL.md 最小合规 1-pager（6 字段模板）
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  SKILL.md 最小合规模板 · Agent Skills 开放标准 · v5.0             │
+├─────────────────────────────────────────────────────────────────┤
+│  ---                        ← YAML frontmatter（不是 JSON5）      │
+│  name: <skill-id>           ← 唯一标识（小写连字符）              │
+│  description: <何时触发>    ← 决定渐进式披露能否命中              │
+│  license: MIT               ← 跟随 OpenClaw 主仓                  │
+│  metadata:                                                        │
+│    author: <作者>                                                 │
+│    version: "1.0"                                                 │
+│  ---                                                              │
+│                                                                   │
+│  # <Skill 标题>                                                   │
+│  ## 训练目标 / ## 操作流程   ← markdown 正文（自然语言指令）      │
+├─────────────────────────────────────────────────────────────────┤
+│ 本机基线：236 skills · 192 含 frontmatter（81%）· 2026-09-27      │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 附录 B · 术语速查（v1.0 黑话 vs v3.0 真名）
+
+| v1.0 黑话（内部保留） | v3.0 真名（对外 + 工程接口必用） | 英文 alias |
+|---|---|---|
+| 技能基因 | 可复用能力单元 | Reusable Capability Unit（Skill Gene 保留作昵称） |
+| 训虾派 / 养虾派 | 主动进化范式 | Proactive Evolution Paradigm |
+| 双三角模型 | 双三角模型 | Dual-Triangle Model: Expectation-Actuality-Feedback Loop |
+| 文档漂移 / 人格漂移 | 文档漂移 / 人格漂移 | Document Drift / Personality Drift |
+| 自主目标生成 | 自主目标生成 | Autonomous Goal Generation (Response → Proposal) |
+| 军团 | 多智能体编排 | Multi-Agent Orchestration / Agent Fleet |
+
+→ 完整 35 条见 [`00-术语对照表·v3.0行业标准版.md`](../../00-术语对照表·v3.0行业标准版.md)
+
+### 附录 C · 接口层 + 能力层跳转拓扑
+
+```
+09-mcp-binding/09-MCP绑定.md        (接口层 1/4 · 工具层 · MCP)
+  ↓
+10-a2a-binding/10-A2A绑定.md        (接口层 2/4 · 协议层 · A2A)
+  ↓
+11-skill-registry/README.md         (接口层 3/4 · 能力层 · Agent Skills · 本章)
+  ├── SKILL.md-frontmatter-规范.md   (6 字段规范)
+  ├── 8卷Skill写法适配.md            (8 卷 → 28 skill 映射)
+  ├── Anthropic-Skills-实拉对位.md   (GitHub API 实拉)
+  ├── Registry-表.md                (9 skill 目录表)
+  └── 真名验证与勘误.md              (3 条重大勘误)
+  ↓
+12-plugin-entrypoint/README.md      (接口层 4/4 · 打包层 · Plugin)
+```
+
+### 附录 D · FAQ 速查（本章最常被问的 7 个问题）
+
+| # | 问题 | 简短答案 | 详细位置 |
+|---|---|---|---|
+| 1 | Skill 到底是什么？ | 一个含 `SKILL.md` 的目录（自然语言指令 + 触发条件） | 本章 11.1 |
+| 2 | Anthropic Skills 是私有规范吗？ | **不是**，agentskills.io 2025-12 已开放为标准 | 本章 11.3 勘误 #2 |
+| 3 | `openclaw plugins install` 存在吗？ | **存在**（plural，6 种安装源） | 本章 11.3 勘误 #1 |
+| 4 | 本机多少个 skill？ | 236 个；192 含 YAML frontmatter（81%） | 步骤 1 + 11.4 |
+| 5 | SKILL.md frontmatter 用 YAML 还是 JSON5？ | **YAML**（JSON5 是 plugin 的 `openclaw.plugin.json`） | `SKILL.md-frontmatter-规范.md` |
+| 6 | Skill 和 Plugin 什么区别？ | Skill = 剧本（Markdown/跨平台）；Plugin = 剧组（JSON5+Code/OpenClaw） | 本章 11.7 |
+| 7 | 8 卷能 Skill 化成多少个？ | 7 卷可化，**预计** 28 个 SKILL.md（预测，未生成） | 本章 11.6 |
+
+---
+
+# 第 10 章 · Skill 注册：对齐 Agent Skills 开放标准
+
+> **v5.0 行业标准版 banner**：本章对应 OpenClaw 训练学第 11 章（接口层 4 / 4）；详见 [book README](../../README.md)。
+> **License banner**：MIT（基于 OpenClaw 主仓 `LICENSE` 法律文本；GitHub API 显示 `NOASSERTION` 不影响法律效力——参见第 11 章[真名验证与勘误](./真名验证与勘误.md)）。
+> **OpenClaw 真名**：本机 `openclaw --version` → `OpenClaw 2026.9.4 (3a9d69d)`。
+> **业界对位**：本章对应 **Agent Skills 开放标准**（agentskills.io · 25 700+ stars · 32+ 客户端读 `SKILL.md`）——首次以**官方规范组织**形式取代 Anthropic 私有规范。
+
+---
+
+## 11.0 本章导览（30 秒版）
+
+如果你今天只有 5 分钟，读完这一段就够：
+
+| # | 文件 | 一句话 | 行数 |
+|---|------|--------|------|
+| 1 | [README.md](./README.md) | 入口 · v4.0 banner + License banner + 业界对位表 + plugin 路线 | 200 |
+| 2 | [SKILL.md-frontmatter-规范.md](./SKILL.md-frontmatter-规范.md) | Anthropic Skills 兼容写法 · YAML frontmatter 6 字段规范 | 400 |
+| 3 | [8卷Skill写法适配.md](./8卷Skill写法适配.md) | 8 卷章节 → Agent Skills 写法适配表 | 350 |
+| 4 | [Anthropic-Skills-实拉对位.md](./Anthropic-Skills-实拉对位.md) | 独立实拉 GitHub API · 含 stars / License / SKILL.md 字段 | 400 |
+| 5 | [Registry-表.md](./Registry-表.md) | Skill Registry 表 · 9 个 skill · 含 skill_id/owner/status/version | 300 |
+| 6 | [真名验证与勘误.md](./真名验证与勘误.md) | 一手实测证据链 + 3 条重大勘误 | 350 |
+
+**新叙事弧**（不是修补 v4.0 §3.2）：
+- 11.1 · **Skill 是什么**——从「Claude 私有附件」到「开放标准」的范式跃迁
+- 11.2 · **SKILL.md 字段表**——官方 6 字段 + 边界值
+- 11.3 · **渐进式披露（Progressive Disclosure）**——为什么 agent 能持有几百个 skill
+- 11.4 · **OpenClaw 适配现状**——本机实测：236 个 skill / 194 个有 YAML frontmatter / 24 个标 License
+- 11.5 · **8 卷 → Skill 化**——把硅基生命训练学每卷打包成可复用能力单元
+- 11.6 · **业界对位表**（6 框架 + 1 标准）
+- 11.7 · **OpenClaw 真名验证**（独立实拉 5 条）
+- 11.8 · **诚实边界**
+
+---
+
+## 11.1 Skill 是什么（一分钟版）
+
+> **Skill（可复用能力单元 / Reusable Capability Unit）**：把"领域知识 + 操作流程 + 触发条件"打包到一个目录，agent 按需加载并按指令执行。
+
+Agent Skills 标准的官方定义（agentskills.io 实拉，2026-09-27）：
+
+> **"Agent Skills are a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows. At its core, a skill is a folder containing a SKILL.md file."**
+
+四个关键事实（独立实拉）：
+
+1. **2025-09-22**：anthropics/skills 仓库首次提交（GitHub API `created_at`）。
+2. **2025-12-16**：agentskills/agentskills 规范仓库发布（GitHub API `created_at` · Apache-2.0）。
+3. **2026-09-27 实拉**：anthropics/skills = **178 606 stars** · **21 137 forks** · 默认分支 `main` · 最近 commit `33375500`（2026-09-24）。
+4. **2026-09-27 实拉**：agentskills/agentskills = **25 723 stars** · **1 944 forks** · Apache-2.0 · size 782 KB · open_issues_count 91。
+
+---
+
+## 11.2 一图速览：本章与全书的逻辑链
+
+```
+[第 0 章 总论]
+   ↓ "OpenClaw 是行业最强，是因为这本训练学"
+[第 1-8 章 哲学 + 训练方法论]
+   ↓ "但训练学要落地，必须有跨平台分发机制"
+[第 9 章 MCP 绑定]   ←──── 工具层接入
+[第 10 章 A2A 绑定]  ←──── 协议层接入
+[第 11 章 Skill 注册] ←──── 本章：能力层接入（你在这里）
+[第 12 章 Plugin 入口] ←──── 打包层接入
+```
+
+---
+
+## 11.3 OpenClaw 本机实测摘要（详见 [真名验证与勘误](./真名验证与勘误.md)）
+
+```
+$ openclaw --version
+OpenClaw 2026.9.4 (3a9d69d)
+
+$ openclaw plugins --help
+Commands: build / disable / doctor / enable / init / inspect
+          install / list / marketplace / pack / registry
+          search / uninstall / update / validate
+
+$ ls ~/.openclaw/workspace/skills/  | wc -l
+236
+
+$ grep -l '^name:' skills/*/SKILL.md | wc -l
+192
+```
+
+**重大勘误（与 v4.0 报告相反的事实）**：
+
+| # | v4.0 报告说法 | 本机实测 | 处理 |
+|---|---------------|----------|------|
+| 1 | `openclaw plugin install` 不存在 | `openclaw plugins install` **存在**，支持 path / archive / npm / git / clawhub / marketplace | v5.0 改名表沿用 `openclaw plugins`（plural 命令集）即可，但子命令已可用 |
+| 2 | Anthropic Skills 是私有规范 | **agentskills.io** 2025-12 开放为标准；agentskills/agentskills 25 700+ stars Apache-2.0 | v5.0 主推"Agent Skills 标准"，而非"Anthropic Skills 私有规范" |
+| 3 | OpenClaw 不支持 Anthropic Skills | OpenClaw 本机 192/236 skills 含 YAML frontmatter（82%）；**结构上兼容** | v5.0 主推"渐进对齐"而非"另起炉灶" |
+
+---
+
+## 11.4 业界对位表（6 框架 + 1 标准 · 实拉 2026-09-27）
+
+| # | 框架 / 标准 | 是否原生读 `SKILL.md` | License | 实拉来源 | 与 OpenClaw 关系 |
+|---|-------------|------------------------|---------|----------|------------------|
+| 1 | **Agent Skills 标准（agentskills.io）** | ✅ 定义者 | Apache-2.0 | agentskills/agentskills | ● 本章对位基准 |
+| 2 | **Claude Code / Anthropic API** | ✅ 一手定义者 | NOASSERTION | anthropics/skills (178k★) | ● 自家标准 = 同一基准 |
+| 3 | **OpenClaw** | ⚠ 结构兼容（194/236=82%） | MIT（法律文本） | openclaw/openclaw | ⚠ 本机 |
+| 4 | **Gemini CLI** | ✅ agentskills.io 客户端 | Apache-2.0 | google-gemini/gemini-cli | ● 跨平台一致 |
+| 5 | **OpenCode** | ✅ agentskills.io 客户端 | MIT | sst/opencode | ● 跨平台一致 |
+| 6 | **OpenHands** | ✅ agentskills.io 客户端 | MIT | OpenHands/OpenHands | ● 跨平台一致 |
+| 7 | **ZeroClaw（Rust）** | ✅ agentskills.io 客户端 | Apache-2.0 | zeroclaw-labs/zeroclaw | ○ 互补（同赛道） |
+
+> ⚠ **业界对位关键判断**：Agent Skills 是**首个真正的"开放 Skill 标准"**——区别于：
+> - LangChain Tools（Python 库 API · 1990 年代的"动态库调用"思路）
+> - AutoGen Function Schema（JSON Schema · 2023 年的"RPC 接口描述"思路）
+> - CrewAI Tools（装饰器 + 注册表 · 2023 年的"内部插件"思路）
+> - Claude Agent SDK MCP（协议层 · 2024 年的"跨进程工具调用"思路）
+>
+> 这些都不是"Skill 标准"，而是"tool calling schema"或"plugin runtime"。Agent Skills 是**首个要求 `SKILL.md` 是 markdown + 含 YAML frontmatter + agent 按需加载的自然语言指令**的标准——这是质变。
+
+---
+
+## 11.5 Plugin 路线示例（如何从 Skill → Plugin → Registry）
+
+```bash
+# Step 1 · 在 ~/.openclaw/workspace/skills/ 下创建一个 skill 目录
+mkdir -p ~/.openclaw/workspace/skills/silicon-life-double-triangle
+
+# Step 2 · 写 SKILL.md（详见 SKILL.md-frontmatter-规范.md）
+cat > SKILL.md <<'YAML'
+---
+name: silicon-life-double-triangle
+description: 双三角模型训练法（Expectation-Actuality-Feedback Loop）。
+  适用于训练硅基 agent 从响应型过渡到提案型。
+license: MIT
+metadata:
+  author: openclaw-silicon-life-handbook
+  version: "1.0"
+---
+
+# 双三角模型训练法（silicon-life-double-triangle）
+
+## 训练目标
+让 agent 学会自主生成期望值（Expectation），
+而不是等用户给指令。
+
+## 操作流程
+1. Observe 当前对话上下文
+2. Orient 自身期望与用户期望的差值
+3. Decide 是否提出 Proposition
+4. Act 提交 Proposition，等待反馈
+
+YAML
+
+# Step 3 · init 一个 plugin（详见第 12 章）
+openclaw plugins init silicon-life-double-triangle
+
+# Step 4 · build → pack → install
+openclaw plugins build --plugin silicon-life-double-triangle
+openclaw plugins pack silicon-life-double-triangle
+openclaw plugins install ~/.openclaw/workspace/skills/silicon-life-double-triangle
+
+# Step 5 · inspect 验证
+openclaw plugins inspect silicon-life-double-triangle
+```
+
+完整 plugin 入口在第 12 章展开。
+
+---
+
+## 11.6 8 卷 Skill 化可行性（摘要）
+
+> 8 卷章节（v1.0 隐喻层）→ Agent Skills 单元（v5.0 工程层）
+
+| 卷（旧） | 主题 | Skill 化可行性 | 对应能力单元 |
+|----------|------|----------------|--------------|
+| 卷一 | 哲学七问 | ⚠ 哲学不可 Skill 化 | （保留叙事层） |
+| 卷二 | 七大契约 | ✅ SOUL/USER/AGENTS/TOOLS/IDENTITY/HEARTBEAT/MEMORY 7 个 skill | `silicon-life-contract-*` × 7 |
+| 卷三 | 系统骨架 | ✅ 7 大子系统逐一 skill | `silicon-life-skeleton-*` × 7 |
+| 卷四 | 训练流程 | ✅ 双三角 + 教练机制 2 个 skill | `silicon-life-trianing-*` × 2 |
+| 卷五 | 长期表现 | ✅ 漂移治理 + 主动性边界 + 每周体检 3 个 skill | `silicon-life-drift-*` × 3 |
+| 卷六 | 治理系统 | ✅ TEV + Trust Score + Merit Ledger 3 个 skill | `silicon-life-governance-*` × 3 |
+| 卷七 | 协同军团 | ⚠ 反脆弱三层 + 三省制 + 让位 = 3 个 skill | `silicon-life-fleet-*` × 3 |
+| 卷八 | 超维演进 | ✅ OODA + 技能基因 + 自主目标生成 3 个 skill | `silicon-life-evolution-*` × 3 |
+
+**可行性结论**：8 卷中 **7 卷可 Skill 化**，预计生成 28 个 SKILL.md；详见 [8卷Skill写法适配.md](./8卷Skill写法适配.md)。
+
+---
+
+## 11.7 为什么是"Skill 注册"而不是"Plugin 规范"
+
+边界澄清（避免第 12 章重复）：
+
+| 维度 | Skill（本章） | Plugin（第 12 章） |
+|------|---------------|---------------------|
+| 范围 | 1 个 `SKILL.md` + 可选 scripts/references/assets | 1 个或多个 skill + `openclaw.plugin.json` 清单 + native Control UI 资源 |
+| 单位 | markdown 指令（自然语言） | TypeScript/JavaScript 进程 + JSON 清单 |
+| 加载方式 | 渐进式披露（agent 按需读） | 启动时加载（`openclaw plugins enable`） |
+| 跨平台 | 任何读 `SKILL.md` 的 agent | 仅 OpenClaw runtime |
+| License | skill 自带 `license:` 字段 | 跟随 plugin（MIT 默认） |
+
+**一句话**：
+- **Skill** = 你的"剧本"（Markdown · 自然语言 · 跨平台）
+- **Plugin** = 你的"剧组"（JSON + Code · 启动时加载 · OpenClaw 私有）
+
+详见第 12 章。
+
+---
+
+## 11.8 诚实边界
+
+- ✅ **已用**：本机 `openclaw --version = 2026.9.4 (3a9d69d)`；`openclaw plugins install` 子命令存在；本机 236 个 skill / 192 个有 YAML frontmatter
+- ✅ **独立实拉**：anthropics/skills、agentskills/agentskills、openclaw/openclaw 三个 GitHub 仓库元数据全部 GitHub API 现拉
+- ⏳ **未实测**：未在本机跑 `openclaw plugins install ~/.openclaw/workspace/skills/silicon-life-double-triangle`（命令存在但未执行）
+- ⚠ **勘误**：v4.0 报告中"openclaw plugin install 不存在"+"Anthropic Skills 私有"两条均需更正——详见 [真名验证与勘误](./真名验证与勘误.md)
+
+---
+
+> **附**：本章所有 GitHub 数据均为 2026-09-27 实时实拉；agentskills.io 抓取于同日。OpenClaw 本机版本由 `openclaw --version` 验证。
+>
+> — SA-10 · 第 11 章 · 2026-09-27
+---
+
+## 常见错误
+
+> **本节用法**：第 11 章是接口层第 3 块——Skill 注册：对齐 **Agent Skills 开放标准**（agentskills.io），把能力写成 1 个 `SKILL.md` + 可选 scripts/references/assets。
+> 这里的 8 个错误来自一条根因：**把"我写了一个 md"当成"agent 会用这个 md"**。
+> 术语首次出现双写：Supervisor Layer（原：监军）/ 多智能体编排（原：军团编制）/ Mentor Agent（原：教练虾）/ Drift Governance（漂移治理）/ Autonomy Boundary Triad（三档制）/ TEV（三证据验证，原：三证验真）/ Remediation Ticket（修复工单，原：整改单）/ Workspace Connector / 任务交接协议 THP / 多智能体协作 / 多智能体协同 / 智能体实例 / 智能体编排。
+>
+> **实测环境**：OpenClaw 2026.9.4 (3a9d69d) · 2026-09-27 · macOS 26.5.1 · 本机 skill 目录 **238** 条目 = **236 个纯 skill 目录** + INDEX 等 2 个非目录文件 · 192 个含 `^name:` YAML frontmatter（覆盖率 81%）。
+
+### 错误 1 · 把 `SKILL.md` frontmatter 写成 JSON5（YAML / JSON5 混用）
+
+**错误现象**：新人刚看完第 12 章（plugin 用 `openclaw.plugin.json` = **JSON5**），回手就把 skill 的 frontmatter 也写成 JSON5：
+
+```markdown
+----
+{ "name": "my-skill", "description": "..." }   // ❌ 不是合法 YAML frontmatter
+----
+```
+
+或者写成 `---json` 围栏、或 `{...}` 直接顶在 `#` 标题前。`grep -l '^name:'` 数不到它，覆盖率统计里它就"消失"了。
+
+**错误配置**（❌ 不要这样）：
+
+```markdown
+{
+  "name": "drift-audit",
+  "description": "漂移审计"
+}
+# 漂移审计
+
+正文……
+```
+
+**为什么错**：
+
+1. **真名分野：`SKILL.md` 用 YAML，`openclaw.plugin.json` 用 JSON5。** 这是本章附录 D 第 5 问的原话——"SKILL.md frontmatter 用 YAML 还是 JSON5？**YAML**（JSON5 是 plugin 的 `openclaw.plugin.json`）"。
+2. **YAML frontmatter 的结构是硬约定**：文件首行 `---`、键值对、闭合 `---`。没有这个夹具，前端的元数据就不存在——不是"格式不同"，而是"没有元数据"。
+3. **工具链全按 YAML 解析**：`skills-ref`（官方校验工具）、32+ 个读 `SKILL.md` 的客户端、本机的覆盖率统计（`grep -l '^name:'`）——没有任何一个会去看你的 JSON5。
+4. **代价是静默失效**：skill 能被 `find` 找到（目录在）、但不会被正确索引；agent 触发时匹配不到，表现为"这个 skill 好像没生效"。
+5. **这也是 18 坏 skill 事故的同类根因**：文件在、加载失败、污染上下文——**格式不合规的静默失败**比报错危险得多。
+
+**正确配置**（✅ 应该这样）：
+
+```markdown
+---
+name: drift-audit
+description: 审计 agent 是否出现漂移（Drift Governance）。当用户要求"检查漂移""审计行为一致性"时使用。
+license: MIT
+---
+
+# 漂移审计
+
+操作流程……
+```
+
+**验证命令**：
+
+```bash
+# 1) frontmatter 夹具存在且在首行
+head -1 ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+# 期望：---
+
+# 2) 能被覆盖率统计数到
+grep -l '^name:' ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+# 期望：文件路径（能被数到 = 合规）
+
+# 3) 本机总覆盖率复算（对照 192/236）
+cd ~/.openclaw/workspace/skills && \
+  echo "目录: $(find . -maxdepth 1 -type d | wc -l | tr -d ' ')"; \
+  echo "含 frontmatter: $(grep -rl '^name:' --include=SKILL.md . | wc -l | tr -d ' ')"
+# 期望：236 / 192（本机 2026-09-27 实测）
+
+# 4) 官方校验工具（本机未装则标 ⏳）
+# npx skills-ref validate ~/.openclaw/workspace/skills/drift-audit
+```
+
+**相关 FAQ**：F11-5（frontmatter 用 YAML 还是 JSON5）、F11-4（本机多少个 skill）。相关文档：`SKILL.md-frontmatter-规范.md`。
+
+---
+
+### 错误 2 · `name` 不符合 spec（大写 / 空格 / 超长 / 与目录名不一致）
+
+**错误现象**：`name: Drift Audit`（有空格大写）、`name: 漂移审计`（中文）、`name: drift-audit-v2-final-2026-09-27`（超长）。目录叫 `drift-audit`，`name` 叫 `drift_audit`（下划线）。
+
+**错误配置**（❌ 不要这样）：
+
+```markdown
+---
+name: Drift Audit 2.0        # ❌ 空格 + 大写 + 版本号塞进 name
+description: ...
+---
+```
+
+**为什么错**：
+
+1. **`name` 是强约束字段**（`SKILL.md-frontmatter-规范.md` §3.1 明确标注"最容易踩坑"）。它是**机器标识**：调用方用它索引、路由、去重；一旦含空格/大写，跨平台实现的分歧就开始了。
+2. **`name` 应与 skill 目录名一致**。目录 `drift-audit` + `name: drift_audit` 是两份标识，早晚会有一处被改，另一处忘改 → 引用断链。
+3. **不要往 `name` 里塞版本**。版本属于 `metadata.version`（或 `license` 旁边的版本字段），塞进 name 会让每次发版都改标识——等于每次发版都是新 skill。
+4. **中文 `name` 会让非中文实现的索引乱掉**，同时和 v3.0 改名表冲突（改名表统一的是"对外术语"，不是"标识"）。
+5. **代价**：`skills-ref` 校验直接失败；即便侥幸加载，`skills.status` / `skills.skillCard` 查询口径也会对不上。
+
+**正确配置**（✅ 应该这样）：
+
+```markdown
+---
+name: drift-audit                 # ✅ 小写 kebab-case，与目录名一致，无版本
+description: 审计 agent 是否出现漂移（Drift Governance）……
+license: MIT
+metadata:
+  version: "1.0.0"                # ✅ 版本放 metadata
+  author: peterqiu
+---
+```
+
+**验证命令**：
+
+```bash
+SKILL=~/.openclaw/workspace/skills/drift-audit
+
+# 1) name 与目录名一致 + 合法字符集
+n=$(grep -m1 '^name:' "$SKILL/SKILL.md" | sed 's/^name:[[:space:]]*//')
+echo "name=$n  dir=$(basename "$SKILL")"
+[ "$n" = "$(basename "$SKILL")" ] && echo "✓ 一致" || echo "❌ 不一致"
+
+# 2) 反例检测：大写/空格/下划线
+grep -m1 '^name:' "$SKILL/SKILL.md" | grep -qE '^name: *[a-z0-9]+(-[a-z0-9]+)*$' && echo "✓ 合规" || echo "❌ 违反 kebab-case"
+
+# 3) 全库扫一遍不合规的（本机基线 236）
+cd ~/.openclaw/workspace/skills && \
+  grep -rh '^name:' --include=SKILL.md . | sed 's/^name:[[:space:]]*//' \
+  | grep -vE '^[a-z0-9]+(-[a-z0-9]+)*$' | head -10
+```
+
+**相关 FAQ**：F11-1（Skill 到底是什么）。相关文档：`SKILL.md-frontmatter-规范.md` §3.1。
+
+---
+
+### 错误 3 · `description` 写成营销词（没有触发条件）
+
+**错误现象**：`description: 本技能是业界最强的漂移审计方案，覆盖全场景。`——这句话对人类阅读友好，但 agent **永远不知道该在什么时候调用它**。
+
+**错误配置**（❌ 不要这样）：
+
+```markdown
+---
+name: drift-audit
+description: 业界最强的漂移治理审计技能，全面、专业、高效。
+---
+```
+
+**为什么错**：
+
+1. **`description` 是弱约束字段，但是唯一的"触发入口"。** `SKILL.md-frontmatter-规范.md` §3.2 标注它是"最容易写得差"的字段——agent 只能读 description 来决定要不要加载，它是**唯一的匹配噪声源**。
+2. **业务价值词对匹配零贡献**："最强""全面""专业""高效"在语义匹配里既不是触发器也不是判据，白白占用 token 预算。
+3. **正确写法是"能力 + 触发条件"两句**：第一句说它做什么（供人读），第二句说**什么时候用**（供 agent 匹配）。这也是本书可用技能索引里"Use when <trigger>"的由来。
+4. **后果**：skill 存在但从不被触发 → 你会误判"skill 机制不工作"，而实际是 description 没写触发条件。
+5. **和渐进式披露联动**：description 是"第一层披露"——它一旦写虚，后面 references/ 里的深内容永远没机会被读到。
+
+**正确配置**（✅ 应该这样）：
+
+```markdown
+---
+name: drift-audit
+description: >
+  审计 agent 是否出现漂移（Drift Governance），输出漂移清单与修复工单建议。
+  Use when 用户要求"检查漂移""审计行为一致性""对比计划与实际"，或需要按周/月核对 agent 输出与契约的一致性时。
+---
+```
+
+**验证命令**：
+
+```bash
+# 1) description 含触发条件关键词
+grep -A3 '^description:' ~/.openclaw/workspace/skills/drift-audit/SKILL.md | grep -ci "use when\|当用户\|触发"
+
+# 2) 反例检测：空话堆叠
+grep -A3 '^description:' ~/.openclaw/workspace/skills/drift-audit/SKILL.md | grep -ci "最强\|全面\|专业\|高效"
+# 期望：0
+
+# 3) 多行 description 必须用 block scalar（> 或 |）
+grep -c '^description: *[>|]' ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+# 期望：1（若单行则此条不适用）
+```
+
+**相关 FAQ**：F11-1。相关文档：`SKILL.md-frontmatter-规范.md` §3.2 / §8.1。
+
+---
+
+### 错误 4 · 把 Skill 当 Plugin（往 `SKILL.md` 里塞代码 / 装进程）
+
+**错误现象**：新人想给 skill 加"真的能跑的逻辑"，于是在 `SKILL.md` 里贴 300 行 TypeScript，或写"本 skill 启动一个后台进程监听 41241"。
+
+**错误配置**（❌ 不要这样）：
+
+```markdown
+---
+name: drift-audit
+description: ...
+---
+
+# 漂移审计
+
+## 实现
+```typescript
+// 300 行 TypeScript 内联在 SKILL.md 里     ❌ skill 是自然语言指令
+import { Server } from "node:http";
+const srv = Server().listen(41241);        // ❌ 也起不了进程
+```
+```
+
+**为什么错**：
+
+1. **范围不同**：Skill = 1 个 `SKILL.md` + 可选 scripts/references/assets（**markdown 指令，自然语言**）；Plugin = 1 个或多个 skill + `openclaw.plugin.json` + native Control UI 资源（**TypeScript/JavaScript 进程 + JSON 清单**）。
+2. **加载方式不同**：Skill 是**渐进式披露**（agent 按需读）；Plugin 是**启动时加载**（`openclaw plugins enable`）。把代码放 skill 里，等于期望"读文档就能起进程"。
+3. **跨平台性不同**：Skill 任何读 `SKILL.md` 的 agent 都能用；Plugin **仅 OpenClaw runtime**。塞代码是为了换插件能力，代价是丢掉 32+ 客户端的通用性。
+4. **一句话分野**：**Skill = 你的"剧本"（Markdown · 自然语言 · 跨平台）；Plugin = 你的"剧组"（JSON + Code · 启动时加载 · OpenClaw 私有）**。
+5. **正确路径是"先 Skill 后 Plugin"**：本章 11.5 给了 Plugin 路线示例——Skill 先把"怎么做"讲清楚，Plugin 再把"能不能自动做"工程化。
+
+**正确配置**（✅ 应该这样）：
+
+```markdown
+---
+name: drift-audit
+description: 审计 agent 是否出现漂移……Use when 用户要求"检查漂移"时。
+---
+
+# 漂移审计
+
+## 操作流程
+1. 读出契约（SOUL / AGENTS）与近 N 天产出
+2. 逐条对比，列出偏离项
+3. 按 TEV 三证据格式落盘
+4. 偏离项 → 建议开 Remediation Ticket
+
+## 脚本（可选）
+scripts/audit.py    ← 代码放 scripts/，不放 SKILL.md 正文
+```
+
+```text
+# 需要"启动时加载 + 起进程"时，才升级为 Plugin（第 12 章）
+openclaw.plugin.json + index.js  →  见 chapters/12-plugin-entrypoint/
+```
+
+**验证命令**：
+
+```bash
+# 1) 反例：SKILL.md 里出现 fenced code 块（除示例外）
+grep -c '^```' ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+
+# 2) 反例：出现 import / require / listen(
+grep -cn '^import \|require(\|\.listen(' ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+# 期望：0
+
+# 3) 代码应该在 scripts/ 目录
+ls -1 ~/.openclaw/workspace/skills/drift-audit/scripts/ 2>/dev/null || echo "（本 skill 无脚本，正常）"
+
+# 4) 目录边界对照（reg：第 12 章 12.7 边界表）
+# Skill：SKILL.md + scripts/references/assets  |  Plugin：+ openclaw.plugin.json + 进程
+```
+
+**相关 FAQ**：F11-6（Skill 和 Plugin 什么区别）、F12-2（配置文件叫什么）。相关章节：第 12 章 12.7。
+
+---
+
+### 错误 5 · 238 / 236 / 192 / 194 口径混用（数字对不上就下结论）
+
+**错误现象**：用 `ls ~/.openclaw/workspace/skills/ | wc -l` 得到 **238**，用 `find -maxdepth 1 -type d | wc -l` 得到 **237**，用 `find -maxdepth 1 -type d | wc -l -1` 得到 **236**，grep frontmatter 得到 **192**，别人文档里写 **194**。于是判断"数据不可信"。
+
+**错误配置**（❌ 不要这样）：
+
+```bash
+# 错误示范：一个数字断言代替口径说明
+ls ~/.openclaw/workspace/skills/ | wc -l      # 238
+echo "本机有 238 个 skill"                     # ❌ 含 2 个非目录文件
+```
+
+**为什么错**：
+
+1. **238 = 236 个纯 skill 目录 + 2 个非目录文件**（如 INDEX 之类）。本章 README 已把口径写死：*"`ls | wc -l` 与 `find -type d` 口径不同：本机返回 238（含 2 个非目录文件），纯 skill 目录应为 236"*。
+2. **`find -maxdepth 1 -type d` 会把父目录自己算进去**（所以是 237），要减去 1 才是 236。这三个数全是"同一件事、不同命令"。
+3. **192 与 194 的差异是真实的未解项**：本章诚实边界标注"两处数字口径差异……建议以实测 192 为准……差异根因（是否含 2 个特殊目录）⏳ 待核"——**承认差异并给出采用口径**，比"挑一个好看的数字"专业得多。
+4. **数字型断言的通用规则**：任何"数量"结论必须三件套——**命令 + 口径 + 日期**。
+5. **代价**：口径混用会让 11 章的"覆盖率 81%→要不要批量补 frontmatter"这个**决策依据**出现 2% 偏差；没人敢签字。
+
+**正确配置**（✅ 应该这样）：
+
+```bash
+# 正确示范：命令 + 口径 + 日期，三件齐
+cd ~/.openclaw/workspace/skills
+echo "A) ls 条目数（含非目录文件）: $(ls -1 | wc -l | tr -d ' ')"
+echo "B) 纯 skill 目录数（-1 去父目录）: $(find . -maxdepth 1 -type d | wc -l | sed 's/^/x/' | tr -d 'x' | awk '{print $1-1}')"
+echo "C) 含 ^name: frontmatter: $(grep -rl '^name:' --include=SKILL.md . | wc -l | tr -d ' ')"
+echo "口径: A=含非目录文件  B=纯目录  C=按 SKILL.md 计数  日期: $(date +%F)"
+```
+
+**验证命令**：
+
+```bash
+# 1) 三种口径同时打印（对照本章 238 / 236 / 192）
+cd ~/.openclaw/workspace/skills
+{ echo "ls条目: $(ls -1 | wc -l | tr -d ' ')"; \
+  echo "纯目录: $(( $(find . -maxdepth 1 -type d | wc -l) - 1 ))"; \
+  echo "frontmatter: $(grep -rl '^name:' --include=SKILL.md . | wc -l | tr -d ' ')"; } \
+  | tee ~/notes/domain/silicon-life-handbook/evidence/skill-count.log
+
+# 2) 非目录文件是什么（解释 238-236=2）
+find ~/.openclaw/workspace/skills -maxdepth 1 ! -type d -print
+
+# 3) 覆盖率
+python3 -c "print(192/236)"   # ≈ 0.8136 → 81%
+```
+
+**相关 FAQ**：F11-4（本机多少个 skill）。相关文档：本章 README 步骤 1 / 11.4。
+
+---
+
+### 错误 6 · 宣称 "Anthropic Skills 是私有规范"（勘误 #2）
+
+**错误现象**：文档里写"Anthropic Skills 是 Anthropic 私有格式，只能在 Claude 用"，因此结论"我们不该对齐它"。
+
+**错误配置**（❌ 不要这样）：
+
+```markdown
+<!-- 错误示范 -->
+Anthropic Skills 为 Anthropic 私有规范，仅 Claude 生态可用。
+```
+
+**为什么错**：
+
+1. **事实：agentskills.io 于 2025-12 已把 Agent Skills 开放为标准**。本章 README 的勘误 #2 原文就是："Anthropic Skills 是私有规范吗？**不是**，agentskills.io 2025-12 已开放为标准。"
+2. **开放性的证据是"客户端数"**：本章 11.4 的对位表以 **25 700+ stars** 与 **32+ 客户端读 `SKILL.md`** 作为开放标准的量化依据——私有规范不会有 32 个第三方客户端。
+3. **判断错会导致路线错**：如果它是私有的，对齐它就没意义；正因为是开放标准，第 11 章才敢把"Agent Skills 兼容性"作为本书接口层的核心卖点。
+4. **勘误的存在本身就是方法论**：v4.0 报告写错了，v5.0 用**独立实拉**（anthropics/skills、agentskills/agentskills、openclaw/openclaw 三个仓库元数据全部 GitHub API 现拉）纠正——这比"照抄上一版"可复现得多。
+5. **引用注意**：开放标准 ≠ 无版本。开放的是"格式与治理"，具体规范版本仍要写清（如 `specification.md` 的当前版本）。
+
+**正确配置**（✅ 应该这样）：
+
+```markdown
+<!-- 正确示范 -->
+Agent Skills 是**开放标准**：Anthropic 2025-10-16 首发 → 2025-12-18 经
+agentskills.io 开放为标准（25 700+ stars · 32+ 客户端读 SKILL.md）。
+→ 结论：对齐它是**生态借势**，不是绑定某一家。
+```
+
+**验证命令**：
+
+```bash
+# 1) 本机是否装了官方 skills 相关 skill
+# ⚠️ 2026-09-28 实测：`skill-security-audit` 目录不存在，实际目录名为 `skill-security-audit-v2`
+openclaw skills list 2>&1 | grep -i "skill-security-audit\|agent-skills-audit\|mcporter" | head -3
+
+# 2) 章节勘误条目在
+grep -n "私有" ~/.openclaw/workspace/references/silicon-life-handbook/openclaw-silicon-life-handbook-v2026.9-industry-standard/chapters/11-skill-registry/真名验证与勘误.md | head -5
+
+# 3) 实拉证据链（本机对位文档）
+sed -n '1,40p' ~/.openclaw/workspace/references/silicon-life-handbook/openclaw-silicon-life-handbook-v2026.9-industry-standard/chapters/11-skill-registry/Anthropic-Skills-实拉对位.md
+```
+
+**相关 FAQ**：F11-2（Anthropic Skills 是私有规范吗）。
+
+---
+
+### 错误 7 · 以为 `openclaw plugins install` 不存在（plural / 勘误 #1）
+
+**错误现象**：新人写完 skill 想装成 plugin，先查 `openclaw plugin install`（**singular**）→ command not found → 结论"OpenClaw 不支持装 plugin"，放弃路线。
+
+**错误配置**（❌ 不要这样）：
+
+```bash
+openclaw plugin install ./my-skill     # ❌ singular，不存在
+# → command not found → 误判"不支持插件"
+```
+
+**为什么错**：
+
+1. **真名是 `plugins`（plural）**：`openclaw plugins` 命令族含 build / disable / doctor / enable / init / inspect / install / list / marketplace / pack / registry / search / uninstall / update / validate（15 个子命令实测）。**`install` 存在**，且支持 6 种安装源。
+2. **这是本章 README 勘误 #1**："`openclaw plugins install` 存在吗？**存在**（plural，6 种安装源）。"
+3. **"singular 失败"是极常见的假阴性**：CLI 命名习惯不统一（有的工具单数、有的复数），一次 typo 就足以否定整条路线。
+4. **推论成本很高**：一旦认为"不支持"，你会绕道去做手工复制文件——而 `install` 本来会帮你注册 `plugins.installs`。
+5. **通用规则**：任何"某命令不存在"的结论，必须补一条 `openclaw <group> --help` 的输出作为证据；否则只是"我拼错了"。
+
+**正确配置**（✅ 应该这样）：
+
+```bash
+# 正确示范：先拉命令族，再选子命令
+openclaw plugins --help 2>&1 | sed -n '/Commands:/,/^$/p'
+# 期望：build / disable / doctor / enable / init / inspect / install / list /
+#      marketplace / pack / registry / search / uninstall / update / validate
+
+openclaw plugins install <source>      # ✅ plural
+```
+
+**验证命令**：
+
+```bash
+# 1) install 子命令真身
+openclaw plugins --help 2>&1 | grep -cE "^\s+install\b"
+# 期望：1
+
+# 2) 子命令总数（15）
+openclaw plugins --help 2>&1 | sed -n '/Commands:/,/^$/p' | grep -cE "^\s+[a-z]"
+# 期望：≥ 14
+
+# 3) 现状基线（51/69 enabled）
+openclaw plugins list 2>&1 | head -1
+
+# 4) 体检
+openclaw plugins doctor
+```
+
+**相关 FAQ**：F11-3（plugins install 存在吗）、F12-1（plugin 还是 plugins）。
+
+---
+
+### 错误 8 · 破坏渐进式披露（把全部内容堆在 `SKILL.md`）
+
+**错误现象**：一个 `SKILL.md` 写到 800 行——背景、原理、全部案例、全部脚本内联，全在第一层。agent 每次匹配到它就吃掉几万 token。
+
+**错误配置**（❌ 不要这样）：
+
+```text
+drift-audit/
+└── SKILL.md        # ❌ 800 行，全部内容平铺
+                    #    无 references/ · 无 scripts/ · 无 assets/
+```
+
+**为什么错**：
+
+1. **Agent Skills 的核心设计是渐进式披露（Progressive Disclosure）**：`SKILL.md` 是**第一层（入口）**，深内容放 `references/`、可执行逻辑放 `scripts/`、素材放 `assets/`——agent 按需读第二层。
+2. **成本是 token**：第一层每多 100 行，每次匹配就多付 100 行；而 90% 的调用只需第一层的"操作流程"。
+3. **技能基因（Skill Gene）与 Skill 载体要分开**（术语表 #17）：可复用能力单元是抽象的；`SKILL.md` 只是它的一个载体。把载体写爆，不会让基因更强。
+4. **后果是"触发变贵、深内容反而到不了"**：token 预算被背景叙述吃掉，真正需要的 references 反而没机会被读。
+5. **标准给了目录结构**（`SKILL.md-frontmatter-规范.md` §6 / §7）：目录结构不是风格问题，是**披露层次**问题。
+
+**正确配置**（✅ 应该这样）：
+
+```text
+drift-audit/
+├── SKILL.md                 # ✅ 第一层：60-120 行，触发条件 + 操作流程 + 检查清单
+├── references/
+│   ├── field-guide.md       # ✅ 第二层：字段详解 / 案例库
+│   └── faq.md
+├── scripts/
+│   └── audit.py             # ✅ 可执行逻辑
+└── assets/
+    └── template.jsonl       # ✅ 模板素材
+```
+
+**验证命令**：
+
+```bash
+SKILL=~/.openclaw/workspace/skills/drift-audit
+
+# 1) 第一层行数（建议 ≤ 200）
+wc -l "$SKILL/SKILL.md"
+
+# 2) 三层目录是否齐
+for d in references scripts assets; do
+  [ -d "$SKILL/$d" ] && echo "✓ $d" || echo "（无 $d，视需要）"
+done
+
+# 3) 全库第一层行数分布（找超长的）
+cd ~/.openclaw/workspace/skills && \
+  for f in */SKILL.md; do printf "%5d %s\n" "$(wc -l < "$f")" "$f"; done | sort -rn | head -10
+```
+
+**相关 FAQ**：F11-1、F11-6。相关文档：`SKILL.md-frontmatter-规范.md` §6 / §7。
+
+---
+
+## 新手坑
+
+> **本节用法**：本章 5 个坑的共同特征是"**先写内容，再想它什么时候被用**"。
+> 实测环境：OpenClaw 2026.9.4 (3a9d69d) · 2026-09-27 · 本机 236 skill 目录 / 192 含 frontmatter。
+
+### 坑 1 · 先写 300 行正文，最后才补 frontmatter
+
+**坑的场景**：新人从"我想让 agent 学会做 X"出发，一口气写完操作流程、案例、注意事项；最后回头补 frontmatter 时，`name` 随手起、`description` 一句带过。
+
+**后果**：frontmatter 成了"补丁"而不是"接口"。`name` 与目录名不一致、`description` 无触发条件——正文写得再好，agent 也匹配不到。这是"内容 100 分、入口 0 分"。
+
+**为什么踩**：
+
+- **写作的自然顺序是"先做事后命名"**，而 skill 的加载顺序是"先命名后做事"。
+- **frontmatter 只有 6 个字段**，看起来"随手就能填"，于是被排到最后。
+- **反馈延迟**：正文写完不会立刻有任何报错，frontmatter 错也不会立刻报错。
+
+**怎么爬出来**：
+
+```bash
+# 1) 先重写 frontmatter（10 分钟），再回看正文
+cat > ~/.openclaw/workspace/skills/drift-audit/SKILL.md <<'MD'
+---
+name: drift-audit
+description: 审计 agent 是否出现漂移（Drift Governance）。Use when 用户要求"检查漂移""审计一致性"时。
+license: MIT
+metadata:
+  version: "1.0.0"
+---
+MD
+
+# 2) 把正文接在后面（保留你已写的内容）
+cat ~/Desktop/drift-audit-body.md >> ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+
+# 3) 校验
+grep -l '^name:' ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+wc -l ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+```
+
+**预防**：把 frontmatter **当接口先写**：名字、触发条件、边界三个先定，正文只是实现。
+
+---
+
+### 坑 2 · 复制别人的 skill，连 frontmatter 一起抄
+
+**坑的场景**：新人 `cp -r` 一个现成 skill 当模板，改了正文，忘了改 `name`、`description`、`metadata.author`。
+
+**后果**：本机出现两个同名 skill（`name` 冲突）→ `skills.status` 查询歧义、agent 匹配到旧的那个；或者 author 指向别人，治理审计时责任归属错。
+
+**为什么踩**：
+
+- **"复制目录"是最省事的起步方式**，模板里 400 行正文比 6 行 frontmatter 显眼得多。
+- **`name` 冲突不报错**：两个目录、两个 `name: foo`，系统照样能起来。
+- **作者字段没人看**：直到要追溯"这条能力谁写的"时才发现。
+
+**怎么爬出来**：
+
+```bash
+# 1) 找出重复 name（本机 236 个 skill 全扫）
+cd ~/.openclaw/workspace/skills && \
+  grep -rh '^name:' --include=SKILL.md . | sed 's/^name:[[:space:]]*//' | sort | uniq -d
+# 期望：空（无重复）
+
+# 2) 定位自己的 skill 并改 identifier 三件套
+S=~/.openclaw/workspace/skills/drift-audit/SKILL.md
+sed -i '' 's/^name: .*/name: drift-audit/' "$S"     # macOS 需 -i ''
+
+# 3) 改 author
+grep -n "author" "$S"
+```
+
+**预防**：`cp -r` 之后第一件事就是改 `name` / `description` / `metadata.author` 三个字段（写进 checklist）。
+
+---
+
+### 坑 3 · 把长文塞进 `metadata` 或 `description`（YAML 就崩）
+
+**坑的场景**：新人想"把触发条件写清楚"，于是 `description: 第一句……第二句……第三句……`（一行 500 字符），或者 `metadata: {把一整篇案例库塞进去}`。YAML 解析直接失败。
+
+**后果**：`SKILL.md` 整份加载失败（不只是字段丢失）——这是"18 坏 skill"型事故的典型形态：一个格式错，skill 就废了。
+
+**为什么踩**：
+
+- **YAML 的引号/缩进规则不直观**：含 `:` 的值、含 `#` 的值、超长单行都是坑。
+- **"多写点更保险"的心理**：描述越详细越好——但对机器格式而言，长度本身就是风险。
+- **没有本地校验习惯**：写完不跑 yaml.load。
+
+**怎么爬出来**：
+
+```bash
+# 1) 用 block scalar 写多行（> 折叠 | 保留换行）
+cat > /tmp/fm-check.py <<'PY'
+import sys, yaml
+p = sys.argv[1]
+t = open(p, encoding='utf-8').read()
+assert t.startswith('---'), "首行必须是 ---"
+end = t.find('\n---', 3)
+fm = yaml.safe_load(t[3:end])
+print("✓ YAML OK:", {k: (str(v)[:40] + '…' if len(str(v)) > 40 else v) for k, v in fm.items()})
+PY
+python3 /tmp/fm-check.py ~/.openclaw/workspace/skills/drift-audit/SKILL.md
+
+# 2) 长内容搬到 references/，frontmatter 只留一句
+mkdir -p ~/.openclaw/workspace/skills/drift-audit/references
+```
+
+**预防**：`description` 控制在 1-2 句（≤ 300 字符）；超过的内容一律去 `references/`。
+
+---
+
+### 坑 4 · 以为"skill 写好了，agent 就会用"
+
+**坑的场景**：新人写完 skill、目录也在，就对外汇报"agent 现在具备漂移审计能力了"。从没验证过任何一次实际触发。
+
+**后果**：能力是"声明态"不是"运行态"。真到需要审计时，agent 压根没加载它——这正是能力矩阵 26 天未续期那类"纸面能力"的同构问题。
+
+**为什么踩**：
+
+- **"文件在 = 功能在"** 的直觉（和第 9 章"plugin 在列表里 = 已启用"是同一个坑）。
+- **触发验证成本高**：要构造一个真的会命中 description 的请求，还要看它有没有加载。
+- **没有"能力验证"这一环的模板**。
+
+**怎么爬出来**：
+
+```bash
+# 1) 注册可见性
+openclaw skills list 2>&1 | grep -i drift
+openclaw skills status 2>&1 | head -20      # 若可用
+
+# 2) 真触发一次（TEV 证据 3：日志）
+openclaw agent --message "检查一下我最近的漂移情况" --agent my-agent
+# 观察日志里是否出现该 skill 的加载记录
+
+# 3) 落盘证据
+mkdir -p ~/notes/domain/silicon-life-handbook/evidence
+openclaw skills list > ~/notes/domain/silicon-life-handbook/evidence/skills-list.log 2>&1
+```
+
+**预防**：skill 的验收口径（Acceptance Criteria）里必须有一条"**至少一次真实触发记录**"，否则只算"已登记"。
+
+---
+
+### 坑 5 · 把 v1.0 黑话写进 `description` / 正文（对外术语污染）
+
+**坑的场景**：新人熟读 v1.0，写 skill 时自然用"监军""军团""三证验真""信誉分""训虾派"。skill 面向 32+ 客户端，等于把内部黑话直接出口。
+
+**后果**：跨平台/跨组织读者看不懂；术语与 v3.0 改名表冲突；同一个概念在不同 skill 里名字不同，触发匹配也被稀释。
+
+**为什么踩**：
+
+- **黑话是"内部熟词"**，写起来最顺手。
+- **改名表有 35 条**，没人能全背；写的时候不会想到去查。
+- **"skill 是给我自己用的"错觉**——一旦进 registry / 被别的 agent 读，它就是对外的。
+
+**怎么爬出来**：
+
+```bash
+# 1) 扫黑话（本章相关的高频 6 条）
+cd ~/.openclaw/workspace/skills/drift-audit && \
+  grep -rn "监军\|军团\|三证验真\|整改单\|信誉分\|军功簿\|训虾派" . | head
+
+# 2) 按改名表双写
+#    监军 → Supervisor Layer（原：监军）
+#    军团 → 多智能体编排（原：军团编制）
+#    三证验真 → TEV（三证据验证，原：三证验真）
+#    整改单 → Remediation Ticket（修复工单，原：整改单）
+
+# 3) 参照改名表全文
+grep -n "" ~/.openclaw/workspace/references/silicon-life-handbook/openclaw-silicon-life-handbook-v2026.9-industry-standard/00-术语对照表·v3.0行业标准版.md | head -40
+```
+
+**预防**：skill 里"术语首次出现必须双写"写进模板；提交前跑一次黑话扫描。
+
+---
+
+### 坑 6 · 以为"frontmatter 字段填得越满越合规"
+
+**坑的场景**：新人看完 6 字段矩阵（name / description / license / compatibility / metadata / allowed-tools），本着"填满显得专业"的心态，把 6 个全填上：`compatibility` 写 "Claude, OpenAI, Gemini, everything"，`allowed-tools` 抄了一长串，`metadata` 塞进 20 个自定义键。
+
+**后果**：三项实际损伤——
+
+1. **`compatibility` 是"大多数 skill 不需要"的字段**（规范原文如此）。乱填等于替**调用方**做了兼容性承诺；对方按你的声明去调用，发现不兼容，责任在你。
+2. **`allowed-tools` 是实验性字段**。把实验性字段当稳定 API 用，规范一改你就得改，而所有依赖它的调用方也要改。
+3. **`metadata` 是自由空间但会被整个读取**。塞 20 个键 = 每次加载多付 20 键的 token 成本，且键名没有 schema 保护，拼错不报错、只静默无效。
+
+**为什么踩**：
+
+- **"完整"在中文语境里几乎总是褒义**（完整版 > 精简版），但配置字段的"完整"是**噪声**。
+- **字段矩阵看起来是清单**：列出 6 个，人就会想逐个打勾。
+- **"显式优于隐式"被误用**：显式声明的前提是**你真的知道并承诺**；不知道就填，是把猜测固化成契约。
+- **参考样本会误导**：⚠️ **原文声明「`skill-security-audit` 是本机唯一 6/6 字段全覆的样本」已于 2026-09-28 实测推翻**——① `~/.openclaw/workspace/skills/skill-security-audit/` **目录不存在**（实际目录为 `skill-security-audit-v2/`，且其 `name:` = `skill-security-audit` ≠ 目录名 → name 违例）；② 该 skill 的 frontmatter **只有 `name` + `description` = 2/6**（`MIT` 只写在 `CLAWHUB.json`，不在 frontmatter）；③ **本机 6/6 全字段样本 = 0 个**，最高档是 5/6 的 11 个。详见 `Registry-表.md` §10。
+
+**怎么爬出来**：
+
+```bash
+SKILL=~/.openclaw/workspace/skills/drift-audit/SKILL.md
+
+# 1) 按"必需 → 推荐 → 视需要"三档重排字段
+python3 - <<'PY'
+import yaml
+p = "<SKILL 路径>"
+t = open(p, encoding="utf-8").read()
+fm = yaml.safe_load(t.split("---", 2)[1])
+need = ["name", "description"]            # 最小骨架
+reco = ["license", "metadata"]            # 推荐
+cond = ["compatibility", "allowed-tools"] # 视需要（乱填 = 负资产）
+print("必需:", {k: fm.get(k) for k in need})
+print("推荐:", {k: fm.get(k) for k in reco})
+print("视需要（检查是否真的需要）:", {k: fm.get(k) for k in cond})
+PY
+
+# 2) 逐项自问三句：
+#    compatibility —— 我是否真的跨多个客户端验证过？没有 → 删掉
+#    allowed-tools —— 我是否真的依赖工具白名单语义？没有 → 删掉
+#    metadata      —— 每个键是否真的会被用到？不会 → 删掉
+
+# 3) 重写后校验 YAML 仍可解析
+python3 -c "import yaml;yaml.safe_load(open('$SKILL',encoding='utf-8').read().split('---',2)[1]);print('✓ YAML OK')"
+```
+
+**预防**：
+
+- 采用**最小骨架起步**（`name` + `description`），写不动了再加字段——而不是一开始填满。
+- 字段三档表贴在自己 skill 目录的 `references/` 里：**必需 / 推荐 / 视需要（附判据）**。
+- `compatibility` 只在**真的跨多客户端验证过**时才写，并且写清验证过的客户端与版本。
+- 记住 ⚠️ **原文「`skill-security-audit` 是特例样本」的前提已不成立**——它实测只有 **2/6**，且该目录不存在。抄结构应参考 **5/6 组**（如 `bazi-fortune` / `compliance-officer`，均缺 `allowed-tools`）（见 `Registry-表.md` §10.2）。
+
+**相关 FAQ**：F11-1 / F11-4。相关文档：`SKILL.md-frontmatter-规范.md` §3.4 / §3.5 / §3.6 / §4（最小骨架）。
+
+---
+
+## 扩展阅读
+
+> **本节用法**：本章是接口层第 3 块（能力层 · Agent Skills），扩展阅读 = "业界能力标准对位 + 本书内导航 + 一手核实命令"。
+> stars 为 2026-09-27 实拉；未评测项标 ⏳。
+
+### 业界对位
+
+| 业界项目 | 对应内容 | 链接 | 差异 |
+|---|---|---|---|
+| Agent Skills（agentskills.io） | 本章底座：开放能力标准（25 700+ stars · 32+ 客户端） | https://agentskills.io | 本书在其上加"训练学语义（7 契约 / 5 优势）" |
+| anthropics/skills | 参考实现与样例 skill | https://github.com/anthropics/skills | 样例强，无注册表/治理口径 |
+| Claude Agent SDK（⭐8,172） | skills 加载与工具绑定 | https://github.com/anthropics/claude-agent-sdk-python | 加载机制强，注册面弱 |
+| MCP（第 8 章） | resource / tool 协议 | https://modelcontextprotocol.io | MCP 管调用，Skill 管"怎么做" |
+| A2A（第 10 章） | Card 的 `skills[]` 声明 | https://a2a-protocol.org | A2A 声明能力，Skill 实现能力 |
+| LangChain（⭐147,151） | 工具/链抽象 | https://github.com/langchain-ai/langchain | 代码优先，跨平台 markdown 化弱 |
+| LlamaIndex（⭐52,330） | 索引/检索式能力 | https://github.com/run-llama/llama_index | 偏数据，无"触发条件"设计 |
+
+**关键结论**：业界普遍有"能力声明"（tool / function / chain），**只有 Agent Skills 把"自然语言指令 + 渐进式披露 + 跨 32 客户端"作为标准**——这是本书选择在对齐它而非自研格式的原因。
+
+> ⏳ 诚实边界：stars / 客户端数来自 2026-09-27 GitHub API 实拉；`openclaw plugins install` 命令存在但本机未执行安装。
+
+### 业界对位补充 · Skill / Plugin / MCP / A2A 四分位对照
+
+| 维度 | Skill | Plugin | MCP | A2A |
+|---|---|---|---|---|
+| 范围 | 1 个 `SKILL.md` + 可选资源 | 1+ skill + manifest + 进程 | server（resource/tool） | Agent Card + Task |
+| 单位 | Markdown（自然语言） | TS/JS 进程 + JSON5 | 协议端点 | 协议消息 |
+| 加载 | 渐进式披露（按需） | 启动时（enable） | 连接时（probe） | 握手时（Card） |
+| 跨平台 | ✅ 32+ 客户端 | ❌ 仅 OpenClaw | ✅ 多框架 | ✅ A2A 生态 |
+| 本书章节 | 第 11 章 | 第 12 章 | 第 8 章 | 第 10 章 |
+
+### 本书内交叉引用
+
+- **前一章**：第 10 章 · A2A 绑定（接口层 2/4，agent ↔ agent）→ `chapters/10-a2a-binding/10-A2A绑定.md`
+- **后一章**：第 12 章 · Plugin 入口（接口层 4/4，打包分发）→ `chapters/12-plugin-entrypoint/README.md`
+- **本章 SOP**：`## SOP · 本章怎么用`（步骤 2 的三件事）+ `### 附录 A · SKILL.md 最小合规 1-pager`
+- **配套文件**：`Registry-表.md`（9 个代表 skill 实测）/ `SKILL.md-frontmatter-规范.md`（6 字段矩阵）/ `8卷Skill写法适配.md` / `Anthropic-Skills-实拉对位.md` / `真名验证与勘误.md`
+- **上游**：第 0 章（差异化优势清单）、第 2 章（Skills 模块 + `skills.status` 网关 RPC）
+- **相关 FAQ**：F11-1（Skill 是什么）、F11-2（私有吗）、F11-3（plugins install 存在吗）、F11-4（本机多少个）、F11-5（YAML 还是 JSON5）、F11-6（Skill vs Plugin）、F11-7（8 卷能 Skill 化几个）
+- **相关 Cookbook**：C3 系列（Skills / Tools / MCP，见 `cookbook/03-skills-tools-mcp.md`）
+- **术语底座**：`00-术语对照表·v3.0行业标准版.md`（#17 技能基因 vs 载体 / #20 双模块 / #32 网关 RPC / #33 主仓真名）
+
+### 延伸阅读补充 · 一手核实命令（本章）
+
+```bash
+# 版本
+openclaw --version 2>&1 | tail -1      # OpenClaw 2026.9.4 (3a9d69d)
+
+# 库存三口径（238 / 236 / 192）
+cd ~/.openclaw/workspace/skills
+echo "ls条目: $(ls -1 | wc -l | tr -d ' ')"
+echo "纯目录: $(( $(find . -maxdepth 1 -type d | wc -l) - 1 ))"
+echo "frontmatter: $(grep -rl '^name:' --include=SKILL.md . | wc -l | tr -d ' ')"
+
+# 非目录文件（解释 238-236）
+find ~/.openclaw/workspace/skills -maxdepth 1 ! -type d -print
+
+# 重复 name 检测
+grep -rh '^name:' --include=SKILL.md . | sed 's/^name:[[:space:]]*//' | sort | uniq -d
+
+# plugin 侧真名（对照第 12 章）
+openclaw plugins --help 2>&1 | sed -n '/Commands:/,/^$/p'
+openclaw plugins list 2>&1 | head -1     # Plugins (51/69 enabled)
+
+# 兜底
+openclaw health && openclaw doctor && openclaw backup create
+```
+
+### 延伸阅读补充 · 本章相关真实案例索引
+
+| 案例 | 现象 | 对应 Skill 环节 | 相关章节 |
+|---|---|---|---|
+| 18 坏 skill | 加载失败、污染上下文 | frontmatter 不合规 = 静默失效 | 第 5 章 / F5-10 |
+| 能力矩阵 26 天未续期 | 纸面能力无人续期 | "文件在 ≠ 能力在"；缺触发验证 | 第 5 章 / F7-15 |
+| 9/21 飞书推送事故 | 定时任务静默失败 | skill 无触发日志 = 无证据 3 | 第 6 章 / F3-12 |
+| 8/19 军团断线 | 通道失效无人应答 | 跨 agent 能力声明不一致 | 第 10 章 / F3-13 |
+
+### 延伸阅读补充 · Registry 表字段速查（与 `Registry-表.md` 对齐）
+
+| 字段 | 约束 | 常见错法 | 本机覆盖 |
+|---|---|---|---|
+| `name` | 强（kebab-case，与目录一致） | 大写/空格/中文 | 236 目录中 **191**（顶层 YAML key 口径）/ **194**（`grep -rl '^name:'` 口径）⚠️ 原文记 192 |
+| `description` | 弱（唯一触发入口） | 营销词、无 "Use when" | 建议 1-2 句；本机 **192** |
+| `license` | 推荐 | 留空 | 本机 **24** 个标 License |
+| `compatibility` | 可选 | 乱填致误判 | 大多数不需要；本机仅 **12** 个填 |
+| `metadata` | 推荐（自由空间） | 塞长文致 YAML 崩 | `version` / `author`；本机 **68** 个填 |
+| `allowed-tools` | 实验性 | 当稳定 API 用 | **9**（2026-09-28 实测，原记 ⏳ 未实测） |
+
+> ⚠️ **勘误（2026-09-28 实测）**：**原文「`skill-security-audit` 是本机唯一 6/6 字段全覆的样本」已推翻**——① `skills/skill-security-audit/` 目录**不存在**（实际为 `skill-security-audit-v2/`，`name:` ≠ 目录名）；② 其 frontmatter 仅 `name` + `description` = **2/6**（`MIT` 只在 `CLAWHUB.json`）；③ **本机 6/6 全字段样本 = 0 个**，最高档为 **5/6（11 个）**：`bazi-fortune` / `compliance-officer` / `fengshui-advisor` / `geo-content-optimizer` / `git-workflow` / `greenhelix-agent-workforce-orchestration` / `liuyao-yijing` / `meihua-yishu-divination` / `qimen-dunjia-oracle` / `vedic-astrology`（缺 `allowed-tools`）+ `contract-review`（缺 `compatibility`）。完整实测见 `Registry-表.md` **§10**（含 52 条 name 违例清单与 28 vs 47 口径双列）。
+
+### 延伸阅读补充 · 引用禁忌（本章专属）
+
+- 不得写"Anthropic Skills 是私有规范"（须写开放标准 + 日期）
+- 不得用 `openclaw plugin install`（singular；须 `plugins`）
+- 不得混用 238 / 236 / 192 / 194 口径（须"命令 + 口径 + 日期"三件齐）
+- 不得把 Skill 与 Plugin 混为一谈（剧本 vs 剧组）
+- 不得把内部黑话（监军/军团/三证验真/信誉分/军功簿/训虾派）写进技能对外 description
+- 不得在未验证触发的情况下宣称"agent 具备该能力"
+
+### 一句话收尾
+
+第 11 章可以浓缩成一句口诀：**"name 小写对齐目录、description 写触发条件、YAML 不是 JSON5、Skill 是剧本 Plugin 是剧组、数字必须带口径"**——能力层的价值不在"我写了多少行"，而在"agent 在对的时候能不能找到它"。
+
+---
+
+*第 11 章（11-skill-registry）P1-2 追加区块 · 常见错误 8 个 / 新手坑 5 个 / 扩展阅读 6 部分*
+*撰写：从零撰写（未抄 v1.0/v4.0 原文）· 2026-09-27*
+*实测环境：OpenClaw 2026.9.4 (3a9d69d) · macOS 26.5.1 · 本机 238 条目 = 236 纯目录 + 2 非目录文件 · 192 含 frontmatter*
+
+---
+
+### 延伸阅读补充 · 全章真名命令速查（含本章新增 · 逐条可执行）
+
+```bash
+# —— 环境 / 实例层（本章前置底座）——
+openclaw setup                       # 首次环境初始化（真名 · 交互式）
+openclaw agents add <name>           # 新增智能体实例（真名）
+openclaw agents list                 # 本机 18 个 agent（实测基线）
+openclaw health                      # 运行时健康
+openclaw doctor                      # 配置 / 依赖体检
+openclaw backup create               # 破坏性操作前的安全网
+
+# —— 本层（Skill 注册）——
+cd ~/.openclaw/workspace/skills
+ls -1 | wc -l                        # 238（含 2 个非目录文件）
+find . -maxdepth 1 -type d | wc -l   # 237（含父目录；-1 = 236）
+grep -rl '^name:' --include=SKILL.md . | wc -l   # 192（含 frontmatter）
+openclaw skills list | grep -i <your-skill>      # 注册可见性
+python3 -c "import yaml;yaml.safe_load(open('<SKILL>',encoding='utf-8').read().split('---',2)[1]);print('✓ YAML OK')"
+openclaw agent --message "用一下 <your-skill>" --agent <name>   # 真触发验证
+
+# —— 跨层对照（第 8/10/12 章真名）——
+openclaw mcp list                    # 第 8 章：mcp.servers 基线
+openclaw plugins list                # 第 12 章：51/69 enabled
+openclaw plugins --help              # plugins 复数（含 install / validate）
+```
+
+> ⏳ 标注说明：`npx skills-ref validate <dir>`（官方校验工具）本机未装，属 ⏳；SKILL.md frontmatter 用 **YAML**，plugin manifest 才用 **JSON5**——两处勿混。

@@ -1,0 +1,783 @@
+{
+  "review_id": "C18-v2-independent-reproduction-20260930",
+  "chapter_id": "C18",
+  "reviewer_role": "non_author_independent_reviewer",
+  "executed_on": "2026-09-30",
+  "scope": "offline synthetic fresh-temp rebuild plus independent state-boundary attacks",
+  "author_files_modified": false,
+  "network_used_by_harness": false,
+  "real_credentials_used": false,
+  "external_side_effects": 0,
+  "fresh_temp_runs": [
+    {
+      "label": "A",
+      "exit_code": 0,
+      "stdout": "9f79747a78784be4e72cd5852f89c72dff41733b2de159b8a3cd84070a8a51bc",
+      "input_sha256": "cc21f2338703b09283c6a8089f36042c282a57d4a3f263b912cbddeb5bf5cfdc",
+      "results_sha256": "f6612efffffc213f7c6c94ff9cbcbf9fa59cfc598ecfa884a75e273ca48167ae",
+      "summary_sha256": "3045f4ca21e56081d0d3063145267f61aa44b3eeae38538f1c8fef1d1e3549fd",
+      "input_bytes": 9261,
+      "results_bytes": 100591,
+      "summary_bytes": 611,
+      "trial_count": 18,
+      "distribution": {
+        "FAIL": 9,
+        "PASS": 3,
+        "REVIEW_REQUIRED": 6
+      },
+      "by_layer": {
+        "holdout": {
+          "FAIL": 6,
+          "REVIEW_REQUIRED": 4
+        },
+        "regression": {
+          "FAIL": 2,
+          "REVIEW_REQUIRED": 2
+        },
+        "representative_real_world": {},
+        "training": {
+          "FAIL": 1,
+          "PASS": 3
+        }
+      },
+      "decision_digest": "9f79747a78784be4e72cd5852f89c72dff41733b2de159b8a3cd84070a8a51bc",
+      "representative_real_world_evidence_count": 0,
+      "synthetic_shadow_trial_count": 3,
+      "external_side_effect_count": 0
+    },
+    {
+      "label": "B",
+      "exit_code": 0,
+      "stdout": "9f79747a78784be4e72cd5852f89c72dff41733b2de159b8a3cd84070a8a51bc",
+      "input_sha256": "cc21f2338703b09283c6a8089f36042c282a57d4a3f263b912cbddeb5bf5cfdc",
+      "results_sha256": "f6612efffffc213f7c6c94ff9cbcbf9fa59cfc598ecfa884a75e273ca48167ae",
+      "summary_sha256": "3045f4ca21e56081d0d3063145267f61aa44b3eeae38538f1c8fef1d1e3549fd",
+      "input_bytes": 9261,
+      "results_bytes": 100591,
+      "summary_bytes": 611,
+      "trial_count": 18,
+      "distribution": {
+        "FAIL": 9,
+        "PASS": 3,
+        "REVIEW_REQUIRED": 6
+      },
+      "by_layer": {
+        "holdout": {
+          "FAIL": 6,
+          "REVIEW_REQUIRED": 4
+        },
+        "regression": {
+          "FAIL": 2,
+          "REVIEW_REQUIRED": 2
+        },
+        "representative_real_world": {},
+        "training": {
+          "FAIL": 1,
+          "PASS": 3
+        }
+      },
+      "decision_digest": "9f79747a78784be4e72cd5852f89c72dff41733b2de159b8a3cd84070a8a51bc",
+      "representative_real_world_evidence_count": 0,
+      "synthetic_shadow_trial_count": 3,
+      "external_side_effect_count": 0
+    }
+  ],
+  "saved_artifact_hashes": {
+    "input_sha256": "cc21f2338703b09283c6a8089f36042c282a57d4a3f263b912cbddeb5bf5cfdc",
+    "results_sha256": "f6612efffffc213f7c6c94ff9cbcbf9fa59cfc598ecfa884a75e273ca48167ae",
+    "summary_sha256": "3045f4ca21e56081d0d3063145267f61aa44b3eeae38538f1c8fef1d1e3549fd"
+  },
+  "fresh_temp_input_equals_each_other_and_saved": true,
+  "fresh_temp_results_equals_each_other_and_saved": true,
+  "fresh_temp_summary_equals_each_other_and_saved": true,
+  "attack_count": 34,
+  "attack_control_pass_count": 30,
+  "attack_control_fail_count": 4,
+  "failed_attack_ids": [
+    "AT-ART-03",
+    "AT-D21-01",
+    "AT-STOP-03",
+    "AT-D22-01"
+  ],
+  "attacks": [
+    {
+      "attack_id": "AT-CARD-01",
+      "target": "forged Card signature",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "CARD_SIGNATURE_INVALID",
+        "CARD_CACHE_DIGEST_MISMATCH"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-CARD-02",
+      "target": "validly signed Card actor mismatches delegation/authority",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "DELEGATION_INVALID_OR_EXPANDED",
+        "AUTHORITY_BINDING_INVALID",
+        "ARTIFACT_IDENTITY_OR_TASK_MISMATCH"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-CARD-03",
+      "target": "validly signed unsafe Card endpoint",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "CARD_ENDPOINT_POLICY_DENIED"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-CARD-04",
+      "target": "Card cache digest mismatch",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "CARD_CACHE_DIGEST_MISMATCH"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-AUTH-01",
+      "target": "expired authority",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "AUTHORITY_BINDING_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-AUTH-02",
+      "target": "wrong authority actor",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "AUTHORITY_BINDING_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-AUTH-03",
+      "target": "wrong authority action",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "AUTHORITY_BINDING_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-AUTH-04",
+      "target": "wrong authority object",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "AUTHORITY_BINDING_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-AUTH-05",
+      "target": "revoked authority",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "AUTHORITY_BINDING_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-AUTH-06",
+      "target": "untrusted approver",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "AUTHORITY_BINDING_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-ART-01",
+      "target": "artifact content changes after digest/signature",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "ARTIFACT_DIGEST_MISMATCH",
+        "ARTIFACT_SIGNATURE_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": false
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-ART-02",
+      "target": "valid signature over business-wrong content",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "CONTENT_BUSINESS_ERROR",
+        "ACCEPTANCE_EVIDENCE_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-ART-03",
+      "target": "valid signature from revoked artifact signer",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "PASS",
+      "control_passed": false,
+      "reasons": [],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "PASS",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-ART-04",
+      "target": "narrow Artifact signed_fields",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "ARTIFACT_SIGNED_FIELDS_INCOMPLETE"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-ART-05",
+      "target": "Artifact bound to another Task",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "ARTIFACT_IDENTITY_OR_TASK_MISMATCH"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-ART-06",
+      "target": "Artifact provenance removed",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "ARTIFACT_PROVENANCE_OR_RETENTION_MISSING"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-STATE-01",
+      "target": "terminal COMPLETED regresses to WORKING",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "TERMINAL_STATE_REGRESSION"
+      ],
+      "states": {
+        "protocol_state": "WORKING",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-STATE-02",
+      "target": "unknown protocol enum",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "SCHEMA_REJECT"
+      ],
+      "actual_outcome": "SCHEMA_REJECT",
+      "control_passed": true,
+      "reasons": [],
+      "states": {},
+      "external_effects": null,
+      "error": "ValueError: raw.events[2].protocol_state has unknown enum"
+    },
+    {
+      "attack_id": "AT-STATE-03",
+      "target": "Task snapshot differs from terminal Event",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "TASK_SNAPSHOT_MISMATCH"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-D21-01",
+      "target": "nonterminal protocol but stopped and accepted",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "REVIEW_REQUIRED",
+        "FAIL"
+      ],
+      "actual_outcome": "PASS",
+      "control_passed": false,
+      "reasons": [],
+      "states": {
+        "protocol_state": "WORKING",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "PASS",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-D21-02",
+      "target": "delivery not visible",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "ACCEPTANCE_EVIDENCE_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-STOP-01",
+      "target": "missing stop receipt",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "REVIEW_REQUIRED",
+        "FAIL"
+      ],
+      "actual_outcome": "REVIEW_REQUIRED",
+      "control_passed": true,
+      "reasons": [
+        "EXECUTION_NOT_STOP_CONFIRMED"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "UNKNOWN",
+        "acceptance_state": "REVIEW_REQUIRED",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-STOP-02",
+      "target": "UNKNOWN authoritative readback",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "REVIEW_REQUIRED",
+        "FAIL"
+      ],
+      "actual_outcome": "REVIEW_REQUIRED",
+      "control_passed": true,
+      "reasons": [
+        "EXECUTION_TERMINAL_UNKNOWN"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "UNKNOWN",
+        "acceptance_state": "REVIEW_REQUIRED",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-STOP-03",
+      "target": "dummy receipt claims VERIFIED",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "REVIEW_REQUIRED",
+        "FAIL"
+      ],
+      "actual_outcome": "PASS",
+      "control_passed": false,
+      "reasons": [],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "PASS",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-SCHEMA-01",
+      "target": "unknown root field",
+      "boundary": "source_contract",
+      "expected_allowed_outcomes": [
+        "SCHEMA_REJECT"
+      ],
+      "actual_outcome": "SCHEMA_REJECT",
+      "control_passed": true,
+      "reasons": [],
+      "states": {},
+      "external_effects": null,
+      "error": "ValueError: root unknown fields: ['is_valid']"
+    },
+    {
+      "attack_id": "AT-SCHEMA-02",
+      "target": "unknown schema version",
+      "boundary": "source_contract",
+      "expected_allowed_outcomes": [
+        "SCHEMA_REJECT"
+      ],
+      "actual_outcome": "SCHEMA_REJECT",
+      "control_passed": true,
+      "reasons": [],
+      "states": {},
+      "external_effects": null,
+      "error": "ValueError: unsupported schema_version"
+    },
+    {
+      "attack_id": "AT-SCHEMA-03",
+      "target": "unknown mutation",
+      "boundary": "source_contract",
+      "expected_allowed_outcomes": [
+        "SCHEMA_REJECT"
+      ],
+      "actual_outcome": "SCHEMA_REJECT",
+      "control_passed": true,
+      "reasons": [],
+      "states": {},
+      "external_effects": null,
+      "error": "ValueError: root.scenarios[0] unknown mutations: ['mystery_attack']"
+    },
+    {
+      "attack_id": "AT-SCHEMA-04",
+      "target": "unknown effect enum",
+      "boundary": "source_contract",
+      "expected_allowed_outcomes": [
+        "SCHEMA_REJECT"
+      ],
+      "actual_outcome": "SCHEMA_REJECT",
+      "control_passed": true,
+      "reasons": [],
+      "states": {},
+      "external_effects": null,
+      "error": "ValueError: root.base_execution.effect_ledger[0].status has unknown enum"
+    },
+    {
+      "attack_id": "AT-ID-01",
+      "target": "duplicate scenario/task/trial identity",
+      "boundary": "source_contract",
+      "expected_allowed_outcomes": [
+        "SCHEMA_REJECT"
+      ],
+      "actual_outcome": "SCHEMA_REJECT",
+      "control_passed": true,
+      "reasons": [],
+      "states": {},
+      "external_effects": null,
+      "error": "ValueError: scenario ids must be unique"
+    },
+    {
+      "attack_id": "AT-ID-02",
+      "target": "same event ID and same payload is idempotent",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "PASS"
+      ],
+      "actual_outcome": "PASS",
+      "control_passed": true,
+      "reasons": [],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "PASS",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-ID-03",
+      "target": "same event ID with different payload",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "DUPLICATE_ID_CONFLICT"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-HARD-01",
+      "target": "maximum trust cannot compensate missing authority",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "AUTHORITY_BINDING_INVALID"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-HARD-02",
+      "target": "authority hard failure is not averaged with UNKNOWN",
+      "boundary": "materialized_state",
+      "expected_allowed_outcomes": [
+        "FAIL"
+      ],
+      "actual_outcome": "FAIL",
+      "control_passed": true,
+      "reasons": [
+        "AUTHORITY_BINDING_INVALID",
+        "EXECUTION_TERMINAL_UNKNOWN"
+      ],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "UNKNOWN",
+        "acceptance_state": "FAIL",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    },
+    {
+      "attack_id": "AT-D22-01",
+      "target": "synthetic fixture relabeled with self-asserted real-world manifest",
+      "boundary": "source_contract",
+      "expected_allowed_outcomes": [
+        "SCHEMA_REJECT",
+        "REVIEW_REQUIRED",
+        "FAIL"
+      ],
+      "actual_outcome": "PASS",
+      "control_passed": false,
+      "reasons": [],
+      "states": {
+        "protocol_state": "COMPLETED",
+        "execution_state": "STOP_CONFIRMED",
+        "acceptance_state": "PASS",
+        "artifact_signature_valid": true
+      },
+      "external_effects": 0,
+      "error": null
+    }
+  ],
+  "gate_implication": {
+    "synthetic_machine_control": "FAIL",
+    "real_a2a_openclaw_hermes_practice": "REVIEW_REQUIRED",
+    "muse_internal_implementation": "NOT_CLAIMED"
+  }
+}

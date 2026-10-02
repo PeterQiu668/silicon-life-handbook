@@ -1,0 +1,253 @@
+chapter_id: "C02"
+title: "从养虾到训虾"
+status: "drafting"
+ledger_version: "0.1.1"
+verified_on: "2026-09-30"
+review_status:
+  author_self_check: "pending"
+  evidence_review: "completed-with-findings"
+  practice_review: "unassigned"
+  cross_review: "completed-with-findings"
+  editorial_review: "unassigned"
+notes:
+  - "本账本支持 drafting 稿，不构成总编批准。"
+  - "动态产品事实须在进入 release_candidate 前重新复核。"
+  - "S01-S03 课程页面未取得逐字稿或作者授权，统一 RIGHTS-BLOCKED，仅作历史探索线索，不能支持正文主张。"
+claims:
+  - evidence_id: "E-C02-001"
+    claim: "训虾是围绕任务域，以目标、测量、反馈、受控干预和多轮复核塑造稳定可迁移行为的系统方法；养虾、做事、训虾三范式为本书方法论。"
+    label: "METHODOLOGY"
+    stability: "stable"
+    scope: ["general"]
+    source_nature: ["local-editorial-source", "legacy-source"]
+    sources:
+      - locator: "00-正式出版版-三级内容框架-v2.md#第-2-章-从养虾到训虾"
+        checked_at: "2026-09-30"
+      - locator: "docs/research/legacy-content-map.md#第-2-章-从养虾到训虾"
+        checked_at: "2026-09-30"
+      - locator: "../openclaw-silicon-life-handbook/volume-01/模块2-从养虾派到训虾派.md"
+        checked_at: "2026-09-30"
+    limitations: "原创方法，不得写成外部行业标准；旧稿中的无证据数字、引语、公司案例和预测未继承。"
+    chapter_usage: ["章首导航", "2.1", "2.3"]
+    recheck_trigger: "本书正式框架或术语表发生重大变更"
+
+  - evidence_id: "E-C02-002"
+    claim: "S01-S03 仅能证明作者曾接触相关页面线索；未取得逐字稿与作者授权，正式书稿不得将其作为三系统模型的核心依据。"
+    label: "PROJECT-DECISION"
+    stability: "versioned"
+    scope: ["general"]
+    source_nature: ["rights-blocked-historical-lead"]
+    sources:
+      - url: "https://www.douyin.com/video/7620753055872552243"
+        locator: "页面标题与章节要点"
+        checked_at: "2026-09-30"
+      - url: "https://www.douyin.com/video/7620755700175605019"
+        locator: "页面标题与章节要点"
+        checked_at: "2026-09-30"
+      - url: "https://www.douyin.com/video/7616279711525768463"
+        locator: "页面标题与章节要点"
+        checked_at: "2026-09-30"
+      - locator: "SOURCES.md#2-三门课程历史启发与权利隔离"
+        checked_at: "2026-10-01"
+    limitations: "RIGHTS-BLOCKED；不得进入正文引用、模型定义、图表、练习答案或效果主张。"
+    chapter_usage: []
+    recheck_trigger: "取得课程作者书面授权、可核逐字稿与明确可用范围"
+
+  - evidence_id: "E-C02-003"
+    claim: "Agent 能力评测应覆盖任务、轨迹、工具调用、环境终态和多次试验；只看最终回答或一次演示不足以证明稳定能力。"
+    label: "SOURCE-BASED"
+    stability: "stable"
+    scope: ["general"]
+    source_nature: ["official-engineering", "official-guidance", "government-research"]
+    sources:
+      - url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+        locator: "Agent eval design, trials, graders and outcomes"
+        checked_at: "2026-09-30"
+      - url: "https://developers.openai.com/api/docs/guides/agent-evals"
+        locator: "Evaluate agent workflows and traces"
+        checked_at: "2026-09-30"
+      - url: "https://www.nist.gov/caisi/cheating-ai-agent-evaluations"
+        locator: "Evaluation gaming and contamination risks"
+        checked_at: "2026-09-30"
+    limitations: "各来源使用的框架和指标不同；本章只抽取共同原则，统计方法由 C07 定义。"
+    chapter_usage: ["章首导航", "2.3", "失败模式三"]
+    recheck_trigger: "评测指南或本书 C07 门禁变化"
+
+  - evidence_id: "E-C02-004"
+    claim: "训练闭环与生产闭环应分离目标、权限和成功定义，并通过受控接口交换问题、候选变更与发布决定。"
+    label: "METHODOLOGY"
+    stability: "stable"
+    scope: ["general"]
+    source_nature: ["local-editorial-source"]
+    sources:
+      - locator: "00-正式出版版-三级内容框架-v2.md#25-两个闭环训练闭环与生产闭环"
+        checked_at: "2026-09-30"
+      - locator: "docs/research/legacy-content-map.md#第-2-章-从养虾到训虾"
+        checked_at: "2026-09-30"
+    limitations: "双闭环命名与完整接口是本书方法论，不借外部协议为训练方法背书。"
+    chapter_usage: ["2.5", "A-C02-01"]
+    recheck_trigger: "C07-C09 的接口契约冻结"
+
+  - evidence_id: "E-C02-005"
+    claim: "自动总结、修改 Memory/Skill 或生成工具只证明产生了候选变更；净提升必须经独立评测、权限控制、发布决定与回滚验证。"
+    label: "INFERENCE"
+    stability: "stable"
+    scope: ["general", "openclaw", "hermes"]
+    source_nature: ["cross-source-inference"]
+    sources:
+      - url: "https://www.anthropic.com/research/trustworthy-agents"
+        locator: "Trust, permissions and human oversight"
+        checked_at: "2026-09-30"
+      - url: "https://www.nist.gov/caisi/cheating-ai-agent-evaluations"
+        locator: "Independent evaluation and gaming risk"
+        checked_at: "2026-09-30"
+      - url: "https://hermes-agent.nousresearch.com/docs/user-guide/security/"
+        locator: "Write and execution safety controls"
+        checked_at: "2026-09-30"
+      - locator: "docs/research/platform-and-frontier-evidence.md#11-争议未知与必须保留的不确定性"
+        checked_at: "2026-09-30"
+    limitations: "这是由评测和安全材料推导的编辑结论，不是任何单一来源的逐字规定。"
+    chapter_usage: ["2.3", "2.7"]
+    recheck_trigger: "出现独立、可复现的长期自学习净收益研究"
+
+  - evidence_id: "E-C02-006"
+    claim: "OpenClaw 提供 Skills 与 Skill Workshop/self-learning 等形成能力候选的实现路径。"
+    label: "INFERENCE"
+    stability: "versioned"
+    scope: ["openclaw"]
+    version: "2026.9.6"
+    source_nature: ["official-doc", "fixed-release"]
+    sources:
+      - url: "https://docs.openclaw.ai/tools/skills"
+        locator: "Skills system"
+        checked_at: "2026-09-30"
+      - url: "https://docs.openclaw.ai/tools/skill-workshop"
+        locator: "Skill Workshop"
+        checked_at: "2026-09-30"
+      - url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+        locator: "Release baseline"
+        checked_at: "2026-09-30"
+    limitations: "存在候选生成或自学习能力不证明持续净提升；具体字段和命令须在实现附录固定源码复核。"
+    chapter_usage: ["2.7", "平台实现对照"]
+    recheck_trigger: "OpenClaw 稳定基线变化或印前复核"
+
+  - evidence_id: "E-C02-007"
+    claim: "Hermes Agent 提供 Skills、Memory 和写入安全/审批机制，可作为第二开放实现中的候选变更案例。"
+    label: "SOURCE-BASED"
+    stability: "versioned"
+    scope: ["hermes"]
+    version: "0.20.1"
+    source_nature: ["official-doc", "local-version-snapshot"]
+    sources:
+      - url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills"
+        locator: "Skills creation and use"
+        checked_at: "2026-09-30"
+      - url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory"
+        locator: "Persistent memory"
+        checked_at: "2026-09-30"
+      - url: "https://hermes-agent.nousresearch.com/docs/user-guide/security/"
+        locator: "Write and command safety"
+        checked_at: "2026-09-30"
+    limitations: "动态官方文档；产品机制不证明训练效果，且不得与 OpenClaw 文件和加载语义直接互译。"
+    chapter_usage: ["2.7", "平台实现对照"]
+    recheck_trigger: "Hermes 版本或官方文档变化、印前复核"
+
+  - evidence_id: "E-C02-008"
+    claim: "Meta 公开材料将 Muse 描述为可执行后台长任务、使用连接器并在需要时请求审批的托管个人 Agent。"
+    label: "SOURCE-BASED"
+    stability: "frontier"
+    scope: ["muse"]
+    source_nature: ["vendor-claim"]
+    sources:
+      - url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+        locator: "Product announcement"
+        checked_at: "2026-09-30"
+      - url: "https://introducing.muse.ai/"
+        locator: "Product design and interaction presentation"
+        checked_at: "2026-09-30"
+    limitations: "两者均来自 Meta 来源体系；不能独立验证内部训练、自修改机制或安全效果。"
+    chapter_usage: ["2.7", "平台实现对照"]
+    recheck_trigger: "Muse 功能、公开审计或独立研究更新"
+
+  - evidence_id: "E-C02-009"
+    claim: "Agent Skills 规范描述可发现、按需加载的程序性知识包，但不完整规定信任、激活、分发和运行时权限。"
+    label: "SOURCE-BASED"
+    stability: "frontier"
+    scope: ["agent-skills"]
+    source_nature: ["standard"]
+    sources:
+      - url: "https://agentskills.io/specification"
+        locator: "Skill directory and SKILL.md format"
+        checked_at: "2026-09-30"
+    limitations: "Skill 格式兼容不能被写成训练或安全保证。"
+    chapter_usage: ["2.7"]
+    recheck_trigger: "Agent Skills 发布新版规范"
+
+  - evidence_id: "E-C02-010"
+    claim: "历史稿中的控制幻觉、笔记腐坏、工具茧房、角色缺口和周期陷阱具有教学价值，但其中未核实数字、引语、公司案例和时间预测不可继承。"
+    label: "INFERENCE"
+    stability: "stable"
+    scope: ["general"]
+    source_nature: ["legacy-source", "editorial-audit"]
+    sources:
+      - locator: "../openclaw-silicon-life-handbook/volume-01/模块2-从养虾派到训虾派.md"
+        checked_at: "2026-09-30"
+      - locator: "docs/research/legacy-content-map.md#第-2-章-从养虾到训虾"
+        checked_at: "2026-09-30"
+    limitations: "这是依据历史稿与编辑审计作出的取舍判断；仅继承问题结构与原创语言，不继承无证据归因、百分比、倍数和三年预测。"
+    chapter_usage: ["2.1", "失败模式"]
+    recheck_trigger: "历史来源获得新的可核验原始证据"
+
+  - evidence_id: "E-C02-011"
+    claim: "Agent 生命周期采用定义、准备、训练、上岗、晋级、降级与退役七阶段，并允许按任务域退回前序阶段。"
+    label: "METHODOLOGY"
+    stability: "stable"
+    scope: ["general"]
+    source_nature: ["local-editorial-source"]
+    sources:
+      - locator: "00-正式出版版-三级内容框架-v2.md#26-agent-生命周期定义准备训练上岗晋级降级与退役"
+        checked_at: "2026-09-30"
+      - locator: "docs/editorial/BOOK-QUALITY-STANDARD.md#10-跨章定义权与去重规则"
+        checked_at: "2026-09-30"
+    limitations: "这是运行生命周期，不是 C27 的 MAT-L0—MAT-L5 成熟度，也不是法律或行业认证标准。"
+    chapter_usage: ["2.6", "A-C02-02"]
+    recheck_trigger: "C24 或 C27 生命周期/认证规则冻结"
+
+  - evidence_id: "E-C02-012"
+    claim: "CASE-A、CASE-B、CASE-C 是贯穿全书的教学复合案例，不代表具体客户或独立效果证据。"
+    label: "METHODOLOGY"
+    stability: "stable"
+    scope: ["general"]
+    source_nature: ["local-editorial-source"]
+    sources:
+      - locator: "manuscript/00-frontmatter.md#第五部分三条贯穿案例"
+        checked_at: "2026-09-30"
+      - locator: "docs/editorial/BOOK-QUALITY-STANDARD.md#7-案例标准"
+        checked_at: "2026-09-30"
+    limitations: "不得补写真实客户名称、精确收益或未经复现的结果。"
+    chapter_usage: ["开场案例", "2.1", "2.2", "2.3", "2.5"]
+    recheck_trigger: "贯穿案例总表或案例证据包更新"
+
+excluded_legacy_claims:
+  - claim: "没有显式人格锚定时每 20 轮约有 15% 漂移。"
+    reason: "未找到可定位一手研究，禁止进入正文。"
+  - claim: "先标准化 Agent 协议可获得 3.2 倍采用速度。"
+    reason: "未找到可定位一手报告，禁止进入正文。"
+  - claim: "业界框架完全没有训练流程或所有框架都默认装上即用。"
+    reason: "样本范围和定义不足，只能作为待验证观察。"
+  - claim: "训练后一定进化或三十天必然形成稳定能力。"
+    reason: "不可证伪且违反全书效果主张规则。"
+
+change_log:
+  - date: "2026-09-30"
+    version: "0.1.0"
+    status: "drafting"
+    change: "建立 C02 初始证据账本，明确方法论、课程来源、平台事实、厂商声明和被排除旧主张。"
+    author: "c02-author-agent"
+    approved_by: null
+  - date: "2026-09-30"
+    version: "0.1.1"
+    status: "drafting"
+    change: "完成独立证据与交叉审校；修正 E-C02-004、E-C02-010 的身份边界并闭合全部正文引用。"
+    author: "c02-independent-review-agent"
+    approved_by: null

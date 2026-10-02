@@ -1,0 +1,240 @@
+---
+reproduction_id: C18-fact-cross-reproduction-20260930
+chapter_id: C18
+reviewer_role: non_author_fact_and_cross_reviewer
+verified_on: "2026-09-30"
+scope: "source identity, claim closure, upstream state, deterministic reproduction, and negative mutation audit"
+author_files_modified: false
+fact_gate: REVIEW_REQUIRED
+cross_gate: REVIEW_REQUIRED
+practice_gate: not_reviewed
+editor_gate: not_reviewed
+chief_editor_gate: not_reviewed
+release_candidate_authorized: false
+
+package_structure:
+  formal_sections: ["18.1", "18.2", "18.3", "18.4", "18.5", "18.6", "18.7"]
+  duplicate_formal_sections: []
+  artifact_count: 3
+  exercise_count: 2
+  c18_cjk_chars: 18365
+  verdict: PASS
+
+evidence_closure:
+  source_count: 20
+  local_source_count: 11
+  external_source_count: 9
+  used_source_count: 19
+  unused_sources: [OC-SESSION]
+  claim_count: 32
+  claims_referenced_in_chapter: 32
+  missing_claim_references: 0
+  orphan_claim_references: 0
+  external_http_200_final: 9
+  verdict: PASS_WITH_LIMITATIONS
+
+fixed_identity:
+  a2a:
+    required_spec: "https://a2a-protocol.org/v1.0.0/specification/"
+    required_spec_http_status: 200
+    ledger_spec: "https://a2a-protocol.org/latest/specification/"
+    ledger_spec_http_status: 200
+    ledger_identity_stable: false
+    patch_release: "v1.0.1"
+    patch_tag_commit: "3303592588e388e62e0f69f701af531d2f4e3991"
+    verdict: REVIEW_REQUIRED
+  openclaw:
+    release: "v2026.9.6"
+    annotated_tag_object: "ce5bbdc244ee937246cc1700d1b224d020c3b599"
+    commit: "eb377ac59e6c9fd6c7705028034812becf00271b"
+    a2a_fixed_document_http_status: 200
+    verdict: PASS
+  hermes:
+    release: "v2026.8.13"
+    package_version: "0.20.1"
+    annotated_tag_object: "4e693dc685b5716e7da22656eccc6ece37c5db72"
+    commit: "f80f453ae0679347e38abc917c7f94f717bf96c5"
+    fixed_documents_http_status: 200
+    a2a_compatibility: UNKNOWN
+    verdict: PASS_WITH_LIMITATION
+  muse:
+    evidence_class: VENDOR-CLAIM
+    internal_a2a_inferred: false
+    verdict: PASS
+
+upstream_restricted_state:
+  c14:
+    current: "fact/cross passed with limitations; v3.1 offline stateful machine control PASS; X01/X02 and overall practice REVIEW_REQUIRED"
+    c18_recorded: "practice remediation under independent review"
+    verdict: STALE
+  c16:
+    current: "fact/cross PASS WITH LIMITATIONS; independent practice REVIEW_REQUIRED; synthetic machine-control FAIL"
+    c18_recorded: "omitted from restricted_inputs and project-state claim"
+    verdict: STALE
+  c17:
+    current: "fact PASS WITH LIMITATIONS; cross REVIEW_REQUIRED; practice not reviewed"
+    c18_recorded: "independent gates running"
+    verdict: STALE
+
+author_fixture_hashes:
+  runner_sha256: "3f4f207374d50fbe4ca3d508e1a5a2d4ef9f195a0c5cd5a76012354b933e3e0d"
+  input_sha256: "9528805a298c64fdbc74eb212b95a2a242e39db07731f7feb6169d2122aa8cc2"
+  saved_results_sha256: "3f07c5f7148cffd3a89fff62173ca38ecee6f07db9b7a8fd67c84e7a2bf01566"
+  saved_summary_sha256: "ebe7169354415eea42f18332afb500f4c486e124af5c94516d880c1d3354f753"
+
+fresh_temp_reproduction:
+  run_count: 2
+  both_exit_zero: true
+  results_byte_equal_between_runs: true
+  results_equal_saved_author_output: true
+  results_sha256: "3f07c5f7148cffd3a89fff62173ca38ecee6f07db9b7a8fd67c84e7a2bf01566"
+  decision_digest: "732f92a985090e8d5b5314343281a7df6562221c5f02e29a478665e20a3cb879"
+  trial_count: 18
+  distribution: {PASS: 3, FAIL: 11, REVIEW_REQUIRED: 4}
+  declared_layers: {training: 4, regression: 4, holdout: 10, representative_real_world: 0}
+  representative_real_world_evidence_count: 0
+  external_side_effect_count: 0
+  verdict: PASS_IN_DECLARED_SYNTHETIC_SCOPE
+
+positive_control_observations:
+  - {case: forged_card_signature, derived: FAIL, reasons: [CARD_SIGNATURE_INVALID], verdict: PASS}
+  - {case: artifact_digest_mismatch, derived: FAIL, reasons: [ARTIFACT_DIGEST_MISMATCH, ARTIFACT_SIGNATURE_INVALID], verdict: PASS}
+  - {case: signed_content_wrong, derived: FAIL, reasons: [CONTENT_BUSINESS_ERROR], verdict: PASS}
+  - {case: high_trust_no_authority, derived: FAIL, reasons: [AUTHORITY_MISSING], verdict: PASS}
+  - {case: collusive_scoring, derived: FAIL, reasons: [COLLUSIVE_TRUST], verdict: PASS}
+  - {case: event_gap, derived: REVIEW_REQUIRED, reasons: [EVENT_SEQUENCE_GAP], verdict: PASS}
+  - {case: cancel_ack_effect_pending, derived: REVIEW_REQUIRED, reasons: [EXECUTION_NOT_STOP_CONFIRMED], verdict: PASS}
+  - {case: duplicate_id_different_payload, derived: FAIL, reasons: [DUPLICATE_ID_CONFLICT], verdict: PASS}
+
+negative_mutations:
+  - mutation_id: M-C18-01
+    mutation: "data_layers.training changed from 4 to 999"
+    expected: "reject inconsistent derived counts"
+    exit_code: 0
+    observed: "output copied training=999 while trial set was unchanged"
+    verdict: FAIL
+    issue_id: P1-X18-04
+  - mutation_id: M-C18-02
+    mutation: "synthetic S01 layer changed to representative_real_world"
+    expected: "reject synthetic record in real-world layer"
+    exit_code: 0
+    observed: "trial claimed real-world while output hardcoded real-world evidence count=0"
+    verdict: FAIL
+    issue_id: P1-X18-04
+  - mutation_id: M-C18-03
+    mutation: "second scenario id changed to duplicate S01"
+    expected: "reject duplicate scenario/task/trial ids"
+    exit_code: 0
+    observed: "duplicate ids emitted"
+    verdict: FAIL
+    issue_id: P1-X18-04
+  - mutation_id: M-C18-04
+    mutation: "S01 layer changed to fifth_security_layer"
+    expected: "reject non-canonical D22 layer"
+    exit_code: 0
+    observed: "unknown fifth layer accepted"
+    verdict: FAIL
+    issue_id: P1-X18-04
+  - mutation_id: M-C18-05
+    mutation: "S01 mutation changed to unknown mystery_attack"
+    expected: "reject unknown mutation enum"
+    exit_code: 0
+    observed: "unknown attack silently ignored and S01 remained PASS"
+    verdict: FAIL
+    issue_id: P1-X18-04
+  - mutation_id: M-C18-06
+    mutation: "base_card.agent_id changed from agent-good to agent-evil"
+    expected: "fail identity-to-authority binding"
+    exit_code: 0
+    observed_first_decision: PASS
+    verdict: FAIL
+    issue_id: P0-X18-01
+  - mutation_id: M-C18-07
+    mutation: "authority auth-read expiry changed to 2026-01-01"
+    expected: "fail expired authority"
+    exit_code: 0
+    observed_first_decision: PASS
+    verdict: FAIL
+    issue_id: P0-X18-01
+  - mutation_id: M-C18-08
+    mutation: "authority actor changed to agent-evil and actions changed to delete"
+    expected: "fail actor/action/object binding"
+    exit_code: 0
+    observed_first_decision: PASS
+    verdict: FAIL
+    issue_id: P0-X18-01
+  - mutation_id: M-C18-09
+    mutation: "Card endpoint changed to link-local metadata URL"
+    expected: "fail or review endpoint policy before task"
+    exit_code: 0
+    observed_first_decision: PASS
+    verdict: FAIL
+    issue_id: P1-X18-03
+  - mutation_id: M-C18-10
+    mutation: "Artifact task_id changed to task-other"
+    expected: "fail Artifact-to-Task binding"
+    exit_code: 0
+    observed_first_decision: PASS
+    verdict: FAIL
+    issue_id: P1-X18-03
+  - mutation_id: M-C18-11
+    mutation: "Artifact signed_fields reduced to artifact_id only"
+    expected: "fail missing critical signature coverage"
+    exit_code: 0
+    observed_first_decision: PASS
+    verdict: FAIL
+    issue_id: P1-X18-03
+  - mutation_id: M-C18-12
+    mutation: "required business content field finding removed"
+    expected: "fail schema validation"
+    exit_code: 0
+    observed_first_decision: PASS
+    verdict: FAIL
+    issue_id: P1-X18-03
+  - mutation_id: M-C18-13
+    mutation: "WORKING event appended after terminal COMPLETED"
+    expected: "reject terminal regression and prevent PASS"
+    exit_code: 0
+    observed: "protocol_state=WORKING, execution_state=UNKNOWN, acceptance_state=PASS"
+    verdict: FAIL
+    issue_id: P0-X18-02
+  - mutation_id: M-C18-14
+    mutation: "terminal protocol_state changed to unknown ALIEN"
+    expected: "fail or review unknown state"
+    exit_code: 0
+    observed: "protocol_state=ALIEN, execution_state=UNKNOWN, acceptance_state=PASS"
+    verdict: FAIL
+    issue_id: P0-X18-02
+  - mutation_id: M-C18-15
+    mutation: "environment changed to production with network, real credentials, and external side effects true"
+    expected: "offline runner refuses unsafe environment contract"
+    exit_code: 0
+    observed: "run continued and output external_side_effect_count=0"
+    verdict: FAIL
+    issue_id: P1-X18-04
+
+issues:
+  - {issue_id: P1-F18-01, severity: P1, gate: fact, title: "A2A specification source uses drifting latest URL", status: OPEN}
+  - {issue_id: P1-F18-02, severity: P1, gate: fact_and_cross, title: "C14/C16/C17 restricted status is stale or omitted", status: OPEN}
+  - {issue_id: P1-F18-03, severity: P1, gate: fact, title: "A2A Artifact native fields and book governance envelope are classified as one standard fact", status: OPEN}
+  - {issue_id: P2-F18-04, severity: P2, gate: fact, title: "OC-SESSION source is unused", status: OPEN_NONBLOCKING}
+  - {issue_id: P0-X18-01, severity: P0, gate: cross, title: "identity/delegation and authority binding fail open", status: OPEN}
+  - {issue_id: P0-X18-02, severity: P0, gate: cross, title: "D21 completion and state-machine evidence fail open", status: OPEN}
+  - {issue_id: P1-X18-03, severity: P1, gate: cross, title: "Card and Artifact trust envelope is not machine-enforced", status: OPEN}
+  - {issue_id: P1-X18-04, severity: P1, gate: cross, title: "D22, environment, id uniqueness, and schema validation fail open", status: OPEN}
+
+validation:
+  package_yaml_and_frontmatter_parse: PASS
+  runner_py_compile: PASS
+  package_local_links: {broken: 0, verdict: PASS}
+  book_validator: PASS
+  formal_validator:
+    c18_specific: PASS
+    c18_cjk_chars: 18365
+    global_verdict: PASS_WITH_PRODUCTION_WARNING
+    warning: "Five future chapter packages are not yet present; no C18-specific warning or error."
+  limitations:
+    - "No real A2A peer or OpenClaw/Hermes Runtime was executed."
+    - "No real trust root, revocation service, authorization service, receipt/readback, or external effect was exercised."
+    - "Representative real-world evidence count is zero."
+    - "This review does not approve practice, editor, chief editor, or release-candidate gates."

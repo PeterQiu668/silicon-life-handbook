@@ -1,0 +1,467 @@
+{
+  "attack_count": 34,
+  "attacks": [
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "principal-alias-root-resealed",
+      "expected": "FAIL",
+      "family": "v23-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "session-revoked-root-resealed",
+      "expected": "FAIL",
+      "family": "v23-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "test-definition-revoked-root-resealed",
+      "expected": "FAIL",
+      "family": "v23-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "test-evidence-content-resealed",
+      "expected": "FAIL",
+      "family": "v23-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "audit-anchor-self-signed-root-resealed",
+      "expected": "FAIL",
+      "family": "v23-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "principal-zero-width-alias",
+      "expected": "FAIL",
+      "family": "v23-identity",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_AUTHORITY_INVALID",
+        "EXECUTOR_PRINCIPAL_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "IDENTITY_AUTHORITY_MISMATCH",
+        "TENANT_SESSION_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "service-name-whitespace-alias",
+      "expected": "FAIL",
+      "family": "v23-identity",
+      "matched": true,
+      "reasons": [
+        "IDENTITY_AUTHORITY_MISMATCH"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "observed-session-revoked",
+      "expected": "FAIL",
+      "family": "v23-session",
+      "matched": true,
+      "reasons": [
+        "TENANT_SESSION_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "observed-session-self-extended",
+      "expected": "FAIL",
+      "family": "v23-session",
+      "matched": true,
+      "reasons": [
+        "TENANT_SESSION_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "evaluation-before-session-authority-window",
+      "expected": "FAIL",
+      "family": "v23-session",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_AUTHORITY_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "TENANT_SESSION_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "approval-id-alias",
+      "expected": "FAIL",
+      "family": "v23-authority",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "GRANT_AUTHORITY_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "grant-id-alias",
+      "expected": "FAIL",
+      "family": "v23-authority",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "GRANT_AUTHORITY_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "test-ref-alias",
+      "expected": "FAIL",
+      "family": "v23-test",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_AUTHORITY_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "task-trial-alias",
+      "expected": "FAIL",
+      "family": "v23-test",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID",
+        "TEST_EXECUTION_EVIDENCE_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-layer-relabel-with-counts",
+      "expected": "FAIL",
+      "family": "v23-test",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-self-claims-red-team",
+      "expected": "FAIL",
+      "family": "v23-test",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-self-claims-shadow",
+      "expected": "FAIL",
+      "family": "v23-test",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "none-effect-claims-external",
+      "expected": "FAIL",
+      "family": "v23-effect",
+      "matched": true,
+      "reasons": [
+        "EXTERNAL_EFFECT_CONTRACT_VIOLATION",
+        "NONE_EFFECT_CONTRADICTION"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "executed-effect-declared-external",
+      "expected": "FAIL",
+      "family": "v23-effect",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EXTERNAL_EFFECT_CONTRACT_VIOLATION",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EXTERNAL_EFFECT_CONTRACT_VIOLATION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-target-substitution",
+      "expected": "FAIL",
+      "family": "v23-receipt",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-executor-alias",
+      "expected": "FAIL",
+      "family": "v23-receipt",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-before-execution",
+      "expected": "FAIL",
+      "family": "v23-readback",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EFFECT_READBACK_TIME_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_READBACK_TIME_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-executes-before-all-authority-windows",
+      "expected": "FAIL",
+      "family": "v23-escape-closure",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-after-evaluation",
+      "expected": "FAIL",
+      "family": "v23-escape-closure",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EFFECT_READBACK_TIME_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_READBACK_TIME_INVALID"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "audit-local-chain-self-resealed",
+      "expected": "FAIL",
+      "family": "v23-audit",
+      "matched": true,
+      "reasons": [
+        "audit.payload.outcome unknown enum"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "PASS",
+      "attack_id": "terminal-effect-pass-control",
+      "expected": "PASS",
+      "family": "v24-positive",
+      "matched": true,
+      "reasons": [],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "authorization-snapshot-substitution",
+      "expected": "FAIL",
+      "family": "v24-snapshot",
+      "matched": true,
+      "reasons": [
+        "EFFECT_AUTHORIZATION_SNAPSHOT_INVALID",
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ],
+      "required_reason": "EFFECT_AUTHORIZATION_SNAPSHOT_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-snapshot-substitution",
+      "expected": "FAIL",
+      "family": "v24-snapshot",
+      "matched": true,
+      "reasons": [
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ],
+      "required_reason": "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-issued-before-execution",
+      "expected": "FAIL",
+      "family": "v24-time",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_TIME_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ],
+      "required_reason": "EFFECT_READBACK_TIME_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential-revoked-before-effect",
+      "expected": "FAIL",
+      "family": "v24-time",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "EFFECT_AUTHORIZATION_SNAPSHOT_INVALID",
+        "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW",
+        "EFFECT_READBACK_AUTHORITY_INVALID"
+      ],
+      "required_reason": "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "grant-issued-after-effect",
+      "expected": "FAIL",
+      "family": "v24-time",
+      "matched": true,
+      "reasons": [
+        "EFFECT_AUTHORIZATION_SNAPSHOT_INVALID",
+        "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW",
+        "EFFECT_READBACK_AUTHORITY_INVALID",
+        "GRANT_AUTHORITY_INVALID"
+      ],
+      "required_reason": "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "session-not-before-after-effect",
+      "expected": "FAIL",
+      "family": "v24-time",
+      "matched": true,
+      "reasons": [
+        "EFFECT_AUTHORIZATION_SNAPSHOT_INVALID",
+        "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW",
+        "EFFECT_READBACK_AUTHORITY_INVALID",
+        "TENANT_SESSION_BINDING_INVALID"
+      ],
+      "required_reason": "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-observer-equals-executor",
+      "expected": "FAIL",
+      "family": "v24-readback",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_AUTHORITY_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ],
+      "required_reason": "EFFECT_READBACK_AUTHORITY_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit-effect-digest-substitution",
+      "expected": "FAIL",
+      "family": "v24-audit",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ],
+      "required_reason": "TERMINAL_EFFECT_NOT_IN_AUDIT"
+    }
+  ],
+  "escape_count": 0,
+  "historical_v2_3_attack_count": 25,
+  "historical_v2_3_matched_count": 25,
+  "matched_count": 34,
+  "schema_version": "c19.security.effect-time-readback.v2.4",
+  "suite_digest": "sha256:b66144940380745d2dcbe8684f13b7bda8453d2e8793ea0b1a91699567e9c463"
+}

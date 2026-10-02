@@ -1,0 +1,371 @@
+chapter_id: C05
+title: "七大生命契约"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c05"
+reviewed_by: null
+approval_status: unapproved
+scope_note: >-
+  本账本区分本书方法论、OpenClaw 固定版本事实、Hermes 动态官方文档、
+  本地 Schema 观察、推断与 Muse 厂商声明。作者不得自批。
+
+evidence_classes:
+  STABLE-PRINCIPLE: "跨平台较稳定的治理或安全原则"
+  VERSION-FACT: "只对锁定版本/提交成立的平台事实"
+  DYNAMIC-OFFICIAL: "核验日可见的官方动态文档，随站点演进"
+  LOCAL-VERIFIED: "在声明本地环境中复核的命令/Schema 观察"
+  METHODOLOGY: "本书定义的方法，不冒充外部标准"
+  INFERENCE: "由官方能力映射出的本书解释，必须保留边界"
+  VENDOR-CLAIM: "厂商对自身产品的公开说明，未独立证明效果"
+
+claims:
+  - evidence_id: E-C05-001
+    claim: "USER、SOUL、AGENTS、TOOLS、IDENTITY、HEARTBEAT、MEMORY 是本书定义的七类治理语义，不是跨平台七文件标准。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "正式出版版三级内容框架 v2，第5章"
+        path: "../../../00-正式出版版-三级内容框架-v2.md"
+      - title: "C05章节卡"
+        path: "../../../docs/editorial/CHAPTER-CARDS.md"
+      - title: "C05前置研究包"
+        path: "../../../docs/research/C05-life-contract-preflight.md"
+    applicability: "作为本章七契约职责、边界与产物的定义依据。"
+    limitations: "未经过跨组织大样本校准；不是 OpenClaw、Hermes、Muse 或标准组织的官方术语体系。"
+    recheck_trigger: "全书框架或术语注册表正式修订。"
+
+  - evidence_id: E-C05-002
+    claim: "契约语义、平台载体、运行配置/状态、系统强制控制必须分层验证，任一层不能自动替代另一层。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "C05前置研究包，四层分离"
+        path: "../../../docs/research/C05-life-contract-preflight.md"
+      - title: "图书质量标准，权限与安全门"
+        path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"
+    applicability: "用于全部条款、平台映射、练习和红队。"
+    limitations: "具体控制实现由 C06/C14/C16/C17/C22/C24 定义。"
+    recheck_trigger: "后章实现发现四层无法覆盖关键治理对象。"
+
+  - evidence_id: E-C05-003
+    claim: "本章 OpenClaw 稳定技术基线为 v2026.9.6，固定提交 eb377ac59e6c9fd6c7705028034812becf00271b。"
+    label: SOURCE-BASED
+    research_fact_type: VERSION-FACT
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-release
+    source_grade: A
+    verified_on: "2026-09-30"
+    version_scope: "OpenClaw v2026.9.6"
+    sources:
+      - title: "OpenClaw v2026.9.6 release"
+        url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+        checked_at: "2026-09-30"
+    applicability: "限定本章 OpenClaw 载体和源码事实。"
+    limitations: "不外推到后续版本；前沿 tag 不等于稳定 release。"
+    recheck_trigger: "OpenClaw 基线升级或出版前复核。"
+
+  - evidence_id: E-C05-004
+    claim: "OpenClaw 固定工作区文档对 AGENTS、SOUL、USER、IDENTITY、MEMORY 等载体给出当前职责与加载边界；工作区本身不是硬沙箱。"
+    label: SOURCE-BASED
+    research_fact_type: VERSION-FACT
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_grade: A
+    verified_on: "2026-09-30"
+    version_scope: "eb377ac59e6c9fd6c7705028034812becf00271b"
+    sources:
+      - title: "OpenClaw Agent Workspace at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/agent-workspace.md"
+        checked_at: "2026-09-30"
+      - title: "OpenClaw Sandboxing at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/sandboxing.md"
+        checked_at: "2026-09-30"
+    applicability: "支撑固定版本载体映射与工作区/沙箱边界。"
+    limitations: "不同载体加载范围和预算不同；载体存在不等于条款生效或权限成立。"
+    recheck_trigger: "工作区注入、载体或沙箱文档改变。"
+
+  - evidence_id: E-C05-005
+    claim: "OpenClaw v2026.9.6 固定提交中的 TOOLS.md 模板已退役，工具说明迁向 AGENTS.md 的 Tools 部分且不控制真实工具可用性。"
+    label: SOURCE-BASED
+    research_fact_type: VERSION-FACT
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_grade: A
+    verified_on: "2026-09-30"
+    version_scope: "eb377ac59e6c9fd6c7705028034812becf00271b"
+    sources:
+      - title: "Retired TOOLS template at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/reference/templates/TOOLS.md"
+        checked_at: "2026-09-30"
+    applicability: "禁止把本书 TOOLS 契约写成固定版本独立运行文件。"
+    limitations: "历史版本可能不同；工具实际授权仍需配置和控制证据。"
+    recheck_trigger: "OpenClaw 工具说明载体或迁移规则改变。"
+
+  - evidence_id: E-C05-006
+    claim: "OpenClaw v2026.9.6 固定提交中的 HEARTBEAT.md 模板已退役，运行时主动监控由系统拥有的监控暂存及配置/状态承载。"
+    label: SOURCE-BASED
+    research_fact_type: VERSION-FACT
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_grade: A
+    verified_on: "2026-09-30"
+    version_scope: "eb377ac59e6c9fd6c7705028034812becf00271b"
+    sources:
+      - title: "Retired HEARTBEAT template at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/reference/templates/HEARTBEAT.md"
+        checked_at: "2026-09-30"
+      - title: "OpenClaw Heartbeat gateway documentation at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/heartbeat.md"
+        checked_at: "2026-09-30"
+    applicability: "区分 HEARTBEAT 语义与静态文件/调度实现。"
+    limitations: "本章不固定易变命令、默认值或完整调度语义；C16 负责实现。"
+    recheck_trigger: "Heartbeat/Cron/automation 文档或命令改变。"
+
+  - evidence_id: E-C05-007
+    claim: "人格与工作区文本不能替代身份、范围、工具 policy、执行审批和沙箱等系统强制控制。"
+    label: SOURCE-BASED
+    research_fact_type: STABLE-PRINCIPLE
+    class: STABLE-PRINCIPLE
+    stability: stable
+    scope: general-and-openclaw
+    source_nature: official-doc
+    source_grade: A
+    verified_on: "2026-09-30"
+    sources:
+      - title: "OpenClaw Trust Model at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/trust-model.md"
+        checked_at: "2026-09-30"
+      - title: "OpenClaw Sandboxing at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/sandboxing.md"
+        checked_at: "2026-09-30"
+      - title: "OpenClaw Exec Approvals at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/exec-approvals.md"
+        checked_at: "2026-09-30"
+    applicability: "支撑四层分离、5.9 和人格越权红队。"
+    limitations: "具体威胁模型和控制由 C22 定义；固定文档不证明任一部署已经正确配置。"
+    recheck_trigger: "安全信任模型或执行审批发生原则变化。"
+
+  - evidence_id: E-C05-008
+    claim: "在 OpenClaw v2026.9.6 中 reserveTokensFloor 是 Memory Flush 计划内部标识之一，但固定版本公开配置 Schema 不接受该键，也不接受 compaction.reserveTokens。"
+    label: SOURCE-BASED-AND-LOCAL
+    research_fact_type: LOCAL-VERIFIED
+    class: LOCAL-VERIFIED
+    stability: versioned
+    scope: openclaw
+    source_nature: fixed-source-and-local-schema
+    source_grade: A-
+    verified_on: "2026-09-30"
+    version_scope: "OpenClaw v2026.9.6 / eb377ac"
+    sources:
+      - title: "memory-core flush-plan.ts at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/extensions/memory-core/src/flush-plan.ts"
+        checked_at: "2026-09-30"
+      - title: "agent-settings.ts at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/src/agents/agent-settings.ts"
+        checked_at: "2026-09-30"
+      - title: "Local v2026.9.6 config schema inspection"
+        command: "openclaw config schema --json"
+        checked_at: "2026-09-30"
+      - title: "C05 preflight conflict audit"
+        path: "../../../docs/research/C05-life-contract-preflight.md"
+    applicability: "禁止两个历史冲突字段进入可执行正文。"
+    limitations: "本地 Schema 观察只对声明安装版本成立；未来版本需重验。源码内部变量不等于用户配置。"
+    recheck_trigger: "OpenClaw 升级、Schema 变化或相关字段正式发布。"
+
+  - evidence_id: E-C05-009
+    claim: "Hermes 官方文件分工提供 SOUL、USER、MEMORY、项目上下文等当前载体，但没有本书七契约的一一同构标准。"
+    label: SOURCE-BASED
+    research_fact_type: DYNAMIC-OFFICIAL
+    class: DYNAMIC-OFFICIAL
+    stability: frontier
+    scope: hermes
+    source_nature: official-doc-dynamic
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Hermes: Which File Does What?"
+        url: "https://hermes-agent.nousresearch.com/docs/user-guide/which-file-does-what"
+        checked_at: "2026-09-30"
+    applicability: "Hermes 载体对照的入口证据。"
+    limitations: "动态文档未逐项固定到某 tag；七契约是本书方法。"
+    recheck_trigger: "Hermes 文件布局或文档重大变化。"
+
+  - evidence_id: E-C05-010
+    claim: "Hermes 当前官方 SOUL 文档把 SOUL.md 用于身份、人格与语气，并对 Agent 写入设置批准边界。"
+    label: SOURCE-BASED
+    research_fact_type: DYNAMIC-OFFICIAL
+    class: DYNAMIC-OFFICIAL
+    stability: frontier
+    scope: hermes
+    source_nature: official-doc-dynamic
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Hermes: Use SOUL with Hermes"
+        url: "https://hermes-agent.nousresearch.com/docs/guides/use-soul-with-hermes"
+        checked_at: "2026-09-30"
+    applicability: "支持 SOUL 载体映射与变更需批准的边界。"
+    limitations: "不证明 SOUL 是安全边界或授权系统。"
+    recheck_trigger: "Hermes SOUL 加载或写入行为变化。"
+
+  - evidence_id: E-C05-011
+    claim: "Hermes 项目上下文与 Profile 可组合承载 AGENTS/IDENTITY/TOOLS 的部分语义，但 Profile 不是沙箱，组合映射属于推断。"
+    label: INFERENCE
+    research_fact_type: INFERENCE
+    class: INFERENCE
+    stability: frontier
+    scope: hermes
+    source_nature: official-doc-dynamic
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Hermes Context Files"
+        url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files/"
+        checked_at: "2026-09-30"
+      - title: "Hermes Profiles"
+        url: "https://hermes-agent.nousresearch.com/docs/user-guide/profiles/"
+        checked_at: "2026-09-30"
+    applicability: "支持不强求 AGENTS/TOOLS/IDENTITY 同名同构。"
+    limitations: "载体组合不产生凭证、权限或硬隔离；需目标环境验证。"
+    recheck_trigger: "Hermes context/Profile 语义变化或固定源码映射完成。"
+
+  - evidence_id: E-C05-012
+    claim: "Hermes 当前官方 Memory 能力使用 USER/MEMORY 文件与写入治理，可作为 MEMORY/USER 契约载体但不等于完整记忆治理标准。"
+    label: SOURCE-BASED
+    research_fact_type: DYNAMIC-OFFICIAL
+    class: DYNAMIC-OFFICIAL
+    stability: frontier
+    scope: hermes
+    source_nature: official-doc-dynamic
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Hermes Memory"
+        url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory"
+        checked_at: "2026-09-30"
+    applicability: "支持 Hermes USER/MEMORY 载体、会话快照与写入批准边界。"
+    limitations: "数值限制与默认值易变；本章不固化。生命周期由 C13 定义。"
+    recheck_trigger: "Hermes Memory 文档、路径或批准机制变化。"
+
+  - evidence_id: E-C05-013
+    claim: "Hermes 当前 Cron 能力可承载 HEARTBEAT 契约的部分任务生命周期与暂停/恢复意图，但不是同名契约的一一实现。"
+    label: INFERENCE
+    research_fact_type: INFERENCE
+    class: INFERENCE
+    stability: frontier
+    scope: hermes
+    source_nature: official-doc-dynamic
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Hermes Cron"
+        url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/"
+        checked_at: "2026-09-30"
+    applicability: "支持 HEARTBEAT 语义迁移需组合映射与重建调度。"
+    limitations: "Cron 不自动包含信号、安静、批准、熔断与恢复的全部契约语义。"
+    recheck_trigger: "Hermes Cron 生命周期、默认授权或命令变化。"
+
+  - evidence_id: E-C05-014
+    claim: "Muse 在本章只能作为偏好、记忆和敏感动作批准等公开产品表面的厂商案例，不能据此推断内部七契约或安全效果。"
+    label: VENDOR-CLAIM
+    research_fact_type: VENDOR-CLAIM
+    class: VENDOR-CLAIM
+    stability: frontier
+    scope: muse
+    source_nature: vendor-publication
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Meta: Introducing Muse"
+        url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+        checked_at: "2026-09-30"
+      - title: "Meta AI Research: Security and safety for AI agents with Muse"
+        url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+        checked_at: "2026-09-30"
+    applicability: "限制 Muse 在跨平台映射中的证据上限。"
+    limitations: "没有独立复现，不评价不可观察内部文件、加载、权限、记忆或安全效果。"
+    recheck_trigger: "Muse 发布可验证技术文档、独立审计或产品边界变化。"
+
+  - evidence_id: E-C05-015
+    claim: "契约冲突应先检查强制控制与有效授权，再按语义归属、范围/来源/时效和风险平局规则裁决，并实施四层回滚。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "C05 前置研究包，冲突裁决"
+        path: "../../../docs/research/C05-life-contract-preflight.md"
+      - title: "C04 风险与负面清单"
+        path: "../C04-role-capability-model/artifacts/A-C04-03-risk-classification.md"
+      - title: "图书质量标准，三态与非补偿门禁"
+        path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"
+    applicability: "支撑 5.8、A-C05-02 和两项练习。"
+    limitations: "具体组织政策、法律优先级、严重度与授权由 C17/C22/C24 及目标组织规定。"
+    recheck_trigger: "风险分级、授权或发布治理的全书定义改变。"
+
+open_questions:
+  - id: OQ-C05-01
+    question: "七契约条款在不同岗位间能否保持足够的评审一致性而不变成通用空话？"
+    owner: "C07/C08/C25 owners"
+    required_evidence: "跨岗位盲审、条款分歧、失败样本和修订历史"
+  - id: OQ-C05-02
+    question: "Hermes 组合映射能否在同一岗位、预算和风险边界下保持等价行为与控制？"
+    owner: "platform-practice-reviewer"
+    required_evidence: "固定版本环境、相同冲突/红队、载体加载、控制和回滚记录"
+  - id: OQ-C05-03
+    question: "七契约变更怎样与 C18 漂移门、C24 发布门形成最小可行审批链？"
+    owner: "C18/C24 owners"
+    required_evidence: "变更分类、影子测试、批准、回滚与事故样本"
+  - id: OQ-C05-04
+    question: "Muse 或其他托管 Agent 能否提供足够可观察证据完成七契约映射？"
+    owner: "platform-evidence-reviewer"
+    required_evidence: "公开技术资料、可观察行为、权限与记忆控制、独立审计"
+
+review_requirements:
+  evidence_review:
+    required: true
+    reviewer: unassigned
+    self_approval_forbidden: true
+  cross_review:
+    required: true
+    reviewer: unassigned
+    self_approval_forbidden: true
+  practice_review:
+    required: true
+    reviewer: unassigned
+    self_approval_forbidden: true
+  editor_review:
+    required: true
+    reviewer: chief-editor
+    self_approval_forbidden: true
+  next_review_triggers:
+    - "OpenClaw 或 Hermes 基线变化"
+    - "C13/C16/C17/C18/C22/C24 冻结正式定义"
+    - "跨 Runtime 实跑完成"
+    - "Muse 发布新技术或独立审计材料"
+    - "出版前两轮事实复核"

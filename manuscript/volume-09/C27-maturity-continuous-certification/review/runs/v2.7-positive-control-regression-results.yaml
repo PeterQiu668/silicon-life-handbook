@@ -1,0 +1,207 @@
+{
+  "attack_count": 20,
+  "attacks": [
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-identity",
+      "message": "original certificate chain digest",
+      "secure": true,
+      "test_id": "V27-001"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-window",
+      "message": "renewal temporal window invalid",
+      "secure": true,
+      "test_id": "V27-002"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-window",
+      "message": "original certificate chain digest",
+      "secure": true,
+      "test_id": "V27-003"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-dag",
+      "message": "renewal lifecycle order invalid",
+      "secure": true,
+      "test_id": "V27-004"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-review",
+      "message": "original certificate chain digest",
+      "secure": true,
+      "test_id": "V27-005"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-review",
+      "message": "renewal independent review invalid",
+      "secure": true,
+      "test_id": "V27-006"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-authority",
+      "message": "renewal request binding",
+      "secure": true,
+      "test_id": "V27-007"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-na",
+      "message": "representative real-world disposition invalid",
+      "secure": true,
+      "test_id": "V27-008"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-na",
+      "message": "representative real-world policy authority invalid",
+      "secure": true,
+      "test_id": "V27-009"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "renewal-plan-binding",
+      "message": "positive control plan is not frozen in state",
+      "secure": true,
+      "test_id": "V27-010"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-layer",
+      "message": "three-layer retest incomplete",
+      "secure": true,
+      "test_id": "V27-011"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-release",
+      "message": "post-change release binding",
+      "secure": true,
+      "test_id": "V27-012"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-security",
+      "message": "security slice contract invalid",
+      "secure": true,
+      "test_id": "V27-013"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-output",
+      "message": "retest entry projection invalid",
+      "secure": true,
+      "test_id": "V27-014"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-na",
+      "message": "issuance authority invalid",
+      "secure": true,
+      "test_id": "V27-015"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-na",
+      "message": "representative real-world disposition invalid",
+      "secure": true,
+      "test_id": "V27-016"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-security",
+      "message": "entry security slice missing",
+      "secure": true,
+      "test_id": "V27-017"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-causality",
+      "message": "post-change trial/output order invalid",
+      "secure": true,
+      "test_id": "V27-018"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-review",
+      "message": "post-change independent review timing invalid",
+      "secure": true,
+      "test_id": "V27-019"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "recert-causality",
+      "message": "review/certificate/lifecycle order invalid",
+      "secure": true,
+      "test_id": "V27-020"
+    }
+  ],
+  "escape_count": 0,
+  "fixed_distribution": {
+    "FAIL": 52,
+    "PASS": 6,
+    "REVIEW_REQUIRED": 2
+  },
+  "fixed_lifecycle_distribution": {
+    "ACTIVE": 3,
+    "EXPIRED": 1,
+    "LIMITED": 2,
+    "REVOKED": 52,
+    "SUSPENDED": 2
+  },
+  "fixed_trial_count": 60,
+  "full_result_replay_passed": true,
+  "limits": {
+    "author_self_approval": false,
+    "external_effects_executed": false,
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_certificate_issued": false,
+    "representative_real_world_executed": false
+  },
+  "positive_controls": [
+    {
+      "kind": "LEGAL_RENEWAL",
+      "message": "",
+      "passed": true,
+      "test_id": "P27-RENEWAL"
+    },
+    {
+      "kind": "LEGAL_MATERIAL_CHANGE_THREE_LAYER_RECERTIFICATION",
+      "message": "",
+      "passed": true,
+      "test_id": "P27-MATERIAL-RECERT"
+    }
+  ],
+  "positive_count": 2,
+  "positive_pass_count": 2,
+  "schema": "c24.cert.v2.7-positive-control-regression.v1",
+  "scope": "offline_synthetic_author_only",
+  "secure_count": 20,
+  "suite_digest": "sha256:668fa04d4dd8f05a7fb6879202e7b943cabb3055c07190e0a9ee0fe85497d89e"
+}

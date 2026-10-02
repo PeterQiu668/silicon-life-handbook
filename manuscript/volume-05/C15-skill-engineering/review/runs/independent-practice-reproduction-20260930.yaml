@@ -1,0 +1,244 @@
+schema_version: c12-independent-practice-reproduction.v1
+review_id: C12-independent-practice-review-20260930
+chapter_id: C12
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_author: true
+scope: author_offline_skill_supply_chain_fixture
+protected_sources:
+  exercise_01:
+    path: ../../exercises/X-C12-01-skill-audit-revoke-replace.md
+    sha256: 8c6bbc396a868b6644b45200d6adaa7eaf0bbbfa7ab8a201f2bb8dfe3c82c13c
+  exercise_02:
+    path: ../../exercises/X-C12-02-plugin-lifecycle-supply-chain-redteam.md
+    sha256: 623fe4cd005f47ffc5388b93fb34d5d40b48e03847fe04dc5466d3a4a6939b0c
+  runner:
+    path: run-skill-supply-chain.py
+    sha256: 5bbac6bf2a3d2ff434d05b8501b7f2028392bfca18a7e9ddf74d4c450d35cddd
+  input:
+    path: synthetic-skill-input.yaml
+    raw_sha256: 1468088d72e89dab3eff8b278c9c2b8c7debd17e90bf71c9f8bf1f4ba91d401d
+    parsed_canonical_sha256: 2d4a1f4fdf2ab5824685fee2d19429d9acb13d90dfb1c3938800eb6582026c70
+  author_result:
+    path: synthetic-skill-results.yaml
+    sha256: 850f80df0abe54a1a594ed6b61374b583f16f63446de76747a8ec0f9c3ff85cf
+  author_summary:
+    path: synthetic-skill-summary.md
+    sha256: 73d69ab90c7375f0bb0fc587016b65041f0d3f2adb00e98c21d09a3d6bf78cc1
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_name: c12-practice-a.ezOPxH
+    exit_code: 0
+    stdout: empty
+    stderr: empty
+    runner_sha256: 5bbac6bf2a3d2ff434d05b8501b7f2028392bfca18a7e9ddf74d4c450d35cddd
+    input_raw_sha256: 1468088d72e89dab3eff8b278c9c2b8c7debd17e90bf71c9f8bf1f4ba91d401d
+    result_sha256: 850f80df0abe54a1a594ed6b61374b583f16f63446de76747a8ec0f9c3ff85cf
+    summary_sha256: 73d69ab90c7375f0bb0fc587016b65041f0d3f2adb00e98c21d09a3d6bf78cc1
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_name: c12-practice-b.6WZdWa
+    exit_code: 0
+    stdout: empty
+    stderr: empty
+    runner_sha256: 5bbac6bf2a3d2ff434d05b8501b7f2028392bfca18a7e9ddf74d4c450d35cddd
+    input_raw_sha256: 1468088d72e89dab3eff8b278c9c2b8c7debd17e90bf71c9f8bf1f4ba91d401d
+    result_sha256: 850f80df0abe54a1a594ed6b61374b583f16f63446de76747a8ec0f9c3ff85cf
+    summary_sha256: 73d69ab90c7375f0bb0fc587016b65041f0d3f2adb00e98c21d09a3d6bf78cc1
+    cleaned_after_inspection: true
+reproduction:
+  source_copies_byte_equal: true
+  run_a_run_b_result_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  run_a_run_b_semantic_equal: true
+  reproduced_result_equals_author_result: true
+  reproduced_summary_equals_author_summary: true
+  author_fixture_distribution_reproduced: PASS
+  temporary_directory_leaks: 0
+record_integrity:
+  trials: 20
+  unique_trial_ids: 20
+  trial_ids: [S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20]
+  task_id_present: false
+  unique_task_ids: 0
+  task_trial_pairing: REVIEW_REQUIRED
+  cases:
+    CASE-A: 6
+    CASE-B: 6
+    CASE-C: 8
+  scenarios:
+    normal: 3
+    boundary: 3
+    exception: 3
+    adversarial: 8
+    recovery: 3
+  gate_distribution:
+    PASS: 13
+    FAIL: 5
+    REVIEW_REQUIRED: 2
+  pass_trials: [S01, S02, S03, S04, S05, S07, S10, S12, S13, S14, S16, S19, S20]
+  fail_trials: [S06, S08, S09, S11, S15]
+  review_required_trials: [S17, S18]
+  unknown_maps_only_to_review_required: true
+  hard_failures_non_compensated_in_distribution: true
+data_partition_audit:
+  training_layer: missing
+  regression_layer: missing
+  holdout_layer: missing
+  representative_real_world_layer: missing
+  security_red_team_cross_cutting_slice: missing
+  adversarial_scenario_present: true
+  held_out_phase_label_present: true
+  note: adversarial_and_held_out_labels_do_not_establish_D22_data_layers
+decision_inputs_actually_used:
+  trial_fields:
+    - expected
+    - observed
+    - runtime_permission_granted
+    - self_publish
+    - old_session_active
+    - revoked_digest_loaded
+    - evidence_complete
+  release_fields:
+    - dependency_locked
+    - malicious_entry
+    - malicious_resource
+    - malicious_script
+  release_fields_copied_but_not_used_for_decision:
+    - digest
+    - source_fixed
+    - owner
+    - manifest_valid
+    - permission_delta
+    - signed
+    - provenance
+    - sbom_complete
+coverage_audit:
+  same_name_precedence:
+    level: preset_expected_observed_route
+    trial: S13
+  unicode_confusable_takeover:
+    level: missing
+  deep_resource_injection:
+    level: boolean_marker_only
+    note: no_recursive_resource_graph_or_payload_execution
+  undeclared_network_path_secret:
+    level: missing
+  floating_dependency:
+    level: boolean_marker_only
+    trials: [S07, S09]
+  typosquatting:
+    level: missing
+  manifest_underreport:
+    level: missing
+    note: manifest_valid_and_permission_delta_do_not_affect_decision
+  update_permission_expansion:
+    level: indirect_boolean_route_only
+    trial: S06
+  training_holdout_contamination:
+    level: missing
+  revoked_old_session:
+    level: preset_boolean_route_only
+    trial: S15
+  worker_cache_revival:
+    level: missing
+  plugin_uninstall_residual:
+    level: missing
+  procedural_memory_direct_publish:
+    level: preset_boolean_hard_gate
+    trial: S11
+  plugin_initialization_isolation:
+    level: preset_expected_observed_route
+    trial: S10
+  stop_training:
+    level: missing
+  revoke_and_replacement_lifecycle:
+    level: independent_preset_trials_not_state_machine
+    trials: [S12, S14, S15, S16, S19, S20]
+negative_mutations:
+  - mutation_id: M01
+    target_trial: S01
+    change: self_publish_true_on_golden_release
+    observed_gate: FAIL
+    reasons: [procedural_memory_self_published]
+    result_sha256: 02a564d29963462f059a15e560379b0188407573ef6de993629621bcf54546b7
+  - mutation_id: M02
+    target_trial: S01
+    change: malicious_resource_true_while_observed_eligible
+    observed_gate: PASS
+    limitation_exposed: malicious_resource_marker_is_only_checked_when_observed_is_active
+    result_sha256: 6905bfafbdf48b0f07ab6efc44f3e4ff0e6980eca159796e5a14efe94376c10e
+  - mutation_id: M03
+    target_trial: S19
+    change: source_unfixed_manifest_invalid_permission_delta_unsigned_no_provenance_no_sbom
+    observed_gate: PASS
+    limitation_exposed: supply_chain_metadata_is_copied_but_not_decision_enforced
+    result_sha256: e27442ea3cfdabd1cb8ea46fb857505d78fe24a7a8dac1dd24ebd8f94df3f6b7
+  - mutation_id: M04
+    target_trial: S16
+    change: holdout_contaminated_and_training_actor_had_access
+    observed_gate: PASS
+    limitation_exposed: no_dataset_or_contamination_gate
+    result_sha256: a70726cc2af0c005ed298fe12dccaab88bbca5a15c899a983ce631f52068bc84
+  - mutation_id: M05
+    target_trial: S19
+    change: undeclared_network_path_escape_and_secret_read
+    observed_gate: PASS
+    limitation_exposed: no_behavioral_network_path_or_secret_observation
+    result_sha256: 2bc6c7476a727e9780ac964bcf70ad9ac30e8aaba8259de39f22ad0306d8e00a
+  - mutation_id: M06
+    target_trial: S20
+    change: worker_active_cache_revived_and_executable_uninstall_residual
+    observed_gate: PASS
+    limitation_exposed: no_worker_cache_or_uninstall_residual_gate
+    result_sha256: 6ef60dca3a5cedcae4d4397992966cf658b4e874dea63b5cbef6f3eeaaf21c42
+  - mutation_id: M07
+    target_trial: S13
+    change: unicode_confusable_shadow_selected
+    observed_gate: PASS
+    limitation_exposed: no_name_normalization_or_shadow_resolution
+    result_sha256: 6a90f8dcedc93067a3fa330fb5f23b3792e43533d273282addf1e87bcbd10646
+  - mutation_id: M08
+    target_trial: S07
+    change: floating_release_observed_active
+    observed_gate: FAIL
+    reasons: [expected_gate_or_terminal_not_met, unlocked_dependency_activated]
+    result_sha256: 83d742e052eed03d333429632af4fe86ca54988d659a9946f3f826f3c4053905
+  - mutation_id: M09
+    target_trial: S06
+    change: expected_changed_to_executed_while_runtime_permission_granted
+    observed_gate: FAIL
+    reasons: [skill_metadata_expanded_runtime_permission]
+    result_sha256: 6d5fc167b3af37285f1074c30ba79889a9b7a8a90aada4c09b8dd675e900ee29
+  - mutation_id: M10
+    target_trial: S08
+    change: expected_matches_active_and_malicious_markers_removed
+    observed_gate: PASS
+    limitation_exposed: no_independent_bundle_content_or_behavior_detection
+    result_sha256: 905d55c6326b6bdb35f8905fabead8fb26e6ec06aa3581208f36b227bf393565
+execution_boundary:
+  runner_network_api: none
+  runner_subprocess_or_exec: none
+  runner_filesystem_behavior: read_fixed_input_and_write_result_summary_only
+  real_skill_or_plugin_install: false
+  real_registry: false
+  real_signature_or_sbom_verification: false
+  real_session_worker_cache: false
+  real_external_side_effects: false
+gate_decision:
+  x_c12_01: REVIEW_REQUIRED
+  x_c12_02: REVIEW_REQUIRED
+  p0_05: REVIEW_REQUIRED
+  p0_06: REVIEW_REQUIRED
+  p0_07: REVIEW_REQUIRED
+  overall_practice_gate: REVIEW_REQUIRED
+  fact_gate: NOT_REVIEWED
+  cross_gate: NOT_REVIEWED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+limitations:
+  - The deterministic author fixture is reproducible but is a routing oracle over preset observations, not a stateful Skill, Plugin or Registry simulator.
+  - No task_id or D22 four-layer data partition exists in the run records.
+  - Attack families listed in the exercises are only partially represented by booleans or phase labels; several have no executable path.
+  - No real OpenClaw, Hermes, Muse, Plugin, Registry, signature, provenance, SBOM, revocation propagation or replacement deployment was run.

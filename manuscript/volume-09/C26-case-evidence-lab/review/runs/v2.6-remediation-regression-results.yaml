@@ -1,0 +1,359 @@
+{
+  "attack_count": 24,
+  "baseline_decision_digest": "bced04f6cb46f23cbdbdde8341688876971efa407dc348d44b0ef2699f11eaa5",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 0,
+  "positive_control_count": 2,
+  "positive_control_pass_count": 2,
+  "schema_version": "c23.v2.6.author-remediation-regression.v1",
+  "secure_attack_count": 24,
+  "suite_digest": "b853cb9b4ecd4a01346a7e3b0549660455c7abffe747b6412bddcd6f145deb18",
+  "tests": [
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "D21_PRECEDES_FAILURE_LOG"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-01_FAILURE_LOG_AFTER_D21"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "D21_PRECEDES_FAILURE_LOG",
+        "REVIEW_PRECEDES_EVIDENCE",
+        "REVIEW_PRECEDES_FAILURE_LOG"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-02_FAILURE_LOG_AFTER_REVIEW"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "D21_PRECEDES_FAILURE_LOG",
+        "PUBLICATION_PRECEDES_FAILURE_LOG",
+        "REVIEW_PRECEDES_EVIDENCE",
+        "REVIEW_PRECEDES_FAILURE_LOG"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-03_FAILURE_LOG_AFTER_PUBLICATION"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_TASK_NOT_AUTHORIZED",
+        "CANDIDATE_TASK_NOT_AUTHORIZED"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-04_TWIN_FORGED_TASK"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_INPUT_NOT_AUTHORIZED",
+        "CANDIDATE_INPUT_NOT_AUTHORIZED"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-05_TWIN_FORGED_INPUT"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_PERMISSIONS_NOT_AUTHORIZED",
+        "CANDIDATE_PERMISSIONS_NOT_AUTHORIZED"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-06_TWIN_PERMISSION_EXPANSION"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_DATASET_NOT_AUTHORIZED",
+        "CANDIDATE_DATASET_NOT_AUTHORIZED"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-07_TWIN_PRODUCTION_DATA"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_GRADER_NOT_AUTHORIZED",
+        "CANDIDATE_GRADER_NOT_AUTHORIZED"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-08_TWIN_AUTHOR_SELF_GRADER"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_BUDGET_AUTHORITY_BINDING_INVALID",
+        "BASELINE_BUDGET_SCOPE_BINDING_INVALID",
+        "BASELINE_DATASET_NOT_AUTHORIZED",
+        "BASELINE_GRADER_NOT_AUTHORIZED",
+        "BASELINE_INPUT_NOT_AUTHORIZED",
+        "BASELINE_TASK_NOT_AUTHORIZED",
+        "CANDIDATE_BUDGET_AUTHORITY_BINDING_INVALID",
+        "CANDIDATE_BUDGET_SCOPE_BINDING_INVALID",
+        "CANDIDATE_DATASET_NOT_AUTHORIZED",
+        "CANDIDATE_GRADER_NOT_AUTHORIZED",
+        "CANDIDATE_INPUT_NOT_AUTHORIZED",
+        "CANDIDATE_TASK_NOT_AUTHORIZED"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-09_CROSS_SCENARIO_BUDGET_PAIR"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "RECONSTRUCTION_LIMITATIONS_MISSING"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-10_RECONSTRUCTED_EMPTY_LIMITATIONS"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "RECONSTRUCTION_SOURCE_DIFFERENCE_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-11_RECONSTRUCTED_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: incomplete exact task_authority_registry projection",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-12_CROSS_TASK_AUTHORITY_REF"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: incomplete exact input_authority_registry projection",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-13_CROSS_INPUT_AUTHORITY_REF"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: incomplete exact permission_authority_registry projection",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-14_CROSS_PERMISSION_AUTHORITY_REF"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: incomplete exact dataset_authority_registry projection",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-15_CROSS_DATASET_AUTHORITY_REF"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: incomplete exact grader_authority_registry projection",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-16_CROSS_GRADER_AUTHORITY_REF"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_BUDGET_SCOPE_BINDING_INVALID",
+        "CANDIDATE_BUDGET_SCOPE_BINDING_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-17_BUDGET_RUN_REBIND"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_BUDGET_SCOPE_BINDING_INVALID",
+        "CANDIDATE_BUDGET_SCOPE_BINDING_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-18_BUDGET_CASE_REBIND"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "BASELINE_BUDGET_SCOPE_BINDING_INVALID",
+        "CANDIDATE_BUDGET_SCOPE_BINDING_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-19_BUDGET_SIDE_SWAP"
+    },
+    {
+      "actual": "REJECT",
+      "message": "budget_registry.BUDGET.BASELINE.S01: budget contract digest mismatch",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-20_STALE_BUDGET_CONTRACT_DIGEST"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "MIGRATION_BASELINE_CONTRACT_DIGEST_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-21_STALE_MIGRATION_BUDGET_DIGEST"
+    },
+    {
+      "actual": "REJECT",
+      "message": "permission_authority_registry.AUTHORITY.PERMISSION.S01: production or unknown permission forbidden in offline authority",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-22_REPIN_PRODUCTION_PERMISSION"
+    },
+    {
+      "actual": "REJECT",
+      "message": "dataset_authority_registry.AUTHORITY.DATASET.S01: production or rights-unknown dataset forbidden in offline authority",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-23_REPIN_PRODUCTION_DATASET"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "reasons": [
+        "GRADER_NOT_INDEPENDENT",
+        "GRADER_PRINCIPAL_ROLE_INVALID",
+        "GRADER_REVIEWER_ASSIGNMENT_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V26-24_REPIN_AUTHOR_SELF_GRADER"
+    },
+    {
+      "actual": "PASS",
+      "message": "",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "PASS"
+      ],
+      "test_id": "V26-C01_LEGAL_TASK_REPIN"
+    },
+    {
+      "actual": "PASS",
+      "message": "",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "PASS"
+      ],
+      "test_id": "V26-C02_LEGAL_INPUT_REPIN"
+    }
+  ]
+}

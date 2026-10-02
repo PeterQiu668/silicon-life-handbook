@@ -1,0 +1,368 @@
+{
+  "attack_count": 29,
+  "attacks": [
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_EXPIRED_WITH_LIVE_LIFECYCLE",
+        "CERTIFICATE_TIME_INVALID"
+      ],
+      "escape": false,
+      "family": "certificate-window",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-01-ZERO-DURATION-ACTIVE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_TIME_INVALID"
+      ],
+      "escape": false,
+      "family": "certificate-window",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-02-ZERO-DURATION-EXPIRED"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_EXPIRED_WITH_LIVE_LIFECYCLE",
+        "CERTIFICATE_TIME_INVALID"
+      ],
+      "escape": false,
+      "family": "certificate-window",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-03-NEGATIVE-WINDOW"
+    },
+    {
+      "actual_decision": "SCHEMA_REJECT",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "cert.issued ISO-8601"
+      ],
+      "escape": false,
+      "family": "certificate-window",
+      "layer": "semantic_legal_reseal",
+      "message": "cert.issued ISO-8601",
+      "secure_contract_passed": true,
+      "test_id": "V24-04-INVALID-ISSUED-STAMP"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "escape": false,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-05-RECERT-MISSING-HOLDOUT"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "escape": false,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-06-RECERT-CROSS-TRIAL-OUTPUT"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "escape": false,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-07-RECERT-PUBLIC-CLAIM-EVIDENCE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "escape": false,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-08-RECERT-WRONG-AFFECTED-SCOPE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "escape": false,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-09-RECERT-MISSING-SECURITY-SLICE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "escape": false,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-10-RECERT-SAME-PRE-POST-RELEASE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "escape": false,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-11-RECERT-PRECHANGE-TRIAL"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "escape": false,
+      "family": "post-change-lineage",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-12-RECERT-REVIEW-BEFORE-EVIDENCE"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "EXTERNAL_EFFECT_RECEIPT_OR_READBACK_INVALID"
+      ],
+      "escape": false,
+      "family": "effect-derivation",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-13-EFFECT-NONE-HIDES-APPLIED"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "EXTERNAL_EFFECT_RECEIPT_OR_READBACK_INVALID"
+      ],
+      "escape": false,
+      "family": "effect-derivation",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-14-EFFECT-FAILED-HIDES-APPLIED"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "EXTERNAL_EFFECT_RECEIPT_OR_READBACK_INVALID",
+        "EXTERNAL_EFFECT_UNRESOLVED"
+      ],
+      "escape": false,
+      "family": "effect-derivation",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-15-EFFECT-UNKNOWN-HIDES-APPLIED"
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "EXTERNAL_EFFECT_RECEIPT_OR_READBACK_INVALID",
+        "OFFLINE_CONFIRMED_EXTERNAL_SUCCESS_REJECTED"
+      ],
+      "escape": false,
+      "family": "effect-derivation",
+      "layer": "semantic_legal_reseal",
+      "message": "",
+      "secure_contract_passed": true,
+      "test_id": "V24-16-EFFECT-APPLIED-TOP-FALSE"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "independent-measurement-root",
+      "layer": "persisted-result-verifier",
+      "message": "result independent measurement authority mismatch",
+      "secure_contract_passed": true,
+      "test_id": "V24-17-COHERENT-REAL-SUCCESS-REHASH"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "independent-measurement-root",
+      "layer": "persisted-result-verifier",
+      "message": "result independent measurement authority mismatch",
+      "secure_contract_passed": true,
+      "test_id": "V24-18-COHERENT-EXTERNAL-SUCCESS-REHASH"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "semantic-replay",
+      "layer": "persisted-result-verifier",
+      "message": "result independent semantic authority mismatch",
+      "secure_contract_passed": true,
+      "test_id": "V24-19-FAIL-TO-PASS-REHASH"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "semantic-replay",
+      "layer": "persisted-result-verifier",
+      "message": "result independent semantic authority mismatch",
+      "secure_contract_passed": true,
+      "test_id": "V24-20-FAIL-TO-PASS-REHASH-WITH-REPLAY"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "semantic-replay",
+      "layer": "persisted-result-verifier",
+      "message": "result frozen identity or state binding",
+      "secure_contract_passed": true,
+      "test_id": "V24-21-STATE-DIGEST-REWRITE"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json-key",
+      "layer": "serialized-json-boundary",
+      "message": "json duplicate key: now",
+      "secure_contract_passed": true,
+      "test_id": "V24-22-DUPLICATE-INPUT-TOP"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json-key",
+      "layer": "serialized-json-boundary",
+      "message": "json duplicate key: budget",
+      "secure_contract_passed": true,
+      "test_id": "V24-23-DUPLICATE-INPUT-NESTED"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json-key",
+      "layer": "serialized-json-boundary",
+      "message": "json duplicate key: issuer",
+      "secure_contract_passed": true,
+      "test_id": "V24-24-DUPLICATE-AUTHORITY-TOP"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json-key",
+      "layer": "serialized-json-boundary",
+      "message": "json duplicate key: status",
+      "secure_contract_passed": true,
+      "test_id": "V24-25-DUPLICATE-AUTHORITY-NESTED"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json-key",
+      "layer": "serialized-json-boundary",
+      "message": "json duplicate key: trial_count",
+      "secure_contract_passed": true,
+      "test_id": "V24-26-DUPLICATE-RESULT-TOP"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json-key",
+      "layer": "serialized-json-boundary",
+      "message": "json duplicate key: decision",
+      "secure_contract_passed": true,
+      "test_id": "V24-27-DUPLICATE-RESULT-NESTED"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "pinned-independent-authority",
+      "layer": "authority-root",
+      "message": "authority root is not pinned",
+      "secure_contract_passed": true,
+      "test_id": "V24-28-FORGED-MEASUREMENT-ROOT"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "pinned-independent-authority",
+      "layer": "authority-root",
+      "message": "authority root is not pinned",
+      "secure_contract_passed": true,
+      "test_id": "V24-29-FORGED-SEMANTIC-ROOT"
+    }
+  ],
+  "authority_sha256": "sha256:076ed4b14a0729d5b90f4d3d5954865142e90cdc74dbfe74eacf48707b265b2f",
+  "escape_count": 0,
+  "input_sha256": "sha256:4a824bb7cd4d423542308ef5dfd13775e237f656cdde68efdb15ed28fe796936",
+  "limits": {
+    "fact_cross_editor_chief_rc": "NOT_AUTHORIZED",
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_certificate_issued": false,
+    "real_external_effect_executed": false,
+    "real_runtime_executed": false
+  },
+  "positive_controls": [
+    {
+      "decision": "PASS",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "reasons": [],
+      "test_id": "V24-P01-UNCHANGED-ACTIVE"
+    },
+    {
+      "decision": "PASS",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "reasons": [],
+      "test_id": "V24-P02-LEGAL-RECERTIFICATION"
+    }
+  ],
+  "positive_count": 2,
+  "positive_pass_count": 2,
+  "result_sha256": "sha256:eb39fc1f35ca39cc797d7095af9bb2a0bfdf235803186b46c4a31d5b5f67756f",
+  "runner_sha256": "sha256:7172b45cfa7ff54b7dfaafebb2ef32c887a74b1c630c8925ce4e6c52717e9432",
+  "schema": "c24.cert.v2.4-remediation-regression.v1",
+  "scope": "offline_synthetic_author_remediation",
+  "secure_count": 29,
+  "suite_digest": "sha256:5d3b4efe3474fa6bc2f4ce32565cfc596e9f3b90ee12df7a8462c5311de79919"
+}

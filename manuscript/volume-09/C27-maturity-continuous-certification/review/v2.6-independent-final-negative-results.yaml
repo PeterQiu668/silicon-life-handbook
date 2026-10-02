@@ -1,0 +1,645 @@
+{
+  "attack_count": 46,
+  "attacks": [
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I01_EVENT_DELETE"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I02_EVENT_BRANCH"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I03_EVENT_SELF_CYCLE"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I04_EVENT_TWO_CYCLE"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I05_SEQUENCE_GAP"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "ValueError: event sequence duplicate",
+      "reasons": [
+        "event sequence duplicate"
+      ],
+      "secure": true,
+      "test_id": "I06_SEQUENCE_DUPLICATE"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "ValueError: event cardinality TRIAL_OUTPUT_RECORDED",
+      "reasons": [
+        "event cardinality TRIAL_OUTPUT_RECORDED"
+      ],
+      "secure": true,
+      "test_id": "I07_EQUAL_TIMESTAMP"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I08_REVERSED_TIMESTAMP"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-record-binding",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I09_RECORD_EVENT_TIME_MISMATCH"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I10_MANIFEST_PREREG_AFTER_TRIAL"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I11_PUBLIC_CLAIM_BEFORE_CERT"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I12_LIFECYCLE_BEFORE_CLAIM"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "manifest-causality",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "MANIFEST_CONTENT_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I13_MANIFEST_PUBLIC_CLAIM_CAUSAL_RING"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-dag",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I14_CROSS_SCENARIO_PREDECESSOR"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-record-binding",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I15_EVENT_SUBJECT_SWAP"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "event-record-binding",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "I16_EVENT_KIND_SWAP"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "ValueError: principal alias collision",
+      "reasons": [
+        "principal alias collision"
+      ],
+      "secure": true,
+      "test_id": "I17_ALIAS_COLLISION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "ValueError: principal alias collision",
+      "reasons": [
+        "principal alias collision"
+      ],
+      "secure": true,
+      "test_id": "I18_ALIAS_CYCLE"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "I19_UNICODE_PRINCIPAL"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "I20_WHITESPACE_PRINCIPAL"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "I21_UNKNOWN_PRINCIPAL"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "I22_REVOKED_CERTIFIER"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "I23_STALE_CERTIFIER"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "I24_ROLE_SHADOW_CERTIFIER"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal",
+      "lifecycle": "REVOKED",
+      "message": "ValueError: principal alias collision",
+      "reasons": [
+        "principal alias collision"
+      ],
+      "secure": true,
+      "test_id": "I25_CROSS_ROLE_ALIAS"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "principal-authority",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "I26_AUTHORITY_ACTOR_ALIAS"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "d22-policy-root",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority d22 policy binding",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I27_DROP_TRAINING"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "d22-policy-root",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority d22 policy binding",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I28_DROP_REGRESSION"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "d22-policy-root",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority d22 policy binding",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I29_DROP_HOLDOUT"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "d22-policy-root",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority d22 policy binding",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I30_DROP_SECURITY_SLICE"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "d22-policy-root",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority d22 policy binding",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I31_REAL_WORLD_IN_OFFLINE_RECERT"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "material-change",
+      "lifecycle": "REVOKED",
+      "message": "IndexError: list index out of range",
+      "reasons": [
+        "list index out of range"
+      ],
+      "secure": true,
+      "test_id": "I32_POSTCHANGE_OUTPUT_BEFORE_CHANGE"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "material-change",
+      "lifecycle": "REVOKED",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "NON_MATERIAL_CHANGE_CONTRADICTION"
+      ],
+      "secure": true,
+      "test_id": "I33_WRONG_POSTCHANGE_RELEASE"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic_state",
+      "escape": false,
+      "family": "material-change",
+      "lifecycle": "REVOKED",
+      "message": "IndexError: list index out of range",
+      "reasons": [
+        "list index out of range"
+      ],
+      "secure": true,
+      "test_id": "I34_CROSS_TRIAL_OUTPUT_BORROW"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier",
+      "lifecycle": "N/A",
+      "message": "TypeError: verify_result() missing 2 required positional arguments: 'authority' and 'source'",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I35_VERIFY_NO_ROOT"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier",
+      "lifecycle": "N/A",
+      "message": "ValueError: trusted result verification requires authority and source",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I36_VERIFY_NO_SOURCE"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority closed-world schema violation",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I37_VERIFY_WRONG_ROOT"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority closed-world schema violation",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I38_VERIFY_SWAP_ROOT_SOURCE"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority reference or trusted clock mismatch",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I39_VERIFY_CHANGED_SOURCE"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier",
+      "lifecycle": "N/A",
+      "message": "ValueError: result independent semantic authority mismatch",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I40_VERIFY_RESEALED_FAIL_TO_PASS"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority root is not pinned",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I41_VERIFY_RESEALED_WRONG_ROOT"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier-inventory",
+      "lifecycle": "N/A",
+      "message": "AttributeError: no low-arity acceptance callable",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I42_NO_PRIVATE_LOW_ARITY_ENTRY"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "verifier-cli",
+      "lifecycle": "N/A",
+      "message": "ValueError: CLI rejected missing authority",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I43_CLI_MISSING_AUTHORITY"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "strict-parser",
+      "lifecycle": "N/A",
+      "message": "ValueError: json duplicate key: schema",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I44_DUPLICATE_RESULT_KEY"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "authority-root",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority root is not pinned",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I45_ROOT_RESEAL_WITHOUT_PIN"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "result_verifier",
+      "escape": false,
+      "family": "authority-root",
+      "lifecycle": "N/A",
+      "message": "ValueError: authority root is not pinned",
+      "reasons": [],
+      "secure": true,
+      "test_id": "I46_ROOT_SOURCE_DIGEST_MISMATCH"
+    }
+  ],
+  "authority_root_digest": "sha256:ca5f2f54cd8184e7e39835ae7a6956b1d6cd16795c84de1336a45a9c6df011fd",
+  "authority_sha256": "aed3ae2a19424a9b771225352df5a01a52d179ceb847a95ee375c499e381b3fb",
+  "baseline_decision_digest": "sha256:bf98dd48607a377499f2763fb2030d294adde07caf59b48eeb38e3b0c21ea56d",
+  "baseline_distribution": {
+    "FAIL": 52,
+    "PASS": 4,
+    "REVIEW_REQUIRED": 2
+  },
+  "baseline_lifecycle_distribution": {
+    "ACTIVE": 1,
+    "EXPIRED": 1,
+    "LIMITED": 2,
+    "REVOKED": 52,
+    "SUSPENDED": 2
+  },
+  "escape_count": 0,
+  "escape_ids": [],
+  "input_sha256": "0f424230700b073af0f1708492341d032fcd6ca71a0056b990b24df75a34d0a3",
+  "limits": {
+    "chief_editor_rc": "NOT_AUTHORIZED",
+    "external_certification_authority_executed": false,
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_platform_executed": false,
+    "representative_real_world_executed": false
+  },
+  "positive_control_count": 5,
+  "positive_control_pass_count": 5,
+  "positive_controls": [
+    {
+      "decision": "PASS",
+      "kind": "active",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "test_id": "P01_ACTIVE"
+    },
+    {
+      "decision": "PASS",
+      "kind": "limited",
+      "lifecycle": "LIMITED",
+      "passed": true,
+      "test_id": "P02_LIMITED"
+    },
+    {
+      "decision": "PASS",
+      "kind": "expired-lifecycle",
+      "lifecycle": "EXPIRED",
+      "passed": true,
+      "test_id": "P03_EXPIRED"
+    },
+    {
+      "decision": "PASS",
+      "kind": "short-certificate-window",
+      "lifecycle": "LIMITED",
+      "passed": true,
+      "test_id": "P04_SHORT_WINDOW"
+    },
+    {
+      "decision": "PASS",
+      "kind": "result-authority-source-replay",
+      "lifecycle": "N/A",
+      "passed": true,
+      "test_id": "P05_FULL_RESULT_REPLAY"
+    }
+  ],
+  "result_sha256": "591612e8282c2456016b29c455c80fc9f4d5537075b0e708525a4f88881e69ac",
+  "role": "non_author",
+  "runner_sha256": "1a25c5dde71ac007a2c6f77cd193e1cc215731510935dea6c7658a2f73dc5451",
+  "schema": "c24.v2.6-independent-final-negative.v1",
+  "secure_attack_count": 46,
+  "suite_digest": "sha256:9ba5cf86000bf45e9fabf807586959628e7896ede7a86ac3a97861292d628404"
+}

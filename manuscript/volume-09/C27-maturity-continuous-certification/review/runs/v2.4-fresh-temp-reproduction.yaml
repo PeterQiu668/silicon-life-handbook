@@ -1,0 +1,46 @@
+schema: c24.cert.v2.4-fresh-temp-reproduction.v1
+date: "2026-10-01"
+scope: offline_synthetic_author_reproduction
+run_count: 2
+fresh_temp_roots:
+  - /tmp/c24-v24-fresh-a.vIYmT8
+  - /tmp/c24-v24-fresh-b.VScxZi
+all_byte_identical: true
+fixed_fixture:
+  trial_count: 58
+  distribution: {PASS: 4, FAIL: 52, REVIEW_REQUIRED: 2}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 2, SUSPENDED: 2, REVOKED: 52, EXPIRED: 1}
+  authority_root_digest: "sha256:ca7cbc05f74ddda8c8a178b7496d23b1fd2f137fa5019606a3a1eb2181a12f92"
+  decision_digest: "sha256:d9126ac3abaa8899553345d235e9b6b97ad98397087e9d1871b3120d4c330a6e"
+historical_replays:
+  author_25: {matched: 25, escapes: 0, suite_digest: "sha256:7a8619c4956129eddd561f64304985250cc0f241cb62f70f591339b7b0a9133f"}
+  historical_18: {semantic_and_blackbox_closed: true, suite_digest: "sha256:1c0fcbd65d6561e1f58bc289436928ed8d312088abfdafda2305ca2c1bfb98ce"}
+  independent_25: {matched: 25, escapes: 0}
+  v2_3_author_neighbours_20: {matched: 20, escapes: 0}
+  latest_independent_21: {secure: 21, escapes: 0, positive_controls: "2/2", suite_digest: "sha256:dce7ddef6de297b45aa6eb2755cf4b8de2c4f82bdfc8aaf9916cb097e964f72b"}
+v2_4_regression:
+  attack_count: 29
+  secure_count: 29
+  escape_count: 0
+  positive_controls: "2/2"
+  includes_legal_post_change_recertification: true
+  suite_digest: "sha256:5d3b4efe3474fa6bc2f4ce32565cfc596e9f3b90ee12df7a8462c5311de79919"
+byte_hashes:
+  synthetic_input: "sha256:4a824bb7cd4d423542308ef5dfd13775e237f656cdde68efdb15ed28fe796936"
+  frozen_authority: "sha256:076ed4b14a0729d5b90f4d3d5954865142e90cdc74dbfe74eacf48707b265b2f"
+  synthetic_result: "sha256:eb39fc1f35ca39cc797d7095af9bb2a0bfdf235803186b46c4a31d5b5f67756f"
+  author_25_result: "sha256:13643ed7c26835d2bbb736ef530e63aca60a52641a45ae6f4a7dd0747e77eff6"
+  historical_18_result: "sha256:dbb06d80294cfacf5d19ca7922a50473afc55cf188960ae814a95d510dabfad8"
+  v2_3_combined_result: "sha256:d96c2a9a3995ebf83674976fb10df570d4f478bfea4245aa625f718e78cf9f92"
+  latest_independent_21_result: "sha256:0900c0632031abb09f27a6f5a12a3dbb0c8a09c537858a59f7d05358c4214824"
+  v2_4_result: "sha256:90794b3f884553bf86820ce9622ccecbc9bd765dc013fbe53e8c56912b6d9630"
+limits:
+  real_runtime_executed: false
+  real_certificate_issued: false
+  external_effect_executed: false
+  fact_gate: NOT_AUTHORIZED
+  cross_gate: NOT_AUTHORIZED
+  practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_AUTHORIZED
+  chief_gate: NOT_AUTHORIZED
+  release_candidate: false

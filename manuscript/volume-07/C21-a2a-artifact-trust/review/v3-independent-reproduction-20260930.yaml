@@ -1,0 +1,176 @@
+---
+reproduction_id: C18-v3-independent-reproduction-20260930
+chapter_id: C18
+reviewer_role: non_author_fact_and_cross_reviewer
+verified_on: "2026-09-30"
+scope: "v3 four-blocker remediation, near-neighbor attacks, claim closure, and fresh-temp rebuild"
+author_files_modified: false
+network_used_by_harness: false
+real_credentials_used: false
+external_side_effects: 0
+fact_gate: REVIEW_REQUIRED
+cross_gate: FAIL
+synthetic_machine_control: FAIL
+real_platform_practice_gate: REVIEW_REQUIRED
+editor_gate: not_reviewed
+chief_editor_gate: not_reviewed
+release_candidate_authorized: false
+
+author_snapshot_hashes_sha256:
+  chapter: "768e4896781ca783dcb9b823d9594ffab9e91d2c0701c45be768c9fe128dca4d"
+  evidence_ledger: "721ac2c6e60678bf6da26e891e85961924aa53c5163694cf6c201cd45a52179a"
+  author_self_check: "7b19346f2ec49a167b8376eadc3697e4ed1bc9c803327d26c9be2e000f6b31a4"
+  v3_remediation: "6ac9ac6e3186a7a6377349d9bf93933a5055ec346d6e15277dcce401c0734ebd"
+  builder: "f2ee5d44f17bf2508038f1e92603a46eaa0f90cc50b24416e62495aa2203b020"
+  runner: "c602f0ac8e60e80e066ece0c228796bb78453b42b843b4611b8b13bed3ba8d6a"
+  input: "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1"
+  results: "8465d69deab941cd62750280103ca5b5de2e4d7352a02b3eda6227baaf17820a"
+  summary: "6d9af174de0082badeddcf55c78e7570c089844bde90abde7a84edcc4c098bf7"
+  readme: "97d163049010bd6843da8351d3c90361f7a6ad3103012ba8c967e7e9178c9400"
+
+fresh_temp_rebuild_and_run:
+  run_a_input_sha256: "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1"
+  run_b_input_sha256: "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1"
+  saved_input_sha256: "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1"
+  run_a_results_sha256: "8465d69deab941cd62750280103ca5b5de2e4d7352a02b3eda6227baaf17820a"
+  run_b_results_sha256: "8465d69deab941cd62750280103ca5b5de2e4d7352a02b3eda6227baaf17820a"
+  saved_results_sha256: "8465d69deab941cd62750280103ca5b5de2e4d7352a02b3eda6227baaf17820a"
+  run_a_summary_sha256: "6d9af174de0082badeddcf55c78e7570c089844bde90abde7a84edcc4c098bf7"
+  run_b_summary_sha256: "6d9af174de0082badeddcf55c78e7570c089844bde90abde7a84edcc4c098bf7"
+  saved_summary_sha256: "6d9af174de0082badeddcf55c78e7570c089844bde90abde7a84edcc4c098bf7"
+  byte_identical_a_b_and_saved: true
+  semantic_identical: true
+  trial_count: 18
+  distribution: {PASS: 3, FAIL: 9, REVIEW_REQUIRED: 6}
+  all_expected_matched: true
+  decision_digest: "05fa738a5521fc86f0833f920cf0ae2f9c5d071e64e2c6f43d728fbe9e7d509e"
+  by_layer:
+    training: {PASS: 3, FAIL: 1}
+    regression: {FAIL: 2, REVIEW_REQUIRED: 2}
+    holdout: {FAIL: 6, REVIEW_REQUIRED: 4}
+    representative_real_world: {}
+  security_red_team_trial_count: 17
+  synthetic_shadow_trial_count: 3
+  representative_real_world_executed: false
+  representative_real_world_evidence_count: 0
+  external_side_effect_count: 0
+  verdict: PASS_FOR_DETERMINISTIC_SYNTHETIC_REPLAY_ONLY
+
+claim_audit:
+  claim_count: 33
+  unique_claim_count: 33
+  chapter_reference_count: 33
+  missing_claim_references: []
+  orphan_claim_references: []
+  source_count: 19
+  used_source_count: 19
+  unused_sources: []
+  missing_source_ids: []
+  claim_results:
+    pass_or_pass_with_declared_scope: 32
+    review_required: 1
+    review_required_ids: [E-C18-029]
+  E_C18_029:
+    recorded_state: "C17 fact PASS_WITH_LIMITATIONS and v3.2 cross remediation awaiting independent reproduction"
+    current_state: "C17 fact PASS_WITH_LIMITATIONS; v3.2 independent cross review is now PASS_WITH_LIMITATIONS; practice remains REVIEW_REQUIRED"
+    current: false
+  verdict: REVIEW_REQUIRED
+
+targeted_attacks:
+  total: 26
+  matched_expected: 24
+  mismatched_expected: 2
+  failed_ids: [V3-STOP-05, V3-LAYER-01]
+  artifact_signer:
+    - {id: V3-SIGN-01, mutation: "valid signature by REVOKED signer", expected: FAIL, actual: FAIL, reason: ARTIFACT_SIGNATURE_INVALID, verdict: PASS}
+    - {id: V3-SIGN-02, mutation: "valid signature by EXPIRED signer", expected: FAIL, actual: FAIL, reason: ARTIFACT_SIGNATURE_INVALID, verdict: PASS}
+    - {id: V3-SIGN-03, mutation: "valid signature from ACTIVE wrong-provider root", expected: FAIL, actual: FAIL, reason: ARTIFACT_SIGNATURE_INVALID, verdict: PASS}
+    - {id: V3-SIGN-04, mutation: "unknown Artifact signer", expected: FAIL, actual: FAIL, reason: ARTIFACT_SIGNATURE_INVALID, verdict: PASS}
+  protocol_aggregation:
+    - {id: V3-PROTO-01, protocol: WORKING, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3-PROTO-02, protocol: INPUT_REQUIRED, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3-PROTO-03, protocol: AUTH_REQUIRED, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3-PROTO-04, protocol: FAILED, expected: FAIL, actual: FAIL, protocol_gate: FAIL, acceptance_state: PASS, task_completion: FAIL, verdict: PASS}
+    - {id: V3-PROTO-05, protocol: CANCELED, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3-PROTO-06, protocol: SUBMITTED, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3-PROTO-07, protocol: REJECTED, expected: FAIL, actual: FAIL, protocol_gate: FAIL, acceptance_state: PASS, task_completion: FAIL, verdict: PASS}
+  stop_receipt:
+    - {id: V3-STOP-01, mutation: "VERIFIED plus receipt_id NONE", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3-STOP-02, mutation: "VERIFIED plus receipt_id dummy", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3-STOP-03, mutation: "VERIFIED plus unknown receipt ref", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3-STOP-04, mutation: "validly digested registry receipt bound to wrong task", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - id: V3-STOP-05
+      mutation: "validly digested registry receipt issued in 2020 with correct task/worker/source/status"
+      expected: REVIEW_REQUIRED
+      actual: PASS
+      execution_state: STOP_CONFIRMED
+      task_completion: PASS
+      verdict: FAIL
+      finding: "issued_at is checked only as <= now; no task/run generation or lower freshness bound exists"
+    - {id: V3-STOP-06, mutation: "validly digested future receipt", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3-STOP-07, mutation: "raw stop receipt status UNKNOWN", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+  d22_real_world_boundary:
+    - {id: V3-D22-01, mutation: "data_origin representative_real_world", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3-D22-02, mutation: "representative_real_world_executed true", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3-D22-03, mutation: "offline scenario placed in representative_real_world layer", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3-D22-04, mutation: "non-empty self-attested real-world manifest", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3-D22-05, mutation: "full self-signed real-world origin/executed/layer/manifest bundle", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+  layering_and_priority:
+    - id: V3-LAYER-01
+      mutation: "validly re-signed Artifact whose unit violates business schema while acceptance evidence still self-reports ACCEPTED"
+      expected_acceptance_state: FAIL
+      actual_acceptance_state: PASS
+      task_completion: FAIL
+      reason: CONTENT_BUSINESS_ERROR
+      verdict: FAIL
+      finding: "task aggregate is safe, but acceptance_state is derived only from ACCEPTANCE_EVIDENCE_INVALID and contradicts the detected business failure"
+    - {id: V3-HARD-01, mutation: "revoked Artifact signer plus protocol WORKING", expected: FAIL, actual: FAIL, rr_reason: PROTOCOL_NOT_COMPLETED, hard_reason: ARTIFACT_SIGNATURE_INVALID, verdict: PASS}
+    - {id: V3-HARD-02, mutation: "revoked Artifact signer plus UNKNOWN stop receipt", expected: FAIL, actual: FAIL, rr_reason: EXECUTION_TERMINAL_UNKNOWN, hard_reason: ARTIFACT_SIGNATURE_INVALID, verdict: PASS}
+
+four_v2_blockers:
+  P0_C18_V2_01_artifact_signer_trust_revocation: CLOSED
+  P0_C18_V2_02_nonterminal_protocol_global_pass: CLOSED
+  P0_C18_V2_03_stop_receipt_authority: PARTIALLY_CLOSED_STALE_REPLAY_OPEN
+  P0_C18_V2_04_offline_self_attested_real_world: CLOSED
+
+new_or_remaining_findings:
+  - id: P0-C18-V3-01
+    title: "stale stop receipt can produce STOP_CONFIRMED and task PASS"
+    gate_effect: cross_FAIL
+  - id: P1-C18-V3-02
+    title: "acceptance_state remains PASS when deterministic content/business validation fails"
+    gate_effect: cross_REVIEW_REQUIRED
+  - id: P1-F18-V3-01
+    title: "E-C18-029 is stale after C17 v3.2 independent cross PASS_WITH_LIMITATIONS"
+    gate_effect: fact_REVIEW_REQUIRED
+
+overall:
+  frozen_v3_rebuild: PASS
+  claims_33_closure: PASS
+  project_state_claim_current: FAIL
+  artifact_signer_control: PASS
+  protocol_task_aggregation: PASS
+  stop_receipt_control: FAIL
+  d22_offline_real_world_control: PASS
+  acceptance_layer_truthfulness: FAIL
+  hard_failure_noncompensation: PASS
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: FAIL
+  synthetic_machine_control: FAIL
+  real_a2a_openclaw_hermes_practice: REVIEW_REQUIRED
+  release_candidate_authorized: false
+
+final_validation:
+  author_snapshot_hashes_unchanged_after_review: true
+  reproduction_yaml_parse: PASS
+  review_frontmatter_parse: PASS
+  c18_ledger_yaml_parse: PASS
+  c18_formal_sections_18_1_to_18_7: PASS
+  c18_artifact_count_3: PASS
+  c18_exercise_count_2: PASS
+  c18_local_links: PASS
+  builder_py_compile: PASS
+  runner_py_compile: PASS
+  book_validator: PASS
+  formal_validator: "CONCURRENT_FAIL_OUTSIDE_C18: C21 drafting package is below length and missing required sections/ledger; C18 itself reports 18531 CJK and no C18 formal error"
+  diff_check: PASS

@@ -1,0 +1,344 @@
+chapter_id: C13
+title: "上下文与记忆工程"
+status: drafting
+ledger_version: "0.1.1"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c13"
+reviewed_by: null
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  OpenClaw 锁定 v2026.9.6 / eb377ac59e6c9fd6c7705028034812becf00271b。
+  Hermes 发布锚点为 v0.20.1 / tag v2026.8.13 / f80f453；Memory、Sessions、
+  Compression 与 Tools 页面按 2026-09-30 动态官方文档处理。Muse 全部为厂商声明。
+  记忆分类、生命周期 Schema、门禁与测试集是本书 C13 方法论。
+
+evidence_classes:
+  METHODOLOGY: "本书方法论，不冒充外部标准"
+  FORMAL-RECOMMENDATION: "正式标准或风险框架建议"
+  ACADEMIC-EVIDENCE: "同行评议或原始研究"
+  ACADEMIC-PREPRINT: "前沿预印本，尚非正式标准"
+  VERSION-FACT: "固定版本、提交或 release 事实"
+  DYNAMIC-OFFICIAL: "核验日官方动态文档，不回填历史 release"
+  VENDOR-CLAIM: "闭源厂商公开自述，未独立验证内部实现或效果"
+  LOCAL-VALIDATION: "本地合成运行，仅在声明范围有效"
+
+sources:
+  BOOK-V2:
+    title: "正式出版版三级内容框架 v2"
+    path: "../../../00-正式出版版-三级内容框架-v2.md"
+  C13-CARD:
+    title: "C13 chapter card"
+    path: "../../../docs/editorial/CHAPTER-CARDS.md"
+  C13-PREFLIGHT:
+    title: "C13 context memory preflight"
+    path: "../../../docs/research/C13-context-memory-preflight.md"
+  TERMS:
+    title: "Terminology Registry"
+    path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"
+  D19-D20:
+    title: "Decisions D19 and D20"
+    path: "../../../docs/DECISIONS.md"
+  C03:
+    title: "C03 strength standard"
+    path: "../../volume-01/C03-strength-standard/chapter.md"
+  C05:
+    title: "C05 life contracts"
+    path: "../../volume-02/C05-life-contracts/chapter.md"
+  C05-ART:
+    title: "C05 seven contract draft pack"
+    path: "../../volume-02/C05-life-contracts/artifacts/A-C05-01-seven-contract-draft-pack.md"
+  C05-CONFLICT:
+    title: "C05 contract conflict matrix"
+    path: "../../volume-02/C05-life-contracts/artifacts/A-C05-02-contract-conflict-matrix.md"
+  C06:
+    title: "C06 runtime architecture"
+    path: "../../volume-02/C06-runtime-architecture/chapter.md"
+  C09:
+    title: "C09 interaction system"
+    path: "../../volume-03/C09-interaction-system/chapter.md"
+  C09-CONTEXT:
+    title: "C09 context package"
+    path: "../../volume-03/C09-interaction-system/artifacts/A-C09-02-context-package.md"
+  OC-REL:
+    title: "OpenClaw v2026.9.6 release"
+    url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+  OC-TAG-COMMIT:
+    title: "OpenClaw v2026.9.6 target commit"
+    url: "https://github.com/openclaw/openclaw/commit/eb377ac59e6c9fd6c7705028034812becf00271b"
+  OC-CONTEXT:
+    title: "OpenClaw Context at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/context.md"
+  OC-MEMORY:
+    title: "OpenClaw Memory overview at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/memory.md"
+  OC-MEM-ARCH:
+    title: "OpenClaw Memory architecture at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/memory-architecture.md"
+  OC-MEM-BUILTIN:
+    title: "OpenClaw Builtin memory engine at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/memory-builtin.md"
+  OC-PROVENANCE:
+    title: "OpenClaw Memory provenance and deletion at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/memory-provenance.md"
+  OC-COMPACTION:
+    title: "OpenClaw Compaction at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/compaction.md"
+  OC-SESSION:
+    title: "OpenClaw Session management at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/session.md"
+  OC-WORKSPACE:
+    title: "OpenClaw Agent workspace at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/agent-workspace.md"
+  HE-RELEASE:
+    title: "Hermes Agent v0.20.1 release"
+    url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+  HE-TAG-COMMIT:
+    title: "Hermes Agent v2026.8.13 target commit"
+    url: "https://github.com/NousResearch/hermes-agent/commit/f80f453ae0679347e38abc917c7f94f717bf96c5"
+  HE-MEMORY:
+    title: "Hermes dynamic Persistent Memory documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory/"
+  HE-SESSIONS:
+    title: "Hermes dynamic Sessions documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/sessions/"
+  HE-COMPRESSION:
+    title: "Hermes dynamic Context Compression documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/developer-guide/context-compression-and-caching"
+  HE-TOOLS:
+    title: "Hermes dynamic Tools Reference"
+    url: "https://hermes-agent.nousresearch.com/docs/reference/tools-reference/"
+  MUSE-NEWS:
+    title: "Meta Introducing Muse"
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+  MUSE-SAFETY:
+    title: "Meta How We Built Safety Into Muse"
+    url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+  W3C-PROV:
+    title: "W3C PROV-DM Recommendation"
+    url: "https://www.w3.org/TR/prov-dm/"
+  NIST-GAI:
+    title: "NIST AI 600-1 Generative AI Profile"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+  NIST-PRIVACY:
+    title: "NIST Privacy Framework FAQ"
+    url: "https://www.nist.gov/privacy-framework/frequently-asked-questions"
+  OWASP-ASI06:
+    title: "OWASP Top 10 for Agentic Applications 2026"
+    url: "https://genai.owasp.org/download/52117/"
+  LOST-MIDDLE:
+    title: "Lost in the Middle, TACL 2024"
+    url: "https://aclanthology.org/2024.tacl-1.9/"
+  LONGMEMEVAL:
+    title: "LongMemEval"
+    url: "https://arxiv.org/abs/2410.10813"
+  LONGMEMEVAL-V2:
+    title: "LongMemEval-V2 preprint"
+    url: "https://arxiv.org/abs/2605.12493"
+  RAG-2020:
+    title: "Retrieval-Augmented Generation"
+    url: "https://arxiv.org/abs/2005.11401"
+  LOCAL-C13-RUN:
+    title: "C13 author synthetic memory results"
+    path: "review/runs/synthetic-memory-results.yaml"
+  LOCAL-C13-SCRIPT:
+    title: "C13 deterministic lifecycle harness"
+    path: "review/runs/run-memory-lifecycle.py"
+
+claims:
+  - evidence_id: E-C13-001
+    claim: "Context 是当次运行可见的有界信息集合，Memory 是经选择后持久保存并可在以后检索或注入的状态；两者不是同义词。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_ids: [TERMS, OC-CONTEXT, HE-MEMORY]
+    limitations: "平台装配和加载时点不同。"
+  - evidence_id: E-C13-002
+    claim: "task_state 的 owner、阶段、attempt、审批、阻塞和终态应由任务事实源持有，不能只存为自然语言记忆。"
+    class: METHODOLOGY
+    stability: stable
+    scope: chapter-interface
+    source_ids: [C09, C09-CONTEXT, C06]
+    limitations: "Memory 可保存历史或指针，但不是当前任务权威。"
+  - evidence_id: E-C13-003
+    claim: "工作、情景、语义和程序性记忆是本书教学与治理分类，不是所有平台的同构数据库表。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_ids: [BOOK-V2, C13-CARD, C13-PREFLIGHT]
+    limitations: "一项信息可有主分类并从其他对象派生。"
+  - evidence_id: E-C13-004
+    claim: "record、evidence、memory、context 与 authorization 是不同对象；任何记忆文本或检索命中都不能自产生 authority。"
+    class: METHODOLOGY
+    stability: stable
+    scope: governance
+    source_ids: [C05, C05-CONFLICT, TERMS, D19-D20]
+    limitations: "真实授权由 C22 的身份、Policy、Approval 和权限系统主定义。"
+  - evidence_id: E-C13-005
+    claim: "写入前必须检查目的、主体、来源、证据、时效、冲突、敏感性、scope、行动性、保留和撤回。"
+    class: METHODOLOGY
+    stability: stable
+    scope: memory-admission
+    source_ids: [C13-PREFLIGHT, W3C-PROV, NIST-GAI, OWASP-ASI06]
+    limitations: "具体字段、审批和阈值按风险与部署确定。"
+  - evidence_id: E-C13-006
+    claim: "检索必须先做身份/tenant/scope/目的强制过滤，再做相关性、时效、来源、冲突、taint 与注入预算判断。"
+    class: METHODOLOGY
+    stability: stable
+    scope: retrieval
+    source_ids: [C13-PREFLIGHT, OWASP-ASI06, RAG-2020]
+    limitations: "相关性命中不证明事实正确或可行动。"
+  - evidence_id: E-C13-007
+    claim: "Compaction 和摘要是有损转换，不等于长期记忆、物理删除或备份。"
+    class: METHODOLOGY
+    stability: stable
+    scope: compaction
+    source_ids: [OC-COMPACTION, HE-COMPRESSION]
+    limitations: "具体压缩器和保真控制随实现变化。"
+  - evidence_id: E-C13-008
+    claim: "长 Context 仍可能因信息位置、读取和时序更新失败；记忆评测应分开写入、检索、读取、应用与终态。"
+    class: ACADEMIC-EVIDENCE
+    stability: evolving
+    scope: long-context-memory-evaluation
+    source_ids: [LOST-MIDDLE, LONGMEMEVAL, LONGMEMEVAL-V2]
+    limitations: "研究设置不提供跨模型固定衰减值；V2 为预印本。"
+  - evidence_id: E-C13-009
+    claim: "来源、活动、主体、时间和变更链应可追踪；来源字段不应由记忆正文自我宣称。"
+    class: FORMAL-RECOMMENDATION
+    stability: stable
+    scope: provenance
+    source_ids: [W3C-PROV, NIST-GAI, OC-MEM-ARCH]
+    limitations: "本书不强制使用 PROV-O。"
+  - evidence_id: E-C13-010
+    claim: "遗忘至少要区分不再注入、过期降权、逻辑撤销/替代和明确范围的物理删除。"
+    class: METHODOLOGY
+    stability: stable
+    scope: deletion
+    source_ids: [C13-PREFLIGHT, NIST-PRIVACY, OC-PROVENANCE]
+    limitations: "法律义务和供应商副本需专业 owner 处理。"
+  - evidence_id: E-C13-011
+    claim: "删除必须报告覆盖范围、执行证据和残余；删除 index 或界面不可见不证明所有副本被擦除。"
+    class: METHODOLOGY
+    stability: stable
+    scope: deletion
+    source_ids: [OC-PROVENANCE, NIST-PRIVACY]
+    limitations: "不同 plugin、backup、export 和 Provider 语义不同。"
+  - evidence_id: E-C13-012
+    claim: "RAG 的外部非参数索引可作为知识源或记忆组件，但向量库不天然等于 Agent 长期记忆。"
+    class: ACADEMIC-EVIDENCE
+    stability: stable
+    scope: external-rag
+    source_ids: [RAG-2020, C09-CONTEXT]
+    limitations: "现代 Agent 的完整生命周期超出原论文范围。"
+  - evidence_id: E-C13-013
+    claim: "OpenClaw 固定版把 Context、Memory surfaces、tier/provenance、builtin index、Compaction、Session 与 Workspace 分为不同面。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw-v2026.9.6
+    source_ids: [OC-REL, OC-TAG-COMMIT, OC-CONTEXT, OC-MEMORY, OC-MEM-ARCH, OC-MEM-BUILTIN, OC-COMPACTION, OC-SESSION, OC-WORKSPACE]
+    limitations: "只适用于固定提交，其他 memory plugin 可不同。"
+  - evidence_id: E-C13-014
+    claim: "OpenClaw 固定版的 memory forget 具有明确 coverage 和 exclusions，不能外推到所有 transcript、自由编辑、外部副本和其他 Agent。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw-v2026.9.6
+    source_ids: [OC-PROVENANCE]
+    limitations: "实际删除需按目标 plugin、scope 和部署实测。"
+  - evidence_id: E-C13-015
+    claim: "OpenClaw 固定版 Compaction 会改变后续模型可见历史，保留原始历史的事实与删除语义必须分开。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw-v2026.9.6
+    source_ids: [OC-COMPACTION]
+    limitations: "不证明任意摘要模型都保真。"
+  - evidence_id: E-C13-016
+    claim: "Session、Workspace 和 incognito 不等于身份授权、Sandbox 或零残留。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw-v2026.9.6
+    source_ids: [OC-SESSION, OC-WORKSPACE, C06]
+    limitations: "Provider、工具、日志和文件仍可能持有数据。"
+  - evidence_id: E-C13-017
+    claim: "Hermes 固定发布锚点为 v0.20.1 / tag v2026.8.13 / commit f80f453ae0679347e38abc917c7f94f717bf96c5。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: hermes-v0.20.1
+    source_ids: [HE-RELEASE, HE-TAG-COMMIT]
+    limitations: "发布身份不证明核验日动态官网描述的每项机制已存在于该提交。"
+  - evidence_id: E-C13-018
+    claim: "Hermes 动态文档描述 bounded curated memory、frozen memory snapshot、session search/FTS5、lossy compression 和相关工具表面；这些机制不回填固定提交，也不与 OpenClaw 的动态 recall、Dreaming 或 Compaction 强行同构。"
+    class: DYNAMIC-OFFICIAL
+    stability: dynamic
+    scope: hermes
+    source_ids: [HE-MEMORY, HE-SESSIONS, HE-COMPRESSION, HE-TOOLS]
+    limitations: "真实默认值和删除覆盖尚需固定源码或实机复核。"
+  - evidence_id: E-C13-019
+    claim: "Muse 的查看、编辑、下载和要求忘记记忆，以及 VM、备份和训练 opt-out 描述均为厂商声明。"
+    class: VENDOR-CLAIM
+    stability: dynamic
+    scope: muse-public-materials
+    source_ids: [MUSE-NEWS, MUSE-SAFETY]
+    limitations: "不支持内部 Schema、forget coverage、备份删除或独立安全效果结论。"
+  - evidence_id: E-C13-020
+    claim: "C05 MEMORY 契约定义治理承诺；C13 把承诺落实为分层、写入、检索、纠错、保留和删除实现。"
+    class: METHODOLOGY
+    stability: project-controlled
+    scope: chapter-interface
+    source_ids: [C05, C05-ART, C05-CONFLICT]
+    limitations: "C13 不重写七契约与冲突优先级。"
+  - evidence_id: E-C13-021
+    claim: "C09 上下文包是任务级最小充分输入，不能自动成为长期记忆；反馈必须先经过许可、去标识、污染和目的地门。"
+    class: METHODOLOGY
+    stability: project-controlled
+    scope: chapter-interface
+    source_ids: [C09, C09-CONTEXT]
+    limitations: "是否训练或固化分别交 C08/C18。"
+  - evidence_id: E-C13-022
+    claim: "D20 固定漂移为能力、人格、文档、工具、目标五类；Memory/Context 是跨类型状态与证据源，不设第六类记忆漂移。"
+    class: METHODOLOGY
+    stability: project-controlled
+    scope: drift-interface
+    source_ids: [D19-D20]
+    limitations: "C18 拥有漂移分类和改进治理主定义权。"
+  - evidence_id: E-C13-023
+    claim: "MAT-L0—MAT-L5 与 AU-L0—AU-L4 是独立命名空间；任何等级都不能推出真实权限，二者也不能互相推导。"
+    class: METHODOLOGY
+    stability: project-controlled
+    scope: maturity-autonomy
+    source_ids: [C03, D19-D20]
+    limitations: "C13 只执行分离，不授予任何等级。"
+  - evidence_id: E-C13-024
+    claim: "作者确定性合成实验运行 12 个 task、24 个 trial，得到 12 PASS、10 FAIL、2 REVIEW_REQUIRED；所有 memory/MAT/AU 生成 authority 的样本均被硬门判 FAIL。"
+    class: LOCAL-VALIDATION
+    stability: reproducible-fixture
+    scope: c10-author-synthetic
+    source_ids: [LOCAL-C13-RUN, LOCAL-C13-SCRIPT]
+    limitations: "不是产品基准、真实删除、跨平台效果、真实权限或认证证据。"
+
+open_issues:
+  - issue_id: O-C13-001
+    status: REVIEW_REQUIRED
+    item: "OpenClaw 本地目标 deployment 的 memory plugin、Dreaming、scope、embedding 和 deletion coverage 尚未实机探测。"
+    owner: "independent-practice-reviewer"
+  - issue_id: O-C13-002
+    status: REVIEW_REQUIRED
+    item: "Hermes 动态 Memory/Sessions/Compression 字段尚未固定到 f80f453 逐项复核。"
+    owner: "evidence-reviewer"
+  - issue_id: O-C13-003
+    status: REVIEW_REQUIRED
+    item: "Muse forget 对 VM、index、backup、training pipeline 和 telemetry 的覆盖未知。"
+    owner: "evidence-reviewer"
+  - issue_id: O-C13-004
+    status: REVIEW_REQUIRED
+    item: "真实 provider 数据保留、embedding 日志和删除责任尚未逐供应商核验。"
+    owner: "C14-C22-C24"
+
+change_log:
+  - version: "0.1.0"
+    date: "2026-09-30"
+    change: "建立 C13 证据账本、平台时间层与作者合成实验声明。"
+    status: drafting
+  - version: "0.1.1"
+    date: "2026-09-30"
+    change: "将 Hermes 固定 release 与动态官网拆为 E-C13-017/018，并补入 OpenClaw/Hermes tag—commit 一手锚点。"
+    status: drafting

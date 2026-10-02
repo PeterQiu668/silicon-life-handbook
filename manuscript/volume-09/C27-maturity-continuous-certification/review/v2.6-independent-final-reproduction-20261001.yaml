@@ -1,0 +1,74 @@
+schema: c24.v2.6-independent-final-reproduction.v1
+performed_on: "2026-10-01"
+role: non_author_final_reviewer
+scope: offline_synthetic_only
+author_files_modified: false
+fresh_temp:
+  count: 2
+  roots:
+    - /tmp/c24-v26-oracle-a.qvVXdR
+    - /tmp/c24-v26-oracle-b.KgUaxI
+  byte_identical: true
+  files:
+    input.json: 0f424230700b073af0f1708492341d032fcd6ca71a0056b990b24df75a34d0a3
+    root.json: aed3ae2a19424a9b771225352df5a01a52d179ceb847a95ee375c499e381b3fb
+    result.json: 591612e8282c2456016b29c455c80fc9f4d5537075b0e708525a4f88881e69ac
+    independent.json: cd0e52b7c7ff5dccb792c2e05ac1a1eb54b3d56544a8ebda69d89bababeb8dda
+    synthetic-certification-summary.md: 344cbe859169ffd1e99dc4053b18596dea0c18f15df4390b1f031377e3b5464e
+fixed_fixture:
+  trial_count: 58
+  distribution: {PASS: 4, FAIL: 52, REVIEW_REQUIRED: 2}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 2, SUSPENDED: 2, REVOKED: 52, EXPIRED: 1}
+  authority_root_digest: "sha256:ca5f2f54cd8184e7e39835ae7a6956b1d6cd16795c84de1336a45a9c6df011fd"
+  decision_digest: "sha256:bf98dd48607a377499f2763fb2030d294adde07caf59b48eeb38e3b0c21ea56d"
+independent_unannounced_suite:
+  test_file_sha256: 1f75c8cc9104e9f889236f52fd3beb95c0e2e2fc63dc807aa58d69e3d8c78592
+  result_file_sha256: cd0e52b7c7ff5dccb792c2e05ac1a1eb54b3d56544a8ebda69d89bababeb8dda
+  attack_count: 46
+  secure_attack_count: 46
+  escape_count: 0
+  positive_control_count: 5
+  positive_control_pass_count: 5
+  suite_digest: "sha256:9ba5cf86000bf45e9fabf807586959628e7896ede7a86ac3a97861292d628404"
+  positive_scope:
+    - fixed ACTIVE
+    - fixed LIMITED
+    - fixed EXPIRED lifecycle
+    - fixed short certificate window
+    - full result-authority-source replay
+  missing_required_positive_scope:
+    - legal renewal rebuilt under v2.6 event DAG
+    - legal three-layer material-change recertification rebuilt under v2.6 event DAG
+historical_replay:
+  base_author_25: {secure: 25, total: 25, return_code: 0}
+  v2_1_independent_28:
+    exact_reason_matches: 26
+    total: 28
+    pass_escapes: 0
+    limitation: "offline_external_effect_applied and future_lifecycle_event remain FAIL but reason names changed under v2.6"
+  v2_2_independent:
+    status: SAFE_SCHEMA_MIGRATION_INCOMPATIBLE
+    limitation: "saved decision digest no longer recomputes under v2.6 result schema"
+  v2_3_independent_21:
+    status: SAFE_INTERFACE_MIGRATION_INCOMPATIBLE
+    limitation: "legacy verifier omits mandatory source and is rejected"
+  v2_4_independent_29: {secure: 29, total: 29, old_positive_pass: 1, old_positive_total: 3}
+  v2_5_author_37: {secure: 37, total: 37, old_positive_pass: 1, old_positive_total: 3}
+  v2_5_independent_36: {secure: 36, total: 36, old_positive_pass: 0, old_positive_total: 3}
+  v2_6_author_43: {secure: 43, total: 43, positive_pass: 4, positive_total: 4}
+validation:
+  claim_closure: "52/52 referenced bidirectionally"
+  strict_formal: PASS
+  yaml: PASS
+  py_compile: PASS
+  local_links: PASS
+  diff_check: PASS
+  validate_book: "FAIL only because complete manuscript is stale; build intentionally not run"
+limits:
+  representative_real_world_executed: false
+  real_openclaw_executed: false
+  real_hermes_executed: false
+  external_certification_authority_executed: false
+  real_certificate_issued: false
+  practice_gate: REVIEW_REQUIRED
+  chief_editor_rc: NOT_AUTHORIZED

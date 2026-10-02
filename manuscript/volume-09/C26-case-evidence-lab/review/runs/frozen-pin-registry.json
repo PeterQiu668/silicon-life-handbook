@@ -1,0 +1,21 @@
+{
+  "issuer_principal_id": "PRINCIPAL.C23.PIN.AUTHORITY",
+  "pins": [
+    {
+      "authority_root_digest": "18b6e3b04b574fd170eb2d746b1cf0d6271877098bec9116cea5fed2e43734d0",
+      "issued_at": "2026-10-01T00:00:00Z",
+      "pin_id": "PIN.C23.CURRENT",
+      "scope": "OFFLINE_SYNTHETIC",
+      "status": "ACTIVE"
+    },
+    {
+      "authority_root_digest": "9873d30d4fabb12ef366983779db9089ddde1db70de43e8aa2f29d49174d9131",
+      "issued_at": "2026-10-01T00:01:00Z",
+      "pin_id": "PIN.C23.V29.REPIN",
+      "scope": "OFFLINE_SYNTHETIC",
+      "status": "ACTIVE"
+    }
+  ],
+  "registry_id": "REGISTRY.C23.PIN.AUTHORITY.V29",
+  "schema_version": "c23.pin-authority-registry.v1"
+}

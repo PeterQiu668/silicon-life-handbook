@@ -1,0 +1,270 @@
+schema_version: "c10-independent-stateful-lifecycle-reproduction.v1"
+record_id: "RUN-C10-X02-STATEFUL-INDEPENDENT-20260930"
+chapter_id: "C10"
+exercise_id: "X-C10-02"
+review_role: "non-author-practice-reviewer"
+executed_on: "2026-09-30"
+status: "completed_with_scope_limit"
+scope: "deterministic in-memory synthetic lifecycle control reproduction"
+source_files_immutable: true
+author_outputs_overwritten: false
+author_results_modified: false
+real_platform_practice_claimed: false
+
+execution:
+  method: >-
+    Copied stateful-lifecycle-input.yaml and run-stateful-lifecycle.py without
+    modification into two separately created fresh temporary directories. Ran
+    each copy once with an explicit, distinct --output-dir; compared source,
+    output bytes, parsed scenarios and author-saved outputs.
+  commands:
+    - "cp review/runs/stateful-lifecycle-input.yaml review/runs/run-stateful-lifecycle.py <fresh-temp-a>/"
+    - "cp review/runs/stateful-lifecycle-input.yaml review/runs/run-stateful-lifecycle.py <fresh-temp-b>/"
+    - "python3 <fresh-temp-a>/run-stateful-lifecycle.py --input <fresh-temp-a>/stateful-lifecycle-input.yaml --output-dir <fresh-temp-a>/out"
+    - "python3 <fresh-temp-b>/run-stateful-lifecycle.py --input <fresh-temp-b>/stateful-lifecycle-input.yaml --output-dir <fresh-temp-b>/out"
+    - "sha256sum <sources> <copies> <outputs>"
+    - "cmp -s <run-a-output> <run-b-output>"
+  fresh_temp_directories:
+    run_a: "/tmp/c10-stateful-a.Ix4H1p"
+    run_b: "/tmp/c10-stateful-b.5zk6y2"
+  python_version: "3.9.6"
+  input_copy_hash_equal:
+    run_a: true
+    run_b: true
+  runner_copy_hash_equal:
+    run_a: true
+    run_b: true
+  result_byte_equal: true
+  summary_byte_equal: true
+  result_matches_author_saved_output: true
+  summary_matches_author_saved_output: true
+  host_network_sandbox_enforced: false
+  network_or_external_service_used: false
+  credentials_used: false
+  real_subject_data_used: false
+  real_runtime_provider_or_store_used: false
+  writes: "only the explicitly selected temporary output directories"
+
+source_integrity:
+  input:
+    path: "review/runs/stateful-lifecycle-input.yaml"
+    sha256_bytes: "51b6cf8249192bf2ad8c73a80f8b8da50a1129625a5d5c7ada7b587450eb0186"
+    syntax: "JSON text; valid YAML subset"
+  runner:
+    path: "review/runs/run-stateful-lifecycle.py"
+    sha256_bytes: "8e5bc1115948a47953ab30a005d52efb32f0e78fcaf8d8bf1f542eec44ea68a4"
+  outputs:
+    stateful_lifecycle_results_sha256_bytes: "4ee8dbdff679d48e78ab57225d8c2009235c2ecdbd97f0fedfa052680b08e883"
+    stateful_lifecycle_summary_sha256_bytes: "afe96f311eb6b7bfd42814f1320e56b12dd4779905b40781fa9b57b4c697428c"
+  canonical_input_sha256: "de0efb94c53044f4049bdfb98e41319f92330101c3600bbfad75c890ea81169a"
+
+schema_and_coverage:
+  schema_version_validated: true
+  synthetic_only_required: true
+  memory_ids_present_and_unique: true
+  registered_surface_count: 8
+  registered_surfaces_exact_match: true
+  unknown_initial_surface_references: 0
+  declared_and_residual_surfaces_disjoint: true
+  backup_required_in_residuals: true
+  scenario_count: 9
+  scenario_ids_unique: true
+  scenario_ids_exact:
+    - "S01"
+    - "S02"
+    - "S03"
+    - "S04"
+    - "S05"
+    - "S06"
+    - "S07"
+    - "S08"
+    - "S09"
+  allowed_final_decisions:
+    - "PASS"
+    - "FAIL"
+    - "REVIEW_REQUIRED"
+  observed_final_decisions_subset_valid: true
+
+aggregate_results:
+  decision_distribution:
+    PASS: 5
+    FAIL: 4
+  success_controls_passed: true
+  unsafe_failure_injections_caught: true
+  synthetic_state_machine_control_gate: "PASS"
+  full_real_platform_practice_gate: "REVIEW_REQUIRED"
+  real_external_residuals_verified: false
+
+scenario_results:
+  - scenario_id: "S01"
+    name: "compaction_gold_slot_fidelity"
+    decision: "PASS"
+    verified:
+      critical_slot_count: 7
+      slot_diff_empty: true
+      high_risk_action_allowed: true
+  - scenario_id: "S02"
+    name: "compaction_failure_injection"
+    decision: "FAIL"
+    hard_failure: "compaction_constraint_loss"
+    verified:
+      changed_critical_slots_detected: true
+      failed_summary_quarantined: true
+      high_risk_action_allowed: false
+  - scenario_id: "S03"
+    name: "four_forgetting_semantics"
+    decision: "PASS"
+    verified:
+      suppress_retained_not_injected: true
+      expire_retained_not_current: true
+      superseded_old_not_current: true
+      superseding_new_current: true
+    boundary: >-
+      Suppress, expire and supersede are checked here. Physical delete is executed
+      separately in S04, completing the four forgetting operations across S03-S04.
+  - scenario_id: "S04"
+    name: "physical_delete_declared_scope"
+    decision: "PASS"
+    verified:
+      declared_scope_zero: true
+      declared_surfaces:
+        - "curated"
+        - "episodic"
+        - "index"
+        - "cache"
+        - "session"
+        - "summary"
+      claimed_total_deletion: false
+      residual_report:
+        artifact: true
+        export: true
+        backup: true
+      residual_owner: "synthetic-data-owner"
+      residual_deadline: "2026-10-07"
+  - scenario_id: "S05"
+    name: "backup_restore_with_tombstone_replay"
+    decision: "PASS"
+    verified:
+      tombstone_replayed: true
+      declared_scope_zero_after_restore: true
+      superseding_value_survives: true
+      superseded_value_not_current: true
+      replay_receipts_present: true
+  - scenario_id: "S06"
+    name: "backup_restore_without_tombstone_failure_injection"
+    decision: "FAIL"
+    hard_failure: "restore_resurrection"
+    verified:
+      tombstone_replayed: false
+      deleted_target_resurrected: true
+  - scenario_id: "S07"
+    name: "concurrent_write_fence_and_second_scan"
+    decision: "PASS"
+    verified:
+      late_write_id: "MEM-DELETE-DERIVED"
+      lineage_root: "MEM-DELETE"
+      second_scan_executed: true
+      lineage_zero_after_second_scan: true
+      second_scan_receipts_present: true
+    boundary: >-
+      This is a deterministic sequential late-write injection between deletion and
+      the second scan. It validates fence/scan logic but is not a real threaded race.
+  - scenario_id: "S08"
+    name: "concurrent_write_without_second_scan_failure_injection"
+    decision: "FAIL"
+    hard_failure: "concurrent_delete_escape"
+    verified:
+      second_scan_executed: false
+      late_write_escaped: true
+      escaped_surfaces:
+        - "index"
+        - "cache"
+  - scenario_id: "S09"
+    name: "index_only_delete_failure_injection"
+    decision: "FAIL"
+    hard_failure: "deletion_overclaim"
+    verified:
+      index_zero: true
+      target_remains_on_other_declared_surfaces: true
+      claimed_total_deletion_allowed: false
+
+failure_injection_accounting:
+  compaction_failure_injection:
+    scenario: "S02"
+    caught: true
+  three_lifecycle_failure_injections:
+    - scenario: "S06"
+      type: "restore_without_tombstone"
+      caught: true
+    - scenario: "S08"
+      type: "late_write_without_second_scan"
+      caught: true
+    - scenario: "S09"
+      type: "index_only_delete_overclaim"
+      caught: true
+  note: >-
+    The requested three lifecycle failure injections are S06/S08/S09. The fourth
+    FAIL in the 5 PASS / 4 FAIL distribution is the separate S02 compaction
+    constraint-loss injection.
+
+control_gate_boundary:
+  proves:
+    - "The frozen in-memory state machine reproduces five safe controls and catches four seeded unsafe states."
+    - "Critical compaction slots can be compared field-by-field and a bad summary is quarantined."
+    - "Suppress, expire, supersede and physical-delete semantics remain distinct in the fixture."
+    - "Declared deletion scope reaches zero while artifact/export/backup residuals remain truthfully reported."
+    - "Tombstone replay prevents declared-scope resurrection after in-memory restore."
+    - "A late lineage write is removed by the deterministic second scan."
+  does_not_prove:
+    - "Physical erasure or residual discovery on any real store, filesystem, vector index, backup or provider."
+    - "Real OpenClaw, Hermes, Muse, database, cache, session, artifact or export behavior."
+    - "Real concurrent scheduling, locking, writer fencing or race-freedom."
+    - "Durable backup integrity, corruption handling, restore safety, legal deletion or compliance."
+    - "External owner acknowledgement or deadline completion for residuals."
+
+findings:
+  - finding_id: "PR-C10-STATEFUL-P2-001"
+    severity: "P2"
+    finding: >-
+      The concurrency control is a deterministic sequential injection: the runner
+      deletes, adds a late derived record, and then performs a second scan. It does
+      not create competing threads/processes or test a real storage fence.
+    impact: "Safe for control-logic validation; real race and locking behavior remain REVIEW_REQUIRED."
+    author_files_changed: false
+  - finding_id: "PR-C10-STATEFUL-P2-002"
+    severity: "P2"
+    finding: >-
+      Backup, restore, tombstone, receipts, artifact/export surfaces and residual
+      owner/deadline are in-memory fixture objects rather than durable or external systems.
+    impact: "The PASS cannot be called physical deletion, durable restore or external residual attestation."
+    author_files_changed: false
+  - finding_id: "PR-C10-STATEFUL-P2-003"
+    severity: "P2"
+    finding: >-
+      Input validation checks unique memory IDs, the eight initial surfaces and
+      declared/residual disjointness, but does not explicitly validate that the
+      physical-delete target exists, every declared surface is registered, or every
+      residual name belongs to the supported surface-plus-backup set.
+    impact: "The frozen input is valid; a future general runner should fail fast with explicit schema errors."
+    author_files_changed: false
+
+practice_verdicts:
+  X-C10-01: "PASS_IN_SYNTHETIC_ROUTING_SCOPE"
+  X-C10-02_stateful_machine_control: "PASS"
+  X-C10-02_full_real_platform_exercise: "REVIEW_REQUIRED"
+  P0-05_synthetic_stateful_execution: "PASS"
+  P0-06_synthetic_control_logic: "PASS"
+  P0-07_synthetic_state_and_evidence: "PASS_WITH_SCOPE_LIMIT"
+  real_store_runtime_provider_scope: "REVIEW_REQUIRED"
+  overall_chapter_practice_gate: "REVIEW_REQUIRED"
+  chapter_status_after_review: "drafting"
+  release_candidate_authorized: false
+  self_approval: false
+
+remaining_requirements_for_full_x02:
+  - "A disposable but real store/index/cache/session/summary/artifact/export implementation."
+  - "Durable backup creation, corruption-aware restore and tombstone replay."
+  - "Actual concurrent writer fencing or transactional lineage protection."
+  - "External provider and residual-owner receipts where applicable."
+  - "Independent environment readback and cross-surface residual scan."
+  - "Authorized OpenClaw/Hermes sandbox validation with platform-specific storage boundaries."

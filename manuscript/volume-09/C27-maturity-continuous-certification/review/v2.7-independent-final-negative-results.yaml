@@ -1,0 +1,499 @@
+{
+  "attack_count": 45,
+  "attacks": [
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-identity",
+      "message": "ValueError: renewal reuses certificate id",
+      "secure": true,
+      "test_id": "F01"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-window",
+      "message": "ValueError: renewal causal window",
+      "secure": true,
+      "test_id": "F02"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-window",
+      "message": "ValueError: renewal causal window",
+      "secure": true,
+      "test_id": "F03"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-window",
+      "message": "ValueError: original authority validity window",
+      "secure": true,
+      "test_id": "F04"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-review",
+      "message": "ValueError: original review independence",
+      "secure": true,
+      "test_id": "F05"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-support",
+      "message": "ValueError: original supporting record failed",
+      "secure": true,
+      "test_id": "F06"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-support",
+      "message": "ValueError: original supporting record failed",
+      "secure": true,
+      "test_id": "F07"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-request",
+      "message": "ValueError: renewal request binding",
+      "secure": true,
+      "test_id": "F08"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-dag",
+      "message": "ValueError: renewal lifecycle order",
+      "secure": true,
+      "test_id": "F09"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-na",
+      "message": "ValueError: real-world disposition is not explicit N/A",
+      "secure": true,
+      "test_id": "F10"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-na",
+      "message": "ValueError: current issuance authority is invalid",
+      "secure": true,
+      "test_id": "F11"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "renewal-plan-root",
+      "message": "ValueError: positive plan digest is not rooted in state",
+      "secure": true,
+      "test_id": "F12"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "recert-layer",
+      "message": "ValueError: recert three-layer contract",
+      "secure": true,
+      "test_id": "F13"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "recert-layer",
+      "message": "ValueError: recert three-layer contract",
+      "secure": true,
+      "test_id": "F14"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "recert-layer",
+      "message": "ValueError: recert three-layer contract",
+      "secure": true,
+      "test_id": "F15"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "recert-security",
+      "message": "ValueError: recert security slice contract",
+      "secure": true,
+      "test_id": "F16"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "recert-release",
+      "message": "ValueError: recert release/change binding",
+      "secure": true,
+      "test_id": "F17"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "recert-output",
+      "message": "ValueError: recert exact entry projection",
+      "secure": true,
+      "test_id": "F18"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "recert-na",
+      "message": "ValueError: real-world disposition is not explicit N/A",
+      "secure": true,
+      "test_id": "F19"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "contract",
+      "escape": false,
+      "family": "recert-na",
+      "message": "ValueError: real-world N/A policy is not bound",
+      "secure": true,
+      "test_id": "F20"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-change",
+      "message": "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME;NON_MATERIAL_CHANGE_CONTRADICTION",
+      "secure": true,
+      "test_id": "F21"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-security",
+      "message": "ValueError: retest_manifest digest",
+      "secure": true,
+      "test_id": "F22"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-output",
+      "message": "ValueError: retest_manifest digest",
+      "secure": true,
+      "test_id": "F23"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-output",
+      "message": "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID;TRIAL_OUTPUT_EVIDENCE_FAILED",
+      "secure": true,
+      "test_id": "F24"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-time",
+      "message": "CAUSAL_EVENT_DAG_INVALID;MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID",
+      "secure": true,
+      "test_id": "F25"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-time",
+      "message": "CAUSAL_EVENT_DAG_INVALID;MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID;TRIAL_OUTPUT_PRECEDES_TRIAL_COMPLETION",
+      "secure": true,
+      "test_id": "F26"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-review",
+      "message": "CAUSAL_EVENT_DAG_INVALID;MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME;MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID;REVIEW_PRECEDES_BASE_EVIDENCE;REVIEW_PRECEDES_DEPENDENCY",
+      "secure": true,
+      "test_id": "F27"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-time",
+      "message": "CAUSAL_EVENT_DAG_INVALID;REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME",
+      "secure": true,
+      "test_id": "F28"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "recert-review",
+      "message": "CANONICAL_ROLE_CONFLICT;MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID;REVIEW_PRINCIPAL_OR_DISCLOSURE_INVALID",
+      "secure": true,
+      "test_id": "F29"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "event-dag",
+      "message": "CAUSAL_EVENT_DAG_INVALID",
+      "secure": true,
+      "test_id": "F30"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "event-dag",
+      "message": "CAUSAL_EVENT_DAG_INVALID",
+      "secure": true,
+      "test_id": "F31"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "event-dag",
+      "message": "CAUSAL_EVENT_DAG_INVALID",
+      "secure": true,
+      "test_id": "F32"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "channel": "semantic",
+      "escape": false,
+      "family": "event-dag",
+      "message": "ValueError: event sequence duplicate",
+      "secure": true,
+      "test_id": "F33"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "event-dag",
+      "message": "CAUSAL_EVENT_DAG_INVALID",
+      "secure": true,
+      "test_id": "F34"
+    },
+    {
+      "actual": "FAIL",
+      "channel": "semantic",
+      "escape": false,
+      "family": "event-binding",
+      "message": "CAUSAL_EVENT_DAG_INVALID",
+      "secure": true,
+      "test_id": "F35"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "verifier",
+      "escape": false,
+      "family": "result-replay",
+      "message": "ValueError: trusted result verification requires authority and source",
+      "secure": true,
+      "test_id": "F36"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "verifier",
+      "escape": false,
+      "family": "result-replay",
+      "message": "ValueError: authority closed-world schema violation",
+      "secure": true,
+      "test_id": "F37"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "verifier",
+      "escape": false,
+      "family": "result-replay",
+      "message": "ValueError: authority reference or trusted clock mismatch",
+      "secure": true,
+      "test_id": "F38"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "verifier",
+      "escape": false,
+      "family": "result-replay",
+      "message": "ValueError: result independent semantic authority mismatch",
+      "secure": true,
+      "test_id": "F39"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "verifier",
+      "escape": false,
+      "family": "result-replay",
+      "message": "ValueError: result semantic replay mismatch",
+      "secure": true,
+      "test_id": "F40"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "verifier",
+      "escape": false,
+      "family": "authority-pin",
+      "message": "ValueError: authority root is not pinned",
+      "secure": true,
+      "test_id": "F41"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "parser",
+      "escape": false,
+      "family": "strict-json",
+      "message": "ValueError: json duplicate key: schema",
+      "secure": true,
+      "test_id": "F42"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "parser",
+      "escape": false,
+      "family": "strict-json",
+      "message": "ValueError: json duplicate key: mode",
+      "secure": true,
+      "test_id": "F43"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "reflection",
+      "escape": false,
+      "family": "verifier-entry",
+      "message": "ValueError: no low-arity verification entry",
+      "secure": true,
+      "test_id": "F44"
+    },
+    {
+      "actual": "REJECT",
+      "channel": "full-replay",
+      "escape": false,
+      "family": "contract-source-root",
+      "message": "ValueError: result input replay digest mismatch",
+      "secure": true,
+      "test_id": "F45"
+    }
+  ],
+  "authority_root_digest": "sha256:1c768968e30d39195369e517394c3c218829b175d64d219a6e5ff159062fb6ad",
+  "authority_sha256": "sha256:678d5e8a752d5bff21baaf7eb9e8684ae3337af865b21cf39c4ff9bc0e51602a",
+  "contracts_sha256": "sha256:b4242500a8b3a767a5225255a15b5d49354e4ea9d614df0f1e87ddf1bfa0927b",
+  "decision_digest": "sha256:4645332ab3e0e1aa16ac5a435a3105a422c17eeefea3e0f8ef1a84a53e27e5f4",
+  "escape_count": 0,
+  "escape_ids": [],
+  "fixed_distribution": {
+    "FAIL": 52,
+    "PASS": 6,
+    "REVIEW_REQUIRED": 2
+  },
+  "fixed_lifecycle_distribution": {
+    "ACTIVE": 3,
+    "EXPIRED": 1,
+    "LIMITED": 2,
+    "REVOKED": 52,
+    "SUSPENDED": 2
+  },
+  "fixed_trial_count": 60,
+  "input_sha256": "sha256:8e544cf48e83fa0326aac9abc0be35b11768602666bf5227249b0d5bf442a5f5",
+  "limits": {
+    "chief_editor_rc": "NOT_AUTHORIZED",
+    "external_certification_authority_executed": false,
+    "external_effect_executed": false,
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_certificate_issued": false,
+    "real_hermes_executed": false,
+    "real_openclaw_executed": false,
+    "representative_real_world_executed": false
+  },
+  "positive_control_count": 8,
+  "positive_control_pass_count": 8,
+  "positive_controls": [
+    {
+      "kind": "fixed-limited",
+      "message": "",
+      "passed": true,
+      "test_id": "P01"
+    },
+    {
+      "kind": "fixed-active",
+      "message": "",
+      "passed": true,
+      "test_id": "P02"
+    },
+    {
+      "kind": "fixed-expired",
+      "message": "",
+      "passed": true,
+      "test_id": "P03"
+    },
+    {
+      "kind": "short-window-limited",
+      "message": "",
+      "passed": true,
+      "test_id": "P04"
+    },
+    {
+      "kind": "renewal-contract-and-fixed-result",
+      "message": "",
+      "passed": true,
+      "test_id": "P05"
+    },
+    {
+      "kind": "material-recert-contract-and-fixed-result",
+      "message": "",
+      "passed": true,
+      "test_id": "P06"
+    },
+    {
+      "kind": "full-source-root-result-replay",
+      "message": "",
+      "passed": true,
+      "test_id": "P07"
+    },
+    {
+      "kind": "offline-zero-validated-success",
+      "message": "",
+      "passed": true,
+      "test_id": "P08"
+    }
+  ],
+  "result_sha256": "sha256:4ea254901d0ae800e257518ea89cd9e4fee40848e118bd956f87c70b5a9fa271",
+  "role": "non_author_final_reviewer",
+  "runner_sha256": "sha256:7a1dc3082f66030071e23c1e0dc00327c9f611e42bcb55d7fc1f367ec1c2836a",
+  "schema": "c24.v2.7-independent-final.v1",
+  "scope": "offline_synthetic_only",
+  "secure_attack_count": 45,
+  "suite_digest": "sha256:8704ad655f3f89645626732050d0be2b21b6e8e990d5e717290615223d627441"
+}

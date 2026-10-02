@@ -1,0 +1,40 @@
+schema_version: c23.v2.7.remediation-validation.v1
+verified_on: "2026-10-01"
+scope: synthetic_offline_author_remediation_only
+fresh_temp_rebuilds: 2
+byte_identical_between_rebuilds: true
+byte_identical_to_committed_run_files: true
+distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+authority_root_logical_digest: 18b6e3b04b574fd170eb2d746b1cf0d6271877098bec9116cea5fed2e43734d0
+decision_digest: 7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c
+v2_7_suite_digest: f254327f70e75742c9b991b89589a06c464ae3f714e801488437c4d9a637b84d
+v2_7_attacks: {secure: 24, total: 24, escapes: 0}
+v2_7_positive_controls: {passed: 3, total: 3}
+files:
+  synthetic-case-input.yaml: dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55
+  frozen-evidence-root.yaml: fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2
+  synthetic-case-results.yaml: f80c718b45d18aef880422167afbe221d8145c8a3ff08a2a8bdb7b2531434ebe
+  v2.7-remediation-regression-results.yaml: 9cfdd09f7769089b73df6a4970795be41bb23eba3043362ba903709f0495db76
+  run-case-harness.py: 8d72a27cde1051eb620b96c8854ae539b0e9a6ef1a976e0aa17c860885ec3cf9
+  build-case-fixture.py: 6cd3990665a8549413153a400a821156b82aa5e4fe29d6658eca91be70756211
+  verify-case-result.py: 16de88cc66bb5fc69aed6bcd7c1fdcdfa2dd59a3cc254bdfefd2f6d9b1f38496
+  run-v27-remediation-regression.py: 8c7da905edad234c336817ce552ab635f84e2ce5e123bcb675957d9c0a2dbbeb
+replayed_suites:
+  author_79: {passed: 79, total: 79, digest: 752fa50bd404d7d98d9b06fc0b993f6d1ce68e3d7fa7afcd64a2d16b3bd6cc3d}
+  remediation_30: {passed: 30, total: 30, digest: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e}
+  v2_4_author_23: {passed: 23, total: 23, digest: c7aabfd1dcccf1b4bb4d9d2600cbd7438b83fa2b1bccef05159de910062eb80f}
+  v2_5_author_25: {secure: 25, total: 25, escapes: 0, positive_controls: 2, positive_controls_passed: 2, digest: a585cc114ea403eaf85b7bae49979c0cce1adacdef26f8039abba70315f9492c}
+  v2_6_author_24: {secure: 24, total: 24, escapes: 0, positive_controls: 2, positive_controls_passed: 2, digest: b853cb9b4ecd4a01346a7e3b0549660455c7abffe747b6412bddcd6f145deb18}
+  legacy_18:
+    old_oracle_passed: 17
+    total: 18
+    safe_interpretation: "I18 is rejected by the stricter authority-root contract; the legacy oracle only accepts FAIL."
+  historical_19: {secure: 19, total: 19, escapes: 0, digest: 1a29b90739bbfd38c8b54e3961dce207824c520dbd16e4f646e0ba905c38d016}
+  independent_15: {secure: 15, total: 15, escapes: 0, digest: 110e85f226b5966639366cd9447b0bb6434a04e61fe9f943562e97b7d32e6e85}
+  independent_36: {secure: 36, total: 36, escapes: 0, positive_controls: 2, positive_controls_passed: 2, digest: f78ea29e95093001cfa9f913cd6f259a16e78d36681f62af4ec32bf412cfcbc4}
+  independent_24: {secure: 24, total: 24, escapes: 0, positive_controls: 2, positive_controls_passed: 2, digest: ce49d105abd6632dcbd9ea39c6a6c71129055fa4fa5be65a5dbe991591634de8}
+limitations:
+  - No VERIFIED-REAL or ANONYMIZED-REAL case was accepted or tested.
+  - No real OpenClaw or Hermes runtime was executed.
+  - No external effect, real credential, production dataset, or real publication was used.
+  - Author remediation does not approve fact, cross, practice, chief-editor, or release-candidate gates.

@@ -1,0 +1,876 @@
+{
+  "attack_count": 91,
+  "attacks": [
+    {
+      "actual": "FAIL",
+      "attack_id": "authority_root_literal_tamper",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "source_authority_reference_tamper",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "source authority reference does not match frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "authority_bundle_id_tamper",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "authority_issuer_tamper",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "unknown_delegation_parent",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "DELEGATION_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "unknown_delegation_id",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "DELEGATION_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "delegation_parent_is_agent",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "DELEGATION_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "delegation_parent_revoked",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "delegation_child_swap",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "DELEGATION_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "unknown_approver_principal",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "approver_is_service",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "approver_is_executor_self",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "empty_approval_and_grant_ids",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "scenarios[0].state.approval.approval_id must be non-empty"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "empty_approval_id",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "scenarios[0].state.approval.approval_id must be non-empty"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "empty_grant_id",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "scenarios[0].state.grant.grant_id must be non-empty"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "grant_unknown_approval",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "GRANT_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "grant_actor_swap",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "GRANT_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "approval_registry_key_id_mismatch",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "grant_registry_key_id_mismatch",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "unregistered_secret_reference",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential_wrong_tenant",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential_wrong_principal",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential_wrong_grant",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential_wrong_action",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential_wrong_object",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential_wrong_broker",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential_visible_to_model",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "credential_registry_key_ref_mismatch",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "workspace_path_traversal",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SANDBOX_MOUNT_ESCAPE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "workspace_parent_escape",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SANDBOX_MOUNT_ESCAPE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "workspace_nested_parent_escape",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SANDBOX_MOUNT_ESCAPE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "workspace_noncanonical_double_slash",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SANDBOX_MOUNT_ESCAPE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "workspace_host_mount",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SANDBOX_MOUNT_ESCAPE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "state_self_authorizes_egress",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EGRESS_DESTINATION_DENY",
+        "EGRESS_POLICY_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "egress_policy_ref_swap",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EGRESS_POLICY_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "egress_redirect_outside_allowlist",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EGRESS_DESTINATION_DENY"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "egress_private_ip",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EGRESS_DESTINATION_DENY",
+        "EGRESS_IP_CLASS_DENY"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "egress_secret_dlp",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EGRESS_DESTINATION_DENY",
+        "EGRESS_DLP_DENY"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "unbound_input_digest",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INPUT_PROVENANCE_OR_DIGEST_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "unknown_input_manifest",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INPUT_PROVENANCE_OR_DIGEST_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "input_trust_mismatch",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INPUT_PROVENANCE_OR_DIGEST_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "input_claims_control",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "UNTRUSTED_CONTENT_CLAIMS_CONTROL"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "tool_implementation_drift",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TOOL_SUPPLY_CHAIN_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "tool_manifest_drift",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TOOL_SUPPLY_CHAIN_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "skill_manifest_drift",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SKILL_SUPPLY_CHAIN_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "plugin_manifest_drift",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "PLUGIN_SUPPLY_CHAIN_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "self_attested_tool_registry_drift",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "self_attested_skill_registry_drift",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit_unknown_outcome_enum",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "audit.payload.outcome unknown enum"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit_duplicate_event_id",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit_nonmonotonic_sequence",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit_wrong_subject",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit_wrong_object",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit_chain_digest_tamper",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "self_attested_audit_anchor_and_invalid_outcome",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "external_effect_flag_with_none_status",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EXTERNAL_EFFECT_CONTRACT_VIOLATION",
+        "NONE_EFFECT_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "none_effect_with_receipt_ref",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "NONE_EFFECT_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect_unknown_without_receipt",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EFFECT_EXECUTION_TIME_MISSING",
+        "EFFECT_RECEIPT_MISSING",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT",
+        "EFFECT_TERMINAL_UNKNOWN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect_applied_without_receipt",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "APPLIED_EXTERNAL_EFFECT_WITHOUT_INCIDENT",
+        "EFFECT_EXECUTION_TIME_MISSING",
+        "EFFECT_RECEIPT_MISSING",
+        "EXTERNAL_EFFECT_CONTRACT_VIOLATION",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "unreferenced_applied_receipt",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "ORPHAN_RECEIPT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "contained_incident_with_unregistered_evidence",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INCIDENT_EVIDENCE_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "incident_none_with_evidence",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INCIDENT_NONE_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "incident_none_with_stop",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INCIDENT_NONE_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "contained_incident_partial_controls",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INCIDENT_EVIDENCE_AUTHORITY_INVALID",
+        "INCIDENT_RESPONSE_INCOMPLETE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "inconsistent_proposed_recovery",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "RECOVERY_PROPOSED_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "regression_pass_missing_evidence",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "RECOVERY_CLOSURE_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "recovery_real_world_claim",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "RECOVERY_CLOSURE_AUTHORITY_INVALID",
+        "SYNTHETIC_RECOVERY_AS_REAL"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "recovery_registry_target_tamper",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "security_cross_cutting_disabled",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SECURITY_CROSS_CUTTING_DISABLED"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "synthetic_declared_real_world",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "offline runner rejects representative real-world scenarios"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "duplicate_task_id",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "duplicate scenario id"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "unknown_schema_field",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "scenarios[0].state closed-world fields differ"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "hard_failure_plus_unknown",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_AUTHORITY_INVALID",
+        "EXECUTOR_PRINCIPAL_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "IDENTITY_AUTHORITY_MISMATCH",
+        "TENANT_SESSION_BINDING_INVALID",
+        "SANDBOX_POSTURE_UNKNOWN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_receipt_target_not_bound_to_effect_object",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "receipt closed-world fields differ"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_applied_effect_absent_from_audit_chain",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "receipt closed-world fields differ"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_open_incident_with_all_controls_false",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INCIDENT_EVIDENCE_AUTHORITY_INVALID",
+        "OPEN_INCIDENT_MINIMUM_CONTROL_MISSING"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_critical_residual_with_recovery_not_needed",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "RECOVERY_NOT_NEEDED_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_session_expiry_self_extended",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TENANT_SESSION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_layer_self_relabel_without_test_evidence",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_unregistered_task_trial",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID",
+        "TEST_EXECUTION_EVIDENCE_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_self_claimed_security_red_team",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_self_claimed_synthetic_shadow",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_effect_scope_mismatch",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EFFECT_NOT_BOUND_TO_GRANT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_effect_params_digest_mismatch",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EFFECT_NOT_BOUND_TO_GRANT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_effect_executor_mismatch",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "EFFECT_NOT_BOUND_TO_GRANT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_session_not_before_future",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TENANT_SESSION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_session_max_duration_self_increased",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TENANT_SESSION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_unknown_test_ref",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_open_incident_stop_only",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "INCIDENT_EVIDENCE_AUTHORITY_INVALID",
+        "OPEN_INCIDENT_MINIMUM_CONTROL_MISSING"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_residual_risk_unknown_with_pass",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "RECOVERY_CLOSURE_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "v23_receipt_executor_mismatch",
+      "expected": "FAIL",
+      "matched": true,
+      "reasons": [
+        "SCHEMA_OR_FROZEN_ROOT_REJECT",
+        "receipt closed-world fields differ"
+      ]
+    }
+  ],
+  "authority_root_digest": "sha256:17f534306054956f7e875d752612a61b31e59157e0381fb4ec11d84ce8d84b1a",
+  "fail_open_count": 0,
+  "matched_count": 91,
+  "schema_version": "c19.security.negative-regression.v2.3",
+  "suite_digest": "a2135ff6039e3b9fa83060ca723d70c4e7970c2dec9159cf9edffcc261eae98a"
+}

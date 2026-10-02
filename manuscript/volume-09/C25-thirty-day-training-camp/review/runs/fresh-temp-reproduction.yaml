@@ -1,0 +1,39 @@
+schema_version: c22.fresh-temp-reproduction.v2.2
+run_date: "2026-10-01"
+environment: offline_synthetic
+runs:
+  - run_id: fresh-temp-a
+    input_sha256: 7e1218a3e11648ba2605a3c800dac57379bbfb733915f411f562412a8c237e11
+    authority_sha256: f6dcd56879ac0110212339506737ee63581e0e22230d15a602b79c922f941543
+    result_sha256: 6e36cbea868ed3178056ac8d432d81148c5bb195605a8ab635bd5bef3dfb5bc5
+    negative_regression_sha256: 0fc80e57c38990f18ae09109024fb8c87d72600c9c25250f9b07318ee95705c5
+    authority_root_digest: sha256:a7134ba60dddae9ef4b2571efe7074ed55f41ffd65e6b3890e47b93dcd41f067
+    decision_digest: c2fb3f9e4f259dbd71f848dcb95f46d57f2f1d163b0572fe3f79af53618ceb4e
+    negative_suite_digest: sha256:b59853dea1c59b03a528f2dfc499516054a3090aff2d25b377ff09d1a386ae10
+  - run_id: fresh-temp-b
+    input_sha256: 7e1218a3e11648ba2605a3c800dac57379bbfb733915f411f562412a8c237e11
+    authority_sha256: f6dcd56879ac0110212339506737ee63581e0e22230d15a602b79c922f941543
+    result_sha256: 6e36cbea868ed3178056ac8d432d81148c5bb195605a8ab635bd5bef3dfb5bc5
+    negative_regression_sha256: 0fc80e57c38990f18ae09109024fb8c87d72600c9c25250f9b07318ee95705c5
+    authority_root_digest: sha256:a7134ba60dddae9ef4b2571efe7074ed55f41ffd65e6b3890e47b93dcd41f067
+    decision_digest: c2fb3f9e4f259dbd71f848dcb95f46d57f2f1d163b0572fe3f79af53618ceb4e
+    negative_suite_digest: sha256:b59853dea1c59b03a528f2dfc499516054a3090aff2d25b377ff09d1a386ae10
+comparison:
+  input_byte_identical: true
+  authority_byte_identical: true
+  result_byte_identical: true
+  negative_regression_byte_identical: true
+  trial_distribution: {PASS: 3, FAIL: 12, REVIEW_REQUIRED: 5}
+  negative_attacks: 104
+  negative_passed: 104
+  negative_escaped: 0
+  accepted_day_layer_counts: {training: 180, regression: 84, holdout: 108, representative_real_world: 0}
+limits:
+  representative_real_world_count: 0
+  external_side_effect_count: 0
+  real_thirty_day_completed: false
+  real_runtime_validated: false
+  cross_platform_validated: false
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED

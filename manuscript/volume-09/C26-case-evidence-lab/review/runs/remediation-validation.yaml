@@ -1,0 +1,51 @@
+schema_version: c23.remediation.validation.v2.3
+validated_on: "2026-10-01"
+scope: synthetic_offline_machine_control
+fresh_temp_runs: 2
+byte_identical:
+  authority_root: true
+  input: true
+  result: true
+  negative_regression: true
+  remediation_regression: true
+matches_saved_artifacts: true
+fixed_fixture:
+  trial_count: 32
+  distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+  authority_root_digest: 898a14a435bae8c703d38b8ba4f482d65b8475d8643e187aae3e2cfced78f6dc
+  scenario_manifest_digest: 5b49e4e9618d5373b1101e38fd2ea9d80d51d22fde57b04fbff31431fc720fa0
+  decision_digest: b7517aaecd2d72b9143d7f74e84ef6ff475cf72dcb45d8ca772445796033fdea
+author_negative_regression:
+  test_count: 79
+  passed_count: 79
+  failed_count: 0
+  suite_digest: e218c5b2d4e23c351e8bbe96a831c4258f3ffaa787df03b37fa02913e19c2c04
+remediation_and_adjacent_regression:
+  test_count: 30
+  passed_count: 30
+  failed_count: 0
+  suite_digest: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e
+historical_independent_replay:
+  test_count: 18
+  fail_or_reject_for_previous_ten_gaps: 10
+  legacy_exact_contract_passed: 17
+  legacy_exact_contract_failed: 1
+  note: "I18 now REJECTS the obsolete free-text/old-root authorized repin instead of returning the legacy expected FAIL; v2.3 structured authorized-repin attacks R23-R30 close the semantic rule."
+sha256:
+  build_case_fixture: 7ba60bb76072d765bbaa574cbebf29dd5683f4b85d0daab9cbe9c55c1608bb23
+  run_case_harness: cdcc94d030adff17c8b429bc4d36dc766d11bb46f7f3ebdcf2c9edba00f627a6
+  run_negative_regression: 4348d538876940855a348ba2883bf4acfa87740f7b0847dbd8c272c800186d65
+  run_v23_remediation_regression: 3cbf6da631774a7f877280e3d0d968278204a6b5357d54c943612a6283721525
+  frozen_evidence_root: cd32192157bb5ad9331bcc3aa7eb466aae9de2d78b08fa481495c871fbd9e7e0
+  synthetic_case_input: 8750defd03519c3c081a02796db9ca7fd676755a7b4446b3fe483a73e18efa35
+  synthetic_case_results: 8148c3c432be9ddce4d694d89e904ab72b7a1887ec9f5412e1d1b98b667adc88
+  negative_regression_results: e8b17955ece6f47d6fd96ce6138d68211e2a119b19bb2be62bd2aae2858626d3
+  remediation_regression_results: fff56bb8c0989fbba2cc646fed2f605b39a981ed7b69b7168f1b080e81a99120
+  historical_independent_replay: 5805ad5bf495989b7247cd3314dfbf138374bad0a7ebcebd258a4532db86707f
+limits:
+  - no_verified_or_anonymized_real_case_was_accepted_or_executed
+  - no_real_openclaw_or_hermes_runtime_migration_was_executed
+  - no_external_effect_or_real_credential_was_used
+  - fact_cross_practice_editor_and_chief_editor_gates_remain_unapproved

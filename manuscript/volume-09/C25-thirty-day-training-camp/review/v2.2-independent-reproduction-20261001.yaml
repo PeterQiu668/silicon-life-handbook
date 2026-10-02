@@ -1,0 +1,56 @@
+review_id: C22-v2.2-independent-reproduction-20261001
+reviewer_role: non_author_post_fix_reviewer
+verified_on: "2026-10-01"
+fresh_temp_runs: 1
+byte_identical_to_saved_artifacts: true
+hashes:
+  chapter: 48c8ce033451b6ad7a7c37e19b11a245073fede513c65cac7ab169f404c00ddc
+  evidence_ledger: c16faae2625bdc0c8ef06c7d23c49161b34b845f58ad8318f7fc0eae960ac7aa
+  input: 7e1218a3e11648ba2605a3c800dac57379bbfb733915f411f562412a8c237e11
+  authority: f6dcd56879ac0110212339506737ee63581e0e22230d15a602b79c922f941543
+  results: 6e36cbea868ed3178056ac8d432d81148c5bb195605a8ab635bd5bef3dfb5bc5
+  negative_results: 0fc80e57c38990f18ae09109024fb8c87d72600c9c25250f9b07318ee95705c5
+  independent_attack_script: 8fa6661ac698527529f40eb1661070ba072e8ab2fc350ad13dcf1c57b98135a5
+authority:
+  root_digest: sha256:a7134ba60dddae9ef4b2571efe7074ed55f41ffd65e6b3890e47b93dcd41f067
+baseline:
+  trial_count: 20
+  distribution: {PASS: 3, FAIL: 12, REVIEW_REQUIRED: 5}
+  accepted_day_layer_counts: {training: 180, regression: 84, holdout: 108, representative_real_world: 0}
+  external_side_effect_count: 0
+  decision_digest: c2fb3f9e4f259dbd71f848dcb95f46d57f2f1d163b0572fe3f79af53618ceb4e
+author_negative_regression:
+  attack_count: 104
+  matched_count: 104
+  fail_open_count: 0
+  negative_suite_digest: sha256:b59853dea1c59b03a528f2dfc499516054a3090aff2d25b377ff09d1a386ae10
+independent_near_neighbor_attacks:
+  attack_count: 12
+  matched_count: 12
+  fail_open_count: 0
+  cases:
+    - {id: stop_issuer_equals_readback_observer, actual: FAIL, reason: STOP_READBACK_INDEPENDENCE}
+    - {id: security_authority_principal_revoked_and_resealed, actual: FAIL, reason: PRINCIPAL_STATUS}
+    - {id: principal_alias_collision_resealed, actual: FAIL, reason: PRINCIPAL_ALIAS_COLLISION}
+    - {id: task_owner_swapped_to_evaluator, actual: FAIL, reason: TASK_BINDING}
+    - {id: trial_grader_not_bound_to_eval_spec, actual: FAIL, reason: TRIAL_BINDING}
+    - {id: stop_receipt_from_future, actual: FAIL, reason: STOP_RECEIPT_FROM_FUTURE}
+    - {id: graduation_recommendation_self_claims_certification, actual: FAIL, reason: C22_CANNOT_CERTIFY}
+    - {id: offline_camp_applies_external_effect, actual: FAIL, reason: OFFLINE_EXTERNAL_EFFECT_APPLIED}
+    - {id: dataset_lineage_cycle_resealed, actual: FAIL, reason: DATASET_REGISTRY_NOT_FROZEN}
+    - {id: negative_cost_amount, actual: FAIL, reason: SCHEMA_REJECT}
+    - {id: security_slice_gate_missing, actual: FAIL, reason: SECURITY_MATRIX_COVERAGE}
+    - {id: authority_root_tampered_and_self_resealed, actual: FAIL, reason: AUTHORITY_ROOT_NOT_PREREGISTERED}
+limits:
+  representative_real_world_count: 0
+  external_side_effect_count: 0
+  real_thirty_day_completed: false
+  real_runtime_validated: false
+  cross_platform_validated: false
+editorial_change_note: "2026-10-01: moved the pre-numbered execution supplement behind 22.1-22.7, added fact_baseline, and expanded AU-L1/L2 to AU-L1/AU-L2; control rules, fixtures, runner, authority root, results, and gate conclusion are unchanged"
+gate:
+  fact_gate: PASS_WITH_LIMITATIONS
+  cross_gate: PASS_WITH_LIMITATIONS
+  synthetic_training_control: PASS
+  practice_gate: REVIEW_REQUIRED
+  release_candidate_authorized: false

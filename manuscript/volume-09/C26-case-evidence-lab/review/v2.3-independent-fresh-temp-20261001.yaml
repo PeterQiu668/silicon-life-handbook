@@ -1,0 +1,65 @@
+review_id: C23-v2.3-independent-fresh-temp-20261001
+chapter_id: C23
+reviewed_on: "2026-10-01"
+method: "two clean temporary directories; copy only review/runs plus independent scripts; rebuild from builder; run harness and all regression suites"
+temporary_root: "/tmp/c23-v23-final.YgiRQR"
+real_world_execution: false
+external_side_effects: 0
+
+runs:
+  A:
+    baseline_distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+    decision_digest: b7517aaecd2d72b9143d7f74e84ef6ff475cf72dcb45d8ca772445796033fdea
+    author_negative: {matched: 79, total: 79}
+    remediation_negative: {matched: 30, total: 30}
+    historical_old_contract: {matched: 17, total: 18, I18_actual: REJECT}
+    historical_v23_contract: {matched: 18, total: 18}
+    independent_new: {secure: 0, total: 19, escapes: 19}
+  B:
+    baseline_distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+    decision_digest: b7517aaecd2d72b9143d7f74e84ef6ff475cf72dcb45d8ca772445796033fdea
+    author_negative: {matched: 79, total: 79}
+    remediation_negative: {matched: 30, total: 30}
+    historical_old_contract: {matched: 17, total: 18, I18_actual: REJECT}
+    historical_v23_contract: {matched: 18, total: 18}
+    independent_new: {secure: 0, total: 19, escapes: 19}
+
+byte_identity:
+  frozen_evidence_root:
+    sha256: cd32192157bb5ad9331bcc3aa7eb466aae9de2d78b08fa481495c871fbd9e7e0
+    A_equals_B: true
+    equals_saved_author_file: true
+  synthetic_case_input:
+    sha256: 8750defd03519c3c081a02796db9ca7fd676755a7b4446b3fe483a73e18efa35
+    A_equals_B: true
+    equals_saved_author_file: true
+  synthetic_case_result:
+    sha256: 8148c3c432be9ddce4d694d89e904ab72b7a1887ec9f5412e1d1b98b667adc88
+    A_equals_B: true
+    equals_saved_author_file: true
+  author_negative_result:
+    sha256: e8b17955ece6f47d6fd96ce6138d68211e2a119b19bb2be62bd2aae2858626d3
+    A_equals_B: true
+    equals_saved_author_file: true
+  remediation_result:
+    sha256: fff56bb8c0989fbba2cc646fed2f605b39a981ed7b69b7168f1b080e81a99120
+    A_equals_B: true
+    equals_saved_author_file: true
+  historical_18_result:
+    sha256: 5805ad5bf495989b7247cd3314dfbf138374bad0a7ebcebd258a4532db86707f
+    A_equals_B: true
+  independent_19_result:
+    sha256: 84f8a2d445463e5eaefe59d7bb5778261ce87259e4727c3d3d178684c873f56d
+    A_equals_B: true
+
+suite_digests:
+  author_79: e218c5b2d4e23c351e8bbe96a831c4258f3ffaa787df03b37fa02913e19c2c04
+  remediation_30: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e
+  independent_19: f32dfb9029f9886674f19bb9dd9beab0aefc55ce6810f388c199eb64d9a3cc83
+
+interpretation:
+  deterministic_rebuild: PASS
+  saved_fixture_reproduction: PASS
+  historical_I18: "safe REJECT under v2.3, not a security failure; old expected only admitted FAIL and is obsolete for the new closed schema/root contract"
+  semantic_generalization: FAIL
+  exported_result_integrity: FAIL

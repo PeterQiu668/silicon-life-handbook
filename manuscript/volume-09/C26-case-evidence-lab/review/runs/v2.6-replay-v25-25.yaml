@@ -1,0 +1,311 @@
+{
+  "attack_count": 25,
+  "baseline_decision_digest": "bced04f6cb46f23cbdbdde8341688876971efa407dc348d44b0ef2699f11eaa5",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 0,
+  "positive_control_count": 2,
+  "positive_control_pass_count": 2,
+  "schema_version": "c23.v2.5.author-remediation-regression.v1",
+  "secure_attack_count": 25,
+  "suite_digest": "a585cc114ea403eaf85b7bae49979c0cce1adacdef26f8039abba70315f9492c",
+  "tests": [
+    {
+      "actual": "REJECT",
+      "layer": "semantic_legal_repin",
+      "message": "artifact_registry: duplicate semantic key",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-01_DUPLICATE_TECHNICAL_SEMANTIC"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic_legal_repin",
+      "message": "principal_registry: duplicate semantic key",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-02_DUPLICATE_PRINCIPAL_SEMANTIC"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic_legal_repin",
+      "message": "scenarios: incomplete exact release_registry projection",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-03_EXTRA_RELEASE_PROJECTION"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic_legal_repin",
+      "message": "scenarios: incomplete exact budget_registry projection",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-04_EXTRA_BUDGET_PROJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-05_D21_BEFORE_SUPPORT"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-06_D21_BEFORE_EFFECT"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-07_FAILURE_BEFORE_TRIAL"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-08_FAILURE_LOG_BEFORE_FAILURE"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V25-09_ADAPTER_PUBLIC_CASE"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V25-10_ADAPTER_FAILURE_LOG"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-11_BASELINE_CONTRACT_FORGED"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-12_CANDIDATE_CONTRACT_FORGED"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic_legal_repin",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01: budget contract digest mismatch",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-13_EQUAL_TOTAL_MODEL_TOOL_SWAP"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic_legal_repin",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01: budget contract digest mismatch",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-14_EQUAL_TOTAL_HUMAN_COMPUTE_SWAP"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic_legal_repin",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01: budget contract digest mismatch",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-15_HUMAN_TIME_MISMATCH"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic_legal_repin",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01: budget contract digest mismatch",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V25-16_RESOURCE_PERMISSION_MISMATCH"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V25-17_VENDOR_SOURCE_SYNTHETIC"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V25-18_RECONSTRUCTION_SOURCE_SYNTHETIC"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic_legal_repin",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V25-19_VENDOR_EVIDENCE_AS_ADAPTER"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "serialized_duplicate_key",
+      "message": "json: duplicate object key schema_version",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V25-20_INPUT_DUPLICATE_TOP"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "serialized_duplicate_key",
+      "message": "json: duplicate object key case_version",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V25-21_INPUT_DUPLICATE_NESTED"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "serialized_duplicate_key",
+      "message": "json: duplicate object key trial_count",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V25-22_RESULT_DUPLICATE_TOP"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "serialized_duplicate_key",
+      "message": "json: duplicate object key authority_root_digest",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V25-23_RESULT_DUPLICATE_PROVENANCE"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "serialized_duplicate_key",
+      "message": "json: duplicate object key schema_version",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V25-24_ROOT_DUPLICATE_TOP"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "serialized_duplicate_key",
+      "message": "json: duplicate object key suite_id",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V25-25_ROOT_DUPLICATE_NESTED"
+    },
+    {
+      "actual": "PASS",
+      "layer": "positive_neighbor",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "PASS"
+      ],
+      "test_id": "V25-C01_LEGAL_NEW_ROOT_PASS"
+    },
+    {
+      "actual": "PASS",
+      "layer": "positive_neighbor",
+      "message": "",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "PASS"
+      ],
+      "test_id": "V25-C02_LEGAL_ADAPTER_PASS"
+    }
+  ]
+}

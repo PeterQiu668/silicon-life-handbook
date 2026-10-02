@@ -1,0 +1,41 @@
+schema_version: c23.v2.4.author-remediation-validation.v1
+generated_at: "2026-10-01T00:00:00Z"
+scope: offline_synthetic_only
+approval_status: unapproved
+self_approval: false
+practice_gate: REVIEW_REQUIRED
+baseline:
+  trial_count: 32
+  distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+  authority_root_digest: "1354b835fb891d6a6cc0c864a317ec0a8906fbaa9963aec95bd6cd96ce1836ec"
+  scenario_manifest_digest: "5b49e4e9618d5373b1101e38fd2ea9d80d51d22fde57b04fbff31431fc720fa0"
+  decision_digest: "ac4c02f3f9da54c934e489d07a730265e32c17e276bc556ae3076da54781ed45"
+regressions:
+  author_negative_79: {passed: 79, total: 79, digest: "e218c5b2d4e23c351e8bbe96a831c4258f3ffaa787df03b37fa02913e19c2c04"}
+  v23_remediation_30: {passed: 30, total: 30, digest: "5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e"}
+  v24_remediation_23: {passed: 23, total: 23, digest: "31ca6d821ace14efec3c9abe348dd027730c334d006ee79b0042c89ae89d5c4d"}
+  independent_19_replay: {passed: 19, total: 19, escapes: 0, digest: "fdc59935d11779ec4703669aafbf3a4de474db28f88c0ab4b89746086fcef20e"}
+  historical_18_replay:
+    safe_outcomes: 18
+    total: 18
+    legacy_script_literal_passed: 17
+    note: "I18 is safely REJECTED; the preserved legacy script only accepts FAIL."
+  legal_repin_neighbor: {test_id: V23_LEGAL_REPIN_PASS, verdict: PASS}
+fresh_temp:
+  runs: 2
+  byte_identical: true
+  file_sha256:
+    root: "8ff85659856914c22bf42c73cfedede6dc2c3ee45ee3e2a20d8ebc2dd1b6a20c"
+    input: "aa7c9f59f0c6c17904e3f10b12ca47b41e8d77b0d38e0e0932f780db161ef2be"
+    result: "641d32e50ad4f89ce37ca229ea53a2fe0d4c8bd8ef147646d2be72a6a9297169"
+    negative_79: "e8b17955ece6f47d6fd96ce6138d68211e2a119b19bb2be62bd2aae2858626d3"
+    remediation_30: "fff56bb8c0989fbba2cc646fed2f605b39a981ed7b69b7168f1b080e81a99120"
+    remediation_23: "7502204397fdf76abc20b4684475083a7161cfe2ca1a99d2ab39958ff3b542b3"
+    independent_19: "03ac791f014b59b9764299c69c1eaf0e8c6609c43f855da8fae4c7c44bf349a2"
+limitations:
+  - no real case identity or public authorization executed
+  - no real OpenClaw or Hermes migration executed
+  - no real external effect or target readback executed
+  - no Muse internal implementation verified

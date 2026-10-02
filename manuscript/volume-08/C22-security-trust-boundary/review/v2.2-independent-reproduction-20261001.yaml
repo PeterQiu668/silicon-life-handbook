@@ -1,0 +1,41 @@
+review_id: C19-v2.2-independent-fact-cross-review-20261001
+reviewed_on: "2026-10-01"
+runner: review/v2.2-independent-negative-tests.py
+expected_decision: FAIL
+attack_count: 9
+matched_count: 0
+fail_open_count: 9
+attacks:
+  - id: receipt_target_not_bound_to_effect_object
+    expected: FAIL
+    actual: PASS
+  - id: applied_effect_absent_from_audit_chain
+    expected: FAIL
+    actual: PASS
+  - id: open_incident_with_all_controls_false
+    expected: FAIL
+    actual: PASS
+  - id: critical_residual_risk_with_recovery_not_needed
+    expected: FAIL
+    actual: PASS
+  - id: tenant_session_expiry_self_extended_without_registry
+    expected: FAIL
+    actual: PASS
+  - id: scenario_layers_swapped_without_state_evidence
+    expected: FAIL
+    actual: PASS
+  - id: scenario_task_and_trial_ids_not_bound_to_evidence
+    expected: FAIL
+    actual: PASS
+  - id: scenario_self_claims_security_red_team
+    expected: FAIL
+    actual: PASS
+  - id: scenario_self_claims_non_shadow_execution
+    expected: FAIL
+    actual: PASS
+gate_decision:
+  draft: PASS
+  fact: REVIEW_REQUIRED
+  cross: REVIEW_REQUIRED
+  practice: REVIEW_REQUIRED
+  release_candidate_authorized: false

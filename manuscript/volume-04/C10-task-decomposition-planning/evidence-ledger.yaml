@@ -1,0 +1,23 @@
+chapter_id: C10
+title: "任务分解、计划与重规划"
+status: content_candidate_only
+verified_on: "2026-10-01"
+self_approval: false
+claims:
+  - evidence_id: E-C10-001
+    claim: "任务图、滚动计划、重规划触发器和计划质量评分卡是本书定义的方法。"
+    class: METHODOLOGY
+    sources:
+      - title: "Building effective agents"
+        url: "https://www.anthropic.com/engineering/building-effective-agents"
+      - title: "Effective harnesses for long-running agents"
+        url: "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+    limitations: "外部文章提供模式校准，不把本书字段变成外部标准。"
+  - evidence_id: E-C10-002
+    claim: "manager-style orchestration 与 handoff 是不同的控制所有权模式。"
+    class: DYNAMIC-OFFICIAL
+    sources:
+      - title: "OpenAI API orchestration and handoffs"
+        url: "https://developers.openai.com/api/docs/guides/agents/orchestration"
+    limitations: "动态文档按 2026-10-01 核验，不回填到其他 Runtime。"
+

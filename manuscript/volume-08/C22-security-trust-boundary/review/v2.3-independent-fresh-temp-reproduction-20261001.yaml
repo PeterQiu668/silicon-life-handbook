@@ -1,0 +1,59 @@
+schema_version: c19.security.independent-reproduction.v2.3
+reviewed_on: "2026-10-01"
+review_role: non_author
+environment:
+  mode: offline_synthetic
+  network_accessed: false
+  real_credentials_used: false
+  external_side_effects: 0
+scripts:
+  builder_sha256: a7a95d509e8fd4d9e0600f06e061aa7c0394980307d9b888e3cfa799b2fae516
+  runner_sha256: 897204a64eb93866917f0d5a47a360b14d1e1ccc8da1b183ea9678b2c1ed4074
+  author_negative_runner_sha256: 05c88d23188ce1ae553238467a5eda94de81efc2bc43c7dcf5723a3571d2145d
+  historical_independent_runner_sha256: a07fab30ce013f0737426254371a238f8d2126c1e9681412d7a48e9ae2fd16d3
+  final_independent_runner_sha256: 9b2574e74be106b5dd792839358453da280d636e6aa613fc515d985dc7f3ee5f
+runs:
+  - run_id: independent-fresh-temp-a
+    authority_sha256: d73d1db1a6bb512306373221ab63851eff6da62442bd2713f9044edc2965612a
+    input_sha256: 84a1549193049db5baaf12c92b8dd67149104267f1459170c7c32bef093f4ae0
+    result_sha256: e42b3635d98175bd3a9497c4eab7cc70a8026ec29e2a5f693696acd8e195b324
+    summary_sha256: c8f96c20a356614bcfcf4a422743b79c32e64b2c9668a5bd18eef8491ce354a0
+    author_negative_result_sha256: 17d9d9baf032b5be8e06842c8152fe1866bdc41783437531d277188ea59e3518
+    historical_nine_stdout_sha256: 69d087d660fd6f88928d9f0bb5937f81c3a6f07a482cf01a6e83b1eb60a9288e
+    final_independent_result_sha256: 2867e325fb2df31eed449ab9566b0d7b0b3614a6a80c8251ef39e20ab8351457
+  - run_id: independent-fresh-temp-b
+    authority_sha256: d73d1db1a6bb512306373221ab63851eff6da62442bd2713f9044edc2965612a
+    input_sha256: 84a1549193049db5baaf12c92b8dd67149104267f1459170c7c32bef093f4ae0
+    result_sha256: e42b3635d98175bd3a9497c4eab7cc70a8026ec29e2a5f693696acd8e195b324
+    summary_sha256: c8f96c20a356614bcfcf4a422743b79c32e64b2c9668a5bd18eef8491ce354a0
+    author_negative_result_sha256: 17d9d9baf032b5be8e06842c8152fe1866bdc41783437531d277188ea59e3518
+    historical_nine_stdout_sha256: 69d087d660fd6f88928d9f0bb5937f81c3a6f07a482cf01a6e83b1eb60a9288e
+    final_independent_result_sha256: 2867e325fb2df31eed449ab9566b0d7b0b3614a6a80c8251ef39e20ab8351457
+comparison:
+  authority_byte_identical: true
+  input_byte_identical: true
+  result_byte_identical: true
+  summary_byte_identical: true
+  author_negative_byte_identical: true
+  historical_nine_byte_identical: true
+  final_independent_byte_identical: true
+  fixed_trial_count: 22
+  fixed_distribution: {PASS: 1, FAIL: 20, REVIEW_REQUIRED: 1}
+  d22_layers: {training: 4, regression: 4, holdout: 14, representative_real_world: 0}
+  security_red_team_trial_count: 21
+  author_negative: {attacks: 91, matched: 91, escaped: 0}
+  historical_independent: {attacks: 9, matched: 9, escaped: 0}
+  final_independent: {attacks: 25, matched: 23, escaped: 2}
+  authority_root_digest: sha256:21e738e663dbb39c34f468c335b7ff72946f8d62d200454b90d4326b35e2a6f4
+  decision_digest: 5336298a9e4e3d258a8aea24a7a14d58b6c40cb00fcce160508be1d57d1d5b38
+  author_negative_suite_digest: 96591aa6d1e7e38e889ee5d200e244bec605ff86a395467d5eb501a6ec227590
+  final_independent_suite_digest: sha256:84263d61d471787860c28067b9c04829a68dd1f2807ef53c0cf0e964ac945900
+limits:
+  representative_real_world_count: 0
+  positive_terminal_effect_control_count: 0
+  real_openclaw_hermes_muse_run: false
+  real_identity_broker_egress_worm_audit_run: false
+  practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_AUTHORIZED
+  chief_gate: NOT_AUTHORIZED
+  release_candidate: NOT_AUTHORIZED

@@ -1,0 +1,96 @@
+schema: c24.cert.v2.2-independent-final-reproduction.v1
+reviewed_on: "2026-10-01"
+review_role: non_author
+scope: offline_synthetic_fact_cross_and_machine_control
+author_files_modified: false
+fresh_temp_runs: 2
+byte_identical_between_fresh_runs: true
+author_outputs_byte_identical_to_saved_files: true
+fixed_fixture:
+  trial_count: 58
+  distribution: {PASS: 4, FAIL: 51, REVIEW_REQUIRED: 3}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 2, SUSPENDED: 3, REVOKED: 51, EXPIRED: 1}
+  authority_root_digest: "sha256:b2bfd2f79f423a74b08ddb5a91d54de42931210aa53e3319ea0018412cfe192a"
+  decision_digest: "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a"
+  successful_real_certificates_reported: 1
+  successful_external_effects_reported: 1
+author_negative_regression:
+  attack_count: 25
+  matched_count: 25
+  fail_open_count: 0
+  suite_digest: "sha256:2e4ba7970ef67b0b480e7ac18b9eec5c904bed90ec45c19951c3e60c07d69ecc"
+v2_2_semantic_regression:
+  fresh_internal_run_count: 2
+  historical_escape_cases_retested: 18
+  semantic_and_blackbox_closed: true
+  deterministic: true
+  valid_pass_neighbor_proven: true
+  pending_external_effect_review_required: true
+  explicit_conflict_exception_degraded: true
+  suite_digest: "sha256:d19d68f8b0c389b92ab0fe921145689ececb56a9d3d9a30bda3e57d14ca88f76"
+independent_final_attacks:
+  oracle_source: reviewer_defined_without_author_expected
+  observed_pass_control_ids: [S24-001, S24-002, S24-003, S24-058]
+  attack_count: 25
+  matched_count: 9
+  escape_count: 16
+  result_file: v2.2-independent-final-negative-results.yaml
+  suite_digest: "sha256:32a05263cde2dd739d4acba04700cea0074f50c76dea5eaf60f3f45b3876984e"
+  escaped_families:
+    role_separation: 3
+    evidence_expiry_window: 2
+    pre_certificate_material_change_causality: 1
+    expire_event_causality: 1
+    external_effect_classification: 1
+    success_counter_integrity: 2
+    decision_digest_completeness: 6
+  blocked_or_correct_controls:
+    issuance_causality: 4
+    external_unknown_pending: 2
+    hard_failure_precedence: 1
+    lifecycle_gate_separation: 2
+publication_p0_03:
+  single_h1: true
+  numbered_sections: [24.1, 24.2, 24.3, 24.4, 24.5, 24.6, 24.7]
+  bare_lx_count: 0
+  legacy_l0_l6_source_present: false
+  historical_mapping_only: true
+  fact_baseline_present: true
+  cjk_chars: 18178
+  minimum_cjk_chars: 18000
+  evidence_claim_count: 51
+  evidence_reference_count: 51
+  evidence_links_closed: true
+  external_evidence_urls_checked: 10
+  external_evidence_http_200: 10
+  external_link_checked_on: "2026-10-01"
+  local_links_closed: true
+sha256:
+  builder: 733af2fed2775d9ca447f818d3cc654c76356d76333f9bed8d2f46a2bdbca2ce
+  runner: b5bbeb7c4e114654806ff9258ead35b32a9bb2f158a7ac4521204d188d78e781
+  author_negative_runner: a4eb3e2c5f54504e535ebcdaa54eb9c078af5e20c3757c49045caeb518ef52d8
+  v2_2_semantic_runner: ea193477ba2515db9085ad9517ac1b703cf819588f6b0af3d9ceea7d49ddcb7b
+  authority: 940b5d26145432e69e32f48058bfaab73489399dfba6dc6d9706106a7e1a5a39
+  input: ccd3924d47c9de0a414d59d2d3467c7a8e5ad4ddb58a107524a1313f0b18167d
+  result: d17db25a1473d52a4183c4379284109fff01d53f2e2e12fe7257507dfd71ac0d
+  summary: c1e5939593bb44cb6d79ce3b8a8d1c4360a86111f371f0b10f753073e987712e
+  author_negative_result: 0753057fb2b875bdd71692801c6525f6cc8226ae165e35c0979d2c9eaeed1c2d
+  v2_2_semantic_result: 7fb6d2a9dd31dd47f4a1472f219f83979e47e695f68641dce24e63b407305b7a
+  independent_final_runner: 24ad5f1c48d8bc677e975094ecfe615dbaef449b3c1b861ad34fc8822998d6f4
+  independent_final_result: 927beb62bf8105e463160cb85be40140910ddf5cd40d8b50549b22878c55ad62
+gates:
+  publication_structure_p0_03: PASS
+  fixed_fixture_reproduction: PASS
+  machine_control: FAIL
+  fact: FAIL
+  cross: FAIL
+  practice: REVIEW_REQUIRED
+  editor: NOT_AUTHORIZED
+  chief: NOT_AUTHORIZED
+  release_candidate: NOT_AUTHORIZED
+limits:
+  - no_real_openclaw_or_hermes_runtime_executed
+  - no_real_certificate_issued
+  - no_representative_production_task_executed
+  - no_external_certification_authority_or_legal_jurisdiction_validated
+  - synthetic_machine_results_do_not_authorize_real_reliance

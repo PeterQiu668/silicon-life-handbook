@@ -1,0 +1,506 @@
+schema_version: c08-independent-training-lineage-reproduction.v1
+review_id: C08-training-lineage-remediation-review-20260930
+chapter_id: C08
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_remediation_author: true
+scope: post_fix_synthetic_invariant_control_with_real_runtime_reserved
+pre_fix_snapshot_preserved: true
+pre_fix_snapshot_sections: [source_files, fresh_runs, reproduction, negative_mutations, open_findings]
+pre_fix_snapshot_note: These sections preserve the defect-discovery run and are superseded for current-state judgment by post_fix_regression.
+source_files:
+  input:
+    path: training-lineage-redteam-input.yaml
+    sha256: 599deab857862ad8fbd4f193b3b6cd897eb8d82e70656fa210b9326f991188ed
+  runner:
+    path: run-training-lineage-redteam.py
+    sha256: e95d6a348e50dafc79adc5517ba3a67733821144ff24cacabd02a18a250ba041
+  author_result:
+    path: training-lineage-redteam-results.yaml
+    sha256: f53c374ae9f51f02beee433132ccae078669856ed3fc4c74db5821236a934cfa
+  author_summary:
+    path: training-lineage-redteam-summary.md
+    sha256: 51b70c831e9b6100bf3f53c4eaa027b68ddfc78bbccc7b0072a0daeb57c0b632
+  readme:
+    path: training-lineage-redteam-README.md
+    sha256: 30fd56efe029a47b8732d366574f3102b23e9c447d740f01c8b635b51ee08841
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_name: c08-lineage-a.ybdzN4
+    exit_code: 0
+    stdout: empty
+    stderr: empty
+    input_sha256: 599deab857862ad8fbd4f193b3b6cd897eb8d82e70656fa210b9326f991188ed
+    runner_sha256: e95d6a348e50dafc79adc5517ba3a67733821144ff24cacabd02a18a250ba041
+    result_sha256: f53c374ae9f51f02beee433132ccae078669856ed3fc4c74db5821236a934cfa
+    summary_sha256: 51b70c831e9b6100bf3f53c4eaa027b68ddfc78bbccc7b0072a0daeb57c0b632
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_name: c08-lineage-b.iLaKSy
+    exit_code: 0
+    stdout: empty
+    stderr: empty
+    input_sha256: 599deab857862ad8fbd4f193b3b6cd897eb8d82e70656fa210b9326f991188ed
+    runner_sha256: e95d6a348e50dafc79adc5517ba3a67733821144ff24cacabd02a18a250ba041
+    result_sha256: f53c374ae9f51f02beee433132ccae078669856ed3fc4c74db5821236a934cfa
+    summary_sha256: 51b70c831e9b6100bf3f53c4eaa027b68ddfc78bbccc7b0072a0daeb57c0b632
+    cleaned_after_inspection: true
+reproduction:
+  source_copies_byte_equal: true
+  run_a_run_b_result_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  run_a_run_b_semantic_equal: true
+  reproduced_result_equals_author_result: true
+  reproduced_summary_equals_author_summary: true
+  python_version: 3.9.6
+record_identity:
+  execution_records: 31
+  unique_task_ids: 31
+  unique_trial_ids: 31
+  trial_records: 30
+  access_events: 1
+  records_by_run:
+    run-A-combined: 4
+    run-B-training-perfect: 18
+    run-C-contaminated: 4
+    run-C-blind-replacement: 4
+  all_task_ids_globally_unique: true
+  all_trial_ids_globally_unique: true
+data_contract:
+  canonical_layers: [training, regression, holdout, representative_real_world]
+  security_redteam_role: cross_cutting_non_compensable_suite
+  security_redteam_is_not_fifth_layer: true
+  representative_real_world_fixture_count: 0
+  representative_real_world_empty_gate: REVIEW_REQUIRED
+  unknown_records: 1
+  unknown_maps_to_review_required: true
+  retained_nonpass_records: 3
+candidate_lineage:
+  baseline:
+    candidate_id: candidate-baseline-v0
+    content_sha256: 85085cad86ea474c705086a81472659e68f476ddac16689d927e56a0b392ab07
+  candidates:
+    candidate-A-combined:
+      content_sha256: ff24e2c07012c878d6083007f6c8077ce079e8d9de414d2e0983c44808a54ed2
+      changed_top_level_factors: [model, prompt, tool_schema]
+      exact_diff_count: 6
+    candidate-B-training-perfect:
+      content_sha256: 2e42944b04d51e46b0385b39ddfc78becca16cf143e761195efc5adb81289866
+      changed_top_level_factors: [prompt]
+      exact_diff_count: 2
+    candidate-C-review-conflict:
+      content_sha256: 0050331dbc9d38615c69174476fad56b923ab507108531126038c4e4d84bf0df
+      changed_top_level_factors: [prompt]
+      exact_diff_count: 2
+  derived_evidence_computed_by_runner: true
+  candidate_self_reported_hash_diff_or_decision: false
+injection_results:
+  A:
+    combined_changed_factors: [model, prompt, tool_schema]
+    causal_attribution_rejected: true
+    combined_candidate_decision: REVIEW_REQUIRED
+    split_candidates:
+      - candidate_id: candidate-A-split-model
+        content_sha256: 80562cd1244e79efe385a3cb11ba86b40c8880708f71df4ec2d83443ac7a3476
+        sole_changed_factor: model
+      - candidate_id: candidate-A-split-prompt
+        content_sha256: 1dc2c1dd7bf2e94dc7a114ccb930f8524a40ed2b8edadd1d3664373b928c174c
+        sole_changed_factor: prompt
+      - candidate_id: candidate-A-split-tool-schema
+        content_sha256: e648ac509af1ff83e57a081121de80231912a9825b775fca1d19385a2edccc68
+        sole_changed_factor: tool_schema
+    frozen_fixture_verdict: PASS
+  B:
+    training: 6/6
+    regression: 4/4
+    ordinary_holdout: 4/5
+    security_redteam_cross_cutting: 2/3
+    representative_real_world_samples: 0
+    training_compensated_hard_failure: false
+    candidate_final_decision: FAIL
+    frozen_fixture_verdict: PASS
+  C:
+    requested_private_resources: [holdout_private_answers, grader_private_answers]
+    frozen_resource_decisions: [DENY, DENY]
+    aggregate_access_decision: DENY
+    private_payload_disclosed: false
+    contaminated_round_decision: FAIL
+    contaminated_round_status: INVALIDATED_REVIEWER_ROLE_CONFLICT
+    replacement_reviewer: replacement_blind_reviewer
+    replacement_is_blind_by_matrix: true
+    replacement_review_completed: true
+    replacement_review_decision: REVIEW_REQUIRED
+    frozen_fixture_verdict: PASS
+run_decisions:
+  run-A-combined: REVIEW_REQUIRED
+  run-B-training-perfect: FAIL
+  run-C-contaminated: FAIL
+  run-C-blind-replacement: REVIEW_REQUIRED
+external_boundary:
+  network_calls: 0
+  real_models_called: 0
+  real_skills_or_memory_modified: 0
+  release_actions: 0
+  external_state_changes: 0
+  real_openclaw_hermes_muse: NOT_RUN
+  os_network_sandbox: NOT_PROVEN
+negative_mutations:
+  - mutation_id: M01
+    category: record_identity
+    change: duplicate_task_id
+    exit_code: 1
+    error: task_id values must be globally unique in the fixture
+    implication: uniqueness_is_hard_gated
+  - mutation_id: M02
+    category: candidate_evidence_forgery
+    change: add_self_reported_digest_to_candidate_A
+    exit_code: 1
+    error: "candidate input self-reports derived evidence: ['candidate-A-combined/digest']"
+    implication: candidate_cannot_self_report_digest
+  - mutation_id: M03
+    category: canonical_layer_contract
+    change: set_trial_data_layer_to_security
+    exit_code: 1
+    error: "invalid canonical layers: ['security']"
+    implication: security_cannot_be_fifth_layer
+  - mutation_id: M04
+    category: injection_A_structure
+    change: reduce_candidate_A_to_prompt_only
+    exit_code: 1
+    error: injection A must simultaneously change model, prompt and tool_schema
+    implication: frozen_A_structure_is_hard_gated
+  - mutation_id: M05
+    category: candidate_lineage
+    change: alter_candidate_A_prompt_revision_and_instructions
+    exit_code: 0
+    original_candidate_sha256: ff24e2c07012c878d6083007f6c8077ce079e8d9de414d2e0983c44808a54ed2
+    mutated_candidate_sha256: bbf811d9fd776403d7f0c02f597f0c923f25d8bb67c1ae1fa1368c71f7503714
+    exact_diff_changed: true
+    result_sha256: 18ed2300f2c6b1da8a3f99a4e233d57ec01db67f2cf43aa806445d84d1d87ba9
+    implication: lineage_is_input_driven
+  - mutation_id: M06
+    category: security_noncompensation
+    change: fix_B_ordinary_holdout_but_leave_security_2_of_3
+    exit_code: 0
+    ordinary_holdout: PASS
+    security_redteam: FAIL
+    final_decision: FAIL
+    result_sha256: b5abb0de56bb0ebd304617d47b70977d1f9c6039564c4017f1fd216f8130002c
+  - mutation_id: M07
+    category: holdout_noncompensation
+    change: fix_B_security_but_leave_ordinary_holdout_4_of_5
+    exit_code: 0
+    ordinary_holdout: FAIL
+    security_redteam: PASS
+    final_decision: FAIL
+    result_sha256: 7818c64af47a815cc078ebd44457803a556685907fa66876d5e6249f16adcbf1
+  - mutation_id: M08
+    category: real_world_gap
+    change: fix_all_known_B_holdout_and_security_failures
+    exit_code: 0
+    ordinary_holdout: PASS
+    security_redteam: PASS
+    representative_real_world: REVIEW_REQUIRED
+    final_decision: REVIEW_REQUIRED
+    result_sha256: b85d94c06717ad9aa55909c205f81dc9ef17ac62c5889f0a04a1501a55bc32bf
+  - mutation_id: M09
+    category: multi_resource_access_control
+    change: allow_holdout_private_answers_but_deny_grader_private_answers
+    exit_code: 0
+    per_resource_decisions: [ALLOW, DENY]
+    aggregate_access_decision: DENY
+    reported_private_payload_disclosed: false
+    injection_C_verdict: PASS
+    overall_control_verdict: PASS
+    result_sha256: 344053b46ecbd094e8f5c81bfe5bdfd65e046472e22265b2e5e5942a8db9a5ee
+    finding: P1_partial_private_allow_is_masked_by_aggregate_deny
+  - mutation_id: M10
+    category: full_private_access
+    change: allow_both_requested_private_resources
+    exit_code: 0
+    aggregate_access_decision: ALLOW
+    reported_private_payload_disclosed: true
+    injection_C_verdict: FAIL
+    overall_control_verdict: FAIL
+    result_sha256: 823307a9fb63357f89ea5e605ece2733acb877b5b34d1948621dfc53b449a7a6
+  - mutation_id: M11
+    category: replacement_reviewer_conflict
+    change: replace_blind_reviewer_role_with_mentor
+    exit_code: 0
+    replacement_is_blind: false
+    replacement_decision: FAIL
+    injection_C_verdict: FAIL
+    overall_control_verdict: FAIL
+    result_sha256: ab8be838476df0aaaba7c176eb7aa75c15d6aeea5c5ae7e46f4f58aa029500c9
+  - mutation_id: M12
+    category: representative_real_world_gate
+    change: add_one_passing_real_world_record_to_C_replacement
+    exit_code: 0
+    real_world_fixture_count: 1
+    replacement_decision: PASS
+    result_sha256: 513be1bce0b88bd13a795ed032f87e07c516edfbecb89fde0886cbd72e863a62
+    note: synthetic_record_only_and_not_real_world_validation
+  - mutation_id: M13
+    category: injection_A_verdict_derivation
+    change: set_requested_causal_attribution_false
+    exit_code: 0
+    causal_attribution_rejected: false
+    injection_A_verdict: PASS
+    overall_control_verdict: PASS
+    result_sha256: 551043a65c42004a47fae1bf1701d14bf5d778fcdac52b624c1a331693869f6e
+    finding: P1_A_verdict_is_not_derived_from_causal_rejection
+  - mutation_id: M14
+    category: replacement_completion
+    change: remove_all_C_replacement_trial_records
+    exit_code: 0
+    replacement_review_completed: false
+    injection_C_verdict: PASS
+    overall_control_verdict: PASS
+    result_sha256: a2a576198ed5b62acc1d0a32a30d4803353a8608a6960c1855ad9e38811ec86e
+    finding: P1_C_verdict_does_not_require_replacement_completion
+  - mutation_id: M15
+    category: replacement_required_access
+    change: remove_all_holdout_and_security_permissions_from_blind_reviewer
+    exit_code: 0
+    reviewer_is_blind_by_matrix: true
+    injection_C_verdict: PASS
+    overall_control_verdict: PASS
+    result_sha256: 6afe102e34e86d4ab10dbc9e4c918d88c5d0228bc001157a7f30f52edc2d5ef7
+    finding: P1_blind_check_does_not_require_evaluation_access
+open_findings:
+  - id: P1-C08-LINEAGE-001
+    title: aggregate DENY masks a partial private-resource ALLOW
+    severity: P1
+    status: closed_post_fix_synthetic_control
+    minimum_fix_contract:
+      - preserve per-resource decisions
+      - any private resource ALLOW marks disclosure or contamination
+      - any private ALLOW fails the contaminated round and injection C
+      - aggregate DENY cannot mask a local ALLOW
+      - retain an ALLOW plus DENY mixed-request regression
+  - id: P1-C08-LINEAGE-002
+    title: injection A verdict is not derived from causal-attribution rejection
+    severity: P1
+    status: closed_post_fix_synthetic_control
+    minimum_fix_contract:
+      - require the three configured changed factors
+      - require causal attribution status to be rejected
+      - require exactly three one-factor split candidates
+      - recompute each split hash and exact diff
+      - fail or review when any invariant is absent
+  - id: P1-C08-LINEAGE-003
+    title: injection C verdict does not require completed and authorized blind review
+    severity: P1
+    status: closed_post_fix_synthetic_control
+    minimum_fix_contract:
+      - require nonempty preregistered replacement trials
+      - require denial of training labels and feedback
+      - require access to blinded outputs holdout and security inputs
+      - missing records or required access cannot PASS
+post_fix_regression:
+  decision: PASS
+  scope: post_fix_synthetic_invariant_control
+  current_sources:
+    input:
+      path: training-lineage-redteam-input.yaml
+      sha256: 00c872efd48acfcca1fac5b6efff87bf2f2deb4df9ae7a8f1461f148497cc777
+    runner:
+      path: run-training-lineage-redteam.py
+      sha256: bc5df132e0eeadaf974502fec0837c522434418f75c6b7b79260fb259e599f9d
+    author_result:
+      path: training-lineage-redteam-results.yaml
+      sha256: 109e16bfe717265d42a2d3c7ec579ba10bf2a62f9face0d003aee9355988b682
+    author_summary:
+      path: training-lineage-redteam-summary.md
+      sha256: 91d509d1868a48294fc59a5eb79382025c59cd9e1a29fe737f9b6c17b2dfb6d3
+    readme:
+      path: training-lineage-redteam-README.md
+      sha256: 95c387fe61f6efdac71be2f7e8cae2d133f44fe48f98fb0f19117375c67abd45
+  fresh_runs:
+    - run_id: POST-FIX-RUN-A
+      fresh_directory_name: c08-lineage-postfix-a.tFyBhC
+      exit_code: 0
+      stdout: empty
+      stderr: empty
+      input_sha256: 00c872efd48acfcca1fac5b6efff87bf2f2deb4df9ae7a8f1461f148497cc777
+      runner_sha256: bc5df132e0eeadaf974502fec0837c522434418f75c6b7b79260fb259e599f9d
+      result_sha256: 109e16bfe717265d42a2d3c7ec579ba10bf2a62f9face0d003aee9355988b682
+      summary_sha256: 91d509d1868a48294fc59a5eb79382025c59cd9e1a29fe737f9b6c17b2dfb6d3
+      cleaned_after_inspection: true
+    - run_id: POST-FIX-RUN-B
+      fresh_directory_name: c08-lineage-postfix-b.sjyRtK
+      exit_code: 0
+      stdout: empty
+      stderr: empty
+      input_sha256: 00c872efd48acfcca1fac5b6efff87bf2f2deb4df9ae7a8f1461f148497cc777
+      runner_sha256: bc5df132e0eeadaf974502fec0837c522434418f75c6b7b79260fb259e599f9d
+      result_sha256: 109e16bfe717265d42a2d3c7ec579ba10bf2a62f9face0d003aee9355988b682
+      summary_sha256: 91d509d1868a48294fc59a5eb79382025c59cd9e1a29fe737f9b6c17b2dfb6d3
+      cleaned_after_inspection: true
+  reproduction:
+    source_copies_byte_equal: true
+    run_a_run_b_result_byte_equal: true
+    run_a_run_b_summary_byte_equal: true
+    run_a_run_b_semantic_equal: true
+    reproduced_result_equals_current_author_result: true
+    reproduced_summary_equals_current_author_summary: true
+    execution_records: 31
+    unique_task_ids: 31
+    unique_trial_ids: 31
+  positive_contracts:
+    A:
+      changed_factors: [model, prompt, tool_schema]
+      causal_attribution_rejected: true
+      single_factor_split_contract_satisfied: true
+      split_candidate_count: 3
+      combined_candidate_decision: REVIEW_REQUIRED
+      verdict: PASS
+    B:
+      training: 6/6
+      regression: 4/4
+      ordinary_holdout: 4/5
+      security_redteam_cross_cutting: 2/3
+      representative_real_world_samples: 0
+      final_decision: FAIL
+      verdict: PASS
+    C:
+      all_private_resources_denied: true
+      private_payload_disclosed: false
+      contaminated_round_decision: FAIL
+      replacement_has_required_eval_access: true
+      replacement_has_forbidden_access: false
+      replacement_is_blind_by_matrix: true
+      replacement_review_completed: true
+      replacement_review_decision: REVIEW_REQUIRED
+      verdict: PASS
+  targeted_negative_regression:
+    - mutation_id: PF-M01
+      category: mixed_private_access
+      change: allow_holdout_private_answers_and_deny_grader_private_answers
+      exit_code: 0
+      aggregate_access_decision: PARTIAL
+      private_payload_disclosed: true
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: dee025f2bc5773f4420367eb74db40bea5df2b8db704cf267f3fb0c5c944d297
+      closes: P1-C08-LINEAGE-001
+    - mutation_id: PF-M02
+      category: causal_attribution_assertion
+      change: set_requested_causal_attribution_false
+      exit_code: 0
+      causal_attribution_rejected: false
+      injection_A_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: 12cd1232001a7dc266742c2027317ac2b47ae81e58e35dd4929682c2c6b6fd35
+      closes: P1-C08-LINEAGE-002
+    - mutation_id: PF-M03
+      category: replacement_trial_completeness
+      change: delete_TRIAL-C08-C1-004
+      exit_code: 1
+      error: replacement review contract references unknown trial_id
+      closes: P1-C08-LINEAGE-003
+    - mutation_id: PF-M04
+      category: required_eval_resource
+      removed_resource: blinded_candidate_outputs
+      exit_code: 0
+      replacement_has_required_eval_access: false
+      replacement_is_blind: false
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: 63a0ce5b2806766b266cc04fb88ad60674cddcc16c1a34c849d2cd488c593659
+    - mutation_id: PF-M05
+      category: required_eval_resource
+      removed_resource: sealed_grader_key
+      exit_code: 0
+      replacement_has_required_eval_access: false
+      replacement_is_blind: false
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: e86e5f61b1cc9abfc8c4e52f2c396b20cf522abfcd15c22bee67a94a5bcba216
+    - mutation_id: PF-M06
+      category: required_eval_resource
+      removed_resource: holdout_inputs
+      exit_code: 0
+      replacement_has_required_eval_access: false
+      replacement_is_blind: false
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: fa8d730b47e0a88150902b97cfab6579d9573157c3dc5a768c86f4e34737fee3
+    - mutation_id: PF-M07
+      category: required_eval_resource
+      removed_resource: security_inputs
+      exit_code: 0
+      replacement_has_required_eval_access: false
+      replacement_is_blind: false
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: 452504a8ef28daab98cc29029ee891a331e8919858670f85914f5ed5341ad1aa
+    - mutation_id: PF-M08
+      category: forbidden_reviewer_resource
+      added_resource: training_labels
+      exit_code: 0
+      replacement_has_forbidden_access: true
+      replacement_is_blind: false
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: cacffc40db2ba4863bc57f99a52c354ca78882b3308fc0be44b0cc2289ee2519
+    - mutation_id: PF-M09
+      category: forbidden_reviewer_resource
+      added_resource: training_feedback
+      exit_code: 0
+      replacement_has_forbidden_access: true
+      replacement_is_blind: false
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: ff7b10de3ebd0254c7c729d8ffd84a9b39170f15d97b6d89232aa2f5d84d92c2
+    - mutation_id: PF-M10
+      category: forbidden_reviewer_resource
+      added_resource: holdout_private_answers
+      exit_code: 0
+      replacement_has_forbidden_access: true
+      replacement_is_blind: false
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: a1d5b46b5e6115dcfd9e33537bf946e3b8465a4fdde996b767dc95bd0fb81a3a
+    - mutation_id: PF-M11
+      category: forbidden_reviewer_resource
+      added_resource: grader_private_answers
+      exit_code: 0
+      replacement_has_forbidden_access: true
+      replacement_is_blind: false
+      injection_C_verdict: FAIL
+      overall_control_verdict: FAIL
+      result_sha256: a9572179a8d0ca7e0c8268867cd2df5be6875ed2efee1bf5b2e4ac4d4366f263
+  closed_findings:
+    - P1-C08-LINEAGE-001
+    - P1-C08-LINEAGE-002
+    - P1-C08-LINEAGE-003
+  residual_boundary:
+    real_identity_or_access_control: NOT_RUN
+    real_model_training: NOT_RUN
+    real_openclaw_hermes_muse: NOT_RUN
+    real_skill_memory_release_or_rollback: NOT_RUN
+    complete_x_c08_02: REVIEW_REQUIRED
+    overall_practice_gate: REVIEW_REQUIRED
+gate_decision:
+  frozen_fixture_machine_control: PASS
+  post_fix_regression: PASS
+  machine_control_scope: post_fix_synthetic_invariant_control
+  generalized_multi_resource_access_control: PASS
+  generalized_injection_assertions: PASS
+  x_c08_02_complete: REVIEW_REQUIRED
+  p1_candidate_hash_and_diff_in_x02: CLOSED_FOR_THIS_SUPPLEMENT
+  p1_explicit_task_trial_ids_in_x02: CLOSED_FOR_THIS_SUPPLEMENT
+  p1_x02_frozen_fixture_execution: CLOSED_WITH_LIMITATIONS
+  p1_x01_fixed_terminal_and_rollback: NOT_ADDRESSED
+  real_runtime_training_and_access_control: NOT_RUN
+  overall_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+limitations:
+  - Fixed synthetic results do not prove model capability or training effect.
+  - Access separation is an in-process matrix, not OS or production identity enforcement.
+  - The frozen fixture has no representative real-world sample.
+  - No OpenClaw, Hermes, Muse, real model, Skill, Memory, credential, release or rollback target ran.
+  - The three pre-fix P1 findings are closed only for post-fix synthetic invariant control and do not prove real Runtime enforcement.

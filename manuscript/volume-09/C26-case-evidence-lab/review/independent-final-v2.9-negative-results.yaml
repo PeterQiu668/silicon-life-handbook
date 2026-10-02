@@ -1,0 +1,560 @@
+{
+  "attack_count": 45,
+  "attacks": [
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F01_RESULT_DICT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: authority_root: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F02_ROOT_DICT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: source: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F03_SOURCE_DICT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F04_ALL_DICT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F05_LIST_OLD_API"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "raw-boundary",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F06_BYTEARRAY"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "retired-api",
+      "message": "AttributeError: module 'c23_v29_independent' has no attribute 'verify_result'",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F07_OLD_VERIFY_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "retired-parser",
+      "message": "AttributeError: module 'c23_v29_independent' has no attribute '_ORIGINAL_JSON_LOADS'",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F08_PERMISSIVE_ALIAS"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F09_DUP_RESULT_NESTED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: duplicate object key case_version",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F10_DUP_SOURCE_NESTED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: duplicate object key suite_id",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F11_DUP_ROOT_NESTED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: trailing content forbidden",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F12_TRAILING_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: trailing content forbidden",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F13_TRAILING_SOURCE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: non-finite constant forbidden: NaN",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F14_NAN_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "ValueError: json: non-finite constant forbidden: Infinity",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F15_INFINITY_SOURCE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F16_INVALID_UTF8"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "strict-parser",
+      "message": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F17_STRING_PATH_IS_NOT_PATH"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F18_PATCH_PUBLIC_EVALUATE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F19_PATCH_INTERNAL_EVALUATOR_NAME"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F20_PATCH_PUBLIC_PARSER"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F21_PATCH_PIN_DIGEST"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F22_PATCH_RETIRED_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F23_PATCH_PIN_READER"
+    },
+    {
+      "escape": true,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "",
+      "observed": "ACCEPTED",
+      "scope": "in_scope",
+      "secure": false,
+      "test_id": "F24_PATCH_TRANSITIVE_CANONICAL"
+    },
+    {
+      "escape": true,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "",
+      "observed": "ACCEPTED",
+      "scope": "in_scope",
+      "secure": false,
+      "test_id": "F25_PATCH_TRANSITIVE_ROOT_VALIDATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "module-global",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F26_SAVED_CORE_AFTER_PUBLIC_REBIND"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-registry",
+      "message": "ValueError: pin: id is not present in the release-pinned authority registry",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F27_UNKNOWN_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-registry",
+      "message": "ValueError: pin: concrete authorized pin_id required",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F28_PENDING_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-registry",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F29_REPIN_ID_CURRENT_ROOT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-registry",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F30_CURRENT_ID_REPIN_ROOT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin-registry",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F31_UNAUTHORIZED_SELF_CONSISTENT_TRIO"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "semantic-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F32_FORGED_FAIL_RESEALED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "semantic-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F33_FORGED_RR_RESEALED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "v2.8-I30-replay",
+      "message": "AttributeError: module 'c23_v29_independent' has no attribute '_ORIGINAL_JSON_LOADS'",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "H-I30_PRIVATE_PERMISSIVE_RESULT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "v2.8-I31-replay",
+      "message": "AttributeError: module 'c23_v29_independent' has no attribute '_ORIGINAL_JSON_LOADS'",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "H-I31_PRIVATE_PERMISSIVE_SOURCE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "v2.8-I32-replay",
+      "message": "AttributeError: module 'c23_v29_independent' has no attribute '_ORIGINAL_JSON_LOADS'",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "H-I32_PRIVATE_PERMISSIVE_ROOT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "v2.8-I33-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "H-I33_MONKEYPATCH_EVALUATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "v2.8-I34-replay",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "H-I34_MONKEYPATCH_PIN_PENDING"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F34_CLI_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F35_CLI_DUPLICATE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: CLI missing source rejected",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F36_CLI_MISSING_SOURCE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: RuntimeError: verifier: runner code digest differs from the trusted release",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F37_CLI_RUNNER_DIGEST"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: pin registry: release-pinned file digest mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F38_CLI_PIN_REGISTRY_DIGEST"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "import-reload",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F39_FRESH_IMPORT_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "reflection",
+      "message": "StopIteration: ",
+      "observed": "REJECT",
+      "scope": "in_scope",
+      "secure": true,
+      "test_id": "F40_REFLECTED_LOW_ARITY"
+    }
+  ],
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "boundary_accept_count": 2,
+  "boundary_demonstration_count": 2,
+  "boundary_demonstrations": [
+    {
+      "escape": true,
+      "expected": "REJECT",
+      "family": "arbitrary-same-process",
+      "message": "",
+      "observed": "ACCEPTED",
+      "scope": "out_of_scope_demonstration",
+      "secure": false,
+      "test_id": "B01_MUTATE_EVALUATOR_CELL"
+    },
+    {
+      "escape": true,
+      "expected": "REJECT",
+      "family": "arbitrary-same-process",
+      "message": "",
+      "observed": "ACCEPTED",
+      "scope": "out_of_scope_demonstration",
+      "secure": false,
+      "test_id": "B02_MUTATE_PIN_CELL"
+    }
+  ],
+  "escape_count": 2,
+  "escape_ids": [
+    "F24_PATCH_TRANSITIVE_CANONICAL",
+    "F25_PATCH_TRANSITIVE_ROOT_VALIDATOR"
+  ],
+  "input_sha256": "dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55",
+  "limits": {
+    "chief_rc": "NOT_AUTHORIZED",
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_authorization_reviewed": false,
+    "real_case_executed": false,
+    "real_external_effect_executed": false,
+    "real_runtime_migration_executed": false
+  },
+  "pin_registry_sha256": "8eb8868ca19e716f333ea1f5a85241ccadd47682fd9a78db171ee28826cdd5ad",
+  "positive_control_count": 6,
+  "positive_control_pass_count": 6,
+  "positive_controls": [
+    {
+      "expected": "PASS",
+      "family": "raw-positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "P01_RAW_TEXT"
+    },
+    {
+      "expected": "PASS",
+      "family": "raw-positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "P02_RAW_BYTES"
+    },
+    {
+      "expected": "PASS",
+      "family": "raw-positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "P03_RAW_PATH"
+    },
+    {
+      "expected": "PASS",
+      "family": "fresh-cli",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "P04_FRESH_CLI"
+    },
+    {
+      "expected": "PASS",
+      "family": "authorized-repin",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "P05_LEGAL_REPIN_RAW"
+    },
+    {
+      "expected": "PASS",
+      "family": "authorized-repin",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "P06_LEGAL_REPIN_CLI"
+    }
+  ],
+  "result_sha256": "f80c718b45d18aef880422167afbe221d8145c8a3ff08a2a8bdb7b2531434ebe",
+  "role": "non_author",
+  "root_sha256": "fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2",
+  "runner_sha256": "bc4d3cde7595603c21481c6c33cd77d4f49b7b8c18191cb9514dea592add40dd",
+  "schema_version": "c23.v2.9-independent-final.v1",
+  "secure_attack_count": 43,
+  "suite_digest": "d9b2fda94f687aa6b0069f943bfc0863fd0eb75029b262ef313e0bfc49a6bd5b",
+  "verifier_sha256": "099783ca9736657b5ea3ecc5a4e7a5a135274500ab2ebea18e9799f310485662"
+}

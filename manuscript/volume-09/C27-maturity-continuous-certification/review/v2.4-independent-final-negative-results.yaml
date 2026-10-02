@@ -1,0 +1,55 @@
+schema: c24.cert.v2.4-independent-final-negative.v1
+review_role: non_author
+reviewed_on: '2026-10-01'
+scope: offline_synthetic_semantic_and_result_provenance
+oracle_source: reviewer_defined_without_fixture_expected
+attack_count: 29
+secure_count: 12
+escape_count: 17
+positive_count: 3
+positive_pass_count: 3
+suite_digest: sha256:601d5c5971dbe8bee9021cd89f2d47f2b48c581eb578c0747d495a8ccf2fe2c4
+input_sha256: sha256:4a824bb7cd4d423542308ef5dfd13775e237f656cdde68efdb15ed28fe796936
+authority_sha256: sha256:076ed4b14a0729d5b90f4d3d5954865142e90cdc74dbfe74eacf48707b265b2f
+runner_sha256: sha256:7172b45cfa7ff54b7dfaafebb2ef32c887a74b1c630c8925ce4e6c52717e9432
+result_sha256: sha256:eb39fc1f35ca39cc797d7095af9bb2a0bfdf235803186b46c4a31d5b5f67756f
+attacks:
+  - {test_id: N01_TRIAL_OUTPUT_PRECEDES_TRIAL, family: causal-evidence, actual: PASS, secure: false, escape: true}
+  - {test_id: N02_GRADER_PREREGISTRATION_AFTER_TRIALS, family: causal-evidence, actual: PASS, secure: false, escape: true}
+  - {test_id: N03_HOLDOUT_LINEAGE_AFTER_TRIALS, family: causal-evidence, actual: PASS, secure: false, escape: true}
+  - {test_id: N04_APPLICATION_SIGNATURE_AFTER_REVIEW, family: causal-evidence, actual: PASS, secure: false, escape: true}
+  - {test_id: N05_TRIAL_COMPLETES_AFTER_REVIEW, family: causal-review, actual: PASS, secure: false, escape: true}
+  - {test_id: N06_MATURITY_ISSUED_AFTER_REVIEW, family: causal-review, actual: PASS, secure: false, escape: true}
+  - {test_id: N07_NAMESPACE_ISSUED_AFTER_REVIEW, family: causal-review, actual: PASS, secure: false, escape: true}
+  - {test_id: N08_ROOT_REVOKED_OPERATING_AUTHORITY_REUSED, family: frozen-revocation, actual: PASS, secure: false, escape: true}
+  - {test_id: N09_ROOT_REVOKED_LIFECYCLE_AUTHORITY_REUSED, family: frozen-revocation, actual: PASS, secure: false, escape: true}
+  - {test_id: N10_ROOT_REVOKED_CHANGE_AUTHORITY_REUSED, family: frozen-revocation, actual: PASS, secure: false, escape: true}
+  - {test_id: N11_SECURITY_SLICE_ONLY_ONE_RETEST_LAYER, family: post-change-lineage, actual: PASS, secure: false, escape: true}
+  - {test_id: N12_FABRICATED_PRECHANGE_RELEASE, family: post-change-lineage, actual: PASS, secure: false, escape: true}
+  - {test_id: N13_POSTCHANGE_OUTPUT_PRECEDES_TRIAL, family: post-change-lineage, actual: PASS, secure: false, escape: true}
+  - {test_id: N14_ACTIVE_CERTIFICATE_EXPIRES_AT_EVALUATION, family: certificate-window, actual: FAIL, secure: true, escape: false}
+  - {test_id: N15_LIFECYCLE_EVENT_PRECEDES_CERTIFICATE, family: lifecycle-causality, actual: FAIL, secure: true, escape: false}
+  - {test_id: N16_ARTIFACT_ISSUED_AFTER_CERTIFICATE, family: artifact-causality, actual: FAIL, secure: true, escape: false}
+  - {test_id: N17_APPEAL_REVIEWER_ALIASES_AUTHOR, family: principal-independence, actual: FAIL, secure: true, escape: false}
+  - {test_id: N18_PRINCIPAL_ALIAS_COLLISION, family: principal-canonicalization, actual: SCHEMA_REJECT, secure: true, escape: false}
+  - {test_id: N19_EXTERNAL_FAILED_HIDES_APPLIED, family: external-effect-derivation, actual: FAIL, secure: true, escape: false}
+  - {test_id: N20_TRUSTED_CLOCK_PLUS_ONE_SECOND, family: trusted-clock, actual: REJECT, secure: true, escape: false}
+  - {test_id: N21_RESULT_INPUT_SHA256_BLANK_REHASH, family: result-provenance, actual: ACCEPTED, secure: false, escape: true}
+  - {test_id: N22_RESULT_AUTHORITY_SHA256_BLANK_REHASH, family: result-provenance, actual: ACCEPTED, secure: false, escape: true}
+  - {test_id: N23_RESULT_INPUT_SHA256_SWAPPED_REHASH, family: result-provenance, actual: ACCEPTED, secure: false, escape: true}
+  - {test_id: N24_RESULT_AUTHORITY_SHA256_SWAPPED_REHASH, family: result-provenance, actual: ACCEPTED, secure: false, escape: true}
+  - {test_id: N25_RESULT_FAIL_TO_PASS_FULL_REHASH, family: result-semantic-replay, actual: REJECT, secure: true, escape: false}
+  - {test_id: N26_RESULT_REAL_SUCCESS_COUNTER_REHASH, family: success-count, actual: REJECT, secure: true, escape: false}
+  - {test_id: N27_INPUT_DUPLICATE_NESTED_SCOPE, family: json-duplicate-key, actual: REJECT, secure: true, escape: false}
+  - {test_id: N28_AUTHORITY_DUPLICATE_NESTED_DECISION, family: json-duplicate-key, actual: REJECT, secure: true, escape: false}
+  - {test_id: N29_RESULT_DUPLICATE_NESTED_STATE_DIGEST, family: json-duplicate-key, actual: REJECT, secure: true, escape: false}
+positive_controls:
+  - {test_id: P01_UNCHANGED_ACTIVE, decision: PASS, lifecycle: ACTIVE, passed: true}
+  - {test_id: P02_LEGAL_RENEWAL, decision: PASS, lifecycle: ACTIVE, passed: true}
+  - {test_id: P03_COMPLETE_THREE_LAYER_RECERTIFICATION, decision: PASS, lifecycle: ACTIVE, passed: true}
+limits:
+  real_runtime_executed: false
+  real_certificate_issued: false
+  real_external_effect_executed: false
+  practice_gate: REVIEW_REQUIRED
+  editor_chief_rc: NOT_AUTHORIZED

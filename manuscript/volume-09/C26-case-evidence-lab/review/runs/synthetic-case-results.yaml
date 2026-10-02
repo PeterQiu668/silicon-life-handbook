@@ -1,0 +1,554 @@
+{
+  "accepted_real_claim_count": 0,
+  "authority_root_digest": "18b6e3b04b574fd170eb2d746b1cf0d6271877098bec9116cea5fed2e43734d0",
+  "decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "external_effect_count": 0,
+  "input_schema_version": "c23.case.input.v2.7",
+  "provenance": {
+    "authority_root_digest": "18b6e3b04b574fd170eb2d746b1cf0d6271877098bec9116cea5fed2e43734d0",
+    "build_id": "BUILD.C23.20261001.V27",
+    "evaluation_time": "2026-09-30T12:00:00Z",
+    "input_schema_version": "c23.case.input.v2.7",
+    "result_schema_version": "c23.case.result.v2.7",
+    "scenario_manifest_digest": "03b070aecca9b2ec7f9dc0fc282afeb833b571ff7f31441f3952fb87fa6ab985",
+    "suite_id": "SUITE.C23.CASE.V27"
+  },
+  "schema_version": "c23.case.result.v2.7",
+  "trial_count": 32,
+  "trials": [
+    {
+      "case_record_id": "CASE.RECORD.S01",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [],
+        "verdict": "PASS"
+      },
+      "evidence_id": "EVIDENCE.S01",
+      "run_id": "RUN.S01",
+      "scenario_id": "S01",
+      "task_id": "TASK.S01",
+      "trial_id": "TRIAL.S01.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S02",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "CASE_IDENTITY_REVOKED"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S02",
+      "run_id": "RUN.S02",
+      "scenario_id": "S02",
+      "task_id": "TASK.S02",
+      "trial_id": "TRIAL.S02.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S03",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "AUTHORIZATION_INACTIVE"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S03",
+      "run_id": "RUN.S03",
+      "scenario_id": "S03",
+      "task_id": "TASK.S03",
+      "trial_id": "TRIAL.S03.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S04",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "SOURCE_OR_COPYRIGHT_INVALID"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S04",
+      "run_id": "RUN.S04",
+      "scenario_id": "S04",
+      "task_id": "TASK.S04",
+      "trial_id": "TRIAL.S04.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S05",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "COMPARISON_CONTRACT_UNFAIR"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S05",
+      "run_id": "RUN.S05",
+      "scenario_id": "S05",
+      "task_id": "TASK.S05",
+      "trial_id": "TRIAL.S05.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S06",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "CANDIDATE_PERMISSIONS_NOT_AUTHORIZED",
+          "COMPARISON_CONTRACT_UNFAIR",
+          "MIGRATION_CONTRACT_UNFAIR"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S06",
+      "run_id": "RUN.S06",
+      "scenario_id": "S06",
+      "task_id": "TASK.S06",
+      "trial_id": "TRIAL.S06.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S07",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "RUN_DISTRIBUTION_INVALID"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S07",
+      "run_id": "RUN.S07",
+      "scenario_id": "S07",
+      "task_id": "TASK.S07",
+      "trial_id": "TRIAL.S07.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S08",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "ARTIFACT_INCOMPLETE",
+          "ARTIFACT_PROJECTION_INVALID",
+          "PUBLIC_ARTIFACT_UNKNOWN"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S08",
+      "run_id": "RUN.S08",
+      "scenario_id": "S08",
+      "task_id": "TASK.S08",
+      "trial_id": "TRIAL.S08.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S09",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "D21_UNKNOWN"
+        ],
+        "verdict": "REVIEW_REQUIRED"
+      },
+      "evidence_id": "EVIDENCE.S09",
+      "run_id": "RUN.S09",
+      "scenario_id": "S09",
+      "task_id": "TASK.S09",
+      "trial_id": "TRIAL.S09.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S10",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "RUN_DISTRIBUTION_INVALID"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S10",
+      "run_id": "RUN.S10",
+      "scenario_id": "S10",
+      "task_id": "TASK.S10",
+      "trial_id": "TRIAL.S10.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S11",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "EVALUATION_CONTAMINATED"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S11",
+      "run_id": "RUN.S11",
+      "scenario_id": "S11",
+      "task_id": "TASK.S11",
+      "trial_id": "TRIAL.S11.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S12",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "REVIEWER_ALIAS_BINDING_INVALID"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S12",
+      "run_id": "RUN.S12",
+      "scenario_id": "S12",
+      "task_id": "TASK.S12",
+      "trial_id": "TRIAL.S12.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S13",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "PUBLIC_ARTIFACT_CONTENT_MISMATCH",
+          "PUBLIC_PRIVATE_MAPPING_MISMATCH"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S13",
+      "run_id": "RUN.S13",
+      "scenario_id": "S13",
+      "task_id": "TASK.S13",
+      "trial_id": "TRIAL.S13.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S14",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "VENDOR_NOT_INDEPENDENT_EVIDENCE",
+          "VENDOR_SOURCE_NOT_INDEPENDENT_EVIDENCE"
+        ],
+        "verdict": "REVIEW_REQUIRED"
+      },
+      "evidence_id": "EVIDENCE.S14",
+      "run_id": "RUN.S14",
+      "scenario_id": "S14",
+      "task_id": "TASK.S14",
+      "trial_id": "TRIAL.S14.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S15",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "CASE_IDENTITY_UNKNOWN",
+          "SOURCE_REVIEW_UNKNOWN"
+        ],
+        "verdict": "REVIEW_REQUIRED"
+      },
+      "evidence_id": "EVIDENCE.S15",
+      "run_id": "RUN.S15",
+      "scenario_id": "S15",
+      "task_id": "TASK.S15",
+      "trial_id": "TRIAL.S15.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S16",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "EVALUATION_CONTAMINATED",
+          "REVIEWER_ALIAS_BINDING_INVALID"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S16",
+      "run_id": "RUN.S16",
+      "scenario_id": "S16",
+      "task_id": "TASK.S16",
+      "trial_id": "TRIAL.S16.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S17",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [],
+        "verdict": "PASS"
+      },
+      "evidence_id": "EVIDENCE.S17",
+      "run_id": "RUN.S17",
+      "scenario_id": "S17",
+      "task_id": "TASK.S17",
+      "trial_id": "TRIAL.S17.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S18",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "BASELINE_RELEASE_REVOKED"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S18",
+      "run_id": "RUN.S18",
+      "scenario_id": "S18",
+      "task_id": "TASK.S18",
+      "trial_id": "TRIAL.S18.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S19",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "CANDIDATE_RELEASE_REVOKED"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S19",
+      "run_id": "RUN.S19",
+      "scenario_id": "S19",
+      "task_id": "TASK.S19",
+      "trial_id": "TRIAL.S19.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S20",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "GRADER_PRINCIPAL_ROLE_INVALID",
+          "REVIEWER_ROLE_INVALID"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S20",
+      "run_id": "RUN.S20",
+      "scenario_id": "S20",
+      "task_id": "TASK.S20",
+      "trial_id": "TRIAL.S20.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S21",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "EFFECT_REVOKED"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S21",
+      "run_id": "RUN.S21",
+      "scenario_id": "S21",
+      "task_id": "TASK.S21",
+      "trial_id": "TRIAL.S21.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S22",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "EFFECT_RECEIPT_READBACK_MISMATCH"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S22",
+      "run_id": "RUN.S22",
+      "scenario_id": "S22",
+      "task_id": "TASK.S22",
+      "trial_id": "TRIAL.S22.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S23",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "BASELINE_BUDGET_REVOKED",
+          "CANDIDATE_BUDGET_REVOKED"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S23",
+      "run_id": "RUN.S23",
+      "scenario_id": "S23",
+      "task_id": "TASK.S23",
+      "trial_id": "TRIAL.S23.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S24",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "MIGRATION_ADAPTER_DIFFERENCE_REVIEW"
+        ],
+        "verdict": "REVIEW_REQUIRED"
+      },
+      "evidence_id": "EVIDENCE.S24",
+      "run_id": "RUN.S24",
+      "scenario_id": "S24",
+      "task_id": "TASK.S24",
+      "trial_id": "TRIAL.S24.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S25",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "ARTIFACT_TASK_EVIDENCE_BINDING_MISMATCH",
+          "BASELINE_BUDGET_SCOPE_BINDING_INVALID",
+          "CANDIDATE_BUDGET_SCOPE_BINDING_INVALID",
+          "COMPARISON_AUTHORITY_BINDING_INVALID",
+          "D21_EVIDENCE_SCHEMA_INVALID",
+          "D21_TASK_EVIDENCE_BINDING_MISMATCH",
+          "EFFECT_BINDING_MISMATCH",
+          "FAILURE_TASK_EVIDENCE_BINDING_MISMATCH",
+          "GRADER_AUTHORITY_BINDING_MISMATCH",
+          "MIGRATION_TASK_EVIDENCE_BINDING_MISMATCH",
+          "TRIAL_TASK_EVIDENCE_BINDING_MISMATCH"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.UNBOUND.S25",
+      "run_id": "RUN.S25",
+      "scenario_id": "S25",
+      "task_id": "TASK.UNBOUND.S25",
+      "trial_id": "TRIAL.S25.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S26",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "RUN_DISTRIBUTION_INVALID"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S26",
+      "run_id": "RUN.S26",
+      "scenario_id": "S26",
+      "task_id": "TASK.S26",
+      "trial_id": "TRIAL.S26.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S27",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "CAUSAL_PUBLICATION_TIMELINE_INVALID",
+          "PUBLICATION_AFTER_EVALUATION"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S27",
+      "run_id": "RUN.S27",
+      "scenario_id": "S27",
+      "task_id": "TASK.S27",
+      "trial_id": "TRIAL.S27.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S28",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "CANDIDATE_RELEASE_UNKNOWN"
+        ],
+        "verdict": "REVIEW_REQUIRED"
+      },
+      "evidence_id": "EVIDENCE.S28",
+      "run_id": "RUN.S28",
+      "scenario_id": "S28",
+      "task_id": "TASK.S28",
+      "trial_id": "TRIAL.S28.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S29",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "CANDIDATE_BUDGET_UNKNOWN"
+        ],
+        "verdict": "REVIEW_REQUIRED"
+      },
+      "evidence_id": "EVIDENCE.S29",
+      "run_id": "RUN.S29",
+      "scenario_id": "S29",
+      "task_id": "TASK.S29",
+      "trial_id": "TRIAL.S29.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S30",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "MIGRATION_ADAPTER_DIFFERENCE_CRITICAL"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S30",
+      "run_id": "RUN.S30",
+      "scenario_id": "S30",
+      "task_id": "TASK.S30",
+      "trial_id": "TRIAL.S30.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S31",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "EFFECT_UNAUTHORIZED"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S31",
+      "run_id": "RUN.S31",
+      "scenario_id": "S31",
+      "task_id": "TASK.S31",
+      "trial_id": "TRIAL.S31.01"
+    },
+    {
+      "case_record_id": "CASE.RECORD.S32",
+      "derived": {
+        "accepted_real_claim_count": 0,
+        "external_effect_count": 0,
+        "reasons": [
+          "TRIAL_TASK_EVIDENCE_BINDING_MISMATCH"
+        ],
+        "verdict": "FAIL"
+      },
+      "evidence_id": "EVIDENCE.S32",
+      "run_id": "RUN.S32",
+      "scenario_id": "S32",
+      "task_id": "TASK.S32",
+      "trial_id": "TRIAL.S32.01"
+    }
+  ]
+}

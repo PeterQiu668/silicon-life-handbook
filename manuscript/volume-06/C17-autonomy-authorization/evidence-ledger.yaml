@@ -1,0 +1,93 @@
+---
+chapter_id: C17
+title: "自主等级与授权边界"
+status: drafting
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c17"
+reviewed_by: null
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  OpenClaw 锁定 v2026.9.6 / eb377ac59e6c9fd6c7705028034812becf00271b；
+  Hermes 0.20.1 仅作固定发行锚点，安全页按 2026-09-30 动态事实；
+  Muse 只作 VENDOR-CLAIM。离线夹具不证明真实授权服务或生产平台。
+
+sources:
+  BOOK-V2: {title: "正式出版版三级内容框架 v2", path: "../../../00-正式出版版-三级内容框架-v2.md"}
+  QUALITY: {title: "Book Quality Standard", path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"}
+  C17-CARD: {title: "C17 chapter card", path: "../../../docs/editorial/CHAPTER-CARDS.md"}
+  TERMS: {title: "Terminology Registry", path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"}
+  DECISIONS: {title: "Decisions D18-D23", path: "../../../docs/DECISIONS.md"}
+  PREFLIGHT: {title: "C17 autonomy authorization preflight", path: "../../../docs/research/C17-autonomy-authorization-preflight.md"}
+  C03: {title: "C03 strength standard", path: "../../volume-01/C03-strength-standard/chapter.md"}
+  C04-RISK: {title: "C04 risk classification", path: "../../volume-02/C04-role-capability-model/artifacts/A-C04-03-risk-classification.md"}
+  C05: {title: "C05 life contracts", path: "../../volume-02/C05-life-contracts/chapter.md"}
+  C06: {title: "C06 runtime architecture", path: "../../volume-02/C06-runtime-architecture/chapter.md"}
+  C09: {title: "C09 interaction system", path: "../../volume-03/C09-interaction-system/chapter.md"}
+  C14: {title: "C14 tool MCP engineering", path: "../../volume-05/C14-tool-mcp-engineering/chapter.md"}
+  C16: {title: "C16 proactivity automation", path: "../C16-proactivity-automation/chapter.md"}
+  C16-SM: {title: "C16 automation state machine", path: "../C16-proactivity-automation/artifacts/A-C16-02-automation-state-machine.md"}
+  C18-P: {title: "C18 preflight", path: "../../../docs/research/C18-drift-improvement-governance-preflight.md"}
+  C19-P: {title: "C19 preflight", path: "../../../docs/research/C19-multi-agent-organization-preflight.md"}
+  C20-P: {title: "C20 preflight", path: "../../../docs/research/C20-routing-handoff-concurrency-preflight.md"}
+  C21-P: {title: "C21 preflight", path: "../../../docs/research/C21-a2a-artifact-trust-preflight.md"}
+  C22-P: {title: "C22 preflight", path: "../../../docs/research/C22-security-trust-boundary-preflight.md"}
+  C24-P: {title: "C24 preflight", path: "../../../docs/research/C24-governance-release-lifecycle-preflight.md"}
+  C25-P: {title: "C25 preflight", path: "../../../docs/research/C25-thirty-day-training-camp-preflight.md"}
+  C27-P: {title: "C27 preflight", path: "../../../docs/research/C27-maturity-certification-preflight.md"}
+  OC-REL: {title: "OpenClaw v2026.9.6", url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"}
+  OC-PERM: {title: "OpenClaw tool and agent permissions at eb377ac", url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/tool-permissions.md"}
+  OC-APPROVAL: {title: "OpenClaw exec approvals at eb377ac", url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/exec-approvals.md"}
+  OC-BINDING: {title: "OpenClaw agent bindings at eb377ac", url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/agent-bindings.md"}
+  OC-TRUST: {title: "OpenClaw trust model at eb377ac", url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/trust-model.md"}
+  HE-REL: {title: "Hermes Agent 0.20.1", url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"}
+  HE-SEC: {title: "Hermes Security dynamic docs", url: "https://hermes-agent.nousresearch.com/docs/user-guide/security"}
+  MUSE-NEWS: {title: "Meta Introducing Muse", url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"}
+  MUSE-SEC: {title: "Meta Muse safety", url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"}
+  NIST-ID: {title: "NIST NCCoE Software and AI Agent Identity and Authorization", url: "https://www.nccoe.nist.gov/projects/software-and-ai-agent-identity-and-authorization"}
+  NIST-BLOG: {title: "NIST Agentic AI identity foundation", url: "https://www.nist.gov/blogs/cybersecurity-insights/back-future-why-agentic-ai-needs-strong-identity-foundation"}
+  MCP-2026: {title: "MCP 2026-07-28 specification release", url: "https://blog.modelcontextprotocol.io/posts/2026-07-28/"}
+  LOCAL-INPUT: {title: "C17 synthetic input", path: "review/runs/synthetic-authorization-input.yaml"}
+  LOCAL-RUN: {title: "C17 synthetic results", path: "review/runs/synthetic-authorization-results.yaml"}
+  LOCAL-SCRIPT: {title: "C17 deterministic harness", path: "review/runs/run-authorization-harness.py"}
+
+claims:
+  - {evidence_id: E-C17-001, claim: "自主、能力、系统权限与组织责任是四个不可互推的轴。", class: METHODOLOGY, source_ids: [TERMS, PREFLIGHT, DECISIONS], limitations: "具体岗位需实例化。"}
+  - {evidence_id: E-C17-002, claim: "任务级自主只使用 AU-L0观察至 AU-L4受限自主五级。", class: METHODOLOGY, source_ids: [BOOK-V2, C17-CARD, TERMS, DECISIONS], limitations: "不是外部标准。"}
+  - {evidence_id: E-C17-003, claim: "回答、发现、提案、准备、受控执行、协调、负责是行为，不新增自主等级。", class: METHODOLOGY, source_ids: [PREFLIGHT, DECISIONS], limitations: "负责不转移最终组织责任。"}
+  - {evidence_id: E-C17-004, claim: "AU-L0—AU-L4 与 MAT-L0—MAT-L5 使用独立命名空间。", class: METHODOLOGY, source_ids: [TERMS, DECISIONS, C27-P], limitations: "纸书简称不用于机器产物。"}
+  - {evidence_id: E-C17-005, claim: "影响、可逆性、敏感性、不确定性构成联合风险门，不做可补偿平均。", class: METHODOLOGY, source_ids: [C04-RISK, PREFLIGHT, QUALITY], limitations: "阈值由组织校准。"}
+  - {evidence_id: E-C17-006, claim: "五维自主半径由 data、action、time、responsibility、evidence 的交集构成。", class: METHODOLOGY, source_ids: [TERMS, PREFLIGHT], limitations: "不是平台原生 schema。"}
+  - {evidence_id: E-C17-007, claim: "聊天同意只构成 intent evidence，不能自动成为 authority evidence。", class: METHODOLOGY, source_ids: [TERMS, PREFLIGHT, NIST-BLOG], limitations: "仍需认证主体和授权服务。"}
+  - {evidence_id: E-C17-008, claim: "授权至少绑定对象、动作、范围、参数、时窗和批准者。", class: METHODOLOGY, source_ids: [TERMS, PREFLIGHT, NIST-ID], limitations: "高风险还需更多字段。"}
+  - {evidence_id: E-C17-009, claim: "委托只能衰减，子授权是父授权、委托者权限与子任务最小需求的交集。", class: METHODOLOGY, source_ids: [PREFLIGHT, C19-P, C20-P, NIST-BLOG], limitations: "真实 identity graph 待实施。"}
+  - {evidence_id: E-C17-010, claim: "撤销必须级联到子授权、session、cache、queue、grant和临时凭证并做负向访问测试。", class: METHODOLOGY, source_ids: [PREFLIGHT, C16-SM, C22-P, C24-P], limitations: "平台传播需实测。"}
+  - {evidence_id: E-C17-011, claim: "最小权限、JIT、双人复核与break-glass解决不同问题，不能互相替代。", class: METHODOLOGY, source_ids: [PREFLIGHT, C22-P, C24-P], limitations: "组织紧急政策另行批准。"}
+  - {evidence_id: E-C17-012, claim: "双人复核要求两个独立且有资格的身份，不是同一人两次。", class: METHODOLOGY, source_ids: [PREFLIGHT], limitations: "独立性需身份图验证。"}
+  - {evidence_id: E-C17-013, claim: "break-glass必须预定义紧急类型、窄权限、短时自动过期、强审计与事后独立复核。", class: METHODOLOGY, source_ids: [PREFLIGHT, C22-P, C24-P], limitations: "不是日常提权路径。"}
+  - {evidence_id: E-C17-014, claim: "拒绝、降级、取消、接管、过期和撤销是合法终态或状态转移。", class: METHODOLOGY, source_ids: [PREFLIGHT, C16-SM], limitations: "执行面停止仍需回执。"}
+  - {evidence_id: E-C17-015, claim: "取消不等于停止确认，取消也不等于回滚；UNKNOWN必须先对账再决定重试。", class: METHODOLOGY, source_ids: [C06, C14, C16-SM, DECISIONS], limitations: "外部补偿由具体系统支持。"}
+  - {evidence_id: E-C17-016, claim: "主体、对象、参数、工具、模型、策略、环境或风险重大变化触发再认证。", class: METHODOLOGY, source_ids: [PREFLIGHT, C18-P, C24-P], limitations: "重大性阈值按任务域。"}
+  - {evidence_id: E-C17-017, claim: "trigger不产生authority，authority也不证明D21三层completion。", class: METHODOLOGY, source_ids: [C16, DECISIONS, C09], limitations: "各层需独立证据。"}
+  - {evidence_id: E-C17-018, claim: "OpenClaw固定版多层policy收敛，deny不能由下游放宽。", class: VERSION-FACT, source_ids: [OC-REL, OC-PERM], limitations: "只适用于固定提交。"}
+  - {evidence_id: E-C17-019, claim: "OpenClaw exec approval叠加于tool policy/elevated，不能替代业务授权。", class: VERSION-FACT, source_ids: [OC-APPROVAL], limitations: "主要覆盖host exec/MCP grant。"}
+  - {evidence_id: E-C17-020, claim: "OpenClaw Binding选择Agent，Node pairing建立设备身份，二者均不等于动作授权。", class: VERSION-FACT, source_ids: [OC-BINDING, OC-PERM], limitations: "路由和身份仍需业务授权。"}
+  - {evidence_id: E-C17-021, claim: "OpenClaw单Gateway是单操作者或互信团队信任域，approvals不是敌对多租户授权。", class: VERSION-FACT, source_ids: [OC-TRUST, OC-APPROVAL], limitations: "不是部署安全证明。"}
+  - {evidence_id: E-C17-022, claim: "Hermes 0.20.1只作发行锚点，dangerous-command approval等按核验日动态文档处理。", class: DYNAMIC-OFFICIAL, source_ids: [HE-REL, HE-SEC], limitations: "不得倒填为固定实现。"}
+  - {evidence_id: E-C17-023, claim: "Muse Sentinel、scoped capability、JIT与takeover均为Meta厂商声明，未独立验证。", class: VENDOR-CLAIM, source_ids: [MUSE-NEWS, MUSE-SEC], limitations: "不能推断内部同构或效果。"}
+  - {evidence_id: E-C17-024, claim: "MCP协议授权硬化不自动解决业务授权、责任和自主等级。", class: STANDARD-PRIMARY, source_ids: [MCP-2026, PREFLIGHT], limitations: "协议层与业务层分开。"}
+  - {evidence_id: E-C17-025, claim: "D22数据只分training/regression/holdout/representative real-world四层，security/red-team横跨四层且非补偿。", class: METHODOLOGY, source_ids: [DECISIONS, QUALITY], limitations: "不是第五层。"}
+  - {evidence_id: E-C17-026, claim: "C14只交付自主等级矩阵、审批策略、委托与撤销记录三件母产物。", class: METHODOLOGY, source_ids: [BOOK-V2, C17-CARD, DECISIONS], limitations: "运行材料不是第四件。"}
+  - {evidence_id: E-C17-027, claim: "状态化离线夹具28个trial得到11 PASS、14 FAIL、3 REVIEW_REQUIRED且effect ledger确认外部副作用为0；代表性真实任务计数为0，六个拟迁移场景只是合成holdout shadow。", class: LOCAL-VALIDATION, source_ids: [LOCAL-INPUT, LOCAL-RUN, LOCAL-SCRIPT], limitations: "作者合成状态夹具，不证明真实平台或真实任务迁移。"}
+  - {evidence_id: E-C17-028, claim: "夹具从原始身份、grant、policy、撤销、scope、effect、stop、rollback、break-glass和再认证记录推导模糊同意、自我扩权、过期撤销、转委托扩权、旧缓存、参数对象偷换、UNKNOWN、取消和双人复核。", class: LOCAL-VALIDATION, source_ids: [LOCAL-INPUT, LOCAL-RUN, LOCAL-SCRIPT], limitations: "仍需独立实践复跑、近邻变体和真实平台验证。"}
+
+open_issues:
+  - {issue_id: O-C17-001, status: REVIEW_REQUIRED, item: "真实OpenClaw授权、停止和撤销传播未实测。", owner: "practice-reviewer"}
+  - {issue_id: O-C17-002, status: REVIEW_REQUIRED, item: "Hermes动态安全页与0.20.1固定源码未逐项对照。", owner: "evidence-reviewer"}
+  - {issue_id: O-C17-003, status: REVIEW_REQUIRED, item: "Muse内部授权与撤销语义未知。", owner: "evidence-reviewer"}
+  - {issue_id: O-C17-004, status: REVIEW_REQUIRED, item: "组织风险阈值、break-glass合法替代控制和身份独立性未冻结。", owner: "risk-security-owner"}
+  - {issue_id: O-C17-005, status: REVIEW_REQUIRED, item: "三件产物与两练习尚未经过独立事实/交叉/实践门。", owner: "independent-reviewers"}
+
+change_log:
+  - {version: "0.1.0", date: "2026-09-30", change: "建立C14方法、平台和离线实验账本。", status: drafting}
+  - {version: "0.2.0", date: "2026-09-30", change: "以原始状态和证据记录替换预裁决布尔夹具，补齐身份、授权、撤销、效果、停止、回滚、紧急授权与再认证推导。", status: drafting}

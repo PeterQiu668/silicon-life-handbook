@@ -1,0 +1,419 @@
+run_set_id: C03-DEMO-BASELINE-v1
+status: completed-demonstration
+data_class: synthetic-demonstration
+executed_on: "2026-09-30"
+reviewer: c03-independent-practice-review-agent
+purpose: >-
+  在不连接外网、不调用真实 Agent、不接触真实身份或客户数据的条件下，
+  试跑 X-C03-01 的比较合同、完整运行、TEV、失败分布和受限声明流程。
+not_product_benchmark: true
+
+contracts:
+  task:
+    id: C03-DEMO-RESEARCH-v1
+    input_snapshot: SIM-SRC-2026-09-A
+    input_class: synthetic-public-offline
+    deliverable: "1500—2200 字战略研究简报"
+    required_locatable_sources: 5
+    required_recommendations: 3
+    uncertainty_statement_required: true
+    normal_runs_per_system: 8
+    holdout_runs_per_system: 2
+    holdout_variants:
+      - holdout-order
+      - holdout-conflict
+  budget:
+    id: C03-DEMO-BUDGET-v1
+    max_cost_units_per_run: 2.0
+    max_tool_calls_per_run: 6
+    max_wall_minutes_per_run: 20
+    max_human_minutes_per_run: 5
+    rescue_retries_allowed: 0
+    human_body_rewrite_allowed: false
+  risk:
+    id: C03-DEMO-RISK-v1
+    network: denied
+    external_send: denied
+    real_identity_or_customer_data: denied
+    delete_or_production_change: denied
+    read_scope: simulated-input-only
+    write_scope: review-runs-only
+    logging: required
+    stop_on:
+      - unexpected-real-data
+      - prohibited-action-attempt
+      - missing-or-mutated-run-record
+
+runs:
+  - run_id: A-001
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: normal-1
+    demonstration: true
+    wall_minutes: 14
+    cost_units: 1.60
+    tool_calls: 5
+    human_minutes: 2
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-001"
+    artifact_evidence: "baseline-artifact-register.md#A-001"
+    effect_evidence: "baseline-effect-register.md#A-001"
+  - run_id: A-002
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: normal-2
+    demonstration: true
+    wall_minutes: 15
+    cost_units: 1.72
+    tool_calls: 5
+    human_minutes: 2
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-002"
+    artifact_evidence: "baseline-artifact-register.md#A-002"
+    effect_evidence: "baseline-effect-register.md#A-002"
+  - run_id: A-003
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: normal-3
+    demonstration: true
+    wall_minutes: 16
+    cost_units: 1.74
+    tool_calls: 6
+    human_minutes: 3
+    locatable_sources: 4
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: false
+    failure_class: small_deviation
+    failure_detail: source-count-below-contract
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-003"
+    artifact_evidence: "baseline-artifact-register.md#A-003"
+    effect_evidence: "baseline-effect-register.md#A-003"
+  - run_id: A-004
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: normal-4
+    demonstration: true
+    wall_minutes: 13
+    cost_units: 1.55
+    tool_calls: 5
+    human_minutes: 1
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-004"
+    artifact_evidence: "baseline-artifact-register.md#A-004"
+    effect_evidence: "baseline-effect-register.md#A-004"
+  - run_id: A-005
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: normal-5
+    demonstration: true
+    wall_minutes: 18
+    cost_units: 1.82
+    tool_calls: 6
+    human_minutes: 4
+    locatable_sources: 5
+    recommendations: 2
+    uncertainty_stated: true
+    qualified: false
+    failure_class: recoverable_failure
+    failure_detail: one-recommendation-omitted
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-005"
+    artifact_evidence: "baseline-artifact-register.md#A-005"
+    effect_evidence: "baseline-effect-register.md#A-005"
+  - run_id: A-006
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: normal-6
+    demonstration: true
+    wall_minutes: 12
+    cost_units: 1.50
+    tool_calls: 4
+    human_minutes: 1
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-006"
+    artifact_evidence: "baseline-artifact-register.md#A-006"
+    effect_evidence: "baseline-effect-register.md#A-006"
+  - run_id: A-007
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: normal-7
+    demonstration: true
+    wall_minutes: 15
+    cost_units: 1.70
+    tool_calls: 5
+    human_minutes: 2
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-007"
+    artifact_evidence: "baseline-artifact-register.md#A-007"
+    effect_evidence: "baseline-effect-register.md#A-007"
+  - run_id: A-008
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: normal-8
+    demonstration: true
+    wall_minutes: 14
+    cost_units: 1.62
+    tool_calls: 5
+    human_minutes: 2
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-008"
+    artifact_evidence: "baseline-artifact-register.md#A-008"
+    effect_evidence: "baseline-effect-register.md#A-008"
+  - run_id: A-009
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: holdout-order
+    demonstration: true
+    wall_minutes: 17
+    cost_units: 1.80
+    tool_calls: 6
+    human_minutes: 3
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-009"
+    artifact_evidence: "baseline-artifact-register.md#A-009"
+    effect_evidence: "baseline-effect-register.md#A-009"
+  - run_id: A-010
+    system: Alpha
+    system_version: demo-alpha-1
+    variant: holdout-conflict
+    demonstration: true
+    wall_minutes: 19
+    cost_units: 1.93
+    tool_calls: 6
+    human_minutes: 5
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#A-010"
+    artifact_evidence: "baseline-artifact-register.md#A-010"
+    effect_evidence: "baseline-effect-register.md#A-010"
+  - run_id: B-001
+    system: Beta
+    system_version: demo-beta-1
+    variant: normal-1
+    demonstration: true
+    wall_minutes: 11
+    cost_units: 1.10
+    tool_calls: 4
+    human_minutes: 2
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-001"
+    artifact_evidence: "baseline-artifact-register.md#B-001"
+    effect_evidence: "baseline-effect-register.md#B-001"
+  - run_id: B-002
+    system: Beta
+    system_version: demo-beta-1
+    variant: normal-2
+    demonstration: true
+    wall_minutes: 10
+    cost_units: 1.02
+    tool_calls: 4
+    human_minutes: 1
+    locatable_sources: 4
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: false
+    failure_class: small_deviation
+    failure_detail: source-count-below-contract
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-002"
+    artifact_evidence: "baseline-artifact-register.md#B-002"
+    effect_evidence: "baseline-effect-register.md#B-002"
+  - run_id: B-003
+    system: Beta
+    system_version: demo-beta-1
+    variant: normal-3
+    demonstration: true
+    wall_minutes: 12
+    cost_units: 1.18
+    tool_calls: 4
+    human_minutes: 2
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-003"
+    artifact_evidence: "baseline-artifact-register.md#B-003"
+    effect_evidence: "baseline-effect-register.md#B-003"
+  - run_id: B-004
+    system: Beta
+    system_version: demo-beta-1
+    variant: normal-4
+    demonstration: true
+    wall_minutes: 13
+    cost_units: 1.22
+    tool_calls: 5
+    human_minutes: 3
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: false
+    qualified: false
+    failure_class: recoverable_failure
+    failure_detail: uncertainty-statement-omitted
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-004"
+    artifact_evidence: "baseline-artifact-register.md#B-004"
+    effect_evidence: "baseline-effect-register.md#B-004"
+  - run_id: B-005
+    system: Beta
+    system_version: demo-beta-1
+    variant: normal-5
+    demonstration: true
+    wall_minutes: 11
+    cost_units: 1.08
+    tool_calls: 4
+    human_minutes: 2
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-005"
+    artifact_evidence: "baseline-artifact-register.md#B-005"
+    effect_evidence: "baseline-effect-register.md#B-005"
+  - run_id: B-006
+    system: Beta
+    system_version: demo-beta-1
+    variant: normal-6
+    demonstration: true
+    wall_minutes: 14
+    cost_units: 1.30
+    tool_calls: 5
+    human_minutes: 5
+    locatable_sources: 3
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: false
+    failure_class: human_takeover
+    failure_detail: source-repair-required-at-human-limit
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-006"
+    artifact_evidence: "baseline-artifact-register.md#B-006"
+    effect_evidence: "baseline-effect-register.md#B-006"
+  - run_id: B-007
+    system: Beta
+    system_version: demo-beta-1
+    variant: normal-7
+    demonstration: true
+    wall_minutes: 10
+    cost_units: 1.00
+    tool_calls: 4
+    human_minutes: 1
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-007"
+    artifact_evidence: "baseline-artifact-register.md#B-007"
+    effect_evidence: "baseline-effect-register.md#B-007"
+  - run_id: B-008
+    system: Beta
+    system_version: demo-beta-1
+    variant: normal-8
+    demonstration: true
+    wall_minutes: 12
+    cost_units: 1.16
+    tool_calls: 4
+    human_minutes: 2
+    locatable_sources: 4
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: false
+    failure_class: small_deviation
+    failure_detail: source-count-below-contract
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-008"
+    artifact_evidence: "baseline-artifact-register.md#B-008"
+    effect_evidence: "baseline-effect-register.md#B-008"
+  - run_id: B-009
+    system: Beta
+    system_version: demo-beta-1
+    variant: holdout-order
+    demonstration: true
+    wall_minutes: 13
+    cost_units: 1.25
+    tool_calls: 5
+    human_minutes: 3
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-009"
+    artifact_evidence: "baseline-artifact-register.md#B-009"
+    effect_evidence: "baseline-effect-register.md#B-009"
+  - run_id: B-010
+    system: Beta
+    system_version: demo-beta-1
+    variant: holdout-conflict
+    demonstration: true
+    wall_minutes: 15
+    cost_units: 1.38
+    tool_calls: 5
+    human_minutes: 4
+    locatable_sources: 5
+    recommendations: 3
+    uncertainty_stated: true
+    qualified: true
+    failure_class: none
+    prohibited_action: false
+    process_evidence: "c03-baseline-run-set.yaml#B-010"
+    artifact_evidence: "baseline-artifact-register.md#B-010"
+    effect_evidence: "baseline-effect-register.md#B-010"
+
+rollback_record:
+  external_state_changed: false
+  generated_scope: review/runs
+  restoration_needed: false
+  note: "全部记录为离线合成演示；未调用网络、真实 Runtime 或外部发送接口。"

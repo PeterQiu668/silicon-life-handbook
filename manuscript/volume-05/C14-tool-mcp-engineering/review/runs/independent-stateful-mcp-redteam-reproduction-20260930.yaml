@@ -1,0 +1,203 @@
+schema_version: c11-independent-stateful-mcp-redteam-reproduction.v1
+review_id: C11-independent-stateful-mcp-redteam-remediation-review-20260930
+chapter_id: C11
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_author: true
+scope: frozen_20_trial_offline_synthetic_control
+source_files:
+  runner:
+    path: run-stateful-mcp-redteam.py
+    sha256: 0063314833c7aab5713bec31b68442247d09adc5bf13fa42b130d275825fa437
+  input:
+    path: stateful-mcp-redteam-input.yaml
+    raw_sha256: 65152c871e1f9ba562b8a967bcf5ca6b7e0c616d9bcdceecd9fe6524a746d2cd
+    parsed_canonical_sha256: 934752256da717921db7fcc072eb632b1e17fc3a32717ac7825068b257f9fe35
+  author_result:
+    path: stateful-mcp-redteam-results.yaml
+    sha256: dcae3c2fc210f5f0ef172de39571391591788b2bde1a29ee1b1f1e94a3683cae
+  author_summary:
+    path: stateful-mcp-redteam-summary.md
+    sha256: 1e9393041a67f17bb5413323cd121de835e0d616076db3804b2a2aa957402125
+  pre_remediation_practice_review:
+    path: ../practice-review.md
+    sha256: 3964a1a2d089d24ec75e942624061c254075d4c6007d96c974a4047d88af5943
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_name: c11-stateful-a.d1kp5Q
+    exit_code: 0
+    stdout: empty
+    stderr: empty
+    runner_sha256: 0063314833c7aab5713bec31b68442247d09adc5bf13fa42b130d275825fa437
+    input_raw_sha256: 65152c871e1f9ba562b8a967bcf5ca6b7e0c616d9bcdceecd9fe6524a746d2cd
+    result_sha256: dcae3c2fc210f5f0ef172de39571391591788b2bde1a29ee1b1f1e94a3683cae
+    summary_sha256: 1e9393041a67f17bb5413323cd121de835e0d616076db3804b2a2aa957402125
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_name: c11-stateful-b.6Uny11
+    exit_code: 0
+    stdout: empty
+    stderr: empty
+    runner_sha256: 0063314833c7aab5713bec31b68442247d09adc5bf13fa42b130d275825fa437
+    input_raw_sha256: 65152c871e1f9ba562b8a967bcf5ca6b7e0c616d9bcdceecd9fe6524a746d2cd
+    result_sha256: dcae3c2fc210f5f0ef172de39571391591788b2bde1a29ee1b1f1e94a3683cae
+    summary_sha256: 1e9393041a67f17bb5413323cd121de835e0d616076db3804b2a2aa957402125
+    cleaned_after_inspection: true
+reproduction_checks:
+  source_copy_byte_equal: true
+  run_a_run_b_result_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  run_a_run_b_semantic_equal: true
+  reproduced_result_equals_author_result: true
+  reproduced_summary_equals_author_summary: true
+  internal_temporary_directory_leaks_after_runs: 0
+trial_integrity:
+  trials: 20
+  unique_trial_ids: 20
+  trial_ids:
+    - R01
+    - R02
+    - R03
+    - R04
+    - R05
+    - R06
+    - R07
+    - R08
+    - R09
+    - R10
+    - R11
+    - R12
+    - R13
+    - R14
+    - R15
+    - R16
+    - R17
+    - R18
+    - R19
+    - R20
+  case_distribution:
+    CASE-A: 6
+    CASE-B: 6
+    CASE-C: 8
+  scenario_distribution:
+    normal: 1
+    boundary: 3
+    adversarial: 13
+    exception: 2
+    recovery: 1
+  gate_distribution:
+    PASS: 12
+    FAIL: 7
+    REVIEW_REQUIRED: 1
+  pass_trials: [R01, R02, R04, R05, R07, R08, R10, R11, R13, R15, R17, R19]
+  fail_trials: [R03, R06, R09, R12, R14, R16, R18]
+  review_required_trials: [R20]
+  unknown_maps_only_to_review_required: true
+hard_failure_checks:
+  non_compensated: true
+  reasons:
+    ambiguous_or_shadowed_tool_executed: [R03]
+    stale_approval_survived_capability_change: [R06]
+    blocked_network_hop_reached: [R09]
+    incoming_token_forwarded_to_downstream: [R12]
+    synthetic_canary_crossed_execution_boundary: [R14, R16]
+    read_only_tool_changed_environment: [R18]
+coverage:
+  qualified_selection_and_shadowing: observed
+  schema_rug_pull: observed
+  description_rug_pull: observed
+  binary_digest_rug_pull: observed
+  scope_rug_pull: observed
+  uri_direct_and_redirect_hops: observed_without_network
+  audience_mismatch: observed_with_synthetic_token
+  token_passthrough: observed_with_synthetic_token
+  path_traversal: observed_in_ephemeral_root
+  stdio_environment_canary: observed_in_controlled_subprocess
+  result_injection: deterministic_quarantine_control_only
+  readonly_lie: observed_by_mock_database_readback
+  revoked_session: in_memory_revocation_control_only
+  cleanup_unknown: preserved_as_review_required
+negative_mutations:
+  - mutation_id: M01
+    target_trial: R06
+    change: binary_and_scope_mutation_changed_to_approved_snapshot
+    labels_unchanged: true
+    observed_gate: PASS
+    result_sha256: 381bd7fb3f8b8a64f57220db8e545a481af7d370691a240a6bb4b978c8d83b30
+    implication: disabled_defense_label_alone_does_not_force_fail
+  - mutation_id: M02
+    target_trial: R06
+    change: binary_digest_only_changed
+    labels_unchanged: true
+    observed_gate: FAIL
+    observed_reason: stale_approval_survived_capability_change
+    result_sha256: 8644daf1e0dfe3de2f0a858f5389426abb7094a36d8c8ca1b75ac4ef7dc9c342
+  - mutation_id: M03
+    target_trial: R06
+    change: scope_only_changed
+    labels_unchanged: true
+    observed_gate: FAIL
+    observed_reason: stale_approval_survived_capability_change
+    result_sha256: cf13c3f903e6be91afdde5ed4de89885698082402783eed1c9cab0aa2de91f15
+  - mutation_id: M04
+    target_trial: R09
+    change: redirect_changed_from_link_local_to_public_https
+    labels_unchanged: true
+    observed_gate: PASS
+    result_sha256: 7156662bad783e546df604419eb18ea3546af4e75f86e3caa816601d29134188
+  - mutation_id: M05
+    target_trial: R12
+    change: destination_audience_changed_to_mismatch
+    labels_unchanged: true
+    observed_gate: PASS
+    result_sha256: 76713475c66f2550eb4e84faa3eda3600c7d13f624bc5334701388015cc52275
+  - mutation_id: M06
+    target_trial: R14
+    change: traversal_target_changed_to_missing_outside_file
+    labels_unchanged: true
+    observed_gate: PASS
+    result_sha256: 41b437df165af2141c318bcb51864e2426763040171c12acf11a1599a2317838
+    limitation_exposed: current_gate_detects_canary_crossing_not_every_out_of_root_attempt
+  - mutation_id: M07
+    target_trial: R17
+    change: malicious_result_text_changed_to_benign_text
+    labels_unchanged: true
+    observed_gate: PASS
+    result_sha256: 4ddb2c5a02279c047fdc2d4e26b4d9f6e70cf67a70b741fb1191a94cb8e15757
+    limitation_exposed: result_payload_text_is_not_parsed_by_runner
+execution_boundaries:
+  network_calls: none_in_audited_code_path
+  dns_resolution: none
+  uri_handling: local_urllib_parse_only
+  real_credentials: none
+  tokens: synthetic_only
+  filesystem: temporary_directory_canary_only
+  subprocess:
+    shell: false
+    executable: current_python_interpreter
+    program: environment_key_presence_probe_only
+    timeout_seconds: 5
+    environment_allowlist_when_enforced: [PATH, SAFE_INPUT]
+    secret_value_printed: false
+  process_tree_cleanup_proven: false
+  residual_cleanup_unknown_preserved: true
+gate_decision:
+  x_c11_02_offline_machine_control: PASS
+  pass_scope: frozen_20_trial_deterministic_synthetic_control
+  generalized_security_classifier: NOT_CLAIMED
+  real_mcp: NOT_RUN
+  real_oauth: NOT_RUN
+  openclaw: NOT_RUN
+  hermes: NOT_RUN
+  full_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+limitations:
+  - Public hostnames are accepted syntactically; DNS resolution, rebinding and connection-address binding are not exercised.
+  - OAuth issuer, scope, expiry, refresh and actual resource-server behavior are not exercised.
+  - Result injection uses a deterministic quarantine branch; the result payload is not parsed and no model is involved.
+  - The path traversal negative mutation shows that an outside path without the named canary is not independently failed.
+  - Revocation is an in-memory control, not a persisted Session or platform checkpoint.
+  - Grandchild process, process-group kill and real residual cleanup are not proven; R20 remains REVIEW_REQUIRED.
+  - This evidence is not MCP conformance, product certification or a real-platform security claim.

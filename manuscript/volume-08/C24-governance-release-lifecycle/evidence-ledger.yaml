@@ -1,0 +1,111 @@
+chapter_id: C24
+title: "治理、发布与全生命周期问责"
+status: drafting
+verified_on: "2026-09-30"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v3.md", title: "framework v3"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality standard"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "C24 chapter card"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terminology registry"}
+  DECISIONS: {path: "../../../docs/DECISIONS.md", title: "project decisions"}
+  PREFLIGHT: {path: "../../../docs/research/C24-governance-release-lifecycle-preflight.md", title: "C24 preflight"}
+  C05: {path: "../../volume-02/C05-life-contracts/chapter.md", title: "C05 life contracts"}
+  C06: {path: "../../volume-02/C06-runtime-architecture/chapter.md", title: "C06 runtime"}
+  C07: {path: "../../volume-03/C07-evaluation-system/chapter.md", title: "C07 evaluation"}
+  C13: {path: "../../volume-05/C13-context-memory/chapter.md", title: "C13 context and memory"}
+  C15: {path: "../../volume-05/C15-skill-engineering/chapter.md", title: "C15 skill supply chain"}
+  C17: {path: "../../volume-06/C17-autonomy-authorization/chapter.md", title: "C17 authorization"}
+  C18: {path: "../../volume-06/C18-drift-improvement-governance/chapter.md", title: "C18 drift and improvement"}
+  C20: {path: "../../volume-07/C20-routing-handoff-concurrency/chapter.md", title: "C20 routing and handoff, limited input"}
+  C21: {path: "../../volume-07/C21-a2a-artifact-trust/chapter.md", title: "C21 A2A and artifacts, limited input"}
+  C22: {path: "../C22-security-trust-boundary/chapter.md", title: "C22 security, provisional input"}
+  C23: {path: "../C23-observability-cost-reliability/chapter.md", title: "C23 reliability, provisional input"}
+  NIST-AI-RMF: {url: "https://www.nist.gov/itl/ai-risk-management-framework", title: "NIST AI Risk Management Framework"}
+  NIST-GENAI: {url: "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence", title: "NIST AI RMF Generative AI Profile"}
+  NIST-AGENT-ID: {url: "https://www.nccoe.nist.gov/sites/default/files/2026-02/accelerating-the-adoption-of-software-and-ai-agent-identity-and-authorization-concept-paper.pdf", title: "NIST NCCoE agent identity concept paper"}
+  OC-STATE: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/start/why-openclaw/versioned-state-guarded-upgrades.md", title: "OpenClaw versioned state and guarded upgrades fixed"}
+  OC-BACKUP: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/install/backups.md", title: "OpenClaw backups fixed"}
+  OC-RESTART: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/restart-recovery.md", title: "OpenClaw restart recovery fixed"}
+  OC-UPDATE: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/cli/update/status-and-history.md", title: "OpenClaw update status and history fixed"}
+  OC-UNINSTALL: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/cli/uninstall.md", title: "OpenClaw uninstall fixed"}
+  HE-ARCH: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/developer-guide/architecture.md", title: "Hermes architecture fixed"}
+  HE-PROFILES: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/user-guide/profiles.md", title: "Hermes profiles fixed"}
+  HE-UPDATE-DYN: {url: "https://hermes-agent.nousresearch.com/docs/getting-started/updating/", title: "Hermes updating dynamic"}
+  HE-BACKUP-DYN: {url: "https://hermes-agent.nousresearch.com/docs/reference/cli-commands/#hermes-backup", title: "Hermes backup CLI dynamic"}
+  HE-PROFILES-DYN: {url: "https://hermes-agent.nousresearch.com/docs/user-guide/profiles/", title: "Hermes profiles dynamic"}
+  MUSE: {url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", title: "Meta Introducing Muse"}
+  CN-PIPL: {url: "https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm", title: "中华人民共和国个人信息保护法"}
+  CN-DSL: {url: "https://wb.flk.npc.gov.cn/flfg/PDF/8a19eb7aaa1e463cb21ff7cc2bac99d1.pdf", title: "中华人民共和国数据安全法"}
+  CN-GENAI: {url: "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm", title: "生成式人工智能服务管理暂行办法"}
+  CN-ALGO: {url: "https://www.cac.gov.cn/2022-01/04/c_1642894606364259.htm", title: "互联网信息服务算法推荐管理规定"}
+  CN-GENAI-FILING: {url: "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm", title: "生成式人工智能服务已备案信息公告"}
+  CN-AIGC-LABEL: {url: "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm", title: "人工智能生成合成内容标识办法"}
+  LOCAL-IN: {path: "review/runs/synthetic-lifecycle-input.yaml", title: "synthetic lifecycle input"}
+  LOCAL-ROOT: {path: "review/runs/frozen-authority-root.yaml", title: "independently supplied frozen authority root"}
+  LOCAL-OUT: {path: "review/runs/synthetic-lifecycle-results.yaml", title: "synthetic lifecycle results"}
+  LOCAL-SUMMARY: {path: "review/runs/synthetic-lifecycle-summary.md", title: "synthetic lifecycle summary"}
+  LOCAL-NEG: {path: "review/runs/v2.4-negative-regression-results.yaml", title: "v2.4 author-side historical and event-chain negative regression"}
+  LOCAL-REPRO: {path: "review/runs/v2.4-fresh-temp-reproduction.yaml", title: "v2.4 fresh-temp double reproduction"}
+claims:
+  - {evidence_id: E-C24-001, claim: "生命周期治理把责任、身份、迁移、发布、恢复和退出组成一条可审计控制链。", class: METHODOLOGY, source_ids: [NIST-AI-RMF, NIST-GENAI, PREFLIGHT]}
+  - {evidence_id: E-C24-002, claim: "Agent可执行任务但不能成为最终Accountable主体或自行接受组织残余风险。", class: PROJECT-DECISION, source_ids: [NIST-AGENT-ID, C17, PREFLIGHT]}
+  - {evidence_id: E-C24-003, claim: "业务、技术、数据、模型能力、安全风险和运维六类owner覆盖C21最小问责面。", class: METHODOLOGY, source_ids: [NIST-AI-RMF, PREFLIGHT]}
+  - {evidence_id: E-C24-004, claim: "高风险变更的提出、批准、执行和验收需要职责分离。", class: METHODOLOGY, source_ids: [NIST-AI-RMF, C17, C22]}
+  - {evidence_id: E-C24-005, claim: "release unit必须含可识别构建、契约、模型Provider、工具、Skill Plugin、记忆策略、runtime和依赖。", class: METHODOLOGY, source_ids: [PREFLIGHT, C05, C06, C13, C15, C18]}
+  - {evidence_id: E-C24-006, claim: "变更按权限、数据、外部effect、兼容和可逆性评估，不按文件大小判断风险。", class: METHODOLOGY, source_ids: [PREFLIGHT, C17, C22]}
+  - {evidence_id: E-C24-007, claim: "生命周期状态机包含candidate、tested、shadow、canary、limited、production、paused、rolled-back、retired等受控状态。", class: METHODOLOGY, source_ids: [PREFLIGHT, BOOK]}
+  - {evidence_id: E-C24-008, claim: "发布版本、构建身份、契约策略版本、state schema和模型Provider版本互不替代。", class: METHODOLOGY, source_ids: [OC-STATE, PREFLIGHT]}
+  - {evidence_id: E-C24-009, claim: "迁移合同需要from/to schema、dry-run、写策略、receipt、重入、验证和rollback或forward-fix。", class: METHODOLOGY, source_ids: [OC-STATE, PREFLIGHT]}
+  - {evidence_id: E-C24-010, claim: "兼容矩阵必须区分读写方向和实际探针，启动成功不能证明状态兼容。", class: METHODOLOGY, source_ids: [OC-STATE, PREFLIGHT]}
+  - {evidence_id: E-C24-011, claim: "依赖账本需要来源、锁定、digest签名、SBOM、许可、漏洞和替代路径。", class: METHODOLOGY, source_ids: [C15, PREFLIGHT]}
+  - {evidence_id: E-C24-012, claim: "备份文件存在不等于恢复可用。", class: IMPLEMENTATION-BOUNDARY, source_ids: [OC-BACKUP, HE-BACKUP-DYN, PREFLIGHT]}
+  - {evidence_id: E-C24-013, claim: "状态清单需发现数据库、外置目录、契约、凭证引用、队列任务、Artifacts、审计和外部状态。", class: METHODOLOGY, source_ids: [OC-BACKUP, HE-ARCH, HE-PROFILES, PREFLIGHT]}
+  - {evidence_id: E-C24-014, claim: "restore proof需在隔离目标验证identity、schema、权限、任务、交付和环境终态。", class: METHODOLOGY, source_ids: [OC-BACKUP, OC-RESTART, PREFLIGHT]}
+  - {evidence_id: E-C24-015, claim: "RPO与RTO必须从业务承诺反推并由演练测量。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C24-016, claim: "重启后需区分可续作、待对账、不可恢复和禁止重放四类工作。", class: IMPLEMENTATION-BOUNDARY, source_ids: [OC-RESTART, C06, C23]}
+  - {evidence_id: E-C24-017, claim: "发布恢复采用D21技术执行、交付可见、业务/环境验收三面；第三面分业务接受与环境终态两个子面。", class: PROJECT-DECISION, source_ids: [DECISIONS, C23, PREFLIGHT]}
+  - {evidence_id: E-C24-018, claim: "shadow默认不应持有生产副作用权限。", class: METHODOLOGY, source_ids: [PREFLIGHT, C18, C22]}
+  - {evidence_id: E-C24-019, claim: "canary须限制对象、比例、时窗、tenant、effect、预算和停止条件。", class: METHODOLOGY, source_ids: [PREFLIGHT, C17, C23]}
+  - {evidence_id: E-C24-020, claim: "limited上岗是需续签的范围合同，不是永久批准。", class: METHODOLOGY, source_ids: [PREFLIGHT, C17]}
+  - {evidence_id: E-C24-021, claim: "production状态仍受自主半径、硬门、持续监测和撤权约束。", class: PROJECT-DECISION, source_ids: [C17, C22, C23, PREFLIGHT]}
+  - {evidence_id: E-C24-022, claim: "Guarded Upgrade包含身份冻结、diff、兼容与恢复、隔离测试、影子、灰度、批准和归档退役八段。", class: METHODOLOGY, source_ids: [OC-STATE, OC-UPDATE, PREFLIGHT]}
+  - {evidence_id: E-C24-023, claim: "代码或配置rollback不会自动撤销外部世界effect。", class: METHODOLOGY, source_ids: [OC-UPDATE, C23, PREFLIGHT]}
+  - {evidence_id: E-C24-024, claim: "隐私、数据主权、知识产权和行业义务需专业复核，平台文档不构成法律结论。", class: SOURCE-BOUNDARY, source_ids: [BOOK, CARD, PREFLIGHT]}
+  - {evidence_id: E-C24-025, claim: "数据处置覆盖在线状态、memory、index、Artifacts、日志、导出、外部系统和备份恢复路径。", class: METHODOLOGY, source_ids: [C13, C22, PREFLIGHT]}
+  - {evidence_id: E-C24-026, claim: "pause需停止新admission并对账在途工作，不能只退出本地进程。", class: METHODOLOGY, source_ids: [C20, C23, PREFLIGHT]}
+  - {evidence_id: E-C24-027, claim: "退役需要关闭入口、处理在途、撤权、处置数据、卸载、验证替代和保存必要经验。", class: METHODOLOGY, source_ids: [OC-UNINSTALL, PREFLIGHT]}
+  - {evidence_id: E-C24-028, claim: "凭证撤销需覆盖token、session、delegation、service account、webhook、node pairing、缓存grant和备份材料。", class: METHODOLOGY, source_ids: [NIST-AGENT-ID, C22, PREFLIGHT]}
+  - {evidence_id: E-C24-029, claim: "退役可继承经审查的测试、runbook和教训，但不继承旧authority、credential或信任分。", class: METHODOLOGY, source_ids: [C07, C17, C18, PREFLIGHT]}
+  - {evidence_id: E-C24-030, claim: "OpenClaw固定版提供versioned state和guarded upgrade构件，但不证明本地升级成功。", class: IMPLEMENTATION-FACT, source_ids: [OC-STATE]}
+  - {evidence_id: E-C24-031, claim: "OpenClaw固定版备份覆盖global和per-agent SQLite并提示外置agentDir及一致快照边界。", class: IMPLEMENTATION-FACT, source_ids: [OC-BACKUP]}
+  - {evidence_id: E-C24-032, claim: "OpenClaw固定版restart recovery区分持久和进程态并限制自动恢复与重复阻断。", class: IMPLEMENTATION-FACT, source_ids: [OC-RESTART]}
+  - {evidence_id: E-C24-033, claim: "OpenClaw固定版update history区分run status、health和outcome，缺证据应显示unavailable。", class: IMPLEMENTATION-FACT, source_ids: [OC-UPDATE]}
+  - {evidence_id: E-C24-034, claim: "OpenClaw固定版uninstall按service、state、workspace、app分scope且state删除要求ownership。", class: IMPLEMENTATION-FACT, source_ids: [OC-UNINSTALL]}
+  - {evidence_id: E-C24-035, claim: "Hermes固定版architecture与profiles可用于盘点组件和隔离范围但不证明恢复效果。", class: IMPLEMENTATION-FACT, source_ids: [HE-ARCH, HE-PROFILES]}
+  - {evidence_id: E-C24-036, claim: "Hermes当前update、backup和profiles文档属于动态事实，不倒灌为0.20.1固定实现。", class: SOURCE-BOUNDARY, source_ids: [HE-UPDATE-DYN, HE-BACKUP-DYN, HE-PROFILES-DYN]}
+  - {evidence_id: E-C24-037, claim: "Muse公开材料只作为permissions、activity、artifacts和托管体验的VENDOR-CLAIM镜面。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C24-038, claim: "D22只有training、regression、holdout、representative real-world四层，security red-team横切且不可补偿。", class: PROJECT-DECISION, source_ids: [DECISIONS, C07]}
+  - {evidence_id: E-C24-039, claim: "C20 v3.2与C18 v3.1事实/交叉门有限制通过但真实实践RR，C19和C20仍在修订，C21只能受限消费。", class: PROJECT-STATE, source_ids: [PREFLIGHT, C20, C21, C22, C23]}
+  - {evidence_id: E-C24-040, claim: "作者v2.4离线基线含79个唯一harness trial，分布3 PASS、74 FAIL、2 REVIEW_REQUIRED，代表性真实层与真实外部effect均为0，摘要decision digest固定。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-ROOT, LOCAL-IN, LOCAL-OUT, LOCAL-SUMMARY]}
+  - {evidence_id: E-C24-041, claim: "C21恰好交付责任矩阵、发布升级计划、备份恢复证明和退役清单四件母产物。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C24-042, claim: "成长、复职和退役只作工程治理隐喻，不推出Agent意识、权利或法律人格。", class: METAPHOR-BOUNDARY, source_ids: [BOOK, QUALITY, PREFLIGHT]}
+  - {evidence_id: E-C24-043, claim: "受限上游关闭后需回归交接A2A、安全凭证、事件链和D21接口。", class: PROJECT-STATE, source_ids: [PREFLIGHT, C20, C21, C22, C23]}
+  - {evidence_id: E-C24-044, claim: "CASE-A/B/C都需完成发布评审、恢复演练和重大变更后复测。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C24-045, claim: "本章不构成隐私、版权、劳动、消费者或行业法律意见。", class: SOURCE-BOUNDARY, source_ids: [CARD, PREFLIGHT]}
+  - {evidence_id: E-C24-046, claim: "离线fixture完全合成、无真实凭证和真实任务层，不能冒充生产验证。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-IN, LOCAL-OUT]}
+  - {evidence_id: E-C24-047, claim: "v2.4 harness物理分离并固定摘要钉住authority root，严格校验schema、类型、枚举、有限数值、时间和唯一ID；不读取expected、场景名或mutation token。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-ROOT, LOCAL-IN, LOCAL-OUT]}
+  - {evidence_id: E-C24-048, claim: "完整rollout plan以canonical digest冻结stage、scope、权限、最小最大trial、成本、时窗、环境和owner，并由release或独立plan authority批准。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-ROOT, LOCAL-IN, LOCAL-OUT, LOCAL-NEG]}
+  - {evidence_id: E-C24-049, claim: "trial逐项解引用task、dataset layer、input digest、grader、terminal和冻结trial digest；scenario的task trial layer holdout security metadata由冻结证据派生。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-ROOT, LOCAL-IN, LOCAL-OUT, LOCAL-NEG]}
+  - {evidence_id: E-C24-050, claim: "effect必须闭合authority receipt与独立readback，task schedule webhook必须解引用批准manifest，自报authorized或合法owner scope不能替代证据链。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-ROOT, LOCAL-IN, LOCAL-OUT, LOCAL-NEG]}
+  - {evidence_id: E-C24-051, claim: "v2.4作者负测50/50命中，其中历史v2.3独立38项完整复跑38/38，新增事件链12/12；两个fresh-temp的root input result summary negative result逐字节一致。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-NEG, LOCAL-REPRO]}
+  - {evidence_id: E-C24-052, claim: "v2.4冻结publication与lifecycle event registries，将法务review、release/plan批准、实际执行receipt/readback以及退役request/approval/execution/evidence/residual/signoff绑定为同一release、plan、authority和时间链；rollout窗口开始或评估now不能替代执行时刻。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-ROOT, LOCAL-IN, LOCAL-OUT, LOCAL-NEG, LOCAL-REPRO]}
+  - {evidence_id: E-C24-053, claim: "中国境内Agent项目应按个人信息处理活动与数据处理活动分别评估个人信息保护、数据分类分级、主体权利、风险监测和事件义务。", class: PRIMARY-LAW, source_ids: [CN-PIPL, CN-DSL]}
+  - {evidence_id: E-C24-054, claim: "面向境内公众的生成式AI服务、具有舆论属性或社会动员能力的服务，以及相关算法和生成内容可能触发不同的安全评估、备案登记与标识流程，不能互相替代。", class: PRIMARY-REGULATION, source_ids: [CN-GENAI, CN-ALGO, CN-GENAI-FILING, CN-AIGC-LABEL]}
+open_questions:
+  - {id: OQ-C24-01, question: "C20 v3.2真实路由、取消与UNKNOWN实践完成后的联合回归？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C24-02, question: "C21 v3.1真实A2A、Artifact信任与stop receipt实践完成后的联合回归？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C24-03, question: "C19与C20修订闭合后的凭证、D21、事故和成本接口回归？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C24-04, question: "目标组织、法域、供应商合同、真实数据流与专业法律意见？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C24-05, question: "真实OpenClaw、Hermes和跨平台备份迁移恢复运行证据？", disposition: REVIEW_REQUIRED}

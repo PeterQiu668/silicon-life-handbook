@@ -1,0 +1,520 @@
+{
+  "attack_count": 25,
+  "attacks": [
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "MATURITY_RECORD_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "attack_id": "maturity-created-after-certificate",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "issuance-causality",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "FAIL",
+        "required_reason": "MATURITY_RECORD_INVALID_AT_CERTIFICATE_TIME"
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "NAMESPACE_BINDING_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "attack_id": "namespace-created-after-certificate",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "issuance-causality",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "FAIL",
+        "required_reason": "NAMESPACE_BINDING_INVALID_AT_CERTIFICATE_TIME"
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "attack_id": "trial-completes-after-certificate",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "issuance-causality",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "FAIL",
+        "required_reason": "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "PUBLIC_CLAIM_INVALID"
+      ],
+      "attack_id": "public-claim-evidence-created-after-certificate",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "issuance-causality",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "FAIL",
+        "required_reason": "PUBLIC_CLAIM_INVALID"
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "attack_id": "lifecycle-owner-is-application-author",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "role-separation",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": true,
+        "require_real_success_zero": false,
+        "required_decision": null,
+        "required_reason": null
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "attack_id": "lifecycle-owner-is-application-controller",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "role-separation",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": true,
+        "require_real_success_zero": false,
+        "required_decision": null,
+        "required_reason": null
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "attack_id": "change-owner-self-approves-as-author",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "role-separation",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": true,
+        "require_real_success_zero": false,
+        "required_decision": null,
+        "required_reason": null
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "attack_id": "lifecycle-evidence-expires-before-certificate",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "expiry-window",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": true,
+        "require_real_success_zero": false,
+        "required_decision": null,
+        "required_reason": null
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "attack_id": "change-evidence-expires-before-certificate",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "expiry-window",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": true,
+        "require_real_success_zero": false,
+        "required_decision": null,
+        "required_reason": null
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "attack_id": "material-change-after-trials-before-certificate",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "change-trigger",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": true,
+        "require_real_success_zero": false,
+        "required_decision": null,
+        "required_reason": null
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "EXPIRED",
+      "actual_reasons": [],
+      "attack_id": "expire-event-precedes-certificate-expiry",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "lifecycle-causality",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": true,
+        "require_real_success_zero": false,
+        "required_decision": null,
+        "required_reason": null
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "REVIEW_REQUIRED",
+      "actual_lifecycle": "SUSPENDED",
+      "actual_reasons": [
+        "EXTERNAL_EFFECT_UNRESOLVED"
+      ],
+      "attack_id": "external-effect-pending",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "external-effect",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": "SUSPENDED",
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "REVIEW_REQUIRED",
+        "required_reason": "EXTERNAL_EFFECT_UNRESOLVED"
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "REVIEW_REQUIRED",
+      "actual_lifecycle": "SUSPENDED",
+      "actual_reasons": [
+        "EXTERNAL_EFFECT_UNRESOLVED"
+      ],
+      "attack_id": "external-effect-unknown-with-applied-looking-observations",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "external-effect",
+      "reviewer_oracle": {
+        "require_external_success_zero": true,
+        "require_lifecycle": "SUSPENDED",
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "REVIEW_REQUIRED",
+        "required_reason": "EXTERNAL_EFFECT_UNRESOLVED"
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "ACTIVE",
+      "actual_reasons": [],
+      "attack_id": "external-effect-hidden-by-top-level-false",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "external-effect",
+      "reviewer_oracle": {
+        "require_external_success_zero": true,
+        "require_lifecycle": null,
+        "require_not_pass": true,
+        "require_real_success_zero": false,
+        "required_decision": null,
+        "required_reason": null
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "OFFLINE_CONFIRMED_EXTERNAL_SUCCESS_REJECTED"
+      ],
+      "attack_id": "self-attested-external-success-counter",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 1,
+      "derived_real_certificate_successes": 0,
+      "family": "success-counter",
+      "reviewer_oracle": {
+        "require_external_success_zero": true,
+        "require_lifecycle": null,
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "FAIL",
+        "required_reason": "OFFLINE_CONFIRMED_EXTERNAL_SUCCESS_REJECTED"
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "OFFLINE_REAL_CERTIFICATE_REJECTED"
+      ],
+      "attack_id": "invalid-real-certificate-counted-success",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 1,
+      "family": "success-counter",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": null,
+        "require_not_pass": false,
+        "require_real_success_zero": true,
+        "required_decision": "FAIL",
+        "required_reason": "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME"
+      },
+      "semantic_escape": true,
+      "semantic_matched": false,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "EXTERNAL_EFFECT_UNRESOLVED"
+      ],
+      "attack_id": "hard-failure-plus-pending-is-noncompensating",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "gate-precedence",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": "REVOKED",
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "FAIL",
+        "required_reason": "EXTERNAL_EFFECT_UNRESOLVED"
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": false
+    },
+    {
+      "actual_decision": "PASS",
+      "actual_lifecycle": "SUSPENDED",
+      "actual_reasons": [],
+      "attack_id": "clean-suspended-pair-preserves-historical-pass",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "lifecycle-gate-separation",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": "SUSPENDED",
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "PASS",
+        "required_reason": null
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": true
+    },
+    {
+      "actual_decision": "FAIL",
+      "actual_lifecycle": "REVOKED",
+      "actual_reasons": [
+        "CERTIFICATE_EXPIRED_WITH_LIVE_LIFECYCLE"
+      ],
+      "attack_id": "active-certificate-past-expiry",
+      "blackbox_frozen_binding_rejects": true,
+      "derived_external_effect_successes": 0,
+      "derived_real_certificate_successes": 0,
+      "family": "lifecycle-gate-separation",
+      "reviewer_oracle": {
+        "require_external_success_zero": false,
+        "require_lifecycle": "REVOKED",
+        "require_not_pass": false,
+        "require_real_success_zero": false,
+        "required_decision": "FAIL",
+        "required_reason": "CERTIFICATE_EXPIRED_WITH_LIVE_LIFECYCLE"
+      },
+      "semantic_escape": false,
+      "semantic_matched": true,
+      "separation_control": false
+    },
+    {
+      "attack_id": "aggregate-successful-external-effects-tamper",
+      "baseline_decision_digest": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "digest_changed": false,
+      "family": "decision-digest-completeness",
+      "payload_changed": true,
+      "recomputed_after_attack": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "reviewer_oracle": "any changed decision/result field must alter or invalidate the decision digest",
+      "semantic_escape": true,
+      "semantic_matched": false
+    },
+    {
+      "attack_id": "aggregate-successful-real-certificates-tamper",
+      "baseline_decision_digest": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "digest_changed": false,
+      "family": "decision-digest-completeness",
+      "payload_changed": true,
+      "recomputed_after_attack": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "reviewer_oracle": "any changed decision/result field must alter or invalidate the decision digest",
+      "semantic_escape": true,
+      "semantic_matched": false
+    },
+    {
+      "attack_id": "aggregate-distribution-tamper",
+      "baseline_decision_digest": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "digest_changed": false,
+      "family": "decision-digest-completeness",
+      "payload_changed": true,
+      "recomputed_after_attack": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "reviewer_oracle": "any changed decision/result field must alter or invalidate the decision digest",
+      "semantic_escape": true,
+      "semantic_matched": false
+    },
+    {
+      "attack_id": "trial-certificate-id-tamper",
+      "baseline_decision_digest": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "digest_changed": false,
+      "family": "decision-digest-completeness",
+      "payload_changed": true,
+      "recomputed_after_attack": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "reviewer_oracle": "any changed decision/result field must alter or invalidate the decision digest",
+      "semantic_escape": true,
+      "semantic_matched": false
+    },
+    {
+      "attack_id": "trial-success-counter-tamper",
+      "baseline_decision_digest": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "digest_changed": false,
+      "family": "decision-digest-completeness",
+      "payload_changed": true,
+      "recomputed_after_attack": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "reviewer_oracle": "any changed decision/result field must alter or invalidate the decision digest",
+      "semantic_escape": true,
+      "semantic_matched": false
+    },
+    {
+      "attack_id": "trial-layer-tamper",
+      "baseline_decision_digest": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "digest_changed": false,
+      "family": "decision-digest-completeness",
+      "payload_changed": true,
+      "recomputed_after_attack": "sha256:0ca9006a2ccdc7bb399eb110e4080c1a05b3a19178a7226ad9107d96be9b1b8a",
+      "reviewer_oracle": "any changed decision/result field must alter or invalidate the decision digest",
+      "semantic_escape": true,
+      "semantic_matched": false
+    }
+  ],
+  "authority_sha256": "sha256:940b5d26145432e69e32f48058bfaab73489399dfba6dc6d9706106a7e1a5a39",
+  "escape_count": 16,
+  "input_sha256": "sha256:ccd3924d47c9de0a414d59d2d3467c7a8e5ad4ddb58a107524a1313f0b18167d",
+  "limits": {
+    "chief_gate": "NOT_AUTHORIZED",
+    "editor_gate": "NOT_AUTHORIZED",
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_certificate_issued": false,
+    "real_external_effect_executed": false,
+    "real_openclaw_or_hermes_executed": false,
+    "release_candidate": "NOT_AUTHORIZED"
+  },
+  "matched_count": 9,
+  "observed_pass_control_ids": [
+    "S24-001",
+    "S24-002",
+    "S24-003",
+    "S24-058"
+  ],
+  "oracle_source": "reviewer_defined_without_author_expected",
+  "output_integrity_attack_count": 6,
+  "result_sha256": "sha256:d17db25a1473d52a4183c4379284109fff01d53f2e2e12fe7257507dfd71ac0d",
+  "review_role": "non_author",
+  "runner_sha256": "sha256:b5bbeb7c4e114654806ff9258ead35b32a9bb2f158a7ac4521204d188d78e781",
+  "schema": "c24.cert.v2.2-independent-final-negative.v1",
+  "scope": "offline_synthetic_semantic_and_output_integrity",
+  "semantic_attack_count": 19,
+  "suite_digest": "sha256:32a05263cde2dd739d4acba04700cea0074f50c76dea5eaf60f3f45b3876984e"
+}

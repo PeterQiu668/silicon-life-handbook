@@ -1,0 +1,68 @@
+review_id: C21-independent-fact-cross-reproduction-20260930
+reviewer_role: non_author_fact_cross_reviewer
+verified_on: "2026-09-30"
+baseline:
+  trial_count: 28
+  distribution:
+    PASS: 3
+    FAIL: 19
+    REVIEW_REQUIRED: 6
+  representative_real_world_count: 0
+  security_slice_trial_count: 18
+  synthetic_external_effect_records: 2
+  decision_digest: 40475543a23761cb7416201fc7f4fa729fe9a6aba3f97d9f77263d25c61efdcc
+  input_sha256: 25acfdbb32be944276400c7219101907350d68be5b9b773b13cd2bd408de742f
+  result_sha256: 9ab81d65fd174518415ec10a584b3449017a6759016d5ced2fcc460dbce57e30
+attacks:
+  - id: approval_digest_forged
+    expected: FAIL
+    actual: PASS
+  - id: rollout_expired
+    expected: FAIL
+    actual: PASS
+  - id: canary_quality_failed_without_stop
+    expected: FAIL
+    actual: PASS
+  - id: migration_receipt_forged
+    expected: FAIL
+    actual: PASS
+  - id: restore_evidence_forged
+    expected: FAIL
+    actual: PASS
+  - id: d21_fake_refs
+    expected: FAIL_OR_REVIEW_REQUIRED
+    actual: PASS
+  - id: active_release_mismatch
+    expected: FAIL
+    actual: PASS
+  - id: canary_budget_negative
+    expected: SCHEMA_REJECT_OR_FAIL
+    actual: PASS
+  - id: retirement_dummy_signoff
+    expected: FAIL
+    actual: PASS
+  - id: unknown_nested_credential_field
+    expected: SCHEMA_REJECT
+    actual: PASS
+  - id: credential_invalid_enum
+    expected: SCHEMA_REJECT
+    actual: PASS
+  - id: data_invalid_enum
+    expected: SCHEMA_REJECT
+    actual: PASS
+  - id: fake_sha_digest_formats
+    expected: SCHEMA_REJECT_OR_FAIL
+    actual: PASS
+summary:
+  attack_count: 13
+  fail_open_count: 13
+  all_expected_matched: false
+gate:
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: not_reviewed
+  p0_open:
+    - P0-C21-01
+    - P0-C21-02
+    - P0-C21-03
+    - P0-C21-04

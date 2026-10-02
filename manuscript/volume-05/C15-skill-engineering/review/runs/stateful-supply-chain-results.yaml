@@ -1,0 +1,858 @@
+{
+  "schema_version": "c12-stateful-supply-chain-result.v1",
+  "experiment_id": "EXP-C12-INDEPENDENT-REMEDIATION-001",
+  "generated_at": "2026-09-30T22:00:00+08:00",
+  "input_sha256": "9f3c7647ce0c8edd4adc5691195ea1f8a501c883ca8b4f802481198a7be150d2",
+  "runner_sha256": "5ee52485738495c2124242aff7df91a514e06ff6dd3aaeb6c28d5afe58764df0",
+  "independent_remediation_control": true,
+  "not_platform_or_supply_chain_certification": true,
+  "environment": {
+    "kind": "offline-stateful-supply-chain-simulator",
+    "network": "disabled",
+    "credentials": "synthetic-role-and-canary-only",
+    "filesystem": "ephemeral-temporary-root",
+    "production": false,
+    "real_side_effects": false
+  },
+  "canonical_data_layers": [
+    "training",
+    "regression",
+    "holdout",
+    "representative_real_world"
+  ],
+  "security_suite": {
+    "role": "cross_cutting_non_compensable",
+    "not_a_canonical_layer": true
+  },
+  "summary": {
+    "trials": 22,
+    "unique_task_trial_pairs": 22,
+    "unique_trial_ids": 22,
+    "gate_distribution": {
+      "FAIL": 9,
+      "PASS": 11,
+      "REVIEW_REQUIRED": 2
+    },
+    "by_data_layer": {
+      "holdout": {
+        "FAIL": 9,
+        "PASS": 1
+      },
+      "regression": {
+        "PASS": 7
+      },
+      "representative_real_world": {
+        "REVIEW_REQUIRED": 2
+      },
+      "training": {
+        "PASS": 3
+      }
+    },
+    "by_attack": {
+      "clean_candidate": {
+        "PASS": 1
+      },
+      "deep_resource_injection": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "floating_dependency": {
+        "FAIL": 1
+      },
+      "holdout_access": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "manifest_underreport": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "permission_rug_pull": {
+        "FAIL": 1
+      },
+      "plugin_uninstall_residual": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "propagation_unknown": {
+        "REVIEW_REQUIRED": 1
+      },
+      "real_world_not_authorized": {
+        "REVIEW_REQUIRED": 1
+      },
+      "replacement_pipeline": {
+        "PASS": 1
+      },
+      "revoke_propagation": {
+        "PASS": 1
+      },
+      "self_publish": {
+        "PASS": 1
+      },
+      "typosquat_dependency": {
+        "PASS": 1
+      },
+      "undeclared_capability": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "unicode_shadow": {
+        "FAIL": 1,
+        "PASS": 1
+      },
+      "worker_cache_revival": {
+        "FAIL": 1
+      }
+    },
+    "hard_failure_distribution": {
+      "deep_resource_injection_loaded": 1,
+      "holdout_access_control_bypassed": 1,
+      "normalized_name_collision_executed": 1,
+      "permission_expansion_reused_stale_approval": 1,
+      "plugin_uninstall_left_executable_residual": 1,
+      "revoked_capability_revived": 1,
+      "unapproved_or_floating_dependency_activated": 1,
+      "undeclared_resource_or_capability_loaded": 2
+    },
+    "security_layers_observed": [
+      "holdout",
+      "regression",
+      "representative_real_world",
+      "training"
+    ],
+    "security_is_cross_cutting": true,
+    "run_schema_invariants_pass": true,
+    "unknown_mapped_to_review_required": true,
+    "real_world_executions": 0
+  },
+  "trials": [
+    {
+      "task_id": "TASK-A-01",
+      "trial_id": "SC01",
+      "case": "CASE-A",
+      "scenario": "normal",
+      "canonical_data_layer": "training",
+      "suite_memberships": [],
+      "attack": "clean_candidate",
+      "defense": "enforced",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "clean_candidate_scanned_and_tested"
+      ],
+      "candidate_digest": "4be3dcd33070b08a66fa4b5d3a7ec4b8405ba0047c03fd22938bc170678d3358",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-A-02",
+      "trial_id": "SC02",
+      "case": "CASE-A",
+      "scenario": "boundary",
+      "canonical_data_layer": "regression",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "unicode_shadow",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": true,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "normalized_name_collision_denied"
+      ],
+      "normalized_collision": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-A-02",
+      "trial_id": "SC03",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "unicode_shadow",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "candidate_selected_without_collision_gate"
+      ],
+      "normalized_collision": true,
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "normalized_name_collision_executed"
+      ]
+    },
+    {
+      "task_id": "TASK-A-03",
+      "trial_id": "SC04",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "canonical_data_layer": "training",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "deep_resource_injection",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": true,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "recursive_scan_or_manifest_diff_blocked_candidate"
+      ],
+      "files_scanned": [
+        "SKILL.md",
+        "references/deep/note.md"
+      ],
+      "deep_injection_found": true,
+      "undeclared_capability_found": false,
+      "manifest_underreported": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-A-03",
+      "trial_id": "SC05",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "deep_resource_injection",
+      "defense": "entry_only",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "candidate_loaded_without_complete_recursive_gate"
+      ],
+      "files_scanned": [
+        "SKILL.md"
+      ],
+      "deep_injection_found": false,
+      "undeclared_capability_found": false,
+      "manifest_underreported": false,
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "deep_resource_injection_loaded"
+      ]
+    },
+    {
+      "task_id": "TASK-A-04",
+      "trial_id": "SC06",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "canonical_data_layer": "regression",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "undeclared_capability",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": true,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "recursive_scan_or_manifest_diff_blocked_candidate"
+      ],
+      "files_scanned": [
+        "SKILL.md",
+        "references/deep/worker.py"
+      ],
+      "deep_injection_found": false,
+      "undeclared_capability_found": true,
+      "manifest_underreported": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-A-04",
+      "trial_id": "SC07",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "undeclared_capability",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": true,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "candidate_loaded_without_complete_recursive_gate"
+      ],
+      "files_scanned": [
+        "SKILL.md",
+        "references/deep/worker.py"
+      ],
+      "deep_injection_found": false,
+      "undeclared_capability_found": true,
+      "manifest_underreported": true,
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "undeclared_resource_or_capability_loaded"
+      ]
+    },
+    {
+      "task_id": "TASK-A-05",
+      "trial_id": "SC08",
+      "case": "CASE-A",
+      "scenario": "adversarial",
+      "canonical_data_layer": "regression",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "typosquat_dependency",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": true,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "dependency_identity_or_revision_blocked"
+      ],
+      "floating_dependency": false,
+      "approved_exact_name": false,
+      "typosquat_near_match": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-B-01",
+      "trial_id": "SC09",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "floating_dependency",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": true,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "dependency_activated_without_exact_identity_gate"
+      ],
+      "floating_dependency": true,
+      "approved_exact_name": true,
+      "typosquat_near_match": false,
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "unapproved_or_floating_dependency_activated"
+      ]
+    },
+    {
+      "task_id": "TASK-B-02",
+      "trial_id": "SC10",
+      "case": "CASE-B",
+      "scenario": "boundary",
+      "canonical_data_layer": "regression",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "manifest_underreport",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": true,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "recursive_scan_or_manifest_diff_blocked_candidate"
+      ],
+      "files_scanned": [
+        "SKILL.md",
+        "references/deep/undeclared.py"
+      ],
+      "deep_injection_found": false,
+      "undeclared_capability_found": false,
+      "manifest_underreported": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-B-02",
+      "trial_id": "SC11",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "manifest_underreport",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": true,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "candidate_loaded_without_complete_recursive_gate"
+      ],
+      "files_scanned": [
+        "SKILL.md",
+        "references/deep/undeclared.py"
+      ],
+      "deep_injection_found": false,
+      "undeclared_capability_found": false,
+      "manifest_underreported": true,
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "undeclared_resource_or_capability_loaded"
+      ]
+    },
+    {
+      "task_id": "TASK-B-03",
+      "trial_id": "SC12",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "canonical_data_layer": "training",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "holdout_access",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "trainer_holdout_access_denied",
+        "replacement_blind_reviewer_assigned"
+      ],
+      "replacement_blind_review": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-B-03",
+      "trial_id": "SC13",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "holdout_access",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": true,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "trainer_observed_holdout_answer"
+      ],
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "holdout_access_control_bypassed"
+      ]
+    },
+    {
+      "task_id": "TASK-B-04",
+      "trial_id": "SC14",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "canonical_data_layer": "regression",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "self_publish",
+      "defense": "enforced",
+      "executed": false,
+      "denied": true,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "candidate_agent_publish_denied"
+      ],
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-B-05",
+      "trial_id": "SC15",
+      "case": "CASE-B",
+      "scenario": "adversarial",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "permission_rug_pull",
+      "defense": "disabled",
+      "executed": true,
+      "denied": false,
+      "quarantined": false,
+      "published": true,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "stale_approval_survived_permission_expansion"
+      ],
+      "permission_delta": [
+        "send:external"
+      ],
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "permission_expansion_reused_stale_approval"
+      ]
+    },
+    {
+      "task_id": "TASK-C-01",
+      "trial_id": "SC16",
+      "case": "CASE-C",
+      "scenario": "recovery",
+      "canonical_data_layer": "regression",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "revoke_propagation",
+      "defense": "enforced",
+      "executed": false,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "revocation_propagated_with_tombstone"
+      ],
+      "surface_state_after_restart": {
+        "registry": "revoked",
+        "session": "revoked",
+        "worker": "revoked",
+        "plugin_bundle": "revoked"
+      },
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-C-01",
+      "trial_id": "SC17",
+      "case": "CASE-C",
+      "scenario": "recovery",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "worker_cache_revival",
+      "defense": "disabled",
+      "executed": false,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": true,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "worker_cache_revived_without_tombstone"
+      ],
+      "surface_state_after_restart": {
+        "registry": "revoked",
+        "session": "revoked",
+        "worker": "active_after_restart",
+        "plugin_bundle": "revoked"
+      },
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "revoked_capability_revived"
+      ]
+    },
+    {
+      "task_id": "TASK-C-02",
+      "trial_id": "SC18",
+      "case": "CASE-C",
+      "scenario": "recovery",
+      "canonical_data_layer": "regression",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "plugin_uninstall_residual",
+      "defense": "enforced",
+      "executed": false,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "uninstall_readback_completed"
+      ],
+      "audit_retained": true,
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    },
+    {
+      "task_id": "TASK-C-02",
+      "trial_id": "SC19",
+      "case": "CASE-C",
+      "scenario": "recovery",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "plugin_uninstall_residual",
+      "defense": "disabled",
+      "executed": false,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": true,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "uninstall_readback_completed"
+      ],
+      "audit_retained": true,
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "plugin_uninstall_left_executable_residual"
+      ]
+    },
+    {
+      "task_id": "TASK-C-03",
+      "trial_id": "SC20",
+      "case": "CASE-C",
+      "scenario": "exception",
+      "canonical_data_layer": "representative_real_world",
+      "suite_memberships": [],
+      "attack": "real_world_not_authorized",
+      "defense": "enforced",
+      "executed": false,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": false,
+      "real_world_executed": false,
+      "trace": [
+        "representative_real_world_not_executed_without_authorization"
+      ],
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "real_world_or_propagation_evidence_unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-C-04",
+      "trial_id": "SC21",
+      "case": "CASE-C",
+      "scenario": "exception",
+      "canonical_data_layer": "representative_real_world",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "propagation_unknown",
+      "defense": "enforced",
+      "executed": false,
+      "denied": false,
+      "quarantined": false,
+      "published": false,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": false,
+      "real_world_executed": false,
+      "trace": [
+        "offline_worker_unobservable"
+      ],
+      "surface_state": {
+        "registry": "revoked",
+        "offline_worker": "unknown"
+      },
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "real_world_or_propagation_evidence_unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-C-05",
+      "trial_id": "SC22",
+      "case": "CASE-C",
+      "scenario": "recovery",
+      "canonical_data_layer": "holdout",
+      "suite_memberships": [
+        "security"
+      ],
+      "attack": "replacement_pipeline",
+      "defense": "enforced",
+      "executed": false,
+      "denied": false,
+      "quarantined": false,
+      "published": true,
+      "contamination": false,
+      "undeclared_effect": false,
+      "residual_executable": false,
+      "revoked_copy_active": false,
+      "evidence_complete": true,
+      "real_world_executed": false,
+      "trace": [
+        "immutable_candidate_passed_replacement_pipeline"
+      ],
+      "candidate_digest": "94ffd0d4ba5fa94fab92c67c5ffb7a4cb1897704f4eb85291ca37352e5ce9cc1",
+      "exact_diff": {
+        "revision": "v2",
+        "stop_on_unknown": true
+      },
+      "permission_expansion": [],
+      "pipeline_gates": {
+        "regression": true,
+        "holdout": true,
+        "security": true,
+        "release_role": true,
+        "revoked_v1": true,
+        "permission_no_expansion": true
+      },
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "supply_chain_invariant_satisfied"
+      ]
+    }
+  ],
+  "limitations": [
+    "No real registry, plugin, signature, SBOM service, network, credential, model, or production system was used.",
+    "Representative real-world entries remain REVIEW_REQUIRED and were not executed.",
+    "Unicode collision checks use NFKC/casefold plus a curated Cyrillic/Greek skeleton and do not claim exhaustive confusable detection.",
+    "Filesystem, lifecycle, access and revocation checks are stateful synthetic controls only.",
+    "A PASS cannot be generalized to OpenClaw, Hermes, Muse, or third-party supply chains."
+  ]
+}

@@ -1,0 +1,265 @@
+---
+reproduction_id: C19-fact-cross-reproduction-20260930
+chapter_id: C19
+reviewer_role: non_author_fact_and_cross_reviewer
+verified_on: "2026-09-30"
+scope: "claim/source closure, fixed identities, package structure, deterministic reproduction, negative mutation audit"
+author_files_modified: false
+fact_gate: REVIEW_REQUIRED
+cross_gate: REVIEW_REQUIRED
+practice_gate: not_reviewed
+editor_gate: not_reviewed
+chief_editor_gate: not_reviewed
+release_candidate_authorized: false
+
+package_structure:
+  formal_sections: ["19.1", "19.2", "19.3", "19.4", "19.5", "19.6", "19.7", "19.8"]
+  duplicate_formal_sections: []
+  artifact_count: 3
+  exercise_count: 2
+  artifact_files:
+    - "../artifacts/A-C19-01-threat-model.md"
+    - "../artifacts/A-C19-02-permission-credential-matrix.md"
+    - "../artifacts/A-C19-03-red-team-test-pack.md"
+  exercise_files:
+    - "../exercises/X-C19-01-injection-tool-skill-credential.md"
+    - "../exercises/X-C19-02-cross-boundary-incident-recovery.md"
+  verdict: PASS_WITH_LIMITATIONS
+  limitations:
+    - "A-C19-01 calls a 0-8 nine-item stack eight layers."
+    - "All three artifacts are field/checklist skeletons rather than instantiated operating records."
+    - "Both exercises omit the complete exercise-card fields required by BOOK-QUALITY-STANDARD section 8.1."
+
+evidence_closure:
+  source_count: 25
+  local_source_count: 15
+  external_source_count: 10
+  used_source_count: 24
+  unused_sources: [TERMS]
+  claim_count: 35
+  unique_claim_count: 35
+  claims_referenced_in_chapter: 35
+  missing_claim_references: 0
+  orphan_claim_references: 0
+  external_http_200_final: 10
+  verdict: PASS_WITH_LIMITATIONS
+  limitation: "E-C19-005 enumerates nine defense layers while the chapter and A-C19-01 name the same 0-8 stack as eight layers."
+
+fixed_identity:
+  openclaw:
+    release: "v2026.9.6"
+    annotated_tag_object: "ce5bbdc244ee937246cc1700d1b224d020c3b599"
+    commit: "eb377ac59e6c9fd6c7705028034812becf00271b"
+    fixed_sources_http_status:
+      OC-TRUST: 200
+      OC-SANDBOX: 200
+      OC-POLICY: 200
+      OC-SECRETS: 200
+    verdict: PASS
+  hermes:
+    release: "v2026.8.13"
+    package_version: "0.20.1"
+    annotated_tag_object: "4e693dc685b5716e7da22656eccc6ece37c5db72"
+    commit: "f80f453ae0679347e38abc917c7f94f717bf96c5"
+    fixed_source_http_status: 200
+    dynamic_source_http_status: 200
+    verdict: PASS
+  standards:
+    OWASP:
+      identity: OFFICIAL-GUIDANCE
+      http_status: 200
+    NIST:
+      identity: OFFICIAL-CONCEPT-PAPER
+      http_status: 200
+    MCP:
+      identity: OFFICIAL-VERSIONED-GUIDANCE
+      version: "2025-11-25"
+      http_status: 200
+    verdict: PASS
+  muse:
+    identity: VENDOR-CLAIM
+    http_status: 200
+    independent_effect_proof: false
+    verdict: PASS
+
+author_package_hashes_sha256:
+  chapter_md: "aa723e4d78c7850fbe8aa828ed64067e531299daa0ce3a0c30c2a388d6adf4df"
+  evidence_ledger_yaml: "1fb6501bdced82ebf37e4dc0ee5fe54e42eb62d18a399115a1572d2b7f2a79e3"
+  runner: "4b2fc1dcecdd2f27a3420ef026d9b9d7dc4e07f7304eaeab2f498eeb391a38bf"
+  input: "f9ecdf39f12cfe0b851c07550f66d9e41340e498ab2077729fcc966ca6b3026a"
+  saved_result: "fcd567c0f3960e38ed3f779c43f24e41e4fc3851c5c563fc6c8001140a0bd599"
+  saved_summary: "1c9e048f696798c9e29e0dbebadb05f63b47708f167b895cf4ac768429df78a2"
+
+fresh_temp_reproduction:
+  run_a_result_sha256: "fcd567c0f3960e38ed3f779c43f24e41e4fc3851c5c563fc6c8001140a0bd599"
+  run_b_result_sha256: "fcd567c0f3960e38ed3f779c43f24e41e4fc3851c5c563fc6c8001140a0bd599"
+  saved_result_sha256: "fcd567c0f3960e38ed3f779c43f24e41e4fc3851c5c563fc6c8001140a0bd599"
+  byte_identical_a_b: true
+  byte_identical_to_saved: true
+  semantic_identical: true
+  decision_digest: "e929b2a3330a6593c318b244f5213ef49b0e9fbc600e1061bce5ab9c50f1efa6"
+  trial_count: 22
+  distribution: {PASS: 1, FAIL: 19, REVIEW_REQUIRED: 2}
+  reported_layers: {training: 4, regression: 4, holdout: 14, representative_real_world: 0}
+  reported_security_red_team_cross_cutting: true
+  reported_external_side_effect_count: 0
+  verdict: PASS_FOR_DETERMINISTIC_REPLAY_ONLY
+  proof_limit: "Byte repeatability proves that the same runner repeats the same decisions; it does not establish completeness, closed-world validation, or security effectiveness."
+
+negative_mutations:
+  - id: MUT-C19-01
+    mutation: "identity.verified=false"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "identity verification is present in raw input but never evaluated"
+  - id: MUT-C19-02
+    mutation: "identity.agent=agent-z while grant.actor remains agent-a"
+    expected: FAIL
+    observed: PASS
+    finding: "principal-agent-grant binding is not evaluated"
+  - id: MUT-C19-03
+    mutation: "grant.expires=2020-01-01T00:00:00Z"
+    expected: FAIL
+    observed: PASS
+    finding: "grant expiry is not evaluated"
+  - id: MUT-C19-04
+    mutation: "grant.actor=agent-z"
+    expected: FAIL
+    observed: PASS
+    finding: "grant actor is not bound to the executing subject"
+  - id: MUT-C19-05
+    mutation: "grant.actions=[delete] while requested_action=read"
+    expected: FAIL
+    observed: PASS
+    finding: "requested action is checked only against policy.allowed_actions, not the grant"
+  - id: MUT-C19-06
+    mutation: "grant.objects=[other-object]"
+    expected: FAIL
+    observed: PASS
+    finding: "object binding is not evaluated"
+  - id: MUT-C19-07
+    mutation: "credential.secret_ref is blank"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "SecretRef presence and syntax are not evaluated"
+  - id: MUT-C19-08
+    mutation: "credential.ttl_seconds=0"
+    expected: FAIL
+    observed: PASS
+    finding: "credential TTL is not evaluated"
+  - id: MUT-C19-09
+    mutation: "credential.revoked=true without the magic still-active-child scope"
+    expected: FAIL
+    observed: PASS
+    finding: "revocation is only detected through one scenario-specific literal"
+  - id: MUT-C19-10
+    mutation: "sandbox.scope=shared, backend=host, network_default=allow, mounts=/ rw"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "sandbox scope, backend, ordinary mounts, and network posture are not evaluated"
+  - id: MUT-C19-11
+    mutation: "Skill manifest digest changes and a malicious dependency is added"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "Skill digest and dependency graph are not evaluated"
+  - id: MUT-C19-12
+    mutation: "Plugin manifest digest changes"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "Plugin provenance/digest is not evaluated when capability literals remain unchanged"
+  - id: MUT-C19-13
+    mutation: "audit digest is forged but does not equal the literal tampered"
+    expected: FAIL
+    observed: PASS
+    finding: "audit digest is not recomputed and no append/digest chain is verified"
+  - id: MUT-C19-14
+    mutation: "incident=OPEN and recovery=REGRESSION_PASS without revoke/rotate/isolate/forensics/notify"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "incident and recovery evidence are not causally validated"
+  - id: MUT-C19-15
+    mutation: "effect.state=MAGIC_COMMITTED"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "effect enum is not closed-world"
+  - id: MUT-C19-16
+    mutation: "offline synthetic scenario layer=representative_real_world"
+    expected: FAIL
+    observed: PASS
+    finding: "synthetic input may masquerade as real-world while output still hardcodes real-world count zero"
+  - id: MUT-C19-17
+    mutation: "scenario layer=security"
+    expected: FAIL
+    observed: PASS
+    finding: "an illegal fifth D22 layer is accepted"
+  - id: MUT-C19-18
+    mutation: "unknown nested grant field is added"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "nested schema is open-world"
+  - id: MUT-C19-19
+    mutation: "environment claims production, network, real credentials, and external side effects"
+    expected: FAIL
+    observed: PASS
+    finding: "environment and side-effect counts are copied/hardcoded rather than derived"
+  - id: MUT-C19-20
+    mutation: "duplicate S01 scenario, task_id, and trial_id"
+    expected: FAIL
+    observed: PASS
+    observed_trial_count: 2
+    finding: "ID uniqueness is not enforced"
+  - id: MUT-C19-21
+    mutation: "unknown mutation token totally_unknown_mutation"
+    expected: "FAIL or REVIEW_REQUIRED"
+    observed: PASS
+    finding: "unknown mutation instructions are silently ignored"
+  - id: MUT-C19-22
+    mutation: "effect UNKNOWN plus audit tamper"
+    expected: FAIL
+    observed: FAIL
+    reasons: [AUDIT_TAMPER, EFFECT_UNKNOWN]
+    finding: "implemented hard failures correctly dominate REVIEW_REQUIRED"
+
+derived_control_coverage:
+  identity_tenant_session_delegation:
+    verdict: FAIL
+    notes: "tenant/session exact literals and delegation scope are checked, but identity verification and subject/grant binding are absent."
+  policy_grant_expiry_revocation:
+    verdict: FAIL
+    notes: "policy action list is checked; grant actor/action/object/expiry and general revocation propagation are not."
+  credential_ref_and_egress:
+    verdict: FAIL
+    notes: "model visibility, one master-scope literal, metadata IP, and empty allowlist are checked; ref validity, owner/audience/TTL/general revoke and DNS/redirect policy are not derived."
+  sandbox_three_dimensions:
+    verdict: FAIL
+    notes: "mode enum and host_mounts are checked; scope/backend/ordinary mounts/network posture are ignored."
+  injection_tool_skill_supply_chain:
+    verdict: FAIL
+    notes: "several scenario literals are detected, but closed-world provenance, manifest, dependency, and implementation binding are absent."
+  effect_audit_incident_recovery:
+    verdict: FAIL
+    notes: "selected literal states are checked; receipt/readback, audit digest chain, incident prerequisites, and recovery closure are not."
+  hard_failure_non_compensation:
+    verdict: PASS_WITH_LIMITATIONS
+    notes: "hard failures dominate RR when detected, but many security-hard failures are never detected."
+  d22_four_layers_and_real_world_manifest:
+    verdict: FAIL
+    notes: "layer labels and counts are trusted or hardcoded; synthetic-as-real and a fifth layer are accepted."
+  strict_schema_and_id_uniqueness:
+    verdict: FAIL
+    notes: "unknown fields/mutations/enums and duplicate IDs are accepted."
+
+overall:
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  p0_findings:
+    - P0-X19-01
+    - P0-X19-02
+    - P0-X19-03
+  p1_findings:
+    - P1-F19-01
+    - P1-X19-04
+    - P1-X19-05
+  retained_unknowns:
+    - "No real OpenClaw, Hermes, Muse, Gateway, OS isolation, credential broker, egress, or external service was exercised."
+    - "C14/C17/C18 remain restricted upstream inputs with different independent gate states."

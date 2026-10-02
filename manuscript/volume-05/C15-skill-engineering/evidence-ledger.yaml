@@ -1,0 +1,153 @@
+---
+chapter_id: C15
+title: "Skill 工程、版本与能力供应链"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c15"
+reviewed_by: null
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  Agent Skills 使用 2026-09-30 核验日官方规范。OpenClaw 锁定 v2026.9.6 /
+  eb377ac59e6c9fd6c7705028034812becf00271b。Hermes 锁定 v0.20.1 /
+  v2026.8.13，main 文档只标动态事实。Muse 全部为 VENDOR-CLAIM。
+  Skill 设计、扩展判定、生命周期、供应链清单和发布门为本书方法论。
+
+evidence_classes:
+  METHODOLOGY: "本书方法论，不冒充规范或厂商字段"
+  STANDARD-FACT: "正式规范或标准事实"
+  VERSION-FACT: "固定版本、tag 或 commit 事实"
+  DYNAMIC-OFFICIAL: "核验日动态官方文档"
+  VENDOR-CLAIM: "厂商公开自述，未独立验证内部实现"
+  OFFICIAL-GUIDANCE: "维护方或安全组织指导，不等于认证"
+  LOCAL-VALIDATION: "本地合成运行，只在声明范围有效"
+
+sources:
+  BOOK-V2: {title: "正式出版版三级内容框架 v2", path: "../../../00-正式出版版-三级内容框架-v2.md"}
+  C15-CARD: {title: "C15 chapter card", path: "../../../docs/editorial/CHAPTER-CARDS.md"}
+  QUALITY: {title: "Book Quality Standard", path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"}
+  TERMS: {title: "Terminology Registry", path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"}
+  DECISIONS: {title: "Decisions D13/D18/D20/D21/D22/D23", path: "../../../docs/DECISIONS.md"}
+  C15-PREFLIGHT: {title: "C15 skill plugin supply-chain preflight", path: "../../../docs/research/C15-skill-plugin-supply-chain-preflight.md"}
+  C02: {title: "C02 training paradigm and dual loop", path: "../../volume-01/C02-training-paradigm/chapter.md"}
+  C05: {title: "C05 life contracts", path: "../../volume-02/C05-life-contracts/chapter.md"}
+  C06: {title: "C06 runtime architecture", path: "../../volume-02/C06-runtime-architecture/chapter.md"}
+  C07: {title: "C07 evaluation system", path: "../../volume-03/C07-evaluation-system/chapter.md"}
+  C08: {title: "C08 training system", path: "../../volume-03/C08-training-system/chapter.md"}
+  C09: {title: "C09 interaction system", path: "../../volume-03/C09-interaction-system/chapter.md"}
+  C13: {title: "C13 context memory", path: "../C13-context-memory/chapter.md"}
+  C13-ARCH: {title: "C13 memory architecture", path: "../C13-context-memory/artifacts/A-C13-01-memory-architecture.md"}
+  C14: {title: "C14 tool MCP engineering", path: "../C14-tool-mcp-engineering/chapter.md"}
+  C14-CONTRACT: {title: "C14 tool contract", path: "../C14-tool-mcp-engineering/artifacts/A-C14-02-tool-contract.md"}
+  AS-SPEC:
+    title: "Agent Skills Specification"
+    url: "https://agentskills.io/specification"
+  AS-CLIENT:
+    title: "Agent Skills client implementation"
+    url: "https://github.com/agentskills/agentskills/blob/main/docs/client-implementation/adding-skills-support.mdx"
+  AS-PRACTICE:
+    title: "Agent Skills best practices"
+    url: "https://github.com/agentskills/agentskills/blob/main/docs/skill-creation/best-practices.mdx"
+  OC-REL:
+    title: "OpenClaw v2026.9.6"
+    url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+  OC-SKILLS:
+    title: "OpenClaw Skills at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/skills.md"
+  OC-WORKSHOP:
+    title: "OpenClaw Skill Workshop at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/skill-workshop.md"
+  OC-WORKSHOP-LIFECYCLE:
+    title: "OpenClaw Skill Workshop lifecycle at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/skill-workshop/how-it-works.md"
+  OC-SELF:
+    title: "OpenClaw Self-learning at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/self-learning.md"
+  OC-PLUGIN:
+    title: "OpenClaw Plugins at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/plugin.md"
+  OC-PLUGIN-CLI:
+    title: "OpenClaw Plugins CLI at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/cli/plugins.md"
+  HE-REL:
+    title: "Hermes v0.20.1 / v2026.8.13"
+    url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+  HE-SKILLS-FIXED:
+    title: "Hermes Skills at v2026.8.13"
+    url: "https://github.com/NousResearch/hermes-agent/blob/v2026.8.13/website/docs/user-guide/features/skills.md"
+  HE-PLUGIN-FIXED:
+    title: "Hermes Plugins at v2026.8.13"
+    url: "https://github.com/NousResearch/hermes-agent/blob/v2026.8.13/website/docs/user-guide/features/plugins.md"
+  HE-PLUGIN-DYNAMIC:
+    title: "Hermes dynamic Plugin documentation"
+    url: "https://github.com/NousResearch/hermes-agent/blob/main/website/docs/developer-guide/plugins/index.md"
+  SLSA:
+    title: "SLSA Specification v1.2"
+    url: "https://slsa.dev/spec/v1.2/"
+  SIGSTORE:
+    title: "Sigstore documentation"
+    url: "https://docs.sigstore.dev/"
+  CISA-SBOM:
+    title: "CISA 2025 SBOM Minimum Elements public comment draft"
+    url: "https://www.cisa.gov/sites/default/files/2025-08/2025_CISA_SBOM_Minimum_Elements.pdf"
+  SPDX:
+    title: "SPDX Specification 3.0.1"
+    url: "https://spdx.github.io/spdx-spec/v3.0.1/"
+  NIST-SSDF:
+    title: "NIST SP 800-218 v1.1"
+    url: "https://csrc.nist.gov/pubs/sp/800/218/final"
+  TUF:
+    title: "The Update Framework Security"
+    url: "https://theupdateframework.io/docs/security/"
+  OWASP-AGENTIC:
+    title: "OWASP Top 10 for Agentic Applications 2026"
+    url: "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+  MUSE-NEWS:
+    title: "Meta Introducing Muse"
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+  MUSE-SEC:
+    title: "Meta How We Built Safety Into Muse"
+    url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+  LOCAL-C15-RUN: {title: "C15 synthetic supply-chain results", path: "review/runs/synthetic-skill-results.yaml"}
+  LOCAL-C15-SCRIPT: {title: "C15 deterministic supply-chain harness", path: "review/runs/run-skill-supply-chain.py"}
+
+claims:
+  - {evidence_id: E-C15-001, claim: "Skill 是可发现、按需加载、版本化与可测试的程序性知识包，不是一段换名 prompt。", class: METHODOLOGY, stability: stable, source_ids: [TERMS, AS-SPEC, C15-PREFLIGHT], limitations: "具体目录与加载行为随客户端变化。"}
+  - {evidence_id: E-C15-002, claim: "Agent Skills 当前规范要求 Skill 目录至少含 SKILL.md，frontmatter 必填 name 和 description。", class: STANDARD-FACT, stability: dynamic-standard, source_ids: [AS-SPEC], limitations: "出版前需复核规范版本。"}
+  - {evidence_id: E-C15-003, claim: "Agent Skills 的 license、compatibility、metadata、allowed-tools 是可选字段，allowed-tools 为实验字段且客户端支持可不同。", class: STANDARD-FACT, stability: evolving, source_ids: [AS-SPEC], limitations: "不能当统一 Runtime 权限。"}
+  - {evidence_id: E-C15-004, claim: "渐进披露先暴露 name/description，选中后加载 SKILL.md，再按需加载 scripts/references/assets。", class: STANDARD-FACT, stability: evolving, source_ids: [AS-SPEC, AS-CLIENT, AS-PRACTICE], limitations: "本书额外证据层不是标准层。"}
+  - {evidence_id: E-C15-005, claim: "Tool、Skill、Workflow、Plugin、Hook、Provider、Channel Adapter 是不同对象；复合包需逐组件治理。", class: METHODOLOGY, stability: stable, source_ids: [TERMS, C14, C06, C15-PREFLIGHT], limitations: "产品命名不必与本书分类相同。"}
+  - {evidence_id: E-C15-006, claim: "Skill 能引用脚本或 Tool，不意味着获得 Tool、secret、network、host 或业务权限。", class: METHODOLOGY, stability: stable, source_ids: [AS-SPEC, C05, C06, C14, C14-CONTRACT, C15-PREFLIGHT], limitations: "真实权限由 Runtime 和安全控制面决定。"}
+  - {evidence_id: E-C15-007, claim: "Registry 条目需记录 owner、source、exact revision/digest、依赖、兼容、权限、评测、批准、撤回与替代。", class: METHODOLOGY, stability: stable, source_ids: [C15-PREFLIGHT, QUALITY], limitations: "字段是本书方法，不是 Agent Skills 标准。"}
+  - {evidence_id: E-C15-008, claim: "Plugin 是执行代码，应把来源审查、禁用态安装、影子、有限启用、更新复审、隔离、卸载和残余核查分开。", class: METHODOLOGY, stability: stable, source_ids: [OC-PLUGIN, HE-PLUGIN-FIXED, SLSA, NIST-SSDF], limitations: "命令和默认值依平台版本。"}
+  - {evidence_id: E-C15-009, claim: "签名、digest、provenance、SBOM、漏洞扫描和行为评测各自回答不同问题，不能互相替代。", class: METHODOLOGY, stability: stable, source_ids: [SLSA, SIGSTORE, CISA-SBOM, SPDX, OWASP-AGENTIC], limitations: "任何一项都不证明语义善意或零漏洞。"}
+  - {evidence_id: E-C15-010, claim: "SLSA v1.2 provenance 支持记录 artifact 的来源、时间和生产方式，构建等级进一步约束 builder。", class: STANDARD-FACT, stability: versioned, source_ids: [SLSA], limitations: "不证明源码和运行行为安全。"}
+  - {evidence_id: E-C15-011, claim: "Sigstore 通过签名身份、证书和透明日志提供可验证签署记录。", class: OFFICIAL-GUIDANCE, stability: evolving, source_ids: [SIGSTORE], limitations: "签名身份可被攻破，签名内容仍可恶意。"}
+  - {evidence_id: E-C15-012, claim: "CISA 2025 SBOM 最小要素 public-comment draft 与 SPDX 可记录软件组件、版本、身份和关系，但不能完整表达 Skill 指令、模板、评测和业务权限。", class: METHODOLOGY, stability: evolving, source_ids: [CISA-SBOM, SPDX], limitations: "CISA 文件不是最终规则；能力供应链清单是本书扩展。"}
+  - {evidence_id: E-C15-013, claim: "TUF 的更新安全思想覆盖 rollback、freeze、mix-and-match、key compromise 和 key replacement/revocation。", class: OFFICIAL-GUIDANCE, stability: stable, source_ids: [TUF], limitations: "不代表 OpenClaw/Hermes Registry 已实现 TUF。"}
+  - {evidence_id: E-C15-014, claim: "程序性 Memory 或一次运行经验只能形成 Skill/Plugin 变更提案，不能自动发布；生产问题进入训练和候选回到生产遵循 C02 双闭环。", class: METHODOLOGY, stability: project-controlled, source_ids: [C02, C08, C13, C13-ARCH, DECISIONS, C15-PREFLIGHT], limitations: "C08 细化训练干预和候选证据；C18 拥有自我改进与 D20 五类漂移的主定义权。"}
+  - {evidence_id: E-C15-015, claim: "生产级候选链使用 training、regression、holdout、representative real-world 四个数据层；security/red-team 作为横切非补偿切片，并结合提案、不可变候选、审批、影子、固化、限量发布、观察和回滚。", class: METHODOLOGY, stability: project-controlled, source_ids: [C07, C08, DECISIONS, C15-PREFLIGHT], limitations: "D22 决定数据层；具体阈值由风险和任务确定。"}
+  - {evidence_id: E-C15-016, claim: "撤回必须处理新发现、Plugin/Skill/Hook/Provider/Channel、凭证、旧 session、Node/Worker、sandbox/cache 和替代传播，并分离任务、Artifact、交付与环境终态。", class: METHODOLOGY, stability: stable, source_ids: [C15-PREFLIGHT, C06, C08, C09, DECISIONS], limitations: "无法触达副本需报告 REVIEW_REQUIRED，不以技术执行替代 D21 完成证据。"}
+  - {evidence_id: E-C15-017, claim: "OpenClaw 固定版支持多来源 Skill、优先级和 managed revisions，session 可保留选定 revision。", class: VERSION-FACT, stability: versioned, source_ids: [OC-REL, OC-SKILLS], limitations: "只适用于 eb377ac；本地配置需实测。"}
+  - {evidence_id: E-C15-018, claim: "OpenClaw 固定版 Workshop proposal 具有 pending、target binding、hash、scanner、apply、stale 与 rollback metadata。", class: VERSION-FACT, stability: versioned, source_ids: [OC-WORKSHOP, OC-WORKSHOP-LIFECYCLE], limitations: "apply 获准落盘不等于外部评测通过。"}
+  - {evidence_id: E-C15-019, claim: "OpenClaw 固定版 self-learning 存在 off/propose/auto，auto 可直接维护 Workshop Skills 而不形成 proposal 或自动 rollback snapshot。", class: VERSION-FACT, stability: versioned, source_ids: [OC-SELF], limitations: "本书对共享/生产能力采用更严格 proposal 门。"}
+  - {evidence_id: E-C15-020, claim: "OpenClaw 固定版 Plugin 有多扩展面、install policy、allow/deny、生命周期操作和特定启动隔离机制。", class: VERSION-FACT, stability: versioned, source_ids: [OC-PLUGIN, OC-PLUGIN-CLI], limitations: "不证明所有逻辑恶意都会自动隔离。"}
+  - {evidence_id: E-C15-021, claim: "Hermes v2026.8.13 Skills 文档描述渐进披露、Skill CRUD/Hub 与可配置写入审批。", class: VERSION-FACT, stability: versioned, source_ids: [HE-REL, HE-SKILLS-FIXED], limitations: "写入审批不等于评测、发布或安全通过。"}
+  - {evidence_id: E-C15-022, claim: "Hermes v2026.8.13 Plugin 文档描述 install/enable/disable/update/remove、exact commit pin 与 capability consent，并警告 capability 不是 Sandbox。", class: VERSION-FACT, stability: versioned, source_ids: [HE-PLUGIN-FIXED], limitations: "恶意 in-process Plugin 可绕过自愿 gate。"}
+  - {evidence_id: E-C15-023, claim: "Hermes main 的 native/portable Plugin 文档只作为 2026-09-30 动态事实，不能倒填固定 release。", class: DYNAMIC-OFFICIAL, stability: dynamic, source_ids: [HE-PLUGIN-DYNAMIC], limitations: "出版前需复核。"}
+  - {evidence_id: E-C15-024, claim: "Muse 的 built-in skills、Connectors、自建工具、Secure VM、Sentinel、privsep 和 credential surrogation 均为厂商声明。", class: VENDOR-CLAIM, stability: dynamic, source_ids: [MUSE-NEWS, MUSE-SEC], limitations: "不支持 Agent Skills/MCP/Plugin 格式兼容或供应链效果结论。"}
+  - {evidence_id: E-C15-025, claim: "C15 的扩展攻击面包括恶意入口/资源/脚本、名称覆盖、可变来源、依赖替换、更新扩权、旧快照和评测污染。", class: OFFICIAL-GUIDANCE, stability: evolving, source_ids: [OWASP-AGENTIC, C15-PREFLIGHT], limitations: "C22 拥有完整威胁模型。"}
+  - {evidence_id: E-C15-026, claim: "C15 三件正式母产物由 D13/D18 与 v2 冻结，解剖、边界、SBOM/撤回作为嵌入字段，不增第四件。", class: METHODOLOGY, stability: project-controlled, source_ids: [BOOK-V2, C15-CARD, DECISIONS], limitations: "练习和运行证据是附件，不是母产物。"}
+  - {evidence_id: E-C15-027, claim: "作者离线确定性实验运行 20 trial，得到 13 PASS、5 FAIL、2 REVIEW_REQUIRED；正确隔离/拒绝/撤回判 PASS。", class: LOCAL-VALIDATION, stability: reproducible-fixture, source_ids: [LOCAL-C15-RUN, LOCAL-C15-SCRIPT], limitations: "不是平台、真实 Plugin 或供应链认证证据。"}
+  - {evidence_id: E-C15-028, claim: "C15 输出 capability diff、攻击面与生命周期记录给 C18/C22/C24/C25，但不重定义漂移、安全、组织发布总门或 C25 七节规范目录。", class: METHODOLOGY, stability: project-controlled, source_ids: [C15-CARD, C15-PREFLIGHT, C08, C13, DECISIONS], limitations: "遵守 D20—D23；下游正式章可增加治理字段。"}
+
+open_issues:
+  - {issue_id: O-C15-001, status: REVIEW_REQUIRED, item: "Agent Skills 当前规范及实验 allowed-tools 在出版前需重新核验。", owner: "evidence-reviewer"}
+  - {issue_id: O-C15-002, status: REVIEW_REQUIRED, item: "OpenClaw 目标部署的 Skill sources、Workshop/self-learning、Plugin policy 与撤回传播尚未实机探测。", owner: "independent-practice-reviewer"}
+  - {issue_id: O-C15-003, status: REVIEW_REQUIRED, item: "Hermes 动态 Plugin 页面与 v0.20.1 固定实现未完成逐项对照。", owner: "evidence-reviewer"}
+  - {issue_id: O-C15-004, status: REVIEW_REQUIRED, item: "Muse 内部 Skill/Connector/custom tool 格式、版本、供应链与撤回未知。", owner: "evidence-reviewer"}
+  - {issue_id: O-C15-005, status: REVIEW_REQUIRED, item: "跨 Runtime 撤回旧 session/materialized copies 的完整传播需真实环境验证。", owner: "C22-C24"}
+
+change_log:
+  - {version: "0.1.0", date: "2026-09-30", change: "建立 C15 标准、平台、供应链与作者合成运行证据。", status: drafting}

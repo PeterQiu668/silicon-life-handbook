@@ -1,0 +1,337 @@
+chapter_id: C07
+title: "评估系统：先建尺子，再开始训"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c07"
+reviewed_by: null
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  OpenClaw 事实锁定 v2026.9.6 / eb377ac59e6c9fd6c7705028034812becf00271b。
+  Hermes release 锁定 v0.20.1 / tag v2026.8.13；Sessions、Storage、Logs 按
+  2026-09-30 动态官方文档处理，不回填到固定发布。Muse 仅为厂商公开声明。
+  四层数据、五类场景、失败分类与三态门禁属于本书 C07 方法论。
+
+evidence_classes:
+  METHODOLOGY: "本书方法论，不冒充外部标准"
+  FORMAL-STANDARD: "正式发布的标准及其明确适用范围"
+  DRAFT-GUIDANCE: "官方草案或自愿指南，不写成强制标准"
+  VENDOR-PRACTICE: "厂商公开评测实践，不外推为跨平台标准"
+  ACADEMIC-EVIDENCE: "同行评议或公开学术原始来源"
+  VERSION-FACT: "固定版本、固定提交或固定 release 事实"
+  DYNAMIC-OFFICIAL: "核验日官方动态文档，不回填历史 release"
+  VENDOR-CLAIM: "厂商产品与效果自述，未独立验证内部实现"
+  LOCAL-VALIDATION: "本地合成或审校运行，只在声明范围有效"
+
+sources:
+  BOOK-V2:
+    title: "正式出版版三级内容框架 v2"
+    path: "../../../00-正式出版版-三级内容框架-v2.md"
+  C07-CARD:
+    title: "C07 chapter card"
+    path: "../../../docs/editorial/CHAPTER-CARDS.md"
+  C07-PREFLIGHT:
+    title: "C07 evaluation system preflight"
+    path: "../../../docs/research/C07-evaluation-preflight.md"
+  QUALITY:
+    title: "Book Quality Standard"
+    path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"
+  TERMS:
+    title: "Terminology Registry"
+    path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"
+  D16:
+    title: "Decision D-2026-09-30-16"
+    path: "../../../docs/DECISIONS.md"
+  NIST-RMF:
+    title: "NIST AI Risk Management Framework 1.0"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+  NIST-800-2:
+    title: "NIST AI 800-2 Initial Public Draft"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.800-2.ipd.pdf"
+  NIST-CHEATING:
+    title: "NIST Cheating on AI Agent Evaluations"
+    url: "https://www.nist.gov/caisi/cheating-ai-agent-evaluations"
+  ANTH-EVAL:
+    title: "Anthropic Demystifying evals for AI agents"
+    url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+  OAI-AGENT-EVAL:
+    title: "OpenAI Evaluate agent workflows"
+    url: "https://developers.openai.com/api/docs/guides/agent-evals"
+  OAI-EVAL-BP:
+    title: "OpenAI Evaluation best practices"
+    url: "https://developers.openai.com/api/docs/guides/evaluation-best-practices"
+  OAI-GRADERS:
+    title: "OpenAI Graders"
+    url: "https://developers.openai.com/api/docs/guides/graders"
+  ZHENG-2023:
+    title: "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena"
+    url: "https://arxiv.org/abs/2306.05685"
+  PANICKSERRY-2024:
+    title: "LLM Evaluators Recognize and Favor Their Own Generations"
+    url: "https://proceedings.neurips.cc/paper_files/paper/2024/hash/7f1f0218e45f5414c79c0679633e47bc-Abstract-Conference.html"
+  OC-REL:
+    title: "OpenClaw v2026.9.6"
+    url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+  OC-LOOP:
+    title: "OpenClaw Agent loop at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/agent-loop.md"
+  OC-OTEL:
+    title: "OpenClaw OpenTelemetry export at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/opentelemetry.md"
+  OC-OTEL-SPANS:
+    title: "OpenClaw spans and events at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/opentelemetry/spans-and-events.md"
+  OC-OTEL-METRICS:
+    title: "OpenClaw model calls and metrics at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/opentelemetry/model-calls-and-metrics.md"
+  OC-OTEL-PRIV:
+    title: "OpenClaw privacy and trace context at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/opentelemetry/privacy-and-trace-context.md"
+  HE-REL:
+    title: "Hermes Agent v0.20.1 release"
+    url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+  HE-TAG-COMMIT:
+    title: "Hermes Agent v2026.8.13 tagged commit"
+    url: "https://github.com/NousResearch/hermes-agent/commit/f80f453ae0679347e38abc917c7f94f717bf96c5"
+  HE-ARCH:
+    title: "Hermes dynamic Architecture documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture"
+  HE-SESSIONS:
+    title: "Hermes dynamic Sessions documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/sessions"
+  HE-STORAGE:
+    title: "Hermes dynamic Session Storage documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/developer-guide/session-storage"
+  HE-LOGS:
+    title: "Hermes dynamic CLI logs documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/reference/cli-commands"
+  MUSE-NEWS:
+    title: "Meta Introducing Muse"
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+  MUSE-DESIGN:
+    title: "How We Designed Muse"
+    url: "https://introducing.muse.ai/"
+  MUSE-SEC:
+    title: "Meta How We Built Safety Into Muse"
+    url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+  C03-BASE:
+    title: "C03 synthetic baseline run set"
+    path: "../../volume-01/C03-strength-standard/review/runs/c03-baseline-run-set.yaml"
+  C03-RT:
+    title: "C03 red-team observations"
+    path: "../../volume-01/C03-strength-standard/review/runs/c03-red-team-observations.yaml"
+  C04-ROLE:
+    title: "C04 role modeling card"
+    path: "../../volume-02/C04-role-capability-model/artifacts/A-C04-01-role-modeling-card.md"
+  C04-CAP:
+    title: "C04 capability tree"
+    path: "../../volume-02/C04-role-capability-model/artifacts/A-C04-02-capability-tree.md"
+  C04-RISK:
+    title: "C04 risk classification"
+    path: "../../volume-02/C04-role-capability-model/artifacts/A-C04-03-risk-classification.md"
+  C06-ARCH:
+    title: "C06 six-layer architecture"
+    path: "../../volume-02/C06-runtime-architecture/artifacts/A-C06-01-six-layer-architecture.md"
+  C06-FLOW:
+    title: "C06 message and execution dataflow"
+    path: "../../volume-02/C06-runtime-architecture/artifacts/A-C06-02-message-execution-dataflow.md"
+  C06-UNIT:
+    title: "C06 minimum trainable unit"
+    path: "../../volume-02/C06-runtime-architecture/artifacts/A-C06-03-minimum-trainable-unit.md"
+  LOCAL-C07-RUN:
+    title: "C07 author synthetic baseline results"
+    path: "review/runs/synthetic-baseline-results.yaml"
+  LOCAL-C07-SCRIPT:
+    title: "C07 deterministic synthetic baseline harness"
+    path: "review/runs/run-synthetic-baseline.py"
+
+claims:
+  - evidence_id: E-C07-001
+    claim: "评估系统是从评测规格到数据、执行、证据、裁判、争议与门禁的完整闭环，不等于一张评分表。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_ids: [BOOK-V2, C07-CARD, C07-PREFLIGHT, TERMS]
+    limitations: "本章只拥有评测系统定义，不重定义 C03 七维或 C27 认证。"
+  - evidence_id: E-C07-002
+    claim: "task、trial、可观察轨迹、artifact 与环境终态必须分开记录；多个 trial 不等于多个独立 task。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: adapted-vendor-practice
+    source_ids: [ANTH-EVAL, TERMS]
+    limitations: "可观察轨迹按平台公开事件定义，不要求私有思维链。"
+  - evidence_id: E-C07-003
+    claim: "能力、单次结果、过程合规与成本是不同判断，不能压成一个可抵消安全失败的综合分。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_ids: [C03-BASE, C03-RT, NIST-RMF]
+    limitations: "能力维度和成熟度由 C03/C27 主定义。"
+  - evidence_id: E-C07-004
+    claim: "训练、回归、留出和真实任务四层承担不同用途；基线不是第五层，对抗是场景属性而不是数据层。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_ids: [C07-PREFLIGHT, ANTH-EVAL, NIST-800-2]
+    limitations: "各层比例和规模必须按风险、检测目标和预算确定。"
+  - evidence_id: E-C07-005
+    claim: "正常、边界、异常、对抗和长时运行五类场景必须用于分层观察，不能从正常短任务外推鲁棒性或长期稳定。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_ids: [C07-PREFLIGHT, C04-RISK, C06-FLOW]
+    limitations: "并非每个任务都需等量样本；不适用要有风险依据。"
+  - evidence_id: E-C07-006
+    claim: "确认的安全关键失败是非补偿硬门：直接 FAIL；关键证据不足或裁判未决则 REVIEW_REQUIRED。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: book-governance
+    source_ids: [QUALITY, C03-RT, TERMS]
+    limitations: "原始 grader UNKNOWN 只能作为输入，不能成为平行门禁状态。"
+  - evidence_id: E-C07-007
+    claim: "最终回答正确不能证明过程合规、artifact 正确或环境终态正确。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: evidence-design
+    source_ids: [ANTH-EVAL, OAI-AGENT-EVAL, C03-RT]
+    limitations: "各任务的证据面由风险和成功条件决定。"
+  - evidence_id: E-C07-008
+    claim: "评测需要防训练污染、测试时 solution contamination、格式泄漏、跨试次状态、选择性报告与 grader gaming。"
+    class: DRAFT-GUIDANCE
+    stability: evolving
+    scope: evaluation-integrity
+    source_nature: official-research-and-draft
+    source_ids: [NIST-CHEATING, NIST-800-2]
+    limitations: "控制措施不保证消除所有作弊或污染。"
+  - evidence_id: E-C07-009
+    claim: "模型裁判存在位置、冗长、自偏好、有限推理和相关错误风险，必须校准、盲评并保留争议。"
+    class: ACADEMIC-EVIDENCE
+    stability: stable
+    scope: model-grader
+    source_nature: primary-research
+    source_ids: [ZHENG-2023, PANICKSERRY-2024, OAI-EVAL-BP, OAI-GRADERS]
+    limitations: "论文中的误差幅度不外推到所有模型、任务或语言。"
+  - evidence_id: E-C07-010
+    claim: "不存在适用于所有 Agent 任务的固定样本量、留出比例、通过阈值、专家人数或置信区间方法。"
+    class: METHODOLOGY
+    stability: stable
+    scope: statistical-reporting
+    source_nature: bounded-inference
+    source_ids: [NIST-RMF, NIST-800-2, ANTH-EVAL]
+    limitations: "具体选择必须预注册并说明目标总体、依赖、错误代价和预算。"
+  - evidence_id: E-C07-011
+    claim: "OpenClaw 固定版可以通过 run/lifecycle、工具、消息、Session 和 OTel 事件提供评测数据源，但 agent.wait 超时不等于 run 停止。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw-v2026.9.6
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-REL, OC-LOOP, OC-OTEL, OC-OTEL-SPANS]
+    limitations: "需启用相应诊断和 exporter；实际字段仍要目标环境探测。"
+  - evidence_id: E-C07-012
+    claim: "OpenClaw 固定版的异步诊断队列可能丢事件，内容采集默认关闭，外部 harness 可能只有 turn 级可观察性。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw-v2026.9.6
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-OTEL-METRICS, OC-OTEL-PRIV]
+    limitations: "遥测完整性必须单独检查；日志不能替代环境终态。"
+  - evidence_id: E-C07-013
+    claim: "Hermes 固定发布基线是 v0.20.1 / tag v2026.8.13，对应提交 f80f453ae0679347e38abc917c7f94f717bf96c5。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: hermes-v0.20.1
+    source_nature: official-release-fixed-tag
+    source_ids: [HE-REL, HE-TAG-COMMIT]
+    limitations: "发布锚点不自动证明核验日动态文档中的 Sessions、Storage 与 Logs 字段已存在于该 release。"
+  - evidence_id: E-C07-014
+    claim: "Muse 的 Activity、Artifacts、Goals、审批、权限和安全评测描述只构成厂商公开声明，不能推出内部 trace 或 grader 实现。"
+    class: VENDOR-CLAIM
+    stability: dynamic
+    scope: muse-public-materials
+    source_nature: vendor-public-materials
+    source_ids: [MUSE-NEWS, MUSE-DESIGN, MUSE-SEC]
+    limitations: "未经授权黑盒试用与独立核验，不作产品效果结论。"
+  - evidence_id: E-C07-015
+    claim: "C04 的岗位、能力节点、NFR、风险和负面清单是 C07 task 的硬输入。"
+    class: METHODOLOGY
+    stability: project-controlled
+    scope: chapter-interface
+    source_nature: local-formal-artifacts
+    source_ids: [C04-ROLE, C04-CAP, C04-RISK]
+    limitations: "C07 消费这些定义，不在本章重定义。"
+  - evidence_id: E-C07-016
+    claim: "C06 的最小可训单体、运行数据流、停止和恢复边界是冻结 SUT 与故障场景的硬输入。"
+    class: METHODOLOGY
+    stability: project-controlled
+    scope: chapter-interface
+    source_nature: local-formal-artifacts
+    source_ids: [C06-ARCH, C06-FLOW, C06-UNIT]
+    limitations: "真实平台部署快照仍需在实践门单独探测。"
+  - evidence_id: E-C07-017
+    claim: "C07 只有评测蓝图、基线报告、裁判校准表三件母产物；数据层、场景、失败分类、门禁、逐 trial 和校准均嵌入其中。"
+    class: METHODOLOGY
+    stability: project-controlled
+    scope: publication-contract
+    source_nature: editorial-decision
+    source_ids: [BOOK-V2, C07-CARD, D16]
+    limitations: "运行原始材料是证据附件，不是第四件母产物。"
+  - evidence_id: E-C07-018
+    claim: "作者合成基线共 8 个 task、24 个 trial，结果为 13 PASS、8 FAIL、3 REVIEW_REQUIRED，五项确认硬失败均未被平均抵消。"
+    class: LOCAL-VALIDATION
+    stability: reproducible-fixture
+    scope: c07-author-synthetic-demonstration
+    source_nature: deterministic-local-run
+    source_ids: [LOCAL-C07-RUN, LOCAL-C07-SCRIPT]
+    limitations: "不是产品基准、真实人类/专家校准或总体抽样，不支持平台比较与能力认证。"
+  - evidence_id: E-C07-019
+    claim: "作者合成基线中 code grader 原始 UNKNOWN 全部映射为 REVIEW_REQUIRED，model 与 expert 合成夹具出现 7 次分歧。"
+    class: LOCAL-VALIDATION
+    stability: reproducible-fixture
+    scope: c07-author-synthetic-demonstration
+    source_nature: deterministic-local-run
+    source_ids: [LOCAL-C07-RUN]
+    limitations: "标签为作者预制夹具，不能估计任何真实 grader 的误差率。"
+  - evidence_id: E-C07-020
+    claim: "Hermes 的 Sessions、Storage 与 Logs 观察面在本章按 2026-09-30 动态官方文档处理，不回填为 v0.20.1 固定能力。"
+    class: DYNAMIC-OFFICIAL
+    stability: dynamic
+    scope: hermes-dynamic-docs
+    source_nature: dynamic-official-docs
+    source_ids: [HE-ARCH, HE-SESSIONS, HE-STORAGE, HE-LOGS]
+    limitations: "字段、默认值与导出能力须在目标环境探测；缺字段写 unavailable。"
+
+open_issues:
+  - issue_id: O-C07-001
+    status: REVIEW_REQUIRED
+    item: "OpenClaw 目标环境 OTel exporter、retention 和 dropped 指标尚未实机探测。"
+    owner: "independent-practice-reviewer"
+  - issue_id: O-C07-002
+    status: REVIEW_REQUIRED
+    item: "Hermes 动态 Sessions/Storage/Logs 字段尚未固定到 v0.20.1 源码逐项复核。"
+    owner: "evidence-reviewer"
+  - issue_id: O-C07-003
+    status: REVIEW_REQUIRED
+    item: "Muse 可导出 activity/audit 的范围未知。"
+    owner: "evidence-reviewer"
+  - issue_id: O-C07-004
+    status: REVIEW_REQUIRED
+    item: "真实人类与领域专家 grader 校准尚未执行。"
+    owner: "independent-practice-reviewer"
+
+change_log:
+  - version: "0.1.0"
+    date: "2026-09-30"
+    change: "建立 C07 证据账本、版本边界和作者合成基线声明。"
+    status: drafting
+  - version: "0.1.1"
+    date: "2026-09-30"
+    change: "独立事实审校将 Hermes 固定 release 与动态文档拆为 E-C07-013/E-C07-020，并移除未被 claim 使用的 ISO 链接。"
+    status: drafting

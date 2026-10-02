@@ -1,0 +1,147 @@
+---
+audit_id: C15-source-audit-20260930
+chapter_id: C15
+audit_type: independent-source-and-claim-audit
+audited_on: "2026-09-30"
+reviewer_role: evidence-reviewer
+chapter_status: drafting
+scope: "23 条 evidence、25 个来源、正文引用与作者合成运行的事实完整性"
+mutated_author_files: false
+independent_practice_performed: false
+
+summary:
+  ledger_sources: 25
+  local_sources: 18
+  local_sources_present: 18
+  external_sources: 7
+  external_sources_http_200: 7
+  sources_used_by_claims: 23
+  unused_sources: [C13, C22]
+  claims: 23
+  claim_ids_unique: true
+  claims_referenced_by_chapter: 23
+  orphan_chapter_evidence_refs: 0
+  missing_chapter_evidence_refs: 0
+
+fixed_release_resolution:
+  - source_id: OC-REL
+    repository: openclaw/openclaw
+    tag: v2026.9.6
+    tag_object_sha: ce5bbdc244ee937246cc1700d1b224d020c3b599
+    target_type: commit
+    target_sha: eb377ac59e6c9fd6c7705028034812becf00271b
+    verdict: PASS
+
+local_sources:
+  - {source_id: BOOK, exists: true, used: true}
+  - {source_id: QUALITY, exists: true, used: true}
+  - {source_id: CARD, exists: true, used: true}
+  - {source_id: TERMS, exists: true, used: true}
+  - {source_id: DECISIONS, exists: true, used: true}
+  - {source_id: PREFLIGHT, exists: true, used: true}
+  - {source_id: C05, exists: true, used: true}
+  - {source_id: C07, exists: true, used: true}
+  - {source_id: C08, exists: true, used: true}
+  - {source_id: C10, exists: true, used: true}
+  - {source_id: C12, exists: true, used: true}
+  - {source_id: C13, exists: true, used: false}
+  - {source_id: C14, exists: true, used: true}
+  - {source_id: C21, exists: true, used: true}
+  - {source_id: C22, exists: true, used: false}
+  - {source_id: C24, exists: true, used: true}
+  - {source_id: LOCAL-IN, exists: true, used: true}
+  - {source_id: LOCAL-OUT, exists: true, used: true}
+
+external_sources:
+  - source_id: OC-REL
+    http_status: 200
+    identity: FIXED-RELEASE
+    semantic_support: "v2026.9.6 annotated tag 解引用到 eb377ac59e6c9fd6c7705028034812becf00271b"
+    verdict: PASS
+  - source_id: OC-WORKSHOP
+    http_status: 200
+    identity: FIXED-DOC
+    semantic_support: "proposal 可带 target、scanner、hash 与 rollback metadata；background/weekly direct maintenance 不创建 proposal 或自动 rollback snapshot"
+    verdict: PASS
+  - source_id: OC-SELF
+    http_status: 200
+    identity: FIXED-DOC
+    semantic_support: "self-learning 的 off/propose/auto；auto 为默认；direct maintenance 与 proposal/scanner/rollback 路径有明确区别"
+    verdict: PASS
+  - source_id: HE-SKILLS
+    http_status: 200
+    identity: DYNAMIC-OFFICIAL
+    checked_on: "2026-09-30"
+    semantic_support: "skills.write_approval 可要求 agent skill 写入先进入审批；动态页面且默认值可变化"
+    verdict: PASS_WITH_DYNAMIC_RECHECK
+  - source_id: HE-MEM
+    http_status: 200
+    identity: DYNAMIC-OFFICIAL
+    checked_on: "2026-09-30"
+    semantic_support: "memory.write_approval 可将非交互与后台写入 staged review；写入批准不证明内容正确或长期改善"
+    verdict: PASS_WITH_DYNAMIC_RECHECK
+  - source_id: MUSE
+    http_status: 200
+    identity: VENDOR-CLAIM
+    checked_on: "2026-09-30"
+    semantic_support: "Meta 声称 Muse 从对话学习、记住所需内容并 getting sharper；不公开可核验自改算法或长期效果"
+    verdict: PASS_AS_VENDOR_CLAIM
+  - source_id: GOOGLE-CANARY
+    http_status: 200
+    identity: PRIMARY-PRACTICE
+    semantic_support: "canary 是部分、限时的发布与评估，需 control、指标、停止或回滚；不替代本书授权与责任门"
+    verdict: PASS
+
+claim_results:
+  - {evidence_id: E-C15-001, verdict: PASS, note: "漂移相对基线且不等于退化，属于本书方法定义。"}
+  - {evidence_id: E-C15-002, verdict: PASS, note: "能力、人格、文档、工具、目标五类与 v2、术语表、D20 一致。"}
+  - {evidence_id: E-C15-003, verdict: PASS, note: "记忆/上下文仅为跨类型状态与证据源，C10 仍拥有生命周期。"}
+  - {evidence_id: E-C15-004, verdict: PASS, note: "变化信号、确认漂移和因果证明分层。"}
+  - {evidence_id: E-C15-005, verdict: PASS, note: "七层 baseline bundle 是本书方法，未声称平台原生 schema。"}
+  - {evidence_id: E-C15-006, verdict: PASS, note: "同任务/预算/风险/权限/环境比较与 C07 一致。"}
+  - {evidence_id: E-C15-007, verdict: PASS, note: "失败只生成候选，不自动发布规则。"}
+  - {evidence_id: E-C15-008, verdict: PASS, note: "五步回路的固化由外部批准。"}
+  - {evidence_id: E-C15-009, verdict: PASS, note: "单一主干预与失败/成本/延迟保留符合 C07/C08。"}
+  - {evidence_id: E-C15-010, verdict: PASS, note: "grader 迎合和 holdout 污染均被硬拒绝。"}
+  - {evidence_id: E-C15-011, verdict: PASS, note: "D22 规范陈述正确；作者运行的真实任务层来源问题另由交叉门登记。"}
+  - {evidence_id: E-C15-012, verdict: PASS, note: "版本 bundle 与 exact diff 范围是方法要求，未伪装产品自动能力。"}
+  - {evidence_id: E-C15-013, verdict: PASS, note: "zero-write shadow、另行授权 canary 与 Google SRE 基础语义兼容。"}
+  - {evidence_id: E-C15-014, verdict: PASS, note: "bundle rollback 不得复活撤销/删除状态，平台实测限制公开。"}
+  - {evidence_id: E-C15-015, verdict: PASS, note: "人类定目标、批变更、担责任为本书治理裁决。"}
+  - {evidence_id: E-C15-016, verdict: PASS, note: "Agent 不得自改安全、grader、权限、目标或生产资产。"}
+  - {evidence_id: E-C15-017, verdict: PASS, note: "目标/授权变化返回 C14；AU/MAT 不互推。"}
+  - {evidence_id: E-C15-018, verdict: PASS, note: "OpenClaw 固定页支持 auto/propose 与 direct maintenance 边界；正文未把产品默认写成治理效果。"}
+  - {evidence_id: E-C15-019, verdict: PASS, note: "Hermes skills/memory write approval 来自动态官方页，长期改善未被宣称。"}
+  - {evidence_id: E-C15-020, verdict: PASS, note: "Muse getting sharper 保持 VENDOR-CLAIM。"}
+  - {evidence_id: E-C15-021, verdict: PASS, note: "artifacts 目录恰好三件母产物。"}
+  - {evidence_id: E-C15-022, verdict: PASS_IN_DECLARED_SYNTHETIC_SCOPE, note: "75 trial 与 20/45/10、唯一 ID、零副作用和 fresh 复跑一致。"}
+  - {evidence_id: E-C15-023, verdict: PASS_IN_DECLARED_SYNTHETIC_SCOPE, note: "五类、混杂、grader/污染、多变量、自改、shadow、rollback、UNKNOWN 均可定位。"}
+
+author_run_integrity:
+  method: "将作者 runner 与 input 复制到两个 fresh 临时目录分别执行，并比较 fresh/fresh 与 fresh/saved。"
+  trial_count: 75
+  unique_task_trial: true
+  all_expected_matched: true
+  external_effects_zero: true
+  security_failures_noncompensatory: true
+  gate_distribution: {PASS: 20, FAIL: 45, REVIEW_REQUIRED: 10}
+  results_sha256: fc55abe29d9e9b7975ec5323483204a0a7b68a884647e8e086486d931987dd0c
+  summary_sha256: b42ea222b50e3087acc74292809616bec3bc1d2b0539b9ae5a5175d23359a494
+  byte_identical_across_fresh_runs: true
+  byte_identical_to_saved_outputs: true
+  limitation: "只核验 E-C15-022/023 的保存结果完整性，不构成 X-C15-01/02 的独立实践签核。"
+
+open_items:
+  - issue_id: P1-X15-01
+    area: d22-lineage
+    item: "纯合成 fixture 直接使用 representative real-world canonical layer，机器结果会误表为真实任务覆盖。"
+    blocks: cross_gate
+  - issue_id: P1-X15-02
+    area: dependency-topology
+    item: "chapter frontmatter 将 C12/C13 加入正式 depends_on，但 CHAPTER-CARDS 的正式拓扑未包含二者。"
+    blocks: cross_gate
+  - issue_id: P2-F15-01
+    area: evidence-hygiene
+    item: "C13、C22 已登记为 source，但没有被任一 evidence claim 使用。"
+    blocks: none
+...

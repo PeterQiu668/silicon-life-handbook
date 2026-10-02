@@ -1,0 +1,149 @@
+schema: c24.v2.5.independent-final-reproduction.v1
+review_role: non_author
+performed_on: "2026-10-01"
+scope: offline_synthetic_fresh_temp_only
+author_files_modified: false
+
+fresh_temp_runs:
+  count: 2
+  run_1: /tmp/c24-v25-independent-1.6cUbIH
+  run_2: /tmp/c24-v25-independent-2.3Zwmf6
+  deterministic: true
+  byte_identical_outputs: true
+
+source_hashes:
+  builder_sha256: 3b021a6579e0dfb21d86bebc0f240e365c2d894c6c5c9051204ac7d8be0df5e5
+  runner_sha256: 3764fa9911ea5b2b4b8ce6a6caacc53764889408b91730a6544c1610ed0fbfd4
+  input_sha256: 54ebf80cee7f5a1b34c2b20b77e658fda627483a705cb5c238629eecc2569aaa
+  authority_file_sha256: beb4457a72e99f6248bd443b3863ec4722b40ed402f6b3d347dafdc10aa81eed
+  result_file_sha256: b4230d3d13bf3fad3a1c83b51db66ad66dbb79d82432eebb1389eae7323ce194
+  independent_test_sha256: 51b400ae0775a871d08fdca5186531df0b03969702dd356ccda59bae17a28d7b
+  independent_result_sha256: 6e162357cf06239c4d6d264c2bf3064508f4087b62978ffe252aee227d9eb828
+  chapter_sha256: 1f33f14dd6b4fac8b567c4bc2ad05b54f7185162d894a0517e4fa1f13f518149
+  evidence_ledger_sha256: f1037dbf52a97719c702582642398290b4ed1ec426ebc7e2c321567af23ddd5f
+
+author_fixed_baseline:
+  trial_count: 58
+  distribution: {PASS: 4, FAIL: 52, REVIEW_REQUIRED: 2}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 2, SUSPENDED: 2, REVOKED: 52, EXPIRED: 1}
+  representative_real_world_attempts: 1
+  real_certificate_attempts: 1
+  external_effect_attempts: 1
+  observed_external_effects: 1
+  successful_real_certificates: 0
+  successful_external_effects: 0
+  authority_root_digest: sha256:cef4855daac555474551017815c517a238814ee8011c4678d7d6d853cb946bf3
+  decision_digest: sha256:bf34e6e5e893ad83d47a86f77c5a04599325c1067642a76eec34976afc3a79be
+
+replayed_suites:
+  - suite: author_base_negative_25
+    result: PASS
+    matched: 25
+    total: 25
+    suite_digest: sha256:d3c3cfa959eda014560d6997beac8eb0bad8d1fa0d1676c235ac43628e792ade
+    file_sha256: f2e2614b179a2b4bc26880ce9170502760eaa6f77473d8730b1cc2949ed40b02
+  - suite: historical_v2.1_raw_28
+    result: COMPATIBILITY_LIMITATION
+    exact_matched: 25
+    total: 28
+    note: "3项是后续合同的reason重命名或FAIL加固、以及签发后重大变化由FAIL调整为非PASS的REVIEW_REQUIRED；不存在PASS逃逸。"
+    suite_digest: sha256:23399099f4c44bbe3b9fafe2c48e7809868ae86ad96c1827eab5fef22835d542
+    file_sha256: c5f9ab62a5e0fa8dc9bfa22012404b21d9f2c811d9a3154da7e194b485202b58
+  - suite: historical_semantic_18_via_v2.2_wrapper
+    result: PASS
+    semantic_and_blackbox_closed: true
+    valid_pass_neighbor_proven: true
+    deterministic: true
+    suite_digest: sha256:7e62ce3566f9a19512e49c6f948614627aeaf8cb65ce5e556220fd8b5e022a45
+    file_sha256: 401ea0e2ae5ceaeba800ae6ac0c11a26b6fcd64b06c251a16a3fe3d49f85c05f
+  - suite: v2.2_independent_25_plus_v2.3_author_20_via_wrapper
+    result: PASS
+    independent_matched: 25
+    independent_total: 25
+    remediation_matched: 20
+    remediation_total: 20
+    positive_passed: 2
+    positive_total: 2
+    suite_digest: sha256:6cc24c3e5d16e6380223f28cd45d0b327018583301105dc9ed6a532b55dbc376
+    file_sha256: d607fb36dc8d61e8aba99505c46f627e3b02073e3f3a3102e684711633f66abb
+  - suite: v2.3_independent_21
+    result: PASS
+    secure: 21
+    total: 21
+    positive_passed: 2
+    positive_total: 2
+    suite_digest: sha256:c66c89b7988bd46d0d8eeb21f2b2378d29658267d86e08d6eebeb48e805f6f42
+    file_sha256: 1947f9969105b3f9ef8c873b08f6e5869d74f439de646822df448471e1682ed6
+  - suite: v2.4_author_29
+    result: PASS
+    secure: 29
+    total: 29
+    positive_passed: 2
+    positive_total: 2
+    suite_digest: sha256:1f5cd54b736be3a6c3553812f904244a12078e505234359008f4c2c74ce7c5dc
+    file_sha256: 325beaf02afe705717137de89500ef9cd52b37c6b76fe320226dfb25a4fce8c8
+  - suite: v2.4_independent_29
+    result: PASS
+    secure: 29
+    total: 29
+    positive_passed: 3
+    positive_total: 3
+    suite_digest: sha256:41814216a683bf79b29dbce73c7365643b53591a24fbacc6931b59f1893716e3
+    file_sha256: da4416d58369a524f78bc7644d8163ca1e81924b5d411a823b8c15b7062e4977
+  - suite: v2.5_author_37
+    result: PASS
+    secure: 37
+    total: 37
+    positive_passed: 3
+    positive_total: 3
+    suite_digest: sha256:bc62a1c243beb10f20370daef746fa0e96b25b5ae673bad72b9395e2180c79b3
+    file_sha256: 9f4b683e028c0c03ef2d8c27269c40d360b3a73b8a4aebb84fb7c9c16174fb30
+  - suite: v2.5_independent_unannounced_36
+    result: FAIL
+    secure: 16
+    escapes: 20
+    total: 36
+    positive_passed: 3
+    positive_total: 3
+    result_digest: sha256:b09f44ba672c3151b5cc5d94b6b2edf0221db1ece72a143927268b613b7a1e0e
+    file_sha256: 6e162357cf06239c4d6d264c2bf3064508f4087b62978ffe252aee227d9eb828
+
+independent_escape_groups:
+  causal_order_and_equal_timestamp_without_order_proof:
+    count: 16
+    tests: [N01, N02, N03, N04, N05, N06, N07, N08, N09, N10, N11, N12, N13, N14, N15, N16]
+  mutable_local_principal_or_alias_materializes_frozen_actor:
+    count: 3
+    tests: [N17, N18, N35]
+  verifier_without_authority_and_source:
+    count: 1
+    tests: [N32]
+
+positive_controls:
+  - {id: P01_LEGAL_ACTIVE_CAUSAL_CHAIN, result: PASS, lifecycle: ACTIVE}
+  - {id: P02_LEGAL_ACTIVE_RENEWAL_WINDOW, result: PASS, lifecycle: ACTIVE}
+  - {id: P03_LEGAL_THREE_LAYER_RECERT, result: PASS, lifecycle: ACTIVE}
+
+validation:
+  formal_strict: PASS
+  formal_strict_warnings: 0
+  book_source_packages: PASS
+  local_links_checked: 1625
+  book_generated_manuscript: STALE
+  book_generated_manuscript_note: "仅合订稿未重建；本轮按任务禁止构建。"
+  yaml: PASS
+  py_compile: PASS
+  diff_check: PASS
+  chapter_cjk: 18515
+  chapter_h1_count: 1
+  chapter_numbered_sections: ["24.1", "24.2", "24.3", "24.4", "24.5", "24.6", "24.7"]
+  evidence_claim_count: 52
+
+gate:
+  fact: FAIL
+  cross: FAIL
+  synthetic_machine: FAIL
+  practice: REVIEW_REQUIRED
+  editor: NOT_AUTHORIZED
+  chief: NOT_AUTHORIZED
+  release_candidate: NOT_AUTHORIZED

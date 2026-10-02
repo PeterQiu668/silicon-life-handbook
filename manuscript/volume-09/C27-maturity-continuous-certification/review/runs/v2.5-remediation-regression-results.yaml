@@ -1,0 +1,454 @@
+{
+  "attack_count": 37,
+  "attacks": [
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "TRIAL_OUTPUT_PRECEDES_TRIAL_COMPLETION"
+      ],
+      "secure": true,
+      "test_id": "V25-001"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "TRIAL_OUTPUT_PRECEDES_TRIAL_COMPLETION"
+      ],
+      "secure": true,
+      "test_id": "V25-002"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "TRIAL_OUTPUT_PRECEDES_TRIAL_COMPLETION"
+      ],
+      "secure": true,
+      "test_id": "V25-003"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "GRADER_NOT_PREREGISTERED_BEFORE_TRIAL"
+      ],
+      "secure": true,
+      "test_id": "V25-004"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "HOLDOUT_LINEAGE_NOT_FROZEN_BEFORE_TRIAL"
+      ],
+      "secure": true,
+      "test_id": "V25-005"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_BASE_EVIDENCE"
+      ],
+      "secure": true,
+      "test_id": "V25-006"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_BASE_EVIDENCE"
+      ],
+      "secure": true,
+      "test_id": "V25-007"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_BASE_EVIDENCE"
+      ],
+      "secure": true,
+      "test_id": "V25-008"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "secure": true,
+      "test_id": "V25-009"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "secure": true,
+      "test_id": "V25-010"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "secure": true,
+      "test_id": "V25-011"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "secure": true,
+      "test_id": "V25-012"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "secure": true,
+      "test_id": "V25-013"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal",
+      "message": "",
+      "reasons": [
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "secure": true,
+      "test_id": "V25-014"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V25-015"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "OPERATING_AUTHORIZATION_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V25-016"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V25-017"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+      ],
+      "secure": true,
+      "test_id": "V25-018"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "CHANGE_RECORD_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+      ],
+      "secure": true,
+      "test_id": "V25-019"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "OPERATING_AUTHORIZATION_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V25-020"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+      ],
+      "secure": true,
+      "test_id": "V25-021"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "CHANGE_RECORD_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+      ],
+      "secure": true,
+      "test_id": "V25-022"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "authority-root",
+      "message": "",
+      "reasons": [
+        "AUTHORITY_ROOT_PROJECTION_INVALID",
+        "CANONICAL_ROLE_CONFLICT",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V25-023"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "d22-safety",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V25-024"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "d22-safety",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V25-025"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "d22-safety",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V25-026"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "d22-release",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V25-027"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "d22-policy",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V25-028"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "d22-policy",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V25-029"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "d22-causal",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID",
+        "TRIAL_OUTPUT_PRECEDES_TRIAL_COMPLETION"
+      ],
+      "secure": true,
+      "test_id": "V25-030"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "d22-causal",
+      "message": "",
+      "reasons": [
+        "MATERIAL_CHANGE_POST_CHANGE_LINEAGE_INVALID",
+        "REVIEW_PRECEDES_DEPENDENCY"
+      ],
+      "secure": true,
+      "test_id": "V25-031"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "result-source",
+      "message": "result digest format",
+      "reasons": [
+        "result digest format"
+      ],
+      "secure": true,
+      "test_id": "V25-032"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "result-source",
+      "message": "result digest format",
+      "reasons": [
+        "result digest format"
+      ],
+      "secure": true,
+      "test_id": "V25-033"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "result-source",
+      "message": "result input semantic source binding",
+      "reasons": [
+        "result input semantic source binding"
+      ],
+      "secure": true,
+      "test_id": "V25-034"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "result-source",
+      "message": "result authority semantic source binding",
+      "reasons": [
+        "result authority semantic source binding"
+      ],
+      "secure": true,
+      "test_id": "V25-035"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "result-source",
+      "message": "result input semantic source binding",
+      "reasons": [
+        "result input semantic source binding"
+      ],
+      "secure": true,
+      "test_id": "V25-036"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "result-source",
+      "message": "result authority semantic source binding",
+      "reasons": [
+        "result authority semantic source binding"
+      ],
+      "secure": true,
+      "test_id": "V25-037"
+    }
+  ],
+  "escape_count": 0,
+  "positive_controls": [
+    {
+      "decision": "PASS",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P01_ACTIVE"
+    },
+    {
+      "decision": "PASS",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P02_RENEWAL"
+    },
+    {
+      "decision": "PASS",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P03_THREE_LAYER_RECERT"
+    }
+  ],
+  "positive_count": 3,
+  "positive_pass_count": 3,
+  "schema": "c24.cert.v2.5-author-regression.v1",
+  "secure_count": 37,
+  "suite_digest": "sha256:bc62a1c243beb10f20370daef746fa0e96b25b5ae673bad72b9395e2180c79b3"
+}

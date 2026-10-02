@@ -1,0 +1,526 @@
+{
+  "attack_count": 36,
+  "author_input_sha256": "dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55",
+  "authority_root_file_sha256": "fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2",
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 0,
+  "escape_ids": [],
+  "oracle_policy": "chapter invariants and raw-state semantics; no author expected label used",
+  "positive_control_count": 2,
+  "positive_control_pass_count": 2,
+  "runner_sha256": "0ffae16ba6a75e1aee3b652ad550520ad1b1922a5af169bad4509fbbeaedb59b",
+  "schema_version": "c23.v2.5.independent-final-negative-tests.v1",
+  "secure_attack_count": 36,
+  "suite_digest": "f78ea29e95093001cfa9f913cd6f259a16e78d36681f62af4ec32bf412cfcbc4",
+  "tests": [
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact case_identity_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F01_EXTRA_CASE_IDENTITY_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact authorization_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F02_EXTRA_AUTHORIZATION_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact source_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F03_EXTRA_SOURCE_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact redaction_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F04_EXTRA_REDACTION_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact publication_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F05_EXTRA_PUBLICATION_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact reviewer_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F06_EXTRA_REVIEWER_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact author_assignment_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F07_EXTRA_AUTHOR_ASSIGNMENT_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact environment_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F08_EXTRA_ENVIRONMENT_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact d21_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F09_EXTRA_D21_REGISTRY"
+    },
+    {
+      "category": "exact_projection",
+      "message": "scenarios: incomplete exact migration_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F10_EXTRA_MIGRATION_REGISTRY"
+    },
+    {
+      "category": "causal_clock",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "D21_PRECEDES_FAILURE_LOG"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F11_FAILURE_LOG_AFTER_D21"
+    },
+    {
+      "category": "causal_clock",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "D21_PRECEDES_TRIAL_FAILURE_OR_EFFECT"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F12_TRIAL_AFTER_D21"
+    },
+    {
+      "category": "causal_clock",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "REVIEW_PRECEDES_EVIDENCE"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F13_REVIEW_BEFORE_D21"
+    },
+    {
+      "category": "causal_clock",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "EVIDENCE_OUTSIDE_AUTHORIZATION_ASSIGNMENT_WINDOW"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F14_AUTHORIZATION_AFTER_TRIAL"
+    },
+    {
+      "category": "failure_bidirectional",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "RUN_DISTRIBUTION_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F15_FAIL_TRIAL_WITHOUT_FAILURE_REF"
+    },
+    {
+      "category": "failure_bidirectional",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "RUN_DISTRIBUTION_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F16_PASS_TRIAL_WITH_FAILURE_REF"
+    },
+    {
+      "category": "failure_bidirectional",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "RUN_DISTRIBUTION_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F17_FAILURE_LOG_PAYLOAD_MISMATCH"
+    },
+    {
+      "category": "effect_derivation",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "EFFECT_EXTERNAL_DERIVATION_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F18_EFFECT_EXTERNAL_LIE"
+    },
+    {
+      "category": "effect_derivation",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "OFFLINE_EXTERNAL_EFFECT"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F19_OFFLINE_EXTERNAL_WRITE"
+    },
+    {
+      "category": "effect_derivation",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "EFFECT_UNAUTHORIZED"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F20_EFFECT_UNAUTHORIZED"
+    },
+    {
+      "category": "d21_content",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "D21_STATE_CONTENT_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F21_D21_CONTENT_DISAGREES"
+    },
+    {
+      "category": "adapter_matrix",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "MIGRATION_ADAPTER_CLASSIFICATION_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F22_ADAPTER_CONTRACT_MISMATCH"
+    },
+    {
+      "category": "adapter_matrix",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "ARTIFACT_BINDING_MISMATCH",
+        "ARTIFACT_SOURCE_MISMATCH",
+        "ARTIFACT_TASK_EVIDENCE_BINDING_MISMATCH",
+        "MIGRATION_ADAPTER_EVIDENCE_OR_OWNER_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F23_ADAPTER_CROSS_CASE_EVIDENCE"
+    },
+    {
+      "category": "adapter_matrix",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "MIGRATION_ADAPTER_EVIDENCE_OR_OWNER_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F24_ADAPTER_WRONG_OWNER"
+    },
+    {
+      "category": "migration_budget",
+      "message": "budget_registry.BUDGET.BASELINE.S01: budget contract digest mismatch",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F25_FORGED_EQUAL_TASK_CONTRACT"
+    },
+    {
+      "category": "migration_budget",
+      "message": "budget_registry.BUDGET.BASELINE.S01: budget contract digest mismatch",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F26_FORGED_EQUAL_INPUT_CONTRACT"
+    },
+    {
+      "category": "migration_budget",
+      "message": "budget_registry.BUDGET.BASELINE.S01: budget contract digest mismatch",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F27_EQUAL_PERMISSION_EXPANSION"
+    },
+    {
+      "category": "migration_budget",
+      "message": "budget_registry.BUDGET.BASELINE.S01: budget contract digest mismatch",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F28_EQUAL_PRODUCTION_DATA"
+    },
+    {
+      "category": "migration_budget",
+      "message": "budget_registry.BUDGET.BASELINE.S01: budget contract digest mismatch",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F29_EQUAL_AUTHOR_SELF_GRADER"
+    },
+    {
+      "category": "migration_budget",
+      "message": "budget_registry.BUDGET.BASELINE.S01.risk: invalid enum",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F30_EQUAL_RISK_CHANGE"
+    },
+    {
+      "category": "migration_budget",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "BASELINE_BUDGET_AUTHORITY_BINDING_INVALID",
+        "BASELINE_BUDGET_SCOPE_BINDING_INVALID",
+        "BASELINE_DATASET_NOT_AUTHORIZED",
+        "BASELINE_GRADER_NOT_AUTHORIZED",
+        "BASELINE_INPUT_NOT_AUTHORIZED",
+        "BASELINE_TASK_NOT_AUTHORIZED",
+        "CANDIDATE_BUDGET_AUTHORITY_BINDING_INVALID",
+        "CANDIDATE_BUDGET_SCOPE_BINDING_INVALID",
+        "CANDIDATE_DATASET_NOT_AUTHORIZED",
+        "CANDIDATE_GRADER_NOT_AUTHORIZED",
+        "CANDIDATE_INPUT_NOT_AUTHORIZED",
+        "CANDIDATE_TASK_NOT_AUTHORIZED"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F31_CROSS_CASE_BUDGET_PAIR_SWAP"
+    },
+    {
+      "category": "fair_cost",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01: budget contract digest mismatch",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "F32_UNEQUAL_COST_COMPOSITION"
+    },
+    {
+      "category": "evidence_identity",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "RECONSTRUCTION_LIMITATIONS_MISSING"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "F33_RECONSTRUCTED_WITHOUT_LIMITATIONS"
+    },
+    {
+      "category": "evidence_identity",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "MIGRATION_ADAPTER_EVIDENCE_OR_OWNER_INVALID",
+        "VENDOR_NOT_INDEPENDENT_EVIDENCE",
+        "VENDOR_SOURCE_NOT_INDEPENDENT_EVIDENCE"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "F34_VENDOR_ADAPTER_EVIDENCE"
+    },
+    {
+      "category": "json_duplicate_key",
+      "message": "json: duplicate object key case_version",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "F35_NESTED_JSON_DUPLICATE_KEY"
+    },
+    {
+      "category": "result_integrity",
+      "message": "verify_result() missing 1 required positional argument: 'source'",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "F36_FULL_RESULT_DIGEST_TAMPER"
+    },
+    {
+      "category": "positive_neighbor",
+      "message": "",
+      "observed": "PASS",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "PASS"
+      ],
+      "test_id": "F-C01_LEGAL_NEW_ROOT"
+    },
+    {
+      "category": "positive_neighbor",
+      "message": "",
+      "observed": "PASS",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "PASS"
+      ],
+      "test_id": "F-C02_LEGAL_NONCRITICAL_ADAPTER"
+    }
+  ]
+}

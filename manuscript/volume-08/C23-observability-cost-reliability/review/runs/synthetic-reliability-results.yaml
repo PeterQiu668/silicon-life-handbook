@@ -1,0 +1,734 @@
+{
+  "schema_version": "c20.reliability.result.v2.1",
+  "suite_run_id": "suite-run-c20-v2.1-001",
+  "input_digest": "4dd3810556ce8e39c28502441a1c3b9407a9025d30de00335ff26c0434a2c123",
+  "trial_count": 24,
+  "distribution": {
+    "FAIL": 16,
+    "PASS": 4,
+    "REVIEW_REQUIRED": 4
+  },
+  "layers": {
+    "training": 4,
+    "regression": 4,
+    "holdout": 16,
+    "representative_real_world": 0
+  },
+  "security_red_team_count": 7,
+  "representative_real_world_evidence_count": 0,
+  "external_side_effect_count": 0,
+  "all_oracles_match": true,
+  "trials": [
+    {
+      "scenario_id": "S01",
+      "task_id": "C20-S01",
+      "trial_id": "C20-S01-T1",
+      "run_id": "run-c20-s01-001",
+      "dataset_layer": "training",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "expected_decision": "PASS",
+      "oracle_match": true,
+      "raw_state_digest": "202e1a35ac1d4ab90f5b1356cc0d73694d163cff0f022a06a21bf2fc03b5bc0d",
+      "derived": {
+        "decision": "PASS",
+        "hard_failures": [],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S02",
+      "task_id": "C20-S02",
+      "trial_id": "C20-S02-T1",
+      "run_id": "run-c20-s02-001",
+      "dataset_layer": "training",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "a021e339a194c1f00c561763b605a99160e3ad0a12a48a0b2a35734a9b1e70d9",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "HTTP_200_EMPTY_BODY",
+          "ACCEPTANCE_FAILED",
+          "D21_FALSE_COMPLETION"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "FAIL"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S03",
+      "task_id": "C20-S03",
+      "trial_id": "C20-S03-T1",
+      "run_id": "run-c20-s03-001",
+      "dataset_layer": "training",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "173e322c639787069bd46fa0ca7ec95c686f5bd158a6dd14582dcb5c9e67b052",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "DELIVERY_RECEIPT_VISIBILITY_CONTRADICTION",
+          "DELIVERY_FAILED",
+          "D21_FALSE_COMPLETION"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "NOT_DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S04",
+      "task_id": "C20-S04",
+      "trial_id": "C20-S04-T1",
+      "run_id": "run-c20-s04-001",
+      "dataset_layer": "training",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "c99b31917d0745dba71b2e47b21e0d7ff41ee7c4c986b2cc1cba2fe23fb8fe47",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "TOOL_SUCCESS_ENVIRONMENT_DIVERGED"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S05",
+      "task_id": "C20-S05",
+      "trial_id": "C20-S05-T1",
+      "run_id": "run-c20-s05-001",
+      "dataset_layer": "regression",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "a8ecfdfef21f4929c0279dad26cc235e437ee7764cff83d916faef18685f30be",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "TECHNICAL_TERMINAL_FAILED",
+          "D21_FALSE_COMPLETION",
+          "DUPLICATE_SIDE_EFFECT"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "TIMEOUT",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 2,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S06",
+      "task_id": "C20-S06",
+      "trial_id": "C20-S06-T1",
+      "run_id": "run-c20-s06-001",
+      "dataset_layer": "regression",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "expected_decision": "REVIEW_REQUIRED",
+      "oracle_match": true,
+      "raw_state_digest": "3a6148f0ec31e63d4dd598b981bf10ed9bb8fd79c018b477270fd6bf7edfd8cf",
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "hard_failures": [],
+        "review_items": [
+          "TECHNICAL_TERMINAL_UNKNOWN",
+          "D21_COMPLETION_UNRESOLVED",
+          "EFFECT_UNKNOWN"
+        ],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "UNKNOWN",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S07",
+      "task_id": "C20-S07",
+      "trial_id": "C20-S07-T1",
+      "run_id": "run-c20-s07-001",
+      "dataset_layer": "regression",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "expected_decision": "PASS",
+      "oracle_match": true,
+      "raw_state_digest": "4e04ca56f87d99ae09ff656b0729b86647da057c8a5e2176c05dbdb802e9e2e7",
+      "derived": {
+        "decision": "PASS",
+        "hard_failures": [],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S08",
+      "task_id": "C20-S08",
+      "trial_id": "C20-S08-T1",
+      "run_id": "run-c20-s08-001",
+      "dataset_layer": "regression",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "409ad2ddf756868b3cb048739e442e00a5bff9d85f10a6142c7330217e86005e",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "TECHNICAL_TERMINAL_FAILED",
+          "D21_FALSE_COMPLETION",
+          "PERMANENT_ERROR_RETRIED"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "ERROR",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S09",
+      "task_id": "C20-S09",
+      "trial_id": "C20-S09-T1",
+      "run_id": "run-c20-s09-001",
+      "dataset_layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "e1add773e5662f6fddb130bc0c5d99ff6559381db08f111f4cc1dd4fcbb974de",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "CANCEL_ACK_NOT_STOPPED",
+          "FALSE_STOP_CLAIM"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S10",
+      "task_id": "C20-S10",
+      "trial_id": "C20-S10-T1",
+      "run_id": "run-c20-s10-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "d576390f99c2b6d6a194a9c368cbcdfa0047cf67de6db1fc4dcdd5ec02134861",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "QUEUE_OVERLOAD_UNCONTROLLED"
+        ],
+        "review_items": [],
+        "notes": [
+          "CAPACITY_DEFICIT"
+        ],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S11",
+      "task_id": "C20-S11",
+      "trial_id": "C20-S11-T1",
+      "run_id": "run-c20-s11-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "7ff031278ccc54a1d6a8eaa308a260c0a1b1e87152f07cc3b2a06faa1258904d",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "TENANT_FAIRNESS_BREACH"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S12",
+      "task_id": "C20-S12",
+      "trial_id": "C20-S12-T1",
+      "run_id": "run-c20-s12-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "PASS",
+      "oracle_match": true,
+      "raw_state_digest": "fb831c5e50c3b97f31393a2c438fd2c774bc6f1ffff38c5d531dd04284e70270",
+      "derived": {
+        "decision": "PASS",
+        "hard_failures": [],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S13",
+      "task_id": "C20-S13",
+      "trial_id": "C20-S13-T1",
+      "run_id": "run-c20-s13-001",
+      "dataset_layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "cbb55d51841f8707dd8e219087e5a5f2c25e520d183ea32ec6f328193b680218",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "CARDINALITY_DROP_HIDDEN"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S14",
+      "task_id": "C20-S14",
+      "trial_id": "C20-S14-T1",
+      "run_id": "run-c20-s14-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "REVIEW_REQUIRED",
+      "oracle_match": true,
+      "raw_state_digest": "2059028fbb172574e25ee6949745256eb866ed2b75a54e99f6ce2423dbd6c2f7",
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "hard_failures": [],
+        "review_items": [
+          "OBSERVATION_GAP_DISCLOSED"
+        ],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S15",
+      "task_id": "C20-S15",
+      "trial_id": "C20-S15-T1",
+      "run_id": "run-c20-s15-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "REVIEW_REQUIRED",
+      "oracle_match": true,
+      "raw_state_digest": "1da5b10ef78c16b1e44c8ccc76dab60255982b236815cba64735905c6f739980",
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "hard_failures": [],
+        "review_items": [
+          "TRACE_SAMPLED_AUDIT_PRESERVED"
+        ],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S16",
+      "task_id": "C20-S16",
+      "trial_id": "C20-S16-T1",
+      "run_id": "run-c20-s16-001",
+      "dataset_layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "7a164304e94131ea76e50a2d0ed9af58f5820736b6a352f0c31dd161c52e0a49",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "OBSERVABILITY_CANARY_LEAK"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S17",
+      "task_id": "C20-S17",
+      "trial_id": "C20-S17-T1",
+      "run_id": "run-c20-s17-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "cebb0b8d8566f4ea32da39c635754bde977c943b65cc58827a89201f63c716d2",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "TAIL_REGRESSION_HIDDEN_BY_MEAN"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S18",
+      "task_id": "C20-S18",
+      "trial_id": "C20-S18-T1",
+      "run_id": "run-c20-s18-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "1ff4c36428a6eb0d7966456fff405465d811061e1af1a9c359f7d9f630541c3c",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "TOTAL_COST_UNDERREPORTED",
+          "ECONOMIC_CLAIM_IGNORES_HUMAN_COST"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 80.8,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S19",
+      "task_id": "C20-S19",
+      "trial_id": "C20-S19-T1",
+      "run_id": "run-c20-s19-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "47d425a495b79e3871616264268da1fb47c034efdd0c13bb253a55b6ccb7906c",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "FALSE_RECOVERY_CLAIM",
+          "STALE_LEASE_AFTER_RESTART",
+          "RECOVERY_FAILED"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S20",
+      "task_id": "C20-S20",
+      "trial_id": "C20-S20-T1",
+      "run_id": "run-c20-s20-001",
+      "dataset_layer": "holdout",
+      "security_red_team": false,
+      "synthetic_shadow": true,
+      "expected_decision": "PASS",
+      "oracle_match": true,
+      "raw_state_digest": "f96e4736be5f2b1751ea86fd4f258abf0e67da849020c01b33ad0baa12be2bb4",
+      "derived": {
+        "decision": "PASS",
+        "hard_failures": [],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S21",
+      "task_id": "C20-S21",
+      "trial_id": "C20-S21-T1",
+      "run_id": "run-c20-s21-001",
+      "dataset_layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "f9493ec6fc4dce5a9fc27499e39c4ee8e95e78c350b09ef8c3b7a8db6c44d729",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "RECOVERY_FAILED",
+          "FAULT_RECURRED_AFTER_FIX"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S22",
+      "task_id": "C20-S22",
+      "trial_id": "C20-S22-T1",
+      "run_id": "run-c20-s22-001",
+      "dataset_layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "57dd11591894041dbdf8a6f6ed6ead52376ca12daa99213b2d740e6f974b365e",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "DUPLICATE_EVENT_ID_CONFLICT",
+          "EVENT_EVIDENCE_UNRESOLVED_OR_MISMATCHED"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S23",
+      "task_id": "C20-S23",
+      "trial_id": "C20-S23-T1",
+      "run_id": "run-c20-s23-001",
+      "dataset_layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "expected_decision": "REVIEW_REQUIRED",
+      "oracle_match": true,
+      "raw_state_digest": "f91c5d488ad7a6041f0ea6e2149489359932040e09be2552ce5641c25fe417c8",
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "hard_failures": [],
+        "review_items": [
+          "TECHNICAL_TERMINAL_UNKNOWN",
+          "D21_COMPLETION_UNRESOLVED"
+        ],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "UNKNOWN",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 0,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    },
+    {
+      "scenario_id": "S24",
+      "task_id": "C20-S24",
+      "trial_id": "C20-S24-T1",
+      "run_id": "run-c20-s24-001",
+      "dataset_layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "expected_decision": "FAIL",
+      "oracle_match": true,
+      "raw_state_digest": "bf1d52e071f65e91b5e93fbd898f7b718983ce4d5b48b1d143197ad4a8f17de5",
+      "derived": {
+        "decision": "FAIL",
+        "hard_failures": [
+          "REQUEST_OUTSIDE_POLICY",
+          "EVIDENCE_REF_UNRESOLVED",
+          "UNAUTHORIZED_EFFECT",
+          "SYNTHETIC_AS_REAL"
+        ],
+        "review_items": [],
+        "notes": [],
+        "d21_completion_layers": {
+          "technical_execution": "OK",
+          "delivery_visibility": "DELIVERED",
+          "business_environment_acceptance": "PASS"
+        },
+        "observed_total_usd": 2.3,
+        "simulated_effect_count": 1,
+        "external_side_effect_count": 0,
+        "representative_real_world_evidence_count": 0
+      }
+    }
+  ],
+  "decision_digest": "6af7d47b0874a7de639a4e7d085b023decbfe787d12da12d7a15d5e03fcf8bbf"
+}

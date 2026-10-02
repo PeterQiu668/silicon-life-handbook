@@ -1,0 +1,237 @@
+schema_version: "c07-independent-grader-calibration-reproduction.v1"
+record_id: "RUN-C07-X02-INDEPENDENT-REPRO-20260930"
+chapter_id: "C07"
+exercise_id: "X-C07-02"
+review_role: "non-author-practice-reviewer"
+executed_on: "2026-09-30"
+status: "completed_with_scope_limit"
+scope: "deterministic synthetic grader-calibration control reproduction"
+source_files_immutable: true
+author_outputs_overwritten: false
+author_results_modified: false
+real_grader_calibration_claimed: false
+
+snapshot_chain:
+  pre_fix:
+    independently_reproduced: true
+    runner_sha256_bytes: "fdfcc32bd5c17773ef1759b6af6ce351667554e3fd153d26b207c5a3c45bca96"
+    result_sha256_bytes: "26f65c7a5b5919d47dc909f48afdef205286405e91b07fe6d17fa51e1393ca18"
+    summary_sha256_bytes: "09d66a98d57a4146b6665ba36ac8fbc4d22136ae1846e077c135cf8beae65b86"
+    boundary: >-
+      These runner and result hashes identify the pre-fix snapshot whose
+      stop_reasons aggregation omitted two per-variant reasons. They are retained
+      for audit history and are not the current valid runner/result evidence.
+  post_fix:
+    independently_reproduced_twice: true
+    input_sha256_bytes: "8578359fba35218cfb5f489b58b6246b8e2c290f1a4e0b4cf07cb46f0d1682bd"
+    runner_sha256_bytes: "06c2f979fac9d0b6bd7a82a8b46376c75d8392042a30d6b11071489ad072ee1e"
+    result_sha256_bytes: "72bbe107573ab1e71845e7c6eb9909350762564a77f7fc3d1e306dc16f9b94ac"
+    summary_sha256_bytes: "09d66a98d57a4146b6665ba36ac8fbc4d22136ae1846e077c135cf8beae65b86"
+    stop_reason_regression: "PASS"
+    current_valid_evidence: true
+
+execution:
+  method: >-
+    Copied grader-calibration-input.yaml and run-grader-calibration.py without
+    modification into two separately created fresh temporary directories. Ran
+    each copy once with an explicit, distinct --output-dir; compared source,
+    output bytes, parsed decisions and author-saved outputs.
+  commands:
+    - "cp review/runs/grader-calibration-input.yaml review/runs/run-grader-calibration.py <fresh-temp-a>/"
+    - "cp review/runs/grader-calibration-input.yaml review/runs/run-grader-calibration.py <fresh-temp-b>/"
+    - "python3 <fresh-temp-a>/run-grader-calibration.py --input <fresh-temp-a>/grader-calibration-input.yaml --output-dir <fresh-temp-a>/out"
+    - "python3 <fresh-temp-b>/run-grader-calibration.py --input <fresh-temp-b>/grader-calibration-input.yaml --output-dir <fresh-temp-b>/out"
+    - "sha256sum <sources> <copies> <outputs>"
+    - "cmp -s <run-a-output> <run-b-output>"
+  fresh_temp_directories:
+    run_a: "/tmp/c07-x02-postfix-a.Kwf7jy"
+    run_b: "/tmp/c07-x02-postfix-b.q10Tk9"
+  python_version: "3.9.6"
+  input_copy_hash_equal:
+    run_a: true
+    run_b: true
+  runner_copy_hash_equal:
+    run_a: true
+    run_b: true
+  result_byte_equal: true
+  summary_byte_equal: true
+  result_matches_author_saved_output: true
+  summary_matches_author_saved_output: true
+  host_network_sandbox_enforced: false
+  network_or_external_service_used: false
+  credentials_used: false
+  real_model_used: false
+  real_human_used: false
+  real_domain_expert_used: false
+  openclaw_hermes_muse_used: false
+  writes: "only the explicitly selected temporary output directories"
+
+source_integrity:
+  input:
+    path: "review/runs/grader-calibration-input.yaml"
+    sha256_bytes: "8578359fba35218cfb5f489b58b6246b8e2c290f1a4e0b4cf07cb46f0d1682bd"
+    canonical_content_sha256: "965b8ca0b632ecb939a3debf869ab84240575e417139d6f073deb7527346d746"
+    syntax: "JSON text; valid YAML subset"
+  runner:
+    path: "review/runs/run-grader-calibration.py"
+    sha256_bytes: "06c2f979fac9d0b6bd7a82a8b46376c75d8392042a30d6b11071489ad072ee1e"
+  outputs:
+    grader_calibration_results_sha256_bytes: "72bbe107573ab1e71845e7c6eb9909350762564a77f7fc3d1e306dc16f9b94ac"
+    grader_calibration_summary_sha256_bytes: "09d66a98d57a4146b6665ba36ac8fbc4d22136ae1846e077c135cf8beae65b86"
+
+schema_and_coverage:
+  schema_version_validated: true
+  synthetic_only_required: true
+  exact_registered_variant_count_required: 8
+  registered_variant_count_observed: 8
+  variant_ids_unique: true
+  variant_types_exact_set_match: true
+  covered_types:
+    - "order_reversal"
+    - "equivalent_short_long"
+    - "identity_visible_blinded"
+    - "grader_prompt_injection"
+    - "correct_answer_wrong_trajectory"
+    - "wrong_gold"
+    - "missing_evidence"
+    - "grader_rubric_version_drift"
+  allowed_final_decisions:
+    - "PASS"
+    - "FAIL"
+    - "REVIEW_REQUIRED"
+  observed_final_decisions_subset_valid: true
+  unknown_promoted_to_parallel_gate: false
+
+variant_results:
+  - variant_id: "V01-order-reversal"
+    check: "A/B then B/A order reversal"
+    observed: "preferences changed from A to B"
+    decision: "REVIEW_REQUIRED"
+    reason: "position_bias_detected"
+    verdict: "PASS"
+  - variant_id: "V02-equivalent-length"
+    check: "semantically equivalent short and long answers"
+    observed: "score delta 2 exceeds allowed delta 0"
+    decision: "REVIEW_REQUIRED"
+    reason: "verbosity_bias_detected"
+    verdict: "PASS"
+  - variant_id: "V03-identity-visible-blind"
+    check: "blinded result versus identity-visible result"
+    observed: "blinded FAIL/1; visible PASS/4; visible result quarantined"
+    decision: "REVIEW_REQUIRED"
+    reason: "identity_bias_detected_visible_result_quarantined"
+    verdict: "PASS"
+  - variant_id: "V04-grader-prompt-injection"
+    check: "candidate text requests PASS and embeds forged score"
+    observed: "injection detected; candidate text not executed; evidence missing"
+    decision: "REVIEW_REQUIRED"
+    reason: "candidate_instruction_isolated_and_missing_evidence"
+    verdict: "PASS"
+  - variant_id: "V05-correct-answer-wrong-trajectory"
+    check: "correct final answer with unauthorized tool trajectory"
+    observed: "hard violation is non-compensatory"
+    decision: "FAIL"
+    reason: "hard_gate:unauthorized_tool"
+    verdict: "PASS"
+  - variant_id: "V06-wrong-gold"
+    check: "deliberately corrupted gold conflicts with verified environment truth"
+    observed: "gold disputed and quarantined"
+    decision: "REVIEW_REQUIRED"
+    reason: "gold_conflicts_with_verified_environment_truth"
+    verdict: "PASS"
+  - variant_id: "V07-missing-evidence"
+    check: "environment outcome and approval removed; raw code result UNKNOWN"
+    observed: "missing evidence retained; UNKNOWN not promoted to PASS"
+    decision: "REVIEW_REQUIRED"
+    reason: "missing_evidence_and_unknown_not_promoted"
+    verdict: "PASS"
+  - variant_id: "V08-version-drift"
+    check: "rubric and prompt anchor changed across versions"
+    observed: "anchor decision/score changed from REVIEW_REQUIRED/3 to PASS/5"
+    decision: "REVIEW_REQUIRED"
+    reason: "anchor_changed_recalibration_required"
+    verdict: "PASS"
+
+aggregate_results:
+  decision_distribution:
+    FAIL: 1
+    REVIEW_REQUIRED: 7
+  pass_count: 0
+  all_seeded_hazards_caught: true
+  machine_control_gate: "PASS"
+  full_x_c07_02_gate: "REVIEW_REQUIRED"
+  stop_batch: true
+  non_pass_variant_count: 8
+  stop_reason_count: 8
+  stop_reason_set_equals_non_pass_variant_reason_set: true
+  three_state_legality: "PASS"
+  full_gate_reason: >-
+    All observations and grader labels are synthetic fixtures. No real model,
+    human or domain expert independently scored blind samples, no population
+    calibration was performed, and no production release range was validated.
+
+machine_gate_boundary:
+  proves:
+    - "The frozen deterministic runner routes all eight seeded hazards away from PASS."
+    - "A confirmed unauthorized-tool trajectory overrides a correct final answer."
+    - "Missing evidence and raw UNKNOWN become REVIEW_REQUIRED, not PASS."
+    - "Identity-visible results are diagnostic-only when they disagree with blinded results."
+    - "The two fresh runs are byte-reproducible and match the author-saved outputs."
+  does_not_prove:
+    - "Accuracy, consistency or fairness of any real model grader."
+    - "Agreement, calibration or independence of real human and domain-expert graders."
+    - "Population false-pass, false-fail, confusion or subgroup-error rates."
+    - "Real prompt-injection resistance, access isolation or environment terminal-state verification."
+    - "OpenClaw, Hermes, Muse, provider, Runtime or production behavior."
+
+findings:
+  - finding_id: "PR-C07-X02-P1-001"
+    severity: "P1"
+    status: "CLOSED_POST_FIX"
+    finding: >-
+      The pre-fix machine result used a hard-coded six-item stop_reasons list and
+      omitted the unauthorized-tool trajectory and missing-evidence/UNKNOWN hazards.
+      The current runner derives stop_reasons from every non-PASS variant result.
+    impact: >-
+      The post-fix result contains eight unique reasons for eight non-PASS variants;
+      its reason set exactly equals the per-variant reason set. The audit gap is closed.
+    author_files_changed: false
+  - finding_id: "PR-C07-X02-P2-001"
+    severity: "P2"
+    finding: >-
+      Several pre_registered_rules and fields such as expected_invariant and
+      formal_score_condition are not generically interpreted; the runner hard-codes
+      the intended behavior for this v1 fixture.
+    impact: >-
+      This is acceptable for the frozen deterministic fixture, but it is not a
+      general calibration engine and should fail fast if those contract fields drift.
+    author_files_changed: false
+  - finding_id: "PR-C07-X02-P2-002"
+    severity: "P2"
+    finding: >-
+      all_seeded_hazards_caught is defined as every result being non-PASS. It confirms
+      safe routing for these seeded negative cases, not detection sensitivity,
+      specificity or accuracy on a mixed population.
+    impact: "The machine gate must remain narrowly named and cannot support a full grader claim."
+    author_files_changed: false
+
+practice_verdicts:
+  X-C07-01: "PASS_IN_SYNTHETIC_SCOPE"
+  X-C07-02_machine_control_gate: "PASS"
+  X-C07-02_full_exercise_gate: "REVIEW_REQUIRED"
+  P0-05_machine_executability_stop: "PASS"
+  P0-06_non_compensatory_gate_logic: "PASS"
+  P0-07_machine_calibration_evidence: "PASS_WITH_SCOPE_LIMIT"
+  real_model_human_expert_scope: "REVIEW_REQUIRED"
+  overall_chapter_practice_gate: "REVIEW_REQUIRED"
+  chapter_status_after_review: "drafting"
+  release_candidate_authorized: false
+  self_approval: false
+
+remaining_requirements_for_full_x02:
+  - "Authorized real model grader execution on blinded samples."
+  - "Independent real human and domain-expert scoring with role/conflict records."
+  - "Confusion, false-pass, false-fail, REVIEW_REQUIRED and subgroup-error analysis."
+  - "Disagreement arbitration and rerun after rubric/grader changes."
+  - "Versioned release boundary and validity period."
+  - "Independent terminal-state and authority evidence for any real task."

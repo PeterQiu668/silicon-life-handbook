@@ -1,0 +1,410 @@
+{
+  "attack_count": 24,
+  "authority_root_sha256": "fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2",
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 0,
+  "escape_ids": [],
+  "input_sha256": "dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55",
+  "limits": {
+    "editor_chief_rc": "NOT_AUTHORIZED",
+    "external_effect_executed": false,
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_case_executed": false,
+    "real_runtime_migration_executed": false
+  },
+  "oracle_policy": "chapter invariants and raw-state semantics; no author expected label used",
+  "positive_control_count": 2,
+  "positive_control_pass_count": 2,
+  "positive_controls": [
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "reasons": [],
+      "test_id": "U-C01_FAILURE_LOG_EQUALS_D21_ALLOWED"
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "message": "",
+      "observed": "REVIEW_REQUIRED",
+      "passed": true,
+      "reasons": [
+        "RECONSTRUCTED_EVIDENCE_LIMITED"
+      ],
+      "test_id": "U-C02_COMPLETE_RECONSTRUCTION_LIMITED"
+    }
+  ],
+  "review_role": "non_author",
+  "runner_sha256": "0ffae16ba6a75e1aee3b652ad550520ad1b1922a5af169bad4509fbbeaedb59b",
+  "schema_version": "c23.v2.6.independent-final-negative.v1",
+  "secure_attack_count": 24,
+  "suite_digest": "ce49d105abd6632dcbd9ea39c6a6c71129055fa4fa5be65a5dbe991591634de8",
+  "tests": [
+    {
+      "escape": false,
+      "family": "exact-authority-projection",
+      "layer": "semantic-authorized-repin",
+      "message": "scenarios: incomplete exact task_authority_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U01_EXTRA_TASK_AUTHORITY"
+    },
+    {
+      "escape": false,
+      "family": "exact-authority-projection",
+      "layer": "semantic-authorized-repin",
+      "message": "scenarios: incomplete exact input_authority_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U02_EXTRA_INPUT_AUTHORITY"
+    },
+    {
+      "escape": false,
+      "family": "exact-authority-projection",
+      "layer": "semantic-authorized-repin",
+      "message": "scenarios: incomplete exact permission_authority_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U03_EXTRA_PERMISSION_AUTHORITY"
+    },
+    {
+      "escape": false,
+      "family": "exact-authority-projection",
+      "layer": "semantic-authorized-repin",
+      "message": "scenarios: incomplete exact dataset_authority_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U04_EXTRA_DATASET_AUTHORITY"
+    },
+    {
+      "escape": false,
+      "family": "exact-authority-projection",
+      "layer": "semantic-authorized-repin",
+      "message": "scenarios: incomplete exact grader_authority_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U05_EXTRA_GRADER_AUTHORITY"
+    },
+    {
+      "escape": false,
+      "family": "principal-alias-independence",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "GRADER_NOT_INDEPENDENT",
+        "GRADER_PRINCIPAL_ROLE_INVALID",
+        "GRADER_REVIEWER_ASSIGNMENT_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U06_GRADER_ALIAS_IS_AUTHOR"
+    },
+    {
+      "escape": false,
+      "family": "principal-alias-independence",
+      "layer": "semantic-authorized-repin",
+      "message": "scenarios: incomplete exact principal_registry projection",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U07_AUTHORITY_ALIAS_IS_AUTHOR"
+    },
+    {
+      "escape": false,
+      "family": "budget-binding",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "CANDIDATE_BUDGET_SCOPE_BINDING_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U08_BUDGET_RUN_MISMATCH"
+    },
+    {
+      "escape": false,
+      "family": "budget-binding",
+      "layer": "semantic-authorized-repin",
+      "message": "budget_registry: duplicate semantic key",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U09_BUDGET_SIDE_DUPLICATE"
+    },
+    {
+      "escape": false,
+      "family": "budget-binding",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "BASELINE_BUDGET_SCOPE_BINDING_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U10_BUDGET_CASE_MISMATCH"
+    },
+    {
+      "escape": false,
+      "family": "budget-binding",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "BASELINE_BUDGET_SCOPE_BINDING_INVALID"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U11_BUDGET_TASK_MISMATCH"
+    },
+    {
+      "escape": false,
+      "family": "budget-contract-digest",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "COMPARISON_CONTRACT_UNFAIR",
+        "MIGRATION_BASELINE_CONTRACT_DIGEST_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U12_STALE_MIGRATION_CONTRACT"
+    },
+    {
+      "escape": false,
+      "family": "causal-clock",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "D21_PRECEDES_FAILURE_LOG"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U13_FAILURE_LOG_AFTER_D21_MICROSECOND"
+    },
+    {
+      "escape": false,
+      "family": "causal-clock",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "D21_PRECEDES_TRIAL_FAILURE_OR_EFFECT",
+        "FAILURE_LOG_PRECEDES_FAILURE"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U14_FAILURE_AFTER_D21"
+    },
+    {
+      "escape": false,
+      "family": "reconstruction-disclosure",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "RECONSTRUCTION_LIMITATIONS_MISSING"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U15_RECONSTRUCTED_MISSING_ONLY"
+    },
+    {
+      "escape": false,
+      "family": "reconstruction-disclosure",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "RECONSTRUCTION_LIMITATIONS_MISSING"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U16_RECONSTRUCTED_INFERENCE_ONLY"
+    },
+    {
+      "escape": false,
+      "family": "reconstruction-disclosure",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "RECONSTRUCTION_SOURCE_DIFFERENCE_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U17_RECONSTRUCTED_SOURCE_MISMATCH"
+    },
+    {
+      "escape": false,
+      "family": "d21-content",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "D21_STATE_CONTENT_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "U18_D21_PAYLOAD_UNKNOWN_DECLARED_PASS"
+    },
+    {
+      "escape": false,
+      "family": "d21-binding",
+      "layer": "semantic-authorized-repin",
+      "message": "",
+      "observed": "FAIL",
+      "reasons": [
+        "D21_TASK_EVIDENCE_BINDING_MISMATCH"
+      ],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "U19_D21_WRONG_RUN"
+    },
+    {
+      "escape": false,
+      "family": "persisted-result-semantic-integrity",
+      "layer": "result-verifier",
+      "message": "verify_result() missing 1 required positional argument: 'source'",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U20_RESULT_FAIL_TO_PASS_COHERENT_REHASH"
+    },
+    {
+      "escape": false,
+      "family": "persisted-result-semantic-integrity",
+      "layer": "result-verifier",
+      "message": "verify_result() missing 1 required positional argument: 'source'",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U21_RESULT_RR_TO_PASS_COHERENT_REHASH"
+    },
+    {
+      "escape": false,
+      "family": "recursive-json-duplicate",
+      "layer": "serialized-boundary",
+      "message": "json: duplicate object key case_version",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U22_INPUT_NESTED_DUPLICATE"
+    },
+    {
+      "escape": false,
+      "family": "recursive-json-duplicate",
+      "layer": "serialized-boundary",
+      "message": "json: duplicate object key status",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U23_ROOT_NESTED_DUPLICATE"
+    },
+    {
+      "escape": false,
+      "family": "recursive-json-duplicate",
+      "layer": "serialized-boundary",
+      "message": "json: duplicate object key verdict",
+      "observed": "REJECT",
+      "reasons": [],
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U24_RESULT_NESTED_DUPLICATE"
+    }
+  ]
+}

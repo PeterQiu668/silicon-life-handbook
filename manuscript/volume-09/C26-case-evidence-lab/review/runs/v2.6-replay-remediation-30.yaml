@@ -1,0 +1,280 @@
+{
+  "all_passed": true,
+  "failed_count": 0,
+  "passed_count": 30,
+  "schema_version": "c23.v2.3.remediation-regression.v1",
+  "suite_digest": "5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e",
+  "test_count": 30,
+  "tests": [
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R01_DELETE_SCENARIO"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R02_REORDER_SCENARIOS"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R03_RENAME_SCENARIO"
+    },
+    {
+      "actual": "REJECT",
+      "message": "suite: frozen provenance mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R04_RENAME_BUILD"
+    },
+    {
+      "actual": "REJECT",
+      "message": "suite: frozen provenance mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R05_SHIFT_EVALUATION_TIME"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[32].scenario_id: duplicate",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R06_DUPLICATE_SCENARIO"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R07_DELETE_FAIL_TRIAL"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R08_DELETE_FAILURE_REF"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R09_DELETE_EFFECT_REF"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R10_DELETE_PUBLIC_ARTIFACT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R11_DELETE_TECHNICAL_ARTIFACT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R12_DELETE_DELIVERY_ARTIFACT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R13_DELETE_ACCEPTANCE_ARTIFACT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R14_DELETE_FAILURE_ARTIFACT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R15_CROSS_CASE_EFFECT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R16_CROSS_CASE_TRIAL"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R17_CROSS_CASE_FAILURE"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R18_CROSS_CASE_AUTHOR_INPUT"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R19_REVOKED_AUTHOR_ASSIGNMENT"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R20_AUTHOR_ASSIGNMENT_WRONG_SUBJECT"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R21_AUTHOR_ASSIGNMENT_WRONG_VERSION"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R22_AUTHOR_ALIAS_TO_REVIEWER"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R23_CRITICAL_AUTHORIZATION_ENUM"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R24_CRITICAL_TERMINAL_ENUM"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R25_CRITICAL_CATEGORY_DOWNPLAYED"
+    },
+    {
+      "actual": "REVIEW_REQUIRED",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "R26_NONCRITICAL_REVIEW"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R27_ADAPTER_WRONG_OWNER"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "R28_ADAPTER_CROSS_CASE_EVIDENCE"
+    },
+    {
+      "actual": "REJECT",
+      "message": "migration_registry.MIGRATION.S01.adapter_differences[0]: closed-world keys mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R29_FREE_TEXT_ADAPTER_REJECTED"
+    },
+    {
+      "actual": "REJECT",
+      "message": "migration_registry.MIGRATION.S01.adapter_differences[0].category: invalid enum",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "R30_UNKNOWN_ADAPTER_CATEGORY"
+    }
+  ]
+}

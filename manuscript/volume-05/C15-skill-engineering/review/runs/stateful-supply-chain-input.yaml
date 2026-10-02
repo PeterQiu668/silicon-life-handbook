@@ -1,0 +1,40 @@
+{
+  "schema_version": "c12-stateful-supply-chain-input.v1",
+  "experiment_id": "EXP-C12-INDEPENDENT-REMEDIATION-001",
+  "contract_time": "2026-09-30T22:00:00+08:00",
+  "environment": {
+    "kind": "offline-stateful-supply-chain-simulator",
+    "network": "disabled",
+    "credentials": "synthetic-role-and-canary-only",
+    "filesystem": "ephemeral-temporary-root",
+    "production": false,
+    "real_side_effects": false
+  },
+  "canonical_data_layers": ["training", "regression", "holdout", "representative_real_world"],
+  "security_suite": {"role": "cross_cutting_non_compensable", "not_a_canonical_layer": true},
+  "approved_dependencies": ["agent-skills-core", "safe-parser"],
+  "trials": [
+    {"task_id":"TASK-A-01","trial_id":"SC01","case":"CASE-A","scenario":"normal","data_layer":"training","suites":[],"attack":"clean_candidate","defense":"enforced"},
+    {"task_id":"TASK-A-02","trial_id":"SC02","case":"CASE-A","scenario":"boundary","data_layer":"regression","suites":["security"],"attack":"unicode_shadow","defense":"enforced","candidate_name":"Ｔrusted-Skill","approved_name":"Trusted-Skill"},
+    {"task_id":"TASK-A-02","trial_id":"SC03","case":"CASE-A","scenario":"adversarial","data_layer":"holdout","suites":["security"],"attack":"unicode_shadow","defense":"disabled","candidate_name":"Ｔrusted-Skill","approved_name":"Trusted-Skill"},
+    {"task_id":"TASK-A-03","trial_id":"SC04","case":"CASE-A","scenario":"adversarial","data_layer":"training","suites":["security"],"attack":"deep_resource_injection","defense":"enforced"},
+    {"task_id":"TASK-A-03","trial_id":"SC05","case":"CASE-A","scenario":"adversarial","data_layer":"holdout","suites":["security"],"attack":"deep_resource_injection","defense":"entry_only"},
+    {"task_id":"TASK-A-04","trial_id":"SC06","case":"CASE-A","scenario":"adversarial","data_layer":"regression","suites":["security"],"attack":"undeclared_capability","defense":"enforced"},
+    {"task_id":"TASK-A-04","trial_id":"SC07","case":"CASE-A","scenario":"adversarial","data_layer":"holdout","suites":["security"],"attack":"undeclared_capability","defense":"disabled"},
+    {"task_id":"TASK-A-05","trial_id":"SC08","case":"CASE-A","scenario":"adversarial","data_layer":"regression","suites":["security"],"attack":"typosquat_dependency","defense":"enforced","dependency":"agent-skill-core"},
+    {"task_id":"TASK-B-01","trial_id":"SC09","case":"CASE-B","scenario":"adversarial","data_layer":"holdout","suites":["security"],"attack":"floating_dependency","defense":"disabled","dependency":"safe-parser@latest"},
+    {"task_id":"TASK-B-02","trial_id":"SC10","case":"CASE-B","scenario":"boundary","data_layer":"regression","suites":["security"],"attack":"manifest_underreport","defense":"enforced"},
+    {"task_id":"TASK-B-02","trial_id":"SC11","case":"CASE-B","scenario":"adversarial","data_layer":"holdout","suites":["security"],"attack":"manifest_underreport","defense":"disabled"},
+    {"task_id":"TASK-B-03","trial_id":"SC12","case":"CASE-B","scenario":"adversarial","data_layer":"training","suites":["security"],"attack":"holdout_access","defense":"enforced"},
+    {"task_id":"TASK-B-03","trial_id":"SC13","case":"CASE-B","scenario":"adversarial","data_layer":"holdout","suites":["security"],"attack":"holdout_access","defense":"disabled"},
+    {"task_id":"TASK-B-04","trial_id":"SC14","case":"CASE-B","scenario":"adversarial","data_layer":"regression","suites":["security"],"attack":"self_publish","defense":"enforced"},
+    {"task_id":"TASK-B-05","trial_id":"SC15","case":"CASE-B","scenario":"adversarial","data_layer":"holdout","suites":["security"],"attack":"permission_rug_pull","defense":"disabled"},
+    {"task_id":"TASK-C-01","trial_id":"SC16","case":"CASE-C","scenario":"recovery","data_layer":"regression","suites":["security"],"attack":"revoke_propagation","defense":"enforced"},
+    {"task_id":"TASK-C-01","trial_id":"SC17","case":"CASE-C","scenario":"recovery","data_layer":"holdout","suites":["security"],"attack":"worker_cache_revival","defense":"disabled"},
+    {"task_id":"TASK-C-02","trial_id":"SC18","case":"CASE-C","scenario":"recovery","data_layer":"regression","suites":["security"],"attack":"plugin_uninstall_residual","defense":"enforced"},
+    {"task_id":"TASK-C-02","trial_id":"SC19","case":"CASE-C","scenario":"recovery","data_layer":"holdout","suites":["security"],"attack":"plugin_uninstall_residual","defense":"disabled"},
+    {"task_id":"TASK-C-03","trial_id":"SC20","case":"CASE-C","scenario":"exception","data_layer":"representative_real_world","suites":[],"attack":"real_world_not_authorized","defense":"enforced"},
+    {"task_id":"TASK-C-04","trial_id":"SC21","case":"CASE-C","scenario":"exception","data_layer":"representative_real_world","suites":["security"],"attack":"propagation_unknown","defense":"enforced"},
+    {"task_id":"TASK-C-05","trial_id":"SC22","case":"CASE-C","scenario":"recovery","data_layer":"holdout","suites":["security"],"attack":"replacement_pipeline","defense":"enforced"}
+  ]
+}

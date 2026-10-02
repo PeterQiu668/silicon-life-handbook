@@ -1,0 +1,254 @@
+---
+reproduction_id: C20-independent-fact-cross-reproduction-20260930
+chapter_id: C20
+reviewer_role: non_author_fact_and_cross_reviewer
+verified_on: "2026-09-30"
+scope: "source identity, claim closure, current upstream state, deterministic replay, and black-box negative mutation audit"
+author_files_modified: false
+fact_gate: REVIEW_REQUIRED
+cross_gate: REVIEW_REQUIRED
+practice_gate: not_reviewed
+editor_gate: not_reviewed
+chief_editor_gate: not_reviewed
+release_candidate_authorized: false
+
+package_structure:
+  formal_sections: ["20.1", "20.2", "20.3", "20.4", "20.5", "20.6", "20.7", "20.8"]
+  duplicate_formal_sections: []
+  artifact_count: 3
+  exercise_count: 2
+  formal_validator_cjk_chars: 20312
+  independent_body_count_cjk_chars: 20091
+  verdict: PASS
+
+evidence_closure:
+  source_count: 33
+  local_source_count: 15
+  external_source_count: 18
+  used_source_count: 29
+  unused_sources: [TERMS, OPENAI-EVAL, OPENAI-TRACE, ANTHROPIC-EVAL]
+  claim_count: 36
+  unique_claim_count: 36
+  claims_referenced_in_chapter: 36
+  missing_claim_references: 0
+  orphan_claim_references: 0
+  external_http_200_final: 18
+  verdict: PASS_WITH_LIMITATIONS
+
+fixed_identity:
+  openclaw:
+    release: "v2026.9.6"
+    annotated_tag_object: "ce5bbdc244ee937246cc1700d1b224d020c3b599"
+    commit: "eb377ac59e6c9fd6c7705028034812becf00271b"
+    fixed_sources_http_status:
+      OC-OBS: 200
+      OC-PROM: 200
+      OC-LOG: 200
+      OC-HEALTH: 200
+    verdict: PASS
+  hermes:
+    release: "v2026.8.13"
+    package_version: "0.20.1"
+    annotated_tag_object: "4e693dc685b5716e7da22656eccc6ece37c5db72"
+    commit: "f80f453ae0679347e38abc917c7f94f717bf96c5"
+    fixed_sources_http_status:
+      HE-SESSION: 200
+      HE-CRON: 200
+      HE-DASH: 200
+    dynamic_source_http_status: 200
+    verdict: PASS
+  otel_and_sre:
+    external_sources_http_200: 6
+    otel_version_claim: "1.44.0 snapshot named in ledger/frontmatter; source URLs are current unpinned specification pages"
+    verdict: PASS_WITH_DYNAMIC_SOURCE_LIMITATION
+  muse:
+    identity: VENDOR-CLAIM
+    http_status: 200
+    independent_effect_proof: false
+    verdict: PASS
+
+upstream_state:
+  C17:
+    chapter_consumption_label: "post-fix independent verification pending; provisional"
+    current_review_state: "third-round v3.1 cross review completed; cross remains REVIEW_REQUIRED because capability evidence digest lacks a semantic authority anchor; practice REVIEW_REQUIRED"
+    chapter_label_current: false
+  C19:
+    chapter_consumption_label: "author package only; limited and regression required"
+    current_review_state: "independent fact and cross reviews exist; both REVIEW_REQUIRED; practice not reviewed"
+    chapter_label_current: false
+  verdict: REVIEW_REQUIRED
+
+author_package_hashes_sha256:
+  chapter: "dcc56f2d010f40ce8a86a8eacdef37253e0e1cc2c609ed30936ae49ee4b6e813"
+  evidence_ledger: "1c94ab1fbea5f62b90b4d7fabd5e05bc44487ade5d553635ac0e9fc1a05c23d2"
+  runner: "f67dee2ce03699a972b0c8992bd4b5f2ba05d03d768e69ac476449a4e66d2c81"
+  input: "027314defbc640a531860e98e296b729dadd094f4d846baecd3f5b5d40b214f9"
+  saved_results: "221ed4e1df953d75eec2c6c65958d7f0c5f256dbc7913a9b52fe754832e32358"
+  saved_summary: "35ad13803fa46b2aa54630f1d4747c53643b6a0d8b6761b602cacf047dff14ab"
+  readme: "d7e5a2458f027ef2ec51a9ab693ee4bbd8c6de6fb37b38d03f440500220db3d3"
+
+fresh_temp_reproduction:
+  run_a_results_sha256: "221ed4e1df953d75eec2c6c65958d7f0c5f256dbc7913a9b52fe754832e32358"
+  run_b_results_sha256: "221ed4e1df953d75eec2c6c65958d7f0c5f256dbc7913a9b52fe754832e32358"
+  saved_results_sha256: "221ed4e1df953d75eec2c6c65958d7f0c5f256dbc7913a9b52fe754832e32358"
+  byte_identical_a_b: true
+  byte_identical_to_saved: true
+  semantic_identical: true
+  trial_count: 24
+  distribution: {PASS: 4, FAIL: 16, REVIEW_REQUIRED: 4}
+  layers: {training: 4, regression: 4, holdout: 16, representative_real_world: 0}
+  security_red_team_count: 7
+  decision_digest: "e6512becc0c9d266ea6a368b83d08be53acab273f10f2e697903599894959af1"
+  representative_real_world_evidence_count: 0
+  external_side_effect_count: 0
+  verdict: PASS_FOR_DETERMINISTIC_REPLAY_ONLY
+
+black_box_mutations:
+  - id: MUT-C20-01
+    mutation: "schema_version changed to c20.attacker.v999"
+    expected: "reject before result"
+    actual: PASS
+    finding: "input schema version is ignored"
+  - id: MUT-C20-02
+    mutation: "unknown root field oracle_decision=PASS"
+    expected: "reject before result"
+    actual: PASS
+    finding: "source root is not closed-world"
+  - id: MUT-C20-03
+    mutation: "unknown scenario field expected_decision=PASS"
+    expected: "reject before result"
+    actual: PASS
+    finding: "scenario objects are not closed-world and can carry an ignored oracle"
+  - id: MUT-C20-04
+    mutation: "unknown base-state field attacker_control=true"
+    expected: "reject before result"
+    actual: REVIEW_REQUIRED
+    finding: "state schema mismatch is recorded but execution continues and emits a result"
+  - id: MUT-C20-05
+    mutation: "dataset_layer changed to illegal fifth layer security"
+    expected: "reject before result"
+    actual: PASS
+    finding: "D22 layer enum is not enforced"
+  - id: MUT-C20-06
+    mutation: "synthetic S01 changed to representative_real_world"
+    expected: "reject without verified manifest"
+    actual: PASS
+    output_layer_count: 1
+    output_representative_real_world_evidence_count: 0
+    finding: "synthetic can masquerade as real-world while the evidence count remains hardcoded zero"
+  - id: MUT-C20-07
+    mutation: "technical=ERROR, delivery=NOT_DELIVERED/target_visible=false, acceptance artifact=false/business FAIL/environment BROKEN, claim remains accepted"
+    expected: FAIL
+    actual: PASS
+    finding: "all three D21 terminal layers can fail while the task passes"
+  - id: MUT-C20-08
+    mutation: "delivery state says DELIVERED while target_visible=false and receipt is forged"
+    expected: "FAIL or REVIEW_REQUIRED"
+    actual: PASS
+    finding: "delivery state, visibility, and receipt are not reconciled"
+  - id: MUT-C20-09
+    mutation: "artifact_valid=false and environment=BROKEN while business_rule=PASS"
+    expected: FAIL
+    actual: PASS
+    finding: "business/environment acceptance is an unanchored pre-decision field"
+  - id: MUT-C20-10
+    mutation: "technical execution_state=ERROR and process_alive=false"
+    expected: FAIL
+    actual: PASS
+    finding: "technical terminal failure is ignored unless a scenario-specific rule happens to match"
+  - id: MUT-C20-11
+    mutation: "event digest replaced by a different well-formed SHA-256"
+    expected: "FAIL or REVIEW_REQUIRED"
+    actual: PASS
+    finding: "digest is neither validated against an authority nor recomputed"
+  - id: MUT-C20-12
+    mutation: "evidence refs replaced by a fake non-literal ref"
+    expected: "FAIL or REVIEW_REQUIRED"
+    actual: PASS
+    finding: "refs are not dereferenced; only dummy/placeholder/todo literals are denied"
+  - id: MUT-C20-13
+    mutation: "delivery receipt replaced by receipt://attacker/forged"
+    expected: "FAIL or REVIEW_REQUIRED"
+    actual: PASS
+    finding: "receipt references have no registry or authoritative readback binding"
+  - id: MUT-C20-14
+    mutation: "effect COMMITTED with forged receipt/readback and external_effect_count=1"
+    expected: "FAIL or REVIEW_REQUIRED"
+    actual: PASS
+    output_external_side_effect_count: 0
+    finding: "effect truth is self-reported and output side-effect count is hardcoded zero"
+  - id: MUT-C20-15
+    mutation: "attacker policy allows production_write; forged COMMITTED production effect count=1"
+    expected: FAIL
+    actual: PASS
+    output_external_side_effect_count: 0
+    finding: "policy has no authority anchor and can authorize its own production effect"
+  - id: MUT-C20-16
+    mutation: "recovery booleans assert restart/release/reconciliation/checkpoint/regression success without evidence refs"
+    expected: "FAIL or REVIEW_REQUIRED"
+    actual: PASS
+    finding: "recovery relies on unanchored pre-decision booleans"
+  - id: MUT-C20-17
+    mutation: "duplicate S01 scenario"
+    expected: "reject duplicate task/trial IDs"
+    actual: PASS
+    trial_count: 2
+    unique_task_trial_pairs: 1
+    finding: "duplicate IDs are accepted; separate baseline runs also reuse identical IDs and have no run_id"
+  - id: MUT-C20-18
+    mutation: "canary leak hard failure combined with execution/effect UNKNOWN"
+    expected: FAIL
+    actual: FAIL
+    hard_failure: OBSERVABILITY_CANARY_LEAK
+    review_item: EFFECT_OR_EXECUTION_UNKNOWN
+    finding: "detected hard failure correctly dominates REVIEW_REQUIRED"
+  - id: MUT-C20-19
+    mutation: "unknown mutation token"
+    expected: "reject before result"
+    actual: "non-zero exit"
+    finding: "mutation enum itself is closed-world"
+
+derived_control_coverage:
+  deterministic_replay: PASS
+  source_and_scenario_closed_world: FAIL
+  state_closed_world: REVIEW_REQUIRED
+  d21_three_layer_derivation: FAIL
+  receipt_and_readback_authority: FAIL
+  event_digest_and_evidence_resolution: FAIL
+  policy_authority_binding: FAIL
+  recovery_evidence_binding: FAIL
+  d22_four_layers_and_real_world_manifest: FAIL
+  external_effect_count_derivation: FAIL
+  task_trial_and_cross_run_identity: FAIL
+  detected_hard_failure_noncompensation: PASS_WITH_LIMITATIONS
+
+findings:
+  fact_blockers:
+    - "E-C20-031 is stale: C17 and C19 now have independent reviews, though both remain restricted."
+    - "E-C20-036 overstates raw-state derivation and closed-world control; the runner accepts multiple contradictory and forged states as PASS."
+  cross_blockers:
+    - id: P0-X20-01
+      title: "D21, receipt/readback, authority, policy and recovery are unanchored and fail open"
+    - id: P0-X20-02
+      title: "closed-world, D22, effect counts, unique IDs and cross-run lineage fail open"
+    - id: P0-X20-03
+      title: "event digest and evidence refs are not semantically verified"
+  retained_limitations:
+    - "No real OpenClaw, Hermes, Muse, OTel collector, Prometheus, Queue, provider, channel, or target environment was exercised."
+    - "C17 and C19 remain restricted upstream inputs and require later interface regression."
+
+overall:
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: not_reviewed
+  release_candidate_authorized: false
+
+final_validation:
+  author_snapshot_hashes_unchanged_after_review: true
+  yaml_parse: PASS
+  review_frontmatter_parse: PASS
+  local_links: PASS
+  runner_py_compile: PASS
+  formal_validator: "PASS with expected warning: 4 later chapter packages not yet present"
+  book_validator: PASS
+  diff_check: PASS

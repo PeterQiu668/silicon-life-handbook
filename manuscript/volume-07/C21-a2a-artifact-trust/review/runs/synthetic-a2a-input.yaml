@@ -1,0 +1,427 @@
+{
+  "allowed_mutations": [
+    "forged_card_signature",
+    "expired_card_cache",
+    "inflated_skill",
+    "duplicate_event",
+    "event_gap",
+    "timeout_remote_running",
+    "cancel_ack_effect_pending",
+    "artifact_digest_mismatch",
+    "signed_content_wrong",
+    "high_trust_no_authority",
+    "collusive_scoring",
+    "duplicate_id_different_payload"
+  ],
+  "authority_store": {
+    "auth-produce": {
+      "action": "produce",
+      "actor": "agent-good",
+      "approver": "human-approver",
+      "expires": "2026-10-01T00:00:00Z",
+      "not_before": "2026-09-30T00:00:00Z",
+      "object": "report",
+      "policy_version": "policy-v2",
+      "scope": "local",
+      "status": "ACTIVE"
+    }
+  },
+  "base_artifact": {
+    "acceptance_evidence_ref": "accept-art-001",
+    "accountable_human": "human-owner",
+    "artifact_id": "art-001",
+    "authority_evidence_ref": "auth-produce",
+    "content": {
+      "amount": 100,
+      "finding": "synthetic",
+      "unit": "CNY"
+    },
+    "object_type": "report",
+    "owner": "org-test",
+    "producer": "agent-good",
+    "provenance": [
+      "input:synthetic-case-c",
+      "source:public"
+    ],
+    "retention": {
+      "class": "training-synthetic",
+      "expires_at": "2027-09-30T00:00:00Z"
+    },
+    "schema_ref": "schema:report:v1",
+    "signed_fields": [
+      "artifact_id",
+      "task_id",
+      "object_type",
+      "version",
+      "schema_ref",
+      "content",
+      "producer",
+      "owner",
+      "accountable_human",
+      "authority_evidence_ref",
+      "provenance",
+      "tool_receipts",
+      "transformation_chain",
+      "retention",
+      "acceptance_evidence_ref",
+      "content_digest"
+    ],
+    "task_id": "task-001",
+    "tool_receipts": [
+      "receipt:synthetic-tool-read"
+    ],
+    "transformation_chain": [
+      "normalize",
+      "analyze",
+      "render"
+    ],
+    "version": 1
+  },
+  "base_card": {
+    "agent_id": "agent-good",
+    "endpoint": "https://synthetic.invalid/a2a",
+    "expires_at": "2026-10-01T00:00:00Z",
+    "issued_at": "2026-09-30T00:00:00Z",
+    "protocol": "1.0",
+    "provider_org": "org-test",
+    "revocation_status": "ACTIVE",
+    "security_schemes": [
+      "bearer"
+    ],
+    "signer_ref": "issuer-good",
+    "skills": [
+      "research",
+      "draft"
+    ],
+    "supported_interfaces": [
+      "json-rpc"
+    ]
+  },
+  "base_events": [
+    {
+      "event_id": "e1",
+      "protocol_state": "SUBMITTED",
+      "sequence": 1,
+      "state_version": 1,
+      "task_id": "task-001"
+    },
+    {
+      "event_id": "e2",
+      "protocol_state": "WORKING",
+      "sequence": 2,
+      "state_version": 2,
+      "task_id": "task-001"
+    },
+    {
+      "artifact_ref": "art-001",
+      "event_id": "e3",
+      "protocol_state": "COMPLETED",
+      "sequence": 3,
+      "state_version": 3,
+      "task_id": "task-001"
+    }
+  ],
+  "base_execution": {
+    "authoritative_readback": {
+      "inflight": "CLEAR",
+      "queue": "CLEAR",
+      "worker": "STOPPED"
+    },
+    "cancel": {
+      "ack": "NONE",
+      "requested": false
+    },
+    "descendants": [
+      {
+        "id": "child-1",
+        "state": "COMPLETED"
+      }
+    ],
+    "effect_ledger": [],
+    "locks_released": true,
+    "stop_receipt": {
+      "receipt_id": "stop-001",
+      "status": "VERIFIED"
+    },
+    "worker_state": "STOPPED"
+  },
+  "base_task": {
+    "current_state": "COMPLETED",
+    "delegation_ref": "delegation-good",
+    "owner": "agent-good",
+    "state_version": 3,
+    "task_id": "task-001"
+  },
+  "capability_probe_store": {
+    "draft": {
+      "risk": "high",
+      "status": "VERIFIED",
+      "task_class": "draft"
+    },
+    "research": {
+      "risk": "high",
+      "status": "VERIFIED",
+      "task_class": "research"
+    }
+  },
+  "data_origin": "synthetic",
+  "delegation_store": {
+    "delegation-good": {
+      "actions": [
+        "produce"
+      ],
+      "child_actor": "agent-good",
+      "expires": "2026-10-01T00:00:00Z",
+      "not_before": "2026-09-30T00:00:00Z",
+      "objects": [
+        "report"
+      ],
+      "parent_actor": "org-dispatch",
+      "scopes": [
+        "local"
+      ],
+      "status": "ACTIVE"
+    }
+  },
+  "environment": {
+    "external_side_effects_allowed": false,
+    "mode": "offline_synthetic",
+    "network": false,
+    "real_credentials": false
+  },
+  "now": "2026-09-30T12:00:00Z",
+  "real_world_evidence_manifest": {},
+  "representative_real_world_executed": false,
+  "scenarios": [
+    {
+      "expected": "PASS",
+      "id": "S01",
+      "kind": "normal",
+      "layer": "training",
+      "mutations": [],
+      "security_red_team": false
+    },
+    {
+      "expected": "FAIL",
+      "id": "S02",
+      "kind": "adversarial",
+      "layer": "regression",
+      "mutations": [
+        "forged_card_signature"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "id": "S03",
+      "kind": "adversarial",
+      "layer": "regression",
+      "mutations": [
+        "expired_card_cache"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "id": "S04",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "inflated_skill"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "PASS",
+      "id": "S05",
+      "kind": "adversarial",
+      "layer": "training",
+      "mutations": [
+        "duplicate_event"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "id": "S06",
+      "kind": "adversarial",
+      "layer": "regression",
+      "mutations": [
+        "event_gap"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "id": "S07",
+      "intended_target_layer": "representative_real_world",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "timeout_remote_running"
+      ],
+      "security_red_team": true,
+      "synthetic_shadow": true
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "id": "S08",
+      "intended_target_layer": "representative_real_world",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "cancel_ack_effect_pending"
+      ],
+      "security_red_team": true,
+      "synthetic_shadow": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "S09",
+      "kind": "adversarial",
+      "layer": "training",
+      "mutations": [
+        "artifact_digest_mismatch"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "S10",
+      "kind": "adversarial",
+      "layer": "regression",
+      "mutations": [
+        "signed_content_wrong"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "S11",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "high_trust_no_authority"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "S12",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "collusive_scoring"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "S13",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "duplicate_id_different_payload"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "PASS",
+      "id": "S14",
+      "kind": "adversarial",
+      "layer": "training",
+      "mutations": [
+        "duplicate_event"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "S15",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "expired_card_cache",
+        "high_trust_no_authority"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "S16",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "signed_content_wrong",
+        "collusive_scoring"
+      ],
+      "security_red_team": true
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "id": "S17",
+      "intended_target_layer": "representative_real_world",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "event_gap",
+        "cancel_ack_effect_pending"
+      ],
+      "security_red_team": true,
+      "synthetic_shadow": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "S18",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mutations": [
+        "artifact_digest_mismatch",
+        "duplicate_event",
+        "high_trust_no_authority"
+      ],
+      "security_red_team": true
+    }
+  ],
+  "schema_registry": {
+    "schema:report:v1": {
+      "allowed_units": [
+        "CNY"
+      ],
+      "required_content_fields": [
+        "amount",
+        "unit",
+        "finding"
+      ]
+    }
+  },
+  "schema_version": "c18.synthetic.v3",
+  "seed": "C18-2026-09-30-v3",
+  "stop_receipt_registry": {
+    "stop-001": {
+      "issued_at": "2026-09-30T11:59:00Z",
+      "object_digest": "c8724c2c26c6c83f640fe5442cd426feb2d76fffa45a82106c623bc7b2113663",
+      "source": "control-plane",
+      "status": "VERIFIED",
+      "task_id": "task-001",
+      "worker": "agent-good"
+    }
+  },
+  "synthetic_key_material": {
+    "issuer-colluder": "SYNTHETIC-KEY-B",
+    "issuer-good": "SYNTHETIC-KEY-A"
+  },
+  "trust_roots": {
+    "issuer-colluder": {
+      "provider_org": "org-colluder",
+      "status": "REVOKED"
+    },
+    "issuer-good": {
+      "provider_org": "org-test",
+      "status": "ACTIVE"
+    }
+  },
+  "trusted_approvers": [
+    "human-approver"
+  ]
+}

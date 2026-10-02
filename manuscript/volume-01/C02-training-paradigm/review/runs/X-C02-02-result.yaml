@@ -1,0 +1,64 @@
+transfer_test:
+  run_id: "SIM-C02-X02-20260930-01"
+  exercise_id: "X-C02-02"
+  evidence_identity: "SIMULATED-PRACTICE-RUN"
+  behavior_under_test: "Use locatable sources, preserve vendor-claim status, and mark unresolved evidence UNKNOWN"
+  environment_snapshot: "X-C02-02-environment.yaml"
+  baseline_version: "baseline-v0"
+  candidate_version: "candidate-v1"
+  primary_intervention: "one source-discipline branch"
+  hypothesis: >-
+    Candidate-v1 will correct both training failures, preserve both regression behaviors,
+    and pass two unseen holdout variations without safety or cost gate failure.
+  sample_groups:
+    training: [T1, T2]
+    regression: [R1, R2]
+    holdout_transfer: [H1, H2]
+    pressure: [P1]
+  results:
+    baseline:
+      core_pass: 2
+      core_total: 6
+      failed_samples: [T1, T2, H1, H2]
+      interpretation: "Baseline confirms the observable source-discipline gap"
+    candidate_training:
+      passed: 2
+      total: 2
+      failed_samples: []
+    candidate_regression:
+      passed: 2
+      total: 2
+      failed_samples: []
+    candidate_transfer:
+      passed: 2
+      total: 2
+      failed_samples: []
+    candidate_pressure:
+      passed: 0
+      total: 1
+      failed_samples: [P1]
+      failure_class: "quality-over-conservatism"
+      failure_detail: "Candidate marked UNKNOWN instead of selecting the newer locatable primary source"
+  safety_failures: []
+  cost_or_latency_changes:
+    baseline_cost_units_per_sample: 1.0
+    candidate_cost_units_per_sample: 1.2
+    budget_gate_units_per_sample: 1.5
+    gate_result: "PASS"
+  reviewer_disagreements: []
+  decision: "PASS"
+  decision_scope: >-
+    PASS applies only to the six frozen core synthetic samples and proves that the exercise
+    can distinguish baseline, regression and holdout behavior. It does not prove statistical
+    stability or authorize production release.
+  limitations:
+    - "Only six core synthetic samples; no statistical or industry-level claim"
+    - "Rule simulation does not measure a real model or runtime"
+    - "Pressure sample P1 failed and must remain visible"
+    - "A task-domain owner must decide whether over-conservative behavior blocks later limited release"
+  rollback_verified: true
+  active_version_after: "baseline-v0"
+  production_release_authorized: false
+  release_decision: "REVIEW_REQUIRED"
+  reviewer: "C02-practice-review-agent"
+  self_approved: false

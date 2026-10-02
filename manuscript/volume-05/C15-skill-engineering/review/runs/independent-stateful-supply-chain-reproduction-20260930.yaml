@@ -1,0 +1,419 @@
+schema_version: c12-independent-stateful-supply-chain-reproduction.v1
+review_id: C12-independent-stateful-remediation-review-20260930
+chapter_id: C12
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_remediation_author: true
+scope: post_fix_synthetic_invariant_control_with_full_practice_reserved
+historical_pre_fix_evidence_preserved: true
+historical_sections:
+  - protected_sources
+  - fresh_runs
+  - reproduction
+  - coverage_audit
+  - negative_mutations
+historical_sections_note: These sections preserve the pre-fix snapshot and are superseded for current-state judgment by post_fix_regression.
+protected_sources:
+  snapshot_role: pre_fix
+  input:
+    path: stateful-supply-chain-input.yaml
+    raw_sha256: e2fd30d6e7a801cd75f832fc7019b4d147dc3deeebdca838ab80f63e8878db10
+    parsed_canonical_sha256: 9f3c7647ce0c8edd4adc5691195ea1f8a501c883ca8b4f802481198a7be150d2
+  runner:
+    path: run-stateful-supply-chain.py
+    sha256: fc22d3d8bb1acc66d03b95c99dd185ed56d43f800eca2d4504ddfac68ff4f6b2
+  author_result:
+    path: stateful-supply-chain-results.yaml
+    sha256: 6260a80af587b66ebee4de34502eab486ef3796b4506d9e3068dd000475d0664
+  author_summary:
+    path: stateful-supply-chain-summary.md
+    sha256: 463efec000ac17d4bdfdf85c573d61c73c3a03cac2cd3109ab08f81c67389800
+  readme:
+    path: README.md
+    sha256: c70f488671c6a2e544f9bc445c4823d87173924897c9780e5c09173ff9c2a363
+  pre_remediation_practice_review:
+    path: ../practice-review.md
+    sha256: 792fa36de1e1f907bc6d28816d5cece90bcd2f92119cfc788c121f645f1bd6aa
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_name: c12-stateful-a.ueWZWR
+    exit_code: 0
+    stdout: empty
+    stderr: empty
+    runner_sha256: fc22d3d8bb1acc66d03b95c99dd185ed56d43f800eca2d4504ddfac68ff4f6b2
+    input_raw_sha256: e2fd30d6e7a801cd75f832fc7019b4d147dc3deeebdca838ab80f63e8878db10
+    result_sha256: 6260a80af587b66ebee4de34502eab486ef3796b4506d9e3068dd000475d0664
+    summary_sha256: 463efec000ac17d4bdfdf85c573d61c73c3a03cac2cd3109ab08f81c67389800
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_name: c12-stateful-b.GWN0gK
+    exit_code: 0
+    stdout: empty
+    stderr: empty
+    runner_sha256: fc22d3d8bb1acc66d03b95c99dd185ed56d43f800eca2d4504ddfac68ff4f6b2
+    input_raw_sha256: e2fd30d6e7a801cd75f832fc7019b4d147dc3deeebdca838ab80f63e8878db10
+    result_sha256: 6260a80af587b66ebee4de34502eab486ef3796b4506d9e3068dd000475d0664
+    summary_sha256: 463efec000ac17d4bdfdf85c573d61c73c3a03cac2cd3109ab08f81c67389800
+    cleaned_after_inspection: true
+reproduction:
+  source_copies_byte_equal: true
+  run_a_run_b_result_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  run_a_run_b_semantic_equal: true
+  reproduced_result_equals_author_result: true
+  reproduced_summary_equals_author_summary: true
+  internal_temporary_directory_leaks: 0
+record_integrity:
+  trials: 22
+  unique_trial_ids: 22
+  unique_task_trial_pairs: 22
+  unique_task_ids: 15
+  cases:
+    CASE-A: 8
+    CASE-B: 7
+    CASE-C: 7
+  scenarios:
+    normal: 1
+    boundary: 2
+    adversarial: 12
+    exception: 2
+    recovery: 5
+  gate_distribution:
+    PASS: 11
+    FAIL: 9
+    REVIEW_REQUIRED: 2
+  pass_trials: [SC01, SC02, SC04, SC06, SC08, SC10, SC12, SC14, SC16, SC18, SC22]
+  fail_trials: [SC03, SC05, SC07, SC09, SC11, SC13, SC15, SC17, SC19]
+  review_required_trials: [SC20, SC21]
+  unknown_maps_only_to_review_required: true
+  hard_failures_non_compensated: true
+data_layers:
+  canonical_layers: [training, regression, holdout, representative_real_world]
+  observed_distribution:
+    training: {PASS: 3}
+    regression: {PASS: 7}
+    holdout: {PASS: 1, FAIL: 9}
+    representative_real_world: {REVIEW_REQUIRED: 2}
+  security_role: cross_cutting_non_compensable
+  security_is_not_canonical_layer: true
+  security_memberships_by_layer:
+    training: 2
+    regression: 7
+    holdout: 10
+    representative_real_world: 1
+  representative_real_world_records: [SC20, SC21]
+  representative_real_world_executions: 0
+  representative_real_world_all_review_required: true
+hard_failure_distribution:
+  normalized_name_collision_executed: [SC03]
+  deep_resource_injection_loaded: [SC05]
+  undeclared_resource_or_capability_loaded: [SC07, SC11]
+  unapproved_or_floating_dependency_activated: [SC09]
+  holdout_access_control_bypassed: [SC13]
+  permission_expansion_reused_stale_approval: [SC15]
+  revoked_capability_revived: [SC17]
+  plugin_uninstall_left_executable_residual: [SC19]
+coverage_audit:
+  unicode_nfkc_casefold_collision:
+    level: stateful_deterministic_control
+    safe_trial: SC02
+    unsafe_trial: SC03
+    limitation: not_exhaustive_confusable_detection
+  deep_resource_recursive_scan:
+    level: actual_ephemeral_file_tree_and_recursive_read
+    safe_trial: SC04
+    unsafe_trial: SC05
+  undeclared_network_path_secret:
+    level: actual_marker_scan_in_nested_synthetic_file
+    safe_trial: SC06
+    unsafe_trial: SC07
+  typosquat_dependency:
+    level: deterministic_edit_distance_control
+    safe_trial: SC08
+  floating_dependency:
+    level: deterministic_exact_name_and_revision_control
+    unsafe_trial: SC09
+  manifest_underreport:
+    level: actual_recursive_discovery_minus_declared_manifest
+    safe_trial: SC10
+    unsafe_trial: SC11
+  holdout_access_matrix:
+    level: hardcoded_role_access_control
+    safe_trial: SC12
+    unsafe_trial: SC13
+    blind_reviewer_execution: not_run
+  self_publish_role_control:
+    level: hardcoded_role_permission_control
+    safe_trial: SC14
+  permission_rug_pull:
+    level: deterministic_approved_current_set_diff
+    unsafe_trial: SC15
+  revocation_tombstone_worker_cache_restart:
+    level: in_memory_surface_state_machine
+    safe_trial: SC16
+    unsafe_trial: SC17
+    cache_model: folded_into_worker_cached_state
+  plugin_uninstall_residual:
+    level: actual_ephemeral_executable_and_audit_readback
+    safe_trial: SC18
+    unsafe_trial: SC19
+  replacement_exact_diff_digest:
+    level: deterministic_hardcoded_baseline_candidate_pipeline
+    trial: SC22
+    candidate_digest: 94ffd0d4ba5fa94fab92c67c5ffb7a4cb1897704f4eb85291ca37352e5ce9cc1
+    exact_diff: {revision: v2, stop_on_unknown: true}
+    pipeline_gates_hardcoded_true: true
+negative_mutations:
+  - mutation_id: M01
+    target_trial: SC02
+    change: latin_fullwidth_confusable_changed_to_cyrillic_T
+    observed_gate: PASS
+    executed: true
+    limitation_exposed: NFKC_casefold_is_not_exhaustive_confusable_detection
+    result_sha256: 0ea8b166e3a85525e1178503957f229f0424dde9244862a70d5023db3b39170f
+  - mutation_id: M02
+    target_trial: SC02
+    change: uppercase_and_underscore_variant
+    observed_gate: PASS
+    executed: false
+    implication: NFKC_casefold_and_underscore_normalization_detected_collision
+    result_sha256: 951009e1b0bad3101d8033179e5bed6a0b18299ebcfefd826d0d3a519066a0d2
+  - mutation_id: M03
+    target_trial: SC08
+    change: typosquat_defense_disabled
+    observed_gate: FAIL
+    reason: unapproved_or_floating_dependency_activated
+    result_sha256: 2a423ac3a61e93a97342f5eb9404aede1da9b193010cb237e4360dc09ec7950f
+  - mutation_id: M04
+    target_trial: SC14
+    change: candidate_agent_publish_defense_disabled
+    observed_gate: FAIL
+    reason: candidate_self_published
+    result_sha256: 765f1390ab8fd9ea7b09939e8ccf9f424a8b1093bec6f1e21c67538a5db11f35
+  - mutation_id: M05
+    target_trial: SC15
+    change: permission_rug_pull_defense_enforced
+    observed_gate: PASS
+    published: false
+    result_sha256: b0ebfbc556a128bf6efc41084ee78a7d194022137dea33e5e8265ac1a3126321
+  - mutation_id: M06
+    target_trial: SC17
+    change: tombstone_enforced_before_worker_restart
+    observed_gate: PASS
+    result_sha256: 62295625ab764e694ab7b2f7ad8ed131901498b62855d6f2d5bff7c0125c8e42
+  - mutation_id: M07
+    target_trial: SC22
+    change: add_input_candidate_override_with_send_external
+    observed_gate: PASS
+    computed_digest_unchanged: true
+    computed_exact_diff_unchanged: true
+    limitation_exposed: replacement_baseline_candidate_and_gates_are_hardcoded_not_input_driven
+    result_sha256: 7b1865cb17b4f10eace8e2143d1e7bae8bd06acb30e83830e4d1e0b7c376ddff
+  - mutation_id: M08
+    target_trial: SC20
+    change: real_world_record_attack_changed_to_clean_candidate
+    observed_gate: PASS
+    executed: true
+    reported_real_world_executed: false
+    limitation_exposed: real_world_nonexecution_is_frozen_input_property_not_global_data_layer_guard
+    result_sha256: affae37b1a4e0a7ff64ddd973b4828d1d55cb6297bb787dab777daa37cb112
+  - mutation_id: M09
+    target_trial: all
+    change: remove_all_security_suite_memberships
+    summary_security_is_cross_cutting: true
+    observed_security_memberships: 0
+    limitation_exposed: top_level_security_flag_is_echoed_not_coverage_validated
+    result_sha256: dacb3aced61c5c5c912e827ac5a35dc5104269870987218f3349ff8bce4da347
+  - mutation_id: M10
+    target_trial: SC22
+    change: duplicate_SC21_task_trial_pair
+    unique_task_trial_pairs: 21
+    unique_trial_ids: 21
+    runner_exit_code: 0
+    limitation_exposed: uniqueness_is_reported_not_hard_gated
+    result_sha256: ede2fd27f6116f1e95d8c01f4d89f1e9f92653fe6c713b8cb78e55b9983f0a7
+post_fix_regression:
+  decision: PASS
+  scope: post_fix_synthetic_invariant_control
+  review_date: "2026-09-30"
+  current_sources:
+    input:
+      path: stateful-supply-chain-input.yaml
+      raw_sha256: e2fd30d6e7a801cd75f832fc7019b4d147dc3deeebdca838ab80f63e8878db10
+      parsed_canonical_sha256: 9f3c7647ce0c8edd4adc5691195ea1f8a501c883ca8b4f802481198a7be150d2
+    runner:
+      path: run-stateful-supply-chain.py
+      sha256: 5ee52485738495c2124242aff7df91a514e06ff6dd3aaeb6c28d5afe58764df0
+    author_result:
+      path: stateful-supply-chain-results.yaml
+      sha256: 40cf553c8e50f65a9a1ff9af6cb0c1efceeec289b5ed34ee5a1549f7bfdce444
+    author_summary:
+      path: stateful-supply-chain-summary.md
+      sha256: 347bfeb2db91c21ef2ef3d1130cc7411d8e57bef67571ec9c84d03e084af3ca4
+    readme:
+      path: README.md
+      sha256: c70f488671c6a2e544f9bc445c4823d87173924897c9780e5c09173ff9c2a363
+    original_practice_review:
+      path: ../practice-review.md
+      sha256: 792fa36de1e1f907bc6d28816d5cece90bcd2f92119cfc788c121f645f1bd6aa
+  intermediate_snapshot:
+    runner_sha256: 420f2eb0e27b21c255af768aa0d9dbb0253ec8a5245e48aca118e6ef2b848313
+    greek_tau_mutation_result_sha256: 622e51194deff297a7b08b00ab59a2b7ed6bf4f0c898fe44e4899d967d5375d3
+    observed_defect: Greek uppercase Tau was casefolded before translation while the table still used uppercase Greek keys.
+    current_status: closed_by_lowercase_post_casefold_greek_mapping
+  fresh_runs:
+    - run_id: POST-FIX-RUN-A
+      fresh_directory_name: c12-final-a.JqRVv7
+      exit_code: 0
+      stdout: empty
+      stderr: empty
+      input_raw_sha256: e2fd30d6e7a801cd75f832fc7019b4d147dc3deeebdca838ab80f63e8878db10
+      runner_sha256: 5ee52485738495c2124242aff7df91a514e06ff6dd3aaeb6c28d5afe58764df0
+      result_sha256: 40cf553c8e50f65a9a1ff9af6cb0c1efceeec289b5ed34ee5a1549f7bfdce444
+      summary_sha256: 347bfeb2db91c21ef2ef3d1130cc7411d8e57bef67571ec9c84d03e084af3ca4
+      cleaned_after_inspection: true
+    - run_id: POST-FIX-RUN-B
+      fresh_directory_name: c12-final-b.4Ou4gO
+      exit_code: 0
+      stdout: empty
+      stderr: empty
+      input_raw_sha256: e2fd30d6e7a801cd75f832fc7019b4d147dc3deeebdca838ab80f63e8878db10
+      runner_sha256: 5ee52485738495c2124242aff7df91a514e06ff6dd3aaeb6c28d5afe58764df0
+      result_sha256: 40cf553c8e50f65a9a1ff9af6cb0c1efceeec289b5ed34ee5a1549f7bfdce444
+      summary_sha256: 347bfeb2db91c21ef2ef3d1130cc7411d8e57bef67571ec9c84d03e084af3ca4
+      cleaned_after_inspection: true
+  reproduction:
+    source_copies_byte_equal: true
+    run_a_run_b_result_byte_equal: true
+    run_a_run_b_summary_byte_equal: true
+    run_a_run_b_semantic_equal: true
+    reproduced_result_equals_current_author_result: true
+    reproduced_summary_equals_current_author_summary: true
+    temporary_root_leaks: 0
+  record_integrity:
+    trials: 22
+    unique_trial_ids: 22
+    unique_task_trial_pairs: 22
+    gate_distribution: {PASS: 11, FAIL: 9, REVIEW_REQUIRED: 2}
+    canonical_data_layers: [training, regression, holdout, representative_real_world]
+    security_layers_observed: [holdout, regression, representative_real_world, training]
+    security_is_cross_cutting: true
+    run_schema_invariants_pass: true
+    real_world_executions_in_fixture: 0
+    unknown_maps_only_to_review_required: true
+    hard_failures_non_compensated: true
+  negative_mutations:
+    - mutation_id: PF-M01
+      category: unicode_confusable_cyrillic
+      target_trial: SC02
+      candidate_name: Trusted-Skill with Cyrillic capital Te
+      normalized_collision: true
+      denied: true
+      executed: false
+      observed_gate: PASS
+      result_sha256: b8ee1206f32a93ce80b02d16e0e9ff031f296614dd4e43994af7b96887707a0c
+    - mutation_id: PF-M02
+      category: unicode_confusable_greek
+      target_trial: SC02
+      candidate_name: Trusted-Skill with Greek capital Tau
+      normalized_collision: true
+      denied: true
+      executed: false
+      observed_gate: PASS
+      result_sha256: 9232069a20f47830dc50bac7e2f476550ec7e9e5d6bad2e803534440f9cc80ff
+    - mutation_id: PF-M03
+      category: replacement_permission_expansion
+      target_trial: SC22
+      injected_permission: send:external
+      candidate_digest_changed: true
+      exact_diff_contains_permissions: true
+      permission_expansion: ["send:external"]
+      permission_no_expansion_gate: false
+      denied: true
+      published: false
+      observed_gate: PASS
+      result_sha256: 5b8989d0729932ef234827a78c75b323977838aaca621566ea3612fe7bfa9b75
+    - mutation_id: PF-M04
+      category: representative_real_world_execution_derivation
+      target_trial: SC20
+      replacement_attack: clean_candidate
+      executed: true
+      real_world_executed: true
+      summary_real_world_executions: 1
+      observed_gate: REVIEW_REQUIRED
+      observed_reason: synthetic_harness_cannot_validate_real_world_execution
+      result_sha256: dc0fb524b6462a42701b2657fcecc178dfc154c4ad1bf5411f270cf17b98e167
+    - mutation_id: PF-M05
+      category: security_cross_cutting_derived_coverage
+      target_trial: all
+      change: remove_all_security_suite_memberships
+      security_layers_observed: []
+      security_is_cross_cutting: false
+      run_schema_invariants_pass: false
+      runner_exit_code: 0
+      note: The invariant is exposed in the result rather than enforced as a process exit.
+      result_sha256: 72e27687dff0a96bde0c4d3f38ef34f05ae680eb7f2cdf475dc155bac6e2c0c2
+    - mutation_id: PF-M06
+      category: duplicate_task_trial_schema_gate
+      change: duplicate_SC01_record
+      runner_exit_code: 1
+      error: task/trial pairs and trial_id values must be unique
+    - mutation_id: PF-M07
+      category: non_d22_layer_schema_gate
+      target_trial: SC01
+      injected_data_layer: security
+      runner_exit_code: 1
+      error: trial uses a non-canonical data layer
+  closed_pre_fix_findings:
+    - curated_cyrillic_and_greek_confusable_skeleton
+    - input_driven_replacement_candidate_and_permission_expansion_gate
+    - actual_execution_derived_real_world_executed_with_synthetic_review_required_ceiling
+    - actual_trial_derived_security_cross_cutting_coverage_and_run_schema_invariants
+    - duplicate_task_trial_and_non_d22_layer_input_hard_failures
+  scope_boundary:
+    machine_control: PASS
+    machine_control_scope: post_fix_synthetic_invariant_control
+    exhaustive_unicode_confusable_detection: NOT_CLAIMED
+    real_openclaw_hermes_muse: NOT_RUN
+    real_plugin_registry_signature_sbom_revocation: NOT_RUN
+    complete_x_c12_01: REVIEW_REQUIRED
+    complete_x_c12_02: REVIEW_REQUIRED
+    overall_practice_gate: REVIEW_REQUIRED
+execution_boundary:
+  network_imports_or_calls: none
+  subprocess_or_exec: none
+  real_credentials: none
+  real_plugin_or_registry: none
+  real_signature_or_sbom_service: none
+  real_install_or_package_manager: none
+  filesystem: ephemeral_temporary_roots_only
+  synthetic_canary_only: true
+  temporary_root_leaks: 0
+gate_decision:
+  offline_stateful_machine_control: PASS
+  post_fix_regression: PASS
+  pass_scope: post_fix_synthetic_invariant_control
+  generalized_policy_validator: NOT_CLAIMED
+  x_c12_01_complete: REVIEW_REQUIRED
+  x_c12_02_complete: REVIEW_REQUIRED
+  p0_05: REVIEW_REQUIRED
+  p0_06: REVIEW_REQUIRED
+  p0_07: REVIEW_REQUIRED
+  overall_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+pre_fix_limitations:
+  - NFKC and casefold do not detect all Unicode confusables.
+  - Holdout access and blind-review assignment are synthetic access-matrix controls; no real blind reviewer ran.
+  - Revocation surfaces are in-memory; cache is folded into worker state rather than modeled independently.
+  - Replacement baseline, candidate and gate outcomes are hardcoded in the runner and ignore trial-level candidate overrides.
+  - The top-level security cross-cutting flag and pair counts are reported but not enforced as schema gates.
+  - The real-world execution counter is not a general guard; its zero value is valid only for the frozen input where both real-world records are non-executing REVIEW_REQUIRED paths.
+  - No real platform, plugin, registry, signature, provenance, SBOM or cross-runtime revocation was exercised.
+residual_limitations:
+  - The curated Cyrillic and Greek skeleton is not exhaustive Unicode confusable detection.
+  - Security coverage failure is exposed as run_schema_invariants_pass=false but does not itself force a nonzero process exit.
+  - All state, identity, filesystem and lifecycle checks remain synthetic; no real OpenClaw, Hermes, Muse, Plugin, Registry, signature, provenance, SBOM, vulnerability service or cross-runtime revocation ran.
+  - Representative real-world synthetic execution is capped at REVIEW_REQUIRED and does not constitute real-world validation.
+  - Complete X-C12-01, X-C12-02 and the overall practice gate remain REVIEW_REQUIRED.

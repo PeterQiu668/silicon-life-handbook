@@ -1,0 +1,55 @@
+{
+  "authority_root_digest": "sha256:c03223f3537c558e0d2c2828ac498fd56cd950f354b84d8ab0b827c1f700aa09",
+  "byte_identical": true,
+  "decision_digest": "sha256:9071b8085481a4e774e1ad014d8f1db77e92bdb75cd817895131047db2f7b82e",
+  "distribution": {
+    "FAIL": 74,
+    "PASS": 3,
+    "REVIEW_REQUIRED": 2
+  },
+  "files": {
+    "frozen-authority-root.yaml": {
+      "byte_identical": true,
+      "sha256_run_a": "629d25866ce5223caa0142974f44a9396c7f2fdf236d2d36714c8872efa9f58e",
+      "sha256_run_b": "629d25866ce5223caa0142974f44a9396c7f2fdf236d2d36714c8872efa9f58e"
+    },
+    "synthetic-lifecycle-input.yaml": {
+      "byte_identical": true,
+      "sha256_run_a": "485dbbe21030c0af4ea1c96b4deab5373472155577526b483ccba5dab056e81b",
+      "sha256_run_b": "485dbbe21030c0af4ea1c96b4deab5373472155577526b483ccba5dab056e81b"
+    },
+    "synthetic-lifecycle-results.yaml": {
+      "byte_identical": true,
+      "sha256_run_a": "e5b520e4ac25f8e27c909cb9c971f7f22e7432f384fa25014236cccde296754d",
+      "sha256_run_b": "e5b520e4ac25f8e27c909cb9c971f7f22e7432f384fa25014236cccde296754d"
+    },
+    "synthetic-lifecycle-summary.md": {
+      "byte_identical": true,
+      "sha256_run_a": "6aab7f43c928f5cf4bc8229ad2bebaa972a0ea5e3f2b2971c94c478c86d5f4c6",
+      "sha256_run_b": "6aab7f43c928f5cf4bc8229ad2bebaa972a0ea5e3f2b2971c94c478c86d5f4c6"
+    },
+    "v2.4-negative-regression-results.yaml": {
+      "byte_identical": true,
+      "sha256_run_a": "5479e56c35a8fbe0afa18b08c1740f77b1b087c3e25a844630c72a5c3234bf17",
+      "sha256_run_b": "5479e56c35a8fbe0afa18b08c1740f77b1b087c3e25a844630c72a5c3234bf17"
+    }
+  },
+  "fresh_temp_runs": 2,
+  "limits": {
+    "environment": "offline_synthetic",
+    "fact_cross_practice_editor_chief_rc": "NOT_APPROVED",
+    "real_platform_executed": false
+  },
+  "negative": {
+    "attack_count": 50,
+    "escaped_count": 0,
+    "historical_v2_3_attack_count": 38,
+    "historical_v2_3_passed_count": 38,
+    "passed_count": 50,
+    "suite_digest": "sha256:d1d6dc059acd21d901b141bbccd9cb0c403f161a3103706a696ac4bacafb573d",
+    "v2_4_event_attack_count": 12,
+    "v2_4_event_passed_count": 12
+  },
+  "schema_version": "c21.lifecycle.reproduction.v2.4",
+  "trial_count": 79
+}

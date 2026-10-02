@@ -1,0 +1,65 @@
+chapter_id: C21
+title: "A2A、产物协议与信任系统"
+status: drafting
+verified_on: "2026-09-30"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md", title: "framework v2"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality standard"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "chapter card"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terminology"}
+  DECISIONS: {path: "../../../docs/DECISIONS.md", title: "decisions"}
+  PREFLIGHT: {path: "../../../docs/research/C21-a2a-artifact-trust-preflight.md", title: "C21 preflight"}
+  C17: {path: "../../volume-06/C17-autonomy-authorization/chapter.md", title: "C17"}
+  C19: {path: "../C19-multi-agent-organization/chapter.md", title: "C19"}
+  C20: {path: "../C20-routing-handoff-concurrency/chapter.md", title: "C20"}
+  A2A: {url: "https://a2a-protocol.org/v1.0.0/specification/", title: "A2A 1.0.0 specification"}
+  A2A-PATCH: {url: "https://github.com/a2aproject/A2A/releases/tag/v1.0.1", title: "A2A v1.0.1 patch release"}
+  OC-A2A: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/channels/a2a.md", title: "OpenClaw A2A fixed"}
+  HE-DELEGATE: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/user-guide/features/delegation.md", title: "Hermes delegation fixed"}
+  HE-LIFE: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/developer-guide/subagent-lifecycle-api.md", title: "Hermes lifecycle fixed"}
+  HE-DYN: {url: "https://hermes-agent.nousresearch.com/docs/", title: "Hermes dynamic docs"}
+  MUSE: {url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", title: "Muse vendor announcement"}
+  NIST: {url: "https://www.nist.gov/news-events/news/2026/02/new-concept-paper-identity-and-authority-software-agents", title: "NIST agent identity concept paper"}
+  LOCAL-IN: {path: "review/runs/synthetic-a2a-input.yaml", title: "synthetic input"}
+  LOCAL-OUT: {path: "review/runs/synthetic-a2a-results.yaml", title: "synthetic result"}
+claims:
+  - {evidence_id: E-C21-001, claim: "Message、Task、Event、Artifact是四种不同对象。", class: STANDARD-FACT, source_ids: [A2A, TERMS]}
+  - {evidence_id: E-C21-002, claim: "Message承载输入和协商，不替代Task状态或Artifact。", class: STANDARD-FACT, source_ids: [A2A]}
+  - {evidence_id: E-C21-003, claim: "Task是带标识、状态、history和artifacts的有状态工作单元。", class: STANDARD-FACT, source_ids: [A2A]}
+  - {evidence_id: E-C21-004, claim: "Event可重复、乱序或丢失，必须去重、检空洞并向快照对账。", class: METHODOLOGY, source_ids: [A2A, PREFLIGHT]}
+  - {evidence_id: E-C21-005, claim: "A2A Artifact是Task产出的独立结果对象，原生包含artifactId与parts等字段。", class: STANDARD-FACT, source_ids: [A2A]}
+  - {evidence_id: E-C21-033, claim: "版本、owner、验收、来源与保留属于本书叠加在Artifact外的治理信封，关键结果不应只留在Message。", class: METHODOLOGY, source_ids: [TERMS, PREFLIGHT]}
+  - {evidence_id: E-C21-006, claim: "protocol、execution、acceptance三层状态不得压成单字段。", class: METHODOLOGY, source_ids: [DECISIONS, PREFLIGHT]}
+  - {evidence_id: E-C21-007, claim: "COMPLETED、HTTP成功或push回执均不单独推出业务PASS。", class: METHODOLOGY, source_ids: [DECISIONS, A2A]}
+  - {evidence_id: E-C21-008, claim: "timeout是观察窗口结束，不是远端终止。", class: METHODOLOGY, source_ids: [PREFLIGHT, C20]}
+  - {evidence_id: E-C21-009, claim: "A2A cancel是可能被拒绝的尝试；请求或ACK不等于本书D21/C17定义的STOP_CONFIRMED。", class: METHODOLOGY, source_ids: [A2A, C20, DECISIONS]}
+  - {evidence_id: E-C21-010, claim: "A2A跨系统按可能重复设计，不承诺exactly-once。", class: STANDARD-FACT, source_ids: [A2A, C20]}
+  - {evidence_id: E-C21-011, claim: "Agent Card支持发现接口、能力、安全方案和签名。", class: STANDARD-FACT, source_ids: [A2A]}
+  - {evidence_id: E-C21-012, claim: "Agent Card不等于身份证、能力证书、授权或实际行为保证。", class: METHODOLOGY, source_ids: [A2A, NIST, PREFLIGHT]}
+  - {evidence_id: E-C21-013, claim: "Card审查分来源、签发者、时效、接口、能力和权限六层。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C21-014, claim: "Card签名只支持指定来源和完整性断言，不保证声明真实。", class: STANDARD-FACT, source_ids: [A2A]}
+  - {evidence_id: E-C21-015, claim: "Artifact digest与签名不保证内容正确或输入有权。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C21-016, claim: "producer、owner和accountable human必须分开记录。", class: METHODOLOGY, source_ids: [PREFLIGHT, C19]}
+  - {evidence_id: E-C21-017, claim: "产物验收至少覆盖schema、完整性、内容、权限/政策、环境效果和缺口。", class: METHODOLOGY, source_ids: [PREFLIGHT, DECISIONS]}
+  - {evidence_id: E-C21-018, claim: "新版本通过supersedes关联旧版；更正/撤回不删除历史。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C21-019, claim: "信任证据至少分身份、授权、能力、来源、可靠性、安全历史和当前上下文。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C21-020, claim: "动态信任可收紧审查和限额，不得自动创造高风险权限。", class: METHODOLOGY, source_ids: [PREFLIGHT, C17]}
+  - {evidence_id: E-C21-021, claim: "信任记录需要防刷分、防串谋、衰减、更正和申诉。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C21-022, claim: "安全、授权、数据位置和证据操纵属于非补偿硬门。", class: METHODOLOGY, source_ids: [QUALITY, PREFLIGHT]}
+  - {evidence_id: E-C21-023, claim: "A2A协议基线写1.0；v1.0.1仅作patch release记录。", class: VERSION-FACT, source_ids: [A2A, A2A-PATCH]}
+  - {evidence_id: E-C21-024, claim: "OpenClaw固定版A2A不支持streaming、push、cancel、list、extended card、multi-tenant routing和Task持久化。", class: IMPLEMENTATION-FACT, source_ids: [OC-A2A]}
+  - {evidence_id: E-C21-025, claim: "OpenClaw固定版明确拒绝无法真实abort的CancelTask。", class: IMPLEMENTATION-FACT, source_ids: [OC-A2A]}
+  - {evidence_id: E-C21-026, claim: "Hermes固定版delegation/lifecycle不能冒充已验证的A2A 1.0兼容。", class: IMPLEMENTATION-FACT, source_ids: [HE-DELEGATE, HE-LIFE, HE-DYN]}
+  - {evidence_id: E-C21-027, claim: "Muse仅作VENDOR-CLAIM，不推断其内部A2A、签名或信任分。", class: VENDOR-CLAIM, source_ids: [MUSE, PREFLIGHT]}
+  - {evidence_id: E-C21-028, claim: "C17拥有路由/Handoff；C19拥有身份、密钥、凭证和威胁模型。", class: SCOPE, source_ids: [BOOK, CARD, C20]}
+  - {evidence_id: E-C21-029, claim: "C14仅离线授权控制通过且真实实践RR；C16事实/交叉有限制通过且v3离线机器控制PASS但真实组织收益RR；C17事实/交叉有限制通过但真实实践RR，三者接口均只能受限消费并回归。", class: PROJECT-STATE, source_ids: [PREFLIGHT, C17, C19, C20]}
+  - {evidence_id: E-C21-030, claim: "C18恰好交付Card审查表、任务状态机、产物契约与信任记录三件母产物。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C21-031, claim: "作者v3.1夹具18 trial分布3 PASS、9 FAIL、6 REVIEW_REQUIRED，双fresh-temp运行逐字节一致且decision digest为8d671fbdfaad6fc523e404a268d59bf4b151c6b26aa321238241fc5f50d71ca4。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-IN, LOCAL-OUT]}
+  - {evidence_id: E-C21-032, claim: "作者夹具representative real-world证据为0，synthetic shadow不冒充真实。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-IN, LOCAL-OUT, DECISIONS]}
+open_questions:
+  - {id: OQ-C21-01, question: "C14真实授权、C16组织实践与C17交叉/实践门完成后接口回归结果？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C21-02, question: "目标Hermes是否完整实现A2A 1.0？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C21-03, question: "真实OpenClaw-Hermes bridge是否可用？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C21-04, question: "组织信任根、撤销、保留和申诉实现如何选型？", disposition: REVIEW_REQUIRED}

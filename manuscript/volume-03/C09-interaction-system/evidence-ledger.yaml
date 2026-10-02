@@ -1,0 +1,337 @@
+chapter_id: C09
+title: "交互系统：让真实工作持续变成训练数据"
+status: drafting
+ledger_version: "0.1.1"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c09"
+reviewed_by: "independent-fact-reviewer:c09"
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  本账本区分稳定工程原则、本书方法论、固定版本事实、动态官方文档、厂商声明和未知。
+  作者仅完成来源收集与初稿，不自批事实、交叉、实践、编辑或总编门。
+
+evidence_classes:
+  STABLE-PRINCIPLE: "跨平台较稳定的工程原则；仍需在具体环境验证"
+  VERSION-FACT: "只在明确版本、提交和核验范围内成立的产品事实"
+  OFFICIAL-SPEC: "正式标准或开放协议规范的可核查陈述"
+  OFFICIAL-DOC: "项目官方文档陈述；动态页面必须带核验日期"
+  VENDOR-CLAIM: "厂商公开产品或效果主张，未被充分独立复现"
+  METHODOLOGY: "本书提出的工作方法，不冒充平台或行业标准"
+  LOCAL-VALIDATION: "本地合成夹具所得结果，只证明夹具范围"
+  OPEN-QUESTION: "证据不足或待独立实测、审校的问题"
+
+claims:
+  - evidence_id: E-C09-001
+    claim: "任务卡、上下文包、检查点、交付三证和受控反馈回流构成本书的工作交互闭环。"
+    class: METHODOLOGY
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "正式出版版三级框架 v2，第9章"
+        path: "../../../00-正式出版版-三级内容框架-v2.md"
+      - title: "C09 chapter card"
+        path: "../../../docs/editorial/CHAPTER-CARDS.md"
+      - title: "C09 前置研究包"
+        path: "../../../docs/research/C09-interaction-system-preflight.md"
+    applicability: "支撑本章三件母产物与完整工作闭环。"
+    limitations: "未经跨行业实践门校准，不是 A2A、OpenClaw、Hermes 或 Meta 官方标准。"
+    recheck_trigger: "跨章消费失败或总编修订框架。"
+
+  - evidence_id: E-C09-002
+    claim: "工作交互中应把任务状态、消息状态、Artifact 状态和环境终态分开记录；消息或界面成功不能单独证明业务完成。"
+    class: METHODOLOGY
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method-informed-by-protocol
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "A2A v1.0.1 pinned specification: Messages and Artifacts"
+        url: "https://github.com/a2aproject/A2A/blob/v1.0.1/docs/specification.md#37-messages-and-artifacts"
+        checked_at: "2026-09-30"
+      - title: "A2A Protocol Specification 1.0: Messages and Artifacts"
+        url: "https://a2a-protocol.org/latest/specification/#37-messages-and-artifacts"
+        checked_at: "2026-09-30"
+      - title: "A2A v1.0.1 release"
+        url: "https://github.com/a2aproject/A2A/releases/tag/v1.0.1"
+        checked_at: "2026-09-30"
+      - title: "C09 前置研究包"
+        path: "../../../docs/research/C09-interaction-system-preflight.md"
+    applicability: "用于阻断 UI 假完成、消息投递成功冒充真实效果。"
+    limitations: "四轴及环境终态轴是本书方法；A2A 只支持 Task/Message/Artifact 的对象分离，不定义本书业务终态。"
+    recheck_trigger: "A2A 规范版本改变或 C21 冻结协议映射。"
+
+  - evidence_id: E-C09-003
+    claim: "A2A 1.0 规范把 Task、Message、Artifact 与 TaskState 分为不同协议对象；Artifact 用于承载任务结果。"
+    class: OFFICIAL-SPEC
+    label: SOURCE-BASED
+    research_fact_type: OFFICIAL-SPEC
+    stability: versioned
+    scope: "A2A v1.0.x"
+    source_nature: standards-project
+    source_grade: A
+    verified_on: "2026-09-30"
+    sources:
+      - title: "A2A v1.0.1 pinned specification"
+        url: "https://github.com/a2aproject/A2A/blob/v1.0.1/docs/specification.md"
+        checked_at: "2026-09-30"
+      - title: "A2A Protocol Specification"
+        url: "https://a2a-protocol.org/latest/specification/"
+        checked_at: "2026-09-30"
+      - title: "A2A v1.0.1 release"
+        url: "https://github.com/a2aproject/A2A/releases/tag/v1.0.1"
+        checked_at: "2026-09-30"
+    applicability: "作为对象分离的外部语义校准。"
+    limitations: "本书任务卡不是 A2A Task；A2A completed 不自动证明外部业务效果、授权充分或内容正确。"
+    recheck_trigger: "A2A 发布新的规范版本。"
+
+  - evidence_id: E-C09-004
+    claim: "OpenClaw v2026.9.6 对应固定提交 eb377ac59e6c9fd6c7705028034812becf00271b。"
+    class: VERSION-FACT
+    label: VERIFIED
+    research_fact_type: VERSION-FACT
+    stability: fixed
+    scope: "OpenClaw v2026.9.6"
+    source_nature: official-release
+    source_grade: A
+    verified_on: "2026-09-30"
+    sources:
+      - title: "OpenClaw v2026.9.6 release"
+        url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+        checked_at: "2026-09-30"
+    applicability: "冻结本章 OpenClaw 平台事实基线。"
+    limitations: "不允许用 main 或后续版本文档倒推固定版本。"
+    recheck_trigger: "本书平台基线升级。"
+
+  - evidence_id: E-C09-005
+    claim: "OpenClaw 固定提交文档说明入站消息由 Gateway 路由到 session，且不同来源存在不同 session 隔离与管理方式。"
+    class: VERSION-FACT
+    label: VERIFIED
+    research_fact_type: VERSION-FACT
+    stability: fixed
+    scope: "OpenClaw eb377ac session documentation"
+    source_nature: official-versioned-doc
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "OpenClaw session.md at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/session.md"
+        checked_at: "2026-09-30"
+    applicability: "说明 Session 是交互承载面，可通过 task_id 关联三件母产物。"
+    limitations: "Session 不是任务卡、权限合同、长期 Memory 或环境终态。"
+    recheck_trigger: "换固定提交或发现发布资产与提交不一致。"
+
+  - evidence_id: E-C09-006
+    claim: "OpenClaw 固定提交的队列文档说明同一 session 的 run 串行，并提供 steer、followup、collect 与 interrupt 等排队交互模式。"
+    class: VERSION-FACT
+    label: VERIFIED
+    research_fact_type: VERSION-FACT
+    stability: fixed
+    scope: "OpenClaw eb377ac queue documentation"
+    source_nature: official-versioned-doc
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "OpenClaw queue.md at eb377ac"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/queue.md"
+        checked_at: "2026-09-30"
+    applicability: "映射检查点消息、在途输入和中断；任务卡另行存储。"
+    limitations: "队列、typing、回复或 run 结束不证明任务完成；Queue 不是业务工作流。"
+    recheck_trigger: "换固定提交或正式实践发现文档与行为不一致。"
+
+  - evidence_id: E-C09-007
+    claim: "Hermes Agent 0.20.1 的发行 tag 为 v2026.8.13，正式章将固定实现事实锁到 f80f453ae0679347e38abc917c7f94f717bf96c5。"
+    class: VERSION-FACT
+    label: VERIFIED
+    research_fact_type: VERSION-FACT
+    stability: fixed
+    scope: "Hermes 0.20.1 / f80f453"
+    source_nature: official-release-and-fixed-repository
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Hermes Agent v2026.8.13 release"
+        url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+        checked_at: "2026-09-30"
+      - title: "Hermes repository at f80f453"
+        url: "https://github.com/NousResearch/hermes-agent/tree/f80f453ae0679347e38abc917c7f94f717bf96c5"
+        checked_at: "2026-09-30"
+    applicability: "冻结 Hermes 对照基线。"
+    limitations: "独立事实审校已确认 annotated tag 指向 f80f453；该关系不证明真实安装、目标部署行为，本文也不声称所有动态网页能力都属于 0.20.1。"
+    recheck_trigger: "事实审校发现 tag 指向差异或基线升级。"
+
+  - evidence_id: E-C09-008
+    claim: "Hermes 固定提交文档展示 Gateway 消息分派、SQLite session 持久化与来源隔离，可承载本章任务关联和运行证据定位。"
+    class: VERSION-FACT
+    label: VERIFIED
+    research_fact_type: VERSION-FACT
+    stability: fixed
+    scope: "Hermes f80f453"
+    source_nature: official-versioned-doc
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Hermes architecture.md at f80f453"
+        url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/developer-guide/architecture.md"
+        checked_at: "2026-09-30"
+      - title: "Hermes sessions.md at f80f453"
+        url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/user-guide/sessions.md"
+        checked_at: "2026-09-30"
+    applicability: "作为第二 Runtime 的 session 与消息承载实现。"
+    limitations: "session history 不是任务事实源；持久化不证明正确、授权或终态。"
+    recheck_trigger: "基线升级或实测与文档不符。"
+
+  - evidence_id: E-C09-009
+    claim: "Hermes 固定提交文档描述 Kanban 任务、状态、事件、review 与 Artifact 附件，以及 deliverable 文件向消息渠道的投递路径。"
+    class: VERSION-FACT
+    label: VERIFIED
+    research_fact_type: VERSION-FACT
+    stability: fixed
+    scope: "Hermes f80f453 documentation"
+    source_nature: official-versioned-doc
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Hermes Kanban at f80f453"
+        url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/user-guide/features/kanban.md"
+        checked_at: "2026-09-30"
+      - title: "Hermes Deliverable Mode at f80f453"
+        url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/user-guide/features/deliverable-mode.md"
+        checked_at: "2026-09-30"
+    applicability: "可映射 task/run/event、review、附件和交付通知。"
+    limitations: "Kanban done、通知已发或 Artifact 已上传仍不等于外部业务终态；本书状态不与 Hermes 状态同构。"
+    recheck_trigger: "基线或 Kanban Schema 改变。"
+
+  - evidence_id: E-C09-010
+    claim: "Meta 公开材料宣称 Muse 提供 Goals、Activity、Artifacts、权限和关键动作批准等交互面。"
+    class: VENDOR-CLAIM
+    label: VENDOR-CLAIM
+    research_fact_type: VENDOR-CLAIM
+    stability: frontier
+    scope: "Muse public product narrative as of 2026-09-30"
+    source_nature: vendor-publication
+    source_grade: C
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Meta: Introducing Muse"
+        url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+        checked_at: "2026-09-30"
+      - title: "How We Designed Muse"
+        url: "https://introducing.muse.ai/"
+        checked_at: "2026-09-30"
+    applicability: "只作托管产品的公开交互镜面，提醒读者区分目标、活动、批准和产物。"
+    limitations: "同一厂商来源体系；不证明内部状态机、训练回流、评测器、数据路径或安全效果。"
+    recheck_trigger: "产品、政策、独立审计或公开技术材料变化。"
+
+  - evidence_id: E-C09-011
+    claim: "生产记录成为训练候选之前，应先有用途许可、最小化、去标识、权利确认、去重和评测污染检查。"
+    class: METHODOLOGY
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_grade: B-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "C07 评测蓝图"
+        path: "../C07-evaluation-system/artifacts/A-C07-01-evaluation-blueprint.md"
+      - title: "C08 训练计划"
+        path: "../C08-training-system/artifacts/A-C08-01-training-plan.md"
+      - title: "NIST Privacy Framework"
+        url: "https://www.nist.gov/privacy-framework"
+        checked_at: "2026-09-30"
+    applicability: "建立生产反馈候选的准入闸门。"
+    limitations: "不替代适用法律、组织政策、C13 Memory、C18 自学习或 C22 安全治理。"
+    recheck_trigger: "数据政策、C13/C18/C22 定义或法律适用范围变化。"
+
+  - evidence_id: E-C09-012
+    claim: "C09 合成夹具按预设逻辑把 UI 假完成判为 FAIL、执行前发现的过期上下文判为 REVIEW_REQUIRED、已消费的跨客户敏感内容与群聊全文污染判为 FAIL。"
+    class: LOCAL-VALIDATION
+    label: LOCAL-VALIDATION
+    research_fact_type: LOCAL-VALIDATION
+    stability: local
+    scope: "RUN-C09-SYN-001 deterministic fixture"
+    source_nature: local-synthetic-test
+    source_grade: D
+    verified_on: "2026-09-30"
+    sources:
+      - title: "C09 合成运行记录"
+        path: "exercises/evidence/X-C09-01-run-record.yaml"
+      - title: "工作交互闭环练习"
+        path: "exercises/X-C09-01-work-interaction-loop.md"
+    applicability: "验证模板字段和门禁决策能够表达三类失败。"
+    limitations: "没有运行真实模型、OpenClaw/Hermes Runtime、真实目标环境或外部 Provider；不得宣称平台安全或实践门通过。"
+    recheck_trigger: "真实 Runtime、目标环境或独立评审者复跑。"
+
+  - evidence_id: E-C09-013
+    claim: "本章只引用 AU-L0—AU-L4 作为 C17 的任务自主等级、MAT-L0—MAT-L5 作为 C27 的成熟度等级，两者不可互推。"
+    class: METHODOLOGY
+    label: METHODOLOGY
+    research_fact_type: EDITORIAL-DECISION
+    stability: frozen
+    scope: book-wide
+    source_nature: editorial-decision
+    source_grade: A
+    verified_on: "2026-09-30"
+    sources:
+      - title: "DECISIONS D19"
+        path: "../../../docs/DECISIONS.md"
+      - title: "受控术语表"
+        path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"
+    applicability: "防止把任务表现、权限、自主与成熟度混成单一等级。"
+    limitations: "C09 不授予任何等级；实际评级由 C17/C27 及有权主体决定。"
+    recheck_trigger: "总编修订 D19。"
+
+  - evidence_id: E-C09-014
+    claim: "C09 的真实 Runtime、真实目标环境、真实数据权利和第二位独立实践复跑尚未完成。"
+    class: OPEN-QUESTION
+    label: UNVERIFIED
+    research_fact_type: OPEN-QUESTION
+    stability: current
+    scope: C09-practice-gate
+    source_nature: author-disclosure
+    source_grade: open
+    verified_on: "2026-09-30"
+    sources:
+      - title: "作者自检"
+        path: "review/author-self-check.md"
+      - title: "合成运行记录"
+        path: "exercises/evidence/X-C09-01-run-record.yaml"
+    applicability: "限定初稿可宣称范围。"
+    limitations: "在独立实践门关闭前，章节、练习与产物均不得标记 release_candidate 或实践 PASS。"
+    recheck_trigger: "独立实践评审提交真实运行记录。"
+
+open_questions:
+  - id: OQ-C09-01
+    question: "OpenClaw 固定版中哪些遥测字段足以稳定关联 task_id、session、run、artifact 与环境读回？"
+    owner: "practice-reviewer"
+    gate: "practice"
+  - id: OQ-C09-02
+    question: "Hermes 0.20.1 tag 与 f80f453 固定提交的对应关系及真实安装行为是否完全一致？"
+    owner: "evidence-reviewer"
+    gate: "evidence"
+    status: "partially_closed"
+    resolution: "annotated tag v2026.8.13 已核为指向 f80f453ae0679347e38abc917c7f94f717bf96c5；真实安装与目标运行行为仍归实践门。"
+  - id: OQ-C09-03
+    question: "真实业务的反馈许可、删除证明和跨 Provider 缓存范围如何落地？"
+    owner: "data-owner-and-security-reviewer"
+    gate: "practice-and-security"
+
+change_log:
+  - version: "0.1.0"
+    date: "2026-09-30"
+    change: "建立 C09 初稿证据账本，固定 OpenClaw/Hermes 版本事实并限制 Muse 为 VENDOR-CLAIM。"
+    approval: null
+  - version: "0.1.1"
+    date: "2026-09-30"
+    change: "独立事实门补入 A2A v1.0.1 固定规范，并确认 Hermes annotated tag 指向 f80f453；保留真实安装实践缺口。"
+    approval: null

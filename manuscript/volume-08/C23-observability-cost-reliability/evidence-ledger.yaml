@@ -1,0 +1,84 @@
+chapter_id: C23
+title: "可观测性、成本与可靠性"
+status: drafting
+verified_on: "2026-09-30"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md", title: "framework v2"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality standard"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "C23 chapter card"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terminology registry"}
+  DECISIONS: {path: "../../../docs/DECISIONS.md", title: "decisions"}
+  PREFLIGHT: {path: "../../../docs/research/C23-observability-cost-reliability-preflight.md", title: "C23 preflight"}
+  C06: {path: "../../volume-02/C06-runtime-architecture/chapter.md", title: "C06 runtime"}
+  C07: {path: "../../volume-03/C07-evaluation-system/chapter.md", title: "C07 evaluation"}
+  C09: {path: "../../volume-03/C09-interaction-system/chapter.md", title: "C09 interaction"}
+  C14: {path: "../../volume-05/C14-tool-mcp-engineering/chapter.md", title: "C14 tools"}
+  C16: {path: "../../volume-06/C16-proactivity-automation/chapter.md", title: "C16 automation"}
+  C20: {path: "../../volume-07/C20-routing-handoff-concurrency/chapter.md", title: "C20 routing"}
+  C22: {path: "../C22-security-trust-boundary/chapter.md", title: "C22 security"}
+  OTEL-SEMCONV: {url: "https://opentelemetry.io/docs/specs/semconv/", title: "OpenTelemetry Semantic Conventions dynamic snapshot checked 2026-09-30"}
+  OTEL-GENAI: {url: "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/", title: "OpenTelemetry GenAI registry"}
+  OTEL-ERRORS: {url: "https://opentelemetry.io/docs/specs/semconv/general/recording-errors/", title: "OpenTelemetry recording errors"}
+  SRE-SLO: {url: "https://sre.google/sre-book/service-level-objectives/", title: "Google SRE SLO"}
+  SRE-PROD: {url: "https://sre.google/sre-book/service-best-practices/", title: "Google SRE production practices"}
+  SRE-OVERLOAD: {url: "https://sre.google/sre-book/handling-overload/", title: "Google SRE overload"}
+  OPENAI-EVAL: {url: "https://developers.openai.com/api/docs/guides/agent-evals", title: "OpenAI agent evals"}
+  OPENAI-TRACE: {url: "https://developers.openai.com/api/docs/guides/agents-api/tracing", title: "OpenAI tracing"}
+  ANTHROPIC-EVAL: {url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents", title: "Anthropic agent evals"}
+  OC-OBS: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/config-observability.md", title: "OpenClaw observability fixed"}
+  OC-PROM: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/prometheus.md", title: "OpenClaw Prometheus fixed"}
+  OC-LOG: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/logging.md", title: "OpenClaw logging fixed"}
+  OC-HEALTH: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/cli/doctor/health-contract.md", title: "OpenClaw doctor health fixed"}
+  HE-SESSION: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/developer-guide/session-storage.md", title: "Hermes session storage fixed"}
+  HE-CRON: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/user-guide/features/cron.md", title: "Hermes cron fixed"}
+  HE-DASH: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/user-guide/features/web-dashboard.md", title: "Hermes dashboard fixed"}
+  HE-DYNAMIC: {url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/", title: "Hermes current cron docs"}
+  MUSE: {url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", title: "Meta Introducing Muse"}
+  LOCAL-BUILDER: {path: "review/runs/build-reliability-fixture.py", title: "deterministic v2 fixture builder"}
+  LOCAL-IN: {path: "review/runs/synthetic-reliability-input.yaml", title: "synthetic input"}
+  LOCAL-OUT: {path: "review/runs/synthetic-reliability-results.yaml", title: "synthetic results"}
+  LOCAL-NEG: {path: "review/runs/reliability-negative-regression-results.yaml", title: "closed-world negative regression results"}
+claims:
+  - {evidence_id: E-C23-001, claim: "SLI从业务承诺、eligible population、good/bad event和测量点定义。", class: METHODOLOGY, source_ids: [SRE-SLO, PREFLIGHT]}
+  - {evidence_id: E-C23-002, claim: "SLO是目标，错误预算需绑定窗口、owner和越线动作。", class: METHODOLOGY, source_ids: [SRE-PROD, PREFLIGHT]}
+  - {evidence_id: E-C23-003, claim: "安全硬失败不进入普通错误预算。", class: PROJECT-DECISION, source_ids: [QUALITY, DECISIONS, C22]}
+  - {evidence_id: E-C23-004, claim: "完成分技术执行、交付可见和业务/环境验收三层。", class: PROJECT-DECISION, source_ids: [DECISIONS, TERMS, C09, C16]}
+  - {evidence_id: E-C23-005, claim: "HTTP 200、exit 0、scheduler completed、模型自报或进程健康不能单独推出任务完成。", class: METHODOLOGY, source_ids: [DECISIONS, PREFLIGHT]}
+  - {evidence_id: E-C23-006, claim: "任务、授权、路由、尝试、交接、产物、交付和对账形成最小八段事件链。", class: METHODOLOGY, source_ids: [PREFLIGHT, C06, C09, C20]}
+  - {evidence_id: E-C23-007, claim: "metric、trace、log、audit、artifact/run和decision/incident record互不替代。", class: METHODOLOGY, source_ids: [OTEL-SEMCONV, PREFLIGHT]}
+  - {evidence_id: E-C23-008, claim: "稳定观测语义与动态OTel字段必须分层。", class: SOURCE-BOUNDARY, source_ids: [OTEL-SEMCONV, OTEL-GENAI, PREFLIGHT]}
+  - {evidence_id: E-C23-009, claim: "OTel不同语义部分稳定度不同，GenAI内容字段可能敏感。", class: STANDARD-FACT, source_ids: [OTEL-SEMCONV, OTEL-GENAI]}
+  - {evidence_id: E-C23-010, claim: "span和metric对错误类型应保持一致语义，但一致编码不证明恢复。", class: STANDARD-FACT, source_ids: [OTEL-ERRORS]}
+  - {evidence_id: E-C23-011, claim: "内容捕获默认最小化，采样、队列和series丢弃必须可见。", class: METHODOLOGY, source_ids: [OTEL-GENAI, OC-OBS, OC-PROM, C22]}
+  - {evidence_id: E-C23-012, claim: "高基数标识用于下钻而非无界metric label。", class: METHODOLOGY, source_ids: [PREFLIGHT, OTEL-SEMCONV]}
+  - {evidence_id: E-C23-013, claim: "全成本包含模型、工具、基础设施、人工、失败浪费、延迟与机会成本。", class: METHODOLOGY, source_ids: [PREFLIGHT, C07]}
+  - {evidence_id: E-C23-014, claim: "经济性需同时报告attempt、accepted task、失败浪费和人工分钟。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C23-015, claim: "平均值不能隐藏p95/p99、失败尾部、UNKNOWN和样本量。", class: METHODOLOGY, source_ids: [QUALITY, PREFLIGHT]}
+  - {evidence_id: E-C23-016, claim: "timeout只表示观察窗口结束，cancel请求不等于执行停止或effect回滚。", class: METHODOLOGY, source_ids: [C06, C14, C16, C20]}
+  - {evidence_id: E-C23-017, claim: "自动重试需要分类、稳定幂等键、上限、退避、jitter、预算和对账。", class: METHODOLOGY, source_ids: [SRE-OVERLOAD, C14, PREFLIGHT]}
+  - {evidence_id: E-C23-018, claim: "未知effect先按原ID查询权威状态，不得盲重试。", class: METHODOLOGY, source_ids: [C14, C20, PREFLIGHT]}
+  - {evidence_id: E-C23-019, claim: "降级不能扩大权限、降低安全硬门或隐藏新鲜度。", class: METHODOLOGY, source_ids: [C16, C22, PREFLIGHT]}
+  - {evidence_id: E-C23-020, claim: "容量需联合观察arrival、admission、queue、并发、service、saturation、retry与acceptance。", class: METHODOLOGY, source_ids: [SRE-OVERLOAD, PREFLIGHT]}
+  - {evidence_id: E-C23-021, claim: "queue age与depth都需监控，retry不能拥有无限资源。", class: METHODOLOGY, source_ids: [SRE-OVERLOAD, PREFLIGHT]}
+  - {evidence_id: E-C23-022, claim: "liveness、readiness、deep health均不证明单任务正确完成。", class: METHODOLOGY, source_ids: [OC-HEALTH, PREFLIGHT]}
+  - {evidence_id: E-C23-023, claim: "Doctor detect与repair分离，repair后应重新detect。", class: IMPLEMENTATION-FACT, source_ids: [OC-HEALTH]}
+  - {evidence_id: E-C23-024, claim: "OpenClaw固定版区分audit/logging/diagnostics/telemetry，audit为有界尽力metadata账本。", class: IMPLEMENTATION-FACT, source_ids: [OC-OBS]}
+  - {evidence_id: E-C23-025, claim: "OpenClaw固定版Prometheus含run/model/tool/message/delivery/queue/cost聚合及丢弃信号。", class: IMPLEMENTATION-FACT, source_ids: [OC-PROM]}
+  - {evidence_id: E-C23-026, claim: "OpenClaw固定版日志有JSONL、滚动、级别和redaction边界。", class: IMPLEMENTATION-FACT, source_ids: [OC-LOG]}
+  - {evidence_id: E-C23-027, claim: "Hermes固定版state.db记录会话、消息、token、billing/cost、usage attribution和lineage。", class: IMPLEMENTATION-FACT, source_ids: [HE-SESSION]}
+  - {evidence_id: E-C23-028, claim: "Hermes固定版cron execution ledger区分claimed/running/completed/failed/unknown，unknown不自动重跑。", class: IMPLEMENTATION-FACT, source_ids: [HE-CRON]}
+  - {evidence_id: E-C23-029, claim: "Hermes dashboard是聚合表面，不是独立事实源；动态cron文档与固定事实分栏。", class: SOURCE-BOUNDARY, source_ids: [HE-DASH, HE-DYNAMIC]}
+  - {evidence_id: E-C23-030, claim: "Muse Activity、Artifacts和permissions仅作VENDOR-CLAIM产品镜面。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C23-031, claim: "C20 v3.2事实/交叉门有限制通过但实践RR；C19作者侧v2整改已完成但历史事实/交叉与实践仍待非作者关闭，C20只能provisional/limited消费。", class: PROJECT-STATE, source_ids: [C20, C22, PREFLIGHT]}
+  - {evidence_id: E-C23-032, claim: "D22只有training、regression、holdout、representative real-world四层，security/red-team为横切切片。", class: PROJECT-DECISION, source_ids: [DECISIONS, C07]}
+  - {evidence_id: E-C23-033, claim: "事故可回流评测、训练和漂移候选，但不能自动修改生产。", class: METHODOLOGY, source_ids: [C07, PREFLIGHT, DECISIONS]}
+  - {evidence_id: E-C23-034, claim: "C20恰好交付三件母产物。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C23-035, claim: "v2.1作者夹具24个完整raw-state分布4 PASS、16 FAIL、4 RR，D22真实层动态派生为0、外部副作用动态派生为0。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-BUILDER, LOCAL-IN, LOCAL-OUT]}
+  - {evidence_id: E-C23-036, claim: "v2.1夹具双fresh-temp重建与运行字节一致；closed-world、authority、D21/D22、event/effect/evidence/recovery、数值/时间/序列与非补偿的46项负向回归46/46通过，但仅为作者侧离线synthetic invariant control，仍待非作者复核。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-BUILDER, LOCAL-IN, LOCAL-OUT, LOCAL-NEG]}
+  - {evidence_id: E-C23-037, claim: "OpenAI tracing/evals与Anthropic eval文章只作为动态工程方法镜面，不证明OpenClaw/Hermes实现或固定API。", class: SOURCE-BOUNDARY, source_ids: [OPENAI-EVAL, OPENAI-TRACE, ANTHROPIC-EVAL]}
+open_questions:
+  - {id: OQ-C23-01, question: "C20 v3.2有限制通过后的外部authority与真实平台字段回归？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C23-02, question: "C19作者侧v2整改后的独立事实/交叉/实践复验，以及真实观测隐私与安全字段回归？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C23-03, question: "目标真实部署的OTel/Prometheus/日志/Queue/成本数据质量？", disposition: REVIEW_REQUIRED}

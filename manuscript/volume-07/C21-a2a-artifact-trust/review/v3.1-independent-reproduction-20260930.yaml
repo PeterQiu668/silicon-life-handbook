@@ -1,0 +1,185 @@
+---
+reproduction_id: C18-v3.1-independent-reproduction-20260930
+chapter_id: C18
+reviewer_role: non_author_fact_and_cross_reviewer
+verified_on: "2026-09-30"
+scope: "v3.1 stale receipt, receipt-window boundary, acceptance truthfulness, v3 blocker regression, claim closure, and fresh-temp rebuild"
+author_files_modified: false
+historical_reviews_modified: false
+network_used_by_harness: false
+real_credentials_used: false
+external_side_effects: 0
+fact_gate: PASS_WITH_LIMITATIONS
+cross_gate: PASS_WITH_LIMITATIONS
+synthetic_machine_control: PASS
+real_platform_practice_gate: REVIEW_REQUIRED
+editor_gate: not_reviewed
+chief_editor_gate: not_reviewed
+release_candidate_authorized: false
+
+author_snapshot_hashes_sha256:
+  chapter: "bb797ea8e66bd2b2f895ed03fa37841a1defbad2d637bea46cbd2ef31204d10a"
+  evidence_ledger: "4b6e90be5c3e71da82ac8d563bbaa2342bae0f30b7a7e614e4b17ca27a446fd1"
+  author_self_check: "ae06be54c0a3e335a5fac2311e8d1d45ae637307625beeb7de12948fe62c194c"
+  v3_1_remediation: "fba04a8dda9658541d4f0028817087902783282b30caf6b81bf44c1e1ea3e972"
+  builder: "f2ee5d44f17bf2508038f1e92603a46eaa0f90cc50b24416e62495aa2203b020"
+  runner: "8501dcb9d485e2064e7b41b9f49217280c2f2b3634498140a2a28633e00213a5"
+  input: "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1"
+  results: "51b1919ef32bac3356be069ace559afb79ee752b03b4aceb07f5a8c2fc6ebd2e"
+  summary: "49f98783673681224d1fc9eebc7d650f6317f99bdc487001380afffe2aa437f9"
+  readme: "f58aa26c9a7c6a95c5d08a7f2dfb4c87d52461c4c93033197850d4a5d29f331f"
+
+fresh_temp_rebuild_and_run:
+  run_a_input_sha256: "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1"
+  run_b_input_sha256: "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1"
+  saved_input_sha256: "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1"
+  run_a_results_sha256: "51b1919ef32bac3356be069ace559afb79ee752b03b4aceb07f5a8c2fc6ebd2e"
+  run_b_results_sha256: "51b1919ef32bac3356be069ace559afb79ee752b03b4aceb07f5a8c2fc6ebd2e"
+  saved_results_sha256: "51b1919ef32bac3356be069ace559afb79ee752b03b4aceb07f5a8c2fc6ebd2e"
+  run_a_summary_sha256: "49f98783673681224d1fc9eebc7d650f6317f99bdc487001380afffe2aa437f9"
+  run_b_summary_sha256: "49f98783673681224d1fc9eebc7d650f6317f99bdc487001380afffe2aa437f9"
+  saved_summary_sha256: "49f98783673681224d1fc9eebc7d650f6317f99bdc487001380afffe2aa437f9"
+  byte_identical_a_b_and_saved: true
+  semantic_identical: true
+  trial_count: 18
+  distribution: {PASS: 3, FAIL: 9, REVIEW_REQUIRED: 6}
+  all_expected_matched: true
+  decision_digest: "8d671fbdfaad6fc523e404a268d59bf4b151c6b26aa321238241fc5f50d71ca4"
+  by_layer:
+    training: {PASS: 3, FAIL: 1}
+    regression: {FAIL: 2, REVIEW_REQUIRED: 2}
+    holdout: {FAIL: 6, REVIEW_REQUIRED: 4}
+    representative_real_world: {}
+  security_red_team_trial_count: 17
+  synthetic_shadow_trial_count: 3
+  representative_real_world_executed: false
+  representative_real_world_evidence_count: 0
+  external_side_effect_count: 0
+  verdict: PASS_FOR_DETERMINISTIC_SYNTHETIC_REPLAY_ONLY
+
+claim_audit:
+  claim_count: 33
+  unique_claim_count: 33
+  chapter_reference_count: 33
+  missing_claim_references: []
+  orphan_claim_references: []
+  source_count: 19
+  used_source_count: 19
+  unused_sources: []
+  missing_source_ids: []
+  claim_results:
+    pass_or_pass_with_declared_scope: 33
+    review_required: 0
+  E_C18_029:
+    recorded_state: "C14 offline authorization control independently reproduced with real practice RR; C16 v3 second-neighbor author remediation awaits independent reproduction; C17 fact and cross PASS_WITH_LIMITATIONS with real practice RR"
+    current: true
+  verdict: PASS_WITH_LIMITATIONS
+
+targeted_attacks:
+  total: 36
+  matched_expected: 36
+  mismatched_expected: 0
+  failed_ids: []
+  stop_receipt:
+    - {id: V3.1-STOP-01, mutation: "VERIFIED plus receipt_id NONE", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3.1-STOP-02, mutation: "VERIFIED plus receipt_id dummy", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3.1-STOP-03, mutation: "VERIFIED plus unknown receipt ref", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3.1-STOP-04, mutation: "validly digested registry receipt bound to wrong task", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3.1-STOP-05, mutation: "validly digested registry receipt issued in 2020", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3.1-STOP-06, mutation: "validly digested future receipt by one second", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+    - {id: V3.1-STOP-07, mutation: "raw stop receipt status UNKNOWN", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+  receipt_window_boundaries:
+    policy_window_seconds: {minimum_inclusive: 0, maximum_inclusive: 300}
+    cases:
+      - {id: V3.1-WINDOW-00, age_seconds: 0, expected: PASS, actual: PASS, execution_state: STOP_CONFIRMED, verdict: PASS}
+      - {id: V3.1-WINDOW-01, age_seconds: 1, expected: PASS, actual: PASS, execution_state: STOP_CONFIRMED, verdict: PASS}
+      - {id: V3.1-WINDOW-299, age_seconds: 299, expected: PASS, actual: PASS, execution_state: STOP_CONFIRMED, verdict: PASS}
+      - {id: V3.1-WINDOW-300, age_seconds: 300, expected: PASS, actual: PASS, execution_state: STOP_CONFIRMED, verdict: PASS}
+      - {id: V3.1-WINDOW-301, age_seconds: 301, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, execution_state: UNKNOWN, verdict: PASS}
+  acceptance_truthfulness:
+    - id: V3.1-ACCEPT-01
+      mutation: "business-invalid USD unit with recomputed artifact hash, valid artifact re-signature, and synchronized acceptance artifact digest"
+      artifact_signature_valid: true
+      expected: FAIL
+      actual: FAIL
+      expected_acceptance_state: FAIL
+      actual_acceptance_state: FAIL
+      task_completion: FAIL
+      reason: CONTENT_BUSINESS_ERROR
+      verdict: PASS
+  artifact_signer:
+    - {id: V3.1-SIGN-01, mutation: "valid signature by REVOKED signer", expected: FAIL, actual: FAIL, reason: ARTIFACT_SIGNATURE_INVALID, acceptance_state: FAIL, verdict: PASS}
+    - {id: V3.1-SIGN-02, mutation: "valid signature by EXPIRED signer", expected: FAIL, actual: FAIL, reason: ARTIFACT_SIGNATURE_INVALID, acceptance_state: FAIL, verdict: PASS}
+    - {id: V3.1-SIGN-03, mutation: "valid signature from ACTIVE wrong-provider root", expected: FAIL, actual: FAIL, reason: ARTIFACT_SIGNATURE_INVALID, acceptance_state: FAIL, verdict: PASS}
+    - {id: V3.1-SIGN-04, mutation: "unknown Artifact signer", expected: FAIL, actual: FAIL, reason: ARTIFACT_SIGNATURE_INVALID, acceptance_state: FAIL, verdict: PASS}
+  protocol_aggregation:
+    - {id: V3.1-PROTO-01, protocol: SUBMITTED, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3.1-PROTO-02, protocol: WORKING, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3.1-PROTO-03, protocol: INPUT_REQUIRED, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3.1-PROTO-04, protocol: AUTH_REQUIRED, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+    - {id: V3.1-PROTO-05, protocol: FAILED, expected: FAIL, actual: FAIL, protocol_gate: FAIL, task_completion: FAIL, verdict: PASS}
+    - {id: V3.1-PROTO-06, protocol: REJECTED, expected: FAIL, actual: FAIL, protocol_gate: FAIL, task_completion: FAIL, verdict: PASS}
+    - {id: V3.1-PROTO-07, protocol: CANCELED, expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, protocol_gate: REVIEW_REQUIRED, task_completion: REVIEW_REQUIRED, verdict: PASS}
+  d22_real_world_boundary:
+    - {id: V3.1-D22-01, mutation: "data_origin representative_real_world", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3.1-D22-02, mutation: "representative_real_world_executed true", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3.1-D22-03, mutation: "offline scenario placed in representative_real_world layer", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3.1-D22-04, mutation: "non-empty self-attested real-world manifest", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3.1-D22-05, mutation: "full self-signed real-world origin/executed/layer/manifest bundle", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+  closed_world:
+    - {id: V3.1-CW-01, mutation: "unknown root field", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3.1-CW-02, mutation: "unknown scenario field", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3.1-CW-03, mutation: "duplicate scenario_id", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3.1-CW-04, mutation: "unknown mutation field", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+    - {id: V3.1-CW-05, mutation: "illegal fifth evaluation layer", expected: REJECTED_PRE_RESULT, actual: REJECTED_PRE_RESULT, verdict: PASS}
+  hard_failure_priority:
+    - {id: V3.1-HARD-01, mutation: "revoked Artifact signer plus protocol WORKING", expected: FAIL, actual: FAIL, rr_reason: PROTOCOL_NOT_COMPLETED, hard_reason: ARTIFACT_SIGNATURE_INVALID, verdict: PASS}
+    - {id: V3.1-HARD-02, mutation: "revoked Artifact signer plus UNKNOWN stop receipt", expected: FAIL, actual: FAIL, rr_reason: EXECUTION_TERMINAL_UNKNOWN, hard_reason: ARTIFACT_SIGNATURE_INVALID, verdict: PASS}
+
+blocker_closure:
+  P0_C18_V2_01_artifact_signer_trust_revocation: CLOSED
+  P0_C18_V2_02_nonterminal_protocol_global_pass: CLOSED
+  P0_C18_V2_03_stop_receipt_authority: CLOSED
+  P0_C18_V2_04_offline_self_attested_real_world: CLOSED
+  P0_C18_V3_01_stale_stop_receipt_replay: CLOSED
+  P1_C18_V3_02_acceptance_state_truthfulness: CLOSED
+  P1_F18_V3_01_E_C18_029_project_state: CLOSED
+
+retained_limitations:
+  - "The inclusive 0-300 second receipt window is a declared synthetic contract, not a universal industry threshold."
+  - "Production receipts should also bind run, attempt, execution generation, task-state version, stop or cancel request, and issuer lifecycle."
+  - "Synthetic digest signatures do not validate real JWS/JCS, PKI, key rotation, or production revocation."
+  - "No real A2A, OpenClaw, Hermes, external read-back, cancel propagation, fault recovery, or representative real-world task was executed."
+
+overall:
+  frozen_v3_1_rebuild: PASS
+  claims_33_closure: PASS
+  project_state_claim_current: PASS
+  targeted_attacks_36_of_36: PASS
+  artifact_signer_control: PASS
+  protocol_task_aggregation: PASS
+  stop_receipt_control: PASS
+  receipt_window_boundary: PASS
+  d22_offline_real_world_control: PASS
+  acceptance_layer_truthfulness: PASS
+  hard_failure_noncompensation: PASS
+  fact_gate: PASS_WITH_LIMITATIONS
+  cross_gate: PASS_WITH_LIMITATIONS
+  synthetic_machine_control: PASS
+  real_a2a_openclaw_hermes_practice: REVIEW_REQUIRED
+  release_candidate_authorized: false
+
+final_validation:
+  author_snapshot_hashes_unchanged_after_review: true
+  reproduction_yaml_parse: PASS
+  review_frontmatter_parse: PASS
+  c18_ledger_yaml_parse: PASS
+  c18_formal_sections_18_1_to_18_7: PASS
+  c18_artifact_count_3: PASS
+  c18_exercise_count_2: PASS
+  c18_local_links: PASS
+  builder_py_compile: PASS
+  runner_py_compile: PASS
+  book_validator: PASS
+  formal_validator: "CONCURRENT_FAIL_OUTSIDE_C18: C21 drafting package is below 20000 CJK and missing five required sections; C18 itself reports 18557 CJK and no C18 error"
+  diff_check: PASS

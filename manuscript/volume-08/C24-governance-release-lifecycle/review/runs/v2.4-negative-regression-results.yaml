@@ -1,0 +1,618 @@
+{
+  "attack_count": 50,
+  "attacks": [
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "root-local-reseal-after-owner-change",
+      "expected": "FAIL",
+      "family": "historical-pinned-root",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-plan-id-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority_root.rollout_plan_registry.rollout-c21-v24 binding enum or digest invalid"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-release-id-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-stage-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-scope-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-scope-digest-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-allowed-tenants-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-allowed-tasks-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-allowed-actions-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-candidate-permissions-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-baseline-permissions-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-min-trials-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-max-trials-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-max-cost-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-starts-at-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-expires-at-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-environment-ref-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-owner-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "plan-field-approval-ref-locally-resealed",
+      "expected": "FAIL",
+      "family": "historical-rollout-plan-fields",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "release-authority-revoked-and-root-resealed",
+      "expected": "FAIL",
+      "family": "historical-time-revocation",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "retirement-signoff-predates-authority-root-resealed",
+      "expected": "FAIL",
+      "family": "historical-publication-retirement-order",
+      "passed": true,
+      "reasons": [
+        "authority root digest is not the independently pinned root"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "trial-task-link-resealed",
+      "expected": "FAIL",
+      "family": "historical-trial-chain",
+      "passed": true,
+      "reasons": [
+        "TASK_REGISTRY_BINDING_INVALID",
+        "TRIAL_REGISTRY_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "task-input-resealed",
+      "expected": "FAIL",
+      "family": "historical-trial-chain",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "TASK_REGISTRY_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "dataset-layer-resealed",
+      "expected": "FAIL",
+      "family": "historical-trial-chain",
+      "passed": true,
+      "reasons": [
+        "DATASET_REGISTRY_BINDING_INVALID",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "grader-revoked-resealed",
+      "expected": "FAIL",
+      "family": "historical-trial-chain",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "GRADER_REGISTRY_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "terminal-reset-to-ready-resealed",
+      "expected": "FAIL",
+      "family": "historical-trial-chain",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "TRIAL_TERMINAL_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-authority-substitution",
+      "expected": "FAIL",
+      "family": "historical-effect-chain",
+      "passed": true,
+      "reasons": [
+        "EFFECT_AUTHORITY_INVALID",
+        "EFFECT_RECEIPT_INVALID",
+        "EFFECT_TERMINAL_UNKNOWN"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-receipt-substitution-resealed",
+      "expected": "FAIL",
+      "family": "historical-effect-chain",
+      "passed": true,
+      "reasons": [
+        "EFFECT_RECEIPT_INVALID",
+        "EFFECT_TERMINAL_UNKNOWN",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-readback-observer-equals-operator",
+      "expected": "FAIL",
+      "family": "historical-effect-chain",
+      "passed": true,
+      "reasons": [
+        "EFFECT_READBACK_INVALID",
+        "EFFECT_TERMINAL_UNKNOWN",
+        "FROZEN_AUTHORITY_ROOT_MISMATCH"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "task-uses-schedule-manifest",
+      "expected": "FAIL",
+      "family": "historical-automation-manifest",
+      "passed": true,
+      "reasons": [
+        "AUTOMATION_MANIFEST_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-layer-claims-holdout",
+      "expected": "FAIL",
+      "family": "historical-scenario-metadata",
+      "passed": true,
+      "reasons": [
+        "SCENARIO_HOLDOUT_REF_EVIDENCE_MISMATCH",
+        "SCENARIO_LAYER_EVIDENCE_MISMATCH"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "scenario-holdout-ref-on-training",
+      "expected": "FAIL",
+      "family": "historical-scenario-metadata",
+      "passed": true,
+      "reasons": [
+        "root.scenarios[0] non-holdout scenario cannot claim holdout lineage"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-self-claims-valid-security-slice",
+      "expected": "FAIL",
+      "family": "historical-scenario-metadata",
+      "passed": true,
+      "reasons": [
+        "SCENARIO_SECURITY_SLICES_EVIDENCE_MISMATCH"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "evaluation-time-after-all-authorities-expire",
+      "expected": "FAIL",
+      "family": "historical-time-revocation",
+      "passed": true,
+      "reasons": [
+        "ACCOUNTABLE_OWNER_INVALID",
+        "BACKUP_ARCHIVE_OR_TIME_INVALID",
+        "BACKUP_MANIFEST_BINDING_INVALID",
+        "D21_BUSINESS_EVIDENCE_BINDING_INVALID",
+        "D21_DELIVERY_EVIDENCE_BINDING_INVALID",
+        "D21_ENVIRONMENT_EVIDENCE_BINDING_INVALID",
+        "D21_TECHNICAL_EVIDENCE_BINDING_INVALID",
+        "GRADER_REGISTRY_BINDING_INVALID",
+        "HOLDOUT_LINEAGE_OR_ISOLATION_INVALID",
+        "LEGAL_REVIEW_AUTHORITY_OR_TIME_INVALID",
+        "LEGAL_SCOPE_AUTHORITY_INVALID",
+        "MIGRATION_OWNER_ROLE_INVALID",
+        "MIGRATION_RECEIPT_BINDING_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID",
+        "RELEASE_OWNER_ROLE_INVALID",
+        "RESTORE_PROOF_BINDING_INVALID",
+        "ROLLOUT_OWNER_ROLE_INVALID",
+        "ROLLOUT_PLAN_APPROVAL_INVALID",
+        "ROLLOUT_PLAN_ENVIRONMENT_INVALID",
+        "ROLLOUT_WINDOW_INVALID",
+        "RUNTIME_OWNER_ROLE_INVALID",
+        "TRIAL_TERMINAL_BINDING_INVALID"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "zero-max-trials",
+      "expected": "FAIL",
+      "family": "historical-budget",
+      "passed": true,
+      "reasons": [
+        "REQUIRED_STOP_NOT_TRIGGERED",
+        "ROLLOUT_BUDGET_EXCEEDED",
+        "ROLLOUT_BUDGET_INVALID",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "negative-max-cost",
+      "expected": "FAIL",
+      "family": "historical-budget",
+      "passed": true,
+      "reasons": [
+        "REQUIRED_STOP_NOT_TRIGGERED",
+        "ROLLOUT_BUDGET_EXCEEDED",
+        "ROLLOUT_BUDGET_INVALID",
+        "ROLLOUT_PLAN_AUTHORITY_MISMATCH"
+      ],
+      "required_reason": "ANY_HARD_REJECTION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "legal-review-completes-after-rollout-window-start",
+      "expected": "FAIL",
+      "family": "historical-publication-retirement-order",
+      "passed": true,
+      "reasons": [
+        "PUBLICATION_EVENT_BINDING_INVALID",
+        "PUBLICATION_EVENT_SEQUENCE_INVALID"
+      ],
+      "required_reason": "PUBLICATION_EVENT_SEQUENCE_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "legal-review-completes-after-retirement-window-start",
+      "expected": "FAIL",
+      "family": "historical-publication-retirement-order",
+      "passed": true,
+      "reasons": [
+        "PUBLICATION_EVENT_BINDING_INVALID",
+        "PUBLICATION_EVENT_SEQUENCE_INVALID"
+      ],
+      "required_reason": "PUBLICATION_EVENT_SEQUENCE_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "publication-receipt-does-not-match-execution",
+      "expected": "FAIL",
+      "family": "v2.4-publication",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_EVENT_BINDING_INVALID"
+      ],
+      "required_reason": "PUBLICATION_EVENT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "publication-readback-before-receipt",
+      "expected": "FAIL",
+      "family": "v2.4-publication",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_EVENT_SEQUENCE_INVALID"
+      ],
+      "required_reason": "PUBLICATION_EVENT_SEQUENCE_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "publication-receipt-wrong-subject",
+      "expected": "FAIL",
+      "family": "v2.4-publication",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_EVENT_BINDING_INVALID"
+      ],
+      "required_reason": "PUBLICATION_EVENT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "publication-executes-after-approval-expiry",
+      "expected": "FAIL",
+      "family": "v2.4-publication",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_RELEASE_AUTHORITY_INVALID",
+        "RELEASE_APPROVAL_BINDING_INVALID"
+      ],
+      "required_reason": "PUBLICATION_RELEASE_AUTHORITY_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "publication-window-start-cannot-replace-receipt-time",
+      "expected": "FAIL",
+      "family": "v2.4-publication",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "PUBLICATION_EVENT_BINDING_INVALID"
+      ],
+      "required_reason": "PUBLICATION_EVENT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "retirement-signoff-before-request",
+      "expected": "FAIL",
+      "family": "v2.4-retirement",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_SIGNOFF_INVALID"
+      ],
+      "required_reason": "RETIREMENT_SIGNOFF_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "retirement-signoff-before-residual-scan",
+      "expected": "FAIL",
+      "family": "v2.4-retirement",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_SIGNOFF_BEFORE_RESIDUAL_SCAN",
+        "RETIREMENT_SIGNOFF_SEQUENCE_INVALID"
+      ],
+      "required_reason": "RETIREMENT_SIGNOFF_BEFORE_RESIDUAL_SCAN"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "retirement-executes-after-authority-expiry",
+      "expected": "FAIL",
+      "family": "v2.4-retirement",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_AUTHORITY_INVALID"
+      ],
+      "required_reason": "RETIREMENT_AUTHORITY_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "retirement-receipt-wrong-subject",
+      "expected": "FAIL",
+      "family": "v2.4-retirement",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_LIFECYCLE_BINDING_INVALID"
+      ],
+      "required_reason": "RETIREMENT_LIFECYCLE_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "retirement-readback-before-receipt",
+      "expected": "FAIL",
+      "family": "v2.4-retirement",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_LIFECYCLE_SEQUENCE_INVALID"
+      ],
+      "required_reason": "RETIREMENT_LIFECYCLE_SEQUENCE_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "retirement-wrong-release",
+      "expected": "FAIL",
+      "family": "v2.4-retirement",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_LIFECYCLE_BINDING_INVALID"
+      ],
+      "required_reason": "RETIREMENT_LIFECYCLE_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "retirement-evidence-before-execution",
+      "expected": "FAIL",
+      "family": "v2.4-retirement",
+      "passed": true,
+      "reasons": [
+        "FROZEN_AUTHORITY_ROOT_MISMATCH",
+        "RETIREMENT_ADMISSION_STOPPED_INVALID"
+      ],
+      "required_reason": "RETIREMENT_ADMISSION_STOPPED_INVALID"
+    }
+  ],
+  "escaped_count": 0,
+  "historical_v2_3_attack_count": 38,
+  "historical_v2_3_passed_count": 38,
+  "passed_count": 50,
+  "schema_version": "c21.lifecycle.negative.v2.4",
+  "suite_digest": "sha256:d1d6dc059acd21d901b141bbccd9cb0c403f161a3103706a696ac4bacafb573d",
+  "v2_4_event_attack_count": 12,
+  "v2_4_event_passed_count": 12
+}

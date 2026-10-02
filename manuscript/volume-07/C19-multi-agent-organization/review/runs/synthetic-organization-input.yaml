@@ -1,0 +1,2666 @@
+{
+  "common_state": {
+    "action_requests": [
+      {
+        "action": "draft",
+        "actor_alias": "lead-a",
+        "object_id": "artifact-A",
+        "requested_at": "2026-09-30T10:00:00+08:00",
+        "scope": "local"
+      }
+    ],
+    "assertions": [],
+    "budget": {
+      "all_work_stopped": false,
+      "consumed": 5,
+      "limit": 10,
+      "stop_receipt_status": "NONE",
+      "stop_threshold": 10
+    },
+    "cancellation": {
+      "children": [
+        {
+          "child_id": "worker-c",
+          "state": "COMPLETED"
+        }
+      ],
+      "inflight_readback": "CLEAR",
+      "queue_readback": "CLEAR",
+      "receipt_status": "NONE",
+      "requested": false
+    },
+    "completion": {
+      "reported_complete": true
+    },
+    "credential_bindings": [
+      {
+        "actor_alias": "lead-a",
+        "credential_id": "cred-lead"
+      },
+      {
+        "actor_alias": "expert-b",
+        "credential_id": "cred-expert"
+      }
+    ],
+    "effect_ledger": [],
+    "runtime": {
+      "evidence_status": "NOT_REQUIRED",
+      "real_runtime_required": false
+    },
+    "write_events": [
+      {
+        "base_version": "v4",
+        "merge_record_id": "merge-A",
+        "object_id": "artifact-A",
+        "result_version": "v5",
+        "writer_alias": "lead-a"
+      }
+    ],
+    "writer_leases": [
+      {
+        "base_version": "v4",
+        "lease_id": "lease-A",
+        "object_id": "artifact-A",
+        "status": "ACTIVE",
+        "writer_alias": "lead-a"
+      }
+    ]
+  },
+  "comparison_contract": {
+    "baseline": {
+      "acceptance_digest": "sha256:acceptance-c16",
+      "budget_limit": 20,
+      "environment_digest": "sha256:environment-c16",
+      "input_digest": "sha256:input-c16",
+      "permission_digest": "sha256:permission-c16",
+      "risk_boundary": "high",
+      "task_digest": "sha256:task-c16"
+    },
+    "candidate": {
+      "acceptance_digest": "sha256:acceptance-c16",
+      "budget_limit": 20,
+      "environment_digest": "sha256:environment-c16",
+      "input_digest": "sha256:input-c16",
+      "permission_digest": "sha256:permission-c16",
+      "risk_boundary": "high",
+      "task_digest": "sha256:task-c16"
+    }
+  },
+  "data_origin": "synthetic",
+  "environment": {
+    "external_effects_allowed": false,
+    "mode": "offline_synthetic",
+    "real_credentials": false
+  },
+  "fixture_version": "c16-org-v3",
+  "identity": {
+    "aliases": {
+      "expert-b": "principal-expert",
+      "lead-a": "principal-lead",
+      "worker-c": "principal-worker"
+    },
+    "credentials": [
+      {
+        "credential_id": "cred-lead",
+        "owner_principal_id": "principal-lead",
+        "status": "ACTIVE"
+      },
+      {
+        "credential_id": "cred-expert",
+        "owner_principal_id": "principal-expert",
+        "status": "ACTIVE"
+      },
+      {
+        "credential_id": "cred-worker",
+        "owner_principal_id": "principal-worker",
+        "status": "ACTIVE"
+      }
+    ],
+    "grants": [
+      {
+        "actions": [
+          "draft",
+          "coordinate"
+        ],
+        "expires_at": "2026-10-01T00:00:00+08:00",
+        "grant_id": "grant-lead-draft",
+        "objects": [
+          "artifact-A"
+        ],
+        "principal_id": "principal-lead",
+        "scopes": [
+          "local"
+        ],
+        "status": "ACTIVE"
+      },
+      {
+        "actions": [
+          "analyze"
+        ],
+        "expires_at": "2026-10-01T00:00:00+08:00",
+        "grant_id": "grant-expert-analyze",
+        "objects": [
+          "artifact-A"
+        ],
+        "principal_id": "principal-expert",
+        "scopes": [
+          "local"
+        ],
+        "status": "ACTIVE"
+      }
+    ],
+    "principals": {
+      "principal-expert": {
+        "roles": [
+          "expert"
+        ]
+      },
+      "principal-lead": {
+        "roles": [
+          "lead"
+        ]
+      },
+      "principal-worker": {
+        "roles": [
+          "worker"
+        ]
+      }
+    },
+    "sources": {
+      "src-independent-1": {
+        "origin": "origin-A"
+      },
+      "src-independent-2": {
+        "origin": "origin-B"
+      },
+      "src-same-1": {
+        "origin": "origin-X"
+      },
+      "src-same-2": {
+        "origin": "origin-X"
+      }
+    }
+  },
+  "net_benefit_policy": {
+    "max_communication_delta": 4,
+    "max_conflict_delta": 0,
+    "max_cost_ratio": 1.25,
+    "max_human_delta": 0,
+    "max_latency_ratio": 1.1,
+    "max_recovery_delta": 5,
+    "min_evidence_completeness": 0.95,
+    "min_independent_runs": 3,
+    "min_quality_delta": 1.0
+  },
+  "now": "2026-09-30T12:00:00+08:00",
+  "real_world_evidence_manifest": {},
+  "representative_real_world_executed": false,
+  "scenarios": [
+    {
+      "expected": "PASS",
+      "id": "single-baseline",
+      "kind": "normal",
+      "layer": "training",
+      "mode": "single",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S01-R1",
+              "kind": "organization-observation",
+              "run_id": "S01-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S01-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S01-R1",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S01-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S01-R2",
+              "kind": "organization-observation",
+              "run_id": "S01-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S01-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S01-R2",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S01-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S01-R3",
+              "kind": "organization-observation",
+              "run_id": "S01-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S01-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S01-R3",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S01-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {}
+    },
+    {
+      "expected": "PASS",
+      "id": "minimal-org-positive",
+      "kind": "normal",
+      "layer": "regression",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S02-R1",
+              "kind": "organization-observation",
+              "run_id": "S02-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S02-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S02-R1",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S02-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S02-R2",
+              "kind": "organization-observation",
+              "run_id": "S02-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S02-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S02-R2",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S02-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S02-R3",
+              "kind": "organization-observation",
+              "run_id": "S02-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S02-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S02-R3",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S02-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {}
+    },
+    {
+      "expected": "FAIL",
+      "id": "workflow-better",
+      "kind": "boundary",
+      "layer": "holdout",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 8,
+            "conflicts": 0,
+            "cost": 17.0,
+            "evidence_completeness": 1.0,
+            "human": 24,
+            "latency": 1200.0,
+            "quality": 80,
+            "recovery": 3
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S03-R1",
+              "kind": "organization-observation",
+              "run_id": "S03-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S03-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S03-R1",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S03-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 7,
+            "conflicts": 0,
+            "cost": 17.34,
+            "evidence_completeness": 1.0,
+            "human": 24,
+            "latency": 1212.0,
+            "quality": 81,
+            "recovery": 3
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S03-R2",
+              "kind": "organization-observation",
+              "run_id": "S03-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S03-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S03-R2",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S03-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 6,
+            "conflicts": 0,
+            "cost": 16.66,
+            "evidence_completeness": 1.0,
+            "human": 23,
+            "latency": 1188.0,
+            "quality": 79,
+            "recovery": 3
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S03-R3",
+              "kind": "organization-observation",
+              "run_id": "S03-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S03-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S03-R3",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S03-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {}
+    },
+    {
+      "expected": "FAIL",
+      "id": "multi-negative-benefit",
+      "intended_target_layer": "representative_real_world",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 10,
+            "conflicts": 1,
+            "cost": 22.0,
+            "evidence_completeness": 1.0,
+            "human": 28,
+            "latency": 1400.0,
+            "quality": 80,
+            "recovery": 8
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S04-R1",
+              "kind": "organization-observation",
+              "run_id": "S04-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S04-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S04-R1",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S04-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 9,
+            "conflicts": 1,
+            "cost": 22.44,
+            "evidence_completeness": 1.0,
+            "human": 28,
+            "latency": 1414.0,
+            "quality": 81,
+            "recovery": 8
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S04-R2",
+              "kind": "organization-observation",
+              "run_id": "S04-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S04-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S04-R2",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S04-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 8,
+            "conflicts": 1,
+            "cost": 21.56,
+            "evidence_completeness": 1.0,
+            "human": 27,
+            "latency": 1386.0,
+            "quality": 79,
+            "recovery": 8
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S04-R3",
+              "kind": "organization-observation",
+              "run_id": "S04-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S04-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S04-R3",
+              "seq": 1
+            },
+            {
+              "event": "completed",
+              "run_id": "S04-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {},
+      "synthetic_shadow": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "shared-write-conflict",
+      "kind": "abnormal",
+      "layer": "regression",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S05-R1",
+              "kind": "organization-observation",
+              "run_id": "S05-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S05-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S05-R1",
+              "seq": 1
+            },
+            {
+              "event": "write-conflict",
+              "run_id": "S05-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S05-R2",
+              "kind": "organization-observation",
+              "run_id": "S05-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S05-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S05-R2",
+              "seq": 1
+            },
+            {
+              "event": "write-conflict",
+              "run_id": "S05-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S05-R3",
+              "kind": "organization-observation",
+              "run_id": "S05-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S05-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S05-R3",
+              "seq": 1
+            },
+            {
+              "event": "write-conflict",
+              "run_id": "S05-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {
+        "write_events": [
+          {
+            "base_version": "v4",
+            "merge_record_id": "NONE",
+            "object_id": "artifact-A",
+            "result_version": "v5a",
+            "writer_alias": "lead-a"
+          },
+          {
+            "base_version": "v4",
+            "merge_record_id": "NONE",
+            "object_id": "artifact-A",
+            "result_version": "v5b",
+            "writer_alias": "expert-b"
+          }
+        ],
+        "writer_leases": [
+          {
+            "base_version": "v4",
+            "lease_id": "lease-A",
+            "object_id": "artifact-A",
+            "status": "ACTIVE",
+            "writer_alias": "lead-a"
+          },
+          {
+            "base_version": "v4",
+            "lease_id": "lease-B",
+            "object_id": "artifact-A",
+            "status": "ACTIVE",
+            "writer_alias": "expert-b"
+          }
+        ]
+      }
+    },
+    {
+      "expected": "FAIL",
+      "id": "correlated-consensus",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S06-R1",
+              "kind": "organization-observation",
+              "run_id": "S06-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S06-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S06-R1",
+              "seq": 1
+            },
+            {
+              "event": "source-audit",
+              "run_id": "S06-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S06-R2",
+              "kind": "organization-observation",
+              "run_id": "S06-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S06-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S06-R2",
+              "seq": 1
+            },
+            {
+              "event": "source-audit",
+              "run_id": "S06-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S06-R3",
+              "kind": "organization-observation",
+              "run_id": "S06-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S06-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S06-R3",
+              "seq": 1
+            },
+            {
+              "event": "source-audit",
+              "run_id": "S06-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {
+        "assertions": [
+          {
+            "claim_id": "claim-X",
+            "claim_type": "FACT",
+            "minimum_independent_origins": 2,
+            "source_refs": [
+              "src-same-1",
+              "src-same-2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "expected": "FAIL",
+      "id": "unauthorized-expert",
+      "kind": "security",
+      "layer": "regression",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S07-R1",
+              "kind": "organization-observation",
+              "run_id": "S07-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S07-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S07-R1",
+              "seq": 1
+            },
+            {
+              "event": "grant-denied",
+              "run_id": "S07-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S07-R2",
+              "kind": "organization-observation",
+              "run_id": "S07-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S07-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S07-R2",
+              "seq": 1
+            },
+            {
+              "event": "grant-denied",
+              "run_id": "S07-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S07-R3",
+              "kind": "organization-observation",
+              "run_id": "S07-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S07-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S07-R3",
+              "seq": 1
+            },
+            {
+              "event": "grant-denied",
+              "run_id": "S07-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "security_slice": true,
+      "state_overrides": {
+        "action_requests": [
+          {
+            "action": "write-production",
+            "actor_alias": "expert-b",
+            "object_id": "artifact-A",
+            "requested_at": "2026-09-30T10:00:00+08:00",
+            "scope": "production"
+          }
+        ]
+      }
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "id": "lead-lost",
+      "intended_target_layer": "representative_real_world",
+      "kind": "abnormal",
+      "layer": "holdout",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S08-R1",
+              "kind": "organization-observation",
+              "run_id": "S08-R1",
+              "status": "UNKNOWN"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S08-R1",
+          "terminal": {
+            "business": "UNKNOWN",
+            "delivery": "UNKNOWN",
+            "technical": "UNKNOWN"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S08-R1",
+              "seq": 1
+            },
+            {
+              "event": "readback-unknown",
+              "run_id": "S08-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S08-R2",
+              "kind": "organization-observation",
+              "run_id": "S08-R2",
+              "status": "UNKNOWN"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S08-R2",
+          "terminal": {
+            "business": "UNKNOWN",
+            "delivery": "UNKNOWN",
+            "technical": "UNKNOWN"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S08-R2",
+              "seq": 1
+            },
+            {
+              "event": "readback-unknown",
+              "run_id": "S08-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S08-R3",
+              "kind": "organization-observation",
+              "run_id": "S08-R3",
+              "status": "UNKNOWN"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S08-R3",
+          "terminal": {
+            "business": "UNKNOWN",
+            "delivery": "UNKNOWN",
+            "technical": "UNKNOWN"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S08-R3",
+              "seq": 1
+            },
+            {
+              "event": "readback-unknown",
+              "run_id": "S08-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {},
+      "synthetic_shadow": true
+    },
+    {
+      "expected": "FAIL",
+      "id": "ghost-success",
+      "kind": "adversarial",
+      "layer": "holdout",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S09-R1",
+              "kind": "organization-observation",
+              "run_id": "S09-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S09-R1",
+          "terminal": {
+            "business": "REJECTED",
+            "delivery": "MISSING",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S09-R1",
+              "seq": 1
+            },
+            {
+              "event": "claimed-complete",
+              "run_id": "S09-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S09-R2",
+              "kind": "organization-observation",
+              "run_id": "S09-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S09-R2",
+          "terminal": {
+            "business": "REJECTED",
+            "delivery": "MISSING",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S09-R2",
+              "seq": 1
+            },
+            {
+              "event": "claimed-complete",
+              "run_id": "S09-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S09-R3",
+              "kind": "organization-observation",
+              "run_id": "S09-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S09-R3",
+          "terminal": {
+            "business": "REJECTED",
+            "delivery": "MISSING",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S09-R3",
+              "seq": 1
+            },
+            {
+              "event": "claimed-complete",
+              "run_id": "S09-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {}
+    },
+    {
+      "expected": "FAIL",
+      "id": "budget-exhausted-no-stop",
+      "kind": "abnormal",
+      "layer": "training",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S10-R1",
+              "kind": "organization-observation",
+              "run_id": "S10-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S10-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S10-R1",
+              "seq": 1
+            },
+            {
+              "event": "budget-exceeded",
+              "run_id": "S10-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S10-R2",
+              "kind": "organization-observation",
+              "run_id": "S10-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S10-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S10-R2",
+              "seq": 1
+            },
+            {
+              "event": "budget-exceeded",
+              "run_id": "S10-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S10-R3",
+              "kind": "organization-observation",
+              "run_id": "S10-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S10-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S10-R3",
+              "seq": 1
+            },
+            {
+              "event": "budget-exceeded",
+              "run_id": "S10-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {
+        "budget": {
+          "all_work_stopped": false,
+          "consumed": 12,
+          "limit": 10,
+          "stop_receipt_status": "NONE",
+          "stop_threshold": 10
+        }
+      }
+    },
+    {
+      "expected": "PASS",
+      "id": "budget-exhausted-stopped",
+      "kind": "recovery",
+      "layer": "regression",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S11-R1",
+              "kind": "organization-observation",
+              "run_id": "S11-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S11-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S11-R1",
+              "seq": 1
+            },
+            {
+              "event": "stopped-and-closed",
+              "run_id": "S11-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S11-R2",
+              "kind": "organization-observation",
+              "run_id": "S11-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S11-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S11-R2",
+              "seq": 1
+            },
+            {
+              "event": "stopped-and-closed",
+              "run_id": "S11-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S11-R3",
+              "kind": "organization-observation",
+              "run_id": "S11-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S11-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S11-R3",
+              "seq": 1
+            },
+            {
+              "event": "stopped-and-closed",
+              "run_id": "S11-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {
+        "budget": {
+          "all_work_stopped": true,
+          "consumed": 10,
+          "limit": 10,
+          "stop_receipt_status": "VERIFIED",
+          "stop_threshold": 10
+        }
+      }
+    },
+    {
+      "expected": "FAIL",
+      "id": "cancel-propagation-leak",
+      "kind": "security",
+      "layer": "holdout",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S12-R1",
+              "kind": "organization-observation",
+              "run_id": "S12-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S12-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S12-R1",
+              "seq": 1
+            },
+            {
+              "event": "child-active",
+              "run_id": "S12-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S12-R2",
+              "kind": "organization-observation",
+              "run_id": "S12-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S12-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S12-R2",
+              "seq": 1
+            },
+            {
+              "event": "child-active",
+              "run_id": "S12-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S12-R3",
+              "kind": "organization-observation",
+              "run_id": "S12-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S12-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S12-R3",
+              "seq": 1
+            },
+            {
+              "event": "child-active",
+              "run_id": "S12-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "security_slice": true,
+      "state_overrides": {
+        "cancellation": {
+          "children": [
+            {
+              "child_id": "worker-c",
+              "state": "ACTIVE"
+            }
+          ],
+          "inflight_readback": "NOT_CLEAR",
+          "queue_readback": "NOT_CLEAR",
+          "receipt_status": "ACCEPTED",
+          "requested": true
+        }
+      }
+    },
+    {
+      "expected": "FAIL",
+      "id": "isolated-session-shared-credential",
+      "kind": "security",
+      "layer": "regression",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S13-R1",
+              "kind": "organization-observation",
+              "run_id": "S13-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S13-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S13-R1",
+              "seq": 1
+            },
+            {
+              "event": "credential-audit",
+              "run_id": "S13-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S13-R2",
+              "kind": "organization-observation",
+              "run_id": "S13-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S13-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S13-R2",
+              "seq": 1
+            },
+            {
+              "event": "credential-audit",
+              "run_id": "S13-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S13-R3",
+              "kind": "organization-observation",
+              "run_id": "S13-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S13-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S13-R3",
+              "seq": 1
+            },
+            {
+              "event": "credential-audit",
+              "run_id": "S13-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "security_slice": true,
+      "state_overrides": {
+        "credential_bindings": [
+          {
+            "actor_alias": "lead-a",
+            "credential_id": "cred-lead"
+          },
+          {
+            "actor_alias": "expert-b",
+            "credential_id": "cred-lead"
+          }
+        ]
+      }
+    },
+    {
+      "expected": "REVIEW_REQUIRED",
+      "id": "a2a-runtime-unverified",
+      "intended_target_layer": "representative_real_world",
+      "kind": "boundary",
+      "layer": "holdout",
+      "mode": "multi",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 82.0,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S14-R1",
+              "kind": "organization-observation",
+              "run_id": "S14-R1",
+              "status": "UNKNOWN"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S14-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S14-R1",
+              "seq": 1
+            },
+            {
+              "event": "runtime-unverified",
+              "run_id": "S14-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 11.22,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 83.1,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S14-R2",
+              "kind": "organization-observation",
+              "run_id": "S14-R2",
+              "status": "UNKNOWN"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S14-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S14-R2",
+              "seq": 1
+            },
+            {
+              "event": "runtime-unverified",
+              "run_id": "S14-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 2,
+            "conflicts": 0,
+            "cost": 10.78,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 81.2,
+            "recovery": 0
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S14-R3",
+              "kind": "organization-observation",
+              "run_id": "S14-R3",
+              "status": "UNKNOWN"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S14-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S14-R3",
+              "seq": 1
+            },
+            {
+              "event": "runtime-unverified",
+              "run_id": "S14-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {
+        "runtime": {
+          "evidence_status": "UNKNOWN",
+          "real_runtime_required": true
+        }
+      },
+      "synthetic_shadow": true
+    },
+    {
+      "expected": "PASS",
+      "id": "rollback-to-single",
+      "intended_target_layer": "representative_real_world",
+      "kind": "recovery",
+      "layer": "holdout",
+      "mode": "single",
+      "runs": [
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.0,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1000,
+            "quality": 80,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 8.0,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 900.0,
+            "quality": 80,
+            "recovery": 2
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S15-R1",
+              "kind": "organization-observation",
+              "run_id": "S15-R1",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S15-R1",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S15-R1",
+              "seq": 1
+            },
+            {
+              "event": "single-restored",
+              "run_id": "S15-R1",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 10.2,
+            "evidence_completeness": 1.0,
+            "human": 20,
+            "latency": 1010,
+            "quality": 81,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 8.16,
+            "evidence_completeness": 1.0,
+            "human": 18,
+            "latency": 909.0,
+            "quality": 81,
+            "recovery": 2
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S15-R2",
+              "kind": "organization-observation",
+              "run_id": "S15-R2",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S15-R2",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S15-R2",
+              "seq": 1
+            },
+            {
+              "event": "single-restored",
+              "run_id": "S15-R2",
+              "seq": 2
+            }
+          ]
+        },
+        {
+          "baseline_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 9.8,
+            "evidence_completeness": 1.0,
+            "human": 19,
+            "latency": 990,
+            "quality": 79,
+            "recovery": 0
+          },
+          "candidate_metrics": {
+            "communication": 0,
+            "conflicts": 0,
+            "cost": 7.84,
+            "evidence_completeness": 1.0,
+            "human": 17,
+            "latency": 891.0,
+            "quality": 79,
+            "recovery": 2
+          },
+          "evidence_records": [
+            {
+              "evidence_id": "EV-S15-R3",
+              "kind": "organization-observation",
+              "run_id": "S15-R3",
+              "status": "VERIFIED"
+            }
+          ],
+          "input_version": "org-input-v3",
+          "run_id": "S15-R3",
+          "terminal": {
+            "business": "ACCEPTED",
+            "delivery": "VISIBLE",
+            "technical": "EXECUTED"
+          },
+          "trace_events": [
+            {
+              "event": "started",
+              "run_id": "S15-R3",
+              "seq": 1
+            },
+            {
+              "event": "single-restored",
+              "run_id": "S15-R3",
+              "seq": 2
+            }
+          ]
+        }
+      ],
+      "state_overrides": {},
+      "synthetic_shadow": true
+    }
+  ]
+}

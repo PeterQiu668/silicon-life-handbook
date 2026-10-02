@@ -1,0 +1,199 @@
+{
+  "controls": [
+    {
+      "application_id": "APP-059",
+      "control_id": "C24-POS-RENEWAL-059",
+      "kind": "LEGAL_RENEWAL",
+      "lifecycle_order": [
+        {
+          "kind": "ORIGINAL_CERTIFICATE_ISSUED",
+          "occurred_at": "2026-09-03T00:00:00Z"
+        },
+        {
+          "kind": "RENEWAL_REQUESTED",
+          "occurred_at": "2026-09-30T09:35:00Z"
+        },
+        {
+          "kind": "INDEPENDENT_REVIEW_RECORDED",
+          "occurred_at": "2026-09-30T10:50:00Z"
+        },
+        {
+          "kind": "RENEWED_CERTIFICATE_ISSUED",
+          "occurred_at": "2026-09-30T11:00:00Z"
+        },
+        {
+          "kind": "RENEWED_CERTIFICATE_ACTIVATED",
+          "occurred_at": "2026-09-30T11:05:00Z"
+        },
+        {
+          "kind": "ORIGINAL_CERTIFICATE_EXPIRES",
+          "occurred_at": "2026-10-01T00:00:00Z"
+        }
+      ],
+      "original_application": {
+        "application_id": "APP-ORIGINAL-059",
+        "budget": 100.0,
+        "data": "synthetic-v1",
+        "environment": "isolated-copy",
+        "expires_at": "2026-10-01T00:00:00Z",
+        "issued_at": "2026-09-01T09:00:00Z",
+        "model": "provider/model@snapshot-202609",
+        "platform": "openclaw",
+        "record_digest": "sha256:9f84d2e19971501461527afda8bec7946558172aec447f16b8db7dfb10aaf196",
+        "release": "openclaw@eb377ac",
+        "risk": "R2",
+        "scope": "research-draft",
+        "subject_id": "SUB-059",
+        "task_id": "TASK-059",
+        "tools": [
+          "read_synthetic"
+        ]
+      },
+      "original_authority": {
+        "action": "issue_synthetic_assessment",
+        "actor": "CERTIFIER-059",
+        "authority_id": "AUTH-ISSUE-ORIGINAL-059",
+        "expires_at": "2026-10-30T00:00:00Z",
+        "issued_at": "2026-09-01T09:05:00Z",
+        "not_before": "2026-09-01T09:05:00Z",
+        "object_digest": "sha256:9f84d2e19971501461527afda8bec7946558172aec447f16b8db7dfb10aaf196",
+        "record_digest": "sha256:e86ac9fce9f0ccb9a0e7e69ffbf0e980ce429862fdead7e994d3ae73508d3304",
+        "scope": "research-draft",
+        "status": "ACTIVE",
+        "subject_id": "APP-ORIGINAL-059",
+        "subject_type": "application"
+      },
+      "original_bundle": {
+        "application_id": "APP-ORIGINAL-059",
+        "bundle_id": "BUNDLE-ORIGINAL-059",
+        "issued_at": "2026-09-02T09:00:00Z",
+        "record_digest": "sha256:9f2504eef51684ea2828a5f64bc2506469919940773bd5cc95e8b4646d4f261e",
+        "status": "PASS"
+      },
+      "original_certificate": {
+        "application_digest": "sha256:9f84d2e19971501461527afda8bec7946558172aec447f16b8db7dfb10aaf196",
+        "application_id": "APP-ORIGINAL-059",
+        "authority_ref": "AUTH-ISSUE-ORIGINAL-059",
+        "bundle_digest": "sha256:9f2504eef51684ea2828a5f64bc2506469919940773bd5cc95e8b4646d4f261e",
+        "certificate_id": "CERT-ORIGINAL-059",
+        "decision": "PASS",
+        "expires_at": "2026-10-01T00:00:00Z",
+        "issued_at": "2026-09-03T00:00:00Z",
+        "lifecycle": "ACTIVE",
+        "maturity_digest": "sha256:be4e7fe91b6ea98fc81f2e46bb5f709327ce10d9f5d9f4fb764379e784bc3518",
+        "namespace_digest": "sha256:ce13110e193798e195969f4a1778804ef3b9146f7e0f7875fde49c27871d594a",
+        "public_claim": "synthetic active assessment",
+        "public_claim_ref": "EV-CLAIM-ORIGINAL-059",
+        "real_certificate": false,
+        "record_digest": "sha256:bf03ed11decf6ed1b5a0f0b0622d3463a9ff8c0edd7adb3a2e07d1cdf26e817a",
+        "release": "openclaw@eb377ac",
+        "review_ref": "REVIEW-ORIGINAL-059",
+        "scope": "research-draft",
+        "signer": "CERTIFIER-059",
+        "subject_id": "SUB-059"
+      },
+      "original_maturity": {
+        "application_id": "APP-ORIGINAL-059",
+        "decision": "PASS",
+        "issued_at": "2026-09-02T09:10:00Z",
+        "maturity_id": "MATURITY-ORIGINAL-059",
+        "record_digest": "sha256:be4e7fe91b6ea98fc81f2e46bb5f709327ce10d9f5d9f4fb764379e784bc3518",
+        "supported": "MAT-L2"
+      },
+      "original_namespace": {
+        "application_id": "APP-ORIGINAL-059",
+        "au": "AU-L1",
+        "certification_decision": "PASS",
+        "issued_at": "2026-09-02T09:20:00Z",
+        "mat": "MAT-L2",
+        "namespace_id": "NS-ORIGINAL-059",
+        "record_digest": "sha256:ce13110e193798e195969f4a1778804ef3b9146f7e0f7875fde49c27871d594a"
+      },
+      "original_public_claim": {
+        "certificate_id": "CERT-ORIGINAL-059",
+        "claim": "synthetic active assessment",
+        "evidence_id": "EV-CLAIM-ORIGINAL-059",
+        "issued_at": "2026-09-03T00:01:00Z",
+        "record_digest": "sha256:bee046dec28be40c88f0c97640225965e7ab8bc6dabacd95a62dcc67692b2bbe",
+        "status": "PASS"
+      },
+      "original_review": {
+        "application_digest": "sha256:9f84d2e19971501461527afda8bec7946558172aec447f16b8db7dfb10aaf196",
+        "application_id": "APP-ORIGINAL-059",
+        "author": "AUTHOR-059",
+        "conflicts_disclosed": true,
+        "controller": "CONTROLLER-059",
+        "decision": "PASS",
+        "domain_expert": "EXPERT-059",
+        "issued_at": "2026-09-02T12:00:00Z",
+        "record_digest": "sha256:ff36543d09ae3ff515e7137579d3d476b1ff0355b1f6703791764cb1c7770816",
+        "review_id": "REVIEW-ORIGINAL-059",
+        "reviewer": "REVIEWER-059",
+        "signature_ref": "EV-SIGN-059"
+      },
+      "release": "openclaw@eb377ac",
+      "renewal_request": {
+        "current_certificate_ref": "CERT-059",
+        "independent_review_ref": "REVIEW-059",
+        "issuance_authority_ref": "AUTH-ISSUE-059",
+        "previous_certificate_ref": "CERT-ORIGINAL-059",
+        "reason": "scheduled renewal before original expiry",
+        "requested_at": "2026-09-30T09:35:00Z"
+      },
+      "representative_real_world": {
+        "approval_authority_ref": "AUTH-ISSUE-059",
+        "policy_authority_ref": "C24-D22-RECERT-v2.6",
+        "reason": "offline synthetic control cannot claim representative real-world execution",
+        "status": "NOT_APPLICABLE"
+      },
+      "schema": "c24.cert.positive-control.v2.7",
+      "scope": "research-draft",
+      "subject_id": "SUB-059"
+    },
+    {
+      "application_id": "APP-060",
+      "change_ref": "CHANGE-060",
+      "control_id": "C24-POS-MATERIAL-RECERT-060",
+      "independent_review_ref": "REVIEW-060",
+      "issuance_authority_ref": "AUTH-ISSUE-060",
+      "kind": "LEGAL_MATERIAL_CHANGE_THREE_LAYER_RECERTIFICATION",
+      "output_refs": [
+        "EV-OUTPUT-1-060",
+        "EV-OUTPUT-2-060",
+        "EV-OUTPUT-3-060"
+      ],
+      "post_change_release": "openclaw@eb377ac",
+      "pre_change_release": "openclaw@prechange-2026.9.5",
+      "representative_real_world": {
+        "approval_authority_ref": "AUTH-ISSUE-060",
+        "policy_authority_ref": "C24-D22-RECERT-v2.6",
+        "reason": "offline synthetic change control uses D22 training, regression and holdout only; real-world evidence is explicitly unclaimed",
+        "status": "NOT_APPLICABLE"
+      },
+      "required_layers": [
+        "training",
+        "regression",
+        "holdout"
+      ],
+      "required_security_slices": [
+        "certification-redteam"
+      ],
+      "schema": "c24.cert.positive-control.v2.7",
+      "scope": "research-draft",
+      "subject_id": "SUB-060",
+      "trial_refs": [
+        "TRIAL-060-1",
+        "TRIAL-060-2",
+        "TRIAL-060-3"
+      ]
+    }
+  ],
+  "limits": {
+    "author_self_approval": false,
+    "external_effects_executed": false,
+    "real_certificate_issued": false,
+    "representative_real_world_executed": false
+  },
+  "schema": "c24.cert.positive-controls.v2.7",
+  "scope": "offline_synthetic_only"
+}

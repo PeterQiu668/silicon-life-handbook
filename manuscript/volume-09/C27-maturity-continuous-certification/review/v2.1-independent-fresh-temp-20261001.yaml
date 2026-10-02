@@ -1,0 +1,70 @@
+schema: c24.cert.independent-fresh-temp.v2.1
+date: "2026-10-01"
+reviewer_role: non_author_independent_reviewer
+scope: offline_synthetic_only
+fresh_temp_runs: 2
+rebuilt_from_builder: true
+byte_identical_across_runs: true
+matches_saved_author_artifacts: true
+authority_root_digest: "sha256:783e016643cfaaca3c02fbcdc2b3fc5e82ea33394063cca3bc99f56b7080e7fe"
+decision_digest: "sha256:b1b84d54cf191c5617491f1d98a134e62e19761c09d9292dfc37c1fda60dfeb3"
+distribution:
+  PASS: 3
+  FAIL: 51
+  REVIEW_REQUIRED: 3
+lifecycle_distribution:
+  ACTIVE: 1
+  LIMITED: 1
+  SUSPENDED: 3
+  REVOKED: 51
+  EXPIRED: 1
+observed_attempts:
+  representative_real_world: 1
+  real_certificate: 1
+  external_effect: 1
+successful_real_certificates: 0
+successful_external_effects: 0
+author_negative_regression:
+  attack_count: 25
+  matched_count: 25
+  fail_open_count: 0
+  suite_digest: "sha256:e08087e7344ea7c9f4358d43ba48fde1eb5299700497f4e4399bcc581ded0469"
+historical_seven_replay:
+  attack_count: 7
+  matched_count: 7
+  fail_open_count: 0
+  attacks:
+    - expired_limited_certificate
+    - lifecycle_kind_current_mismatch
+    - future_lifecycle_event
+    - material_change_missing_evidence
+    - trial_output_evidence_fail
+    - artifact_short_unbound_content_digest
+    - signature_short_unbound_content_digest
+independent_near_neighbor_regression:
+  attack_count: 28
+  matched_count: 10
+  escape_count: 18
+  frozen_root_masked_escape_count: 18
+  suite_digest: "sha256:a5c16e80b0e95b0134c6db6e57df0008242b1c7486e3f818c87a42d7b715b715"
+  conclusion: FAIL
+sha256:
+  authority: "55ba5dfe870bd87e3d3f5f7308a83857b4f57e9274b9751ac3cf48594b956c92"
+  input: "edc533f795888815ae7edf38ae666b644830681ff1165fc1f66294c2ff96c276"
+  result: "1e35e69458e151de5a6d3bcaac39f4aee18d8766e336a2a2f2f1f0a490f75185"
+  summary: "fc2b28794ef6fc74e3ba0d0328dabb3ced0247d8b123a023a40cca16664ca9d6"
+  author_negative_result: "d43fdbda827871b0b5b0d2c47fbcbeda7f6a00934ebf1be5132d34fc7ae05556"
+  independent_negative_result: "c4d0ff1951f49b4385a29042d995d2188ff7337381c9ca9e6bc94d6c1265d682"
+limitations:
+  - frozen scenario binding rejects tampering but does not prove nested semantic completeness
+  - no real OpenClaw or Hermes runtime was executed
+  - no representative production task was executed
+  - no external certification authority was exercised
+  - no real certificate was issued and no external side effect succeeded
+gate_authorization:
+  fact: false
+  cross: false
+  practice: false
+  editor: false
+  chief_editor: false
+  release_candidate: false

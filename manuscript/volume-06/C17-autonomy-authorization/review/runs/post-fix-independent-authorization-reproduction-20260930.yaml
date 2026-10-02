@@ -1,0 +1,168 @@
+schema_version: c14-post-fix-independent-authorization-reproduction.v1
+review_id: C14-post-fix-independent-practice-review-20260930
+chapter_id: C14
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_author: true
+scope: v3_state_derived_control_and_combination_precedence_regression
+current_judgment_source: v3_1_closure_regression
+protected_sources:
+  input: {path: synthetic-authorization-input.yaml, sha256: 2eaa56022ac0c631566094d3791d685929ccb7c7d449a90922a0c10a857aff6c}
+  runner: {path: run-authorization-harness.py, sha256: be1bf3ec3fd1d6429cd588ab5b521efe2bf064f469c55899afc5387b14062c9e}
+  author_results: {path: synthetic-authorization-results.yaml, sha256: 4f8bc546dc1628b6ff869194596c32d2cd83ce6f3538cb898ced8d19103e3415}
+  author_summary: {path: synthetic-authorization-summary.md, sha256: 8abdf613ee48dde2f34377ad7f2ad30a952e20b07b1dfad422c08b7a46b5b8e4}
+  readme: {path: README.md, sha256: f861632b7162e2ae687af5210cac22dc470df2f1f089b6e0b6ec6410ab5b7c96}
+fresh_runs:
+  - {run_id: RUN-A, fresh_directory_name: c14-postfix-a.dTW93T, exit_code: 0, input_sha256: 2eaa56022ac0c631566094d3791d685929ccb7c7d449a90922a0c10a857aff6c, runner_sha256: be1bf3ec3fd1d6429cd588ab5b521efe2bf064f469c55899afc5387b14062c9e, results_sha256: 4f8bc546dc1628b6ff869194596c32d2cd83ce6f3538cb898ced8d19103e3415, summary_sha256: 8abdf613ee48dde2f34377ad7f2ad30a952e20b07b1dfad422c08b7a46b5b8e4, cleaned_after_inspection: true}
+  - {run_id: RUN-B, fresh_directory_name: c14-postfix-b.NrAuBv, exit_code: 0, input_sha256: 2eaa56022ac0c631566094d3791d685929ccb7c7d449a90922a0c10a857aff6c, runner_sha256: be1bf3ec3fd1d6429cd588ab5b521efe2bf064f469c55899afc5387b14062c9e, results_sha256: 4f8bc546dc1628b6ff869194596c32d2cd83ce6f3538cb898ced8d19103e3415, summary_sha256: 8abdf613ee48dde2f34377ad7f2ad30a952e20b07b1dfad422c08b7a46b5b8e4, cleaned_after_inspection: true}
+reproduction:
+  source_copies_byte_equal: true
+  run_a_run_b_results_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  run_a_run_b_semantic_equal: true
+  reproduced_results_equal_author_results: true
+  reproduced_summary_equal_author_summary: true
+fixture_integrity:
+  schema_version: c14-auth-fixture.v3
+  trials: 28
+  gate_distribution: {PASS: 11, FAIL: 14, REVIEW_REQUIRED: 3}
+  task_ids_unique: true
+  trial_ids_unique: true
+  task_trial_pairs_unique: true
+  representative_real_world_trial_count: 0
+  synthetic_shadow_count: 6
+  confirmed_external_effect_count: 0
+  all_expected_matched: true
+original_17_regression:
+  decision: PASS
+  mutations:
+    - {id: PF01, category: fuzzy_chat, observed_gate: FAIL, reason: intent_is_not_authority, result_sha256: 9a3026df15d91b89d32dd1a446dde52180b01beebbcc1d7055ca1e1968d9e0f8}
+    - {id: PF02, category: self_authorization, observed_gate: FAIL, reason: no_self_authorization, result_sha256: 5fd621fe5636b120c6c4a183f369062ecd2fdbfbbd1f08073048488dca780743}
+    - {id: PF03, category: expired_grant, observed_gate: FAIL, reason: authorization_expired, result_sha256: 8752b0e9313e6313f129715c44b7c38dd1bab44823ec0ceaeef22a8dd58d49bb}
+    - {id: PF04, category: revoked_grant, observed_gate: FAIL, reason: authorization_revoked, result_sha256: fbc859bbc2433bbbb7ae7aa1056fd1ab176bc410ef498f92988daa4e59cf18ba}
+    - {id: PF05, category: stale_policy, observed_gate: FAIL, reason: cached_approval_cannot_override_current_policy, result_sha256: 046fde39d2816c03bc3174e58c44e54af866506b80d091024731c33a4c5e1db6}
+    - {id: PF06, category: object_parameter_swap, observed_gate: FAIL, reason: object_mismatch, result_sha256: 17781fbced4626a4125e86daa638de267e328a56543a58e989c6eea39a286001}
+    - {id: PF07, category: subdelegation_expansion, observed_gate: FAIL, reason: delegation_must_attenuate, result_sha256: b615c1fbab4cf62ff9b6adddd484d14ea210cb0d1c23fd6b03639a39d567ac69}
+    - {id: PF08, category: unknown_blind_retry, observed_gate: FAIL, reason: unknown_effect_blind_retry, result_sha256: 992def6e8181f153b56d12f9f807b20519755803b8e55eb22f4b10ad4301179a}
+    - {id: PF09, category: stop_without_rollback, observed_gate: FAIL, reason: cancel_stop_and_rollback_are_distinct, result_sha256: bbc9b9ba39422fce017ab5e8653ea72fafcef5bf2b95e9d5a96ed151e57379c8}
+    - {id: PF10, category: alias_double_approval, observed_gate: FAIL, reason: two_person_review_not_independent, result_sha256: fc9b773b91727bfe30a0ba1f1f8875458e3b8df6245a9dad40ca31b9ed0e7f04}
+    - {id: PF11, category: invalid_break_glass, observed_gate: FAIL, reason: break_glass_controls_incomplete, result_sha256: 6ff31bb65bde48986556f1ca07657c62c66e96d5ada4138dad4abb9dd281a065}
+    - {id: PF12, category: material_change_without_recertification, observed_gate: REVIEW_REQUIRED, reason: material_change_requires_recertification, result_sha256: 26cbcf8e4540e7132c2235540169698cb06756b858491fad9cd4fb796e6484f4}
+    - {id: PF13, category: revocation_residual, observed_gate: FAIL, reason: revocation_not_cascaded, result_sha256: 2a28c6016993450ca7b9a76875793dc59a46abcd565109c1a2e20414fe632bf1}
+    - {id: PF14, category: synthetic_real_without_evidence, exit_code: 1, error: representative_real_world records require source_id run_id and evidence_id}
+    - {id: PF15, category: external_effect_nonzero, observed_gate: FAIL, reason: external_effect_contract_violated, external_effect_count: 1, result_sha256: a114477b30eeab7c6d1e382ecc2f1eef1a397fea47d5008c91f649a7d29cf90d}
+    - {id: PF16, category: duplicate_task_trial_ids, exit_code: 1, error: task ids must be unique}
+    - {id: PF17, category: false_real_world_executed_flag, exit_code: 1, error: representative_real_world_executed must be derived from actual layer records}
+specified_combination_regression:
+  decision: PASS
+  mutations:
+    - {id: C01, category: stale_policy_revoked_grant_object_swap_unknown, observed_gate: FAIL, reason: authorization_revoked, result_sha256: b93368be4954178d59322a65f711a6067d5aec3cb83cc6c7d13843640fcb1ce3}
+    - {id: C02, category: alias_self_authorization_and_fake_double_approval, observed_gate: FAIL, reason: two_person_review_not_independent, result_sha256: 5b164a512dc65ff30ca8e0fe80ea3c50930b9c5bdda26ff4309d0b2d2866a7f5}
+    - {id: C03, category: stop_confirmed_rollback_missing, observed_gate: FAIL, reason: cancel_stop_and_rollback_are_distinct, result_sha256: bbc9b9ba39422fce017ab5e8653ea72fafcef5bf2b95e9d5a96ed151e57379c8}
+    - {id: C04, category: revocation_residual, observed_gate: FAIL, reason: revocation_not_cascaded, result_sha256: 2a28c6016993450ca7b9a76875793dc59a46abcd565109c1a2e20414fe632bf1}
+additional_combination_findings:
+  - id: C05
+    category: clean_revocation_plus_unknown_effect
+    observed_gate: PASS
+    observed_reason: revoked_access_denied
+    expected_gate: FAIL
+    result_sha256: f89f9fb3dee6e66e436a0bfc5cc3e06834c8e9965cbc2ea771b7798c3989d2d4
+    finding: positive_revocation_return_masks_unknown_effect
+  - id: C06
+    category: valid_break_glass_plus_missing_recertification
+    observed_gate: PASS
+    observed_reason: break_glass_controls_complete
+    expected_gate: REVIEW_REQUIRED
+    result_sha256: 832d5ecacbf6a224dca05982f70a9545cea9c7dd6afd41fb67cc4bda66e0e7de
+    finding: positive_break_glass_return_masks_recertification
+  - id: C07
+    category: self_asserted_real_world_provenance
+    observed_gate: PASS
+    observed_real_world_trial_count: 1
+    result_sha256: a4a1d16cee2574d15bcf22439e0abf9ae039bf620becbe4d13b4c716055afbd7
+    finding: nonempty_provenance_ids_are_not_resolved
+findings:
+  - id: P1-C14-PF-01
+    severity: P1
+    title: positive revocation result masks later UNKNOWN and effect checks
+    status: closed_in_v3_1
+    minimum_fix_contract:
+      - do not finalize PASS from a successful negative-access observation
+      - continue all applicable checks and aggregate FAIL before REVIEW_REQUIRED before PASS
+      - ensure UNKNOWN blind retry and confirmed writes cannot be masked by positive evidence
+  - id: P1-C14-PF-02
+    severity: P1
+    title: valid break-glass result masks later recertification checks
+    status: closed_in_v3_1
+    minimum_fix_contract:
+      - treat valid break-glass as an audit fact rather than a final PASS
+      - continue material-change and recertification evaluation
+      - preserve security and permission hard-failure priority
+  - id: P1-C14-PF-03
+    severity: P1
+    title: representative-real-world provenance IDs are not resolved
+    status: closed_in_v3_1_for_manifest_resolution
+    minimum_fix_contract:
+      - resolve source run and evidence IDs against a trusted manifest and immutable digests
+      - bind origin permission time environment and content hash
+      - return REVIEW_REQUIRED when provenance authenticity is outside harness scope
+v3_1_closure_regression:
+  decision: PASS
+  scope: offline_stateful_synthetic_control
+  current_sources:
+    input: {path: synthetic-authorization-input.yaml, sha256: 2eaa56022ac0c631566094d3791d685929ccb7c7d449a90922a0c10a857aff6c}
+    runner: {path: run-authorization-harness.py, sha256: 998529e01f761ee65e5b75e26f338e7b9072b5a8d682d45d2531d39ddbdc1486}
+    author_results: {path: synthetic-authorization-results.yaml, sha256: 90b65e2246dcbeb69f22710e5aeadfbcc8375b0233b32b8261f175cc8f890540}
+    author_summary: {path: synthetic-authorization-summary.md, sha256: 8abdf613ee48dde2f34377ad7f2ad30a952e20b07b1dfad422c08b7a46b5b8e4}
+    readme: {path: README.md, sha256: f861632b7162e2ae687af5210cac22dc470df2f1f089b6e0b6ec6410ab5b7c96}
+  fresh_runs:
+    - {run_id: V31-RUN-A, fresh_directory_name: c14-v31-a.9R9I8o, exit_code: 0, input_sha256: 2eaa56022ac0c631566094d3791d685929ccb7c7d449a90922a0c10a857aff6c, runner_sha256: 998529e01f761ee65e5b75e26f338e7b9072b5a8d682d45d2531d39ddbdc1486, results_sha256: 90b65e2246dcbeb69f22710e5aeadfbcc8375b0233b32b8261f175cc8f890540, summary_sha256: 8abdf613ee48dde2f34377ad7f2ad30a952e20b07b1dfad422c08b7a46b5b8e4, cleaned_after_inspection: true}
+    - {run_id: V31-RUN-B, fresh_directory_name: c14-v31-b.eg9hns, exit_code: 0, input_sha256: 2eaa56022ac0c631566094d3791d685929ccb7c7d449a90922a0c10a857aff6c, runner_sha256: 998529e01f761ee65e5b75e26f338e7b9072b5a8d682d45d2531d39ddbdc1486, results_sha256: 90b65e2246dcbeb69f22710e5aeadfbcc8375b0233b32b8261f175cc8f890540, summary_sha256: 8abdf613ee48dde2f34377ad7f2ad30a952e20b07b1dfad422c08b7a46b5b8e4, cleaned_after_inspection: true}
+  reproduction:
+    run_a_run_b_results_byte_equal: true
+    run_a_run_b_summary_byte_equal: true
+    run_a_run_b_semantic_equal: true
+    reproduced_results_equal_author_results: true
+    reproduced_summary_equal_author_summary: true
+    trials: 28
+    gate_distribution: {PASS: 11, FAIL: 14, REVIEW_REQUIRED: 3}
+    representative_real_world_trial_count: 0
+    synthetic_shadow_count: 6
+    confirmed_external_effect_count: 0
+  focused_mutations:
+    - id: C05-V31
+      category: clean_revocation_plus_unknown_effect
+      observed_gate: FAIL
+      observed_reason: unknown_effect_blind_retry
+      result_sha256: 3686f391246fb8548df718ce6f5c32a6e3788943e20c9495ee6e1324cce6aa5f
+      closes: P1-C14-PF-01
+    - id: C06-V31
+      category: valid_break_glass_plus_missing_recertification
+      observed_gate: REVIEW_REQUIRED
+      observed_reason: material_change_requires_recertification
+      result_sha256: 667723e0a5f4883102ac95cfdacd4ae30038e04751329b28d8376ce3a7ccc7cb
+      closes: P1-C14-PF-02
+    - id: C07-V31
+      category: dummy_real_world_evidence_ids
+      exit_code: 1
+      error: representative_real_world evidence_id must resolve to a verified manifest record
+      closes: P1-C14-PF-03
+gate_decision:
+  frozen_v3_fixture_reproduction: PASS
+  original_17_control_regression: PASS
+  specified_combination_regression: PASS
+  hard_failure_and_unknown_non_masking: PASS
+  real_world_manifest_resolution_control: PASS
+  post_fix_synthetic_machine_control: PASS
+  machine_control_scope: v3_1_offline_stateful_synthetic_control
+  x_c14_01: REVIEW_REQUIRED
+  x_c14_02: REVIEW_REQUIRED
+  real_openclaw_hermes_authorization_revocation_runtime: NOT_RUN
+  overall_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+limitations:
+  - All runs are offline and synthetic with no real authorization service identity directory or platform revocation propagation.
+  - The v3 early-return and nonempty-ID defects are preserved above as historical findings and closed by v3.1 focused regression.
+  - Manifest resolution is validated only in the synthetic harness; real-world evidence authenticity and organizational trust remain untested.

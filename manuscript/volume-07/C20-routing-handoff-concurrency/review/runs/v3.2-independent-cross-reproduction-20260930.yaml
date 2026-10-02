@@ -1,0 +1,272 @@
+---
+reproduction_id: C17-v3.2-independent-cross-reproduction-20260930
+chapter_id: C17
+reviewer_role: non_author_cross_reviewer
+verified_on: "2026-09-30"
+scope: "v3.2 capability authority binding, 14-case targeted regression, 60-trial deterministic replay, and retained closed-world/D21/D22/hard-failure controls"
+author_files_modified: false
+cross_gate: PASS_WITH_LIMITATIONS
+practice_gate: REVIEW_REQUIRED
+editor_gate: not_reviewed
+chief_editor_gate: not_reviewed
+release_candidate_authorized: false
+
+reviewed_files:
+  runner: "run-routing-harness.py"
+  targeted_runner: "run-capability-digest-regression.py"
+  input: "synthetic-routing-input.yaml"
+  results: "synthetic-routing-results.yaml"
+  targeted_results: "capability-digest-regression-results.yaml"
+  summary: "synthetic-routing-summary.md"
+  readme: "README.md"
+  remediation: "../d21-schema-remediation.md"
+  author_self_check: "../author-self-check.md"
+
+author_package_hashes_sha256:
+  runner: "410bdb87b885a6130cf41ce2543f01f2b86c250b03e58d42a4e869a6a6f5d70b"
+  targeted_runner: "783d1915446f4f2520f2a4dc20d45d930a6e000b3804d55071663001fc19f786"
+  input: "30f95a0b871c81849419fab7f065f49d22fd7b86a9254b708439547addc96c03"
+  results: "b1baa18e43ea95cdc4f5425dee75453d79e2b0205132aaf88a579467422deb73"
+  targeted_results: "34d8bef6deaec8cb5c1de9d60a552323fc67b9b4e38f023ee3a0bd51d0ae84d1"
+  summary: "f7ca824f58f0826a19e7887a7319490ecc3e4d76302ac36f45f48cf16c3fe272"
+  readme: "a9fe210de143baa102eac4472fdf336616079c65d4be626f8a78fa407830a54c"
+  remediation: "bdfccdf8e0ac31b4cfbe1dce711b615ba469055a8844b91e0cd2aeeb5962dba0"
+  author_self_check: "6e428bc257c863999b71ac6b906ce272f17de8f8a4b347bf45701d4c37eac2d0"
+
+fresh_temp_reproduction:
+  run_a_results_sha256: "b1baa18e43ea95cdc4f5425dee75453d79e2b0205132aaf88a579467422deb73"
+  run_b_results_sha256: "b1baa18e43ea95cdc4f5425dee75453d79e2b0205132aaf88a579467422deb73"
+  saved_results_sha256: "b1baa18e43ea95cdc4f5425dee75453d79e2b0205132aaf88a579467422deb73"
+  run_a_targeted_sha256: "34d8bef6deaec8cb5c1de9d60a552323fc67b9b4e38f023ee3a0bd51d0ae84d1"
+  run_b_targeted_sha256: "34d8bef6deaec8cb5c1de9d60a552323fc67b9b4e38f023ee3a0bd51d0ae84d1"
+  saved_targeted_sha256: "34d8bef6deaec8cb5c1de9d60a552323fc67b9b4e38f023ee3a0bd51d0ae84d1"
+  results_byte_identical_a_b_and_saved: true
+  targeted_byte_identical_a_b_and_saved: true
+  semantic_identical: true
+  trial_count: 60
+  unique_task_trial: true
+  distribution: {PASS: 12, FAIL: 45, REVIEW_REQUIRED: 3}
+  all_expected_matched: true
+  decision_digest: "cfd77c3eab68797600f4333c80fbc9900998bb93ec09996af72dd285270e4fe1"
+  external_side_effect_count: 0
+  representative_real_world_executed: false
+  representative_real_world_trial_count: 0
+  synthetic_shadow_trial_count: 12
+  security_failures_noncompensatory: true
+  by_layer:
+    training: {PASS: 3, FAIL: 9}
+    regression: {PASS: 6, FAIL: 12}
+    holdout: {PASS: 3, FAIL: 24, REVIEW_REQUIRED: 3}
+    representative_real_world: {}
+  verdict: PASS
+
+targeted_capability_regression:
+  case_count: 14
+  all_expected_matched: true
+  external_side_effect_count: 0
+  cases:
+    - id: V32-CAP-01
+      case: valid_exact_binding
+      expected: PASS
+      actual: PASS
+      terminal: join_verified
+      verdict: PASS
+    - id: V32-CAP-02
+      case: dummy_reference
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-03
+      case: missing_observed_record
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-04
+      case: revoked_observed_record
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-05
+      case: unknown_observed_record
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-06
+      case: wrong_observed_capability
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-07
+      case: wrong_observed_task_version
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-08
+      case: wrong_observed_permission_snapshot
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-09
+      case: well_formed_wrong_observed_digest
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-10
+      case: well_formed_wrong_authority_digest
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-11
+      case: missing_authority_record
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-12
+      case: wrong_authority_task_version
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-13
+      case: wrong_authority_permission_snapshot
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+    - id: V32-CAP-14
+      case: revoked_authority_record
+      expected: FAIL
+      actual: FAIL
+      terminal: capability_evidence_authority_mismatch
+      verdict: PASS
+  verdict: PASS
+
+independent_supplemental_mutations:
+  case_count: 12
+  all_expected_matched: true
+  cases:
+    - id: V32-SUP-01
+      mutation: "completion observed source changed to attacker-source"
+      expected: FAIL
+      actual: FAIL
+      terminal: ghost_success_d21_incomplete
+      verdict: PASS
+    - id: V32-SUP-02
+      mutation: "completion observed object digest changed to well-formed all-zero digest"
+      expected: FAIL
+      actual: FAIL
+      terminal: ghost_success_d21_incomplete
+      verdict: PASS
+    - id: V32-SUP-03
+      mutation: "completion authority object digest changed to well-formed all-zero digest"
+      expected: FAIL
+      actual: FAIL
+      terminal: ghost_success_d21_incomplete
+      verdict: PASS
+    - id: V32-SUP-04
+      mutation: "completion authority record removed"
+      expected: FAIL
+      actual: FAIL
+      terminal: ghost_success_d21_incomplete
+      verdict: PASS
+    - id: V32-SUP-05
+      mutation: "completion UNKNOWN combined with unauthorized route"
+      expected: FAIL
+      actual: FAIL
+      terminal: unauthorized_route
+      verdict: PASS
+    - id: V32-SUP-06
+      mutation: "completion UNKNOWN combined with two ACTIVE writers"
+      expected: FAIL
+      actual: FAIL
+      terminal: double_writer
+      verdict: PASS
+    - id: V32-SUP-07
+      mutation: "unknown root control field"
+      expected: REJECTED_PRE_RESULT
+      actual: REJECTED_PRE_RESULT
+      error: "root unknown fields"
+      verdict: PASS
+    - id: V32-SUP-08
+      mutation: "unknown route control field"
+      expected: REJECTED_PRE_RESULT
+      actual: REJECTED_PRE_RESULT
+      error: "root.common_observation.route unknown fields"
+      verdict: PASS
+    - id: V32-SUP-09
+      mutation: "duplicate scenario id"
+      expected: REJECTED_PRE_RESULT
+      actual: REJECTED_PRE_RESULT
+      error: "scenario ids must be unique"
+      verdict: PASS
+    - id: V32-SUP-10
+      mutation: "illegal fifth D22 layer security"
+      expected: REJECTED_PRE_RESULT
+      actual: REJECTED_PRE_RESULT
+      error: "invalid D22 layers"
+      verdict: PASS
+    - id: V32-SUP-11
+      mutation: "synthetic scenario claims representative_real_world"
+      expected: REJECTED_PRE_RESULT
+      actual: REJECTED_PRE_RESULT
+      error: "synthetic fixture cannot claim representative_real_world execution"
+      verdict: PASS
+    - id: V32-SUP-12
+      mutation: "unknown effect status enum"
+      expected: REJECTED_PRE_RESULT
+      actual: REJECTED_PRE_RESULT
+      error: "effect_ledger status has unknown enum"
+      verdict: PASS
+  verdict: PASS
+
+control_results:
+  capability_observed_authority_exact_binding: PASS
+  capability_well_formed_wrong_observed_digest: PASS
+  capability_well_formed_wrong_authority_digest: PASS
+  capability_missing_authority: PASS
+  capability_revoked_or_unknown_status: PASS
+  capability_wrong_capability_task_permission: PASS
+  completion_source_digest_authority_binding: PASS
+  closed_world_schema: PASS
+  d21_unknown_and_hard_failure_priority: PASS
+  d22_four_layers_and_synthetic_real_world_exclusion: PASS
+  unique_task_trial: PASS
+  security_hard_failure_noncompensation: PASS
+
+retained_limitations:
+  - "Capability authority is a separate registry in the same frozen synthetic input; this review proves one-sided tampering and exact mismatch fail, not cryptographic immutability or an external production authority service."
+  - "Capability authority has status but no issued_at/expires_at temporal freshness fields; revoked and UNKNOWN are rejected, but expiry must be supplied by a future real registry contract."
+  - "Completion authority still lacks an independent temporal freshness model when source and digest remain identical."
+  - "No real OpenClaw, Hermes, A2A Runtime, channel, production authority, external effect, cross-system cancel, read-back, or representative real-world task was executed."
+
+overall:
+  prior_blocker_P1_C17_V31_01: CLOSED
+  v3_2_baseline_reproduction: PASS
+  targeted_14_case_regression: PASS
+  supplemental_regression: PASS
+  cross_gate: PASS_WITH_LIMITATIONS
+  practice_gate: REVIEW_REQUIRED
+  editor_gate: not_reviewed
+  chief_editor_gate: not_reviewed
+  release_candidate_authorized: false
+
+final_validation:
+  author_snapshot_hashes_unchanged_after_review: true
+  yaml_parse: PASS
+  review_frontmatter_parse: PASS
+  local_links: PASS
+  runner_py_compile: PASS
+  targeted_runner_py_compile: PASS
+  formal_validator: "PASS with expected warning: 4 later chapter packages not yet present"
+  book_validator: PASS
+  diff_check: PASS

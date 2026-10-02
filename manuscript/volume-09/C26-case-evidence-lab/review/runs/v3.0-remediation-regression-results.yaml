@@ -1,0 +1,334 @@
+{
+  "attack_count": 26,
+  "attacks": [
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-canonical",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-01_RESULT_ONLY_CANONICAL_FAIL"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-canonical",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-02_RESULT_ONLY_CANONICAL_RR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-root",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-03_ROOT_VALIDATOR_NOOP"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-dependency",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-04_DIGEST_CONSTANT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-dependency",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-05_ROOT_PAYLOAD_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-dependency",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-06_EXACT_NOOP"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-dependency",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-07_SHA_NOOP"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-dependency",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-08_VALIDATE_DOCUMENT_FAKE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-dependency",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-09_VALIDATE_RECORD_NOOP"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-dependency",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-10_INDEX_RECORDS_EMPTY"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "transitive-dependency",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-11_DT_CONSTANT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "captured-evaluator",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-12_PUBLIC_EVALUATOR_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "captured-evaluator",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-13_PRIVATE_EVALUATOR_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "captured-parser",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-14_PUBLIC_PARSER_PERMISSIVE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "captured-canonical",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-15_JSON_DUMPS_RESULT_CONSTANT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "captured-digest",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-16_HASHLIB_SHA256_FAKE"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "captured-constants",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-17_SCHEMA_GLOBALS_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "captured-pin",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-18_PIN_READER_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "captured-pin",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-19_PIN_ROWS_NAME_INVENTED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "combined",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-20_CANONICAL_PLUS_ROOT_VALIDATOR"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "combined",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-21_DIGEST_PLUS_EXACT"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "old-core",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-22_SAVED_CORE_AFTER_PUBLIC_REBIND"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "reload",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-23_FRESH_RELOAD_FORGED"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-24_UNAUTHORIZED_CURRENT_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "pin",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-25_WRONG_AUTHORIZED_PIN"
+    },
+    {
+      "escape": false,
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V30-26_CLI_FORGED"
+    }
+  ],
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "boundary_accept_count": 2,
+  "boundary_demonstration_count": 2,
+  "boundary_demonstrations": [
+    {
+      "message": "",
+      "observed": "ACCEPTED",
+      "scope": "out_of_scope_arbitrary_same_process",
+      "test_id": "V30-B01_DIRECT_CANONICAL_CELL"
+    },
+    {
+      "message": "",
+      "observed": "ACCEPTED",
+      "scope": "out_of_scope_arbitrary_same_process",
+      "test_id": "V30-B02_DIRECT_EVALUATOR_CELL"
+    }
+  ],
+  "escape_count": 0,
+  "escape_ids": [],
+  "limits": {
+    "direct_closure_cell_mutation": "out_of_scope_demonstrated",
+    "ordinary_module_global_rebinding": "covered",
+    "real_practice": "REVIEW_REQUIRED"
+  },
+  "pin_registry_sha256": "8eb8868ca19e716f333ea1f5a85241ccadd47682fd9a78db171ee28826cdd5ad",
+  "positive_control_count": 7,
+  "positive_control_pass_count": 7,
+  "positive_controls": [
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V30-C01_RAW_TEXT"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V30-C02_RAW_BYTES"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V30-C03_RAW_PATH"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V30-C04_FRESH_CLI"
+    },
+    {
+      "expected": "PASS",
+      "family": "authorized-repin",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V30-C05_REPIN_RAW"
+    },
+    {
+      "expected": "PASS",
+      "family": "authorized-repin",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V30-C06_REPIN_CLI"
+    },
+    {
+      "expected": "PASS",
+      "family": "positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V30-C07_GLOBALS_PATCHED_LEGAL"
+    }
+  ],
+  "runner_sha256": "bbc3de6cebd20e4ad97d1519b38f4449aaa38a6442e4c0a5d9e9d519190d6053",
+  "schema_version": "c23.v3.0.author-remediation-regression.v1",
+  "secure_attack_count": 26,
+  "suite_digest": "f2c2b88bf584927211e66425dc3afda44ca1b59f941d8486e65463c2786d2da9",
+  "verifier_sha256": "9462aa1e6f68b90b9d2c7e1fd6ef413e020cae219553e274988eea5106741061"
+}

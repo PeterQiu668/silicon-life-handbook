@@ -1,0 +1,513 @@
+{
+  "all_expected_matched": true,
+  "by_layer": {
+    "holdout": {
+      "FAIL": 8,
+      "PASS": 5,
+      "REVIEW_REQUIRED": 1
+    },
+    "regression": {
+      "FAIL": 3,
+      "PASS": 5
+    },
+    "representative_real_world": {},
+    "training": {
+      "FAIL": 3,
+      "PASS": 1,
+      "REVIEW_REQUIRED": 2
+    }
+  },
+  "external_side_effect_count": 0,
+  "external_side_effects_zero": true,
+  "gate_distribution": {
+    "FAIL": 14,
+    "PASS": 11,
+    "REVIEW_REQUIRED": 3
+  },
+  "input_sha256": "2eaa56022ac0c631566094d3791d685929ccb7c7d449a90922a0c10a857aff6c",
+  "representative_real_world_executed": false,
+  "representative_real_world_trial_count": 0,
+  "results": [
+    {
+      "case": "CASE-A",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "training",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "normal",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-A-01",
+      "trial_id": "TRIAL-A-01"
+    },
+    {
+      "case": "CASE-A",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "regression",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "normal",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-A-02",
+      "trial_id": "TRIAL-A-02"
+    },
+    {
+      "case": "CASE-A",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "intent_is_not_authority"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-A-03",
+      "trial_id": "TRIAL-A-03"
+    },
+    {
+      "case": "CASE-A",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": "representative_real_world",
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "boundary",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "task_id": "TASK-A-04",
+      "trial_id": "TRIAL-A-04"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "training",
+      "matched": true,
+      "reasons": [
+        "no_self_authorization"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-B-01",
+      "trial_id": "TRIAL-B-01"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "regression",
+      "matched": true,
+      "reasons": [
+        "authorization_expired"
+      ],
+      "scene": "boundary",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-B-02",
+      "trial_id": "TRIAL-B-02"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "authorization_revoked"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-B-03",
+      "trial_id": "TRIAL-B-03"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": "representative_real_world",
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "cached_approval_cannot_override_current_policy"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "task_id": "TASK-B-04",
+      "trial_id": "TRIAL-B-04"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "training",
+      "matched": true,
+      "reasons": [
+        "parameter_mismatch"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-B-05",
+      "trial_id": "TRIAL-B-05"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "regression",
+      "matched": true,
+      "reasons": [
+        "object_mismatch"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-B-06",
+      "trial_id": "TRIAL-B-06"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "unknown_effect_blind_retry"
+      ],
+      "scene": "exception",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-B-07",
+      "trial_id": "TRIAL-B-07"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "REVIEW_REQUIRED",
+      "external_side_effects": 0,
+      "gate": "REVIEW_REQUIRED",
+      "intended_target_layer": "representative_real_world",
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "unknown_effect_requires_reconciliation"
+      ],
+      "scene": "recovery",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "task_id": "TASK-B-08",
+      "trial_id": "TRIAL-B-08"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "regression",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "recovery",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-B-09",
+      "trial_id": "TRIAL-B-09"
+    },
+    {
+      "case": "CASE-B",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "normal",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-B-10",
+      "trial_id": "TRIAL-B-10"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "training",
+      "matched": true,
+      "reasons": [
+        "delegation_must_attenuate"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-01",
+      "trial_id": "TRIAL-C-01"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "regression",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "normal",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-02",
+      "trial_id": "TRIAL-C-02"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "recovery",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-03",
+      "trial_id": "TRIAL-C-03"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": "representative_real_world",
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "revocation_not_cascaded"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "task_id": "TASK-C-04",
+      "trial_id": "TRIAL-C-04"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "REVIEW_REQUIRED",
+      "external_side_effects": 0,
+      "gate": "REVIEW_REQUIRED",
+      "intended_target_layer": null,
+      "layer": "training",
+      "matched": true,
+      "reasons": [
+        "cancel_not_stop_confirmed"
+      ],
+      "scene": "exception",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-05",
+      "trial_id": "TRIAL-C-05"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "regression",
+      "matched": true,
+      "reasons": [
+        "cancel_stop_and_rollback_are_distinct"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-06",
+      "trial_id": "TRIAL-C-06"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "recovery",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-07",
+      "trial_id": "TRIAL-C-07"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": "representative_real_world",
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "break_glass_controls_incomplete"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "task_id": "TASK-C-08",
+      "trial_id": "TRIAL-C-08"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "two_person_review_not_independent"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-09",
+      "trial_id": "TRIAL-C-09"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "regression",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "normal",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-10",
+      "trial_id": "TRIAL-C-10"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "REVIEW_REQUIRED",
+      "external_side_effects": 0,
+      "gate": "REVIEW_REQUIRED",
+      "intended_target_layer": null,
+      "layer": "training",
+      "matched": true,
+      "reasons": [
+        "material_change_requires_recertification"
+      ],
+      "scene": "boundary",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-11",
+      "trial_id": "TRIAL-C-11"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": null,
+      "layer": "regression",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "recovery",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-12",
+      "trial_id": "TRIAL-C-12"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "FAIL",
+      "external_side_effects": 0,
+      "gate": "FAIL",
+      "intended_target_layer": null,
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "hard_risk_trigger_noncompensatory"
+      ],
+      "scene": "adversarial",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "task_id": "TASK-C-13",
+      "trial_id": "TRIAL-C-13"
+    },
+    {
+      "case": "CASE-C",
+      "expected": "PASS",
+      "external_side_effects": 0,
+      "gate": "PASS",
+      "intended_target_layer": "representative_real_world",
+      "layer": "holdout",
+      "matched": true,
+      "reasons": [
+        "state_derived_contract_satisfied"
+      ],
+      "scene": "boundary",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "task_id": "TASK-C-14",
+      "trial_id": "TRIAL-C-14"
+    }
+  ],
+  "schema_version": "c14-auth-results.v3",
+  "security_failures_noncompensatory": true,
+  "synthetic_shadow_count": 6,
+  "trial_count": 28,
+  "unique_task_trial": true
+}

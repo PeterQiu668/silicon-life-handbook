@@ -1,0 +1,326 @@
+chapter_id: C04
+title: "从岗位到能力模型"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c04"
+reviewed_by: "c04-evidence-cross-review-agent"
+approval_status: unapproved
+scope_note: >-
+  本账本区分稳定原理、本书方法论、平台版本事实、厂商声明和推断。
+  章节作者只完成初稿与来源收集，不自批事实门、实践门、交叉门或总编门。
+
+evidence_classes:
+  STABLE-PRINCIPLE: "跨平台、跨版本较稳定的工程原则"
+  VERSION-FACT: "只在指定版本、提交与核验日期内成立的产品事实"
+  OFFICIAL-DOC: "来自机构、标准组织或项目官方文档的可核查表述"
+  VENDOR-CLAIM: "厂商公开材料中的产品或效果主张，尚未获得充分独立复现"
+  METHODOLOGY: "本书提出或统一的工作方法，不冒充外部标准"
+  INFERENCE: "由来源与架构观察推得，必须保留适用边界"
+  OPEN-QUESTION: "证据不足、等待审校或实测的问题"
+
+claims:
+  - evidence_id: E-C04-001
+    claim: "岗位说明书到 JTBD、任务域、能力树、非功能要求、风险、负面清单，再到训练、测试、工具与门禁的可追溯链，是本书岗位建模方法。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "本书正式框架 v2，第 4 章"
+        path: "../../../00-正式出版版-三级内容框架-v2.md"
+      - title: "历史材料映射，第 4 章"
+        path: "../../../docs/research/legacy-content-map.md"
+      - title: "C04 chapter card"
+        path: "../../../docs/editorial/CHAPTER-CARDS.md"
+    applicability: "建立全章产物、训练与后续章节的追踪主链。"
+    limitations: "尚未经过跨行业大样本校准，不得称为国家、行业、OpenClaw、Hermes 或 Muse 官方标准。"
+    recheck_trigger: "C07/C08/C27 实施时发现链路字段无法消费，或总编委员会修订框架。"
+
+  - evidence_id: E-C04-002
+    claim: "应从最简单可行方案开始，仅在任务需要灵活判断时增加 Agent 复杂度；模型或框架选择不能先于任务与成功定义。"
+    label: SOURCE-BASED
+    research_fact_type: STABLE-PRINCIPLE
+    class: STABLE-PRINCIPLE
+    stability: stable
+    scope: general
+    source_nature: official-engineering
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Anthropic: Building effective agents"
+        url: "https://www.anthropic.com/engineering/building-effective-agents"
+        checked_at: "2026-09-30"
+      - title: "Anthropic: Demystifying evals for AI agents"
+        url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+        checked_at: "2026-09-30"
+    applicability: "支持先定义岗位、终态和评测，再决定是否需要 Agent、工作流或更复杂架构。"
+    limitations: "两篇均来自 Anthropic 来源体系；属于工程实践建议，不是强制标准。"
+    recheck_trigger: "来源撤回或出现原则性更新。"
+
+  - evidence_id: E-C04-003
+    claim: "JTBD 的稳定核心是人在特定情境中寻求的进展，而不是产品属性或功能清单。"
+    label: SOURCE-BASED
+    research_fact_type: OFFICIAL-DOC
+    class: OFFICIAL-DOC
+    stability: stable
+    scope: general
+    source_nature: theory-owner
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Christensen Institute: Jobs to Be Done"
+        url: "https://www.christenseninstitute.org/resources/theory/jobs-to-be-done/"
+        checked_at: "2026-09-30"
+      - title: "Christensen Institute: What is Jobs to Be Done Theory?"
+        url: "https://www.christenseninstitute.org/video/what-is-jobs-to-be-done-theory/"
+        checked_at: "2026-09-30"
+    applicability: "用于从岗位职责回到服务对象、情境与期望进展。"
+    limitations: "本章把 JTBD 接到 Agent 任务域、能力树和风险链，属于作者扩展；不声称 Christensen Institute 发布了这条工程链。"
+    recheck_trigger: "正文对 JTBD 的用法超出进展与情境边界。"
+
+  - evidence_id: E-C04-004
+    claim: "知识、推理、执行、协作和反思五支能力树，是本书将岗位任务转为可观察行为的组织方法。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "本书正式框架 v2，第 4.3 节"
+        path: "../../../00-正式出版版-三级内容框架-v2.md"
+      - title: "C03 七维强者评分卡"
+        path: "../../volume-01/C03-strength-standard/artifacts/A-C03-01-seven-dimension-scorecard.md"
+    applicability: "给训练与测试提供能力节点；与 C03 七维建立接口。"
+    limitations: "五支不是心理测量量表，不与七维合并为十二项总分，尚无跨岗位统计校准。"
+    recheck_trigger: "练习试跑发现关键岗位行为无法归类或节点无法生成测试。"
+
+  - evidence_id: E-C04-005
+    claim: "速度、成本、稳定、透明和可恢复五类岗位级非功能要求，是本书防止以无限资源换取单次结果的方法。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "本书正式框架 v2，第 4.4 节"
+        path: "../../../00-正式出版版-三级内容框架-v2.md"
+      - title: "Anthropic: Demystifying evals for AI agents"
+        url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+        checked_at: "2026-09-30"
+      - title: "OpenAI: Evaluate agent workflows"
+        url: "https://developers.openai.com/api/docs/guides/agent-evals"
+        checked_at: "2026-09-30"
+    applicability: "将业务任务约束转为后续可测量的速度、成本、稳定、透明和恢复要求。"
+    limitations: "五类并非穷尽清单；具体指标、阈值和遥测由 C07/C23 冻结。"
+    recheck_trigger: "C23 发现类别与正式可靠性/可观测体系冲突。"
+
+  - evidence_id: E-C04-006
+    claim: "AI 风险管理应持续贯穿生命周期，并结合应用情境、影响与资源对风险进行识别、测量和处理。"
+    label: SOURCE-BASED
+    research_fact_type: OFFICIAL-DOC
+    class: OFFICIAL-DOC
+    stability: stable
+    scope: general
+    source_nature: government-framework
+    source_grade: A
+    verified_on: "2026-09-30"
+    sources:
+      - title: "NIST AI RMF 1.0: Core"
+        url: "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+        checked_at: "2026-09-30"
+      - title: "NIST AI Risk Management Framework 1.0"
+        url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+        checked_at: "2026-09-30"
+    applicability: "支持岗位定义阶段就纳入风险情境、影响与持续治理。"
+    limitations: "NIST AI RMF 1.0 正在更新；本章四因子与等级不是 NIST 原文分类。"
+    recheck_trigger: "NIST 发布替代版本或本书进入再版。"
+
+  - evidence_id: E-C04-007
+    claim: "对可产生真实后果的 Agent，用户应能决定工具与动作边界；敏感或高影响动作需要有意义的人类控制。"
+    label: SOURCE-BASED
+    research_fact_type: STABLE-PRINCIPLE
+    class: STABLE-PRINCIPLE
+    stability: stable
+    scope: general
+    source_nature: research-and-official-guide
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Anthropic: Trustworthy agents in practice"
+        url: "https://www.anthropic.com/research/trustworthy-agents"
+        checked_at: "2026-09-30"
+      - title: "OpenAI: Safety in building agents"
+        url: "https://developers.openai.com/api/docs/guides/agent-builder-safety"
+        checked_at: "2026-09-30"
+    applicability: "支持风险分级、确定性审批、负面清单和工具侧控制。"
+    limitations: "两者均为厂商实践材料；具体审批范围应根据组织政策与威胁模型确定。"
+    recheck_trigger: "安全指南或产品批准机制发生原则性变化。"
+
+  - evidence_id: E-C04-008
+    claim: "模型拒绝或提示词承诺不足以单独控制注入、越权和有副作用的工具动作，应结合隔离、权限、批准、结构化边界与评测。"
+    label: SOURCE-BASED
+    research_fact_type: STABLE-PRINCIPLE
+    class: STABLE-PRINCIPLE
+    stability: stable
+    scope: general
+    source_nature: official-guide
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "OpenAI: Safety in building agents"
+        url: "https://developers.openai.com/api/docs/guides/agent-builder-safety"
+        checked_at: "2026-09-30"
+      - title: "Anthropic: Trustworthy agents in practice"
+        url: "https://www.anthropic.com/research/trustworthy-agents"
+        checked_at: "2026-09-30"
+      - title: "NIST AI RMF 1.0"
+        url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+        checked_at: "2026-09-30"
+    applicability: "要求负面清单映射到系统控制、证据、停止和恢复。"
+    limitations: "本章不定义 C22 完整安全架构；不同平台的控制能力需单独验证。"
+    recheck_trigger: "C22 威胁模型或平台控制面修订。"
+
+  - evidence_id: E-C04-009
+    claim: "Agent 评测任务应有明确输入和成功条件；多次 trial、完整 trace/trajectory、结果与多种 grader 有助于发现失败和回归。"
+    label: SOURCE-BASED
+    research_fact_type: STABLE-PRINCIPLE
+    class: STABLE-PRINCIPLE
+    stability: stable
+    scope: general
+    source_nature: official-engineering
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Anthropic: Demystifying evals for AI agents"
+        url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+        checked_at: "2026-09-30"
+      - title: "OpenAI: Evaluate agent workflows"
+        url: "https://developers.openai.com/api/docs/guides/agent-evals"
+        checked_at: "2026-09-30"
+    applicability: "支持从能力、风险和失败派生至少五类测试任务候选。"
+    limitations: "测试类别为本书方法；样本量、grader、统计协议和正式分层由 C07 定义。"
+    recheck_trigger: "C07 冻结正式评测协议。"
+
+  - evidence_id: E-C04-010
+    claim: "Trace grading 可用于检查工具选择、handoff、指令或安全策略违例，并通过数据集和 eval runs 做重复比较。"
+    label: SOURCE-BASED
+    research_fact_type: OFFICIAL-DOC
+    class: OFFICIAL-DOC
+    stability: frontier
+    scope: openai-platform
+    source_nature: official-doc
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "OpenAI: Evaluate agent workflows"
+        url: "https://developers.openai.com/api/docs/guides/agent-evals"
+        checked_at: "2026-09-30"
+      - title: "OpenAI: Trace grading"
+        url: "https://developers.openai.com/api/docs/guides/trace-grading"
+        checked_at: "2026-09-30"
+    applicability: "说明岗位测试不仅看文本，还可看工具、交接和策略轨迹。"
+    limitations: "这是 OpenAI 产品与方法文档；不要求读者使用其平台，也不应记录模型不可见的私有思维链。"
+    recheck_trigger: "OpenAI 评测接口或文档发生重大变化。"
+
+  - evidence_id: E-C04-011
+    claim: "OpenClaw 的 Agent Runtime 涵盖模型发现/解析、工具接线、提示与上下文组装、Session 管理及 Channel 投递等运行表面，可承载岗位模型派生的实现需求。"
+    label: SOURCE-BASED
+    research_fact_type: VERSION-FACT
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-release-and-doc
+    source_grade: A
+    verified_on: "2026-09-30"
+    version_scope: "OpenClaw 2026.9.6, release SHA eb377ac59e6c9fd6c7705028034812becf00271b"
+    sources:
+      - title: "OpenClaw v2026.9.6 release"
+        url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+        checked_at: "2026-09-30"
+      - title: "OpenClaw Agent runtime at eb377ac59e6c9fd6c7705028034812becf00271b"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/agent.md"
+        checked_at: "2026-09-30"
+      - title: "OpenClaw: Agent runtime"
+        url: "https://docs.openclaw.ai/concepts/agent"
+        checked_at: "2026-09-30"
+      - title: "平台与前沿实践证据底稿"
+        path: "../../../docs/research/platform-and-frontier-evidence.md"
+    applicability: "作为岗位冻结后进行 Agent、Provider/模型、工具、Binding、Session 和控制面映射的主实现。"
+    limitations: "动态文档可能前移；具体字段、默认值和命令需在事实审校时对固定提交逐项复核。平台组件存在不证明岗位胜任。"
+    recheck_trigger: "OpenClaw 升级、发布前复核或固定源码与动态文档不一致。"
+
+  - evidence_id: E-C04-012
+    claim: "Hermes Agent 的开放架构和 Profile/Provider/Tools/Gateway 表面使其可作为岗位模型跨开放 Runtime 的实现候选。"
+    label: INFERENCE
+    research_fact_type: INFERENCE
+    class: INFERENCE
+    stability: versioned
+    scope: hermes
+    source_nature: official-release-and-doc
+    source_grade: A-
+    verified_on: "2026-09-30"
+    version_scope: "Hermes Agent 0.20.1 release baseline; dynamic docs checked 2026-09-30"
+    sources:
+      - title: "Hermes Agent v0.20.1 (v2026.8.13) release"
+        url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+        checked_at: "2026-09-30"
+      - title: "Hermes Agent: Architecture"
+        url: "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture"
+        checked_at: "2026-09-30"
+      - title: "Hermes Agent: Profiles"
+        url: "https://hermes-agent.nousresearch.com/docs/user-guide/profiles/"
+        checked_at: "2026-09-30"
+    applicability: "验证岗位原则可迁移到第二开放实现，而不依赖 OpenClaw 文件结构。"
+    limitations: "架构与 Profile 页面为动态文档，未逐项固定到 0.20.1 tag；Profile 不是 Sandbox；尚无同岗位跨 Runtime 实跑。"
+    recheck_trigger: "Hermes 版本升级、动态文档重大变化或完成固定源码复核。"
+
+  - evidence_id: E-C04-013
+    claim: "Meta 公开材料把 Muse 描述为围绕用户目标规划和执行、连接第三方服务，并在发送邮件或购买等敏感动作前请求批准的托管式个人 Agent。"
+    label: SOURCE-BASED
+    research_fact_type: VENDOR-CLAIM
+    class: VENDOR-CLAIM
+    stability: frontier
+    scope: muse
+    source_nature: vendor-claim
+    source_grade: B
+    verified_on: "2026-09-30"
+    version_scope: "Meta public materials published 2026-09-08 and available 2026-09-30"
+    sources:
+      - title: "Meta: Introducing Muse"
+        url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+        checked_at: "2026-09-30"
+      - title: "Meta AI Research: How We Built Safety Into Muse"
+        url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+        checked_at: "2026-09-30"
+    applicability: "只作为目标表达、连接器范围、敏感动作审批和活动可见性的公开产品镜面。"
+    limitations: "两条来源均属于 Meta 体系；不得推断内部岗位模型、训练方法或实际安全效果。Meta 在发布材料中把 Confidential VM 写为 later this year，本章不写成已全面上线。"
+    recheck_trigger: "Muse 发布独立审计、公开内部机制、产品范围变化或 Confidential VM 正式上线证据。"
+
+open_questions:
+  - id: OQ-C04-01
+    question: "五支能力树是否能覆盖研究、运营、工程和高监管岗位的关键行为，而不产生大量交叉歧义？"
+    owner: "practice-reviewer"
+    action: "用至少三个真实脱敏岗位试填并记录无法归类节点。"
+  - id: OQ-C04-02
+    question: "四因子风险与 LOW/MEDIUM/HIGH/CRITICAL 是否具有足够评审一致性？"
+    owner: "evidence-and-practice-reviewers"
+    action: "用同一批边界案例进行盲评分，记录分歧，不在本章冻结通用数值阈值。"
+  - id: OQ-C04-03
+    question: "Hermes 0.20.1 固定源码与 2026-09-30 动态架构/Profile 文档的组件映射是否逐项一致？"
+    owner: "evidence-reviewer"
+    action: "事实门按 release tag 复核所引用组件，必要时限缩正文。"
+  - id: OQ-C04-04
+    question: "CASE-A/B/C 的门禁候选在真实多次运行中是否可测且不过度依赖主观裁判？"
+    owner: "practice-reviewer"
+    action: "在 C07 正式协议下试跑，报告失败分布与裁判分歧。"

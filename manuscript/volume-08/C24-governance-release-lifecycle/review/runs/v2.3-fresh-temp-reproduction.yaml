@@ -1,0 +1,43 @@
+schema_version: c21.lifecycle.reproduction.v2.3
+run_date: "2026-10-01"
+environment: offline_synthetic
+scripts:
+  builder_sha256: 3d6c0107f275377ef3189b63c0cb0b9ed554d4df3d1f9411d67df81a896acfe4
+  runner_sha256: 962f1f69696baff8c54fafb86c0d58a5188934068db6f7127cacf5a0a341236e
+  negative_runner_sha256: df257be3ed1c402341d207b10c35f4178c9a40b30d51720f752f376271546dcf
+runs:
+  - run_id: fresh-temp-a
+    root_sha256: fb060dc09919694d48d8d8983885745bf472565fc38dd59bc014cd82c8081967
+    input_sha256: 697d84638839e4a49b3940381c6ce9b741fcf7e0754494ed57fcca066d283023
+    result_sha256: aa13924fc6f09f9294722d9000168ecd216ae350adf370816bc0e5b8171d6eeb
+    summary_sha256: 4dcb55058d44daf80fbc86c6b6cb751bcd598eee64ab1498f69632e47dc8f119
+    negative_sha256: 7419d90cd26a918a07c928cea8f38c21691ec46094fb13c274294734e8585827
+  - run_id: fresh-temp-b
+    root_sha256: fb060dc09919694d48d8d8983885745bf472565fc38dd59bc014cd82c8081967
+    input_sha256: 697d84638839e4a49b3940381c6ce9b741fcf7e0754494ed57fcca066d283023
+    result_sha256: aa13924fc6f09f9294722d9000168ecd216ae350adf370816bc0e5b8171d6eeb
+    summary_sha256: 4dcb55058d44daf80fbc86c6b6cb751bcd598eee64ab1498f69632e47dc8f119
+    negative_sha256: 7419d90cd26a918a07c928cea8f38c21691ec46094fb13c274294734e8585827
+comparison:
+  root_byte_identical: true
+  input_byte_identical: true
+  result_byte_identical: true
+  summary_byte_identical: true
+  negative_byte_identical: true
+  trial_count: 79
+  distribution: {PASS: 3, FAIL: 73, REVIEW_REQUIRED: 3}
+  author_negative_attacks: 22
+  author_negative_passed: 22
+  author_negative_escaped: 0
+  historical_independent_attacks: 9
+  historical_independent_matched: 9
+  decision_digest: sha256:2bfcc1416bf39dc576b3f7743e9467db16d2385e403ecaea8fed026be3d8b691
+  negative_suite_digest: sha256:9b9728a4f7b643a81a2c3687a3f36b1c40a5283374931058c1cb70051f9af348
+limits:
+  representative_real_world_count: 0
+  external_side_effect_count: 0
+  real_openclaw_hermes_run: false
+  real_release_migration_recovery_retirement: false
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED

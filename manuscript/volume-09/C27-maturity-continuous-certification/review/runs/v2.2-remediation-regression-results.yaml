@@ -1,0 +1,659 @@
+{
+  "deterministic": true,
+  "escape_assertion_count": 36,
+  "escape_count": 18,
+  "explicit_conflict_exception_degraded": true,
+  "pending_external_effect_review_required": true,
+  "run_count": 2,
+  "runs": [
+    {
+      "authority_root_digest": "sha256:ca7cbc05f74ddda8c8a178b7496d23b1fd2f137fa5019606a3a1eb2181a12f92",
+      "authority_sha256": "sha256:076ed4b14a0729d5b90f4d3d5954865142e90cdc74dbfe74eacf48707b265b2f",
+      "decision_digest": "sha256:d9126ac3abaa8899553345d235e9b6b97ad98397087e9d1871b3120d4c330a6e",
+      "distribution": {
+        "FAIL": 52,
+        "PASS": 4,
+        "REVIEW_REQUIRED": 2
+      },
+      "escape_assertions": [
+        {
+          "attack_id": "review_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "review_issued_in_future",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "issuance_authority_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+            "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "issuance_authority_not_before_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+            "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "lifecycle_authority_not_before_after_event",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+          ]
+        },
+        {
+          "attack_id": "artifact_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "application_signature_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "trial_output_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "opened_appeal_issued_in_future",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "APPEAL_FROM_FUTURE",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "APPEAL_FROM_FUTURE"
+          ]
+        },
+        {
+          "attack_id": "certificate_issuer_is_reviewer",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "certificate_issuer_is_domain_expert",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "appeal_reviewer_is_certificate_issuer",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "appeal_reviewer_is_domain_expert",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "lifecycle_owner_is_reviewer",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "certificate_expiry_outlives_application",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CERTIFICATE_EXCEEDS_COMMON_VALIDITY_WINDOW",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CERTIFICATE_EXCEEDS_COMMON_VALIDITY_WINDOW",
+            "CERTIFICATE_EXCEEDS_CONTINUOUS_EVIDENCE_WINDOW"
+          ]
+        },
+        {
+          "attack_id": "material_change_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "REVIEW_REQUIRED",
+          "required_reason": "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+          "semantic_actual": "REVIEW_REQUIRED",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION"
+          ]
+        },
+        {
+          "attack_id": "material_change_from_future",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "MATERIAL_CHANGE_FROM_FUTURE",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+            "MATERIAL_CHANGE_FROM_FUTURE"
+          ]
+        },
+        {
+          "attack_id": "offline_external_effect_unknown",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "REVIEW_REQUIRED",
+          "required_reason": "EXTERNAL_EFFECT_UNRESOLVED",
+          "semantic_actual": "REVIEW_REQUIRED",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "EXTERNAL_EFFECT_UNRESOLVED"
+          ]
+        }
+      ],
+      "explicit_conflict_exception": {
+        "decision": "REVIEW_REQUIRED",
+        "lifecycle": "SUSPENDED",
+        "matched": true,
+        "reasons": [
+          "ROLE_CONFLICT_EXCEPTION_REQUIRES_LIMITED_REVIEW"
+        ]
+      },
+      "historical_28_semantic_pass_escapes": 0,
+      "input_sha256": "sha256:4a824bb7cd4d423542308ef5dfd13775e237f656cdde68efdb15ed28fe796936",
+      "lifecycle_distribution": {
+        "ACTIVE": 1,
+        "EXPIRED": 1,
+        "LIMITED": 2,
+        "REVOKED": 52,
+        "SUSPENDED": 2
+      },
+      "pending_external_effect": {
+        "decision": "REVIEW_REQUIRED",
+        "lifecycle": "SUSPENDED",
+        "matched": true,
+        "reasons": [
+          "EXTERNAL_EFFECT_UNRESOLVED"
+        ]
+      },
+      "result_sha256": "sha256:eb39fc1f35ca39cc797d7095af9bb2a0bfdf235803186b46c4a31d5b5f67756f",
+      "run_id": 1,
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "trial_count": 58,
+      "valid_pass_neighbor": {
+        "decision": "PASS",
+        "matched": true,
+        "reasons": [],
+        "scenario_id": "S24-058"
+      }
+    },
+    {
+      "authority_root_digest": "sha256:ca7cbc05f74ddda8c8a178b7496d23b1fd2f137fa5019606a3a1eb2181a12f92",
+      "authority_sha256": "sha256:076ed4b14a0729d5b90f4d3d5954865142e90cdc74dbfe74eacf48707b265b2f",
+      "decision_digest": "sha256:d9126ac3abaa8899553345d235e9b6b97ad98397087e9d1871b3120d4c330a6e",
+      "distribution": {
+        "FAIL": 52,
+        "PASS": 4,
+        "REVIEW_REQUIRED": 2
+      },
+      "escape_assertions": [
+        {
+          "attack_id": "review_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "review_issued_in_future",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "issuance_authority_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+            "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "issuance_authority_not_before_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+            "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "lifecycle_authority_not_before_after_event",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+          ]
+        },
+        {
+          "attack_id": "artifact_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "application_signature_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "trial_output_issued_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+          ]
+        },
+        {
+          "attack_id": "opened_appeal_issued_in_future",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "APPEAL_FROM_FUTURE",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "APPEAL_FROM_FUTURE"
+          ]
+        },
+        {
+          "attack_id": "certificate_issuer_is_reviewer",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "certificate_issuer_is_domain_expert",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "appeal_reviewer_is_certificate_issuer",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "appeal_reviewer_is_domain_expert",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "lifecycle_owner_is_reviewer",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CANONICAL_ROLE_CONFLICT",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CANONICAL_ROLE_CONFLICT"
+          ]
+        },
+        {
+          "attack_id": "certificate_expiry_outlives_application",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "CERTIFICATE_EXCEEDS_COMMON_VALIDITY_WINDOW",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "CERTIFICATE_EXCEEDS_COMMON_VALIDITY_WINDOW",
+            "CERTIFICATE_EXCEEDS_CONTINUOUS_EVIDENCE_WINDOW"
+          ]
+        },
+        {
+          "attack_id": "material_change_after_certificate",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "REVIEW_REQUIRED",
+          "required_reason": "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+          "semantic_actual": "REVIEW_REQUIRED",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION"
+          ]
+        },
+        {
+          "attack_id": "material_change_from_future",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "FAIL",
+          "required_reason": "MATERIAL_CHANGE_FROM_FUTURE",
+          "semantic_actual": "FAIL",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+            "MATERIAL_CHANGE_FROM_FUTURE"
+          ]
+        },
+        {
+          "attack_id": "offline_external_effect_unknown",
+          "blackbox_actual": "SCHEMA_REJECT",
+          "blackbox_reasons": [
+            "ValueError: result frozen identity or state binding"
+          ],
+          "blackbox_root_matched": true,
+          "expected": "REVIEW_REQUIRED",
+          "required_reason": "EXTERNAL_EFFECT_UNRESOLVED",
+          "semantic_actual": "REVIEW_REQUIRED",
+          "semantic_matched": true,
+          "semantic_reasons": [
+            "EXTERNAL_EFFECT_UNRESOLVED"
+          ]
+        }
+      ],
+      "explicit_conflict_exception": {
+        "decision": "REVIEW_REQUIRED",
+        "lifecycle": "SUSPENDED",
+        "matched": true,
+        "reasons": [
+          "ROLE_CONFLICT_EXCEPTION_REQUIRES_LIMITED_REVIEW"
+        ]
+      },
+      "historical_28_semantic_pass_escapes": 0,
+      "input_sha256": "sha256:4a824bb7cd4d423542308ef5dfd13775e237f656cdde68efdb15ed28fe796936",
+      "lifecycle_distribution": {
+        "ACTIVE": 1,
+        "EXPIRED": 1,
+        "LIMITED": 2,
+        "REVOKED": 52,
+        "SUSPENDED": 2
+      },
+      "pending_external_effect": {
+        "decision": "REVIEW_REQUIRED",
+        "lifecycle": "SUSPENDED",
+        "matched": true,
+        "reasons": [
+          "EXTERNAL_EFFECT_UNRESOLVED"
+        ]
+      },
+      "result_sha256": "sha256:eb39fc1f35ca39cc797d7095af9bb2a0bfdf235803186b46c4a31d5b5f67756f",
+      "run_id": 2,
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "trial_count": 58,
+      "valid_pass_neighbor": {
+        "decision": "PASS",
+        "matched": true,
+        "reasons": [],
+        "scenario_id": "S24-058"
+      }
+    }
+  ],
+  "schema": "c24.cert.v2.4-historical-remediation-regression.v1",
+  "scope": "offline_synthetic_fresh_temp_semantic_and_blackbox",
+  "semantic_and_blackbox_closed": true,
+  "suite_digest": "sha256:1c0fcbd65d6561e1f58bc289436928ed8d312088abfdafda2305ca2c1bfb98ce",
+  "valid_pass_neighbor_proven": true
+}

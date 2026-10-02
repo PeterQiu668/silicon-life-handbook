@@ -1,0 +1,264 @@
+{
+  "all_passed": true,
+  "baseline_decision_digest": "39d9b3e439a0c22506a21d21caa0667b7c6d86f497ab43263ccf0de4aec44324",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "failed_count": 0,
+  "passed_count": 23,
+  "schema_version": "c23.v2.4.remediation-regression.v1",
+  "suite_digest": "31ca6d821ace14efec3c9abe348dd027730c334d006ee79b0042c89ae89d5c4d",
+  "test_count": 23,
+  "tests": [
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_orphan_failed_d21() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V01_EXACT_D21_PROJECTION"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_reviewer_also_case_author() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V02_ACTIVE_COAUTHOR_BREAKS_INDEPENDENCE"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_assignment_starts_after_publication() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V03_ASSIGNMENT_AFTER_PUBLICATION"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V04_TRIAL_AFTER_EVALUATION"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V05_TRIAL_BEFORE_AUTHORIZATION"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_publication_precedes_trials() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V06_REVIEW_PUBLICATION_PRECEDE_EVIDENCE"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_pass_trial_points_to_failure() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V07_PASS_POINTS_TO_FAILURE"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_two_failures_share_one_log() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V08_SHARED_FAILURE_LOG"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_unlinked_failure_log() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V09_UNLINKED_FAILURE_LOG"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_external_write_hidden_by_false_flag() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V10_EFFECT_KIND_DERIVES_EXTERNAL"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "semantic",
+      "message": "mutate_d21_content_contradiction() missing 1 required positional argument: 'runner'",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "V11_D21_CONTENT_CONTRADICTION"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V12_AUTHORITY_ADAPTER_MATRIX"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V13_SECURITY_ADAPTER_MATRIX"
+    },
+    {
+      "actual": "FAIL",
+      "layer": "semantic",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "V14_D21_ADAPTER_MATRIX"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "result_envelope",
+      "message": "result: ordered trial identity is not the frozen manifest projection",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V15_RESULT_IDENTITY"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "result_envelope",
+      "message": "result: aggregate distribution mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V16_RESULT_DISTRIBUTION"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "result_envelope",
+      "message": "result: aggregate distribution mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V17_RESULT_TRIAL_COUNT"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "result_envelope",
+      "message": "result: accepted real aggregate mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V18_RESULT_REAL_COUNT"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "result_envelope",
+      "message": "result: external effect aggregate mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V19_RESULT_EFFECT_COUNT"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "result_envelope",
+      "message": "result: closed-world keys mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V20_RESULT_UNKNOWN_FIELD"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "result_envelope",
+      "message": "result: full canonical digest mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V21_RESULT_REASON_TAMPER"
+    },
+    {
+      "actual": "REJECT",
+      "layer": "result_envelope",
+      "message": "result: ordered trial identity is not the frozen manifest projection",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V22_RESULT_IDENTITY_REHASH"
+    },
+    {
+      "actual": "PASS",
+      "layer": "non_total_rejection",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "PASS"
+      ],
+      "test_id": "V23_LEGAL_REPIN_PASS"
+    }
+  ]
+}

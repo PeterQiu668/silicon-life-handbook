@@ -1,0 +1,1612 @@
+{
+  "authority_root_digest": "sha256:1c768968e30d39195369e517394c3c218829b175d64d219a6e5ff159062fb6ad",
+  "authority_sha256": "sha256:6da041cac0ab70d39769636811be9656130b8373788b898fa2a861e3c024ccac",
+  "decision_digest": "sha256:4645332ab3e0e1aa16ac5a435a3105a422c17eeefea3e0f8ef1a84a53e27e5f4",
+  "distribution": {
+    "FAIL": 52,
+    "PASS": 6,
+    "REVIEW_REQUIRED": 2
+  },
+  "external_effect_attempts": 1,
+  "input_sha256": "sha256:a68baf11441ff9738cb616744e855daf9ce32cba2dd133d8c7f5100f3ff64e0a",
+  "lifecycle_distribution": {
+    "ACTIVE": 3,
+    "EXPIRED": 1,
+    "LIMITED": 2,
+    "REVOKED": 52,
+    "SUSPENDED": 2
+  },
+  "observed_external_effects": 1,
+  "real_certificate_attempts": 1,
+  "representative_real_world_attempts": 1,
+  "schema": "c24.cert.result.v2.6",
+  "successful_external_effects": 0,
+  "successful_real_certificates": 0,
+  "trial_count": 60,
+  "trials": [
+    {
+      "application_id": "APP-001",
+      "certificate_id": "CERT-001",
+      "decision": "PASS",
+      "evidence_id": "EV-SIGN-001",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "LIMITED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-001",
+      "security_slices": [],
+      "state_digest": "sha256:e0281a2bdcac8b359b02813f60310b6c5e963a81453d73e98cf8291f7b076b8f",
+      "subject_id": "SUB-001",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-001",
+      "trial_id": "TRIAL-001-1"
+    },
+    {
+      "application_id": "APP-002",
+      "certificate_id": "CERT-002",
+      "decision": "PASS",
+      "evidence_id": "EV-SIGN-002",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "ACTIVE",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-002",
+      "security_slices": [],
+      "state_digest": "sha256:ca842b31a187c43f1fc54c94dfd4634488f620068a5f34ac9f89ad343cf99bdc",
+      "subject_id": "SUB-002",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-002",
+      "trial_id": "TRIAL-002-1"
+    },
+    {
+      "application_id": "APP-003",
+      "certificate_id": "CERT-003",
+      "decision": "PASS",
+      "evidence_id": "EV-SIGN-003",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "EXPIRED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-003",
+      "security_slices": [],
+      "state_digest": "sha256:40f9767cd585e972f10ee4aee462b8f658db7b963c98729c3027bc019aab84b4",
+      "subject_id": "SUB-003",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-003",
+      "trial_id": "TRIAL-003-1"
+    },
+    {
+      "application_id": "APP-004",
+      "certificate_id": "CERT-004",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-004",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-004",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:2a9946cd47a46ac7aa90fd253810b83d217e973fbd7ca66c6c0e590a7e46ec0a",
+      "subject_id": "SUB-004",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-004",
+      "trial_id": "TRIAL-004-1"
+    },
+    {
+      "application_id": "APP-005",
+      "certificate_id": "CERT-005",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-005",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_EXCEEDS_COMMON_VALIDITY_WINDOW",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-005",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:9f7f5a5636707029e0c5376ed8315c6f499b04258961ec1369b77ad298ec499d",
+      "subject_id": "SUB-005",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-005",
+      "trial_id": "TRIAL-005-1"
+    },
+    {
+      "application_id": "APP-006",
+      "certificate_id": "CERT-006",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-006",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-006",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:ef200169529e068eb16161d9c54fa71552f4af3427ad817b13a35f2f0c7efdec",
+      "subject_id": "SUB-006",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-006",
+      "trial_id": "TRIAL-006-1"
+    },
+    {
+      "application_id": "APP-007",
+      "certificate_id": "CERT-007",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-007",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-007",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:aaffc60430c73b018fd71c000fd59ae1da59d8bd82a40e8f8973bdfd9b21069c",
+      "subject_id": "SUB-007",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-007",
+      "trial_id": "TRIAL-007-1"
+    },
+    {
+      "application_id": "APP-008",
+      "certificate_id": "CERT-008",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-008",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-008",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:f6e57f83179eb36e07ecde472700987f7e39eed452ba7cf94173eb5b21ebf1a3",
+      "subject_id": "SUB-008",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-008",
+      "trial_id": "TRIAL-008-1"
+    },
+    {
+      "application_id": "APP-009",
+      "certificate_id": "CERT-009",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-009",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CANONICAL_ROLE_CONFLICT",
+        "REVIEW_PRINCIPAL_OR_DISCLOSURE_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-009",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:77e093eec3035de6b46a598f92bce7cb9b925b3dc83879708de6fd7a891f3b48",
+      "subject_id": "SUB-009",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-009",
+      "trial_id": "TRIAL-009-1"
+    },
+    {
+      "application_id": "APP-010",
+      "certificate_id": "CERT-010",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-010",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "APPEAL_INDEPENDENCE_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-010",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:bbb1ec965965341dbe6be02f58764d6420cc31434cb67adf7d94d7140ecdb1ca",
+      "subject_id": "SUB-010",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-010",
+      "trial_id": "TRIAL-010-1"
+    },
+    {
+      "application_id": "APP-011",
+      "certificate_id": "CERT-011",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-011",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "APPEAL_INDEPENDENCE_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-011",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:94fd5432cbd11837c88a2bb9bd4d9f2cee6804d1560cf51d4153d6233288b78f",
+      "subject_id": "SUB-011",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-011",
+      "trial_id": "TRIAL-011-1"
+    },
+    {
+      "application_id": "APP-012",
+      "certificate_id": "CERT-012",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-012",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-012",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:49ab7b754a547acfbce2f93fa536a678fb3883d029eb2e60ad43f978c1186644",
+      "subject_id": "SUB-012",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-012",
+      "trial_id": "TRIAL-012-1"
+    },
+    {
+      "application_id": "APP-013",
+      "certificate_id": "CERT-013",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-013",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-013",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:51bf747cc72b83d3d4d215868999fb2a7e6e7d47a5e5047b56140e050b6ef1e6",
+      "subject_id": "SUB-013",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-013",
+      "trial_id": "TRIAL-013-1"
+    },
+    {
+      "application_id": "APP-014",
+      "certificate_id": "CERT-014",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-014",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-014",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:6f9a8b2a4185f604da91959a15f034c57fada994291ca26ece30c09538454167",
+      "subject_id": "SUB-014",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-014",
+      "trial_id": "TRIAL-014-1"
+    },
+    {
+      "application_id": "APP-015",
+      "certificate_id": "CERT-015",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-015",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-015",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:38d52f5c70be104c4462bc985d40e47de3d6e76fb801c47f7f22d922bc40d7f9",
+      "subject_id": "SUB-015",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-015",
+      "trial_id": "TRIAL-015-1"
+    },
+    {
+      "application_id": "APP-016",
+      "certificate_id": "CERT-016",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-016",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATION_DECISION_HARD_GATE"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-016",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:b11bbda2c326cdada748a2980fac1f4124ee55f30050df6b86d876990f1d197d",
+      "subject_id": "SUB-016",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-016",
+      "trial_id": "TRIAL-016-1"
+    },
+    {
+      "application_id": "APP-017",
+      "certificate_id": "CERT-017",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-017",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID",
+        "CERTIFICATION_DECISION_HARD_GATE",
+        "NAMESPACE_BINDING_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-017",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:6b6c4fbd862c8d58d2cb4642c06ed59dc899234581a54f335b885368ae0213e1",
+      "subject_id": "SUB-017",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-017",
+      "trial_id": "TRIAL-017-1"
+    },
+    {
+      "application_id": "APP-018",
+      "certificate_id": "CERT-018",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-018",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID",
+        "MAT_PREREQUISITES_MISSING"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-018",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:3db360e783b0c3ff876c86af10ba71c781b88926f8f1fadc5d566b68f2b64c8c",
+      "subject_id": "SUB-018",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-018",
+      "trial_id": "TRIAL-018-1"
+    },
+    {
+      "application_id": "APP-019",
+      "certificate_id": "CERT-019",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-019",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID",
+        "DIMENSION_SAFETY_FAILED"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-019",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:346ee12c22909be5450dbe33e015433a2fb3457fad44a695b8e8a34c501dfcf9",
+      "subject_id": "SUB-019",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-019",
+      "trial_id": "TRIAL-019-1"
+    },
+    {
+      "application_id": "APP-020",
+      "certificate_id": "CERT-020",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-020",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "CHANGE_RECORD_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+        "DIMENSION_COLLABORATION_EVIDENCE_INVALID",
+        "DIMENSION_EFFICIENCY_EVIDENCE_INVALID",
+        "DIMENSION_GENERALIZATION_EVIDENCE_INVALID",
+        "DIMENSION_GOVERNABILITY_EVIDENCE_INVALID",
+        "DIMENSION_NOT_APPLICABLE_INVALID",
+        "DIMENSION_QUALITY_EVIDENCE_INVALID",
+        "DIMENSION_SAFETY_EVIDENCE_INVALID",
+        "DIMENSION_STABILITY_EVIDENCE_INVALID",
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME",
+        "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+        "OPERATING_AUTHORIZATION_INVALID_AT_CERTIFICATE_TIME",
+        "ORGANIZATION_ROSTER_INVALID",
+        "PUBLIC_CLAIM_INVALID",
+        "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-020",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:29579a98e74800ff31cd32c112015255b4a8b934649998ce2c69ee6e7ad8fe3d",
+      "subject_id": "SUB-020",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-020",
+      "trial_id": "TRIAL-020-1"
+    },
+    {
+      "application_id": "APP-021",
+      "certificate_id": "CERT-021",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-021",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-021",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:351be22c76613204a98f4ffd8063564430aaf5716581f135c087454005185dfd",
+      "subject_id": "SUB-021",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-021",
+      "trial_id": "TRIAL-021-1"
+    },
+    {
+      "application_id": "APP-022",
+      "certificate_id": "CERT-022",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-022",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "CERTIFICATE_EXPIRED_WITH_LIVE_LIFECYCLE",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "CERTIFICATE_TIME_INVALID",
+        "D21_BUSINESS_ENVIRONMENT_INVALID_AT_CERTIFICATE_TIME",
+        "D21_DELIVERY_INVALID_AT_CERTIFICATE_TIME",
+        "D21_TECHNICAL_INVALID_AT_CERTIFICATE_TIME",
+        "DIMENSION_COLLABORATION_EVIDENCE_INVALID",
+        "DIMENSION_EFFICIENCY_EVIDENCE_INVALID",
+        "DIMENSION_GENERALIZATION_EVIDENCE_INVALID",
+        "DIMENSION_GOVERNABILITY_EVIDENCE_INVALID",
+        "DIMENSION_QUALITY_EVIDENCE_INVALID",
+        "DIMENSION_SAFETY_EVIDENCE_INVALID",
+        "DIMENSION_STABILITY_EVIDENCE_INVALID",
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "GRADER_NOT_PREREGISTERED_BEFORE_TRIAL",
+        "HOLDOUT_LINEAGE_NOT_FROZEN_BEFORE_TRIAL",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME",
+        "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+        "MATURITY_RECORD_INVALID_AT_CERTIFICATE_TIME",
+        "NAMESPACE_BINDING_INVALID_AT_CERTIFICATE_TIME",
+        "OPERATING_AUTHORIZATION_INVALID_AT_CERTIFICATE_TIME",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-022",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:c51f62c318f64355fb495da151727db33cb8ff33ab7ed0aec0409ecbe12ccf0f",
+      "subject_id": "SUB-022",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-022",
+      "trial_id": "TRIAL-022-1"
+    },
+    {
+      "application_id": "APP-023",
+      "certificate_id": "CERT-023",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-023",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "CHANGE_RECORD_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+        "D21_BUSINESS_ENVIRONMENT_INVALID_AT_CERTIFICATE_TIME",
+        "D21_DELIVERY_INVALID_AT_CERTIFICATE_TIME",
+        "D21_TECHNICAL_INVALID_AT_CERTIFICATE_TIME",
+        "DIMENSION_COLLABORATION_EVIDENCE_INVALID",
+        "DIMENSION_EFFICIENCY_EVIDENCE_INVALID",
+        "DIMENSION_GENERALIZATION_EVIDENCE_INVALID",
+        "DIMENSION_GOVERNABILITY_EVIDENCE_INVALID",
+        "DIMENSION_QUALITY_EVIDENCE_INVALID",
+        "DIMENSION_SAFETY_EVIDENCE_INVALID",
+        "DIMENSION_STABILITY_EVIDENCE_INVALID",
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "GRADER_NOT_PREREGISTERED_BEFORE_TRIAL",
+        "HOLDOUT_LINEAGE_NOT_FROZEN_BEFORE_TRIAL",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME",
+        "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+        "MATERIAL_CHANGE_EVIDENCE_INVALID_AT_EVENT_TIME",
+        "OPERATING_AUTHORIZATION_INVALID_AT_CERTIFICATE_TIME",
+        "PUBLIC_CLAIM_INVALID",
+        "RELEASE_NOT_FIXED",
+        "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-023",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:e3342430fbc67c71de6f556668752b6fcaaae4da76bf84ecf88ce67ab96bacec",
+      "subject_id": "SUB-023",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-023",
+      "trial_id": "TRIAL-023-1"
+    },
+    {
+      "application_id": "APP-024",
+      "certificate_id": "CERT-024",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-024",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-024",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:4930c3aa9d33f207feec6b0f859b1599f8133417afc94c67b3175f9f7a2d66b7",
+      "subject_id": "SUB-024",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-024",
+      "trial_id": "TRIAL-024-1"
+    },
+    {
+      "application_id": "APP-025",
+      "certificate_id": "CERT-025",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-025",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-025",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:6e60a0a647fad44863509759f9696382217a0795abf58cba900445f96c7b7e25",
+      "subject_id": "SUB-025",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-025",
+      "trial_id": "TRIAL-025-1"
+    },
+    {
+      "application_id": "APP-026",
+      "certificate_id": "CERT-026",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-026",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-026",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:bf28e5d6762de492bc4f023da4ce87aa0667fda6cee5f02b1e9ba640ec45c890",
+      "subject_id": "SUB-026",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-026",
+      "trial_id": "TRIAL-026-1"
+    },
+    {
+      "application_id": "APP-027",
+      "certificate_id": "CERT-027",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-027",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "PUBLIC_CLAIM_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-027",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:c575ba0160b2c25d8756776df2cc72a073f0df0d6f0c6bdaec1bbc45c9edd8bc",
+      "subject_id": "SUB-027",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-027",
+      "trial_id": "TRIAL-027-1"
+    },
+    {
+      "application_id": "APP-028",
+      "certificate_id": "CERT-028",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-028",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID",
+        "OPERATING_AUTHORIZATION_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-028",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:308246d25a16ea3d475642068e6ad4243be07cd8bf2cdff3a48f443273e8eee4",
+      "subject_id": "SUB-028",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-028",
+      "trial_id": "TRIAL-028-1"
+    },
+    {
+      "application_id": "APP-029",
+      "certificate_id": "CERT-029",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-029",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-029",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:c2699b200d9e36252705eae3c2c4b8db444227d2ad82f16ae583d8d6af6a35ce",
+      "subject_id": "SUB-029",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-029",
+      "trial_id": "TRIAL-029-1"
+    },
+    {
+      "application_id": "APP-030",
+      "certificate_id": "CERT-030",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-030",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "STATE_SCHEMA_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-030",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:683fa7b13e81150d7ef9fcb490cb89f3183b686bc803233cf730c1c2ce149e24",
+      "subject_id": "SUB-030",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-030",
+      "trial_id": "TRIAL-030-1"
+    },
+    {
+      "application_id": "APP-031",
+      "certificate_id": "CERT-031",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-031",
+      "external_effect_attempts": 0,
+      "layer": "representative_real_world",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "OFFLINE_REAL_WORLD_REJECTED"
+      ],
+      "representative_real_world_attempts": 1,
+      "scenario_id": "S24-031",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:4f5fcbb3015b6df2f0c7fa5bd005f785f868d2dc197975eb501fff32d2a48e93",
+      "subject_id": "SUB-031",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-031",
+      "trial_id": "TRIAL-031-1"
+    },
+    {
+      "application_id": "APP-032",
+      "certificate_id": "CERT-032",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-032",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 1,
+      "reasons": [
+        "OFFLINE_REAL_CERTIFICATE_REJECTED"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-032",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:9e222c124f56e1925ea63370db30e4dd6f53017ed5ebff6e9e93cc930123c9d4",
+      "subject_id": "SUB-032",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-032",
+      "trial_id": "TRIAL-032-1"
+    },
+    {
+      "application_id": "APP-033",
+      "certificate_id": "CERT-033",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-033",
+      "external_effect_attempts": 1,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 1,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "OFFLINE_CONFIRMED_EXTERNAL_SUCCESS_REJECTED"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-033",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:3aa6f9da3da307d014c842654e55ff4c8956383b58a2cee63f0b9e3126ef5600",
+      "subject_id": "SUB-033",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-033",
+      "trial_id": "TRIAL-033-1"
+    },
+    {
+      "application_id": "APP-034",
+      "certificate_id": "CERT-034",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-034",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "MANIFEST_CONTENT_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-034",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:838d2f5e9d13ddf83338a0c6839cf52423222317c0fc20d2706a5f9ed89d6ef9",
+      "subject_id": "SUB-034",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-034",
+      "trial_id": "TRIAL-034-1"
+    },
+    {
+      "application_id": "APP-035",
+      "certificate_id": "CERT-035",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-035",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-035",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:8e0eb1f0e51581e5065fe9395587ae679a0d49fb0e5f42e1be84fbdfa3b5dc97",
+      "subject_id": "SUB-035",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-035",
+      "trial_id": "TRIAL-035-1"
+    },
+    {
+      "application_id": "APP-036",
+      "certificate_id": "CERT-036",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-036",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-036",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:11ab4ae756d529d675d9a0f55e3ba0591923bf00f8cdd4368d86823eb3be5e8a",
+      "subject_id": "SUB-036",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-036",
+      "trial_id": "TRIAL-036-1"
+    },
+    {
+      "application_id": "APP-037",
+      "certificate_id": "CERT-037",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-037",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-037",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:6b1a07a4c50ebe7bb4d231682a3b4a525024fddbad7e0210ffec89c9d976211b",
+      "subject_id": "SUB-037",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-037",
+      "trial_id": "TRIAL-037-1"
+    },
+    {
+      "application_id": "APP-038",
+      "certificate_id": "CERT-038",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-038",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "HOLDOUT_LINEAGE_NOT_FROZEN_BEFORE_TRIAL"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-038",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:7cf87a2c9cf1e7166a34c968b887a1f7859655d3b919916b54941e0b49a02208",
+      "subject_id": "SUB-038",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-038",
+      "trial_id": "TRIAL-038-1"
+    },
+    {
+      "application_id": "APP-039",
+      "certificate_id": "CERT-039",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-039",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "GRADER_NOT_PREREGISTERED_BEFORE_TRIAL"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-039",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:8e27301f81d78df4cf5185c84cbff91d16022a045b3d032174da6e4d0bed3cdb",
+      "subject_id": "SUB-039",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-039",
+      "trial_id": "TRIAL-039-1"
+    },
+    {
+      "application_id": "APP-040",
+      "certificate_id": "CERT-040",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-040",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "FAILURE_ARCHIVE_INCOMPLETE",
+        "TRIAL_FAILED",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-040",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:e58e875a62be775c925f6f4049bfa6d0f4ce2d4f8c2489a16d566216a5124388",
+      "subject_id": "SUB-040",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-040",
+      "trial_id": "TRIAL-040-1"
+    },
+    {
+      "application_id": "APP-041",
+      "certificate_id": "CERT-041",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-041",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "COST_LEDGER_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-041",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:d0b471ed20f33644bb0f42703a28f9abe3f6e805be3dbb224f2596f7dee2ca69",
+      "subject_id": "SUB-041",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-041",
+      "trial_id": "TRIAL-041-1"
+    },
+    {
+      "application_id": "APP-042",
+      "certificate_id": "CERT-042",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-042",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-042",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:93229201851f4e0d64ac9b85fd004c0c0a2d1e726c4bf7923793df0258225422",
+      "subject_id": "SUB-042",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-042",
+      "trial_id": "TRIAL-042-1"
+    },
+    {
+      "application_id": "APP-043",
+      "certificate_id": "CERT-043",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-043",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-043",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:aa1c9f9bff97247163a483022b864df6a8097087532b7450405207de7348d7bb",
+      "subject_id": "SUB-043",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-043",
+      "trial_id": "TRIAL-043-1"
+    },
+    {
+      "application_id": "APP-044",
+      "certificate_id": "CERT-044",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-044",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-044",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:971fbf69f7ee5a250d47a1da84e88b202d17c8451ff11b090c945cd1063ac771",
+      "subject_id": "SUB-044",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-044",
+      "trial_id": "TRIAL-044-1"
+    },
+    {
+      "application_id": "APP-045",
+      "certificate_id": "CERT-045",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-045",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+        "PUBLIC_CLAIM_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-045",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:acadf8d23f0b0910f2e5fef70128ab2e3c8fd57e03fdd9f89c75ca6bda608036",
+      "subject_id": "SUB-045",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-045",
+      "trial_id": "TRIAL-045-1"
+    },
+    {
+      "application_id": "APP-046",
+      "certificate_id": "CERT-046",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-046",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "OPERATING_AUTHORIZATION_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-046",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:e2e6d18b3f75226c7a4bda88dc392f7a61c659e05ead56e88d17981d585c60fc",
+      "subject_id": "SUB-046",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-046",
+      "trial_id": "TRIAL-046-1"
+    },
+    {
+      "application_id": "APP-047",
+      "certificate_id": "CERT-047",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-047",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-047",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:b7d0477fbd7a3e392350f3e616379585867ac496015d1e30874806677c9b3dce",
+      "subject_id": "SUB-047",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-047",
+      "trial_id": "TRIAL-047-1"
+    },
+    {
+      "application_id": "APP-048",
+      "certificate_id": "CERT-048",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-048",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "CERTIFICATE_BINDING_INVALID",
+        "DIMENSION_QUALITY_EVIDENCE_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-048",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:2786b12054cc02871419d1bc9c397c9fe349de410ed9a0fac812143d64dd893b",
+      "subject_id": "SUB-048",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-048",
+      "trial_id": "TRIAL-048-1"
+    },
+    {
+      "application_id": "APP-049",
+      "certificate_id": "CERT-049",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-049",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "REVIEW_SIGNATURE_BINDING_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-049",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:982c145211744180403452f7aef5f8849978c655d581195df0e55c792bae7f02",
+      "subject_id": "SUB-049",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-049",
+      "trial_id": "TRIAL-049-1"
+    },
+    {
+      "application_id": "APP-050",
+      "certificate_id": "CERT-050",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-050",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-050",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:2acfb1e4f77bdc8f2f48e44513f539ab9f5f38312646572563988d3876f435bc",
+      "subject_id": "SUB-050",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-050",
+      "trial_id": "TRIAL-050-1"
+    },
+    {
+      "application_id": "APP-051",
+      "certificate_id": "CERT-051",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-051",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "PUBLIC_CLAIM_INVALID"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-051",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:7a672a5b95c8ad1f6e17b46d9ab92759fdcf0dcf8afac525c24624e8b93f67e9",
+      "subject_id": "SUB-051",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-051",
+      "trial_id": "TRIAL-051-1"
+    },
+    {
+      "application_id": "APP-052",
+      "certificate_id": "CERT-052",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-052",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME",
+        "TRIAL_UNKNOWN"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-052",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:7828088801efb676ca27477ab4060993fc57c991d6e90c39102f591bf50d2b8d",
+      "subject_id": "SUB-052",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-052",
+      "trial_id": "TRIAL-052-1"
+    },
+    {
+      "application_id": "APP-053",
+      "certificate_id": "CERT-053",
+      "decision": "REVIEW_REQUIRED",
+      "evidence_id": "EV-SIGN-053",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "SUSPENDED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "D21_DELIVERY_UNKNOWN"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-053",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:68973ce37d7617de521bdc52db52eac5e774e8b3fcfde66813eb55cdb73f4671",
+      "subject_id": "SUB-053",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-053",
+      "trial_id": "TRIAL-053-1"
+    },
+    {
+      "application_id": "APP-054",
+      "certificate_id": "CERT-054",
+      "decision": "REVIEW_REQUIRED",
+      "evidence_id": "EV-SIGN-054",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "SUSPENDED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "DIMENSION_QUALITY_UNKNOWN"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-054",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:fb1618555e7f6b3f999e1525c9b7c0a20143d92508dd6e3a329ab155138f936f",
+      "subject_id": "SUB-054",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-054",
+      "trial_id": "TRIAL-054-1"
+    },
+    {
+      "application_id": "APP-055",
+      "certificate_id": "CERT-055",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-055",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID",
+        "MATERIAL_CHANGE_AFTER_CERTIFICATE_REQUIRES_RECERTIFICATION",
+        "MATERIAL_CHANGE_REQUIRES_RECERTIFICATION",
+        "REVIEW_PRECEDES_DEPENDENCY",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-055",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:2f2e1fff216231ccc30557ddb0ec3ea2f1e0f37399369b0bf1be2cef0cb21b6e",
+      "subject_id": "SUB-055",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-055",
+      "trial_id": "TRIAL-055-1"
+    },
+    {
+      "application_id": "APP-056",
+      "certificate_id": "CERT-056",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-056",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATE_BINDING_INVALID",
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "CHANGE_RECORD_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+        "DIMENSION_COLLABORATION_EVIDENCE_INVALID",
+        "DIMENSION_EFFICIENCY_EVIDENCE_INVALID",
+        "DIMENSION_GENERALIZATION_EVIDENCE_INVALID",
+        "DIMENSION_GOVERNABILITY_EVIDENCE_INVALID",
+        "DIMENSION_QUALITY_EVIDENCE_INVALID",
+        "DIMENSION_SAFETY_EVIDENCE_INVALID",
+        "DIMENSION_STABILITY_EVIDENCE_INVALID",
+        "EVIDENCE_NOT_VALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME",
+        "LIFECYCLE_BINDING_OR_AUTHORITY_INVALID_AT_EVENT_TIME",
+        "OPERATING_AUTHORIZATION_INVALID_AT_CERTIFICATE_TIME",
+        "PUBLIC_CLAIM_INVALID",
+        "REVIEW_RECORD_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-056",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:590ce81d0b176fd69e273eb444211421cfea90a1dd6041ba8c5275cb32807f04",
+      "subject_id": "SUB-056",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-056",
+      "trial_id": "TRIAL-056-1"
+    },
+    {
+      "application_id": "APP-057",
+      "certificate_id": "CERT-057",
+      "decision": "FAIL",
+      "evidence_id": "EV-SIGN-057",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "REVOKED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [
+        "CERTIFICATION_DECISION_HARD_GATE",
+        "TRIAL_NOT_COMPLETE_OR_VALID_AT_CERTIFICATE_TIME",
+        "TRIAL_UNKNOWN"
+      ],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-057",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:6922067c78935f4fbc5b6f55db4e898017a2b1a92980c827e3b6c2ea4baf6c98",
+      "subject_id": "SUB-057",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-057",
+      "trial_id": "TRIAL-057-1"
+    },
+    {
+      "application_id": "APP-058",
+      "certificate_id": "CERT-058",
+      "decision": "PASS",
+      "evidence_id": "EV-SIGN-058",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "LIMITED",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-058",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:7386a7b7f2c5d60448d7cfb4c30fb33a20a7187e3c8ea2f6521ee38967451b42",
+      "subject_id": "SUB-058",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-058",
+      "trial_id": "TRIAL-058-1"
+    },
+    {
+      "application_id": "APP-059",
+      "certificate_id": "CERT-059",
+      "decision": "PASS",
+      "evidence_id": "EV-SIGN-059",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "ACTIVE",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-059",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:c3fe12803f5e8fb5940e986ce7c1ba772ef75d9e1e8b1ec2dc5f4e4051878cd2",
+      "subject_id": "SUB-059",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-059",
+      "trial_id": "TRIAL-059-1"
+    },
+    {
+      "application_id": "APP-060",
+      "certificate_id": "CERT-060",
+      "decision": "PASS",
+      "evidence_id": "EV-SIGN-060",
+      "external_effect_attempts": 0,
+      "layer": "holdout",
+      "lifecycle": "ACTIVE",
+      "observed_external_effects": 0,
+      "real_certificate_attempts": 0,
+      "reasons": [],
+      "representative_real_world_attempts": 0,
+      "scenario_id": "S24-060",
+      "security_slices": [
+        "certification-redteam"
+      ],
+      "state_digest": "sha256:24ae8fdfd91c015db66e75bab81b2b024d2ca5d8e5175c732b2e3958dd57c888",
+      "subject_id": "SUB-060",
+      "successful_external_effects": 0,
+      "successful_real_certificates": 0,
+      "task_id": "TASK-060",
+      "trial_id": "TRIAL-060-1"
+    }
+  ]
+}

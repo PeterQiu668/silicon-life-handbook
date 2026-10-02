@@ -1,0 +1,325 @@
+---
+chapter_id: C14
+title: "工具工程、风险与MCP边界"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c14"
+reviewed_by: null
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  MCP 锁定 2026-07-28 stable specification。OpenClaw 锁定 v2026.9.6 /
+  eb377ac59e6c9fd6c7705028034812becf00271b。Hermes 固定 release 为
+  v0.20.1 / v2026.8.13，MCP、安全与代码执行页面按 2026-09-30 动态官方文档处理。
+  Muse 只按厂商公开材料标 VENDOR-CLAIM。本书工具风险、合同与测试 Schema 为方法论。
+
+evidence_classes:
+  METHODOLOGY: "本书方法论，不冒充协议或厂商实现"
+  STANDARD-FACT: "MCP 2026-07-28 正式规范事实"
+  VERSION-FACT: "固定版本、提交或 release 事实"
+  DYNAMIC-OFFICIAL: "核验日官方动态文档，不回填历史 release"
+  VENDOR-CLAIM: "闭源厂商公开自述，未独立验证内部实现"
+  OFFICIAL-GUIDANCE: "官方安全指南，不等于产品认证"
+  LOCAL-VALIDATION: "本地合成运行，只在声明范围有效"
+
+sources:
+  BOOK-V2:
+    title: "正式出版版三级内容框架 v2"
+    path: "../../../00-正式出版版-三级内容框架-v2.md"
+  C14-CARD:
+    title: "C14 chapter card"
+    path: "../../../docs/editorial/CHAPTER-CARDS.md"
+  QUALITY:
+    title: "Book Quality Standard"
+    path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"
+  TERMS:
+    title: "Terminology Registry"
+    path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"
+  C14-PREFLIGHT:
+    title: "C14 tools and MCP preflight"
+    path: "../../../docs/research/C14-tools-mcp-preflight.md"
+  C22-PREFLIGHT:
+    title: "C22 security trust boundary preflight"
+    path: "../../../docs/research/C22-security-trust-boundary-preflight.md"
+  C23-PREFLIGHT:
+    title: "C23 observability cost reliability preflight"
+    path: "../../../docs/research/C23-observability-cost-reliability-preflight.md"
+  C06:
+    title: "C06 runtime architecture"
+    path: "../../volume-02/C06-runtime-architecture/chapter.md"
+  C09:
+    title: "C09 interaction system"
+    path: "../../volume-03/C09-interaction-system/chapter.md"
+  C09-TASK:
+    title: "C09 task card"
+    path: "../../volume-03/C09-interaction-system/artifacts/A-C09-01-task-card.md"
+  C09-DELIVERY:
+    title: "C09 delivery evidence package"
+    path: "../../volume-03/C09-interaction-system/artifacts/A-C09-03-delivery-evidence-package.md"
+  C13:
+    title: "C13 context memory"
+    path: "../C13-context-memory/chapter.md"
+  C13-POLICY:
+    title: "C13 write retention policy"
+    path: "../C13-context-memory/artifacts/A-C13-02-write-retention-policy.md"
+  MCP-REL:
+    title: "MCP 2026-07-28 stable release"
+    url: "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28"
+  MCP-CHANGE:
+    title: "MCP 2026-07-28 changelog"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/changelog"
+  MCP-ARCH:
+    title: "MCP 2026-07-28 Architecture"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/architecture"
+  MCP-TOOLS:
+    title: "MCP 2026-07-28 Tools"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/server/tools"
+  MCP-RES:
+    title: "MCP 2026-07-28 Resources"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/server/resources"
+  MCP-PROMPTS:
+    title: "MCP 2026-07-28 Prompts"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/server/prompts"
+  MCP-STATE:
+    title: "MCP 2026-07-28 Stateful Tools"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#stateful-tools"
+  MCP-AUTH:
+    title: "MCP 2026-07-28 Authorization"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+  MCP-SEC:
+    title: "MCP Security Best Practices"
+    url: "https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices"
+  OC-REL:
+    title: "OpenClaw v2026.9.6"
+    url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+  OC-TOOLS:
+    title: "OpenClaw Tools at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/index.md"
+  OC-MCP:
+    title: "OpenClaw MCP at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/mcp.md"
+  OC-BROWSER:
+    title: "OpenClaw Browser at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/browser.md"
+  OC-APPROVAL:
+    title: "OpenClaw Exec approvals at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/exec-approvals.md"
+  OC-PERM:
+    title: "OpenClaw Tool permissions at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/tool-permissions.md"
+  OC-SANDBOX:
+    title: "OpenClaw Sandbox at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/sandboxing/modes-scope-and-backend.md"
+  OC-SECRETS:
+    title: "OpenClaw Secrets at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/secrets/runtime-model.md"
+  HE-REL:
+    title: "Hermes Agent v0.20.1 / v2026.8.13"
+    url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+  HE-MCP:
+    title: "Hermes dynamic MCP documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp"
+  HE-MCP-CONFIG:
+    title: "Hermes dynamic MCP Config Reference"
+    url: "https://hermes-agent.nousresearch.com/docs/reference/mcp-config-reference/"
+  HE-SEC:
+    title: "Hermes dynamic Security documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/security"
+  HE-CODE:
+    title: "Hermes dynamic Code Execution documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/code-execution/"
+  MUSE-NEWS:
+    title: "Meta Introducing Muse"
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+  MUSE-SEC:
+    title: "Meta How We Built Safety Into Muse"
+    url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+  OWASP-AGENT:
+    title: "OWASP AI Agent Security Cheat Sheet"
+    url: "https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html"
+  OWASP-MCP:
+    title: "OWASP MCP Security Cheat Sheet"
+    url: "https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html"
+  LOCAL-C14-RUN:
+    title: "C14 synthetic tool results"
+    path: "review/runs/synthetic-tool-results.yaml"
+  LOCAL-C14-SCRIPT:
+    title: "C14 deterministic tool harness"
+    path: "review/runs/run-tool-contract.py"
+
+claims:
+  - evidence_id: E-C14-001
+    claim: "工具是有界行动接口，不等于 Skill、Workflow、Plugin、Agent、智能或权限。"
+    class: METHODOLOGY
+    stability: stable
+    source_ids: [BOOK-V2, TERMS, C14-CARD, C14-PREFLIGHT]
+    limitations: "具体承载与调用方式随 Runtime 变化。"
+  - evidence_id: E-C14-002
+    claim: "好工具接口应明确、有界、可预测、可验证、可恢复、可审计。"
+    class: METHODOLOGY
+    stability: stable
+    source_ids: [C14-PREFLIGHT, QUALITY]
+    limitations: "具体阈值按任务风险确定。"
+  - evidence_id: E-C14-003
+    claim: "存在、可发现、对模型可见、可请求、获准执行、协议成功和目标达成是不同状态。"
+    class: METHODOLOGY
+    stability: stable
+    source_ids: [C14-PREFLIGHT, C09, C09-TASK, C06]
+    limitations: "产品内部枚举可能不同。"
+  - evidence_id: E-C14-004
+    claim: "Tool schema、description、annotation 与 MCP 兼容均不能授予业务权限。"
+    class: STANDARD-FACT
+    stability: versioned
+    source_ids: [MCP-TOOLS, MCP-SEC, C22-PREFLIGHT]
+    limitations: "业务授权由部署系统实现。"
+  - evidence_id: E-C14-005
+    claim: "Tool schema 合法只证明形状；工具结果仍是不可信数据，可能包含间接注入、伪状态或秘密诱导。"
+    class: OFFICIAL-GUIDANCE
+    stability: evolving
+    source_ids: [MCP-TOOLS, OWASP-AGENT, OWASP-MCP, C13]
+    limitations: "taint 检测不能保证识别全部恶意内容。"
+  - evidence_id: E-C14-006
+    claim: "Policy、业务授权、Approval 与 Sandbox 回答不同问题，彼此不能替代。"
+    class: METHODOLOGY
+    stability: stable
+    source_ids: [C06, C22-PREFLIGHT, OC-APPROVAL, OC-SANDBOX]
+    limitations: "C22 拥有全书安全模型主定义权。"
+  - evidence_id: E-C14-007
+    claim: "timeout 和 cancel 不证明副作用未发生；UNKNOWN 后应先读回，补偿是新的可失败动作。"
+    class: METHODOLOGY
+    stability: stable
+    source_ids: [C14-PREFLIGHT, C09, C23-PREFLIGHT]
+    limitations: "可读回能力依赖业务系统。"
+  - evidence_id: E-C14-008
+    claim: "安全重试依赖业务幂等键、Server 侧持久去重和环境终态查询，协议请求 ID 不能替代。"
+    class: METHODOLOGY
+    stability: stable
+    source_ids: [C14-PREFLIGHT, C23-PREFLIGHT]
+    limitations: "某些外部动作不可幂等或不可补偿。"
+  - evidence_id: E-C14-009
+    claim: "MCP 2026-07-28 使用 Host—Client—Server 架构，Tools、Resources、Prompts 与 Extensions 是不同能力表面。"
+    class: STANDARD-FACT
+    stability: versioned
+    source_ids: [MCP-REL, MCP-ARCH, MCP-TOOLS, MCP-RES, MCP-PROMPTS]
+    limitations: "不描述某个产品的全部实现。"
+  - evidence_id: E-C14-010
+    claim: "MCP 2026-07-28 核心无状态，移除旧 initialize/initialized 与协议 session/Mcp-Session-Id，每请求携带版本和 capabilities。"
+    class: STANDARD-FACT
+    stability: versioned
+    source_ids: [MCP-CHANGE, MCP-ARCH]
+    limitations: "应用层可通过显式 handle 持有状态。"
+  - evidence_id: E-C14-011
+    claim: "显式 state handle 每次调用仍需重新授权；handle 不应被当作默认 capability token。"
+    class: STANDARD-FACT
+    stability: versioned
+    source_ids: [MCP-STATE]
+    limitations: "匿名 bearer handle 需另做高熵与生命周期控制。"
+  - evidence_id: E-C14-012
+    claim: "MCP HTTP authorization 是可选协议能力；scope、audience、consent 和企业业务审批仍须部署侧补足。"
+    class: STANDARD-FACT
+    stability: versioned
+    source_ids: [MCP-AUTH, MCP-SEC]
+    limitations: "stdio 从环境取得凭证，不使用同一 OAuth 流。"
+  - evidence_id: E-C14-013
+    claim: "token passthrough、confused deputy、SSRF、危险 authorization URL、本地 Server compromise 与 state handle hijacking 是 MCP 官方安全关注。"
+    class: STANDARD-FACT
+    stability: evolving
+    source_ids: [MCP-SEC]
+    limitations: "风险清单不证明具体部署易受攻击。"
+  - evidence_id: E-C14-014
+    claim: "模型应只接触 credential reference；短期 credential value 由执行边界按 target、scope 与 audience 注入。"
+    class: METHODOLOGY
+    stability: stable
+    source_ids: [C22-PREFLIGHT, OC-SECRETS, OWASP-AGENT]
+    limitations: "具体代理与轮换机制依实现而定。"
+  - evidence_id: E-C14-015
+    claim: "工具结果进入 Context 或 Memory 前必须保留来源、taint、数据分类与最小化；不得自动持久化或产生授权。"
+    class: METHODOLOGY
+    stability: project-controlled
+    source_ids: [C13, C13-POLICY, C09]
+    limitations: "C13 拥有 Memory 写入与保留主定义权。"
+  - evidence_id: E-C14-016
+    claim: "OpenClaw 固定版将 Tool、Skill、Plugin 分为不同面，并在 schema 暴露前受 profile/policy/provider/sandbox/channel/plugin availability 等过滤。"
+    class: VERSION-FACT
+    stability: versioned
+    source_ids: [OC-REL, OC-TOOLS, OC-PERM]
+    limitations: "只适用于 eb377ac；实际配置需实机核验。"
+  - evidence_id: E-C14-017
+    claim: "OpenClaw 固定版接入 MCP 后仍受工具策略；连接 Server 不绕过 policy。"
+    class: VERSION-FACT
+    stability: versioned
+    source_ids: [OC-MCP, OC-PERM]
+    limitations: "不同 Server 和 plugin 仍需单独审查。"
+  - evidence_id: E-C14-018
+    claim: "OpenClaw 固定版 Browser 的独立 profile、approval、sandbox mode/scope/backend 和 secrets runtime 是不同执行与控制面。"
+    class: VERSION-FACT
+    stability: versioned
+    source_ids: [OC-BROWSER, OC-APPROVAL, OC-SANDBOX, OC-SECRETS]
+    limitations: "存在控制不证明页面可信或配置安全。"
+  - evidence_id: E-C14-019
+    claim: "Hermes 固定 release 锚定 v0.20.1 / v2026.8.13；MCP、安全与代码执行行为只能按 2026-09-30 动态官方文档标注。"
+    class: DYNAMIC-OFFICIAL
+    stability: dynamic
+    source_ids: [HE-REL, HE-MCP, HE-MCP-CONFIG, HE-SEC, HE-CODE]
+    limitations: "动态页不能倒推固定 release 逐项具备。"
+  - evidence_id: E-C14-020
+    claim: "Muse 的 Secure VM、browser、connectors、Sentinel、privsep 与 credential surrogation 均为厂商公开声明。"
+    class: VENDOR-CLAIM
+    stability: dynamic
+    source_ids: [MUSE-NEWS, MUSE-SEC]
+    limitations: "不支持 Muse 使用 MCP 或内部合同、幂等、安全效果结论。"
+  - evidence_id: E-C14-021
+    claim: "MCP Server 与工具供应链信任应记录 publisher、version/digest、schema snapshot、权限、执行位置、网络、凭证、漏洞、owner 和替代撤权。"
+    class: OFFICIAL-GUIDANCE
+    stability: evolving
+    source_ids: [MCP-SEC, OWASP-MCP, C22-PREFLIGHT]
+    limitations: "C15 拥有 Plugin/Skill 供应链主定义权。"
+  - evidence_id: E-C14-022
+    claim: "协议 receipt、Artifact 和环境终态必须分别记录；isError=false 或 complete 不能证明业务目标达成。"
+    class: METHODOLOGY
+    stability: project-controlled
+    source_ids: [C09, C09-DELIVERY, C23-PREFLIGHT]
+    limitations: "环境事实源随业务而异。"
+  - evidence_id: E-C14-023
+    claim: "安全关键失败不得与功能成功、成本或平均分相抵消。"
+    class: METHODOLOGY
+    stability: project-controlled
+    source_ids: [QUALITY, C22-PREFLIGHT, C23-PREFLIGHT]
+    limitations: "阈值和事故程序由相应 owner 决定。"
+  - evidence_id: E-C14-024
+    claim: "C14 只提供工具专项攻击面、观测字段和控制需求，不重定义 C22 威胁模型或 C23 SLI/SLO。"
+    class: METHODOLOGY
+    stability: project-controlled
+    source_ids: [C22-PREFLIGHT, C23-PREFLIGHT, C14-CARD]
+    limitations: "下游正式章节可能增加治理字段。"
+  - evidence_id: E-C14-025
+    claim: "作者确定性离线实验运行 18 个 trial，得到 12 PASS、4 FAIL、2 REVIEW_REQUIRED，并保留恶意描述、审批绕过、重复副作用、cancel、秘密与错误终态失败。"
+    class: LOCAL-VALIDATION
+    stability: reproducible-fixture
+    source_ids: [LOCAL-C14-RUN, LOCAL-C14-SCRIPT]
+    limitations: "不是平台、真实 MCP、生产安全或协议认证证据。"
+
+open_issues:
+  - issue_id: O-C14-001
+    status: REVIEW_REQUIRED
+    item: "OpenClaw 目标部署的实际 MCP Servers、tool profile、approval、sandbox、Browser 与 secrets 配置尚未实机探测。"
+    owner: "independent-practice-reviewer"
+  - issue_id: O-C14-002
+    status: REVIEW_REQUIRED
+    item: "Hermes 动态 MCP/Security/Code Execution 页面尚未逐项固定到 v0.20.1 源码。"
+    owner: "evidence-reviewer"
+  - issue_id: O-C14-003
+    status: REVIEW_REQUIRED
+    item: "Muse 内部 connector schema、幂等、补偿和凭证实现未知。"
+    owner: "evidence-reviewer"
+  - issue_id: O-C14-004
+    status: REVIEW_REQUIRED
+    item: "真实 Provider 的 receipt、幂等、取消、补偿、日志与数据保留需逐供应商核验。"
+    owner: "C22-C23-C24"
+
+change_log:
+  - version: "0.1.0"
+    date: "2026-09-30"
+    change: "建立 C14 协议、平台、方法与作者合成实验账本。"
+    status: drafting

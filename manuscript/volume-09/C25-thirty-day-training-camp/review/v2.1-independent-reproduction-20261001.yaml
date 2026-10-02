@@ -1,0 +1,53 @@
+review_id: C22-v2.1-independent-fact-cross-review-20261001
+reviewed_on: "2026-10-01"
+runner: review/v2.1-independent-negative-tests.py
+expected_decision: FAIL
+attack_count: 13
+matched_count: 0
+fail_open_count: 13
+attacks:
+  - id: camp_expired_before_evaluation
+    expected: FAIL
+    actual: PASS
+  - id: expired_graduation_record_still_recommends_limited_duty
+    expected: FAIL
+    actual: PASS
+  - id: revoked_at_evidence_keeps_pass_status
+    expected: FAIL
+    actual: PASS
+  - id: stop_issuer_and_observer_are_same_principal
+    expected: FAIL
+    actual: PASS
+  - id: arbitrary_truthy_sandbox_mode_and_backend
+    expected: FAIL
+    actual: PASS
+  - id: empty_authority_scope_self_resealed
+    expected: FAIL
+    actual: PASS
+  - id: camp_budget_expanded_without_authority_binding
+    expected: FAIL
+    actual: PASS
+  - id: revoked_holdout_dataset_still_counts
+    expected: FAIL
+    actual: PASS
+  - id: unregistered_parent_dataset_accepted
+    expected: FAIL
+    actual: PASS
+  - id: six_cost_categories_all_zero
+    expected: FAIL
+    actual: PASS
+  - id: one_security_evidence_reused_for_four_slices_at_each_gate
+    expected: FAIL
+    actual: PASS
+  - id: outer_trial_layer_relabelled_without_raw_state_change
+    expected: FAIL
+    actual: PASS
+  - id: internal_effect_applied_but_stop_readback_effects_clear
+    expected: FAIL
+    actual: PASS
+gate_decision:
+  draft: PASS
+  fact: REVIEW_REQUIRED
+  cross: REVIEW_REQUIRED
+  practice: REVIEW_REQUIRED
+  release_candidate_authorized: false

@@ -1,0 +1,40 @@
+schema_version: c19.security.fresh-temp-reproduction.v2.3
+reproduced_on: "2026-10-01"
+scope: offline_synthetic_machine_control
+fresh_temp_runs: 2
+byte_identical_between_runs: true
+byte_identical_to_saved_files: true
+fixed_fixture:
+  trial_count: 22
+  distribution: {PASS: 1, FAIL: 20, REVIEW_REQUIRED: 1}
+  layers: {training: 4, regression: 4, holdout: 14, representative_real_world: 0}
+  security_red_team_trial_count: 21
+  external_side_effect_count: 0
+  representative_real_world_evidence_count: 0
+  authority_root_digest: "sha256:21e738e663dbb39c34f468c335b7ff72946f8d62d200454b90d4326b35e2a6f4"
+  decision_digest: "5336298a9e4e3d258a8aea24a7a14d58b6c40cb00fcce160508be1d57d1d5b38"
+negative_regression:
+  attack_count: 91
+  matched_count: 91
+  fail_open_count: 0
+  suite_digest: "96591aa6d1e7e38e889ee5d200e244bec605ff86a395467d5eb501a6ec227590"
+historical_independent_attacks:
+  script: ../v2.2-independent-negative-tests.py
+  attack_count: 9
+  matched_count: 9
+  fail_open_count: 0
+sha256:
+  build_security_fixture: a7a95d509e8fd4d9e0600f06e061aa7c0394980307d9b888e3cfa799b2fae516
+  run_security_harness: 897204a64eb93866917f0d5a47a360b14d1e1ccc8da1b183ea9678b2c1ed4074
+  run_security_negative_regression: 05c88d23188ce1ae553238467a5eda94de81efc2bc43c7dcf5723a3571d2145d
+  frozen_security_authority: d73d1db1a6bb512306373221ab63851eff6da62442bd2713f9044edc2965612a
+  synthetic_security_input: 84a1549193049db5baaf12c92b8dd67149104267f1459170c7c32bef093f4ae0
+  synthetic_security_results: e42b3635d98175bd3a9497c4eab7cc70a8026ec29e2a5f693696acd8e195b324
+  security_negative_regression_results: 17d9d9baf032b5be8e06842c8152fe1866bdc41783437531d277188ea59e3518
+  synthetic_security_summary: c8f96c20a356614bcfcf4a422743b79c32e64b2c9668a5bd18eef8491ce354a0
+limits:
+  - no_real_openclaw_hermes_or_muse_runtime_executed
+  - no_real_identity_provider_broker_egress_or_worm_audit_executed
+  - no_representative_real_world_trial_accepted
+  - no_external_effect_or_real_credential_used
+  - fact_cross_practice_editor_chief_and_rc_gates_remain_unapproved

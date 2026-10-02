@@ -1,0 +1,1545 @@
+registry_id: "TR-2026-09"
+title: "《训虾手册》受控术语与产品边界登记表"
+version: "1.1.0"
+status: "editorial-controlled"
+language: "zh-CN"
+verified_on: "2026-10-01"
+normative_note: >-
+  本文件是正式书稿的唯一受控术语登记表。定义冲突依次服从正式标准、
+  固定版本产品文档、本登记表和本书原创方法论。产品实现名不得被改写为
+  通用标准；本书方法论必须明确标注为“本书定义”。
+
+controlled_values:
+  status:
+    - "standard"
+    - "industry"
+    - "product"
+    - "methodology"
+  scope:
+    - "general"
+    - "openclaw"
+    - "hermes"
+    - "muse"
+    - "mcp"
+    - "a2a"
+    - "agent-skills"
+    - "opentelemetry"
+  definition_owner_pattern: "^(C(0[1-9]|1[0-9]|2[0-4])|PREFACE|APPENDIX-[A-G])$"
+
+editorial_rules:
+  - "首次出现时使用 preferred_zh，并在括号中给出 preferred_en；后文使用首选中文名或已登记的官方产品真名。"
+  - "deprecated_terms 不得进入正文、配置、Schema 或图表；仅可在勘误、迁移说明中引用。"
+  - "ambiguous_terms 只有在紧邻上下文已经消除歧义时才可使用。"
+  - "do_not_confuse_with 中的对象必须在解释、图表和机器块中保持分离。"
+  - "product_specific 为 true 时，定义只适用于 scope 中列出的产品或协议，不得外推为行业通则。"
+  - "版本性产品定义必须与固定版本或核验日期一起使用。"
+
+source_catalog:
+  - source_id: "BOOK-FRAMEWORK"
+    title: "正式出版版三级内容框架 v2"
+    kind: "local-editorial-source"
+    scope: ["general"]
+    locator: "00-正式出版版-三级内容框架-v2.md"
+    verified_on: "2026-09-30"
+    limitations: "母架构候选；本书原创术语须标记 methodology。"
+  - source_id: "BOOK-QUALITY"
+    title: "Book Quality Standard"
+    kind: "local-normative-source"
+    scope: ["general"]
+    locator: "docs/editorial/BOOK-QUALITY-STANDARD.md"
+    verified_on: "2026-09-30"
+    limitations: "本项目编辑规范，不是外部行业标准。"
+  - source_id: "BOOK-EVIDENCE"
+    title: "平台与前沿实践证据底稿"
+    kind: "local-research-source"
+    scope: ["general", "openclaw", "hermes", "muse", "mcp", "a2a", "agent-skills", "opentelemetry"]
+    locator: "docs/research/platform-and-frontier-evidence.md"
+    verified_on: "2026-09-30"
+    limitations: "研究底稿；进入正文时仍须按章节证据账本固定版本和定位。"
+  - source_id: "OC-ARCH"
+    title: "OpenClaw Gateway Architecture"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/concepts/architecture"
+    verified_on: "2026-09-30"
+    limitations: "动态官方文档；实现细节应锁定 OpenClaw 2026.9.6。"
+  - source_id: "OC-AGENT"
+    title: "OpenClaw Agent Runtime"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/concepts/agent"
+    verified_on: "2026-09-30"
+    limitations: "动态官方文档。"
+  - source_id: "OC-WORKSPACE"
+    title: "OpenClaw Agent Workspace"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/concepts/agent-workspace"
+    verified_on: "2026-09-30"
+    limitations: "工作区文件不是系统权限边界。"
+  - source_id: "OC-MULTI"
+    title: "OpenClaw Multi-Agent Routing"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/concepts/multi-agent"
+    verified_on: "2026-09-30"
+    limitations: "Bindings 与会话、认证、授权必须分开描述。"
+  - source_id: "OC-MEMORY"
+    title: "OpenClaw Memory Provenance"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/concepts/memory-provenance"
+    verified_on: "2026-09-30"
+    limitations: "动态官方文档。"
+  - source_id: "OC-HEARTBEAT"
+    title: "OpenClaw Heartbeat"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/gateway/heartbeat"
+    verified_on: "2026-09-30"
+    limitations: "具体默认值和字段属于版本事实。"
+  - source_id: "OC-AUTOMATION"
+    title: "OpenClaw Automation"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/automation"
+    verified_on: "2026-09-30"
+    limitations: "Standing Orders、Hooks、Webhooks 的实现语义应锁版本复核。"
+  - source_id: "OC-SKILLS"
+    title: "OpenClaw Skills"
+    kind: "official-doc"
+    scope: ["openclaw", "agent-skills"]
+    url: "https://docs.openclaw.ai/tools/skills"
+    verified_on: "2026-09-30"
+    limitations: "产品支持范围不等于 Agent Skills 规范的全部要求。"
+  - source_id: "OC-SANDBOX"
+    title: "OpenClaw Sandbox Modes, Scope and Backend"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/gateway/sandboxing/modes-scope-and-backend"
+    verified_on: "2026-09-30"
+    limitations: "沙箱模式、共享范围和后端是三个独立决策。"
+  - source_id: "OC-TRUST"
+    title: "OpenClaw Trust Model"
+    kind: "official-doc"
+    scope: ["openclaw"]
+    url: "https://docs.openclaw.ai/gateway/security/trust-model"
+    verified_on: "2026-09-30"
+    limitations: "产品威胁模型不能替代部署方自己的风险评估。"
+  - source_id: "HERMES-ARCH"
+    title: "Hermes Agent Architecture"
+    kind: "official-doc"
+    scope: ["hermes"]
+    url: "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture"
+    verified_on: "2026-09-30"
+    limitations: "动态官方文档；实现细节应锁定 Hermes Agent 0.20.1。"
+  - source_id: "HERMES-FILES"
+    title: "Hermes Which File Does What"
+    kind: "official-doc"
+    scope: ["hermes"]
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/which-file-does-what"
+    verified_on: "2026-09-30"
+    limitations: "文件名是产品实现，不是通用契约标准。"
+  - source_id: "HERMES-MEMORY"
+    title: "Hermes Memory"
+    kind: "official-doc"
+    scope: ["hermes"]
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory"
+    verified_on: "2026-09-30"
+    limitations: "具体存储和检索行为属于版本事实。"
+  - source_id: "HERMES-CRON"
+    title: "Hermes Cron"
+    kind: "official-doc"
+    scope: ["hermes"]
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/"
+    verified_on: "2026-09-30"
+    limitations: "调度语义和投递机制应锁版本复核。"
+  - source_id: "HERMES-SKILLS"
+    title: "Hermes Skills"
+    kind: "official-doc"
+    scope: ["hermes", "agent-skills"]
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills"
+    verified_on: "2026-09-30"
+    limitations: "产品激活和审批机制不可外推为规范要求。"
+  - source_id: "HERMES-SECURITY"
+    title: "Hermes Security"
+    kind: "official-doc"
+    scope: ["hermes"]
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/security/"
+    verified_on: "2026-09-30"
+    limitations: "产品控制措施仍需部署验证。"
+  - source_id: "MUSE-LAUNCH"
+    title: "Introducing Muse, a Personal AI Agent"
+    kind: "vendor-announcement"
+    scope: ["muse"]
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+    verified_on: "2026-09-30"
+    limitations: "Meta 厂商声明；非独立实现验证。"
+  - source_id: "MUSE-DESIGN"
+    title: "Muse Product Design"
+    kind: "vendor-doc"
+    scope: ["muse"]
+    url: "https://introducing.muse.ai/"
+    verified_on: "2026-09-30"
+    limitations: "产品展示材料；效果与内部机制不可无证据外推。"
+  - source_id: "MCP-SPEC"
+    title: "Model Context Protocol Specification 2026-07-28"
+    kind: "standard"
+    scope: ["mcp"]
+    url: "https://modelcontextprotocol.io/specification/2026-07-28"
+    verified_on: "2026-09-30"
+    limitations: "协议互通不等于授权、安全或可信。"
+  - source_id: "MCP-SECURITY"
+    title: "MCP Security Best Practices 2026-07-28"
+    kind: "standard-guidance"
+    scope: ["mcp"]
+    url: "https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices"
+    verified_on: "2026-09-30"
+    limitations: "实现方仍负责身份、权限、数据保护和用户同意。"
+  - source_id: "A2A-SPEC"
+    title: "A2A Protocol Specification v1.0.1"
+    kind: "standard"
+    scope: ["a2a"]
+    url: "https://github.com/a2aproject/A2A/releases/tag/v1.0.1"
+    commit: "3303592588e388e62e0f69f701af531d2f4e3991"
+    dynamic_url: "https://a2a-protocol.org/latest/specification/"
+    verified_on: "2026-10-01"
+    limitations: "固定 release/commit 可复现；latest 页面只表示核验日导航状态。"
+  - source_id: "AGENT-SKILLS-SPEC"
+    title: "Agent Skills Specification Snapshot"
+    kind: "standard"
+    scope: ["agent-skills"]
+    url: "https://github.com/agentskills/agentskills/tree/69ef37e9424c0a7ea9dd2293b559e43ec8176379"
+    commit: "69ef37e9424c0a7ea9dd2293b559e43ec8176379"
+    dynamic_url: "https://agentskills.io/specification"
+    verified_on: "2026-10-01"
+    limitations: "复核时未定位到官方 tag；commit 是可重复快照，动态网页跨日期不可直接复现；封装格式不完整规定信任、激活、分发和运行时权限。"
+  - source_id: "OTEL-SEMCONV"
+    title: "OpenTelemetry Semantic Conventions v1.44.0"
+    kind: "standard"
+    scope: ["opentelemetry"]
+    url: "https://github.com/open-telemetry/semantic-conventions/releases/tag/v1.44.0"
+    commit: "e10a930844c6951757a43b849d364f7d056ac32b"
+    verified_on: "2026-10-01"
+    limitations: "只固定核心语义约定；不代表独立 GenAI development 仓库字段稳定。"
+  - source_id: "OTEL-GENAI"
+    title: "OpenTelemetry GenAI Agent Semantic Conventions Snapshot"
+    kind: "standard-development-snapshot"
+    scope: ["opentelemetry"]
+    url: "https://github.com/open-telemetry/semantic-conventions-genai/blob/b31e9e8ea26ac1c086d3313d474e31d7c3f391ae/docs/gen-ai/gen-ai-agent-spans.md"
+    commit: "b31e9e8ea26ac1c086d3313d474e31d7c3f391ae"
+    verified_on: "2026-10-01"
+    limitations: "Agent 与 framework spans 仍为 Development；字段可变，不能作为永久稳定合同。"
+  - source_id: "ANTHROPIC-AGENTS"
+    title: "Building Effective Agents"
+    kind: "vendor-engineering-guidance"
+    scope: ["general"]
+    url: "https://www.anthropic.com/engineering/building-effective-agents"
+    verified_on: "2026-09-30"
+    limitations: "厂商工程实践；跨平台结论需与其他来源交叉核验。"
+  - source_id: "ANTHROPIC-TRUST"
+    title: "Towards Building Trustworthy Agents"
+    kind: "vendor-research"
+    scope: ["general"]
+    url: "https://www.anthropic.com/research/trustworthy-agents"
+    verified_on: "2026-09-30"
+    limitations: "研究与设计建议，不是强制标准。"
+  - source_id: "NIST-IDENTITY"
+    title: "NIST Concept Paper on Identity and Authority for Software Agents"
+    kind: "government-guidance"
+    scope: ["general"]
+    url: "https://www.nist.gov/news-events/news/2026/02/new-concept-paper-identity-and-authority-software-agents"
+    verified_on: "2026-09-30"
+    limitations: "概念性指导，不等于具体产品合规认证。"
+
+terms:
+  - term_id: "agent"
+    preferred_zh: "Agent（智能体）"
+    preferred_en: "Agent"
+    status: "industry"
+    definition: >-
+      由模型、运行时、上下文与状态、工具、环境以及反馈回路共同构成，能够在边界内持续观察、决策并采取行动的系统对象；不是一次模型调用，也不因被拟人化而获得意识或主体资格。
+    definition_owner: "C01"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["AI 机器人（作为无差别总称）"]
+    ambiguous_terms: ["助手", "硅基生命", "Bot"]
+    do_not_confuse_with: ["model", "runtime", "workflow", "organization"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-AGENT", "HERMES-ARCH", "ANTHROPIC-TRUST"]
+
+  - term_id: "model"
+    preferred_zh: "模型"
+    preferred_en: "Model"
+    status: "industry"
+    definition: >-
+      根据输入生成预测或输出的推理组件。模型可以为 Agent 提供认知能力，但不天然拥有持久身份、会话、工具权限、任务责任或运行状态。
+    definition_owner: "C01"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Agent 模型（用于把模型等同于 Agent 时）"]
+    ambiguous_terms: ["大模型", "基础模型", "LLM"]
+    do_not_confuse_with: ["agent", "runtime", "provider"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-AGENT", "HERMES-ARCH"]
+
+  - term_id: "runtime"
+    preferred_zh: "Agent 运行时"
+    preferred_en: "Agent Runtime"
+    status: "industry"
+    definition: >-
+      组装指令与上下文、选择模型与 Provider、驱动工具循环，并处理重试、压缩、持久化和投递的执行层；它承载 Agent 行为，但不等同于模型、工作区或控制平面。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Prompt 外壳"]
+    ambiguous_terms: ["引擎", "核心", "Agent Runtime"]
+    do_not_confuse_with: ["agent", "model", "control_plane", "workspace"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-AGENT", "HERMES-ARCH"]
+
+  - term_id: "control_plane"
+    preferred_zh: "控制平面"
+    preferred_en: "Control Plane"
+    status: "industry"
+    definition: >-
+      负责配置、发现、路由、策略、状态协调、生命周期和可观测管理的架构层；它描述职责集合，不要求由单一进程承担，也不等同于某个产品命名为 Gateway 的组件。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: []
+    ambiguous_terms: ["中控", "调度中心", "大脑"]
+    do_not_confuse_with: ["gateway", "runtime", "worker"]
+    evidence_refs: ["BOOK-QUALITY", "BOOK-EVIDENCE", "OC-ARCH", "HERMES-ARCH"]
+
+  - term_id: "gateway"
+    preferred_zh: "Gateway（网关组件）"
+    preferred_en: "Gateway"
+    status: "product"
+    definition: >-
+      OpenClaw 或 Hermes 中承担连接、消息入口、路由、事件、调度或节点协调等职责的产品组件名；两种产品的具体职责不同，引用时必须标明产品与版本。
+    definition_owner: "C06"
+    scope: ["openclaw", "hermes"]
+    product_specific: true
+    deprecated_terms: ["统一中枢（作为官方组件名时）"]
+    ambiguous_terms: ["网关", "Gateway 服务"]
+    do_not_confuse_with: ["control_plane", "runtime", "channel"]
+    evidence_refs: ["BOOK-QUALITY", "BOOK-EVIDENCE", "OC-ARCH", "HERMES-ARCH"]
+
+  - term_id: "workspace"
+    preferred_zh: "工作区"
+    preferred_en: "Workspace"
+    status: "industry"
+    definition: >-
+      Agent 或项目组织指令、资料、状态和产物的持久化工作容器；工作区决定可发现内容和协作边界，但本身不是执行沙箱或访问控制机制。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["资料文件夹（用于概括全部职责时）"]
+    ambiguous_terms: ["项目目录", "仓库"]
+    do_not_confuse_with: ["sandbox", "session", "context"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-WORKSPACE", "HERMES-FILES"]
+
+  - term_id: "session"
+    preferred_zh: "会话"
+    preferred_en: "Session"
+    status: "industry"
+    definition: >-
+      关联一段交互或任务轨迹的有状态容器，可持有消息、工具调用、附件、谱系和恢复信息；会话键或会话隔离不天然构成身份认证或授权边界。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: []
+    ambiguous_terms: ["线程", "对话", "任务会话"]
+    do_not_confuse_with: ["context", "memory", "account", "a2a_task"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-ARCH", "HERMES-ARCH"]
+
+  - term_id: "context"
+    preferred_zh: "上下文"
+    preferred_en: "Context"
+    status: "industry"
+    definition: >-
+      某次推理或执行在当下可见的信息集合，包括指令、消息、检索结果、工具反馈和任务状态；上下文是暂时的可见面，不等同于持久记忆或完整会话历史。
+    definition_owner: "C10"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["记忆（用于指当轮输入时）"]
+    ambiguous_terms: ["上下文窗口", "背景"]
+    do_not_confuse_with: ["memory", "session", "workspace", "compaction"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-AGENT", "HERMES-ARCH"]
+
+  - term_id: "memory"
+    preferred_zh: "记忆"
+    preferred_en: "Memory"
+    status: "industry"
+    definition: >-
+      经选择后被持久保存并可在后续任务中检索或注入的经验、事实、偏好或关系状态；必须治理来源、写入、保留期、访问、更正和删除，不代表主观意识。
+    definition_owner: "C10"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["永久记忆（未声明保留和删除语义时）"]
+    ambiguous_terms: ["长期记忆", "用户记忆", "工作记忆"]
+    do_not_confuse_with: ["context", "session", "workspace", "compaction", "contract_memory"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-MEMORY", "HERMES-MEMORY"]
+
+  - term_id: "compaction"
+    preferred_zh: "上下文压缩"
+    preferred_en: "Context Compaction"
+    status: "industry"
+    definition: >-
+      为满足上下文预算而对历史内容进行摘要、选择、结构化或替换的转换过程；其目标是保留任务关键事实，不等同于删除原始记录或形成长期记忆。
+    definition_owner: "C10"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["无损压缩（未经保真验证时）"]
+    ambiguous_terms: ["压缩", "摘要", "上下文整理"]
+    do_not_confuse_with: ["memory", "context", "session"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-AGENT", "HERMES-ARCH"]
+
+  - term_id: "channel"
+    preferred_zh: "消息通道"
+    preferred_en: "Channel"
+    status: "industry"
+    definition: >-
+      承载入站和出站消息的产品或传输适配面，例如聊天平台或应用入口；通道不等同于其中登录的账号、单个会话或路由规则。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["平台（未说明是消息入口还是供应商时）"]
+    ambiguous_terms: ["渠道", "Connector"]
+    do_not_confuse_with: ["account", "binding", "session", "gateway"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-ARCH", "OC-MULTI", "HERMES-ARCH"]
+
+  - term_id: "account"
+    preferred_zh: "通道账号"
+    preferred_en: "Channel Account"
+    status: "industry"
+    definition: >-
+      在特定消息通道中用于连接、收发和标识配置的账号实例；它可以参与路由和权限判断，但不等同于最终用户身份、Agent 身份或会话。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: []
+    ambiguous_terms: ["账号", "Bot 账号", "身份"]
+    do_not_confuse_with: ["channel", "binding", "session", "contract_identity"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-MULTI", "OC-TRUST", "HERMES-ARCH"]
+
+  - term_id: "binding"
+    preferred_zh: "路由绑定"
+    preferred_en: "Binding"
+    status: "product"
+    definition: >-
+      将特定消息来源、账号、对话范围或入口映射到目标 Agent、Profile 或工作区的显式规则；绑定决定分派，不自动授予目标执行敏感动作的权限。
+    definition_owner: "C06"
+    scope: ["openclaw", "hermes"]
+    product_specific: true
+    deprecated_terms: ["授权绑定"]
+    ambiguous_terms: ["绑定", "映射", "路由规则"]
+    do_not_confuse_with: ["routing", "policy", "approval", "account"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-MULTI", "HERMES-ARCH"]
+
+  - term_id: "queue"
+    preferred_zh: "队列"
+    preferred_en: "Queue"
+    status: "industry"
+    definition: >-
+      按明确顺序、优先级或并发策略保存待处理、待投递或待介入工作的机制；队列描述等待与调度语义，不等同于任务生命周期或长期意图。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: []
+    ambiguous_terms: ["消息队列", "命令队列", "Steering Queue"]
+    do_not_confuse_with: ["a2a_task", "standing_order", "routing"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-ARCH", "HERMES-ARCH"]
+
+  - term_id: "provider"
+    preferred_zh: "模型 Provider"
+    preferred_en: "Model Provider"
+    status: "industry"
+    definition: >-
+      向运行时提供模型访问、认证、配额和故障切换接口的服务或适配层；Provider 不是模型本身，也不是任意外部工具服务的统称。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["模型（用于指供应商或 API 时）"]
+    ambiguous_terms: ["供应商", "后端", "API Provider"]
+    do_not_confuse_with: ["model", "mcp_server", "plugin"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-AGENT", "HERMES-ARCH"]
+
+  - term_id: "tool"
+    preferred_zh: "工具"
+    preferred_en: "Tool"
+    status: "industry"
+    definition: >-
+      由 Agent 或工作流按明确输入与输出调用的有界能力接口，可能读取、写入、外发或改变外部状态；工具能力与调用权限必须分别建模。
+    definition_owner: "C11"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["插件（作为 Tool 同义词时）"]
+    ambiguous_terms: ["函数", "能力", "Action"]
+    do_not_confuse_with: ["skill", "plugin", "workflow", "mcp_server"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE", "MCP-SPEC", "MCP-SECURITY"]
+
+  - term_id: "mcp_server"
+    preferred_zh: "MCP Server"
+    preferred_en: "MCP Server"
+    status: "standard"
+    definition: >-
+      按 Model Context Protocol 向 Host/Client 暴露工具、资源、提示或扩展能力的协议端点；它是能力提供者，不等同于单个工具，也不因遵循 MCP 自动获得可信或授权状态。
+    definition_owner: "C11"
+    scope: ["mcp"]
+    product_specific: true
+    deprecated_terms: ["MCP 工具（用于指整个 Server 时）"]
+    ambiguous_terms: ["MCP 服务", "MCP 节点"]
+    do_not_confuse_with: ["tool", "plugin", "provider", "agent"]
+    evidence_refs: ["BOOK-EVIDENCE", "MCP-SPEC", "MCP-SECURITY"]
+
+  - term_id: "opentelemetry"
+    preferred_zh: "OpenTelemetry 可观测标准"
+    preferred_en: "OpenTelemetry"
+    status: "standard"
+    definition: >-
+      用于生成、传输和处理 trace、metric 与 log 等遥测信号的开放标准与生态。本书将核心语义约定固定到 v1.44.0，并将独立 GenAI Agent 语义固定到核验日 commit；后者仍为 Development。遥测用于观察和关联，不能替代身份、授权收据、外部效果读回或 D21 业务验收。
+    definition_owner: "APPENDIX-F"
+    scope: ["opentelemetry"]
+    product_specific: true
+    deprecated_terms: ["OTel 审计证书", "trace 即完成证据"]
+    ambiguous_terms: ["OTel", "Telemetry", "GenAI spans"]
+    do_not_confuse_with: ["audit", "evidence", "d21_completion_faces", "local_validation"]
+    evidence_refs: ["BOOK-EVIDENCE", "OTEL-SEMCONV", "OTEL-GENAI"]
+
+  - term_id: "skill"
+    preferred_zh: "Skill（技能包）"
+    preferred_en: "Skill"
+    status: "standard"
+    definition: >-
+      可发现、按需加载、可版本化和可测试的程序性知识包，通常以入口说明连接流程、脚本、参考和模板；Skill 告诉 Agent 如何完成一类工作，但不自动提供工具或权限。
+    definition_owner: "C12"
+    scope: ["general", "agent-skills"]
+    product_specific: false
+    deprecated_terms: ["高级 Prompt", "提示词包（作为完整定义时）"]
+    ambiguous_terms: ["技能", "Agent Skill", "能力包"]
+    do_not_confuse_with: ["tool", "plugin", "workflow", "policy"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE", "AGENT-SKILLS-SPEC", "OC-SKILLS", "HERMES-SKILLS"]
+
+  - term_id: "plugin"
+    preferred_zh: "插件"
+    preferred_en: "Plugin"
+    status: "industry"
+    definition: >-
+      可安装、启用、升级和撤回的代码扩展单元，可注册工具、Provider、通道、Hook 或其他能力；插件扩大运行时与供应链攻击面，不能与纯程序性知识包等同。
+    definition_owner: "C12"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Skill（用于指可执行扩展代码时）"]
+    ambiguous_terms: ["扩展", "组件", "Add-on"]
+    do_not_confuse_with: ["skill", "tool", "mcp_server", "hook"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE", "OC-ARCH", "HERMES-ARCH"]
+
+  - term_id: "workflow"
+    preferred_zh: "工作流"
+    preferred_en: "Workflow"
+    status: "industry"
+    definition: >-
+      按预定或受约束的步骤、状态与分支组织任务的过程结构；工作流可以调用模型、Agent 和工具，但不因包含模型就成为 Agent。
+    definition_owner: "C11"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: []
+    ambiguous_terms: ["流程", "编排", "Automation"]
+    do_not_confuse_with: ["agent", "tool", "skill", "routing"]
+    evidence_refs: ["BOOK-QUALITY", "BOOK-EVIDENCE", "ANTHROPIC-AGENTS"]
+
+  - term_id: "hook"
+    preferred_zh: "Hook（生命周期钩子）"
+    preferred_en: "Hook"
+    status: "industry"
+    definition: >-
+      在运行时内部的已定义生命周期点触发回调或扩展逻辑的机制；Hook 通常共享宿主进程或信任边界，因而不同于经网络接收外部事件的 Webhook。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Webhook（用于指进程内回调时）"]
+    ambiguous_terms: ["钩子", "回调", "Lifecycle Hook"]
+    do_not_confuse_with: ["webhook", "plugin", "a2a_event"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-AUTOMATION"]
+
+  - term_id: "signal_envelope"
+    preferred_zh: "信号包络"
+    preferred_en: "Signal Envelope"
+    status: "methodology"
+    definition: >-
+      把一次状态变化、风险、机会、到期或人工意图连同来源、对象、时间、时区、时效、真实性、去重键、敏感性、置信、授权引用和期望响应封装成可验证输入的结构；信号只触发判断，不等于事实、任务成功或执行许可。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["事件一来就执行", "提醒即授权"]
+    ambiguous_terms: ["信号", "事件包", "触发消息"]
+    do_not_confuse_with: ["a2a_event", "webhook", "approval", "task_card"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "automation_state_machine"
+    preferred_zh: "自动化状态机"
+    preferred_en: "Automation State Machine"
+    status: "methodology"
+    definition: >-
+      将一次主动工作从信号接收推进到判断、等待批准、运行、验证、投递、暂停、熔断、恢复或终态的显式状态与合法迁移集合；调度成功、运行成功、投递成功和环境终态必须分开记录。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["定时任务成功即业务完成"]
+    ambiguous_terms: ["主动性状态机", "自动化流程", "任务状态"]
+    do_not_confuse_with: ["workflow", "cron", "queue", "environment_outcome"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "quiet_policy"
+    preferred_zh: "安静策略"
+    preferred_en: "Quiet Policy"
+    status: "methodology"
+    definition: >-
+      在无新信息、低价值、重复、冷却期、静默时段、暂停或证据不足时，规定系统应记录、合并、延后、升级或保持静默的规则；静默是可审计终态，不能掩盖遗漏或覆盖高严重度升级。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["不打扰就是不运行", "越频繁越主动"]
+    ambiguous_terms: ["免打扰", "静默规则", "通知节流"]
+    do_not_confuse_with: ["proactivity", "notification_policy", "heartbeat"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "proactive_notification_net_value"
+    preferred_zh: "主动通知净价值"
+    preferred_en: "Proactive Notification Net Value"
+    status: "methodology"
+    definition: >-
+      在触发资格和授权资格硬门通过后，对影响、时效、新颖、置信、可恢复收益与中断、风险、成本、重复、不确定性代价进行可解释比较的候选排序方法；它不能平均掉越权、来源不明或不可逆等硬失败。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["通知越多价值越高"]
+    ambiguous_terms: ["通知价值", "主动性得分", "提醒价值"]
+    do_not_confuse_with: ["seven_dimensions", "slo", "approval", "proactivity"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "webhook"
+    preferred_zh: "Webhook（网络事件回调）"
+    preferred_en: "Webhook"
+    status: "industry"
+    definition: >-
+      通过网络端点接收或发送事件通知的集成机制；入站 Webhook 是外部输入边界，必须验证来源、重放、时效、数据和权限。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Hook（用于指网络入口时）"]
+    ambiguous_terms: ["回调地址", "事件接口"]
+    do_not_confuse_with: ["hook", "channel", "a2a_event"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-AUTOMATION", "MCP-SECURITY"]
+
+  - term_id: "heartbeat"
+    preferred_zh: "Heartbeat（心跳）"
+    preferred_en: "Heartbeat"
+    status: "industry"
+    definition: >-
+      周期唤醒 Agent 观察状态、判断是否存在有意义变化并决定保持安静、提案、升级或在授权内行动的机制；心跳是观察节律，不等同于一条固定 Cron 任务。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["定时刷存在感"]
+    ambiguous_terms: ["心跳", "轮询", "周期检查"]
+    do_not_confuse_with: ["cron", "standing_order", "contract_heartbeat", "proactivity"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE", "OC-HEARTBEAT", "HERMES-CRON"]
+
+  - term_id: "cron"
+    preferred_zh: "Cron 定时任务"
+    preferred_en: "Cron Job"
+    status: "industry"
+    definition: >-
+      按确定时间表触发一次性或重复工作的调度机制；它保证触发条件的时间语义，不自动保证任务成功、幂等、低噪音或结果投递。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: []
+    ambiguous_terms: ["定时器", "计划任务", "Schedule"]
+    do_not_confuse_with: ["heartbeat", "standing_order", "queue"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-AUTOMATION", "HERMES-CRON"]
+
+  - term_id: "standing_order"
+    preferred_zh: "Standing Order（常设指令）"
+    preferred_en: "Standing Order"
+    status: "product"
+    definition: >-
+      OpenClaw 中表达持续目标、观察条件和受限行动意图的持久自动化对象；正文引用时必须说明触发、权限、安静策略、停止与复核条件，不得泛化为所有平台的通用原语。
+    definition_owner: "C13"
+    scope: ["openclaw"]
+    product_specific: true
+    deprecated_terms: ["永久命令", "无限授权"]
+    ambiguous_terms: ["常设任务", "长期指令"]
+    do_not_confuse_with: ["cron", "heartbeat", "queue", "policy"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-AUTOMATION"]
+
+  - term_id: "node"
+    preferred_zh: "执行节点"
+    preferred_en: "Node"
+    status: "product"
+    definition: >-
+      连接到控制平面、可暴露设备或远程执行能力的运行端点；节点描述执行位置和能力边界，不等同于 Agent、Worker 或消息账号。
+    definition_owner: "C06"
+    scope: ["openclaw"]
+    product_specific: true
+    deprecated_terms: ["子 Agent（用于指设备节点时）"]
+    ambiguous_terms: ["节点", "设备节点", "Remote Node"]
+    do_not_confuse_with: ["agent", "worker", "browser", "gateway"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-ARCH", "OC-TRUST"]
+
+  - term_id: "browser"
+    preferred_zh: "浏览器执行面"
+    preferred_en: "Browser Execution Surface"
+    status: "industry"
+    definition: >-
+      由运行时控制、用于导航网页、读取页面或执行浏览器交互的隔离表面及其会话；它不是通用互联网搜索，也不因可见页面而自动获得可信输入或用户授权。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["浏览器 Agent（未形成独立 Agent 时）"]
+    ambiguous_terms: ["Browser", "浏览器工具", "网页自动化"]
+    do_not_confuse_with: ["tool", "node", "session", "sandbox"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-ARCH", "HERMES-ARCH", "MCP-SECURITY"]
+
+  - term_id: "worker"
+    preferred_zh: "执行 Worker"
+    preferred_en: "Worker"
+    status: "industry"
+    definition: >-
+      领取并执行后台、计算或投递工作的进程、服务或运行单元；Worker 可以承载 Agent 任务，但若没有独立目标、决策和反馈循环，就不应被称为 Agent。
+    definition_owner: "C06"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Agent（用于指无决策执行进程时）"]
+    ambiguous_terms: ["工作节点", "后台进程", "Cloud Worker"]
+    do_not_confuse_with: ["agent", "node", "runtime", "control_plane"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-ARCH", "HERMES-ARCH"]
+
+  - term_id: "sandbox"
+    preferred_zh: "沙箱"
+    preferred_en: "Sandbox"
+    status: "industry"
+    definition: >-
+      通过系统或虚拟化机制限制代码、工具、文件、网络、进程和资源影响范围的执行隔离边界；沙箱必须说明模式、共享范围和后端，工作区或提示词不能替代沙箱。
+    definition_owner: "C19"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["安全模式（未说明强制隔离时）"]
+    ambiguous_terms: ["隔离环境", "容器", "VM"]
+    do_not_confuse_with: ["workspace", "policy", "approval"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-SANDBOX", "HERMES-SECURITY", "ANTHROPIC-TRUST"]
+
+  - term_id: "policy"
+    preferred_zh: "策略"
+    preferred_en: "Policy"
+    status: "industry"
+    definition: >-
+      由系统在模型之外确定性评估的允许、拒绝、限制、记录或升级规则；策略可以参考身份、风险和环境状态，但不等同于自然语言人格承诺或操作建议。
+    definition_owner: "C19"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["提示词护栏（作为强制策略的同义词时）"]
+    ambiguous_terms: ["规则", "Guardrail", "安全政策"]
+    do_not_confuse_with: ["approval", "sandbox", "contract_soul", "contract_agents"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-TRUST", "HERMES-SECURITY", "MCP-SECURITY", "NIST-IDENTITY"]
+
+  - term_id: "approval"
+    preferred_zh: "审批"
+    preferred_en: "Approval"
+    status: "industry"
+    definition: >-
+      在明确对象、影响、范围和有效期的门禁上，由具备相应权限的人或确定性系统作出的可审计决定；聊天中的泛化同意不是对后续敏感动作的无限授权。
+    definition_owner: "C14"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["默认同意", "一次同意永久有效"]
+    ambiguous_terms: ["确认", "许可", "Human-in-the-loop"]
+    do_not_confuse_with: ["policy", "routing", "binding", "contract_user"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "MCP-SECURITY", "ANTHROPIC-TRUST", "NIST-IDENTITY"]
+
+  - term_id: "a2a_task"
+    preferred_zh: "A2A 任务"
+    preferred_en: "A2A Task"
+    status: "standard"
+    definition: >-
+      A2A 协议中具有标识、状态和生命周期的有状态工作单元，可接收消息、产生状态更新和 Artifact；不是普通聊天消息或本书任务卡的同义词。
+    definition_owner: "C18"
+    scope: ["a2a"]
+    product_specific: true
+    deprecated_terms: ["A2A 对话（用于指 Task 生命周期时）"]
+    ambiguous_terms: ["Task", "任务"]
+    do_not_confuse_with: ["a2a_message", "a2a_artifact", "session", "queue"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "A2A-SPEC"]
+
+  - term_id: "a2a_message"
+    preferred_zh: "A2A 消息"
+    preferred_en: "A2A Message"
+    status: "standard"
+    definition: >-
+      A2A 协议中由角色发送、由一个或多个 Part 组成的通信内容，可用于请求、补充或说明；消息本身不承载完整任务生命周期，也不等同于可验收产物。
+    definition_owner: "C18"
+    scope: ["a2a"]
+    product_specific: true
+    deprecated_terms: []
+    ambiguous_terms: ["Message", "消息"]
+    do_not_confuse_with: ["a2a_task", "a2a_artifact", "a2a_event"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "A2A-SPEC"]
+
+  - term_id: "a2a_artifact"
+    preferred_zh: "A2A 产物"
+    preferred_en: "A2A Artifact"
+    status: "standard"
+    definition: >-
+      A2A Task 执行过程中产生、可由一个或多个 Part 组成并作为工作结果交付的对象；Artifact 需要独立治理来源、版本、所有者与验收，不能被临时消息替代。
+    definition_owner: "C18"
+    scope: ["a2a"]
+    product_specific: true
+    deprecated_terms: ["附件（作为所有 Artifact 的同义词时）"]
+    ambiguous_terms: ["Artifact", "产物", "结果"]
+    do_not_confuse_with: ["a2a_message", "a2a_task", "handoff"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "A2A-SPEC"]
+
+  - term_id: "a2a_event"
+    preferred_zh: "A2A 事件"
+    preferred_en: "A2A Event"
+    status: "standard"
+    definition: >-
+      A2A 流式或推送交互中表达 Task 状态变化或 Artifact 更新的事件对象，例如状态更新事件与产物更新事件；事件描述变化，不等同于用户消息或最终任务状态。
+    definition_owner: "C18"
+    scope: ["a2a"]
+    product_specific: true
+    deprecated_terms: ["通知（用于抹去事件类型时）"]
+    ambiguous_terms: ["Event", "更新", "流式事件"]
+    do_not_confuse_with: ["a2a_message", "a2a_task", "webhook", "hook"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "A2A-SPEC"]
+
+  - term_id: "agent_card"
+    preferred_zh: "Agent Card（Agent 能力卡）"
+    preferred_en: "Agent Card"
+    status: "standard"
+    definition: >-
+      A2A 中用于发现 Agent 接口、能力、技能与安全方案的元数据文档；它可以被签名和验证，但能力声明、签发者信任、运行时权限和实际行为仍须分别验证。
+    definition_owner: "C18"
+    scope: ["a2a"]
+    product_specific: true
+    deprecated_terms: ["Agent 身份证", "可信证书"]
+    ambiguous_terms: ["能力卡", "Agent 名片"]
+    do_not_confuse_with: ["contract_identity", "policy", "approval", "agent"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "A2A-SPEC", "NIST-IDENTITY"]
+
+  - term_id: "handoff"
+    preferred_zh: "任务交接"
+    preferred_en: "Handoff"
+    status: "methodology"
+    definition: >-
+      将任务责任连同已完成项、未完成项、状态、证据、产物、风险、阻塞和下一步显式转移给另一责任主体的过程；发送一条消息或转发上下文不构成完整交接。
+    definition_owner: "C17"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["甩单", "转消息（作为完整交接时）"]
+    ambiguous_terms: ["交接", "转派", "Delegation"]
+    do_not_confuse_with: ["routing", "yielding", "a2a_message", "a2a_artifact"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE", "A2A-SPEC"]
+
+  - term_id: "routing"
+    preferred_zh: "路由"
+    preferred_en: "Routing"
+    status: "industry"
+    definition: >-
+      根据能力、权限、负载、成本、时效和上下文把请求或任务选择并分派到适当目标的过程；路由决定“交给谁”，但不替目标取得行动授权。
+    definition_owner: "C17"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["授权（用于指分派时）"]
+    ambiguous_terms: ["调度", "分流", "派单"]
+    do_not_confuse_with: ["binding", "handoff", "policy", "approval"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-MULTI", "A2A-SPEC"]
+
+  - term_id: "yielding"
+    preferred_zh: "让位"
+    preferred_en: "Yielding"
+    status: "methodology"
+    definition: >-
+      本书定义的协作纪律：当另一个 Agent 更专业、更有权限或更适合承担责任时，当前 Agent 应明确停止抢答或执行，说明缺口并把任务交给合适主体。
+    definition_owner: "C17"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["认输", "静默退出"]
+    ambiguous_terms: ["让位协议", "谦让"]
+    do_not_confuse_with: ["handoff", "routing", "approval"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "proactivity"
+    preferred_zh: "受控主动性"
+    preferred_en: "Controlled Proactivity"
+    status: "methodology"
+    definition: >-
+      Agent 根据事件、时间或状态信号，在既定目标、权限和安静策略内主动观察、提案、升级或行动的能力；主动性由信号价值和风险边界衡量，不由通知频率衡量。
+    definition_owner: "C13"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["越主动越好", "自动执行一切"]
+    ambiguous_terms: ["主动性", "自主性", "自动化"]
+    do_not_confuse_with: ["heartbeat", "cron", "standing_order", "approval", "autonomy_level"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "OC-HEARTBEAT", "HERMES-CRON", "MUSE-DESIGN"]
+
+  - term_id: "autonomy_level"
+    preferred_zh: "AU-L0—AU-L4 自主阶梯"
+    preferred_en: "AU-L0-AU-L4 Autonomy Ladder"
+    status: "methodology"
+    definition: >-
+      本书定义的任务级五级自主语言：AU-L0观察、AU-L1建议、AU-L2草拟、AU-L3受控执行、AU-L4受限自主；它描述特定岗位、任务、动作、环境与版本下无需新增授权即可推进的最高阶段，不代表能力强弱、综合成熟度或系统实际权限。
+    definition_owner: "C14"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["自主性 L0-L4（无 AU 前缀）", "越自主越强"]
+    ambiguous_terms: ["自主等级", "自治等级", "Autonomy Level"]
+    do_not_confuse_with: ["proactivity", "maturity_l0_l5", "approval", "policy"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "autonomy_radius"
+    preferred_zh: "五维自主半径"
+    preferred_en: "Five-Dimension Autonomy Radius"
+    status: "methodology"
+    definition: >-
+      对 AU-L3 或 AU-L4 行动同时限定数据、动作、时间、责任与证据范围的可撤销边界；有效范围是五维交集，任一维缺失都不能支持高风险受控执行或受限自主。
+    definition_owner: "C14"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["给了工具就能自主", "长期全权授权"]
+    ambiguous_terms: ["自主边界", "授权半径", "权限范围"]
+    do_not_confuse_with: ["scope", "approval", "policy", "maturity_l0_l5"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "authority_evidence"
+    preferred_zh: "授权证据"
+    preferred_en: "Authority Evidence"
+    status: "methodology"
+    definition: >-
+      证明经认证且具备相应权力的批准者，已对特定主体、对象、动作、范围、参数和时窗作出可撤销决定的结构化记录；聊天中的模糊同意只能作为意图证据，不能自动升级为授权证据。
+    definition_owner: "C14"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["聊天说可以就算授权", "永久同意"]
+    ambiguous_terms: ["批准记录", "授权记录", "同意证据"]
+    do_not_confuse_with: ["approval", "policy", "binding", "intent_evidence"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "NIST-IDENTITY"]
+
+  - term_id: "drift"
+    preferred_zh: "漂移"
+    preferred_en: "Drift"
+    machine_id: "D20"
+    status: "methodology"
+    definition: >-
+      Agent 的能力、人格表达、文档、工具或目标相对于已批准基线发生可观察偏移的现象；漂移可以是改进、退化或不一致，必须通过版本差异、评测和行为证据判断。记忆与上下文是可能引发、放大或显示多类漂移的跨类型状态与证据来源，不另立为第六类。
+    definition_owner: "C15"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["觉醒", "自我进化（未经评测时）"]
+    ambiguous_terms: ["能力漂移", "人格漂移", "目标漂移", "文档漂移", "工具漂移", "记忆漂移"]
+    do_not_confuse_with: ["compaction", "memory", "proactivity"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "ANTHROPIC-TRUST", "HERMES-SECURITY"]
+
+  - term_id: "d21_completion_faces"
+    preferred_zh: "D21 完成三面"
+    preferred_en: "D21 Completion Faces"
+    machine_id: "D21"
+    status: "methodology"
+    definition: >-
+      本书定义的完成验真结构：技术执行、交付可见、业务或环境验收三面分别成立且由可定位证据支持，才能在声明范围内判定完成；工具 success、消息已发送或 Agent 自述都不能单独替代三面闭合。
+    definition_owner: "C20"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["工具成功即完成", "交付即验收"]
+    ambiguous_terms: ["完成", "终态", "三面完成"]
+    do_not_confuse_with: ["three_evidence", "environment_outcome", "a2a_task", "opentelemetry"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "d22_evaluation_layers"
+    preferred_zh: "D22 评测四层"
+    preferred_en: "D22 Evaluation Layers"
+    machine_id: "D22"
+    status: "methodology"
+    definition: >-
+      本书定义的 training、regression、holdout、representative_real_world 四个规范数据层；安全与红队是横切套件而非第五层。各层必须由实际证据派生，合成或影子样本不能自证为代表性真实世界运行。
+    definition_owner: "C07"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["安全第五层", "合成真实层"]
+    ambiguous_terms: ["四层评测", "评测层", "真实世界层"]
+    do_not_confuse_with: ["security_red_team", "dataset_split", "maturity_l0_l5"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "three_evidence"
+    preferred_zh: "三证法"
+    preferred_en: "Three-Evidence Verification"
+    status: "methodology"
+    definition: >-
+      本书定义的验证方法，以过程证据、产物证据和效果证据共同支持交付或能力主张；三类证据必须可定位、可复核，并说明缺口，不能以单次精彩输出互相替代。
+    definition_owner: "C03"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["三证据验证法（与本术语并行使用时）"]
+    ambiguous_terms: ["三证", "交付三证"]
+    do_not_confuse_with: ["seven_dimensions", "maturity_l0_l5"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "seven_dimensions"
+    preferred_zh: "七维强者标准"
+    preferred_en: "Seven-Dimension Strength Standard"
+    status: "methodology"
+    definition: >-
+      本书定义的 Agent 综合评价框架，由质量、泛化、安全、稳定、效率、协作和可治理七个维度构成；任何安全关键失败不得被其他维度的平均高分抵消。
+    definition_owner: "C03"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["行业最强标准"]
+    ambiguous_terms: ["七维", "强者标准", "七维强者"]
+    do_not_confuse_with: ["three_evidence", "maturity_l0_l5"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "maturity_l0_l5"
+    preferred_zh: "MAT-L0—MAT-L5 成熟度阶梯"
+    preferred_en: "MAT-L0-MAT-L5 Maturity Ladder"
+    status: "methodology"
+    definition: >-
+      本书定义的六级综合成熟度语言，机器标识为 MAT-L0—MAT-L5；以 MAT-L0“工具”为起点、MAT-L5“可治理组织”为最高层。中间级别及每级的能力、安全、稳定和治理门禁由 C24 唯一发布，不得与任务级自主阶梯互换。
+    definition_owner: "C24"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["智能等级", "人格等级", "成熟度 L0-L5（机器产物中无 MAT 前缀）"]
+    ambiguous_terms: ["L0-L5", "成熟度模型", "毕业等级"]
+    do_not_confuse_with: ["seven_dimensions", "proactivity", "autonomy_level"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "seven_life_contracts"
+    preferred_zh: "七大生命契约"
+    preferred_en: "Seven Life Contracts"
+    status: "methodology"
+    definition: >-
+      本书定义的七类 Agent 治理契约：USER、SOUL、AGENTS、TOOLS、IDENTITY、HEARTBEAT 与 MEMORY，用于分离服务对象、价值风格、操作纪律、工具边界、职责身份、主动节律和记忆责任。
+    definition_owner: "C05"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["七大生命协议"]
+    ambiguous_terms: ["七契约", "生命文件", "七个文件"]
+    do_not_confuse_with: ["policy", "sandbox", "approval"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE", "OC-WORKSPACE", "HERMES-FILES"]
+
+  - term_id: "role_model"
+    preferred_zh: "岗位模型"
+    preferred_en: "Role Model"
+    status: "methodology"
+    definition: >-
+      对 Agent 在特定业务情境中应承担的工作、责任、服务对象、边界与合格终态的结构化说明；它不是人格设定、模型名称、工具清单或组织职位名称的简单复制。
+    definition_owner: "C04"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Agent 人设（作为岗位模型同义词时）", "模型岗位"]
+    ambiguous_terms: ["角色", "岗位", "Role"]
+    do_not_confuse_with: ["contract_identity", "capability_node", "organization"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "task_domain"
+    preferred_zh: "任务域"
+    preferred_en: "Task Domain"
+    status: "methodology"
+    definition: >-
+      围绕同一岗位目标，由触发、服务对象、工作对象、输入、允许动作、业务终态、系统终态、例外和边界共同限定的可重复工作空间；它不是无边界任务列表。
+    definition_owner: "C04"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["任务清单（作为完整任务域时）"]
+    ambiguous_terms: ["场景", "任务范围", "Domain"]
+    do_not_confuse_with: ["role_model", "capability_node", "dataset"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "capability_node"
+    preferred_zh: "能力节点"
+    preferred_en: "Capability Node"
+    status: "methodology"
+    definition: >-
+      能在声明条件下被观察和测试的最小岗位能力单元，至少包含对象、行为、结果、边界与反证；知识主题、工具名称或人格形容词本身不构成能力节点。
+    definition_owner: "C04"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["技能点（未给可观察行为时）"]
+    ambiguous_terms: ["能力", "Skill", "Competency"]
+    do_not_confuse_with: ["skill", "strength_standard", "task_domain"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "nonfunctional_requirement"
+    preferred_zh: "非功能要求"
+    preferred_en: "Non-functional Requirement"
+    status: "methodology"
+    definition: >-
+      规定岗位以何种速度、成本、稳定性、透明度和可恢复性完成任务的质量约束；它必须有测量点、责任与不可牺牲边界，不能只写“尽快”或“稳定”。
+    definition_owner: "C04"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["软要求（用于表示可忽略时）"]
+    ambiguous_terms: ["NFR", "质量属性", "SLA"]
+    do_not_confuse_with: ["capability_node", "risk", "acceptance"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "negative_list"
+    preferred_zh: "负面清单"
+    preferred_en: "Negative List"
+    status: "methodology"
+    definition: >-
+      把岗位中的不应该做、不允许做和不能独立做三类边界转成可执行控制、证据、停止、恢复与责任要求的清单；它不是道德口号或仅依赖提示词的自我约束。
+    definition_owner: "C04"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["禁忌词表（作为完整负面清单时）"]
+    ambiguous_terms: ["禁止项", "边界清单", "Do not"]
+    do_not_confuse_with: ["policy", "approval", "risk"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "contract_user"
+    preferred_zh: "USER 契约"
+    preferred_en: "USER Contract"
+    status: "methodology"
+    definition: >-
+      规定 Agent 为谁服务、需要理解哪些利益相关者、哪些偏好可以保存以及利益冲突如何升级的契约；它不构成系统身份认证或对敏感动作的授权。
+    definition_owner: "C05"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["用户画像文件（作为完整定义时）"]
+    ambiguous_terms: ["USER", "USER.md", "用户契约"]
+    do_not_confuse_with: ["account", "approval", "contract_identity", "memory"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "OC-WORKSPACE", "HERMES-FILES"]
+
+  - term_id: "contract_soul"
+    preferred_zh: "SOUL 契约"
+    preferred_en: "SOUL Contract"
+    status: "methodology"
+    definition: >-
+      规定 Agent 的价值取向、表达风格、人格边界与决策原则的契约；它可以约束行为倾向，但不能替代访问控制、审批、沙箱或法律责任。
+    definition_owner: "C05"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["灵魂文件（被解释为意识证明时）"]
+    ambiguous_terms: ["SOUL", "SOUL.md", "人格设定"]
+    do_not_confuse_with: ["policy", "sandbox", "contract_identity"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "OC-WORKSPACE", "HERMES-FILES"]
+
+  - term_id: "contract_agents"
+    preferred_zh: "AGENTS 契约"
+    preferred_en: "AGENTS Contract"
+    status: "methodology"
+    definition: >-
+      规定 Agent 的操作纪律、协作方式、冲突处理、验证要求、停止条件与升级路径的契约；它是行为规则层，不是多 Agent 成员清单或系统权限策略。
+    definition_owner: "C05"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Agent 列表（用于指本契约时）"]
+    ambiguous_terms: ["AGENTS", "AGENTS.md", "协作规则"]
+    do_not_confuse_with: ["policy", "organization", "routing", "contract_tools"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "OC-WORKSPACE", "HERMES-FILES"]
+
+  - term_id: "contract_tools"
+    preferred_zh: "TOOLS 契约"
+    preferred_en: "TOOLS Contract"
+    status: "methodology"
+    definition: >-
+      规定 Agent 可发现的工具地图、适用条件、风险级别、禁止区和验证要求的契约；它记录使用边界，但不能替代工具端真实授权和审批。
+    definition_owner: "C05"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["工具清单（作为完整定义时）", "TOOLS.md（作为 OpenClaw v2026.9.6 当前运行载体时）"]
+    ambiguous_terms: ["TOOLS", "TOOLS.md", "工具契约"]
+    do_not_confuse_with: ["tool", "policy", "approval", "skill"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "OC-WORKSPACE", "HERMES-FILES"]
+
+  - term_id: "contract_identity"
+    preferred_zh: "IDENTITY 契约"
+    preferred_en: "IDENTITY Contract"
+    status: "methodology"
+    definition: >-
+      引用 C04 已批准的岗位职责，并规定 Agent 的身份锚点、对外称谓、责任接口与可代表范围；它不自行发明岗位，也不等同于账号、密钥、密码学身份、法律人格或权限。
+    definition_owner: "C05"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["身份证（用于暗示已完成认证时）", "身份文件即授权"]
+    ambiguous_terms: ["IDENTITY", "IDENTITY.md", "身份文件"]
+    do_not_confuse_with: ["agent_card", "account", "contract_soul"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "OC-WORKSPACE", "NIST-IDENTITY"]
+
+  - term_id: "contract_heartbeat"
+    preferred_zh: "HEARTBEAT 契约"
+    preferred_en: "HEARTBEAT Contract"
+    status: "methodology"
+    definition: >-
+      规定主动观察的节律、信号、安静条件、提案和行动边界、通知方式、熔断与恢复的契约；它不是 Heartbeat 调度机制本身。
+    definition_owner: "C05"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["心跳任务（用于指完整契约时）", "HEARTBEAT.md（作为 OpenClaw v2026.9.6 当前运行载体时）"]
+    ambiguous_terms: ["HEARTBEAT", "HEARTBEAT.md", "主动契约"]
+    do_not_confuse_with: ["heartbeat", "cron", "standing_order", "proactivity"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "OC-HEARTBEAT"]
+
+  - term_id: "contract_memory"
+    preferred_zh: "MEMORY 契约"
+    preferred_en: "MEMORY Contract"
+    status: "methodology"
+    definition: >-
+      规定什么可以被长期保留、由谁访问、如何标注来源、何时过期、如何更正与删除的契约；它不是具体记忆文件、数据库或检索索引。
+    definition_owner: "C05"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["MEMORY.md（作为全部记忆系统的同义词时）"]
+    ambiguous_terms: ["MEMORY", "MEMORY.md", "记忆协议"]
+    do_not_confuse_with: ["memory", "context", "session", "workspace"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "OC-MEMORY", "HERMES-MEMORY"]
+
+  - term_id: "training_loop"
+    preferred_zh: "训练循环"
+    preferred_en: "Training Loop"
+    status: "methodology"
+    definition: >-
+      本书定义的受控能力变更闭环：从反馈准入、失败复现、错误分型和根因假设出发，形成单一候选干预，依次经过训练、回归、独立留出或迁移、安全与成本门，再由有权主体决定限域发布、并入、停训或回滚。循环中的任何一次高分都不是能力成立的充分条件。
+    definition_owner: "C08"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["多练几遍", "自动进化闭环", "自学习即训练完成"]
+    ambiguous_terms: ["训练", "学习循环", "改进循环"]
+    do_not_confuse_with: ["agent_lifecycle", "evaluation", "continuous_improvement", "workflow"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "dual_triangle_model"
+    preferred_zh: "双三角模型"
+    preferred_en: "Dual-Triangle Model"
+    status: "methodology"
+    definition: >-
+      本书定义的两组训练对齐关系：目标—行为—反馈用于描述期望如何转成可观察表现并接受纠偏；任务—能力—证据用于证明某次表现能否支持受限的能力主张。两组三角必须在同一训练轮次中相互校验。
+    definition_owner: "C08"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["期望—实际—差距双三角", "反馈—假设—改动双三角", "能力—可靠性双三角"]
+    ambiguous_terms: ["双三角", "训练三角"]
+    do_not_confuse_with: ["seven_dimensions", "three_evidence", "training_loop"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "training_round"
+    preferred_zh: "训练轮次"
+    preferred_en: "Training Round"
+    status: "methodology"
+    definition: >-
+      在预注册目标、数据边界、基线、预算、风险和停止条件下，对一个主要能力缺口实施一个可归因候选干预，并记录执行、评测、失败、争议与终局决定的最小受控单元；重复同题调到通过不构成新的独立轮次证据。
+    definition_owner: "C08"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["刷题次数", "对话轮数（作为训练轮次时）"]
+    ambiguous_terms: ["轮次", "Round", "训练批次"]
+    do_not_confuse_with: ["session", "evaluation_run", "training_loop"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "training_intervention"
+    preferred_zh: "训练干预"
+    preferred_en: "Training Intervention"
+    status: "methodology"
+    definition: >-
+      为检验已登记根因而提出的可版本化候选变更，可作用于 Prompt、Context、Memory、Skill、Tool、Policy、Workflow、Runtime 或 Model choice；它必须声明变更对象、预期作用、批准边界、回滚路径和可能副作用，且在通过发布门之前不得称为已固化能力。
+    definition_owner: "C08"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["自动成长", "自我进化（未通过评测与批准时）"]
+    ambiguous_terms: ["干预", "调优", "训练改动"]
+    do_not_confuse_with: ["model_training", "configuration_change", "training_round", "drift"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "training_stop_condition"
+    preferred_zh: "停训条件"
+    preferred_en: "Training Stop Condition"
+    status: "methodology"
+    definition: >-
+      在训练开始前登记、在轮次中持续检查的强制停止或升级触发器，包括安全硬门失败、数据权利不清、留出污染、不可回滚、独立评审缺位、成本或时延越界、重大版本变化及继续训练的边际价值低于风险。触发后不得以平均分或进度压力覆盖。
+    definition_owner: "C08"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["训到满意为止", "自动无限迭代"]
+    ambiguous_terms: ["停止条件", "Stop rule", "熔断"]
+    do_not_confuse_with: ["acceptance_threshold", "rollback", "incident_stop", "training_round"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "evaluation_system"
+    preferred_zh: "评估系统"
+    preferred_en: "Evaluation System"
+    status: "methodology"
+    definition: >-
+      本书定义的能力测量与决策系统，由评测蓝图、分层数据与场景、冻结的被评系统、完整运行记录、多类裁判、失败分类、硬门、争议程序和受限结论共同组成；它评估完整 Agent 系统，不只评最终文本或底层模型。
+    definition_owner: "C07"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["跑分即评估", "一次通过即能力"]
+    ambiguous_terms: ["评测", "Eval", "测试"]
+    do_not_confuse_with: ["seven_dimensions", "certification", "training_loop"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "evaluation_task"
+    preferred_zh: "评测任务"
+    preferred_en: "Evaluation Task"
+    status: "methodology"
+    definition: >-
+      一组冻结版本的输入、环境、允许动作、预算、风险、成功条件、失败条件和证据要求，用于测量指定能力；同一评测任务可以运行多个试次，但重复试次不能伪装成多个独立任务。
+    definition_owner: "C07"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["一道prompt", "重复运行当多个样本"]
+    ambiguous_terms: ["Task", "测试项", "题目"]
+    do_not_confuse_with: ["task_card", "a2a_task", "trial"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "trial"
+    preferred_zh: "试次"
+    preferred_en: "Trial"
+    status: "methodology"
+    definition: >-
+      某一固定 Agent 系统在规定环境与预算下，对一个评测任务的一次独立尝试；必须记录运行标识、任务版本、系统版本、随机性、人工介入、终止状态和证据，不能只保留最好一次。
+    definition_owner: "C07"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["最佳样本", "一次演示（作为稳定能力证据时）"]
+    ambiguous_terms: ["Run", "运行", "尝试"]
+    do_not_confuse_with: ["evaluation_task", "training_round", "session"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "observable_trajectory"
+    preferred_zh: "可观察轨迹"
+    preferred_en: "Observable Trajectory"
+    status: "methodology"
+    definition: >-
+      一次试次中平台实际暴露且可审计的模型调用元数据、工具调用、审批、交接、错误、恢复、资源消耗和状态事件序列；它不要求私有思维链，也不能把不完整日志冒充完整内部过程。
+    definition_owner: "C07"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["完整思维链审计", "有日志就等于过程完整"]
+    ambiguous_terms: ["轨迹", "Trace", "执行过程"]
+    do_not_confuse_with: ["session", "message", "environment_outcome", "chain_of_thought"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "grader"
+    preferred_zh: "裁判器"
+    preferred_en: "Grader"
+    status: "methodology"
+    definition: >-
+      根据预注册规则对一个或多个证据输入给出分项判断的代码、模型、人工或专家评审单元；裁判器必须声明版本、输入、rubric、盲评与校准状态，其输出不能单独替代环境终态、硬门或有权主体的发布决定。
+    definition_owner: "C07"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["模型裁判即真相", "自动分数即通过"]
+    ambiguous_terms: ["裁判", "评审器", "Judge"]
+    do_not_confuse_with: ["reviewer", "hard_gate", "certification"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "hard_gate"
+    preferred_zh: "硬门"
+    preferred_en: "Hard Gate"
+    status: "methodology"
+    definition: >-
+      在评测或发布前必须满足、且不能被平均分或其他优点补偿的条件，例如未授权副作用、敏感数据泄露、不可恢复破坏、伪造证据或关键证据缺失；触发失败或证据不足时只能进入 FAIL 或 REVIEW_REQUIRED。
+    definition_owner: "C07"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["安全项可用总分补偿", "先上线再补证"]
+    ambiguous_terms: ["门禁", "阈值", "一票否决"]
+    do_not_confuse_with: ["acceptance_threshold", "grader", "policy", "approval"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "work_interaction_system"
+    preferred_zh: "工作交互系统"
+    preferred_en: "Work Interaction System"
+    status: "methodology"
+    definition: >-
+      本书定义的真实工作协作面，把人、Agent、项目、任务、权限、上下文、状态、消息、产物、环境终态和反馈回流组织在可追溯的工作合同中；它不是单一聊天窗口，也不以界面显示完成替代后端验证。
+    definition_owner: "C09"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["聊天即工作流", "对话完成即任务完成"]
+    ambiguous_terms: ["协作面", "工作面", "交互系统"]
+    do_not_confuse_with: ["workflow", "session", "channel", "organization"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "task_card"
+    preferred_zh: "任务卡"
+    preferred_en: "Task Card"
+    status: "methodology"
+    definition: >-
+      把一项真实工作转成可执行、可停止、可验收输入的结构化合同，至少说明目标、范围、输入、输出、业务与系统终态、时间、风险、权限、检查点、升级、责任和证据要求；它不是一句自然语言指令。
+    definition_owner: "C09"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["一句话任务", "prompt任务卡（仅含提示词时）"]
+    ambiguous_terms: ["任务单", "Task", "工单"]
+    do_not_confuse_with: ["a2a_task", "task_domain", "workflow"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "context_package"
+    preferred_zh: "上下文包"
+    preferred_en: "Context Package"
+    status: "methodology"
+    definition: >-
+      为特定任务冻结并交付的最小充分背景集合，包含资源、限制、既有决定、来源、版本、时效、敏感级别、未知和失效条件；它服务于一次工作合同，不等同于模型上下文窗口、完整会话或长期记忆。
+    definition_owner: "C09"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["把群聊全文当上下文", "全部资料包"]
+    ambiguous_terms: ["上下文", "Context", "背景包"]
+    do_not_confuse_with: ["context", "memory", "session", "context_window"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "delivery_evidence_package"
+    preferred_zh: "交付证据包"
+    preferred_en: "Delivery Evidence Package"
+    status: "methodology"
+    definition: >-
+      证明一次工作交付是否成立的结构化证据集合，至少关联过程、产物和效果三类证据，并记录检查点、升级、失败、复现条件、环境终态与未关闭限制；它不能由 Agent 的完成自述替代。
+    definition_owner: "C09"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["完成截图", "最终回复即交付证据"]
+    ambiguous_terms: ["证据包", "三证交付", "交付包"]
+    do_not_confuse_with: ["three_evidence", "artifact", "evaluation_report"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "environment_outcome"
+    preferred_zh: "环境终态"
+    preferred_en: "Environment Outcome"
+    status: "methodology"
+    definition: >-
+      一次任务结束后，文件、数据库、外部服务、消息投递、审批、队列或业务对象实际处于的可验证状态；工具返回、界面提示、消息文本和 Agent 自述都只能是证据输入，不能自动等同于环境终态。
+    definition_owner: "C07"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["工具成功即完成", "UI完成即终态"]
+    ambiguous_terms: ["终态", "Outcome", "完成状态"]
+    do_not_confuse_with: ["artifact", "message_status", "task_status", "tool_result"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "task_topology"
+    preferred_zh: "任务拓扑"
+    preferred_en: "Task Topology"
+    status: "methodology"
+    definition: >-
+      把一个端到端任务表示为可验收工作节点、依赖边、共享状态、关键路径、可并行集合、合并点、权限与恢复关系的结构；它用于决定是否拆分以及怎样组织，不等同于角色名单或流程图装饰。
+    definition_owner: "C16"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["先定军团再分活"]
+    ambiguous_terms: ["任务图", "工作分解图", "协作拓扑"]
+    do_not_confuse_with: ["workflow", "organization", "routing"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY"]
+
+  - term_id: "organization_pattern"
+    preferred_zh: "组织模式"
+    preferred_en: "Organization Pattern"
+    status: "methodology"
+    definition: >-
+      根据任务拓扑选择的责任与协调结构，包括管道、监督者、委员会、市场、黑板与混合模式；各模式是情境选择而非成熟度等级，必须声明控制点、失败面和降级路径。
+    definition_owner: "C16"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Agent 越多越高级"]
+    ambiguous_terms: ["编排模式", "协作模式", "军团模式"]
+    do_not_confuse_with: ["workflow", "routing", "maturity_l0_l5"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "ANTHROPIC-AGENTS"]
+
+  - term_id: "collaboration_tax"
+    preferred_zh: "协作税"
+    preferred_en: "Collaboration Tax"
+    status: "methodology"
+    definition: >-
+      多 Agent 相对单体或确定性工作流新增的端到端代价，至少包括通信、协调、上下文复制、排队、重复劳动、冲突、合并、人工裁决、攻击面和恢复成本；不得只按 token 或调用次数计算。
+    definition_owner: "C16"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["多 Agent 免费并行"]
+    ambiguous_terms: ["通信税", "协调成本", "编排开销"]
+    do_not_confuse_with: ["latency", "cost", "organization"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-QUALITY", "ANTHROPIC-AGENTS"]
+
+  - term_id: "organization"
+    preferred_zh: "硅基组织"
+    preferred_en: "Agent Organization"
+    status: "methodology"
+    definition: >-
+      由多个角色明确、职责分离、可路由、可交接、可问责的 Agent 与人共同组成的工作系统；多个并发 Agent 实例若没有组织契约和责任结构，不自动构成组织。
+    definition_owner: "C16"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["Agent 群（作为成熟组织的同义词时）"]
+    ambiguous_terms: ["军团", "Swarm", "多 Agent 系统"]
+    do_not_confuse_with: ["agent", "worker", "maturity_l0_l5"]
+    evidence_refs: ["BOOK-FRAMEWORK", "BOOK-EVIDENCE", "ANTHROPIC-AGENTS"]
+
+  - term_id: "openclaw"
+    preferred_zh: "OpenClaw"
+    preferred_en: "OpenClaw"
+    status: "product"
+    definition: >-
+      本书的主参考实现：一个自托管、本地优先的 Agent 基础设施与控制平面。本书所有组件、命令、默认值和配置事实以固定版本 OpenClaw 2026.9.6 / eb377ac59e6c9fd6c7705028034812becf00271b 为边界；截至 2026-10-01 的当前最新 2026.9.7 / c074824a27c96d3983043f9eeb33823cd1772d8c 只用于升级差异复核，不自动替换书稿基线。
+    definition_owner: "C06"
+    scope: ["openclaw"]
+    product_specific: true
+    deprecated_terms: ["全行业标准实现", "OpenClaw 范式"]
+    ambiguous_terms: ["龙虾", "虾", "OpenClaw Agent"]
+    do_not_confuse_with: ["agent", "runtime", "gateway", "hermes_agent", "meta_muse"]
+    evidence_refs: ["BOOK-EVIDENCE", "OC-ARCH", "OC-AGENT", "OC-TRUST"]
+
+  - term_id: "hermes_agent"
+    preferred_zh: "Hermes Agent"
+    preferred_en: "Hermes Agent"
+    status: "product"
+    definition: >-
+      本书的第二开放实现，用于对照 Agent Runtime、CLI、Gateway、多入口、记忆、Skills、Cron、委派和安全机制；产品事实以 Hermes Agent 0.20.1 / v2026.8.13 / f80f453ae0679347e38abc917c7f94f717bf96c5 或明确核验日期为边界。
+    definition_owner: "C06"
+    scope: ["hermes"]
+    product_specific: true
+    deprecated_terms: ["OpenClaw 兼容版", "Hermes（未说明是 Agent 产品时）"]
+    ambiguous_terms: ["Hermes", "Nous Hermes", "Hermes Runtime"]
+    do_not_confuse_with: ["openclaw", "meta_muse", "agent", "runtime"]
+    evidence_refs: ["BOOK-EVIDENCE", "HERMES-ARCH", "HERMES-FILES", "HERMES-SECURITY"]
+
+  - term_id: "meta_muse"
+    preferred_zh: "Meta Muse"
+    preferred_en: "Meta Muse"
+    status: "product"
+    definition: >-
+      Meta 于 2026-09-08 公布的托管式个人 Agent 产品。本书仅把其公开可观察交互和 Meta 披露的安全设计作为产品案例；未公开内部机制和安全效果不得推断或与开放 Runtime 做绝对排名。
+    definition_owner: "C06"
+    scope: ["muse"]
+    product_specific: true
+    deprecated_terms: ["Muse 开源 Runtime", "行业安全标杆（无独立证据时）"]
+    ambiguous_terms: ["Muse", "Meta Agent", "个人 AI Agent"]
+    do_not_confuse_with: ["openclaw", "hermes_agent", "agent", "runtime"]
+    evidence_refs: ["BOOK-EVIDENCE", "MUSE-LAUNCH", "MUSE-DESIGN"]
+
+  - term_id: "load_l1_l4"
+    preferred_zh: "LOAD-L1—LOAD-L4 渐进加载层"
+    preferred_en: "LOAD-L1-LOAD-L4 Progressive Loading Tiers"
+    status: "methodology"
+    definition: >-
+      本书为Skill渐进披露定义的四层机器命名：LOAD-L1目录元数据、LOAD-L2完整SKILL.md、LOAD-L3按需脚本与资源、LOAD-L4来源评测批准和撤回证据；它只描述加载与治理层，不表示自主、成熟度或权限。
+    definition_owner: "C12"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["裸L1—L4加载层"]
+    ambiguous_terms: ["加载级别", "Skill层级"]
+    do_not_confuse_with: ["autonomy_level", "maturity_l0_l5", "sec_l0_l8"]
+    evidence_refs: ["BOOK-QUALITY", "BOOK-EVIDENCE"]
+
+  - term_id: "sec_l0_l8"
+    preferred_zh: "SEC-L0—SEC-L8 安全纵深"
+    preferred_en: "SEC-L0-SEC-L8 Security Defense Layers"
+    status: "methodology"
+    definition: >-
+      本书C19使用的九层安全防御命名，从业务边界、身份会话、授权职责、工具工作流、凭证、执行隔离、网络出口、供应链到观测响应；层号表示控制位置，不表示能力、自主或成熟度高低。
+    definition_owner: "C19"
+    scope: ["general"]
+    product_specific: false
+    deprecated_terms: ["裸L0—L8安全层"]
+    ambiguous_terms: ["安全等级", "防御层"]
+    do_not_confuse_with: ["autonomy_level", "maturity_l0_l5", "load_l1_l4"]
+    evidence_refs: ["BOOK-QUALITY", "BOOK-EVIDENCE"]

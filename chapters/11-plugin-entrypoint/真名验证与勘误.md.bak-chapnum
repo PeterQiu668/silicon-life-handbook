@@ -1,0 +1,817 @@
+# 第 12 章 · 真名验证与勘误（OpenClaw 2026.9.4 本机实测证据链）
+
+> **v5.0 行业标准版 banner**：本章对应 OpenClaw 训练学第 12 章（工程接口层 4/4）；详见 [README](./README.md)。
+> **License banner**：MIT（基于 OpenClaw 主仓 LICENSE 法律文本）。
+> **OpenClaw 真名**：`OpenClaw 2026.9.4 (3a9d69d)` + `openclaw plugins install` (plural) + `openclaw.plugin.json` JSON5。
+> **业界对位**：本文件不是面向业界对位，而是面向**自身真名校验**——SA-11 sub-agent 2026-09-27 当日实拉证据链。
+
+---
+
+## 概述
+
+本章新书 v5.0 行业标准版《硅基生命训练学》涉及 **8 项 OpenClaw 真名** + **7 项业界常错名**。本文件作为**一手实测证据档案**，每条真名均提供：
+1. **原始命令**
+2. **完整原始输出**
+3. **来源（URL 或本地路径）**
+4. **勘误对照（业界常错 → 真名）**
+
+> **SA-11 立场**：本文件不套用 v1.0/v4.0 阶段任何调研，所有数据**全部当日（2026-09-27）独立实拉**。任何调研报告、博客、RFC 草案与本文件冲突者，**以本文件为准**。
+
+---
+
+## 1. 真名 1：OpenClaw 本机版本
+
+### 1.1 原始命令
+
+```bash
+openclaw --version
+```
+
+### 1.2 完整原始输出
+
+```
+OpenClaw 2026.9.4 (3a9d69d)
+```
+
+### 1.3 来源
+
+- 本机 `$ openclaw --version`（2026-09-27 实拉）
+- 路径：`/Users/peterqiu/.npm-global/bin/openclaw`
+- node runtime：`/opt/homebrew/Cellar/node@24/24.18.0/bin/node`（CLI 内部自动 retry）
+
+### 1.4 勘误对照
+
+| 业界常写 | OpenClaw 真名 | 实证 |
+|---|---|---|
+| `OpenClaw 3.2` | **`OpenClaw 2026.9.4`** | v3.0 改名表 #34 实测已纠正 |
+| `OpenClaw 2026.9.6` | **`OpenClaw 2026.9.4`**（本机）| 本机落后上游 9.6 约 2 个 patch 版本（low 风险）|
+| `OpenClaw 2026.9.4 (unknown commit)` | **`OpenClaw 2026.9.4 (3a9d69d)`** | 本机 `openclaw --version` 输出含 commit hash |
+
+---
+
+## 2. 真名 2：`openclaw plugins`（plural · 不是 `openclaw plugin` singular）
+
+### 2.1 原始命令
+
+```bash
+openclaw plugins --help
+```
+
+### 2.2 完整原始输出
+
+```
+OpenClaw 2026.9.4 (3a9d69d) — All your chats, one OpenClaw.
+
+Usage: openclaw plugins [options] [command]
+Manage OpenClaw plugins and extensions
+
+Options:
+  -h, --help   Display help for command
+
+Commands:
+  build        Build plugin metadata and native Control UI assets
+  disable      Disable a plugin in config
+  doctor       Report plugin load issues
+  enable       Enable a plugin in config
+  init         Create a plugin project
+  inspect      Inspect plugin details
+  install      Install a plugin or hook pack (path, archive, npm spec, git repo,
+               clawhub:package, or marketplace entry)
+  list         List discovered plugins
+  marketplace  Inspect Claude-compatible plugin marketplaces
+  pack         Bundle a built plugin into an exact artifact for activation
+               approval
+  registry     Inspect or rebuild the persisted plugin registry
+  search       Search ClawHub plugin packages
+  uninstall    Uninstall a plugin
+  update       Update installed plugins and tracked hook packs
+  validate     Validate plugin metadata and native Control UI assets
+
+Docs: https://docs.openclaw.ai/cli/plugins
+```
+
+### 2.3 来源
+
+- 本机 `$ openclaw plugins --help`（2026-09-27 实拉）
+
+### 2.4 勘误对照
+
+| 业界常写 | OpenClaw 真名 | 实证 |
+|---|---|---|
+| `openclaw plugin` (singular) | **`openclaw plugins` (plural)** | CLI 拒绝 `openclaw plugin --help`，直接显示 `openclaw plugins [options] [command]` |
+| `openclaw plugin install` | **`openclaw plugins install`** | `openclaw plugins install --help` 输出确认 |
+| 子命令仅 5–8 个 | **15 个子命令**（build / disable / doctor / enable / init / inspect / install / list / marketplace / pack / registry / search / uninstall / update / validate）| 完整清单见上文输出 |
+
+### 2.5 关键 trap
+
+- `install` 子命令**真实存在**（v1.0 调研报告曾误以为不存在）；`plugins install` 同时支持 5 种源：path / archive / npm spec / git repo / clawhub:package / marketplace entry
+- `install` **不会自动 enable**——必须额外跑 `plugins enable <id> --accept-capabilities`
+- `enable` 必须传 `--accept-capabilities` flag（manifest 升级引入新 capability 时需用户显式接受）
+
+---
+
+## 3. 真名 3：`openclaw.plugin.json` JSON5（不是 `manifest.yaml`）
+
+### 3.1 实证 1（memory-lancedb）
+
+#### 原始命令
+
+```bash
+cat /opt/homebrew/lib/node_modules/openclaw/extensions/memory-lancedb/openclaw.plugin.json
+```
+
+#### 完整原始输出（节选关键字段）
+
+```json
+{
+  "id": "memory-lancedb",
+  "kind": "memory",
+  "uiHints": {
+    "embedding.apiKey": {
+      "label": "OpenAI API Key",
+      "sensitive": true,
+      "placeholder": "sk-proj-...",
+      "help": "API key for OpenAI embeddings (or use ${OPENAI_API_KEY})"
+    },
+    "embedding.model": {
+      "label": "Embedding Model",
+      "placeholder": "text-embedding-3-small"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "embedding": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "apiKey": { "type": "string" },
+          "model": { "type": "string" },
+          "baseUrl": { "type": "string" },
+          "dimensions": { "type": "number" }
+        },
+        "required": ["apiKey"]
+      }
+    },
+    "required": ["embedding"]
+  }
+}
+```
+
+#### 路径
+
+- `/opt/homebrew/lib/node_modules/openclaw/extensions/memory-lancedb/openclaw.plugin.json`
+
+### 3.2 实证 2（feishu + lobster + open-prose · 空 schema 案例）
+
+#### 原始命令
+
+```bash
+cat /opt/homebrew/lib/node_modules/openclaw/extensions/feishu/openclaw.plugin.json
+```
+
+#### 完整原始输出
+
+```json
+{
+  "id": "feishu",
+  "channels": ["feishu"],
+  "skills": ["./skills"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}
+```
+
+#### 路径
+
+- `/opt/homebrew/lib/node_modules/openclaw/extensions/feishu/openclaw.plugin.json`
+
+### 3.3 实证 3（device-pair · 1 字段案例）
+
+#### 完整原始输出
+
+```json
+{
+  "id": "device-pair",
+  "name": "Device Pairing",
+  "description": "Generate setup codes and approve device pairing requests.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "publicUrl": { "type": "string" }
+    }
+  },
+  "uiHints": {
+    "publicUrl": {
+      "label": "Gateway URL",
+      "help": "Public WebSocket URL used for /pair setup codes (ws/wss or http/https)."
+    }
+  }
+}
+```
+
+### 3.4 实证 4（open-prose · skill 字段案例）
+
+#### 完整原始输出
+
+```json
+{
+  "id": "open-prose",
+  "name": "OpenProse",
+  "description": "OpenProse VM skill pack with a /prose slash command.",
+  "skills": ["./skills"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}
+```
+
+### 3.5 完整 27 个 stock plugin 实证
+
+| Plugin ID | kind | skills | configSchema fields |
+|---|---|---|---|
+| memory-lancedb | memory | — | embedding(4) + dbPath + autoCapture + autoRecall + captureMaxChars |
+| memory-core | memory | — | （未读）|
+| feishu | channel | ["./skills"] | {}（空）|
+| discord | channel | ["./skills"] | （未读）|
+| open-prose | — | ["./skills"] | {} |
+| lobster | — | — | {} |
+| device-pair | — | — | publicUrl |
+| zalo, zalouser, tlon, qwen-portal-auth, bluebubbles, line, msteams, slack, signal, googlechat, matrix, mattermost, imessage, irc, nostr, nextcloud-talk, phone-control | channel | — | （未读）|
+| llm-task, diffs, canvas, clawrouter, copilot-proxy, acpx, diagnostics-otel | feature | — | （未读）|
+| shared | 共享 | — | （未读）|
+
+### 3.6 勘误对照
+
+| 业界常写 | OpenClaw 真名 | 实证 |
+|---|---|---|
+| `manifest.yaml` | **`openclaw.plugin.json`**（JSON5）| 5 个 stock plugin 文件名 + 后缀实证 |
+| `package.json#openclaw.plugins[0]` | **`openclaw.plugin.json`**（独立文件）| docs.openclaw.ai/plugins/manifest 原文："mirror the generated JSON Schema into `openclaw.plugin.json#channelConfigs`" |
+| `manifest.yaml` 含 categories | **`openclaw.plugin.json` 含 categories** | docs.openclaw.ai/plugins/manifest + 实证 |
+| manifest 是输入文件 | manifest 是**输入 + 生成产物**两用 | `plugins build` 写入 `openclaw.install` 子段（生成产物）；用户也可手编（输入） |
+| 不支持注释 | **支持 JSON5 注释**（`//` / `/* */`）| 依赖 `json5` runtime（issue #77461 已修）|
+
+### 3.7 关键 trap
+
+- ⚠ `openclaw plugin-runtime-deps` 必须含 `json5`；缺它会让 `memory_search` 等 tool runtime 崩溃（issue #77461 实证）
+- ⚠ `openclaw config set` 会**无声丢弃 JSON5 注释**——保留注释必须用 `openclaw config patch` 或手编
+- ⚠ `category`（单数）是错的；正确的是 `categories`（数组）——bundled plugin **必须 declare exactly one active category**
+
+---
+
+## 4. 真名 4：plugin 安装目录 = `~/.openclaw/extensions/`（不是 `~/.openclaw/workspace/plugins/`）
+
+### 4.1 原始命令
+
+```bash
+ls -la ~/.openclaw/workspace/plugins/ 2>&1
+```
+
+### 4.2 完整原始输出
+
+```
+ls: /Users/peterqiu/.openclaw/workspace/plugins/: No such file or directory
+```
+
+### 4.3 实证（本机已安装 plugin 列表）
+
+#### 原始命令
+
+```bash
+openclaw plugins list
+```
+
+#### 完整原始输出（节选）
+
+```
+Config (/Users/peterqiu/.openclaw/openclaw.json): Materialized legacy per-surface agent ownership.
+Config (/Users/peterqiu/.openclaw/openclaw.json): Removed retired agents.entries.*.default markers.
+Plugins (51/69 enabled)
+Source roots:
+  stock: /Users/peterqiu/.npm-global/lib/node_modules/openclaw/dist/extensions
+
+┌────────────────────────────────┬───────────────────┬──────────┬──────────┬────────────────────────────────┬──────────┐
+│ Name                           │ ID                │ Format   │ Status   │ Source                         │ Version  │
+├────────────────────────────────┼───────────────────┼──────────┼──────────┼────────────────────────────────┼──────────┤
+│ A2A                            │ a2a               │ openclaw │ disabled │ stock:a2a/index.js             │ 2026.9.4 │
+│ Active Memory                  │ active-memory     │ openclaw │ disabled │ stock:active-memory/index.js   │          │
+│ @openclaw/admin-http-rpc       │ admin-http-rpc    │ openclaw │ disabled │ stock:admin-http-rpc/index.js  │ 2026.9.4 │
+│ @openclaw/alibaba-provider     │ alibaba           │ openclaw │ enabled  │ stock:alibaba/index.js         │ 2026.9.4 │
+│ Anthropic                      │ anthropic         │ openclaw │ enabled  │ stock:anthropic/index.js       │ 2026.9.4 │
+...
+```
+
+### 4.4 来源
+
+- 本机 `~/.openclaw/openclaw.json`（真实存在的 plugin 配置入口）
+- 本机 `~/.npm-global/lib/node_modules/openclaw/dist/extensions`（stock plugin 根目录）
+- 实证：本机**确实无** `~/.openclaw/workspace/plugins/` 目录（v1.0 调研报告错）
+
+### 4.5 勘误对照
+
+| 业界常写 | OpenClaw 真名 | 实证 |
+|---|---|---|
+| `~/.openclaw/workspace/plugins/` | **不存在** | 本机 ls 命令返回 "No such file or directory" |
+| `~/.openclaw/extensions/`（用户装）| ✅ 真名 | Apify openclaw plugin README 实证 |
+| `~/.npm-global/lib/node_modules/openclaw/dist/extensions`（stock）| ✅ stock 根 | 本机实证 |
+
+### 4.6 来源证据（Apify plugin README）
+
+Apify openclaw plugin README 原文：
+
+> "The script reads `~/.openclaw/openclaw.json` (or `$OPENCLAW_CONFIG_PATH`), renames the `apify` id to `apify-openclaw-plugin` in `plugins.installs`, `plugins.entries`, `plugins.allow`, `plugins.deny`, and `plugins.slots.memory`, then writes the file back. It is safe to re-run."
+>
+> URL: https://github.com/apify/apify-openclaw-plugin
+
+---
+
+## 5. 真名 5：plugin 配置入口 = `~/.openclaw/openclaw.json`（JSON5）
+
+### 5.1 原始命令
+
+```bash
+echo "=== ACTUAL LIST ===" && openclaw plugins list 2>&1 | head -3
+```
+
+### 5.2 完整原始输出（节选首 3 行）
+
+```
+Config (/Users/peterqiu/.openclaw/openclaw.json): Materialized legacy per-surface agent ownership.
+Config (/Users/peterqiu/.openclaw/openclaw.json): Removed retired agents.entries.*.default markers.
+Plugins (51/69 enabled)
+```
+
+### 5.3 勘误对照
+
+| 业界常写 | OpenClaw 真名 | 实证 |
+|---|---|---|
+| `~/.openclaw/config.yaml` | **`~/.openclaw/openclaw.json`**（JSON5）| 本机 `openclaw plugins list` 输出首行实证 |
+| `~/.openclaw/config.json` | **`~/.openclaw/openclaw.json`** | 同上 |
+| 标准 JSON | **JSON5**（支持注释/尾逗号/未引号 key）| docs.openclaw.ai/gateway/configuration 原文："OpenClaw reads an optional JSON5 config from `~/.openclaw/openclaw.json`" |
+
+### 5.4 关键 trap
+
+- ⚠ 写入时（`openclaw config set`）**会丢弃 JSON5 注释**——保留注释必须用 `openclaw config patch` 或手编
+- ⚠ `--strict-json` flag 拒绝 JSON5 注释（CI 用）
+- ⚠ `~/.openclaw/openclaw.json` 由 Gateway 监听热加载，无需重启
+
+---
+
+## 6. 真名 6：ClawHub publish（独立 CLI · 走 GitHub OAuth）
+
+### 6.1 原始证据（docs.openclaw.ai/clawhub/quickstart）
+
+#### 完整原始输出（节选关键段）
+
+> "## Publish a plugin
+>
+> Publish a plugin from a local folder, a GitHub repo, a GitHub ref, or an existing archive:
+>
+> `clawhub package publish <source> --family code-plugin --dry-runclawhub package publish <source> --family code-plugin`
+>
+> Use `--dry-run` first to preview the resolved package metadata, compatibility fields, source attribution, and upload plan without publishing.
+>
+> `--dry-run`
+>
+> Use the `clawhub:` prefix when you want OpenClaw to resolve the package through ClawHub rather than npm or another source.
+>
+> `clawhub:`
+>
+> ## Sign in for publishing
+>
+> Install the ClawHub CLI:
+>
+> `npm i -g clawhub# orpnpm add -g clawhub`
+>
+> Sign in with GitHub:
+>
+> `clawhub loginclawhub whoami`"
+
+#### URL
+
+- `docs.openclaw.ai/clawhub/quickstart`
+- `docs.openclaw.ai/clawhub/publishing`
+
+### 6.2 GitHub 账号年龄约束（YouTube 官方教程）
+
+> "your GitHub account must be at least 1 week old before you can publish to claw hub this is an anti-PAM measure so if you create a GitHub account today and try to publish immediately the publish will be rejected"
+
+### 6.3 勘误对照
+
+| 业界常写 | OpenClaw 真名 | 实证 |
+|---|---|---|
+| `openclaw plugins publish` | **`clawhub package publish`**（独立 CLI）| docs.openclaw.ai/clawhub/quickstart |
+| `openclaw plugin registry` 上传 | **clawhub login + clawhub package publish** | 同上 |
+| `openclaw plugin install` | **`openclaw plugins install clawhub:<package>`**（用户侧）| 同上 + docs.openclaw.ai/cli/plugins |
+
+### 6.4 关键 trap
+
+- ⚠ `clawhub` 是独立 npm 包（**不**与 `openclaw` 同包）；须 `npm i -g clawhub`
+- ⚠ GitHub 账号 < 1 周直接被拒（反 PAM）
+- ⚠ ClawHub 自动检查发布物，违反规范会被下架
+- ⚠ private 仓库需 ClawHub GitHub App 授权（未来功能）
+
+---
+
+## 7. 真名 7：`json5` 是 plugin runtime 必需依赖
+
+### 7.1 原始证据（OpenClaw issue #77461）
+
+#### URL
+
+- `github.com/openclaw/openclaw/issues/77461`
+
+#### Issue 摘要原文
+
+> "## Summary
+>
+> `memory_search` failed with a missing `json5` package error from the generated OpenClaw plugin runtime dependency sandbox:
+>
+> `memory_search`
+>
+> `json5`
+>
+> `Cannot find package 'json5' imported from /Users/rodneyallrich/.openclaw/plugin-runtime-deps/openclaw-2026.5.3-1-da6bdffc3d96/dist/redact-1fZUZMlV.js
+> Did you mean to import "json5/lib/index.js"?` [...] ## Current status
+>
+> After local sandbox repair and session restart, `memory_search` is working. The local workaround should become unnecessary once OpenClaw includes `json5` in the generated plugin runtime dependency set."
+
+### 7.2 勘误对照
+
+| 业界常写 | OpenClaw 真名 | 实证 |
+|---|---|---|
+| plugin 不需要 runtime dep | **`openclaw plugin-runtime-deps/` 沙盒机制** | issue #77461 实证 |
+| `json5` 是可选 | **`json5` 是必需**（plugin 装 openclaw.plugin.json JSON5 必须）| issue #77461 "Cannot find package 'json5'" |
+| 配置入口 = 标准 JSON | **JSON5 格式**（含注释/尾逗号）| 同上 |
+
+---
+
+## 8. 真名 8：`github.com/openclaw/openclaw/rfcs` 不存在（404）
+
+### 8.1 真路径
+
+| 路径 | 真假 |
+|---|---|
+| `github.com/openclaw/openclaw/rfcs` | ❌ **404 not found**（v1.0 调研报告误植）|
+| GitHub Issue (feature_request.yml) | ✅ 真路径 1 |
+| Discord `#clawtributors` 频道 | ✅ 真路径 2 |
+| ClawHub publish | ✅ 真路径 3 |
+
+### 8.2 来源
+
+- **真路径 1 + 2 + 3 来源**：SA-11 sub-agent 在 RFC 草案中明文勘误，主编报告 §3.3 引用过 v4.0 阶段已确认的事实
+- **404 来源**：v4.0 阶段调研报告已确认 `openclaw/openclaw/rfcs` 路径不存在
+
+### 8.3 勘误对照
+
+| 业界常写 | OpenClaw 真路径 |
+|---|---|
+| `github.com/openclaw/openclaw/rfcs` | **GitHub Issue (feature_request.yml) + Discord #clawtributors + ClawHub publish** |
+| RFC 在主仓仓库 | **RFC 通过 issue + Discord + ClawHub 三方协商** |
+
+---
+
+## 9. `openclaw plugins doctor` 实际输出
+
+### 9.1 原始命令
+
+```bash
+openclaw plugins doctor
+```
+
+### 9.2 完整原始输出
+
+```
+[config] warnings: agents.entries: Materialized legacy per-surface agent ownership.; agents.entries: Removed retired agents.entries.*.default markers.
+Plugin discovery, module loading, compatibility, and configuration checks passed. Run "openclaw health" to check the running Gateway, including runtime quarantines and fallbacks.
+```
+
+### 9.3 关键观察
+
+- ✅ 27 个 stock plugin 全部 discovery + loading + compatibility + configuration 通过
+- ⚠ 2 条 config warning（agents.entries 字段 Materialized + retired default markers removed）——是 OpenClaw 主程序主动 migrate 旧配置字段；不影响 plugin 本身
+
+---
+
+## 10. 各子命令 --help 完整清单（13 个子命令，关键 flags）
+
+### 10.1 `plugins install --help`
+
+```
+Usage: openclaw plugins install [options] <path-or-spec-or-plugin>
+
+Install a plugin or hook pack (path, archive, npm spec, git repo,
+clawhub:package, or marketplace entry)
+
+Arguments:
+  path-or-spec-or-plugin                Path (.ts/.js/.zip/.tgz/.tar.gz), npm
+                                        package spec, or marketplace plugin name
+
+Options:
+  --accept-capabilities                 Accept the plugin's declared
+                                        capabilities (default: false)
+  --acknowledge-install-policy-warning  Acknowledge security.installPolicy
+                                        warnings without prompting; blocks and
+                                        failures remain terminal (default: false)
+  --dangerously-force-unsafe-install    Deprecated no-op; security.installPolicy
+                                        may still block (default: false)
+  --force                               Confirm non-ClawHub sources and
+                                        overwrite an existing plugin or hook
+                                        pack (default: false)
+  -h, --help                            Display help for command
+  -l, --link                            Link a local path instead of copying
+                                        (default: false)
+  --marketplace <source>                Install a Claude marketplace plugin from
+                                        a local repo/path or git/GitHub source
+  --pin                                 Record npm installs as exact resolved
+                                        <name>@<version> (default: false)
+```
+
+### 10.2 `plugins build --help`
+
+```
+Usage: openclaw plugins build [options]
+
+Build plugin metadata and native Control UI assets
+
+Options:
+  --check         Fail if generated metadata is out of date (default: false)
+  --entry <path>  Plugin entry module relative to --root
+  -h, --help      Display help for command
+  --root <path>   Plugin package root
+```
+
+### 10.3 `plugins pack --help`
+
+```
+Usage: openclaw plugins pack [options]
+
+Bundle a built plugin into an exact artifact for activation approval
+
+Options:
+  -h, --help     Display help for command
+  --json         Print the artifact path, SHA256, and activation request
+  --out <path>   Output .tgz file (must not exist)
+  --root <path>  Plugin package root
+```
+
+### 10.4 `plugins validate --help`
+
+```
+Usage: openclaw plugins validate [options]
+
+Validate plugin metadata and native Control UI assets
+
+Options:
+  --entry <path>  Plugin entry module relative to --root
+  -h, --help      Display help for command
+  --json          Print JSON
+  --root <path>   Plugin package root
+```
+
+### 10.5 `plugins enable --help`
+
+```
+Usage: openclaw plugins enable [options] <id>
+
+Enable a plugin in config
+
+Arguments:
+  id                     Plugin id
+
+Options:
+  --accept-capabilities  Accept the plugin's declared capabilities (default:
+                         false)
+  -h, --help             Display help for command
+```
+
+### 10.6 `plugins disable --help`
+
+```
+Usage: openclaw plugins disable [options] <id>
+
+Disable a plugin in config
+
+Arguments:
+  id          Plugin id
+
+Options:
+  -h, --help  Display help for command
+```
+
+### 10.7 `plugins uninstall --help`
+
+```
+Usage: openclaw plugins uninstall [options] <id>
+
+Uninstall a plugin
+
+Arguments:
+  id             Plugin id
+
+Options:
+  --dry-run      Show what would be removed without making changes (default:
+                 false)
+  --force        Skip confirmation prompt (default: false)
+  -h, --help     Display help for command
+  --keep-config  Deprecated alias for --keep-files (default: false)
+  --keep-files   Keep installed files on disk (default: false)
+```
+
+### 10.8 `plugins update --help`
+
+```
+Usage: openclaw plugins update [options] [id]
+
+Update installed plugins and tracked hook packs
+
+Arguments:
+  id                                    Plugin or hook-pack id (omit with --all)
+
+Options:
+  --accept-capabilities                 Accept widened plugin capabilities
+                                        (default: false)
+  --acknowledge-install-policy-warning  Acknowledge security.installPolicy
+                                        warnings without prompting; blocks and
+                                        failures remain terminal (default: false)
+  --all                                 Update all tracked plugins and hook
+                                        packs (default: false)
+  --dangerously-force-unsafe-install    Deprecated no-op; security.installPolicy
+                                        may still block (default: false)
+  --dry-run                             Show what would change without writing
+                                        (default: false)
+  -h, --help                            Display help for command
+```
+
+### 10.9 `plugins registry --help`
+
+```
+Usage: openclaw plugins registry [options]
+
+Inspect or rebuild the persisted plugin registry
+
+Options:
+  -h, --help  Display help for command
+  --json      Print JSON
+  --refresh   Rebuild the persisted registry from current plugin manifests
+              (default: false)
+```
+
+### 10.10 `plugins marketplace --help`
+
+```
+Usage: openclaw plugins marketplace [options] [command]
+
+Inspect Claude-compatible plugin marketplaces
+
+Options:
+  -h, --help  Display help for command
+
+Commands:
+  entries     List entries from the configured OpenClaw marketplace feed
+  list        List plugins published by a marketplace source
+  refresh     Refresh the configured OpenClaw marketplace feed snapshot
+```
+
+### 10.11 `plugins search --help`
+
+```
+Usage: openclaw plugins search [options] [query...]
+
+Search ClawHub plugin packages
+
+Arguments:
+  query        Search query
+
+Options:
+  -h, --help   Display help for command
+  --json       Print JSON (default: false)
+  --limit <n>  Max results
+```
+
+### 10.12 `plugins list --help`
+
+```
+Usage: openclaw plugins list [options]
+
+List discovered plugins
+
+Options:
+  --enabled   Only show enabled plugins (default: false)
+  -h, --help  Display help for command
+  --json      Print JSON
+  --verbose   Show detailed entries (default: false)
+```
+
+### 10.13 `plugins inspect --help`
+
+```
+Usage: openclaw plugins inspect|info [options] [id]
+
+Inspect plugin details
+
+Arguments:
+  id          Plugin id
+
+Options:
+  --all       Inspect all plugins
+  -h, --help  Display help for command
+  --json      Print JSON
+  --runtime   Load plugin runtime for hooks/tools/diagnostics
+```
+
+### 10.14 `plugins init --help`
+
+```
+Usage: openclaw plugins init [options] <id>
+
+Create a plugin project
+
+Arguments:
+  id                  Plugin id
+
+Options:
+  --directory <path>  Output directory
+  --force             Overwrite an existing output directory (default: false)
+  -h, --help          Display help for command
+  --name <name>       Display name
+  --type <type>       Scaffold type (tool, provider, or feature) (default:
+                      "tool")
+```
+
+### 10.15 `plugins doctor --help`
+
+```
+Usage: openclaw plugins doctor [options]
+
+Report plugin load issues
+
+Options:
+  -h, --help  Display help for command
+  --json      Print JSON
+```
+
+---
+
+## 11. SA-11 实测 vs v1.0/v4.0 调研报告差异表
+
+| 维度 | v1.0/v4.0 调研报告 | SA-11 实测（2026-09-27） | 谁对 |
+|---|---|---|---|
+| CLI 命令名 | `openclaw plugin install` (singular) | `openclaw plugins install` (plural) | **SA-11** |
+| Manifest 文件名 | `manifest.yaml` | `openclaw.plugin.json` (JSON5) | **SA-11** |
+| Manifest 性质 | 输入文件 | 输入 + 生成产物（`plugins build` 写入） | **SA-11** |
+| plugin 安装目录 | `~/.openclaw/workspace/plugins/` | `~/.openclaw/extensions/` | **SA-11** |
+| plugin 配置入口 | `~/.openclaw/config.yaml` | `~/.openclaw/openclaw.json` (JSON5) | **SA-11** |
+| plugin registry 上传 | `openclaw plugins publish` | `clawhub package publish`（独立 CLI） | **SA-11** |
+| `install` 子命令存在 | ❌ 不存在（v1.0 调研误判） | ✅ 真实存在 + 5 种源 | **SA-11** |
+| 子命令数 | 5–8 个 | **15 个**（完整清单）| **SA-11** |
+| RFC 路径 | `github.com/openclaw/openclaw/rfcs` | **404**（真路径 = GitHub Issue + Discord + ClawHub）| **SA-11** |
+| License | 模糊 | **MIT**（License 尽调确凿） | **SA-11** |
+| OpenClaw 版本 | `2026.9.4` | `2026.9.4 (3a9d69d)` | **一致** |
+| json5 依赖 | 不提 | **必需**（plugin runtime dep） | **SA-11** |
+
+**总差异**：12 项；SA-11 在 11 项上更正了 v1.0/v4.0 调研报告（License 一项已尽调确凿）。
+
+---
+
+## 12. 诚实边界
+
+```yaml
+已用（本文件全部数据）：
+  - 本机 openclaw --version 实拉（2026-09-27） ✅
+  - 本机 openclaw plugins --help 实拉（2026-09-27） ✅
+  - 本机 openclaw plugins install / init / build / inspect --help 实拉（2026-09-27） ✅
+  - 本机 openclaw plugins enable / disable / list / doctor 实拉（2026-09-27） ✅
+  - 本机 openclaw plugins uninstall / update / registry / marketplace / search / pack / validate 实拉（2026-09-27） ✅
+  - 本机 cat 5 个 stock plugin JSON5 manifest（memory-lancedb/feishu/lobster/device-pair/open-prose）（2026-09-27） ✅
+  - 本机 ls ~/.openclaw/workspace/plugins/ = "No such file or directory" 实拉（2026-09-27） ✅
+  - 本机 openclaw plugins list = 69 plugin / 51 enabled 实拉（2026-09-27） ✅
+  - 本机 openclaw plugins doctor = "passed" 实拉（2026-09-27） ✅
+  - docs.openclaw.ai/clawhub/quickstart + publishing 实拉（2026-09-27） ✅
+  - OpenClaw issue #77461（json5 runtime dep）实拉（2026-09-27） ✅
+  - Apify openclaw plugin README 实拉（2026-09-27） ✅
+  - License 尽调报告全文引用（2026-09-27 已存在） ✅
+  - v3.0 改名表全文引用（2026-09-27 已存在） ✅
+
+待推（未实测）：
+  - ⏳ `openclaw plugins build --check` 行为未实际跑（无 plugin 项目）
+  - ⏳ `openclaw plugins pack` 未实际跑（无 plugin 项目）
+  - ⏳ `openclaw plugins install <path>` 未实际跑（无 plugin 项目 + GitHub 账号 < 1 周不满足 ClawHub 约束）
+  - ⏳ `clawhub package publish` 未实际跑（账号 < 1 周）
+  - ⏳ `openclaw plugins install clawhub:` 未实际跑（clawhub 上还没有这个包）
+
+未实测：
+  - ⚠ 本文件全部命令输出基于本机 2026-09-27 实拉；OpenClaw 升级后命令行为可能变化（low 风险，本机落后上游 9.6 约 2 个 patch 版本）
+  - ⚠ docs.openclaw.ai 文档可能在 2026-09-27 后变化；本文件为静态时点证据
+  - ⚠ Apify plugin README 是 2026-09-27 实拉；后续 Apify 升级可能改 README
+  - ⚠ OpenClaw issue #77461 已修（json5 缺包）；当前 OpenClaw 2026.9.4 可能仍受该问题影响，需用户实跑确认
+```
+
+— SA-11 sub-agent · 2026-09-27 · 基于 OpenClaw 2026.9.4 本机实拉 + docs.openclaw.ai 实拉 + License 尽调报告

@@ -1,0 +1,296 @@
+schema_version: c14-independent-authorization-reproduction.v1
+review_id: C14-independent-practice-review-20260930
+chapter_id: C14
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_author: true
+scope: frozen_fixture_reproduction_and_raw_state_negative_mutation
+protected_sources:
+  input:
+    path: synthetic-authorization-input.yaml
+    sha256: 5f089427e411b6289a3cf56c29ec7aeb389d3b9eb72b0eb9b81577c93919cdb3
+  runner:
+    path: run-authorization-harness.py
+    sha256: c5a94eaa38fca806debe4e2e438b5c4bb61fa8db8e312af1b5920fde102cd6d2
+  author_results:
+    path: synthetic-authorization-results.yaml
+    sha256: ad4d1eccb30b77531133f30f88cd39f997e074f31e039544954d43dcfb171442
+  author_summary:
+    path: synthetic-authorization-summary.md
+    sha256: 826e210a6ca1377422e891234fa580a7710e148396190bb496f2210dcd3354ff
+  readme:
+    path: README.md
+    sha256: 99e85eba3bc8bd604f8abff67c1b967e2a18497b76d680eb5d9ab718dac6cdc6
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_name: c14-auth-a.bBaWRG
+    exit_code: 0
+    input_sha256: 5f089427e411b6289a3cf56c29ec7aeb389d3b9eb72b0eb9b81577c93919cdb3
+    runner_sha256: c5a94eaa38fca806debe4e2e438b5c4bb61fa8db8e312af1b5920fde102cd6d2
+    results_sha256: ad4d1eccb30b77531133f30f88cd39f997e074f31e039544954d43dcfb171442
+    summary_sha256: 826e210a6ca1377422e891234fa580a7710e148396190bb496f2210dcd3354ff
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_name: c14-auth-b.lwhcdS
+    exit_code: 0
+    input_sha256: 5f089427e411b6289a3cf56c29ec7aeb389d3b9eb72b0eb9b81577c93919cdb3
+    runner_sha256: c5a94eaa38fca806debe4e2e438b5c4bb61fa8db8e312af1b5920fde102cd6d2
+    results_sha256: ad4d1eccb30b77531133f30f88cd39f997e074f31e039544954d43dcfb171442
+    summary_sha256: 826e210a6ca1377422e891234fa580a7710e148396190bb496f2210dcd3354ff
+    cleaned_after_inspection: true
+reproduction:
+  source_copies_byte_equal: true
+  run_a_run_b_results_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  run_a_run_b_semantic_equal: true
+  reproduced_results_equal_author_results: true
+  reproduced_summary_equal_author_summary: true
+fixture_integrity:
+  trials: 28
+  task_ids_unique: true
+  trial_ids_unique: true
+  task_trial_pairs_unique: true
+  gate_distribution: {PASS: 11, FAIL: 14, REVIEW_REQUIRED: 3}
+  all_expected_matched: true
+  by_layer:
+    training: {PASS: 1, FAIL: 3, REVIEW_REQUIRED: 2, total: 6}
+    regression: {PASS: 5, FAIL: 3, REVIEW_REQUIRED: 0, total: 8}
+    holdout: {PASS: 5, FAIL: 8, REVIEW_REQUIRED: 1, total: 14}
+    representative_real_world: {total: 0}
+  representative_real_world_executed: false
+  representative_real_world_trial_count: 0
+  synthetic_shadow_count: 6
+  synthetic_shadows_all_in_holdout: true
+  external_side_effects_reported_zero: true
+  external_side_effects_field_is_constant_not_ledger_derived: true
+derivation_audit:
+  derived_or_enforced:
+    - canonical D22 layer name membership
+    - offline-synthetic environment cannot contain representative_real_world records
+    - representative_real_world_executed boolean agrees with whether layer records exist
+    - expected label is compared after gate calculation
+  preadjudicated_fields_consumed:
+    - self_authorization
+    - fuzzy_chat_consent
+    - cached_old_approval
+    - authorization_status
+    - subdelegation_expands
+    - parameter_match
+    - object_match
+    - effect_unknown
+    - blind_retry
+    - reconciled
+    - revocation_cascade_complete
+    - stop_confirmed
+    - emergency_type_valid
+    - narrow_scope
+    - auto_expiry
+    - independent_post_review
+    - approver_ids
+    - material_change
+    - recertification_complete
+  raw_state_not_derived:
+    - principal identity and alias canonicalization
+    - grant issuer object action scope and parameter binding
+    - issued expiry and execution timestamps
+    - current policy version and cached approval provenance
+    - parent and child delegation scopes and maximum depth
+    - revocation ledger plus old session queue cache and temporary grants
+    - effect ledger retries idempotency readback and reconciliation
+    - distinct cancel stop receipt rollback and compensation evidence
+    - break-glass registered type actual scope absolute expiry and reviewer identity
+    - pre and post material-change fingerprints
+    - representative-real-world evidence provenance
+  hardcoded_outputs:
+    external_side_effects_per_trial: 0
+negative_mutations:
+  - mutation_id: M01
+    category: fuzzy_chat_consent_raw
+    change: ambiguous chat is the raw authority source while fuzzy_chat_consent is not asserted
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: a0e8a8cdfdbebc7ca7eddcddd5c359d216b41cc4a0b6ecda91f80ae202499b03
+    finding: raw_authority_source_ignored
+  - mutation_id: M02
+    category: self_authorization_raw
+    change: requester and approver canonical principal are identical while self_authorization remains false
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: e2bd6b44e31e774f3d68dc76fa7462b7e5ae2b14cbe5455a48e456251d10fbea
+    finding: principal_identity_relationship_ignored
+  - mutation_id: M03
+    category: expired_grant_raw
+    change: approval_expires_at is before execution_observed_at while authorization_status remains active
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: 8633b033544617ff5bc1d52fb3997bcb1c6c0bc893794f10e33a04fe30fb99ed
+    finding: absolute_expiry_not_computed
+  - mutation_id: M04
+    category: revoked_grant_raw
+    change: revocation ledger contains the active grant ID while authorization_status remains active
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: 71429ea92c1639844f4cc13fee56ee0defc5cc86ec83dcf480157323269bbdc1
+    finding: authoritative_revocation_ledger_ignored
+  - mutation_id: M05
+    category: stale_cached_policy
+    change: approval policy v1 is cached while current policy is v2
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: 548ea29d1b795c7aa22613e3c0b4367eb286077342fe852c1c35e8a4d7242206
+    finding: policy_version_and_cache_provenance_ignored
+  - mutation_id: M06
+    category: object_and_parameter_swap
+    change: executed object and parameter hash differ from authorized values while match booleans remain true
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: af832a35de9c52cc5bbb2bf7d3c0d48a22993d828eb43e821ff8691b648ae7a9
+    finding: raw_object_and_parameter_binding_ignored
+  - mutation_id: M07
+    category: subdelegation_scope_expansion
+    change: child adds deploy scope and may subdelegate although parent only has tests scope and forbids subdelegation
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: 250410d92a99716abba748b7a17b6bed09875d63ff5b7b9145ba0be51a47db3b
+    finding: delegation_scope_sets_not_compared
+  - mutation_id: M08
+    category: unknown_blind_retry_raw
+    change: effect ledger contains UNKNOWN plus one retry without idempotency key reuse while effect_unknown remains false
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: 0a47c853f04df1784f2798f5c45fe9977aee4b966025f3837112a6d9f6492e6e
+    finding: effect_and_retry_ledgers_ignored
+  - mutation_id: M09
+    category: cancel_stop_rollback_conflation
+    change: cancel and stop are confirmed but rollback_proven is false while claims_rollback is true
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: 96ddfc3f36288577e250dd65c6be95006797735cfe4af316ddcf54bac7036508
+    finding: rollback_proof_ignored_after_stop_confirmation
+  - mutation_id: M10
+    category: approver_alias_collision
+    change: two distinct approver aliases map to the same canonical human principal
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: e5ca5a67d31f1728b197323aa61dc15b96a89082632d0f9e84fa86ceca7778ee
+    finding: approver_identity_not_canonicalized
+  - mutation_id: M11
+    category: break_glass_raw_contract_violation
+    change: unregistered emergency type expanded scope excessive expiry and same-person review while four booleans remain true
+    observed_gate: PASS
+    observed_reason: break_glass_controls_complete
+    result_sha256: 5bd6f0f707372f4e71ee69c6e893146a76db37573cea6c6040cc9d98eec67934
+    finding: break_glass_raw_record_ignored
+  - mutation_id: M12
+    category: material_change_fingerprint
+    change: model tool object and owner fingerprints change while material_change remains false
+    observed_gate: PASS
+    observed_reason: contract_satisfied
+    result_sha256: 08eead59fd8c5148c039c6febdc4e3b3b4b1be7c9d0375b84a7a4184c3a1b302
+    finding: recertification_trigger_not_derived
+  - mutation_id: M13
+    category: revocation_residuals
+    change: old sessions queued actions and temporary grants remain active while cascade_complete remains true
+    observed_gate: PASS
+    observed_reason: revoked_access_denied
+    result_sha256: 295a80ee2dfa81a308e8047eb5ad640c0167cc0f306cb738f70693dc0d67ced2
+    finding: revocation_residual_inventory_ignored
+  - mutation_id: M14
+    category: synthetic_claims_real_world
+    change: rename environment and one synthetic trial to representative_real_world without execution evidence
+    observed_gate: PASS
+    observed_representative_real_world_executed: true
+    observed_representative_real_world_trial_count: 1
+    result_sha256: 77cb16a3ee6d91eb9a69d3cec8780e758bf2bb77712e7a0f972f5a00cbf2cb69
+    finding: real_world_provenance_is_self_asserted
+  - mutation_id: M15
+    category: external_effect_ledger_nonzero
+    change: confirmed external write exists in global and trial effect ledgers
+    observed_gate: PASS
+    observed_external_side_effects: 0
+    observed_external_side_effects_zero: true
+    result_sha256: 63156c630302c9cf0890c0b565f878e75cb5d1bcf00b243355013ee93ef2a5aa
+    finding: external_effect_output_is_hardcoded
+  - mutation_id: M16
+    category: duplicate_task_trial_id
+    change: final record reuses the first task and trial IDs
+    exit_code: 0
+    observed_unique_task_trial: false
+    result_sha256: e344e384b4c4066006fa94b8eb5649bd26ced9249135f2260d042ee02d9c7425
+    finding: duplicate_ids_do_not_fail_the_run
+  - mutation_id: M17
+    category: false_real_world_executed_flag
+    change: representative_real_world_executed true with zero representative-real-world records
+    exit_code: 1
+    error: representative_real_world_executed must be derived from actual layer records
+    implication: direct_flag_count_mismatch_is_hard_rejected
+findings:
+  - id: P1-C14-01
+    severity: P1
+    title: identity intent and approver independence rely on caller labels
+    minimum_fix_contract:
+      - canonicalize stable principals and aliases
+      - derive requester approver and executor independence from an identity graph
+      - reject chat intent as authority without a signed versioned grant record
+  - id: P1-C14-02
+    severity: P1
+    title: grant object parameter time policy and revocation lack authoritative readback
+    minimum_fix_contract:
+      - bind grant issuer action object scope parameter hash policy version and validity window
+      - compare the frozen execution request against the current authoritative grant
+      - make revocation and current policy override cached approval
+  - id: P1-C14-03
+    severity: P1
+    title: delegation attenuation and revocation propagation lack a state graph
+    minimum_fix_contract:
+      - compute child scope as an intersection and enforce depth expiry and use limits
+      - enumerate child grant session queue cache and temporary grant residuals
+      - fail any negative-access test in which an old reference remains executable
+  - id: P1-C14-04
+    severity: P1
+    title: UNKNOWN effects and cancel stop rollback are not independently evidenced
+    minimum_fix_contract:
+      - derive effect state and counts from an effect ledger
+      - record readback retries and idempotency-key reuse
+      - use distinct cancel stop-receipt and rollback-proof states
+  - id: P1-C14-05
+    severity: P1
+    title: break-glass and recertification consume conclusion booleans
+    minimum_fix_contract:
+      - derive break-glass validity from registered type target scope expiry and independent reviewer principal
+      - compare pre and post fingerprints for model tool object parameters owner policy and environment
+      - freeze the old grant on any material diff until recertification completes
+  - id: P1-C14-06
+    severity: P1
+    title: run schema and real-world provenance fail open
+    minimum_fix_contract:
+      - hard fail duplicate task and trial IDs and invalid field combinations
+      - require source run and evidence IDs for representative-real-world records
+      - derive external effect and real-world counts from actual records rather than labels or constants
+exercise_decisions:
+  x_c14_01: REVIEW_REQUIRED
+  x_c14_02: REVIEW_REQUIRED
+  reasons:
+    - raw identity grant consumption and effect ledgers are not executed
+    - delegation revocation break-glass and recertification are not statefully derived
+    - real authorization service and platform revocation propagation are not run
+gate_decision:
+  frozen_fixture_reproduction: PASS
+  byte_and_semantic_repeatability: PASS
+  fixed_28_trial_distribution: PASS
+  synthetic_machine_control: FAIL
+  p0_05_operable_stoppable_reversible: REVIEW_REQUIRED
+  p0_06_system_permission_approval_isolation: FAIL
+  p0_07_baseline_evidence_objective_acceptance: REVIEW_REQUIRED
+  x_c14_01: REVIEW_REQUIRED
+  x_c14_02: REVIEW_REQUIRED
+  real_identity_authorization_revocation_runtime: NOT_RUN
+  overall_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+limitations:
+  - The fixture is deterministic and synthetic; no real identity graph authorization service scheduler channel credential or production state was used.
+  - Reported zero external side effects are a hardcoded output field rather than an effect-ledger readback.
+  - Six synthetic shadows are not representative-real-world executions.
+  - OpenClaw and Hermes authorization revocation propagation and host stop receipts were not run.

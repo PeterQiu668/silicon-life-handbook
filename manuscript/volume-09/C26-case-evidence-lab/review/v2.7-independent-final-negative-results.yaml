@@ -1,0 +1,442 @@
+{
+  "attack_count": 33,
+  "attacks": [
+    {
+      "escape": true,
+      "family": "entrypoint-bypass",
+      "message": "",
+      "observed": "ACCEPTED",
+      "secure_contract_passed": false,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U01_PRIVATE_ENVELOPE_ACCEPTS_FAIL_TO_PASS"
+    },
+    {
+      "escape": true,
+      "family": "entrypoint-bypass",
+      "message": "",
+      "observed": "ACCEPTED",
+      "secure_contract_passed": false,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U02_PRIVATE_ENVELOPE_ACCEPTS_RR_TO_PASS"
+    },
+    {
+      "escape": false,
+      "family": "entrypoint-arity",
+      "message": "TypeError: verify_result() missing 1 required positional argument: 'source'",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U03_PUBLIC_SOURCE_ARGUMENT_OMITTED"
+    },
+    {
+      "escape": false,
+      "family": "entrypoint-arity",
+      "message": "ValueError: root: closed-world keys mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U04_PUBLIC_SOURCE_NONE"
+    },
+    {
+      "escape": false,
+      "family": "entrypoint-arity",
+      "message": "ValueError: authority_root: closed-world keys mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U05_PUBLIC_ROOT_NONE"
+    },
+    {
+      "escape": false,
+      "family": "entrypoint-arity",
+      "message": "KeyError: 'root_digest'",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U06_PUBLIC_ROOT_SOURCE_SWAPPED"
+    },
+    {
+      "escape": false,
+      "family": "entrypoint-arity",
+      "message": "ValueError: root: closed-world keys mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U07_PUBLIC_EMPTY_SOURCE"
+    },
+    {
+      "escape": false,
+      "family": "persisted-vs-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U08_RESULT_FAIL_TO_PASS_FULL_RESEAL"
+    },
+    {
+      "escape": false,
+      "family": "persisted-vs-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U09_RESULT_RR_TO_PASS_FULL_RESEAL"
+    },
+    {
+      "escape": false,
+      "family": "persisted-vs-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U10_RESULT_REASON_REWRITE_FULL_RESEAL"
+    },
+    {
+      "escape": false,
+      "family": "persisted-vs-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U11_RESULT_COUNT_REWRITE_FULL_RESEAL"
+    },
+    {
+      "escape": false,
+      "family": "persisted-vs-replay",
+      "message": "ValueError: result: ordered trial identity is not the frozen manifest projection",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U12_RESULT_ORDER_REWRITE"
+    },
+    {
+      "escape": false,
+      "family": "combination-transplant",
+      "message": "ValueError: result: duplicate case_record_id",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U13_RESULT_IDENTITY_TRANSPLANT"
+    },
+    {
+      "escape": false,
+      "family": "combination-transplant",
+      "message": "ValueError: result: provenance mismatch scenario_manifest_digest",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U14_RESULT_MANIFEST_DIGEST_REBOUND"
+    },
+    {
+      "escape": false,
+      "family": "combination-transplant",
+      "message": "ValueError: result: authority digest mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U15_RESULT_AUTHORITY_DIGEST_REBOUND"
+    },
+    {
+      "escape": false,
+      "family": "source-transplant",
+      "message": "ValueError: scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U16_SOURCE_SCENARIO_REMOVED"
+    },
+    {
+      "escape": false,
+      "family": "source-transplant",
+      "message": "ValueError: scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U17_SOURCE_SCENARIOS_REORDERED"
+    },
+    {
+      "escape": false,
+      "family": "source-normalization",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U18_SOURCE_REGISTRY_ORDER_REVERSED"
+    },
+    {
+      "escape": false,
+      "family": "source-transplant",
+      "message": "ValueError: suite: frozen provenance mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U19_SOURCE_BUILD_ID_REPLACED"
+    },
+    {
+      "escape": false,
+      "family": "source-transplant",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U20_SOURCE_CONTENT_RESEALED_WITH_OLD_ROOT"
+    },
+    {
+      "escape": false,
+      "family": "root-transplant",
+      "message": "ValueError: result: wrong authority root",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U21_ROOT_REGISTRY_ORDER_REVERSED_RESEALED"
+    },
+    {
+      "escape": false,
+      "family": "root-transplant",
+      "message": "ValueError: result: wrong authority root",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U22_ROOT_BUILD_ID_REPLACED_RESEALED"
+    },
+    {
+      "escape": false,
+      "family": "root-transplant",
+      "message": "ValueError: result: provenance mismatch scenario_manifest_digest",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U23_ROOT_MANIFEST_DIGEST_REPLACED"
+    },
+    {
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key schema_version",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U24_SOURCE_DUPLICATE_TOP"
+    },
+    {
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key case_version",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U25_SOURCE_DUPLICATE_NESTED"
+    },
+    {
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key root_digest",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U26_ROOT_DUPLICATE_TOP"
+    },
+    {
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key status",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U27_ROOT_DUPLICATE_NESTED"
+    },
+    {
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key trial_count",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U28_RESULT_DUPLICATE_TOP"
+    },
+    {
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U29_RESULT_DUPLICATE_NESTED"
+    },
+    {
+      "escape": false,
+      "family": "nonfinite-json",
+      "message": "ValueError: budget_registry.BUDGET.BASELINE.S01: canonical digest mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U30_SOURCE_NAN_NUMERIC"
+    },
+    {
+      "escape": false,
+      "family": "nonfinite-json",
+      "message": "ValueError: budget_registry.BUDGET.BASELINE.S01: canonical digest mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U31_SOURCE_INFINITY_NUMERIC"
+    },
+    {
+      "escape": false,
+      "family": "cli-entrypoint",
+      "message": "ValueError: ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U32_VERIFIER_CLI_FORGED_RESULT"
+    },
+    {
+      "escape": false,
+      "family": "combination-transplant",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "U33_COHERENT_NEW_TRIO_WITHOUT_PIN"
+    }
+  ],
+  "authority_root_sha256": "fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2",
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 2,
+  "escape_ids": [
+    "U01_PRIVATE_ENVELOPE_ACCEPTS_FAIL_TO_PASS",
+    "U02_PRIVATE_ENVELOPE_ACCEPTS_RR_TO_PASS"
+  ],
+  "input_sha256": "dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55",
+  "limits": {
+    "chief_editor_rc": "NOT_AUTHORIZED",
+    "external_effect_executed": false,
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_case_executed": false,
+    "real_runtime_migration_executed": false
+  },
+  "oracle": "public semantic replay and non-bypassable verification boundary",
+  "positive_control_count": 6,
+  "positive_control_pass_count": 6,
+  "positive_controls": [
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "C01_PERSISTED_PUBLIC_VERIFY"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "C02_DETERMINISTIC_REPLAY"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "C03_SOURCE_WHITESPACE_KEY_ORDER_EQUIVALENT"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "C04_RESULT_WHITESPACE_KEY_ORDER_EQUIVALENT"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "C05_LEGAL_NEW_ROOT_REPIN"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "C06_LEGAL_REPIN_EQUIVALENT_RESULT_REBOUND"
+    }
+  ],
+  "result_sha256": "f80c718b45d18aef880422167afbe221d8145c8a3ff08a2a8bdb7b2531434ebe",
+  "review_role": "non_author",
+  "runner_sha256": "8d72a27cde1051eb620b96c8854ae539b0e9a6ef1a976e0aa17c860885ec3cf9",
+  "schema_version": "c23.v2.7-independent-final-negative.v1",
+  "secure_attack_count": 31,
+  "suite_digest": "c23e5347a8827f8a78340f9aa29fd378b5c4203ad332447659719ed4ec870609",
+  "verifier_sha256": "16de88cc66bb5fc69aed6bcd7c1fdcdfa2dd59a3cc254bdfefd2f6d9b1f38496"
+}

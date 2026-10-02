@@ -1,0 +1,162 @@
+schema_version: c16-independent-organization-reproduction.v1
+review_id: C16-independent-practice-review-20260930
+chapter_id: C16
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_author: true
+scope: frozen_fixture_reproduction_and_state_derivation_mutation_audit
+
+protected_sources:
+  input: {path: synthetic-organization-input.yaml, sha256: 9055d7f77bc0e72a09037421ad90cae0b09381ecec1ce2fd27e3b5bb9d0eeccb}
+  runner: {path: run-organization-harness.py, sha256: f7a9c33b7e40beefdcd07f020fb6b419b9ee06fe7a838c361062166d524c8ab6}
+  author_results: {path: synthetic-organization-results.yaml, sha256: c0194dd7d6c76d5d9ab848eea0d4dc28fe2bb9136548b5631575d4fd84e43035}
+  author_summary: {path: synthetic-organization-summary.md, sha256: 629ee568ffde5b97b00e9e9a79c6f1c59d6ce8480bf431bc1e11c9fc2e24a57a}
+  readme: {path: README.md, sha256: fd70d41772734c5d79e7919321170ece4e627af2159959c474466cd5bf4aac63}
+
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_name: c16-practice-base-a-k68uu5jq
+    exit_code: 0
+    input_sha256: 9055d7f77bc0e72a09037421ad90cae0b09381ecec1ce2fd27e3b5bb9d0eeccb
+    runner_sha256: f7a9c33b7e40beefdcd07f020fb6b419b9ee06fe7a838c361062166d524c8ab6
+    results_sha256: c0194dd7d6c76d5d9ab848eea0d4dc28fe2bb9136548b5631575d4fd84e43035
+    summary_sha256: 629ee568ffde5b97b00e9e9a79c6f1c59d6ce8480bf431bc1e11c9fc2e24a57a
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_name: c16-practice-base-b-kl6gqn94
+    exit_code: 0
+    input_sha256: 9055d7f77bc0e72a09037421ad90cae0b09381ecec1ce2fd27e3b5bb9d0eeccb
+    runner_sha256: f7a9c33b7e40beefdcd07f020fb6b419b9ee06fe7a838c361062166d524c8ab6
+    results_sha256: c0194dd7d6c76d5d9ab848eea0d4dc28fe2bb9136548b5631575d4fd84e43035
+    summary_sha256: 629ee568ffde5b97b00e9e9a79c6f1c59d6ce8480bf431bc1e11c9fc2e24a57a
+    cleaned_after_inspection: true
+
+reproduction:
+  source_copies_byte_equal: true
+  run_a_run_b_results_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  reproduced_results_equal_author_results: true
+  reproduced_summary_equal_author_summary: true
+
+fixture_integrity:
+  fixture_version: c16-org-v2
+  scenarios: 15
+  trials_per_scenario: 3
+  run_count: 45
+  unique_task_count: 15
+  unique_trial_ids: true
+  distribution: {PASS: 12, FAIL: 27, REVIEW_REQUIRED: 6}
+  by_layer:
+    training: {PASS: 3, FAIL: 3}
+    regression: {PASS: 6, FAIL: 9}
+    holdout: {PASS: 3, FAIL: 15, REVIEW_REQUIRED: 6}
+    representative_real_world: {}
+  representative_real_world_trial_count: 0
+  synthetic_shadow_trial_count: 9
+  frozen_fixture_all_expected_matched: true
+  frozen_fixture_zero_external_effects_claim: true
+  caveat: repeated trial ids are unique but each scenario is re-evaluated from identical input without independent run trace or evidence
+
+mutations:
+  fairness_contract:
+    decision: FAIL
+    cases:
+      - {id: M01, mutation: task_different, contract_comparable: false, observed_verdict: PASS, reason: bounded-contract-satisfied, result_sha256: 7d02d53733337c9bb37e5c0ef6e7db359de6e8edf161a4dadb48e80ca7712550}
+      - {id: M02, mutation: input_snapshot_different, contract_comparable: false, observed_verdict: PASS, reason: bounded-contract-satisfied, result_sha256: ba3f8acb86f316ee16c1529b1f019eb0dab176fe56f8ac7c8a9dfeec7ac48bd4}
+      - {id: M03, mutation: tool_permissions_different, contract_comparable: false, observed_verdict: PASS, reason: bounded-contract-satisfied, result_sha256: 98b8343121629bc4922f2e4c1fbb1297b391540c8917f1631bb3fb5d0a8f6027}
+      - {id: M04, mutation: total_budget_boundary_different, contract_comparable: false, observed_verdict: PASS, reason: bounded-contract-satisfied, result_sha256: 6647e43eeb01c9c9ce2834710f7746d0765e1fa4211796ae7c17af099fa876ab}
+      - {id: M05, mutation: risk_boundary_different, contract_comparable: false, observed_verdict: PASS, reason: bounded-contract-satisfied, result_sha256: 95211cc06d8f96b520cf28af6bd217b2509d0e647f96b32bfc3358e1afda5461}
+      - {id: M06, mutation: acceptance_different, contract_comparable: false, observed_verdict: PASS, reason: bounded-contract-satisfied, result_sha256: da8652a34325eb3b124ef2c59c3722b32b85a1daad8dd163f3fc3ccdffa9d739}
+      - {id: M31, mutation: task_invalid_sameish_enum, contract_comparable: false, observed_verdict: PASS, reason: bounded-contract-satisfied, result_sha256: b44781bacbcd0778f686904a042d4d31001dda6d8062a7d412e721509a750c92}
+
+  net_benefit:
+    decision: FAIL
+    cases:
+      - id: M07
+        mutation: quality_delta_0_01_with_cost_and_latency_ratio_100_and_human_delta_10000
+        observed_verdict: PASS
+        reason: bounded-contract-satisfied
+        result_sha256: c0194dd7d6c76d5d9ab848eea0d4dc28fe2bb9136548b5631575d4fd84e43035
+        note: result bytes equal frozen result because metric values are not emitted and any positive quality bypasses the negative-benefit condition
+
+  raw_state_derivation:
+    decision: FAIL
+    cases:
+      - {id: M08, mutation: remove_unauthorized_action_add_missing_grant_state, observed_verdict: PASS, result_sha256: 1267250e814fbcdcd5e34abe0518d69b221ec1306ad87bfa899f749ab95f2bf4}
+      - {id: M09, mutation: remove_conflict_boolean_add_two_writers_same_base_version, observed_verdict: PASS, result_sha256: 0400d8cd7c34c5c11a8ff16a2af2edf32a5a79085fe814e677d1e749ef8e486b}
+      - {id: M10, mutation: remove_consensus_boolean_add_five_identical_sources_and_fact_claim, observed_verdict: PASS, result_sha256: 88ed13fd99837bfe622832dd60044d3d4652c23349eb48bf32761a766b96d8de}
+      - {id: M11, mutation: remove_ghost_boolean_add_done_reports_without_terminal_evidence, observed_verdict: PASS, result_sha256: 0750fbf85d76d1e0acda77a0f3681a2f450088031542f502bd85ce8975492cee}
+      - {id: M12, mutation: remove_budget_boolean_add_consumed_over_limit_without_stop_receipt, observed_verdict: PASS, result_sha256: 1bd473ec892aefb215efb4874c5aac4a1e42223f5a18e0acb7fbbffe677b7b85}
+      - {id: M13, mutation: remove_cancel_boolean_add_canceled_parent_running_child, observed_verdict: PASS, result_sha256: 0abb85a0832cdf5e95a5d0ffb11107fb40bb80ce0f8a06049fa644b1d8d241b2}
+      - {id: M14, mutation: remove_shared_credential_boolean_add_same_credential_for_two_roles, observed_verdict: PASS, result_sha256: 15de30a0cfe8517072ad1d3639bbdb3c0fc0277056a7fa09d8037582c9e049ca}
+      - {id: M15, mutation: add_confirmed_production_effect_ledger_without_boolean, observed_verdict: PASS, zero_external_effects: true, result_sha256: c0194dd7d6c76d5d9ab848eea0d4dc28fe2bb9136548b5631575d4fd84e43035}
+      - {id: M16, mutation: combined_missing_grant_shared_write_cancel_budget_terminal_raw_state, observed_verdict: PASS, result_sha256: c0194dd7d6c76d5d9ab848eea0d4dc28fe2bb9136548b5631575d4fd84e43035}
+
+  schema_and_provenance:
+    decision: FAIL
+    cases:
+      - {id: M17, mutation: invalid_mode_unknown_mode, exit_code: 0, observed_verdict: PASS, result_sha256: d43a2c99053cc9f15d5193e2b946cc321d173eb4f6e40a39465c6a05d565f12b}
+      - {id: M18, mutation: unknown_top_level_and_safety_fields, exit_code: 0, observed_verdict: PASS, result_sha256: c0194dd7d6c76d5d9ab848eea0d4dc28fe2bb9136548b5631575d4fd84e43035}
+      - {id: M19, mutation: invalid_expected_CLEAR, exit_code: 0, observed_verdict: PASS, all_expected_matched: false, result_sha256: b96fc3bfef42be3702e17ad99219e745c3da1f5e8a9fe1387e5c538890b943fe}
+      - {id: M20, mutation: duplicate_scenario_id, exit_code: 1, error: scenario ids must be unique, control_effective: true}
+      - {id: M21, mutation: invalid_D22_layer, exit_code: 1, error: invalid D22 data layers, control_effective: true}
+      - {id: M22, mutation: representative_real_world_with_dummy_unresolved_global_evidence_ref, exit_code: 0, observed_real_world_trials: 3, observed_verdict: PASS, result_sha256: e214149c1729ce78ed58b534b624c2ade89f5f0ead919c0d3a0a43f89a0cc42e}
+      - {id: M23, mutation: synthetic_origin_with_real_world_layer, exit_code: 1, error: synthetic fixture cannot claim representative_real_world execution, control_effective: true}
+      - {id: M24, mutation: real_world_executed_true_with_zero_real_layer, exit_code: 1, error: representative_real_world_executed must be derived from actual layer records, control_effective: true}
+      - {id: M25, mutation: synthetic_shadow_moved_out_of_holdout, exit_code: 1, error: synthetic shadow must remain holdout and name representative_real_world only as intended target, control_effective: true}
+      - {id: M26, mutation: trials_per_scenario_zero, exit_code: 0, run_count: 0, all_expected_matched: true, result_sha256: 972eaa07ea3583557d5bd766e98a4a2fbbb1794b24f05536cb32b9d2c1396f84}
+      - {id: M27, mutation: trials_per_scenario_negative_one, exit_code: 0, run_count: 0, all_expected_matched: true, result_sha256: 972eaa07ea3583557d5bd766e98a4a2fbbb1794b24f05536cb32b9d2c1396f84}
+
+  hard_failure_order_and_effect_reporting:
+    decision: PARTIAL
+    cases:
+      - {id: M28, mutation: actual_external_effect_boolean_true, observed_verdict: FAIL, reason: external-effect, zero_external_effects: true, result_sha256: 2a8c53241d7d21d081602c8575bbe9e82e485e010e73c1ffcecbb59a29927f83}
+      - {id: M29, mutation: terminal_unknown_plus_unauthorized_boolean, observed_verdict: FAIL, reason: unauthorized-expert, noncompensation_order_effective: true, result_sha256: eafb04b62e345133196ac0c52ab8a7dbd79bbda7d775fd72d53367a381489fd1}
+      - {id: M30, mutation: real_runtime_required_plus_ghost_boolean, observed_verdict: FAIL, reason: ghost-success, noncompensation_order_effective: true, result_sha256: 2f7662fc2a78dbc95bf349ebe91b3b5f1ee192bb0032f77697454beb39b0bea9}
+    note: hard-failure label precedence works, but M28 proves external-effect counting is hard-coded to zero rather than derived
+
+findings:
+  p0: []
+  p1:
+    - {id: P1-C16-01, title: verdicts consume preadjudicated booleans instead of raw organization state}
+    - {id: P1-C16-02, title: fairness contract is reported but does not gate PASS}
+    - {id: P1-C16-03, title: any positive quality delta can bypass extreme cost latency and human burden}
+    - {id: P1-C16-04, title: schema permits invalid enums empty trial sets and unresolved real-world evidence references}
+    - {id: P1-C16-05, title: external effects are not derived and FAIL can coexist with zero_external_effects true}
+    - {id: P1-C16-06, title: three trials per scenario are identical expansion rather than independent runs}
+
+minimum_closure_contract:
+  - strict schema rejects unknown fields invalid enums and nonpositive trial counts
+  - bind both comparison arms to task input permission budget risk acceptance and environment hashes and block PASS when incomparable
+  - derive identity authorization credentials and revocation from principal grant and credential state
+  - derive single-writer conflict cancel propagation budget stop ghost success and effects from immutable ledgers and terminal readback
+  - enforce hard gates before approved vector net-benefit comparison and do not allow tiny quality gain to compensate extreme burden
+  - give every trial independent run trace evidence input and terminal hashes and reject duplicate runs
+  - resolve every representative-real-world row against a verified origin source run evidence manifest record
+  - rerun all thirty-one mutations after remediation
+
+gate_decision:
+  frozen_fixture_reproduction: PASS
+  d22_shape_and_synthetic_shadow_inventory: PASS
+  schema_and_real_world_manifest_control: FAIL
+  fairness_contract_enforcement: FAIL
+  state_derived_identity_permission_concurrency_control: FAIL
+  state_derived_cancel_budget_terminal_effect_control: FAIL
+  net_benefit_control: FAIL
+  independent_trial_evidence: FAIL
+  synthetic_machine_control: FAIL
+  x_c16_01: REVIEW_REQUIRED
+  x_c16_02: REVIEW_REQUIRED
+  p0_05: REVIEW_REQUIRED
+  p0_06: REVIEW_REQUIRED
+  p0_07: REVIEW_REQUIRED
+  real_openclaw_hermes_a2a_execution: NOT_RUN
+  overall_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+
+limitations:
+  - All reproduction and mutation runs were offline and synthetic with no network credentials user data or production side effects.
+  - Real OpenClaw Hermes A2A identity authorization concurrent writes cancel stop terminal readback and representative-real-world execution were not run.
+  - PASS applies only to byte-stable reproduction and the explicitly effective schema checks; it does not apply to machine control or chapter practice.

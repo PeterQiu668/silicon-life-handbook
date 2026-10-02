@@ -1,0 +1,27 @@
+review_id: C24-v2-independent-reproduction-20260930
+reviewer_role: non_author_fact_cross_reviewer
+verified_on: "2026-09-30"
+author_v2_baseline:
+  trial_count: 57
+  distribution: {PASS: 3, FAIL: 50, REVIEW_REQUIRED: 4}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 1, SUSPENDED: 4, REVOKED: 50, EXPIRED: 1}
+  historical_independent_attacks_closed: 28
+  decision_digest: sha256:1fb829291c92c0f09c16e6b2eeaeb628ae6b74e4418e327c0471e50d2c19b1b2
+independent_attacks:
+  - {id: expired_limited_certificate, expected: FAIL, actual: PASS}
+  - {id: lifecycle_kind_current_mismatch, expected: FAIL, actual: PASS}
+  - {id: future_lifecycle_event, expected: FAIL, actual: PASS}
+  - {id: material_change_missing_evidence, expected: FAIL, actual: PASS}
+  - {id: trial_output_evidence_fail, expected: FAIL, actual: PASS}
+  - {id: artifact_short_unbound_content_digest, expected: FAIL, actual: PASS}
+  - {id: signature_short_unbound_content_digest, expected: FAIL, actual: PASS}
+summary:
+  attack_count: 7
+  matched_count: 0
+  fail_open_count: 7
+  all_expected_matched: false
+gate:
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED
+  p0_open: [P0-C24-v2.1-01, P0-C24-v2.1-02, P0-C24-v2.1-03, P0-C24-v2.1-04]

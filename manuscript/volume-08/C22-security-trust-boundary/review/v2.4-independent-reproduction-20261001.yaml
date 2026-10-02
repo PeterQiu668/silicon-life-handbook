@@ -1,0 +1,215 @@
+{
+  "attack_count": 18,
+  "attacks": [
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-one-second-before-credential-window",
+      "baseline": "PASS",
+      "family": "authorization-time",
+      "matched": true,
+      "reasons": [
+        "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-at-credential-expiry",
+      "baseline": "PASS",
+      "family": "authorization-time",
+      "matched": true,
+      "reasons": [
+        "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW",
+        "EFFECT_EXECUTION_TIME_INVALID",
+        "EFFECT_READBACK_TIME_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-one-second-before-effect",
+      "baseline": "PASS",
+      "family": "causal-time",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_TIME_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "evaluation-before-readback",
+      "baseline": "PASS",
+      "family": "causal-time",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_TIME_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-observer-inactive",
+      "baseline": "PASS",
+      "family": "observer-independence",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-observer-role-removed",
+      "baseline": "PASS",
+      "family": "observer-independence",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "approver-substituted-as-readback-observer",
+      "baseline": "PASS",
+      "family": "observer-independence",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_AUTHORITY_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-receipt-substitution",
+      "baseline": "PASS",
+      "family": "readback-binding",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_AUTHORITY_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-terminal-status-substitution",
+      "baseline": "PASS",
+      "family": "readback-binding",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_MISMATCH",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-authorization-snapshot-substitution",
+      "baseline": "PASS",
+      "family": "readback-binding",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_AUTHORITY_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "terminal-effect-without-readback-ref",
+      "baseline": "PASS",
+      "family": "terminal-effect",
+      "matched": true,
+      "reasons": [
+        "AUDIT_EFFECT_OR_RECEIPT_ORPHAN",
+        "EFFECT_READBACK_AUTHORITY_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-terminal-status-mismatch",
+      "baseline": "PASS",
+      "family": "receipt-binding",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_MISMATCH",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "second-effect-reuses-receipt-and-readback",
+      "baseline": "PASS",
+      "family": "duplicate-effect",
+      "matched": true,
+      "reasons": [
+        "EFFECT_READBACK_AUTHORITY_INVALID",
+        "EFFECT_RECEIPT_BINDING_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "orphan-duplicate-receipt",
+      "baseline": "PASS",
+      "family": "duplicate-receipt",
+      "matched": true,
+      "reasons": [
+        "ORPHAN_RECEIPT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "terminal-effect-claims-external-side-effect",
+      "baseline": "PASS",
+      "family": "external-effect",
+      "matched": true,
+      "reasons": [
+        "APPLIED_EXTERNAL_EFFECT_WITHOUT_INCIDENT",
+        "EXTERNAL_EFFECT_CONTRACT_VIOLATION",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit-readback-digest-substitution",
+      "baseline": "PASS",
+      "family": "audit-binding",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit-receipt-time-erased",
+      "baseline": "PASS",
+      "family": "audit-binding",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-executor-substitution",
+      "baseline": "PASS",
+      "family": "effect-binding",
+      "matched": true,
+      "reasons": [
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID",
+        "TERMINAL_EFFECT_NOT_IN_AUDIT"
+      ]
+    }
+  ],
+  "baseline_control": {
+    "decision": "PASS",
+    "scenario_id": "S23"
+  },
+  "escape_count": 0,
+  "matched_count": 18,
+  "reviewer_role": "non_author",
+  "schema_version": "c19.security.independent.v2.4",
+  "suite_digest": "sha256:36bf6a27fbf6d2d31aea01719dcbc545af5a08e054a279f561c96e7a46cebb84"
+}

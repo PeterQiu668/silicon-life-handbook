@@ -1,0 +1,50 @@
+schema: c24.cert.v2.5-fresh-temp-reproduction.v1
+chapter_id: C24
+run_date: "2026-10-01"
+role: remediation_author
+status: drafting_unapproved
+environment:
+  mode: offline_synthetic
+  fresh_temp_count: 2
+  network: false
+  real_credentials: false
+  production_write: false
+  real_runtime_executed: false
+byte_identical_across_fresh_temps: true
+fixed_fixture:
+  trial_count: 58
+  distribution: {PASS: 4, FAIL: 52, REVIEW_REQUIRED: 2}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 2, SUSPENDED: 2, REVOKED: 52, EXPIRED: 1}
+  authority_root_digest: "sha256:cef4855daac555474551017815c517a238814ee8011c4678d7d6d853cb946bf3"
+  decision_digest: "sha256:bf34e6e5e893ad83d47a86f77c5a04599325c1067642a76eec34976afc3a79be"
+hashes:
+  builder_sha256: "3b021a6579e0dfb21d86bebc0f240e365c2d894c6c5c9051204ac7d8be0df5e5"
+  runner_sha256: "3764fa9911ea5b2b4b8ce6a6caacc53764889408b91730a6544c1610ed0fbfd4"
+  v25_regression_runner_sha256: "ec44ccf6a626b9baf8217bacfce422ee014da5fa8874f4b7727c749e3dab195f"
+  input_sha256: "54ebf80cee7f5a1b34c2b20b77e658fda627483a705cb5c238629eecc2569aaa"
+  authority_file_sha256: "beb4457a72e99f6248bd443b3863ec4722b40ed402f6b3d347dafdc10aa81eed"
+  result_file_sha256: "b4230d3d13bf3fad3a1c83b51db66ad66dbb79d82432eebb1389eae7323ce194"
+  base_author_regression_sha256: "f2e2614b179a2b4bc26880ce9170502760eaa6f77473d8730b1cc2949ed40b02"
+  v25_regression_result_sha256: "9f4b683e028c0c03ef2d8c27269c40d360b3a73b8a4aebb84fb7c9c16174fb30"
+  v24_independent_replay_sha256: "da4416d58369a524f78bc7644d8163ca1e81924b5d411a823b8c15b7062e4977"
+suites:
+  - {suite: base_author_negative, count: 25, secure: 25, escapes: 0, suite_digest: "sha256:d3c3cfa959eda014560d6997beac8eb0bad8d1fa0d1676c235ac43628e792ade"}
+  - {suite: historical_v22_semantic_blackbox, count: 18, secure: 18, escapes: 0, suite_digest: "sha256:7e62ce3566f9a19512e49c6f948614627aeaf8cb65ce5e556220fd8b5e022a45"}
+  - {suite: v23_author_historical_and_neighbour, count: 45, secure: 45, escapes: 0, positive_controls: 2, positive_pass: 2, suite_digest: "sha256:6cc24c3e5d16e6380223f28cd45d0b327018583301105dc9ed6a532b55dbc376"}
+  - {suite: v23_independent, count: 21, secure: 21, escapes: 0, positive_controls: 2, positive_pass: 2, suite_digest: "sha256:c66c89b7988bd46d0d8eeb21f2b2378d29658267d86e08d6eebeb48e805f6f42"}
+  - {suite: v24_author, count: 29, secure: 29, escapes: 0, positive_controls: 2, positive_pass: 2, suite_digest: "sha256:1f5cd54b736be3a6c3553812f904244a12078e505234359008f4c2c74ce7c5dc"}
+  - {suite: v24_independent_final_replay, count: 29, secure: 29, escapes: 0, positive_controls: 3, positive_pass: 3, suite_digest: "sha256:41814216a683bf79b29dbce73c7365643b53591a24fbacc6931b59f1893716e3"}
+  - {suite: v25_author, count: 37, secure: 37, escapes: 0, positive_controls: 3, positive_pass: 3, suite_digest: "sha256:bc62a1c243beb10f20370daef746fa0e96b25b5ae673bad72b9395e2180c79b3"}
+controls_closed_in_author_scope:
+  causal_order: true
+  frozen_authority_projection: true
+  d22_per_applicable_layer_security: true
+  pre_change_release_registry: true
+  independent_result_source_digests: true
+limitations:
+  non_author_post_fix_review: pending
+  real_openclaw_or_hermes_runtime: not_run
+  representative_real_world: not_run
+  external_certification_authority: not_run
+  practice_gate: REVIEW_REQUIRED
+  fact_cross_editor_chief_rc: NOT_SELF_APPROVED

@@ -1,0 +1,274 @@
+> **手册版本**：v5.0 行业标准版 · 2026-09-27
+> **License**：MIT（跟随 OpenClaw 主仓）
+> **实测环境**：OpenClaw 2026.9.4 (3a9d69d) · Hermes Agent 0.20.1 · macOS 26.5.1 · 236 skills
+> **本机 live 复核**：OpenClaw 2026.9.6 (eb377ac) · 18 agents · 61 automations · plugins 53/73（书内统一用 2026.9.4 口径）
+
+---
+
+# 第 12 章 · 8 卷挂载映射（v1.0 8 卷训练学 → OpenClaw Plugin 挂载点）
+
+> **v5.0 行业标准版 banner**：本章对应 OpenClaw 训练学第 12 章（工程接口层 4/4）；详见 [README](./README.md)。
+> **License banner**：MIT（基于 OpenClaw 主仓 LICENSE 法律文本）。
+> **OpenClaw 真名**：挂载点全部通过 `openclaw.plugin.json` 的 `contracts.tools / hooks / skills` 字段表达。
+> **业界对位**：业界 6 框架无"8 卷训练学 → plugin 挂载"概念。
+
+---
+
+## 概述
+
+v1.0 原版硅基生命训练学分 **8 卷**（卷一至卷八），每卷有独立的训练哲学 + 工程落地。新书 v5.0 把 8 卷哲学收编为 12 章正文（详见主编报告 §1.2），但**8 卷依然是工程映射的语义单元**——每一卷在 `openclaw-plugin-silicon-life-training` 中对应一组 `contracts.tools + hooks + skills` 挂载点。
+
+**本章定位**：把 8 卷的哲学 → 工程的映射**全部显化**到 plugin manifest 的可执行字段，使每一卷成为可装可卸的子能力。
+
+---
+
+## 8 卷总览（v1.0 原版 · 新书仅作"挂载隐喻"）
+
+| 卷 | 名称 | 核心论断 | 新书对应章节 |
+|---|---|---|---|
+| 卷一 | 哲学基础（原：训虾派） | 硅基生命何以可能 | 第 0 章·总论 |
+| 卷二 | 生命协议（7 大契约）| SOUL/USER/AGENTS/TOOLS/IDENTITY/HEARTBEAT/MEMORY | 第 1 章·七大契约 |
+| 卷三 | 系统骨架（Runtime/Heartbeat） | OpenClaw 7 大子系统解剖 | 第 2 章·系统骨架 |
+| 卷四 | 训练流程（教练机制+双三角）| 业界唯一训练流程层 | 第 3 章·训练流程 |
+| 卷五 | 长期表现（记忆+漂移+边界）| 漂移治理+主动性边界+每周体检（优势 2+3） | 第 4 章·长期表现 |
+| 卷六 | 治理系统（三证验真+信任结算）| TEV + Trust Score + Merit Ledger（优势 4）| 第 5 章·治理系统 |
+| 卷七 | 协同军团（反脆弱+让位规则）| SLCP + 反脆弱三层 + Three-Stage Review + Yield Protocol（优势 1+4） | 第 6 章·协同军团 |
+| 卷八 | 超维演进（响应型→提案型）| OODA + 技能基因 + 自主目标生成（优势 5）| 第 7 章·超维演进 |
+
+> **v5.0 章节名不沿用 8 卷名**（主编死命令）；8 卷仅作为本章"plugin 挂载语义单元"使用；新书正文叙事弧独立。
+
+---
+
+## 8 卷 → Plugin 挂载映射表
+
+> **本表是本章核心交付物**——8 卷每一卷的哲学 → 实际 plugin 挂载字段全显化。
+
+### 卷一 · 哲学基础 → `config.paradigm`
+
+| 挂载维度 | 字段 | 关键值 | 说明 |
+|---|---|---|---|
+| config | `configSchema.properties.paradigm` | `reactive` / `proactive-evolution` | 训练学范式选择 |
+| skill | `skills/silicon-life-training/SKILL.md` | — | 总论 SKILL（哲学基础） |
+| hook | `on-startup` | — | 启动时打印训练学宣言 |
+| contracts.tools | `silicon_life.philosopher`（待 RFC）| — | 哲学推理工具（待 RFC 合并） |
+
+### 卷二 · 生命协议 → `config.protocols.*`
+
+| 协议 | 字段 | 默认 | 哲学 |
+|---|---|---|---|
+| SOUL | `config.protocols.SOUL` | true | 灵魂不可让步 |
+| USER | `config.protocols.USER` | true | 用户主权不可替代 |
+| AGENTS | `config.protocols.AGENTS` | true | 多智能体协作是基本盘 |
+| TOOLS | `config.protocols.TOOLS` | true | 工具是手 |
+| IDENTITY | `config.protocols.IDENTITY` | true | 身份不可漂移 |
+| HEARTBEAT | `config.protocols.HEARTBEAT` | true | 心跳是生命体征 |
+| MEMORY | `config.protocols.MEMORY` | true | 记忆即人格 |
+
+**挂载哲学**：7 协议 → 7 个 boolean 开关。**默认全开**——任何一协议关掉相当于"残缺生命"。
+
+```bash
+# 关掉 HEARTB 的极端场景（批处理 agent）
+openclaw config set plugins.entries.silicon-life-training.config.protocols.HEARTBEAT false
+```
+
+### 卷三 · 系统骨架 → `contracts.tools`（12 个 tool 全部对齐 OpenClaw 子系统）
+
+| OpenClaw 子系统 | contracts.tool | 关键功能 |
+|---|---|---|
+| Runtime | `silicon_life.runtime_trace`（待 RFC）| 调用链追踪 |
+| Heartbeat | `silicon_life.heartbeat` | 心跳状态查询 |
+| Memory | `silicon_life.memory_status` | 记忆查询 |
+| Tools Registry | `silicon_life.tool_inventory` | tool 注册表查询 |
+| Skills Registry | `silicon_life.skill_inventory` | skill 注册表查询 |
+| Channels | `silicon_life.channel_list` | 通道列表 |
+| Config | `silicon_life.config_inspect` | 配置检视 |
+| Models | `silicon_life.model_list` | 模型清单 |
+
+> **真名对照**：本机 `openclaw plugins list` 输出显示 OpenClaw 真实有 **a2a / active-memory / anthropic / azure-speech / bonjour / clawrouter / copilot-proxy / crabbox / cua-computer / deepgram / device-pair / document-extract / elevenlabs / fal / file-transfer / geolocation / google / huggingface / imap / imessage / llm-task / lobster / matrix / memory-core / memory-lancedb / minimax-portal-auth / msteams / nostr / open-prose / phone-control / signal / slack / tlon / voice-call / web** 等 69 个 stock plugin；**plugin 入口的硅基生命训练学不重写这些子系统**，而是通过 `contracts.tools` 调用它们的 RPC（`tools.catalog` + `skills.status` + `skills.skillCard`，术语表 §三 #20）。
+
+### 卷四 · 训练流程 → `contracts.tools.trainer / mentor` + `config.mentor.*`
+
+| 挂载维度 | 字段 | 说明 |
+|---|---|---|
+| contracts.tools | `silicon_life.trainer` | 训练启动（双三角模型：期望-实况-反馈）|
+| contracts.tools | `silicon_life.mentor` | 导师智能体（教练机制）|
+| config | `config.mentor.enabled` | 是否启用教练 |
+| config | `config.mentor.model` | 教练模型选择 |
+| config | `config.mentor.maxIterations` | 最大迭代轮次（1–20） |
+| skill | `skills/dual-triangle-coach/SKILL.md` | 双三角 SKILL |
+| hook | `before-tool-call` | 反馈回写 |
+
+**双三角模型（原 v1.0 卷四模块5）**：期望三角（Should-Be）+ 实况三角（As-Is）+ 反馈回路。**新书保留中文 + 英文 alias "Dual-Triangle Model: Expectation-Actuality-Feedback Loop"**（术语表 §四 #26）。
+
+### 卷五 · 长期表现 → `contracts.tools.health_check` + `config.drift.*`
+
+| 挂载维度 | 字段 | 说明 |
+|---|---|---|
+| contracts.tools | `silicon_life.health_check` | 每周体检执行器 |
+| config | `config.drift.documentDriftCheck` | 文档漂移检测 |
+| config | `config.drift.personalityDriftCheck` | 人格漂移检测 |
+| config | `config.drift.weeklyHealthCheckCron` | 体检 Cron（默认周一 9:00）|
+| skill | `skills/weekly-health-check/SKILL.md` | 体检清单 SKILL |
+| hook | `on-drift-detect` | 漂移检测自动复盘 |
+
+**优势 2 + 3 集中体现**：漂移治理 + 主动性边界 + 每周体检全部在本卷。
+
+### 卷六 · 治理系统 → `contracts.tools.trust_score / merit_ledger / three_stage_review` + `config.governance.*`
+
+| 挂载维度 | 字段 | 说明 |
+|---|---|---|
+| contracts.tools | `silicon_life.trust_score` | 信任评分查询 |
+| contracts.tools | `silicon_life.merit_ledger` | 功绩账本查询 |
+| contracts.tools | `silicon_life.three_stage_review` | 三省制执行 |
+| config | `config.governance.trustScoreThreshold` | 信任分阈值（0–100）|
+| config | `config.governance.meritLedgerPath` | 功绩账本路径 |
+| config | `config.governance.threeStageReview` | 三省制启用 |
+| skill | `skills/three-stage-review/SKILL.md` | 三省制 SKILL |
+| hook | `before-tool-call` + `after-tool-call` | 计分自动累加 |
+
+**优势 4 集中体现**：TEV + Trust Score + Merit Ledger + Three-Stage Review。
+
+### 卷七 · 协同军团 → `contracts.tools.response_yield` + `config.slcp.*` + SLCP 协议栈
+
+| 挂载维度 | 字段 | 说明 |
+|---|---|---|
+| contracts.tools | `silicon_life.response_yield` | 让位协议执行 |
+| config | `config.slcp.antiFragileTriptych` | 反脆弱三层启用 |
+| config | `config.slcp.responseYieldProtocol` | 让位协议启用 |
+| skill | `skills/anti-fragile-triptych/SKILL.md` | 反脆弱 SKILL |
+| hook | `first-response` | 让位触发 |
+| 协议栈 | SLCP（Silicon-Life Coordination Protocol） | **改名自 v1.0 ACP**（术语表 §一 #1） |
+
+**优势 1 + 4 集中体现**：SLCP 协同 + 反脆弱三层 + 让位协议 + Three-Stage Review。
+
+### 卷八 · 超维演进 → `contracts.tools.ooda_*` + `contracts.tools.autonomous_goal_generator` + `config.ooda.*`
+
+| 挂载维度 | 字段 | 说明 |
+|---|---|---|
+| contracts.tools | `silicon_life.ooda_observe` | OODA Observe 阶段 |
+| contracts.tools | `silicon_life.ooda_orient` | OODA Orient 阶段 |
+| contracts.tools | `silicon_life.ooda_decide` | OODA Decide 阶段（含自主目标生成）|
+| contracts.tools | `silicon_life.ooda_act` | OODA Act 阶段 |
+| contracts.tools | `silicon_life.autonomous_goal_generator` | 自主目标生成器 |
+| config | `config.ooda.enabled` | OODA 启用 |
+| config | `config.ooda.autonomousGoalGeneration` | ⚠ 自主目标生成（高风险） |
+| config | `config.ooda.goalApprovalTimeout` | 目标提案等待超时 |
+| skill | `skills/ooda-loop/SKILL.md` | OODA 循环 SKILL |
+| hook | `first-message` | OODA 触发 |
+
+**优势 5 集中体现**：OODA + 技能基因 + 自主目标生成（Response → Proposal）。
+
+---
+
+## 挂载点完整清单（统计）
+
+```
+12 contracts.tools
+5 hooks
+5 skills (skills/*)
+23 config keys (configSchema.properties.*)
+1 entry (./dist/index.js)
+
+合计 46 个挂载点，全部归 8 卷语义。
+```
+
+### 按卷统计挂载点
+
+| 卷 | tools | hooks | skills | config keys | 合计 |
+|---|---|---|---|---|---|
+| 卷一 | 1 | 1 | 1 | 1 | 4 |
+| 卷二 | 0 | 0 | 0 | 7 | 7 |
+| 卷三 | 8 | 0 | 0 | 0 | 8 |
+| 卷四 | 2 | 1 | 1 | 3 | 7 |
+| 卷五 | 1 | 1 | 1 | 3 | 6 |
+| 卷六 | 3 | 2 | 1 | 3 | 9 |
+| 卷七 | 1 | 1 | 1 | 2 | 5 |
+| 卷八 | 5 | 1 | 1 | 3 | 10 |
+| **合计** | **12** | **5** | **5** | **23** | **45** |
+
+（注：与上文 46 之差是 entry 自身 +1）
+
+---
+
+## 卷间依赖图
+
+```
+卷一 (哲学)
+  ↓ 决定
+卷二 (协议)
+  ↓ 决定
+卷三 (骨架)
+  ↓ 支撑
+卷四 (训练)
+  ↓ 产出
+卷五 (长期)
+  ↓ 反馈
+卷六 (治理)
+  ↓ 约束
+卷七 (协同)
+  ↓ 协同
+卷八 (演进)
+  ↑ 反馈回卷一
+  (自主目标生成改变哲学范式)
+```
+
+> **核心洞察**：卷八（自主目标生成）会**反向改变卷一（哲学范式）**——从 Reactive 自动迁移到 Proactive-Evolution。这是 v5.0 行业标准版独有的"哲学-工程-哲学"闭环，**业界 6 框架无任何对位**。
+
+---
+
+## 8 卷挂载 vs 业界 6 框架对位
+
+| 卷 | OpenClaw plugin 挂载 | LangGraph | CrewAI | Claude Agent SDK | OpenAI Agents SDK | Google ADK | LlamaIndex | AutoGen |
+|---|---|---|---|---|---|---|---|---|
+| 卷一 哲学 | `config.paradigm` | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 卷二 协议 | `config.protocols.*`（7 协议） | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 卷三 骨架 | `contracts.tools[12]` 调用子系统 | ⚠ subgraphs | ⚠ tools | ⚠ tools | ⚠ tools | ⚠ tools | ⚠ tools | ⚠ tools |
+| 卷四 训练 | `contracts.trainer/mentor` + `config.mentor.*` | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 卷五 长期 | `contracts.health_check` + `config.drift.*` | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 卷六 治理 | `contracts.trust_score/merit_ledger/three_stage_review` + `config.governance.*` | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 卷七 协同 | `contracts.response_yield` + SLCP | ⚠ handoffs | ⚠ crews | ⚠ skills | ⚠ handoffs | ⚠ A2A | ❌ | ⚠ group chat |
+| 卷八 演进 | `contracts.ooda_*/autonomous_goal_generator` | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **训练学外化概念** | **⚡ 领先** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+
+**结论**：8 卷训练学的 **6/8 卷在业界 6 框架中无任何对位**（卷一/卷二/卷四/卷五/卷六/卷八）。**这是 OpenClaw plugin 的最大护城河**。
+
+---
+
+## 挂载示例：装一个"哲学-协议"最小集
+
+```bash
+# 用户只想要哲学 + 协议（最轻量）
+openclaw config set plugins.entries.silicon-life-training.config.paradigm "reactive"
+openclaw config set plugins.entries.silicon-life-training.config.proactiveness "respond-only"
+openclaw config set plugins.entries.silicon-life-training.config.mentor.enabled false
+openclaw config set plugins.entries.silicon-life-training.config.drift.documentDriftCheck false
+openclaw config set plugins.entries.silicon-life-training.config.drift.personalityDriftCheck false
+openclaw config set plugins.entries.silicon-life-training.config.governance.threeStageReview false
+openclaw config set plugins.entries.silicon-life-training.config.ooda.enabled false
+openclaw config set plugins.entries.silicon-life-training.config.slcp.antiFragileTriptych false
+openclaw config set plugins.entries.silicon-life-training.config.slcp.responseYieldProtocol false
+
+# 此时 plugin 只剩卷一（哲学）+ 卷二（协议）+ 卷三（骨架）= 4 + 7 + 8 = 19 个挂载点
+```
+
+---
+
+## 诚实边界
+
+```yaml
+已用:
+  - 本机 openclaw plugins list 实证 69 个 stock plugin（含 anthropic/claude-sonnet-4 等模型 provider）✅
+  - 8 卷名来自主编报告 §1.2 + 术语对照表 §三 + v1.0 原稿（仅作语义映射，不沿用叙事）✅
+  - 5 大优势定位来自主编报告 §3.3 + 术语对照表 #1–#35 ✅
+
+待推:
+  - ⏳ contracts.hooks 字段在 2026.9.4 stock plugin manifest 中**未出现实例**；本节声明的 5 个 hook 基于 docs.openclaw.ai/plugins/building-plugins 推断；待 RFC 合并
+  - ⏳ `silicon_life.philosopher / silicon_life.runtime_trace` 等本节声明的工具是 v5.0 设计意图；2026.9.4 stock plugin 中无对应实现；待硅基生命训练学 plugin RFC 合并 + 实现
+  - ⏳ 12 个 contracts.tools 的命名规则（`silicon_life.*` 命名空间）待 RFC 确认
+
+未实测:
+  - ⚠ 8 卷挂载点未在本机 plugin 项目实际构建；本表为设计意图
+  - ⚠ 8 卷 → 12 章 → 8 卷挂载的三层映射中的"语义对齐"由 SA-11 主观判定；如主编认为某卷应挂到别章，以主编意见为准
+```
+
+— SA-11 sub-agent · 2026-09-27

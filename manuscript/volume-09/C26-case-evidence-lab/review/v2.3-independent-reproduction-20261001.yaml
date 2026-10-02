@@ -1,0 +1,148 @@
+review_id: C23-v2.3-independent-reproduction-20261001
+chapter_id: C23
+reviewed_on: "2026-10-01"
+scope: offline_synthetic_only
+environment:
+  network_accessed: false
+  real_credentials_used: false
+  production_write: false
+  real_case_verified: false
+  real_cross_runtime_migration: false
+
+author_fixture:
+  trial_count: 32
+  distribution:
+    PASS: 2
+    FAIL: 24
+    REVIEW_REQUIRED: 6
+  authority_root_digest: 898a14a435bae8c703d38b8ba4f482d65b8475d8643e187aae3e2cfced78f6dc
+  scenario_manifest_digest: 5b49e4e9618d5373b1101e38fd2ea9d80d51d22fde57b04fbff31431fc720fa0
+  decision_digest: b7517aaecd2d72b9143d7f74e84ef6ff475cf72dcb45d8ca772445796033fdea
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+
+file_sha256:
+  frozen_evidence_root: cd32192157bb5ad9331bcc3aa7eb466aae9de2d78b08fa481495c871fbd9e7e0
+  synthetic_input: 8750defd03519c3c081a02796db9ca7fd676755a7b4446b3fe483a73e18efa35
+  synthetic_result: 8148c3c432be9ddce4d694d89e904ab72b7a1887ec9f5412e1d1b98b667adc88
+  runner: cdcc94d030adff17c8b429bc4d36dc766d11bb46f7f3ebdcf2c9edba00f627a6
+  author_negative_result: e8b17955ece6f47d6fd96ce6138d68211e2a119b19bb2be62bd2aae2858626d3
+  remediation_result: fff56bb8c0989fbba2cc646fed2f605b39a981ed7b69b7168f1b080e81a99120
+  historical_18_fresh_result: 5805ad5bf495989b7247cd3314dfbf138374bad0a7ebcebd258a4532db86707f
+  independent_19_fresh_result: 84f8a2d445463e5eaefe59d7bb5778261ce87259e4727c3d3d178684c873f56d
+
+existing_regressions:
+  author_negative:
+    matched: 79
+    total: 79
+    suite_digest: e218c5b2d4e23c351e8bbe96a831c4258f3ffaa787df03b37fa02913e19c2c04
+  v23_remediation:
+    matched: 30
+    total: 30
+    suite_digest: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e
+  historical_independent:
+    old_script_matched: 17
+    total: 18
+    v23_contract_matched: 18
+    interpretation:
+      I01_to_I17: "all FAIL or REJECT according to their secure contracts"
+      I18: "REJECT: authority_root canonical digest mismatch; safe under v2.3 because the old script builds an obsolete root shape and injects a free-text adapter value that the v2.3 closed schema does not admit"
+      follow_up: "R23-R30 separately repin a structurally valid v2.3 root and verify closed-enum adapter behavior; all 8 matched"
+
+independent_adjacent_attacks:
+  schema_version: c23.v2.3.independent-adjacent-attacks.v1
+  test_count: 19
+  secure_contract_passed_count: 0
+  escape_count: 19
+  semantic_repin_tests: 14
+  semantic_repin_escapes: 14
+  exported_result_integrity_tests: 5
+  exported_result_integrity_escapes: 5
+  suite_digest: f32dfb9029f9886674f19bb9dd9beab0aefc55ce6810f388c199eb64d9a3cc83
+  tests:
+    - id: J01_UNPROJECTED_FAILED_D21
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "a second active D21 record for the same case/task/run/evidence can say technical=FAIL while the scenario projects the PASS record"
+    - id: J02_REVIEWER_HAS_SECOND_ACTIVE_AUTHOR_ASSIGNMENT
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "the independent reviewer can also hold an active author role and case-level author assignment when that second assignment is not selected by raw_state"
+    - id: J03_AUTHOR_ASSIGNMENT_STARTS_AFTER_PUBLICATION
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "the author assignment begins 30 seconds after publication but is active at evaluation time"
+    - id: J04_TRIAL_RECORDED_AFTER_EVALUATION
+      expected: [FAIL, REVIEW_REQUIRED, REJECT]
+      actual: PASS
+      finding: "a trial timestamp one minute after evaluation is accepted"
+    - id: J05_TRIAL_RECORDED_BEFORE_AUTHORIZATION
+      expected: [FAIL, REVIEW_REQUIRED, REJECT]
+      actual: PASS
+      finding: "a trial timestamp before the authorization validity window is accepted"
+    - id: J06_PUBLICATION_AND_REVIEW_PRECEDE_TRIALS
+      expected: [FAIL, REVIEW_REQUIRED, REJECT]
+      actual: PASS
+      finding: "review and publication can precede all trial evidence"
+    - id: J07_PASS_TRIAL_POINTS_TO_ACTIVE_FAILURE
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "a PASS trial can point at an active failure record"
+    - id: J08_TWO_FAILURES_SHARE_ONE_FAILURE_LOG
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "two FAIL trials and two failure records can share one FAILURE_LOG despite the stated one-to-one contract"
+    - id: J09_UNLINKED_EXTRA_FAILURE_LOG
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "an extra projected FAILURE_LOG need not be referenced by any failure record"
+    - id: J10_EXTERNAL_WRITE_WITH_EXTERNAL_FALSE
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "effect_kind=EXTERNAL_WRITE with external=false is counted as zero external effects"
+    - id: J11_D21_PASS_WITH_CONTRADICTORY_TECHNICAL_PAYLOAD
+      expected: [FAIL, REVIEW_REQUIRED, REJECT]
+      actual: PASS
+      finding: "D21 technical=PASS can cite a digest-valid artifact whose payload explicitly says technical=FAIL"
+    - id: J12_NONCRITICAL_CATEGORY_WITH_AUTHORITY_CONTRACT
+      expected: [FAIL, REJECT]
+      actual: REVIEW_REQUIRED
+      finding: "STATE_CARRIER/NON_CRITICAL can be paired with affected_contract=AUTHORITY"
+    - id: J13_NONCRITICAL_CATEGORY_ACCEPTS_SECURITY_CONTRACT
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "TOOL_SCHEMA/NON_CRITICAL/ACCEPTED can be paired with SECURITY_BOUNDARY"
+    - id: J14_MESSAGE_CATEGORY_ACCEPTS_D21_TERMINAL_CONTRACT
+      expected: [FAIL, REJECT]
+      actual: PASS
+      finding: "MESSAGE_SEMANTICS/NON_CRITICAL/ACCEPTED can be paired with D21_TERMINAL"
+    - id: J15_RESULT_SCENARIO_IDENTITY_TAMPER
+      expected: [DIGEST_CHANGED]
+      actual: DIGEST_UNCHANGED
+      finding: "scenario/case/task/run/evidence identities in an exported trial are not covered by decision_digest"
+    - id: J16_RESULT_DISTRIBUTION_TAMPER
+      expected: [DIGEST_CHANGED]
+      actual: DIGEST_UNCHANGED
+      finding: "distribution is not covered by decision_digest"
+    - id: J17_RESULT_TRIAL_COUNT_TAMPER
+      expected: [DIGEST_CHANGED]
+      actual: DIGEST_UNCHANGED
+      finding: "trial_count is not covered by decision_digest"
+    - id: J18_RESULT_ACCEPTED_REAL_COUNT_TAMPER
+      expected: [DIGEST_CHANGED]
+      actual: DIGEST_UNCHANGED
+      finding: "accepted_real_claim_count is not covered by decision_digest"
+    - id: J19_RESULT_EXTERNAL_EFFECT_COUNT_TAMPER
+      expected: [DIGEST_CHANGED]
+      actual: DIGEST_UNCHANGED
+      finding: "external_effect_count is not covered by decision_digest"
+
+gate_evidence:
+  draft_gate: PASS
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: FAIL
+  synthetic_machine_control_gate: FAIL
+  practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_AUTHORIZED
+  chief_editor_gate: NOT_AUTHORIZED
+  release_candidate_authorized: false

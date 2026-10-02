@@ -1,0 +1,770 @@
+{
+  "all_passed": true,
+  "failed_count": 0,
+  "passed_count": 79,
+  "schema_version": "c23.negative-regression.v2.3",
+  "suite_digest": "e218c5b2d4e23c351e8bbe96a831c4258f3ffaa787df03b37fa02913e19c2c04",
+  "test_count": 79,
+  "tests": [
+    {
+      "actual": "REJECT",
+      "message": "root: closed-world keys mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N01_UNKNOWN_ROOT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "root: unsupported schema",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N02_WRONG_SCHEMA"
+    },
+    {
+      "actual": "REJECT",
+      "message": "environment.offline: bool required",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N03_WRONG_ENV_BOOL"
+    },
+    {
+      "actual": "REJECT",
+      "message": "suite.evaluation_time: UTC Z timestamp required",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N04_BAD_TIMESTAMP"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[0].raw_state: closed-world keys mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N05_UNKNOWN_RAW_FIELD"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[0].trial_count: integer out of range",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N06_RAW_WRONG_TYPE"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[32].scenario_id: duplicate",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N07_DUP_SCENARIO"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[1].case_record_id: duplicate",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N08_DUP_CASE"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[1].task_id: duplicate",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N09_DUP_TASK"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[1].trial_id: duplicate",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N10_DUP_TRIAL"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[1].run_id: duplicate",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N11_DUP_RUN"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[1].evidence_id: duplicate",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N12_DUP_EVIDENCE"
+    },
+    {
+      "actual": "REJECT",
+      "message": "offline runner rejects real case identities unconditionally",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N13_VERIFIED_REAL"
+    },
+    {
+      "actual": "REJECT",
+      "message": "offline runner rejects real case identities unconditionally",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N14_ANON_REAL"
+    },
+    {
+      "actual": "REJECT",
+      "message": "offline runner rejects real_case_manifest unconditionally",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N15_REAL_MANIFEST"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N16_FLOATING_RELEASE"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N17_WRONG_RELEASE_COMMIT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01.risk: invalid enum",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N18_ILLEGAL_RISK"
+    },
+    {
+      "actual": "REJECT",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01.model_usd: finite number out of range",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N19_NEGATIVE_BUDGET"
+    },
+    {
+      "actual": "REJECT",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01.model_usd: finite number out of range",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N20_NONFINITE_BUDGET"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N21_TOTAL_MISMATCH"
+    },
+    {
+      "actual": "REJECT",
+      "message": "source_registry.SOURCE.S01: private content digest mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N22_SOURCE_SAME_DIGEST_WRONG_CONTENT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "artifact_registry.ARTIFACT.PUBLIC.S01: artifact payload digest mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N23_ARTIFACT_SAME_DIGEST_WRONG_CONTENT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "environment_registry.ENVIRONMENT.S01: manifest digest mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N24_ENV_SAME_DIGEST_WRONG_CONTENT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "redaction_registry.REDACTION.S01: mapping digest mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N25_REDACTION_DUMMY_MAPPING"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N26_COPYRIGHT_FAIL"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N27_SOURCE_UNAUTHORIZED"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N28_AUTH_EXPIRED"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N29_AUTH_REVOKED"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N30_WRONG_SUBJECT_BINDING"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N31_WRONG_VERSION_BINDING"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N32_AUTHOR_ALIAS_REVIEWER"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N33_REVIEWER_REVOKED"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N34_PUBLIC_MAPPING_REF_WRONG"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N35_PUBLIC_PRIVATE_DIGEST_WRONG"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N36_ARTIFACT_CASE_WRONG"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N37_ARTIFACT_RUN_WRONG"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N38_D21_TECH_FAIL"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N39_D21_DELIVERY_FAIL"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N40_D21_BUSINESS_FAIL"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N41_D21_UNKNOWN_WITH_FROZEN_ROOT_TAMPER"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N42_MIGRATION_TASK_UNFAIR"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N43_MIGRATION_INPUT_UNFAIR"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N44_MIGRATION_RISK_UNFAIR"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N45_MIGRATION_PERMISSION_UNFAIR"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N46_MIGRATION_DATA_UNFAIR"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N47_MIGRATION_EVAL_UNFAIR"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N48_MIGRATION_BUDGET_REF_WRONG"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N49_UNSUPPORTED_CAPABILITY_ROOT_TAMPER"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N50_FAILURE_DELETED"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N51_HOLDOUT_LEAK"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N52_GRADER_LEAK"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N53_HARD_PLUS_UNKNOWN"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N54_EXTERNAL_EFFECT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "d21_registry.D21.S01.technical: invalid enum",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N55_BAD_D21_ENUM"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[0].artifact_refs: unique list required",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N56_DUP_ARTIFACT_REF"
+    },
+    {
+      "actual": "REJECT",
+      "message": "authorization_registry.AUTHORIZATION.S01: closed-world keys mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N57_UNKNOWN_REGISTRY_FIELD"
+    },
+    {
+      "actual": "REJECT",
+      "message": "release_registry: duplicate global id RELEASE.OPENCLAW.S01",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N58_DUP_GLOBAL_REGISTRY_ID"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N59_ENV_PRODUCTION_WRITE"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N60_AUTH_SCOPE_MISSING"
+    },
+    {
+      "actual": "REJECT",
+      "message": "environment_registry.ENVIRONMENT.S01.version: non-empty string required",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N61_UNVERSIONED_ENVIRONMENT"
+    },
+    {
+      "actual": "REJECT",
+      "message": "budget_registry.BUDGET.CANDIDATE.S01: comparison payload digest mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N62_FAKE_INPUT_DIGEST"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N63_AUTHORITY_PRINCIPAL_MISMATCH"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N64_SELF_AUTHORIZATION"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios[0].evidence_id: cross-type global id collision",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N65_CROSS_TYPE_GLOBAL_ID_COLLISION"
+    },
+    {
+      "actual": "REJECT",
+      "message": "redaction_registry.REDACTION.S01: mapping values do not bind content digests",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "N66_COHERENT_BUT_WRONG_REDACTION_MAPPING"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N67_PUBLIC_ARTIFACT_CONTENT_MISMATCH"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N68_REVOKED_BASELINE_RELEASE"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N69_REVOKED_CANDIDATE_RELEASE"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N70_REVIEWER_ROLE_REMOVED"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N71_EFFECT_REVOKED"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N72_INTERNAL_RECEIPT_READBACK_MISMATCH"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N73_REVOKED_BUDGETS"
+    },
+    {
+      "actual": "REJECT",
+      "message": "migration_registry.MIGRATION.S01.adapter_differences[0]: closed-world keys mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N74_ADAPTER_DIFFERENCE_TAMPER"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N75_SCENARIO_TASK_UNBOUND"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N76_FAKE_TRIAL_DISTRIBUTION"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N77_PUBLICATION_AFTER_EVALUATION"
+    },
+    {
+      "actual": "REJECT",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N78_FAILURE_REFERENCE_REMOVED"
+    },
+    {
+      "actual": "FAIL",
+      "message": "",
+      "passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT"
+      ],
+      "test_id": "N79_INTERNAL_EFFECT_UNAUTHORIZED"
+    }
+  ]
+}

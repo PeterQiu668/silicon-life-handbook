@@ -1,0 +1,9 @@
+{
+  "network_calls": 0,
+  "os_family": "Darwin",
+  "python": "3.9.6",
+  "real_credentials": 0,
+  "real_external_side_effects": 0,
+  "real_node_probed": false,
+  "real_openclaw_runtime_probed": false
+}

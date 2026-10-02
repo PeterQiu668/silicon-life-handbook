@@ -1,0 +1,1731 @@
+{
+  "schema_version": "c13-automation-result.v2",
+  "experiment_id": "EXP-C13-SYNTH-001",
+  "generated_at": "2026-09-30T12:00:00+08:00",
+  "input_sha256": "e9aed6502f59ce5e025729081d57533f364d3dc374c70a46e5ebbe1c16784680",
+  "author_demonstration_only": true,
+  "not_real_scheduler_or_platform_evidence": true,
+  "environment": {
+    "type": "deterministic_offline_synthetic",
+    "network": false,
+    "real_credentials": false,
+    "external_side_effects": false,
+    "production_write": false,
+    "virtual_timezone": "Asia/Shanghai"
+  },
+  "contract": {
+    "goal": "监测合成项目风险变化并只生成本地提案",
+    "max_trials": 30,
+    "max_external_side_effects": 0,
+    "max_notifications_per_trial": 1,
+    "gates": [
+      "PASS",
+      "FAIL",
+      "REVIEW_REQUIRED"
+    ],
+    "completion_layers": [
+      "technical_execution",
+      "delivery_visibility",
+      "business_environment_acceptance"
+    ]
+  },
+  "summary": {
+    "trials": 30,
+    "gate_distribution": {
+      "FAIL": 6,
+      "PASS": 18,
+      "REVIEW_REQUIRED": 6
+    },
+    "by_category": {
+      "adversarial": {
+        "PASS": 3
+      },
+      "boundary": {
+        "PASS": 12
+      },
+      "exception": {
+        "FAIL": 3,
+        "REVIEW_REQUIRED": 3
+      },
+      "normal": {
+        "PASS": 3
+      },
+      "recovery": {
+        "FAIL": 3,
+        "REVIEW_REQUIRED": 3
+      }
+    },
+    "by_trigger": {
+      "event": {
+        "FAIL": 2,
+        "PASS": 6,
+        "REVIEW_REQUIRED": 2
+      },
+      "manual": {
+        "FAIL": 2,
+        "PASS": 6,
+        "REVIEW_REQUIRED": 2
+      },
+      "scheduled": {
+        "FAIL": 2,
+        "PASS": 6,
+        "REVIEW_REQUIRED": 2
+      }
+    },
+    "by_case": {
+      "CASE-A": {
+        "PASS": 6,
+        "REVIEW_REQUIRED": 3
+      },
+      "CASE-B": {
+        "PASS": 9,
+        "REVIEW_REQUIRED": 3
+      },
+      "CASE-C": {
+        "FAIL": 6,
+        "PASS": 3
+      }
+    },
+    "nonpass_reasons": {
+      "authoritative_state_unavailable": 3,
+      "delivery_not_visible_at_target": 3,
+      "sentinel_shared_only_fault_domain": 3,
+      "unknown_effect_no_blind_replay": 3
+    },
+    "task_trial_ids_unique": true,
+    "all_expected_matched": true,
+    "unknown_never_passes": true,
+    "unknown_without_other_hard_failure_maps_to_review_required": true,
+    "zero_external_side_effects": true,
+    "shared_fault_domain_never_passes": true,
+    "silent_is_evidenced_success": true
+  },
+  "trials": [
+    {
+      "task_id": "T-C13-01-01",
+      "trial_id": "TR-C13-01-01",
+      "case": "CASE-A",
+      "scenario_id": "normal_change",
+      "category": "normal",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-NORMAL-001:scheduled",
+      "requested_effect": "propose",
+      "route": "PROPOSE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "VERIFYING",
+        "DELIVERING",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "PASS",
+        "delivery_visibility": "PASS",
+        "business_environment_acceptance": "PASS"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "three_layer_completion_verified"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-01-02",
+      "trial_id": "TR-C13-01-02",
+      "case": "CASE-A",
+      "scenario_id": "normal_change",
+      "category": "normal",
+      "trigger_path": "event",
+      "signal_id": "EV-NORMAL-001:event",
+      "requested_effect": "propose",
+      "route": "PROPOSE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "VERIFYING",
+        "DELIVERING",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "PASS",
+        "delivery_visibility": "PASS",
+        "business_environment_acceptance": "PASS"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "three_layer_completion_verified"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-01-03",
+      "trial_id": "TR-C13-01-03",
+      "case": "CASE-A",
+      "scenario_id": "normal_change",
+      "category": "normal",
+      "trigger_path": "manual",
+      "signal_id": "EV-NORMAL-001:manual",
+      "requested_effect": "propose",
+      "route": "PROPOSE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "VERIFYING",
+        "DELIVERING",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "PASS",
+        "delivery_visibility": "PASS",
+        "business_environment_acceptance": "PASS"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "three_layer_completion_verified"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-02-01",
+      "trial_id": "TR-C13-02-01",
+      "case": "CASE-B",
+      "scenario_id": "unchanged_silent",
+      "category": "boundary",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-UNCHANGED-001:scheduled",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "OBSERVATION_COMPLETE",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_UNCHANGED"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "unchanged_with_audit_evidence"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-02-02",
+      "trial_id": "TR-C13-02-02",
+      "case": "CASE-B",
+      "scenario_id": "unchanged_silent",
+      "category": "boundary",
+      "trigger_path": "event",
+      "signal_id": "EV-UNCHANGED-001:event",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "OBSERVATION_COMPLETE",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_UNCHANGED"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "unchanged_with_audit_evidence"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-02-03",
+      "trial_id": "TR-C13-02-03",
+      "case": "CASE-B",
+      "scenario_id": "unchanged_silent",
+      "category": "boundary",
+      "trigger_path": "manual",
+      "signal_id": "EV-UNCHANGED-001:manual",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "OBSERVATION_COMPLETE",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_UNCHANGED"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "unchanged_with_audit_evidence"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-03-01",
+      "trial_id": "TR-C13-03-01",
+      "case": "CASE-C",
+      "scenario_id": "duplicate_replay",
+      "category": "adversarial",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-REPLAY-001:scheduled",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "NOT_STARTED",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_NEW_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": true,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "duplicate_replay_blocked"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-03-02",
+      "trial_id": "TR-C13-03-02",
+      "case": "CASE-C",
+      "scenario_id": "duplicate_replay",
+      "category": "adversarial",
+      "trigger_path": "event",
+      "signal_id": "EV-REPLAY-001:event",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "NOT_STARTED",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_NEW_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": true,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "duplicate_replay_blocked"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-03-03",
+      "trial_id": "TR-C13-03-03",
+      "case": "CASE-C",
+      "scenario_id": "duplicate_replay",
+      "category": "adversarial",
+      "trigger_path": "manual",
+      "signal_id": "EV-REPLAY-001:manual",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "NOT_STARTED",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_NEW_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": true,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "duplicate_replay_blocked"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-04-01",
+      "trial_id": "TR-C13-04-01",
+      "case": "CASE-A",
+      "scenario_id": "dependency_unreadable",
+      "category": "exception",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-STATE-001:scheduled",
+      "requested_effect": "propose",
+      "route": "ESCALATE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "REVIEW_REQUIRED"
+      ],
+      "completion_layers": {
+        "technical_execution": "BLOCKED",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "REVIEW_REQUIRED",
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "authoritative_state_unavailable"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-04-02",
+      "trial_id": "TR-C13-04-02",
+      "case": "CASE-A",
+      "scenario_id": "dependency_unreadable",
+      "category": "exception",
+      "trigger_path": "event",
+      "signal_id": "EV-STATE-001:event",
+      "requested_effect": "propose",
+      "route": "ESCALATE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "REVIEW_REQUIRED"
+      ],
+      "completion_layers": {
+        "technical_execution": "BLOCKED",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "REVIEW_REQUIRED",
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "authoritative_state_unavailable"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-04-03",
+      "trial_id": "TR-C13-04-03",
+      "case": "CASE-A",
+      "scenario_id": "dependency_unreadable",
+      "category": "exception",
+      "trigger_path": "manual",
+      "signal_id": "EV-STATE-001:manual",
+      "requested_effect": "propose",
+      "route": "ESCALATE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "REVIEW_REQUIRED"
+      ],
+      "completion_layers": {
+        "technical_execution": "BLOCKED",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "REVIEW_REQUIRED",
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "authoritative_state_unavailable"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-05-01",
+      "trial_id": "TR-C13-05-01",
+      "case": "CASE-B",
+      "scenario_id": "approval_missing",
+      "category": "boundary",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-APPROVAL-001:scheduled",
+      "requested_effect": "external_action",
+      "route": "REQUEST_APPROVAL",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "WAITING_APPROVAL"
+      ],
+      "completion_layers": {
+        "technical_execution": "WAITING_APPROVAL",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": false,
+          "reason": "missing"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "trigger_valid_but_authority_missing"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-05-02",
+      "trial_id": "TR-C13-05-02",
+      "case": "CASE-B",
+      "scenario_id": "approval_missing",
+      "category": "boundary",
+      "trigger_path": "event",
+      "signal_id": "EV-APPROVAL-001:event",
+      "requested_effect": "external_action",
+      "route": "REQUEST_APPROVAL",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "WAITING_APPROVAL"
+      ],
+      "completion_layers": {
+        "technical_execution": "WAITING_APPROVAL",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": false,
+          "reason": "missing"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "trigger_valid_but_authority_missing"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-05-03",
+      "trial_id": "TR-C13-05-03",
+      "case": "CASE-B",
+      "scenario_id": "approval_missing",
+      "category": "boundary",
+      "trigger_path": "manual",
+      "signal_id": "EV-APPROVAL-001:manual",
+      "requested_effect": "external_action",
+      "route": "REQUEST_APPROVAL",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "WAITING_APPROVAL"
+      ],
+      "completion_layers": {
+        "technical_execution": "WAITING_APPROVAL",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": false,
+          "reason": "missing"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "trigger_valid_but_authority_missing"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-06-01",
+      "trial_id": "TR-C13-06-01",
+      "case": "CASE-B",
+      "scenario_id": "global_pause",
+      "category": "boundary",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-PAUSE-001:scheduled",
+      "requested_effect": "external_action",
+      "route": "PAUSE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "PAUSED"
+      ],
+      "completion_layers": {
+        "technical_execution": "NOT_STARTED",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": true,
+          "reason": "valid",
+          "approval_ref": "APP-EXT-001"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "pause_enforced_across_trigger"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-06-02",
+      "trial_id": "TR-C13-06-02",
+      "case": "CASE-B",
+      "scenario_id": "global_pause",
+      "category": "boundary",
+      "trigger_path": "event",
+      "signal_id": "EV-PAUSE-001:event",
+      "requested_effect": "external_action",
+      "route": "PAUSE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "PAUSED"
+      ],
+      "completion_layers": {
+        "technical_execution": "NOT_STARTED",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": true,
+          "reason": "valid",
+          "approval_ref": "APP-EXT-001"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "pause_enforced_across_trigger"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-06-03",
+      "trial_id": "TR-C13-06-03",
+      "case": "CASE-B",
+      "scenario_id": "global_pause",
+      "category": "boundary",
+      "trigger_path": "manual",
+      "signal_id": "EV-PAUSE-001:manual",
+      "requested_effect": "external_action",
+      "route": "PAUSE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "PAUSED"
+      ],
+      "completion_layers": {
+        "technical_execution": "NOT_STARTED",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": true,
+          "reason": "valid",
+          "approval_ref": "APP-EXT-001"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "pause_enforced_across_trigger"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-07-01",
+      "trial_id": "TR-C13-07-01",
+      "case": "CASE-A",
+      "scenario_id": "timezone_misfire",
+      "category": "boundary",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-TZ-001:scheduled",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "SKIPPED_BY_POLICY",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": false
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "misfire_safely_skipped"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-07-02",
+      "trial_id": "TR-C13-07-02",
+      "case": "CASE-A",
+      "scenario_id": "timezone_misfire",
+      "category": "boundary",
+      "trigger_path": "event",
+      "signal_id": "EV-TZ-001:event",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "SKIPPED_BY_POLICY",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": false
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "misfire_safely_skipped"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-07-03",
+      "trial_id": "TR-C13-07-03",
+      "case": "CASE-A",
+      "scenario_id": "timezone_misfire",
+      "category": "boundary",
+      "trigger_path": "manual",
+      "signal_id": "EV-TZ-001:manual",
+      "requested_effect": "propose",
+      "route": "SILENT_RECORD",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "QUIET",
+        "COMPLETED"
+      ],
+      "completion_layers": {
+        "technical_execution": "SKIPPED_BY_POLICY",
+        "delivery_visibility": "NOT_REQUIRED",
+        "business_environment_acceptance": "VERIFIED_NO_EFFECT"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 0,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": false
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 0,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "PASS",
+      "gate_decision": "PASS",
+      "gate_reasons": [
+        "misfire_safely_skipped"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-08-01",
+      "trial_id": "TR-C13-08-01",
+      "case": "CASE-C",
+      "scenario_id": "delivery_not_visible",
+      "category": "exception",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-DELIVERY-001:scheduled",
+      "requested_effect": "propose",
+      "route": "RECOVER_DELIVERY",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "VERIFYING",
+        "DELIVERING",
+        "RECOVERING",
+        "FAILED"
+      ],
+      "completion_layers": {
+        "technical_execution": "PASS",
+        "delivery_visibility": "FAIL",
+        "business_environment_acceptance": "NOT_ACHIEVED"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "FAIL",
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "delivery_not_visible_at_target"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-08-02",
+      "trial_id": "TR-C13-08-02",
+      "case": "CASE-C",
+      "scenario_id": "delivery_not_visible",
+      "category": "exception",
+      "trigger_path": "event",
+      "signal_id": "EV-DELIVERY-001:event",
+      "requested_effect": "propose",
+      "route": "RECOVER_DELIVERY",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "VERIFYING",
+        "DELIVERING",
+        "RECOVERING",
+        "FAILED"
+      ],
+      "completion_layers": {
+        "technical_execution": "PASS",
+        "delivery_visibility": "FAIL",
+        "business_environment_acceptance": "NOT_ACHIEVED"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "FAIL",
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "delivery_not_visible_at_target"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-08-03",
+      "trial_id": "TR-C13-08-03",
+      "case": "CASE-C",
+      "scenario_id": "delivery_not_visible",
+      "category": "exception",
+      "trigger_path": "manual",
+      "signal_id": "EV-DELIVERY-001:manual",
+      "requested_effect": "propose",
+      "route": "RECOVER_DELIVERY",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "VERIFYING",
+        "DELIVERING",
+        "RECOVERING",
+        "FAILED"
+      ],
+      "completion_layers": {
+        "technical_execution": "PASS",
+        "delivery_visibility": "FAIL",
+        "business_environment_acceptance": "NOT_ACHIEVED"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "FAIL",
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "delivery_not_visible_at_target"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-09-01",
+      "trial_id": "TR-C13-09-01",
+      "case": "CASE-B",
+      "scenario_id": "effect_raw_unknown",
+      "category": "recovery",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-UNKNOWN-001:scheduled",
+      "requested_effect": "external_action",
+      "route": "RECONCILE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "REVIEW_REQUIRED"
+      ],
+      "completion_layers": {
+        "technical_execution": "UNKNOWN",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "raw_unknown",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": true,
+          "reason": "valid",
+          "approval_ref": "APP-EXT-001"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "REVIEW_REQUIRED",
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "unknown_effect_no_blind_replay"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-09-02",
+      "trial_id": "TR-C13-09-02",
+      "case": "CASE-B",
+      "scenario_id": "effect_raw_unknown",
+      "category": "recovery",
+      "trigger_path": "event",
+      "signal_id": "EV-UNKNOWN-001:event",
+      "requested_effect": "external_action",
+      "route": "RECONCILE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "REVIEW_REQUIRED"
+      ],
+      "completion_layers": {
+        "technical_execution": "UNKNOWN",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "raw_unknown",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": true,
+          "reason": "valid",
+          "approval_ref": "APP-EXT-001"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "REVIEW_REQUIRED",
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "unknown_effect_no_blind_replay"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-09-03",
+      "trial_id": "TR-C13-09-03",
+      "case": "CASE-B",
+      "scenario_id": "effect_raw_unknown",
+      "category": "recovery",
+      "trigger_path": "manual",
+      "signal_id": "EV-UNKNOWN-001:manual",
+      "requested_effect": "external_action",
+      "route": "RECONCILE",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "READY",
+        "RUNNING",
+        "REVIEW_REQUIRED"
+      ],
+      "completion_layers": {
+        "technical_execution": "UNKNOWN",
+        "delivery_visibility": "NOT_STARTED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "raw_unknown",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": true,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": true,
+          "valid": true,
+          "reason": "valid",
+          "approval_ref": "APP-EXT-001"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [],
+        "sentinel_independent": true
+      },
+      "expected_gate": "REVIEW_REQUIRED",
+      "gate_decision": "REVIEW_REQUIRED",
+      "gate_reasons": [
+        "unknown_effect_no_blind_replay"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-10-01",
+      "trial_id": "TR-C13-10-01",
+      "case": "CASE-C",
+      "scenario_id": "shared_fault_domain",
+      "category": "recovery",
+      "trigger_path": "scheduled",
+      "signal_id": "EV-FAULT-001:scheduled",
+      "requested_effect": "propose",
+      "route": "CIRCUIT_BREAK",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "CIRCUIT_OPEN",
+        "FAILED"
+      ],
+      "completion_layers": {
+        "technical_execution": "FAILED_UNOBSERVED",
+        "delivery_visibility": "FAILED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": false,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [
+          "gateway-a",
+          "provider-a"
+        ],
+        "sentinel_independent": false
+      },
+      "expected_gate": "FAIL",
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "sentinel_shared_only_fault_domain"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-10-02",
+      "trial_id": "TR-C13-10-02",
+      "case": "CASE-C",
+      "scenario_id": "shared_fault_domain",
+      "category": "recovery",
+      "trigger_path": "event",
+      "signal_id": "EV-FAULT-001:event",
+      "requested_effect": "propose",
+      "route": "CIRCUIT_BREAK",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "CIRCUIT_OPEN",
+        "FAILED"
+      ],
+      "completion_layers": {
+        "technical_execution": "FAILED_UNOBSERVED",
+        "delivery_visibility": "FAILED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": false,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [
+          "gateway-a",
+          "provider-a"
+        ],
+        "sentinel_independent": false
+      },
+      "expected_gate": "FAIL",
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "sentinel_shared_only_fault_domain"
+      ],
+      "matches_expected": true
+    },
+    {
+      "task_id": "T-C13-10-03",
+      "trial_id": "TR-C13-10-03",
+      "case": "CASE-C",
+      "scenario_id": "shared_fault_domain",
+      "category": "recovery",
+      "trigger_path": "manual",
+      "signal_id": "EV-FAULT-001:manual",
+      "requested_effect": "propose",
+      "route": "CIRCUIT_BREAK",
+      "state_trajectory": [
+        "DORMANT",
+        "AWAKENED",
+        "DECIDING",
+        "CIRCUIT_OPEN",
+        "FAILED"
+      ],
+      "completion_layers": {
+        "technical_execution": "FAILED_UNOBSERVED",
+        "delivery_visibility": "FAILED",
+        "business_environment_acceptance": "UNKNOWN"
+      },
+      "side_effect_status": "none",
+      "external_side_effect_count": 0,
+      "notification_count": 1,
+      "sentinel_independent": false,
+      "derived_controls": {
+        "signal": {
+          "source_verified": true,
+          "duplicate": false,
+          "fresh": true,
+          "event_time": "2026-09-30T11:59:00+08:00",
+          "observed_at": "2026-09-30T12:00:00+08:00",
+          "expires_at": "2026-09-30T12:04:00+08:00",
+          "timezone_valid": true
+        },
+        "authority": {
+          "required": false,
+          "valid": true,
+          "reason": "not_required"
+        },
+        "external_effect_count": 0,
+        "notification_count": 1,
+        "fault_domain_overlap": [
+          "gateway-a",
+          "provider-a"
+        ],
+        "sentinel_independent": false
+      },
+      "expected_gate": "FAIL",
+      "gate_decision": "FAIL",
+      "gate_reasons": [
+        "sentinel_shared_only_fault_domain"
+      ],
+      "matches_expected": true
+    }
+  ],
+  "limitations": [
+    "All clocks, signals, queues, approvals, deliveries, effects, sentinels, and platforms are synthetic.",
+    "No OpenClaw, Hermes, Muse, webhook, cron, heartbeat, provider, or external channel was invoked.",
+    "PASS validates deterministic stateful synthetic controls only; real Runtime, scheduling, delivery, and recovery remain REVIEW_REQUIRED.",
+    "UNKNOWN maps to REVIEW_REQUIRED unless an unsafe retry makes it FAIL."
+  ]
+}

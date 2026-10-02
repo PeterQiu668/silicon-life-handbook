@@ -1,0 +1,63 @@
+schema_version: c21.lifecycle.independent-reproduction.v2.4
+review_id: C21-v2.4-independent-fact-cross-review-20261001
+reviewed_on: "2026-10-01"
+reviewer_role: non_author
+source_hashes:
+  chapter: cc45d62656e083d6e83faaa0066d4db2ed063c54708b5ff2dd1d0121f61cd9e4
+  evidence_ledger: 5ab1eebb1d7226884bc1903e7c0a2078a5cb1d3ad88e8cbb4b202dfe7e166e9b
+  independent_script: 3cea3b912dfd368fb136a19540f842df66bdf1ad232b816d3ea138966f549bd8
+fresh_temp:
+  run_count: 1
+  authority_file_sha256: 629d25866ce5223caa0142974f44a9396c7f2fdf236d2d36714c8872efa9f58e
+  input_sha256: 485dbbe21030c0af4ea1c96b4deab5373472155577526b483ccba5dab056e81b
+  result_sha256: e5b520e4ac25f8e27c909cb9c971f7f22e7432f384fa25014236cccde296754d
+  summary_sha256: 6aab7f43c928f5cf4bc8229ad2bebaa972a0ea5e3f2b2971c94c478c86d5f4c6
+  author_negative_sha256: 5479e56c35a8fbe0afa18b08c1740f77b1b087c3e25a844630c72a5c3234bf17
+  matches_author_saved_artifacts: true
+baseline:
+  trial_count: 79
+  distribution: {PASS: 3, FAIL: 74, REVIEW_REQUIRED: 2}
+  authority_root_digest: sha256:c03223f3537c558e0d2c2828ac498fd56cd950f354b84d8ab0b827c1f700aa09
+  decision_digest: sha256:9071b8085481a4e774e1ad014d8f1db77e92bdb75cd817895131047db2f7b82e
+author_negative:
+  attack_count: 50
+  matched_count: 50
+  escape_count: 0
+  historical_v2_3_attack_count: 38
+  historical_v2_3_matched_count: 38
+  v2_4_event_attack_count: 12
+  v2_4_event_matched_count: 12
+  suite_digest: sha256:d1d6dc059acd21d901b141bbccd9cb0c403f161a3103706a696ac4bacafb573d
+independent_negative:
+  attack_count: 17
+  matched_count: 17
+  escape_count: 0
+  suite_digest: sha256:889b4aa7759f60ff4c1f110339cfe77543f5df8b4856cf6614619c4904b6f3bf
+  publication_cases: 8
+  retirement_cases: 8
+  pinned_root_cases: 1
+limits:
+  environment: offline_synthetic
+  real_openclaw_hermes_release: false
+  real_legal_privacy_process: false
+  real_external_effects: false
+  real_retirement: false
+gates:
+  fact_gate: PASS_WITH_LIMITATIONS
+  cross_gate: PASS_WITH_LIMITATIONS
+  synthetic_machine_control: PASS
+  practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_AUTHORIZED
+  chief_gate: NOT_AUTHORIZED
+  release_candidate_authorized: false
+editorial_change_note: "2026-10-01: normalized D21 wording to three faces with business/environment subfaces in the third face; runner semantics, four underlying evidence registries, fixtures, authority root, results, and independent attacks are unchanged"
+upstream_c19_rerun:
+  reviewed_on: "2026-10-01"
+  c19_review_ref: ../../C19-security-trust-boundary/review/v2.4-independent-fact-cross-review.md
+  c19_independent_attack_count: 18
+  c19_independent_escape_count: 0
+  c21_author_attack_count: 50
+  c21_author_escape_count: 0
+  c21_independent_attack_count: 17
+  c21_independent_escape_count: 0
+  c21_independent_suite_digest: "sha256:889b4aa7759f60ff4c1f110339cfe77543f5df8b4856cf6614619c4904b6f3bf"

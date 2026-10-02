@@ -1,0 +1,413 @@
+{
+  "attack_count": 25,
+  "attacks": [
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "principal-alias-root-resealed",
+      "expected": "FAIL",
+      "family": "authority-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "session-revoked-root-resealed",
+      "expected": "FAIL",
+      "family": "session-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "test-definition-revoked-root-resealed",
+      "expected": "FAIL",
+      "family": "test-evidence-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "test-evidence-content-resealed",
+      "expected": "FAIL",
+      "family": "test-evidence-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "audit-anchor-self-signed-root-resealed",
+      "expected": "FAIL",
+      "family": "audit-root",
+      "matched": true,
+      "reasons": [
+        "authority root digest is not the pre-registered frozen root"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "principal-zero-width-alias",
+      "expected": "FAIL",
+      "family": "principal-alias",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_AUTHORITY_INVALID",
+        "EXECUTOR_PRINCIPAL_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "IDENTITY_AUTHORITY_MISMATCH",
+        "TENANT_SESSION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "service-name-whitespace-alias",
+      "expected": "FAIL",
+      "family": "principal-alias",
+      "matched": true,
+      "reasons": [
+        "IDENTITY_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "observed-session-revoked",
+      "expected": "FAIL",
+      "family": "session-revocation",
+      "matched": true,
+      "reasons": [
+        "TENANT_SESSION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "observed-session-self-extended",
+      "expected": "FAIL",
+      "family": "session-time",
+      "matched": true,
+      "reasons": [
+        "TENANT_SESSION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "evaluation-before-session-authority-window",
+      "expected": "FAIL",
+      "family": "session-time",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_AUTHORITY_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "TENANT_SESSION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "approval-id-alias",
+      "expected": "FAIL",
+      "family": "authority-alias",
+      "matched": true,
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "GRANT_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "grant-id-alias",
+      "expected": "FAIL",
+      "family": "authority-alias",
+      "matched": true,
+      "reasons": [
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "GRANT_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "test-ref-alias",
+      "expected": "FAIL",
+      "family": "test-evidence",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_AUTHORITY_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "task-trial-alias",
+      "expected": "FAIL",
+      "family": "test-evidence",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID",
+        "TEST_EXECUTION_EVIDENCE_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-layer-relabel-with-counts",
+      "expected": "FAIL",
+      "family": "test-evidence",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-self-claims-red-team",
+      "expected": "FAIL",
+      "family": "test-evidence",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "scenario-self-claims-non-shadow",
+      "expected": "FAIL",
+      "family": "test-evidence",
+      "matched": true,
+      "reasons": [
+        "TEST_DEFINITION_BINDING_INVALID"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "none-effect-claims-external-side-effect",
+      "expected": "FAIL",
+      "family": "external-effect",
+      "matched": true,
+      "reasons": [
+        "EXTERNAL_EFFECT_CONTRACT_VIOLATION",
+        "NONE_EFFECT_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "executed-effect-declared-external",
+      "baseline_reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "expected": "FAIL",
+      "family": "effect-receipt-readback",
+      "matched": true,
+      "new_reasons": [
+        "EXTERNAL_EFFECT_CONTRACT_VIOLATION"
+      ],
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EXTERNAL_EFFECT_CONTRACT_VIOLATION",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EXTERNAL_EFFECT_CONTRACT_VIOLATION"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-target-substitution-resealed",
+      "baseline_reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "expected": "FAIL",
+      "family": "effect-receipt-readback",
+      "matched": true,
+      "new_reasons": [
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+      ],
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-executor-alias-resealed",
+      "baseline_reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "expected": "FAIL",
+      "family": "effect-receipt-readback",
+      "matched": true,
+      "new_reasons": [
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+      ],
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "readback-before-execution-resealed",
+      "baseline_reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "expected": "FAIL",
+      "family": "effect-receipt-readback",
+      "matched": true,
+      "new_reasons": [
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+      ],
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "EFFECT_RECEIPT_OBJECT_BINDING_INVALID",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_RECEIPT_OBJECT_BINDING_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "effect-executes-before-session-delegation-approval-grant-credential",
+      "baseline_reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "expected": "FAIL",
+      "family": "effect-receipt-readback",
+      "matched": false,
+      "new_reasons": [],
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_EXECUTION_OUTSIDE_AUTHORITY_WINDOW"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "receipt-readback-occurs-after-evaluation-time",
+      "baseline_reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "expected": "FAIL",
+      "family": "effect-receipt-readback",
+      "matched": false,
+      "new_reasons": [],
+      "reasons": [
+        "APPROVAL_AUTHORITY_INVALID",
+        "AUDIT_OBJECT_BINDING_INVALID",
+        "CREDENTIAL_REGISTRY_BINDING_INVALID",
+        "DELEGATION_SCOPE_DENY",
+        "EFFECT_NOT_BOUND_TO_GRANT",
+        "GRANT_AUTHORITY_INVALID",
+        "POLICY_DENY",
+        "TOOL_CAPABILITY_DENY"
+      ],
+      "required_reason": "EFFECT_READBACK_TIME_INVALID"
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "audit-local-chain-self-resealed",
+      "expected": "FAIL",
+      "family": "audit-non-self-attestation",
+      "matched": true,
+      "reasons": [
+        "AUDIT_CHAIN_OR_EXTERNAL_ANCHOR_INVALID"
+      ]
+    }
+  ],
+  "author_files_modified": false,
+  "environment": "offline_synthetic",
+  "escape_count": 2,
+  "limits": {
+    "chief_gate": "NOT_AUTHORIZED",
+    "editor_gate": "NOT_AUTHORIZED",
+    "external_effect_executed": false,
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_identity_broker_egress_audit_executed": false,
+    "real_openclaw_hermes_muse_executed": false,
+    "release_candidate": "NOT_AUTHORIZED",
+    "representative_real_world_executed": false
+  },
+  "matched_count": 23,
+  "review_role": "non_author",
+  "schema_version": "c19.security.independent-negative.v2.3",
+  "suite_digest": "sha256:84263d61d471787860c28067b9c04829a68dd1f2807ef53c0cf0e964ac945900"
+}

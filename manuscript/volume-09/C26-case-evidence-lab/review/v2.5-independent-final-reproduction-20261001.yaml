@@ -1,0 +1,120 @@
+schema_version: c23.v2.5.independent-final-reproduction.v1
+review_date: '2026-10-01'
+reviewer_role: non_author_final_reviewer
+scope: synthetic_machine_control_and_fact_cross_boundary
+author_files_modified: false
+fresh_temp_rebuilds:
+  count: 2
+  labels: [fresh-temp-A, fresh-temp-B]
+  builder_started_from_source: true
+  byte_identical_across_rebuilds: true
+  rebuilt_file_sha256:
+    input: 0a148833280396f627adfae0f91590b6685f63401315a2d8308547e45f939dc3
+    authority_root: 0feacb4aceead0bba38b69508fec0ed4a346ab1e0e9f3386c102e5c371f0afee
+    result: 0c6b2b503b46c833b725e90fcfccc9c8c9cfec11a02d0d90bd31522a484f0a6d
+    v2_5_regression_result: abe0d841582f79b8430709ce04c6c7c9f0b064335e2fa02f382795315a6ab987
+    independent_final_result: 958c307b1c1065396664c5a929e447479f9b223106e435958b9662a112413e11
+  source_sha256:
+    builder: 2392869127b1e96003bc4a303dca8d87f1716b41068b3c67ec6a72a78c9afd7e
+    runner: e456050cf016ce22b28e526ee77f409b55e6dcc9c33999a328dff932c7d651e9
+    author_v2_5_regression: 240f874be56703ed80e1980f8c6246ae518097e114497b10ac8085d0c72172b9
+    independent_final_tests: e554bcd505a60ea26cdcd29677e3cf75ea1d7aa94a3eb3cd3d8b577c61e55184
+fixed_fixture:
+  trial_count: 32
+  distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+  decision_digest: 39d9b3e439a0c22506a21d21caa0667b7c6d86f497ab43263ccf0de4aec44324
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+replayed_suites:
+  - {suite: author_original, count: 79, safe: 79, digest: de5b6190accb1b9e41b1ec389795a1d8791aaffa532e32e19120bd198c9b9666}
+  - {suite: author_v2_3, count: 30, safe: 30, digest: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e}
+  - {suite: author_v2_4, count: 23, safe: 23, digest: 31ca6d821ace14efec3c9abe348dd027730c334d006ee79b0042c89ae89d5c4d}
+  - {suite: independent_v2_3, count: 19, safe: 19, digest: 0eb942717da7f1733a98020054ecc83c5214f7371aed3a5fc03e0737fc6d5ea0}
+  - suite: historical_independent_v2_2
+    count: 18
+    historical_script_passed: 17
+    safety_interpretation: 18
+    note: I18 was safely REJECTed by the newer authority-root contract although its frozen old oracle allowed only FAIL.
+  - {suite: independent_v2_4, count: 15, safe: 15, digest: 94e947e7d1970daf18aae4373885700b96b79e5c024d637cf3e40f0a2409e96a}
+  - {suite: author_v2_5, attack_count: 25, safe: 25, positive_controls: 2, positive_controls_passed: 2, digest: 9541856e10e9b9c6d7c5ddb6a08752f514b608d67568f4506ce7fd93ed2b1613}
+independent_final_suite:
+  oracle_policy: chapter invariants and raw-state semantics; author expected labels were not used
+  attack_count: 36
+  secure_attack_count: 28
+  escape_count: 8
+  positive_control_count: 2
+  positive_control_pass_count: 2
+  suite_digest: 67dc2c75a2541f49f9001ab59f8c61b7c232c1cdb53ea83dc5040d55440b5e92
+  escape_ids:
+    - F11_FAILURE_LOG_AFTER_D21
+    - F25_FORGED_EQUAL_TASK_CONTRACT
+    - F26_FORGED_EQUAL_INPUT_CONTRACT
+    - F27_EQUAL_PERMISSION_EXPANSION
+    - F28_EQUAL_PRODUCTION_DATA
+    - F29_EQUAL_AUTHOR_SELF_GRADER
+    - F31_CROSS_CASE_BUDGET_PAIR_SWAP
+    - F33_RECONSTRUCTED_WITHOUT_LIMITATIONS
+test_results:
+  - {test_id: F01_EXTRA_CASE_IDENTITY_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F02_EXTRA_AUTHORIZATION_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F03_EXTRA_SOURCE_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F04_EXTRA_REDACTION_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F05_EXTRA_PUBLICATION_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F06_EXTRA_REVIEWER_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F07_EXTRA_AUTHOR_ASSIGNMENT_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F08_EXTRA_ENVIRONMENT_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F09_EXTRA_D21_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F10_EXTRA_MIGRATION_REGISTRY, category: exact_projection, observed: REJECT, secure: true}
+  - {test_id: F11_FAILURE_LOG_AFTER_D21, category: causal_clock, observed: PASS, secure: false}
+  - {test_id: F12_TRIAL_AFTER_D21, category: causal_clock, observed: FAIL, secure: true, reasons: [D21_PRECEDES_TRIAL_OR_EFFECT]}
+  - {test_id: F13_REVIEW_BEFORE_D21, category: causal_clock, observed: FAIL, secure: true, reasons: [REVIEW_PRECEDES_EVIDENCE]}
+  - {test_id: F14_AUTHORIZATION_AFTER_TRIAL, category: causal_clock, observed: FAIL, secure: true, reasons: [EVIDENCE_OUTSIDE_AUTHORIZATION_ASSIGNMENT_WINDOW]}
+  - {test_id: F15_FAIL_TRIAL_WITHOUT_FAILURE_REF, category: failure_bidirectional, observed: FAIL, secure: true, reasons: [RUN_DISTRIBUTION_INVALID]}
+  - {test_id: F16_PASS_TRIAL_WITH_FAILURE_REF, category: failure_bidirectional, observed: FAIL, secure: true, reasons: [RUN_DISTRIBUTION_INVALID]}
+  - {test_id: F17_FAILURE_LOG_PAYLOAD_MISMATCH, category: failure_bidirectional, observed: FAIL, secure: true, reasons: [RUN_DISTRIBUTION_INVALID]}
+  - {test_id: F18_EFFECT_EXTERNAL_LIE, category: effect_derivation, observed: FAIL, secure: true, reasons: [EFFECT_EXTERNAL_DERIVATION_MISMATCH]}
+  - {test_id: F19_OFFLINE_EXTERNAL_WRITE, category: effect_derivation, observed: FAIL, secure: true, reasons: [OFFLINE_EXTERNAL_EFFECT]}
+  - {test_id: F20_EFFECT_UNAUTHORIZED, category: effect_derivation, observed: FAIL, secure: true, reasons: [EFFECT_UNAUTHORIZED]}
+  - {test_id: F21_D21_CONTENT_DISAGREES, category: d21_content, observed: FAIL, secure: true, reasons: [D21_STATE_CONTENT_MISMATCH]}
+  - {test_id: F22_ADAPTER_CONTRACT_MISMATCH, category: adapter_matrix, observed: FAIL, secure: true, reasons: [MIGRATION_ADAPTER_CLASSIFICATION_INVALID]}
+  - {test_id: F23_ADAPTER_CROSS_CASE_EVIDENCE, category: adapter_matrix, observed: FAIL, secure: true}
+  - {test_id: F24_ADAPTER_WRONG_OWNER, category: adapter_matrix, observed: FAIL, secure: true, reasons: [MIGRATION_ADAPTER_EVIDENCE_OR_OWNER_INVALID]}
+  - {test_id: F25_FORGED_EQUAL_TASK_CONTRACT, category: migration_budget, observed: PASS, secure: false}
+  - {test_id: F26_FORGED_EQUAL_INPUT_CONTRACT, category: migration_budget, observed: PASS, secure: false}
+  - {test_id: F27_EQUAL_PERMISSION_EXPANSION, category: migration_budget, observed: PASS, secure: false}
+  - {test_id: F28_EQUAL_PRODUCTION_DATA, category: migration_budget, observed: PASS, secure: false}
+  - {test_id: F29_EQUAL_AUTHOR_SELF_GRADER, category: migration_budget, observed: PASS, secure: false}
+  - {test_id: F30_EQUAL_RISK_CHANGE, category: migration_budget, observed: REJECT, secure: true}
+  - {test_id: F31_CROSS_CASE_BUDGET_PAIR_SWAP, category: migration_budget, observed: PASS, secure: false}
+  - {test_id: F32_UNEQUAL_COST_COMPOSITION, category: fair_cost, observed: FAIL, secure: true, reasons: [COMPARISON_CONTRACT_UNFAIR]}
+  - {test_id: F33_RECONSTRUCTED_WITHOUT_LIMITATIONS, category: evidence_identity, observed: PASS, secure: false}
+  - {test_id: F34_VENDOR_ADAPTER_EVIDENCE, category: evidence_identity, observed: FAIL, secure: true}
+  - {test_id: F35_NESTED_JSON_DUPLICATE_KEY, category: json_duplicate_key, observed: REJECT, secure: true}
+  - {test_id: F36_FULL_RESULT_DIGEST_TAMPER, category: result_integrity, observed: REJECT, secure: true}
+  - {test_id: F-C01_LEGAL_NEW_ROOT, category: positive_neighbor, observed: PASS, secure: true}
+  - {test_id: F-C02_LEGAL_NONCRITICAL_ADAPTER, category: positive_neighbor, observed: PASS, secure: true}
+publication_structure_checks:
+  single_h1: true
+  sections_23_1_through_23_7: true
+  fact_baseline_present: true
+  cjk_count: 18673
+  claim_count: 42
+  unique_claim_count: 42
+  cited_claim_count: 42
+  absolute_path_count: 0
+  internal_historical_source_links_present: true
+  internal_historical_source_locations:
+    - chapter.md:45
+    - evidence-ledger.yaml:34
+gate_decisions:
+  fact: FAIL
+  cross: FAIL
+  synthetic_machine_control: FAIL
+  practice: REVIEW_REQUIRED
+  editor: NOT_REVIEWED
+  chief: NOT_REVIEWED
+  release_candidate: false
+limitations:
+  - No real case identity or real publication authorization was executed.
+  - No real OpenClaw to Hermes migration was executed.
+  - No external effect, production Runtime, or Muse internal mechanism was executed.

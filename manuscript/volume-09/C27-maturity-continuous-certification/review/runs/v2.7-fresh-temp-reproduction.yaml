@@ -1,0 +1,67 @@
+schema: c24.v2.7.author-reproduction.v1
+performed_on: "2026-10-01"
+role: remediation_author
+scope: offline_synthetic_only
+author_self_approval: false
+
+fresh_temp:
+  count: 2
+  roots:
+    - /tmp/c24-v27-final-a.nFmRyk
+    - /tmp/c24-v27-final-b.ZWagyG
+  all_outputs_byte_identical: true
+  files:
+    input.json: 8e544cf48e83fa0326aac9abc0be35b11768602666bf5227249b0d5bf442a5f5
+    root.json: 678d5e8a752d5bff21baaf7eb9e8684ae3337af865b21cf39c4ff9bc0e51602a
+    contracts.json: b4242500a8b3a767a5225255a15b5d49354e4ea9d614df0f1e87ddf1bfa0927b
+    result.json: 4ea254901d0ae800e257518ea89cd9e4fee40848e118bd956f87c70b5a9fa271
+    synthetic-certification-summary.md: 5cc58680ae5069411978a57800392685b55aafafc5e9b76b5a2bad6c0d7d8e72
+    v27-positive-regression.json: c0dc8c9e77c9910c432f0f91b81872fffb32cb166daba0189eb9563a2d2da8f5
+    v26-independent-replay.json: 7e421d0a401d37ff2873d7831d52858c9f063cda84183213d0c580a4e806db45
+    v26-author-replay.json: debbf457ff26b4f01ce3aa705fb02b4c314b30393cbf8bf3b17706f50a393571
+
+source_files:
+  builder_sha256: 390f2f937a071a656ea57ab7ded51fcbcbda151a987182ece6d5cd8fd1bf4dc3
+  runner_sha256: 7a1dc3082f66030071e23c1e0dc00327c9f611e42bcb55d7fc1f367ec1c2836a
+  positive_regression_sha256: 373744ca0c3896a2c8ba952ae31f7e4b5caf6fc8195eab64511d73ea76682ed5
+
+fixed_fixture:
+  trial_count: 60
+  distribution: {PASS: 6, FAIL: 52, REVIEW_REQUIRED: 2}
+  lifecycle_distribution: {ACTIVE: 3, LIMITED: 2, SUSPENDED: 2, REVOKED: 52, EXPIRED: 1}
+  authority_root_digest: sha256:1c768968e30d39195369e517394c3c218829b175d64d219a6e5ff159062fb6ad
+  decision_digest: sha256:4645332ab3e0e1aa16ac5a435a3105a422c17eeefea3e0f8ef1a84a53e27e5f4
+  added_positive_controls:
+    - {scenario_id: S24-059, kind: LEGAL_RENEWAL, decision: PASS, lifecycle: ACTIVE}
+    - {scenario_id: S24-060, kind: LEGAL_MATERIAL_CHANGE_THREE_LAYER_RECERTIFICATION, decision: PASS, lifecycle: ACTIVE}
+
+v27_author_positive_regression:
+  attack_count: 20
+  secure_count: 20
+  escape_count: 0
+  positive_count: 2
+  positive_pass_count: 2
+  full_result_replay_passed: true
+  suite_digest: sha256:668fa04d4dd8f05a7fb6879202e7b943cabb3055c07190e0a9ee0fe85497d89e
+
+preserved_regressions:
+  base_author_25: {secure: 25, total: 25, escapes: 0}
+  v2_1_independent_28:
+    semantic_failures: 28
+    exact_legacy_reason_matches: 26
+    note: "两项仍为FAIL，但reason名称已收敛；不是PASS逃逸。"
+  v2_4_author_29: {secure: 29, total: 29, escapes: 0, legacy_positive_pass: 1, legacy_positive_total: 2}
+  v2_4_independent_29: {secure: 29, total: 29, escapes: 0, legacy_positive_pass: 1, legacy_positive_total: 3}
+  v2_5_author_37: {secure: 37, total: 37, escapes: 0, legacy_positive_pass: 1, legacy_positive_total: 3}
+  v2_5_independent_36: {secure: 36, total: 36, escapes: 0, legacy_positive_pass: 0, legacy_positive_total: 3}
+  v2_6_author_43: {secure: 43, total: 43, escapes: 0, positive_pass: 4, positive_total: 4, suite_digest: "sha256:ad32cb542b1e8858b2384f5885ff62e9b8d0bf213e6f60c5ac3a3a2ecf549d10"}
+  v2_6_independent_46: {secure: 46, total: 46, escapes: 0, positive_pass: 5, positive_total: 5, suite_digest: "sha256:9ba5cf86000bf45e9fabf807586959628e7896ede7a86ac3a97861292d628404"}
+
+limits:
+  representative_real_world_executed: false
+  real_openclaw_executed: false
+  real_hermes_executed: false
+  external_certification_authority_executed: false
+  real_certificate_issued: false
+  external_effect_executed: false
+  fact_cross_practice_editor_chief_rc: UNAPPROVED

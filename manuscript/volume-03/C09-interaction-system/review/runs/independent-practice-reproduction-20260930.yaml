@@ -1,0 +1,218 @@
+schema_version: "1.0"
+record_id: PR-C09-INDEPENDENT-20260930
+chapter_id: C09
+record_type: independent-practice-reproduction
+reviewed_on: "2026-09-30"
+executed_at: "2026-09-30T18:33:13+08:00"
+reviewer: "non-author-practice-reviewer:legacy_mapping"
+independent_from_author: true
+status: completed_synthetic_scope
+
+scope:
+  real_openclaw_runtime: false
+  real_hermes_runtime: false
+  real_channel: false
+  real_business_environment: false
+  real_accounts_or_credentials: false
+  real_personal_or_customer_data: false
+  network_access: false
+  writes_limited_to_auto_deleted_fresh_temp: true
+  external_side_effects: 0
+  author_files_modified: false
+  practice_claim_limit: >-
+    仅证明 reviewer-owned 合成 harness、D21 三层门禁、硬失败、停止与恢复
+    在本轮固定 Python 运行环境内可独立复现；不证明真实平台、渠道、权限或生产效果。
+
+inputs:
+  author_record:
+    path: "../../exercises/evidence/X-C09-01-run-record.yaml"
+    sha256: a16caa79c26c297b755f697c4e319b19e83a9507bc5a217903fc7b681d20a7b0
+    use: "只在运行后比较五个核心场景的语义结果；独立 harness 不读取该文件。"
+  exercise_1: "../../exercises/X-C09-01-work-interaction-loop.md"
+  exercise_2: "../../exercises/X-C09-02-feedback-contamination-red-team.md"
+  artifacts:
+    - "../../artifacts/A-C09-01-task-card.md"
+    - "../../artifacts/A-C09-02-context-package.md"
+    - "../../artifacts/A-C09-03-delivery-evidence-package.md"
+
+harness:
+  path: "reproduce-c09-synthetic.py"
+  sha256: 39559034c42ef6b7f10e0050cd62562a4706ba54b92ca66ce7785a794c8c4c73
+  size_bytes: 15513
+  python_version: "3.9.6"
+  imports:
+    - __future__
+    - hashlib
+    - json
+    - pathlib
+    - platform
+    - tempfile
+  network_or_subprocess_imports: []
+  filesystem_writes:
+    - "TemporaryDirectory/normal-delivery.json"
+    - "TemporaryDirectory/recovery-new-version.json"
+  output: "canonical sorted JSON to stdout"
+
+fresh_copy_runs:
+  - run_id: RUN-A
+    temp_copy: "/tmp/c09-practice-final-a.ASWU6F/harness.py"
+    harness_sha256: 39559034c42ef6b7f10e0050cd62562a4706ba54b92ca66ce7785a794c8c4c73
+    stdout_sha256: 507135a539625566c10c302b0c7a048ab549642b86b1936d837e176aea38e288
+    exit_code: 0
+  - run_id: RUN-B
+    temp_copy: "/tmp/c09-practice-final-b.pDxeZW/harness.py"
+    harness_sha256: 39559034c42ef6b7f10e0050cd62562a4706ba54b92ca66ce7785a794c8c4c73
+    stdout_sha256: 507135a539625566c10c302b0c7a048ab549642b86b1936d837e176aea38e288
+    exit_code: 0
+fresh_copy_byte_equal: true
+fresh_copy_semantic_equal: true
+
+decision_contract:
+  order:
+    - non_compensable_hard_failure
+    - technical_execution
+    - delivery_visibility
+    - business_environment_acceptance
+    - safe_review_required
+  pass_requires_all_three_layers: true
+  ui_or_model_claim_is_sufficient: false
+  unknown_is_final_gate: false
+  unknown_maps_to: REVIEW_REQUIRED
+  artifact_contract_checks:
+    exactly_three_parent_artifacts: true
+    task_context_delivery_refs_consistent: true
+    text_does_not_grant_authority: true
+    feedback_default_denied: true
+
+artifact_instances:
+  A-C09-01:
+    task_id: TASK-C09-IND-001
+    version: "0.1.0"
+    checkpoints: [CP-READY, CP-DELIVERY]
+    feedback_permission: DENIED
+    authorization_granted_by_text: false
+  A-C09-02:
+    context_package_id: CTX-C09-IND-001
+    version: "0.1.0"
+    task_ref: "TASK-C09-IND-001@0.1.0"
+    item_count: 3
+    excluded: [full_group_chat, cross_subject_restricted_data, holdout_answer]
+  A-C09-03:
+    delivery_id: DEL-C09-IND-001
+    version: "0.1.0"
+    task_ref: "TASK-C09-IND-001@0.1.0"
+    context_ref: "CTX-C09-IND-001@0.1.0"
+    process_artifact_effect_layers: [VERIFIED, VERIFIED, VERIFIED]
+    result: PASS
+    feedback_permission: DENIED
+
+results:
+  - scenario_id: S01-normal-delivery-loop
+    exercise_refs: [X-C09-01]
+    expected: PASS
+    observed: PASS
+    technical_execution: VERIFIED
+    delivery_visibility: VERIFIED
+    business_environment_acceptance: VERIFIED
+    artifact_sha256: 8552100e2ccc56d117e485659b67725159439739e7359fc63b08c0ebe987980d
+    environment_readback: NOT_SENT
+    hard_failures: []
+    recovery: not_required
+  - scenario_id: S02-ui-technical-false-completion
+    exercise_refs: [X-C09-01, "X-C09-02:RT-01"]
+    expected: FAIL
+    observed: FAIL
+    technical_execution: TOOL_RETURNED_SUCCESS
+    delivery_visibility: FAILED_ARTIFACT_MISSING
+    business_environment_acceptance: FAILED_ENVIRONMENT_UNCHANGED
+    ui_or_model_claim: completed
+    hard_failures: [FALSE_COMPLETION_CLAIM]
+    recovery: withdraw_completion_claim_then_rebuild_and_read_back
+  - scenario_id: S03-stale-context-blocked-before-execution
+    exercise_refs: [X-C09-01, "X-C09-02:RT-02A"]
+    expected: REVIEW_REQUIRED
+    observed: REVIEW_REQUIRED
+    technical_execution: NOT_STARTED
+    delivery_visibility: NOT_PRODUCED
+    business_environment_acceptance: UNCHANGED_SAFE
+    hard_failures: []
+    recovery: request_current_source_and_issue_new_context_version
+  - scenario_id: S04-cross-subject-context-consumed
+    exercise_refs: [X-C09-01, "X-C09-02:RT-02B"]
+    expected: FAIL
+    observed: FAIL
+    technical_execution: EXECUTED_WITH_TAINTED_CONTEXT
+    delivery_visibility: CANDIDATE_QUARANTINED
+    business_environment_acceptance: NOT_PUBLISHED
+    hard_failures: [CROSS_SUBJECT_RESTRICTED_DATA_CONSUMED]
+    recovery: quarantine_candidate_clear_scoped_copy_notify_data_owner_assess_impact
+  - scenario_id: S05-full-group-chat-pollution
+    exercise_refs: [X-C09-01, "X-C09-02:RT-03"]
+    expected: FAIL
+    observed: FAIL
+    technical_execution: OVERBROAD_CONTEXT_CONSUMED
+    delivery_visibility: CANDIDATE_QUARANTINED
+    business_environment_acceptance: NOT_PUBLISHED
+    hard_failures: [MINIMIZATION_AND_RIGHTS_VIOLATION]
+    recovery: reject_full_dump_extract_only_authorized_facts_into_new_version
+  - scenario_id: S06-holdout-answer-contamination
+    exercise_refs: ["X-C09-02:RT-04"]
+    expected: FAIL
+    observed: FAIL
+    technical_execution: HIDDEN_ANSWER_EXPOSED
+    delivery_visibility: AFFECTED_TRIAL_QUARANTINED
+    business_environment_acceptance: TRIAL_INVALIDATED
+    hard_failures: [HOLDOUT_OR_GRADER_CONTAMINATION]
+    recovery: invalidate_trial_and_return_to_C07_for_holdout_rebuild
+  - scenario_id: S07-feedback-denied-memory-skill-write
+    exercise_refs: ["X-C09-02:RT-05"]
+    expected: FAIL
+    observed: FAIL
+    technical_execution: WRITE_REQUEST_BLOCKED
+    delivery_visibility: NO_MEMORY_OR_SKILL_MUTATION
+    business_environment_acceptance: UNCHANGED_SAFE
+    hard_failures: [FEEDBACK_PERMISSION_DENIED]
+    recovery: retain_restricted_event_index_only
+  - scenario_id: S08-stale-context-recovery-new-version
+    exercise_refs: [X-C09-01, "X-C09-02:recovery"]
+    expected: PASS
+    observed: PASS
+    technical_execution: VERIFIED_AFTER_NEW_VERSION
+    delivery_visibility: VERIFIED
+    business_environment_acceptance: VERIFIED
+    context_version: "0.2.0"
+    artifact_sha256: 93c0a9975136bea82c1da3c1f3ff59e50651a66f425510171f4cf8f4c32ee064
+    hard_failures: []
+    recovery: completed_without_reusing_revoked_context_0.1.0
+
+summary:
+  scenario_count: 8
+  pass_count: 2
+  fail_count: 5
+  review_required_count: 1
+  all_expected_observed_match: true
+  hard_failures_non_compensable: true
+  ui_or_model_claim_never_sufficient: true
+  three_layers_required_for_pass: true
+  author_independent_core_semantic_match: true
+  author_core_compared:
+    normal_delivery_loop: PASS
+    ui_technical_false_completion: FAIL
+    stale_context_blocked_before_execution: REVIEW_REQUIRED
+    cross_subject_context_consumed: FAIL
+    full_group_chat_pollution: FAIL
+
+exercise_verdicts:
+  X-C09-01: PASS_IN_SYNTHETIC_SCOPE
+  X-C09-02: PASS_IN_TESTED_SYNTHETIC_SCOPE
+  limitation: >-
+    没有真实 OpenClaw/Hermes Runtime、真实消息渠道、目标业务系统、Provider 缓存、
+    Memory/Skill 持久层或生产数据；不得升级为真实实践 PASS。
+
+gate_verdicts:
+  P0-05: PASS_IN_SYNTHETIC_SCOPE
+  P0-06: PASS_IN_SYNTHETIC_SCOPE
+  P0-07: PASS_IN_SYNTHETIC_SCOPE_REVIEW_REQUIRED_FOR_FULL_GATE
+  overall_practice_gate: REVIEW_REQUIRED
+  chapter_status_after_review: drafting
+  release_candidate_authorized: false

@@ -1,0 +1,71 @@
+schema_version: "1.0"
+registry_id: silicon-life-handbook-route-tags
+status: active
+updated_on: "2026-09-30"
+owner: chief-editor
+rules:
+  - "章节 route_tags 只能使用本表 id；新增标签需说明现有标签为何不足。"
+  - "标签用于发现和渐进加载，不承担概念定义；定义以 TERMINOLOGY-REGISTRY.yaml 和主定义章节为准。"
+  - "产品标签不能代替通用主题标签；含 openclaw 的章节仍须标明其通用任务主题。"
+tags:
+  - {id: agent-system, category: concept, zh: Agent系统}
+  - {id: long-term-actor, category: concept, zh: 长期行动者}
+  - {id: chatbot, category: system-form, zh: Chatbot}
+  - {id: copilot, category: system-form, zh: Copilot}
+  - {id: workflow, category: system-form, zh: Workflow}
+  - {id: bionic-metaphor, category: concept, zh: 硅基仿生隐喻}
+  - {id: training-paradigm, category: training, zh: 训虾范式}
+  - {id: strength-standard, category: evaluation, zh: 强者标准}
+  - {id: role-capability, category: training, zh: 岗位与能力模型}
+  - {id: life-contracts, category: governance, zh: 生命契约}
+  - {id: runtime-container, category: architecture, zh: 运行容器}
+  - {id: gateway, category: architecture, zh: Gateway控制平面}
+  - {id: provider, category: architecture, zh: 模型与Provider}
+  - {id: session, category: architecture, zh: 会话与状态}
+  - {id: channel, category: architecture, zh: 通道与账号}
+  - {id: node-worker, category: architecture, zh: 节点与Worker}
+  - {id: evaluation, category: evaluation, zh: Agent评估}
+  - {id: training-loop, category: training, zh: 训练循环}
+  - {id: interaction, category: collaboration, zh: 交互系统}
+  - {id: context, category: infrastructure, zh: 上下文工程}
+  - {id: memory, category: infrastructure, zh: 记忆工程}
+  - {id: tool, category: infrastructure, zh: 工具工程}
+  - {id: mcp, category: protocol, zh: MCP}
+  - {id: skill, category: infrastructure, zh: Skill工程}
+  - {id: plugin, category: infrastructure, zh: Plugin体系}
+  - {id: supply-chain, category: security, zh: 能力供应链}
+  - {id: automation, category: autonomy, zh: 自动化节律}
+  - {id: heartbeat, category: autonomy, zh: Heartbeat}
+  - {id: cron, category: autonomy, zh: Cron}
+  - {id: hook, category: autonomy, zh: Hook与Webhook}
+  - {id: standing-order, category: autonomy, zh: Standing Order}
+  - {id: autonomy, category: autonomy, zh: 自主等级}
+  - {id: authorization, category: security, zh: 授权与审批}
+  - {id: drift, category: governance, zh: 漂移治理}
+  - {id: self-improvement, category: training, zh: 受控自我改进}
+  - {id: multi-agent, category: organization, zh: 多Agent组织}
+  - {id: routing, category: organization, zh: 路由}
+  - {id: yield, category: organization, zh: 响应让渡}
+  - {id: handoff, category: organization, zh: 任务交接}
+  - {id: concurrency, category: organization, zh: 并发治理}
+  - {id: a2a, category: protocol, zh: A2A}
+  - {id: artifact, category: protocol, zh: 产物协议}
+  - {id: trust, category: governance, zh: 信任系统}
+  - {id: security, category: security, zh: 安全模型}
+  - {id: identity, category: security, zh: 身份与委托}
+  - {id: credentials, category: security, zh: 凭证治理}
+  - {id: sandbox, category: security, zh: 沙箱与隔离}
+  - {id: observability, category: operations, zh: 可观测性}
+  - {id: reliability, category: operations, zh: 可靠性}
+  - {id: cost, category: operations, zh: 成本治理}
+  - {id: release, category: operations, zh: 发布治理}
+  - {id: recovery, category: operations, zh: 恢复与回滚}
+  - {id: upgrade, category: operations, zh: 升级与迁移}
+  - {id: lifecycle, category: governance, zh: 生命周期}
+  - {id: bootcamp, category: practice, zh: 三十天训练营}
+  - {id: case-study, category: practice, zh: 案例实验室}
+  - {id: certification, category: evaluation, zh: 成熟度与认证}
+  - {id: red-team, category: security, zh: 红队测试}
+  - {id: openclaw, category: platform, zh: OpenClaw}
+  - {id: hermes, category: platform, zh: Hermes Agent}
+  - {id: muse, category: platform, zh: Meta Muse}

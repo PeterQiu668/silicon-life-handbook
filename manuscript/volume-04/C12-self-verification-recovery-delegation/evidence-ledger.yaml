@@ -1,0 +1,27 @@
+chapter_id: C12
+title: "自我验证、回退、并行探索与子 Agent 委派"
+status: content_candidate_only
+verified_on: "2026-10-01"
+self_approval: false
+claims:
+  - evidence_id: E-C12-001
+    claim: "ReAct 研究交替组织推理与环境行动；本书只要求保存可审计动作、观察和证据。"
+    class: ACADEMIC-EVIDENCE
+    sources:
+      - title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+        url: "https://arxiv.org/abs/2210.03629"
+  - evidence_id: E-C12-002
+    claim: "Reflexion 研究用语言反馈和情景记忆影响后续尝试，其反思文本不等同于外部证据。"
+    class: ACADEMIC-EVIDENCE
+    sources:
+      - title: "Reflexion: Language Agents with Verbal Reinforcement Learning"
+        url: "https://arxiv.org/abs/2303.11366"
+  - evidence_id: E-C12-003
+    claim: "LLM-as-judge 可扩展开放评审，但存在位置、冗长和自我偏好等局限。"
+    class: ACADEMIC-EVIDENCE
+    sources:
+      - title: "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena"
+        url: "https://arxiv.org/abs/2306.05685"
+      - title: "NeurIPS 2023 paper"
+        url: "https://proceedings.neurips.cc/paper_files/paper/2023/file/91f18a1287b398d378ef22505bf41832-Paper-Datasets_and_Benchmarks.pdf"
+

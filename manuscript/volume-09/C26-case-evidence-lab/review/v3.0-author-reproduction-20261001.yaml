@@ -1,0 +1,78 @@
+schema_version: c23.v3.0.author-reproduction.v1
+chapter_id: C23
+run_date: "2026-10-01"
+review_role: remediation_author
+self_approval: false
+fixture:
+  trial_count: 32
+  distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+  authority_root_logical_digest: 18b6e3b04b574fd170eb2d746b1cf0d6271877098bec9116cea5fed2e43734d0
+  decision_digest: 7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+files:
+  input_sha256: dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55
+  authority_root_sha256: fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2
+  result_sha256: f80c718b45d18aef880422167afbe221d8145c8a3ff08a2a8bdb7b2531434ebe
+  builder_sha256: 6cd3990665a8549413153a400a821156b82aa5e4fe29d6658eca91be70756211
+  runner_sha256: bbc3de6cebd20e4ad97d1519b38f4449aaa38a6442e4c0a5d9e9d519190d6053
+  verifier_sha256: 9462aa1e6f68b90b9d2c7e1fd6ef413e020cae219553e274988eea5106741061
+  pin_registry_sha256: 8eb8868ca19e716f333ea1f5a85241ccadd47682fd9a78db171ee28826cdd5ad
+  v30_runner_sha256: 3cee923d154d4f5e264fe71a730b111746f4391dfa28dcb5e0a19937a17169f0
+  v30_result_sha256: 68eb320fc6b5e317a5b29bef14d7b0bbb409b6754eca8c41a2a70ca85320d42a
+v30_regression:
+  attack_count: 26
+  secure_attack_count: 26
+  escape_count: 0
+  positive_control_count: 7
+  positive_control_pass_count: 7
+  boundary_demonstration_count: 2
+  boundary_accept_count: 2
+  suite_digest: f2c2b88bf584927211e66425dc3afda44ca1b59f941d8486e65463c2786d2da9
+v29_independent_replay_on_v30:
+  attack_count: 45
+  secure_attack_count: 45
+  escape_count: 0
+  positive_control_count: 6
+  positive_control_pass_count: 6
+  boundary_accept_count: 2
+  suite_digest: 8eaa7bc6f81e3b337dfe7023c4293577e7a7cbe01761db0f2b64fd68f6cdf1d3
+  output_sha256: 96c610f89b46b07a9027465b53be43ab2dc6efced57783ca2e20aab08c0d0a25
+fresh_temp:
+  directory_count: 2
+  byte_identical: true
+  committed_bytes_identical: true
+  compared_files: [synthetic-case-input.yaml, frozen-evidence-root.yaml, synthetic-case-results.yaml, v3.0-results.yaml]
+historical_replay:
+  author_79: PASS
+  author_v23_30: PASS
+  author_v24_23: PASS
+  author_v25_25: PASS
+  author_v26_24: PASS
+  independent_v23_19: PASS
+  independent_v24_15: PASS
+  independent_v25_36: PASS
+  independent_v26_24: PASS
+  v27_v28_object_api: RETIRED_PROTOCOL
+trust_boundary:
+  covered: ordinary_module_global_rebinding_against_existing_core
+  not_covered:
+    - direct_closure_cell_or_private_globals_mutation
+    - arbitrary_same_process_code_execution
+    - interpreter_or_release_file_replacement
+    - administrator_or_kernel_control
+validation:
+  py_compile: PASS
+  yaml_json_parse: PASS
+  formal_strict: PASS
+  local_links: PASS
+  diff_check: PASS
+  validate_book: STALE_COMPOSITE_ONLY
+  composite_built: false
+limits:
+  real_case_executed: false
+  real_authorization_copyright_reviewed: false
+  real_runtime_migration_executed: false
+  real_external_effect_executed: false
+  practice_gate: REVIEW_REQUIRED
+  all_other_gates: NOT_SELF_APPROVED

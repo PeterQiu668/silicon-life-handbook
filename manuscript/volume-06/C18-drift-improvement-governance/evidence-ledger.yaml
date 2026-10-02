@@ -1,0 +1,65 @@
+---
+chapter_id: C18
+title: "漂移、自我改进与目标治理"
+status: drafting
+verified_on: "2026-09-30"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md", title: "framework v2"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "chapter cards"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terms"}
+  DECISIONS: {path: "../../../docs/DECISIONS.md", title: "D18-D23"}
+  PREFLIGHT: {path: "../../../docs/research/C18-drift-improvement-governance-preflight.md", title: "C18 preflight"}
+  C05: {path: "../../volume-02/C05-life-contracts/chapter.md", title: "C05"}
+  C07: {path: "../../volume-03/C07-evaluation-system/chapter.md", title: "C07"}
+  C08: {path: "../../volume-03/C08-training-system/chapter.md", title: "C08"}
+  C13: {path: "../../volume-05/C13-context-memory/chapter.md", title: "C13"}
+  C15: {path: "../../volume-05/C15-skill-engineering/chapter.md", title: "C15"}
+  C16: {path: "../C16-proactivity-automation/chapter.md", title: "C16"}
+  C17: {path: "../C17-autonomy-authorization/chapter.md", title: "C17"}
+  C24: {path: "../../../docs/research/C24-governance-release-lifecycle-preflight.md", title: "C24 preflight"}
+  C25: {path: "../../../docs/research/C25-thirty-day-training-camp-preflight.md", title: "C25 preflight"}
+  C27: {path: "../../../docs/research/C27-maturity-certification-preflight.md", title: "C27 preflight"}
+  OC-REL: {url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6", title: "OpenClaw v2026.9.6"}
+  OC-WORKSHOP: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/skill-workshop.md", title: "Workshop"}
+  OC-SELF: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/self-learning.md", title: "Self-learning"}
+  HE-SKILLS: {url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills", title: "Hermes Skills"}
+  HE-MEM: {url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory/", title: "Hermes Memory"}
+  MUSE: {url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", title: "Muse launch"}
+  GOOGLE-CANARY: {url: "https://sre.google/workbook/canarying-releases/", title: "Canarying Releases"}
+  LOCAL-IN: {path: "review/runs/synthetic-drift-input.yaml", title: "input"}
+  LOCAL-OUT: {path: "review/runs/synthetic-drift-results.yaml", title: "results"}
+claims:
+  - {evidence_id: E-C18-001, claim: "漂移是相对已批准基线的可观察偏移，不等于变差。", class: METHODOLOGY, source_ids: [TERMS, PREFLIGHT]}
+  - {evidence_id: E-C18-002, claim: "一级漂移只分能力、人格、文档、工具、目标五类。", class: METHODOLOGY, source_ids: [BOOK, TERMS, DECISIONS]}
+  - {evidence_id: E-C18-003, claim: "记忆与上下文是跨类型状态和证据源，不是第六类。", class: METHODOLOGY, source_ids: [DECISIONS, C13]}
+  - {evidence_id: E-C18-004, claim: "变化信号、确认漂移和因果证明是不同证据层级。", class: METHODOLOGY, source_ids: [PREFLIGHT, C07]}
+  - {evidence_id: E-C18-005, claim: "基线必须包含业务、契约、系统、授权、评测、运行和证据 bundle。", class: METHODOLOGY, source_ids: [PREFLIGHT, C05, C17]}
+  - {evidence_id: E-C18-006, claim: "比较必须尽量保持同任务、预算、风险、权限和环境。", class: METHODOLOGY, source_ids: [QUALITY, C07, PREFLIGHT]}
+  - {evidence_id: E-C18-007, claim: "失败只能形成改进候选，不自动形成新规则。", class: METHODOLOGY, source_ids: [PREFLIGHT, C08]}
+  - {evidence_id: E-C18-008, claim: "改进回路为观察、假设、实验、评估、固化，固化必须外部批准。", class: METHODOLOGY, source_ids: [BOOK, PREFLIGHT]}
+  - {evidence_id: E-C18-009, claim: "实验每轮保持单一主干预并保留混杂、失败分布、成本和延迟。", class: METHODOLOGY, source_ids: [C07, C08, PREFLIGHT]}
+  - {evidence_id: E-C18-010, claim: "grader迎合与holdout污染不得被写成改进。", class: METHODOLOGY, source_ids: [C07, PREFLIGHT]}
+  - {evidence_id: E-C18-011, claim: "安全硬失败非补偿，security/red-team横切D22四层。", class: METHODOLOGY, source_ids: [DECISIONS, QUALITY]}
+  - {evidence_id: E-C18-012, claim: "版本bundle和exact diff必须覆盖模型、prompt、契约、记忆、能力包、工具、评测、授权与运行。", class: METHODOLOGY, source_ids: [PREFLIGHT, C13, C15, C17]}
+  - {evidence_id: E-C18-013, claim: "影子不得产生生产副作用；canary和灰度需独立授权、对照与停止门。", class: METHODOLOGY, source_ids: [PREFLIGHT, GOOGLE-CANARY, C24]}
+  - {evidence_id: E-C18-014, claim: "回滚必须恢复相容bundle且不得复活已撤销权限或删除同意。", class: METHODOLOGY, source_ids: [PREFLIGHT, C17, C24]}
+  - {evidence_id: E-C18-015, claim: "人类不可外包定目标、批变更、担责任三处。", class: METHODOLOGY, source_ids: [BOOK, PREFLIGHT]}
+  - {evidence_id: E-C18-016, claim: "Agent不得自改安全规则、grader、权限、自主半径、上位目标或生产资产。", class: METHODOLOGY, source_ids: [PREFLIGHT, C17]}
+  - {evidence_id: E-C18-017, claim: "目标或授权变化必须返回C14再认证；AU与MAT不得互推。", class: METHODOLOGY, source_ids: [DECISIONS, C17, C27]}
+  - {evidence_id: E-C18-018, claim: "OpenClaw固定版Workshop/self-learning产品默认不等于本书治理效果。", class: VERSION-FACT, source_ids: [OC-REL, OC-WORKSHOP, OC-SELF]}
+  - {evidence_id: E-C18-019, claim: "Hermes skill/memory写入批准按动态官方文档处理，不证明长期改善。", class: DYNAMIC-OFFICIAL, source_ids: [HE-SKILLS, HE-MEM]}
+  - {evidence_id: E-C18-020, claim: "Muse越来越懂用户等描述只作VENDOR-CLAIM，不推断内部自改机制。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C18-021, claim: "C15只交付漂移体检表、改进提案、影子测试与回滚计划。", class: METHODOLOGY, source_ids: [BOOK, CARD, DECISIONS]}
+  - {evidence_id: E-C18-022, claim: "状态化离线夹具75 trial分布为20 PASS、45 FAIL、10 REVIEW_REQUIRED且effect ledger确认外部副作用为0；代表性真实任务为0，十五条拟迁移记录只是合成holdout shadow。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT], limitations: "不证明真实任务迁移或生产效果。"}
+  - {evidence_id: E-C18-023, claim: "夹具从bundle/run谱系、数据访问、grader、candidate diff、身份批准、target、shadow、effect和rollback状态推导五类漂移、混杂、污染、多变量、自改治理、影子失败、回滚和UNKNOWN。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT]}
+open_issues:
+  - {issue_id: O-C18-01, status: REVIEW_REQUIRED, item: "真实OpenClaw Workshop/self-learning未运行。"}
+  - {issue_id: O-C18-02, status: REVIEW_REQUIRED, item: "Hermes动态文档与固定环境未实测。"}
+  - {issue_id: O-C18-03, status: REVIEW_REQUIRED, item: "生产影子、canary、回滚和治理成本未知。"}
+  - {issue_id: O-C18-04, status: REVIEW_REQUIRED, item: "Muse内部机制不可见。"}
+change_log:
+  - {version: "0.1.0", date: "2026-09-30", change: "建立C15证据账本。", status: drafting}
+  - {version: "0.2.0", date: "2026-09-30", change: "以原始bundle、run、数据访问、grader、candidate diff、身份批准、target、shadow、effect和rollback状态替换预裁决布尔夹具。", status: drafting}

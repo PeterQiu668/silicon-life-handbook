@@ -1,0 +1,70 @@
+review_id: C24-v2.3-independent-final-reproduction-20261001
+chapter_id: C24
+review_role: non_author
+reviewed_on: "2026-10-01"
+fresh_temp_runs: 2
+byte_identical_between_fresh_runs: true
+fixed_fixture:
+  trial_count: 58
+  distribution: {PASS: 4, FAIL: 51, REVIEW_REQUIRED: 3}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 2, SUSPENDED: 3, REVOKED: 51, EXPIRED: 1}
+  authority_root_digest: "sha256:47c788b9dcd1395f21dfe3019c10d10a0fa4ede74c46f18923103f8ad46040e8"
+  decision_digest: "sha256:00fe7b40ecd9f7eedd6745c8043cf1de6ca8b0ca4b5b234ba9c9cf936f688788"
+replays:
+  author_25: {matched: 25, total: 25, fail_open: 0, suite_digest: "sha256:b522f19acc57ebea9b0ae5be63ee4f0193846d7edf4028c20ab8533a5b251c95"}
+  historical_18_semantic:
+    matched: 18
+    total: 18
+    semantic_and_blackbox_closed: true
+    suite_digest: "sha256:6b32e91c36cd2504e772078249624a51eedb361b8e9cfa9191601fc169dcb035"
+  previous_independent_25: {matched: 25, total: 25, escapes: 0}
+  v23_author_near_neighbours: {matched: 20, total: 20, escapes: 0}
+  v23_positive_controls: {passed: 2, total: 2}
+  v23_combined_suite_digest: "sha256:e83911f97c2c3fab74c4cf75bf240c144bf5d103e633edda86e99650bc49890d"
+independent_unannounced:
+  attack_count: 21
+  secure_count: 7
+  escape_count: 14
+  positive_controls_passed: 2
+  positive_controls: 2
+  suite_digest: "sha256:196d24e4ef35d0a6bdec789311cf1534b529081351454111d80a8c88a142c0d7"
+  group_distribution:
+    certificate_window: {attacks: 2, escapes: 1}
+    alias_canonicalization: {attacks: 3, escapes: 0}
+    post_change_lineage: {attacks: 3, escapes: 3}
+    external_effect_derivation: {attacks: 3, escapes: 2}
+    success_count: {attacks: 3, escapes: 2}
+    result_replay: {attacks: 1, escapes: 1}
+    result_digest: {attacks: 1, escapes: 0}
+    json_duplicate_key: {attacks: 5, escapes: 5}
+publication_structure:
+  single_h1: true
+  numbered_h2: ["24.1", "24.2", "24.3", "24.4", "24.5", "24.6", "24.7"]
+  fact_baseline_present: true
+  internal_version_heading_count: 0
+  ledger_claim_count: 52
+  local_absolute_path_count: 0
+  formal_cjk_chars: 18308
+sha256:
+  input: ffb3cfb77ce07a916ff3ae8784f2008fcc9e145a582ba8be048ae3439c039619
+  authority: 40cf9bf2f7b6de4f5a75b3a3f0f93a645755f6d5d1357c0f8749fe20fd025a7c
+  result: 0d617a6d80e45eb1d0d7db541249ef61863a2268499828602765542e538cf432
+  author_25: 82944bebb72fe49f07aa12bb6c44e7eecb464353883841432dbba07f9302408c
+  historical_18: fad035f88e00a1cbfcf46577a4a0801f69770b17ce09226d758bd0b94826b7d0
+  v23_replay: 22e7d6d89909cb18bf94b052b1f45475297d114296be1c3503cee25eb8a9c153
+  independent_result: 660dd0118694ba9b551278ca3a27a7cfefd7372a50d1b5265fad8baf54d34aca
+  independent_test: 668d09b89c6116f7ba5fb3713708fa2515b74856462f2362743cea6b7f447205
+gates:
+  publication_structure: PASS
+  fixed_fixture_reproduction: PASS
+  fact_gate: FAIL
+  cross_chapter_gate: FAIL
+  synthetic_machine_gate: FAIL
+  practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_AUTHORIZED
+  chief_gate: NOT_AUTHORIZED
+  release_candidate: NOT_AUTHORIZED
+limits:
+  real_openclaw_or_hermes_executed: false
+  real_certificate_issued: false
+  real_external_effect_executed: false

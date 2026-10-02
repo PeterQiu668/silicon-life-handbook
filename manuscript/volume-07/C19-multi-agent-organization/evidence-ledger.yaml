@@ -1,0 +1,64 @@
+---
+chapter_id: C19
+title: "多 Agent 组织设计"
+status: drafting
+verified_on: "2026-09-30"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md", title: "framework v2"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality standard"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "chapter card"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terminology"}
+  PREFLIGHT: {path: "../../../docs/research/C19-multi-agent-organization-preflight.md", title: "C19 preflight"}
+  LEGACY: {path: "../../../docs/research/legacy-content-map.md", title: "legacy map"}
+  C03: {path: "../../volume-01/C03-strength-standard/chapter.md", title: "C03"}
+  C04: {path: "../../volume-02/C04-role-capability-model/chapter.md", title: "C04"}
+  C06: {path: "../../volume-02/C06-runtime-architecture/chapter.md", title: "C06"}
+  C09: {path: "../../volume-03/C09-interaction-system/chapter.md", title: "C09"}
+  C17: {path: "../../volume-06/C17-autonomy-authorization/chapter.md", title: "C17"}
+  OA-GUIDE: {url: "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/", title: "OpenAI practical guide"}
+  ANTHROPIC-MAR: {url: "https://www.anthropic.com/engineering/multi-agent-research-system", title: "Anthropic multi-agent research system"}
+  A2A-1: {url: "https://a2a-protocol.org/v1.0.0/specification/", title: "A2A 1.0.0 specification"}
+  OC-MULTI: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/multi-agent.md", title: "OpenClaw multi-agent fixed"}
+  OC-ROUTING: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/channels/channel-routing.md", title: "OpenClaw routing fixed"}
+  OC-SUB: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/subagents.md", title: "OpenClaw subagents fixed"}
+  HERMES-REL: {url: "https://github.com/NousResearch/hermes-agent/tree/f80f453ae0679347e38abc917c7f94f717bf96c5", title: "Hermes fixed baseline"}
+  HERMES-DOC: {url: "https://hermes-agent.nousresearch.com/docs/", title: "Hermes dynamic docs"}
+  MUSE: {url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse", title: "Meta AI Muse security and safety article"}
+  LOCAL-IN: {path: "review/runs/synthetic-organization-input.yaml", title: "synthetic input"}
+  LOCAL-OUT: {path: "review/runs/synthetic-organization-results.yaml", title: "synthetic results"}
+claims:
+  - {evidence_id: E-C19-001, claim: "多 Agent 是有协作税的组织选择，不是能力默认升级。", class: METHODOLOGY, source_ids: [BOOK, TERMS, PREFLIGHT, OA-GUIDE]}
+  - {evidence_id: E-C19-002, claim: "任务拓扑先于角色与组织模式。", class: METHODOLOGY, source_ids: [TERMS, PREFLIGHT, C04]}
+  - {evidence_id: E-C19-003, claim: "协作税包括通信、协调、重复、冲突、合并、风险与恢复，不只含token。", class: METHODOLOGY, source_ids: [TERMS, PREFLIGHT, C03]}
+  - {evidence_id: E-C19-004, claim: "采用多Agent前必须建立单体或确定性Workflow基线。", class: METHODOLOGY, source_ids: [PREFLIGHT, OA-GUIDE]}
+  - {evidence_id: E-C19-005, claim: "管道、监督者、委员会、市场、黑板与混合是情境模式，不是成熟度排序。", class: METHODOLOGY, source_ids: [BOOK, TERMS, PREFLIGHT]}
+  - {evidence_id: E-C19-006, claim: "组织最小单位是责任闭环而非固定Agent数量。", class: METHODOLOGY, source_ids: [PREFLIGHT, C04, C09]}
+  - {evidence_id: E-C19-007, claim: "组织收益必须在同任务、输入、工具权限、预算与风险边界下按端到端结果比较。", class: METHODOLOGY, source_ids: [C03, PREFLIGHT, QUALITY]}
+  - {evidence_id: E-C19-008, claim: "越权、泄露、重复副作用与不可恢复失败不能被组织平均分补偿。", class: METHODOLOGY, source_ids: [C03, C17, QUALITY]}
+  - {evidence_id: E-C19-009, claim: "身份、会话、上下文、Workspace、权限和凭证必须分别验证隔离。", class: METHODOLOGY, source_ids: [PREFLIGHT, C06, C17]}
+  - {evidence_id: E-C19-010, claim: "同源Agent的一致意见不构成独立事实证明。", class: METHODOLOGY, source_ids: [PREFLIGHT, ANTHROPIC-MAR]}
+  - {evidence_id: E-C19-011, claim: "OpenClaw固定版bindings解决入口映射，不证明胜任或授权。", class: VERSION-FACT, source_ids: [OC-MULTI, OC-ROUTING]}
+  - {evidence_id: E-C19-012, claim: "OpenClaw固定版subagent独立session不自动意味着独立Workspace、凭证或Sandbox。", class: VERSION-FACT, source_ids: [OC-SUB, C06]}
+  - {evidence_id: E-C19-013, claim: "OpenClaw的allowAgents与tool policy控制不同边界，不能互相替代。", class: VERSION-FACT, source_ids: [OC-SUB]}
+  - {evidence_id: E-C19-014, claim: "spawn或announce是执行信号，不是业务与环境终态。", class: VERSION-FACT, source_ids: [OC-SUB, C09]}
+  - {evidence_id: E-C19-015, claim: "Hermes固定基线与动态文档必须分栏，未验证继承与取消语义保持UNKNOWN。", class: DYNAMIC-OFFICIAL, source_ids: [HERMES-REL, HERMES-DOC, PREFLIGHT]}
+  - {evidence_id: E-C19-016, claim: "Muse的swarms或subagents只作厂商公开体验声明。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C19-017, claim: "A2A 1.0互操作语义不自动证明组织选择、授权、输出正确或信任。", class: STANDARD-FACT, source_ids: [A2A-1, PREFLIGHT]}
+  - {evidence_id: E-C19-018, claim: "角色由C04任务域与能力节点生成，不能由人设、模型名或工具名倒推。", class: METHODOLOGY, source_ids: [C04, PREFLIGHT]}
+  - {evidence_id: E-C19-019, claim: "总体完成必须消费C09过程、产物、效果三证，子Agent自报不能替代环境终态。", class: METHODOLOGY, source_ids: [C09, PREFLIGHT]}
+  - {evidence_id: E-C19-020, claim: "C16只消费C14 AU等级、授权与委托衰减，不改写等级。", class: METHODOLOGY, source_ids: [C17, CARD]}
+  - {evidence_id: E-C19-021, claim: "C16正式母产物恰好为任务拓扑图、角色责任矩阵、组织收益评估。", class: METHODOLOGY, source_ids: [BOOK, CARD, PREFLIGHT]}
+  - {evidence_id: E-C19-022, claim: "v3离线夹具15个任务各含3条独立run/trace/evidence记录，45个trial分布为12 PASS、27 FAIL、6 REVIEW_REQUIRED；effect ledger推导零外部副作用，代表性真实层实际执行数为0。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT]}
+  - {evidence_id: E-C19-023, claim: "v3离线夹具从身份授权、凭证归属、写租约与版本、来源独立性、预算停止、取消树、三层终态、effect ledger和双臂指标推导，覆盖单体、负收益、共享写、同源共识、越权、失联、幽灵成功、预算和取消。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT]}
+  - {evidence_id: E-C19-024, claim: "C17拥有路由Handoff取消并发协议，C18拥有A2A对象与信任。", class: METHODOLOGY, source_ids: [BOOK, CARD, PREFLIGHT]}
+  - {evidence_id: E-C19-025, claim: "社会分工是仿生解释，不证明Agent具有社会主体性或组织责任。", class: METHODOLOGY, source_ids: [QUALITY, LEGACY, PREFLIGHT]}
+open_issues:
+  - {issue_id: O-C19-01, status: REVIEW_REQUIRED, item: "真实OpenClaw多Agent身份、凭证、sandbox、停止与取消传播未运行。"}
+  - {issue_id: O-C19-02, status: REVIEW_REQUIRED, item: "Hermes固定基线的profile/subagent继承与动态文档映射未实测。"}
+  - {issue_id: O-C19-03, status: REVIEW_REQUIRED, item: "Muse内部组织拓扑、权限、成本与恢复机制不可见。"}
+  - {issue_id: O-C19-04, status: REVIEW_REQUIRED, item: "真实任务长期净收益、组织漂移与生产恢复成本无独立数据。"}
+change_log:
+  - {version: "0.1.0", date: "2026-09-30", change: "建立C16证据账本。", status: drafting}
+  - {version: "0.1.1", date: "2026-09-30", change: "修复OpenClaw字段、Muse与A2A固定来源，并纠正D22合成数据谱系。", status: drafting}

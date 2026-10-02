@@ -1,0 +1,122 @@
+{
+  "schema_version": "c17.capability-digest-regression.v1",
+  "input_sha256": "30f95a0b871c81849419fab7f065f49d22fd7b86a9254b708439547addc96c03",
+  "runner_sha256": "410bdb87b885a6130cf41ce2543f01f2b86c250b03e58d42a4e869a6a6f5d70b",
+  "case_count": 14,
+  "all_expected_matched": true,
+  "external_side_effect_count": 0,
+  "cases": [
+    {
+      "case_id": "valid_exact_binding",
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "terminal_trace": "join_verified",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "dummy_reference",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "missing_observed_record",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "revoked_observed_record",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "unknown_observed_record",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "wrong_observed_capability",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "wrong_observed_task_version",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "wrong_observed_permission_snapshot",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "well_formed_wrong_observed_digest",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "well_formed_wrong_authority_digest",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "missing_authority_record",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "wrong_authority_task_version",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "wrong_authority_permission_snapshot",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    },
+    {
+      "case_id": "revoked_authority_record",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "terminal_trace": "capability_evidence_authority_mismatch",
+      "external_side_effects": 0
+    }
+  ]
+}

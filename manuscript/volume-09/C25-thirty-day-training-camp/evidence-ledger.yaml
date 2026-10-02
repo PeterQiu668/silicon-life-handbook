@@ -1,0 +1,103 @@
+chapter_id: C25
+title: "30天训虾训练营"
+status: drafting
+verified_on: "2026-09-30"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md", title: "framework v2"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality standard"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "C25 chapter card"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terminology"}
+  DECISIONS: {path: "../../../docs/DECISIONS.md", title: "decisions"}
+  PREFLIGHT: {path: "../../../docs/research/C25-thirty-day-training-camp-preflight.md", title: "C25 preflight"}
+  C04: {path: "../../volume-02/C04-role-capability-model/chapter.md", title: "C04"}
+  C05: {path: "../../volume-02/C05-life-contracts/chapter.md", title: "C05"}
+  C06: {path: "../../volume-02/C06-runtime-architecture/chapter.md", title: "C06"}
+  C07: {path: "../../volume-03/C07-evaluation-system/chapter.md", title: "C07"}
+  C08: {path: "../../volume-03/C08-training-system/chapter.md", title: "C08"}
+  C09: {path: "../../volume-03/C09-interaction-system/chapter.md", title: "C09"}
+  C13: {path: "../../volume-05/C13-context-memory/chapter.md", title: "C13"}
+  C14: {path: "../../volume-05/C14-tool-mcp-engineering/chapter.md", title: "C14"}
+  C16: {path: "../../volume-06/C16-proactivity-automation/chapter.md", title: "C16"}
+  C17: {path: "../../volume-06/C17-autonomy-authorization/chapter.md", title: "C17"}
+  C19: {path: "../../volume-07/C19-multi-agent-organization/chapter.md", title: "C19"}
+  C20: {path: "../../volume-07/C20-routing-handoff-concurrency/chapter.md", title: "C20"}
+  C21: {path: "../../volume-07/C21-a2a-artifact-trust/chapter.md", title: "C21"}
+  C22: {path: "../../volume-08/C22-security-trust-boundary/chapter.md", title: "C22"}
+  C23: {path: "../../volume-08/C23-observability-cost-reliability/chapter.md", title: "C23"}
+  C24: {path: "../../volume-08/C24-governance-release-lifecycle/chapter.md", title: "C24"}
+  ANT-EVAL: {url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents", title: "Anthropic agent evals"}
+  ANT-TRUST: {url: "https://www.anthropic.com/research/trustworthy-agents", title: "Anthropic trustworthy agents"}
+  NIST-CHEAT: {url: "https://www.nist.gov/caisi/cheating-ai-agent-evaluations", title: "NIST evaluation cheating"}
+  NIST-ID: {url: "https://www.nist.gov/news-events/news/2026/02/new-concept-paper-identity-and-authority-software-agents", title: "NIST agent identity"}
+  OWASP: {url: "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/", title: "OWASP Agentic Top 10"}
+  OC: {url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6", title: "OpenClaw v2026.9.6"}
+  HE: {url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13", title: "Hermes v2026.8.13"}
+  MUSE: {url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", title: "Meta Muse"}
+  LOCAL-IN: {path: "review/runs/synthetic-camp-input.yaml", title: "synthetic input"}
+  LOCAL-AUTH: {path: "review/runs/frozen-camp-authority.yaml", title: "frozen camp authority root"}
+  LOCAL-OUT: {path: "review/runs/synthetic-camp-results.yaml", title: "synthetic results"}
+  LOCAL-RUNNER: {path: "review/runs/run-training-camp-harness.py", title: "closed-world raw-state runner"}
+  LOCAL-NEG: {path: "review/runs/negative-regression-results.yaml", title: "independent negative regression results"}
+  LOCAL-REPRO: {path: "review/runs/fresh-temp-reproduction.yaml", title: "fresh-temp double reproduction"}
+claims:
+  - {evidence_id: E-C25-001, claim: "30天是课程容器而非能力形成定律。", class: METHODOLOGY, source_ids: [BOOK, CARD, PREFLIGHT]}
+  - {evidence_id: E-C25-002, claim: "C22只给上岗延期停训退出建议，认证由C24负责。", class: PROJECT-DECISION, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C25-003, claim: "Day0加Day1至30形成31个标签、五阶段七门点。", class: PROJECT-DECISION, source_ids: [DECISIONS, PREFLIGHT]}
+  - {evidence_id: E-C25-004, claim: "日程完成不等于能力完成。", class: METHODOLOGY, source_ids: [ANT-EVAL, PREFLIGHT]}
+  - {evidence_id: E-C25-005, claim: "三件母产物承载计划、日志和毕业证据。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C25-006, claim: "上游未关闭接口只能provisional消费。", class: PROJECT-STATE, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C25-007, claim: "八角色和独立复核构成训练营责任面。", class: METHODOLOGY, source_ids: [ANT-TRUST, NIST-ID, PREFLIGHT]}
+  - {evidence_id: E-C25-008, claim: "三案岗位风险和权限曲线不同。", class: METHODOLOGY, source_ids: [C04, PREFLIGHT]}
+  - {evidence_id: E-C25-009, claim: "D22四层且security为横切非补偿切片。", class: PROJECT-DECISION, source_ids: [DECISIONS, TERMS, C07]}
+  - {evidence_id: E-C25-010, claim: "基线需多trial、完整失败、D21与成本。", class: METHODOLOGY, source_ids: [ANT-EVAL, C07, C23]}
+  - {evidence_id: E-C25-011, claim: "CASE-C先建立单体或Workflow基线。", class: METHODOLOGY, source_ids: [C19]}
+  - {evidence_id: E-C25-012, claim: "契约文本不替代policy、sandbox、permission与approval。", class: METHODOLOGY, source_ids: [C05, C22]}
+  - {evidence_id: E-C25-013, claim: "Runtime六层、状态和停止恢复需盘点验证。", class: METHODOLOGY, source_ids: [C06]}
+  - {evidence_id: E-C25-014, claim: "凭证日志只保存SecretRef与scope等元数据。", class: METHODOLOGY, source_ids: [C22, PREFLIGHT]}
+  - {evidence_id: E-C25-015, claim: "工具Skill需审来源权限幂等异常与回滚。", class: METHODOLOGY, source_ids: [C14, OWASP]}
+  - {evidence_id: E-C25-016, claim: "训练循环采用错误假设、最小干预、回归留出和外部固化批准。", class: METHODOLOGY, source_ids: [C08]}
+  - {evidence_id: E-C25-017, claim: "任务三角与角色三角共同约束反馈。", class: METHODOLOGY, source_ids: [C07, C08, PREFLIGHT]}
+  - {evidence_id: E-C25-018, claim: "错误责任域需区分Agent、Runtime、Provider、工具、policy、人和评测。", class: METHODOLOGY, source_ids: [C07, C08]}
+  - {evidence_id: E-C25-019, claim: "holdout污染使相关能力结论失效。", class: OFFICIAL-GUIDANCE, source_ids: [NIST-CHEAT, C07]}
+  - {evidence_id: E-C25-020, claim: "真实任务按合成、影子、受控真实、限域逐步授权。", class: METHODOLOGY, source_ids: [ANT-TRUST, C17]}
+  - {evidence_id: E-C25-021, claim: "D21区分技术、交付和业务环境，timeout和cancel不是终态。", class: PROJECT-DECISION, source_ids: [DECISIONS, C09, C23]}
+  - {evidence_id: E-C25-022, claim: "多Agent交接与并发接口在未冻结时保持provisional。", class: PROJECT-STATE, source_ids: [C19, C20, C21]}
+  - {evidence_id: E-C25-023, claim: "跨日记忆需真实纵向运行，撤回优先于旧记忆。", class: METHODOLOGY, source_ids: [C13]}
+  - {evidence_id: E-C25-024, claim: "触发资格不等于授权和净价值资格。", class: METHODOLOGY, source_ids: [C16, C17]}
+  - {evidence_id: E-C25-025, claim: "跨Runtime迁移复用原则但不复制实现命令。", class: SOURCE-BOUNDARY, source_ids: [OC, HE, PREFLIGHT]}
+  - {evidence_id: E-C25-026, claim: "多Agent净收益需在同任务预算风险权限边界比较。", class: METHODOLOGY, source_ids: [C19, C23]}
+  - {evidence_id: E-C25-027, claim: "红队覆盖注入、供应链、记忆、凭证、越权与串线。", class: OFFICIAL-GUIDANCE, source_ids: [OWASP, C22]}
+  - {evidence_id: E-C25-028, claim: "留出由独立评审解封且污染不可补偿。", class: METHODOLOGY, source_ids: [NIST-CHEAT, C07]}
+  - {evidence_id: E-C25-029, claim: "全成本包含机器、人类、失败浪费、延迟和机会成本。", class: METHODOLOGY, source_ids: [C23, PREFLIGHT]}
+  - {evidence_id: E-C25-030, claim: "G6建议闭集为LIMITED_DUTY、EXTEND、STOP、WITHDRAW、EXIT，且不构成认证。", class: METHODOLOGY, source_ids: [CARD, PREFLIGHT]}
+  - {evidence_id: E-C25-031, claim: "OpenClaw固定v2026.9.6为主实现镜面。", class: VERSION-FACT, source_ids: [OC]}
+  - {evidence_id: E-C25-032, claim: "Hermes 0.20.1固定版为第二实现且不得假定同构。", class: VERSION-FACT, source_ids: [HE]}
+  - {evidence_id: E-C25-033, claim: "Muse只作VENDOR-CLAIM用户侧镜面。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C25-034, claim: "教育实习隐喻不推出Agent意识人格或人的权利义务。", class: METAPHOR-BOUNDARY, source_ids: [QUALITY, PREFLIGHT]}
+  - {evidence_id: E-C25-035, claim: "C22恰好交付三件母产物。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C25-036, claim: "压缩harness真实层和真实外部副作用为0，正式输入无mutation、case或expected，runner不读取这些字段。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT, LOCAL-RUNNER]}
+  - {evidence_id: E-C25-037, claim: "OpenClaw固定构件存在不证明目标环境已验证。", class: SOURCE-BOUNDARY, source_ids: [OC, PREFLIGHT]}
+  - {evidence_id: E-C25-038, claim: "Hermes实现路径需单独盘点和运行。", class: SOURCE-BOUNDARY, source_ids: [HE, PREFLIGHT]}
+  - {evidence_id: E-C25-039, claim: "Muse不进入内部Runtime训练断言。", class: VENDOR-CLAIM, source_ids: [MUSE]}
+  - {evidence_id: E-C25-040, claim: "C22向C23交案例证据、向C24交认证输入。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C25-041, claim: "当前没有真实Agent按本合同完成Day0至30。", class: PROJECT-STATE, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C25-042, claim: "每个trial保存完整观察raw state，并通过预注册root引用外部冻结principal、owner、camp、authority、runtime、eval、baseline、dataset、预算、scope与issuer权威摘要。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-IN, LOCAL-RUNNER]}
+  - {evidence_id: E-C25-043, claim: "nested exact schema、严格type enum range、canonical digest、全局唯一ID、actual diff、计量成本与冻结root均由runner验证。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-044, claim: "20个独立压缩trial的v2.2完整分布为3 PASS、12 FAIL、5 REVIEW_REQUIRED。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT]}
+  - {evidence_id: E-C25-045, claim: "104项独立近邻攻击全部得到预期拒绝或降级，零escape；fresh-temp双运行input、authority、result和negative result逐字节一致。", class: LOCAL-VALIDATION, source_ids: [LOCAL-NEG, LOCAL-REPRO]}
+  - {evidence_id: E-C25-046, claim: "停止由receipt与admission queue workers effects readback共同证明，恢复绑定backup checkpoint target runtime与regression。", class: LOCAL-VALIDATION, source_ids: [C24, LOCAL-IN, LOCAL-OUT, LOCAL-RUNNER]}
+  - {evidence_id: E-C25-047, claim: "每个day闭合subject camp authority runtime eval baseline dataset task trial evidence；每个合法trial实际层分布为training 15、regression 7、holdout 9、representative_real_world 0，外层layer/security标签不再进入输入。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-IN, LOCAL-OUT, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-048, claim: "六类成本逐项绑定subject camp day task trial及独立COST计量证据；全零成本不能闭合；effect ledger动态派生副作用且APPLIED与stop effects CLEAR矛盾时硬失败。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-049, claim: "stop receipt issuer与readback observer必须是不同的预注册角色；backup checkpoint runtime regression均需权威registry记录与digest闭合。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-IN, LOCAL-OUT, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-050, claim: "毕业建议由日终态、门点、D21、安全、成本、恢复与effect状态派生，proposal不能覆盖且输出明确certification false。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-OUT, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-051, claim: "camp必须覆盖评测时点，graduation须issued_at不晚于now且now早于expires_at，有效撤销与PASS状态不得并存。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-052, claim: "sandbox mode、scope、backend及authority action/scope使用冻结闭集；budget绑定同一camp批准摘要。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-053, claim: "dataset parent必须解引用且谱系无环，holdout只有ACTIVE、sealed且未暴露时才能进入覆盖。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-054, claim: "每个security slice与gate使用唯一证据，content digest绑定slice、gate、day、task、trial和结果，禁止一证覆盖多切片。", class: LOCAL-VALIDATION, source_ids: [LOCAL-IN, LOCAL-RUNNER, LOCAL-NEG]}
+  - {evidence_id: E-C25-055, claim: "v2.2 authority root、decision和negative suite摘要分别固定并经fresh-temp双重建复现；这仍不是现实30天或平台实践证明。", class: LOCAL-VALIDATION, source_ids: [LOCAL-AUTH, LOCAL-OUT, LOCAL-NEG, LOCAL-REPRO]}
+open_questions:
+  - {id: OQ-C25-01, question: "何时启动首个真实连续Day0至30训练营？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C25-02, question: "C07至C21未关闭接口何时完成联合回归？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C25-03, question: "目标组织的真实预算、数据、法域和独立评审者？", disposition: REVIEW_REQUIRED}

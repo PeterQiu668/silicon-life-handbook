@@ -1,0 +1,238 @@
+{
+  "all_secure_contracts_passed": false,
+  "author_input_sha256": "aa7c9f59f0c6c17904e3f10b12ca47b41e8d77b0d38e0e0932f780db161ef2be",
+  "authority_root_file_sha256": "8ff85659856914c22bf42c73cfedede6dc2c3ee45ee3e2a20d8ebc2dd1b6a20c",
+  "runner_sha256": "9e10614813403e769b6bd329f81cc4706acd07af8b07efe3ae2a123c5bdc1270",
+  "schema_version": "c23.v2.2.independent-adjacent-attacks.v1",
+  "secure_contract_failed_count": 1,
+  "secure_contract_passed_count": 17,
+  "test_count": 18,
+  "tests": [
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "authority_root: canonical digest mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "I01_PINNED_ROOT_RECORD_RESEAL"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "authority_root: canonical digest mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "I02_PINNED_ROOT_ORDER_RESEAL"
+    },
+    {
+      "decision_digest": "cb3a92d3087d8bc73f6790c3233b956f27f70e242c04b0f1b7084c61bdbf099b",
+      "distribution": {
+        "FAIL": 32
+      },
+      "message": "",
+      "observed": "FAIL",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "I03_INPUT_ONLY_RECORD_RESEAL"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I04_SCENARIO_INVENTORY_TRUNCATED"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I05_FAILURE_TRIAL_CHERRY_PICKED"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I06_EFFECT_EVIDENCE_OMITTED"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I07_FAILURE_ARTIFACT_OMITTED"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I08_ONLY_PUBLIC_ARTIFACT_RETAINED"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I09_CROSS_CASE_AUTHOR_SUBSTITUTED"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "suite: frozen provenance mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I10_EVALUATION_TIME_UNROOTED_SHIFT"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "suite: frozen provenance mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I11_BUILD_ID_UNROOTED_RENAME"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I12_SCENARIO_ID_UNROOTED_RENAME"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I13_PUBLICATION_REF_UNRESOLVED"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I14_CROSS_CASE_BUDGET_REF"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I15_CROSS_CASE_EFFECT_REF"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "offline runner rejects real case identities unconditionally",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "I16_INPUT_SELF_REPORTS_VERIFIED_REAL"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "FAIL",
+        "REJECT",
+        "REVIEW_REQUIRED"
+      ],
+      "test_id": "I17_CROSS_CASE_REVIEWER_REF"
+    },
+    {
+      "decision_digest": null,
+      "distribution": null,
+      "message": "authority_root: canonical digest mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": false,
+      "secure_expected_outcomes": [
+        "FAIL"
+      ],
+      "test_id": "I18_AUTHORIZED_REPIN_CRITICAL_ADAPTER_SYNONYM"
+    }
+  ]
+}

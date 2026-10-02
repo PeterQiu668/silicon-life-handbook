@@ -1,0 +1,281 @@
+{
+  "attack_count": 24,
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 0,
+  "escape_ids": [],
+  "positive_control_count": 3,
+  "positive_control_pass_count": 3,
+  "positive_controls": [
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V27-C01_UNMODIFIED_PERSISTED_RESULT"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V27-C02_DETERMINISTIC_REPLAY_RESULT"
+    },
+    {
+      "expected": "PASS",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V27-C03_LEGAL_TASK_AUTHORITY_REPIN"
+    }
+  ],
+  "schema_version": "c23.v2.7.author-remediation-regression.v1",
+  "secure_attack_count": 24,
+  "suite_digest": "f254327f70e75742c9b991b89589a06c464ae3f714e801488437c4d9a637b84d",
+  "tests": [
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-01_FAIL_TO_PASS_COHERENT_REHASH"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-02_RR_TO_PASS_COHERENT_REHASH"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-03_FAIL_REASON_REWRITE_COHERENT_REHASH"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-04_RR_REASON_REWRITE_COHERENT_REHASH"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-05_TRIAL_EXTERNAL_COUNT_REWRITE"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-06_TRIAL_REAL_COUNT_REWRITE"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: ordered trial identity is not the frozen manifest projection",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-07_ORDERED_ROWS_SWAPPED"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: duplicate case_record_id",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-08_CROSS_CASE_RESULT_IDENTITY_TRANSPLANT"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "verify_result() missing 1 required positional argument: 'source'",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-09_SOURCE_ARGUMENT_OMITTED"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "root: closed-world keys mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-10_SOURCE_ARGUMENT_NONE"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-11_SOURCE_SCENARIO_MISSING"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "scenarios: frozen ordered manifest/projection mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-12_SOURCE_SCENARIO_REORDERED"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "scenarios: incomplete exact source_registry projection",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-13_CROSS_CASE_SOURCE_REF_TRANSPLANT"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-14_SOURCE_CONTENT_REPLACED_WITHOUT_ROOT"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "result: wrong authority root",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-15_AUTHORITY_ROOT_DIGEST_WRONG"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "result: provenance mismatch scenario_manifest_digest",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-16_AUTHORITY_MANIFEST_DIGEST_WRONG"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-17_CROSS_CASE_SOURCE_REGISTRY_SWAP_REPINNED"
+    },
+    {
+      "family": "mandatory-semantic-replay",
+      "message": "result: wrong authority root",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-18_RESULT_AUTHORITY_ROOT_REBOUND"
+    },
+    {
+      "family": "recursive-duplicate-key",
+      "message": "json: duplicate object key verdict",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-19_RESULT_NESTED_DUPLICATE"
+    },
+    {
+      "family": "recursive-duplicate-key",
+      "message": "json: duplicate object key case_version",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-20_SOURCE_NESTED_DUPLICATE"
+    },
+    {
+      "family": "recursive-duplicate-key",
+      "message": "json: duplicate object key status",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-21_ROOT_NESTED_DUPLICATE"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "root: unsupported schema",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-22_SOURCE_SCHEMA_REPLACED"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "authority_root: canonical digest mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-23_AUTHORITY_REGISTRY_SOURCE_DROPPED"
+    },
+    {
+      "family": "source-root-binding",
+      "message": "result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "secure_contract_passed": true,
+      "secure_expected_outcomes": [
+        "REJECT"
+      ],
+      "test_id": "V27-24_REPINNED_SOURCE_WITH_STALE_SEMANTIC_RESULT"
+    }
+  ]
+}

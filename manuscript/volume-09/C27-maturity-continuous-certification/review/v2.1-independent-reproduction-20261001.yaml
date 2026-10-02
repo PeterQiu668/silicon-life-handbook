@@ -1,0 +1,699 @@
+{
+  "attack_count": 28,
+  "attacks": [
+    {
+      "attack_id": "review_issued_after_certificate",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "review_issued_in_future",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "issuance_authority_issued_after_certificate",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "issuance_authority_not_before_after_certificate",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "lifecycle_authority_not_before_after_event",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "certificate_issuer_is_reviewer",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "certificate_issuer_is_domain_expert",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "appeal_reviewer_is_certificate_issuer",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "appeal_reviewer_is_domain_expert",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "lifecycle_owner_is_reviewer",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "certificate_expiry_outlives_application",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "artifact_issued_after_certificate",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "application_signature_issued_after_certificate",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "trial_output_issued_after_certificate",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "material_change_after_certificate",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "material_change_from_future",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "opened_appeal_issued_in_future",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "offline_real_certificate_attempt",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID",
+          "OFFLINE_REAL_CERTIFICATE_REJECTED"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "OFFLINE_REAL_CERTIFICATE_REJECTED",
+      "semantic": {
+        "actual": "FAIL",
+        "external_effect_attempts": 0,
+        "lifecycle": "REVOKED",
+        "real_certificate_attempts": 1,
+        "reasons": [
+          "OFFLINE_REAL_CERTIFICATE_REJECTED"
+        ],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "offline_external_effect_applied",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID",
+          "OFFLINE_EXTERNAL_EFFECT_REJECTED"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "OFFLINE_EXTERNAL_EFFECT_REJECTED",
+      "semantic": {
+        "actual": "FAIL",
+        "external_effect_attempts": 1,
+        "lifecycle": "REVOKED",
+        "real_certificate_attempts": 0,
+        "reasons": [
+          "OFFLINE_EXTERNAL_EFFECT_REJECTED"
+        ],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "offline_external_effect_unknown",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "REVIEW_REQUIRED",
+      "frozen_root_masked_escape": true,
+      "matched": false,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "PASS",
+        "external_effect_attempts": 0,
+        "lifecycle": "LIMITED",
+        "real_certificate_attempts": 0,
+        "reasons": [],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "trial_output_review_required",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID",
+          "TRIAL_OUTPUT_EVIDENCE_UNKNOWN"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "REVIEW_REQUIRED",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "TRIAL_OUTPUT_EVIDENCE_UNKNOWN",
+      "semantic": {
+        "actual": "REVIEW_REQUIRED",
+        "external_effect_attempts": 0,
+        "lifecycle": "SUSPENDED",
+        "real_certificate_attempts": 0,
+        "reasons": [
+          "TRIAL_OUTPUT_EVIDENCE_UNKNOWN"
+        ],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "artifact_well_formed_wrong_digest",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "ARTIFACT_CONTENT_INVALID",
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "ARTIFACT_CONTENT_INVALID",
+      "semantic": {
+        "actual": "FAIL",
+        "external_effect_attempts": 0,
+        "lifecycle": "REVOKED",
+        "real_certificate_attempts": 0,
+        "reasons": [
+          "ARTIFACT_CONTENT_INVALID"
+        ],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "active_certificate_expired",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "CERTIFICATE_EXPIRED_WITH_LIVE_LIFECYCLE",
+          "CERTIFICATE_TIME_INVALID",
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "CERTIFICATE_EXPIRED_WITH_LIVE_LIFECYCLE",
+      "semantic": {
+        "actual": "FAIL",
+        "external_effect_attempts": 0,
+        "lifecycle": "REVOKED",
+        "real_certificate_attempts": 0,
+        "reasons": [
+          "CERTIFICATE_EXPIRED_WITH_LIVE_LIFECYCLE",
+          "CERTIFICATE_TIME_INVALID"
+        ],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "future_lifecycle_event",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "FROZEN_SCENARIO_BINDING_INVALID",
+          "LIFECYCLE_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "LIFECYCLE_BINDING_INVALID",
+      "semantic": {
+        "actual": "FAIL",
+        "external_effect_attempts": 0,
+        "lifecycle": "REVOKED",
+        "real_certificate_attempts": 0,
+        "reasons": [
+          "LIFECYCLE_BINDING_INVALID"
+        ],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "principal_alias_collision",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "STATE_SCHEMA_INVALID",
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "SCHEMA_REJECT",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "SCHEMA_REJECT",
+        "external_effect_attempts": 0,
+        "lifecycle": "NOT_EVALUATED",
+        "real_certificate_attempts": 0,
+        "reasons": [
+          "ValueError: principal alias collision"
+        ],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "certificate_scope_broadened",
+      "blackbox": {
+        "actual": "FAIL",
+        "reasons": [
+          "CERTIFICATE_BINDING_INVALID",
+          "FROZEN_SCENARIO_BINDING_INVALID"
+        ],
+        "successful_external_effects": 0,
+        "successful_real_certificates": 0
+      },
+      "expected": "FAIL",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "nested_semantic_with_blackbox_control",
+      "required_reason": "CERTIFICATE_BINDING_INVALID",
+      "semantic": {
+        "actual": "FAIL",
+        "external_effect_attempts": 0,
+        "lifecycle": "REVOKED",
+        "real_certificate_attempts": 0,
+        "reasons": [
+          "CERTIFICATE_BINDING_INVALID"
+        ],
+        "representative_real_world_attempts": 0
+      }
+    },
+    {
+      "attack_id": "trusted_clock_tamper",
+      "blackbox": {
+        "actual": "SCHEMA_REJECT",
+        "reasons": [
+          "ValueError: authority reference or trusted clock mismatch"
+        ]
+      },
+      "expected": "SCHEMA_REJECT",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "pinned_root_blackbox",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "NOT_APPLICABLE",
+        "reasons": []
+      }
+    },
+    {
+      "attack_id": "authority_root_tamper_and_local_reseal",
+      "blackbox": {
+        "actual": "SCHEMA_REJECT",
+        "reasons": [
+          "ValueError: authority root is not pinned"
+        ]
+      },
+      "expected": "SCHEMA_REJECT",
+      "frozen_root_masked_escape": false,
+      "matched": true,
+      "mode": "pinned_root_blackbox",
+      "required_reason": "NONE",
+      "semantic": {
+        "actual": "NOT_APPLICABLE",
+        "reasons": []
+      }
+    }
+  ],
+  "authority_root_digest": "sha256:783e016643cfaaca3c02fbcdc2b3fc5e82ea33394063cca3bc99f56b7080e7fe",
+  "baseline_scenario_id": "S24-001",
+  "escape_count": 18,
+  "frozen_root_masked_escape_count": 18,
+  "matched_count": 10,
+  "schema": "c24.cert.independent-negative.v2.1",
+  "scope": "offline_synthetic_nested_semantic_and_pinned_root",
+  "suite_digest": "sha256:a5c16e80b0e95b0134c6db6e57df0008242b1c7486e3f818c87a42d7b715b715"
+}

@@ -1,0 +1,984 @@
+{
+  "attack_count": 104,
+  "attacks": [
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-01-expired-authorization",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTHORITY_INACTIVE_OR_OUT_OF_WINDOW",
+        "AUTHORITY_NOT_FROZEN",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-02-agent-self-approval",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AGENT_CANNOT_OWN:evaluator"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-03-trainer-evaluator-alias",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "PRINCIPAL_ALIAS_COLLISION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-04-fake-baseline-runtime-digest",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "BASELINE_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-05-runtime-latest",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RUNTIME_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-06-sandbox-none",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RUNTIME_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-07-duplicate-evidence-id",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DUPLICATE_EVIDENCE_ID",
+        "GLOBAL_IDENTIFIER_NOT_UNIQUE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-08-negative-day-budget",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCHEMA_RANGE:days[4].budget"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-09-illegal-day-status",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_STATUS:days[4]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-10-reused-day-evidence",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_EVIDENCE_BINDING:days[1]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-11-multiple-interventions",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_UNSAFE",
+        "INTERVENTION_NOT_SINGLE_VARIABLE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-12-negative-cost",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCHEMA_RANGE:cost_ledger[0].amount"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-13-illegal-graduation-enum",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_ENUM"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-14-unknown-nested-field",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCHEMA_EXACT:runtime"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-15-injected-case-label",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCHEMA_EXACT:trial"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-16-security-slice-wrong-type",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCHEMA_EXACT:trial"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-17-day-999",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_NUMBER:days[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-18-duplicate-camp-and-definitions",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GLOBAL_IDENTIFIER_NOT_UNIQUE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-19-duplicate-day-id",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GLOBAL_IDENTIFIER_NOT_UNIQUE",
+        "TASK_BINDING:days[1]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-20-duplicate-task-id",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GLOBAL_IDENTIFIER_NOT_UNIQUE",
+        "TASK_BINDING:days[1]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-21-duplicate-trial-id",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GLOBAL_IDENTIFIER_NOT_UNIQUE",
+        "TRIAL_BINDING:days[1]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-22-wrong-camp-subject",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "CAMP_FROZEN_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-23-future-evidence",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "FUTURE_EVIDENCE:evidence_registry[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-24-stale-evidence",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "STALE_EVIDENCE:evidence_registry[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-25-valid-digest-wrong-content",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SHA256:evidence_registry[0].content_digest"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-26-forged-holdout-lineage",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DATASET_REGISTRY_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-27-hard-fail-dominates-unknown",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SECURITY_EVIDENCE_CONTENT_BINDING:security_matrix[0]"
+      ]
+    },
+    {
+      "actual": "REVIEW_REQUIRED",
+      "attack_id": "NR-28-budget-overrun",
+      "expected": "REVIEW_REQUIRED",
+      "passed": true,
+      "reasons": [
+        "COST_BUDGET_EXCEEDED",
+        "GRADUATION_RECOMMENDATION_NOT_DERIVED"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-29-fake-within-budget-flag",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCHEMA_EXACT:raw_state"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-30-stop-receipt-wrong-task",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_UNSAFE",
+        "STOP_READBACK_BINDING",
+        "STOP_RECEIPT_TASK_BINDING"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-31-stop-readback-active",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_UNSAFE",
+        "STOP_READBACK_NOT_QUIESCENT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-32-revoked-authority",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTHORITY_INACTIVE_OR_OUT_OF_WINDOW",
+        "AUTHORITY_NOT_FROZEN",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-33-wrong-authority-issuer",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTHORITY_ACTION_SCOPE_NOT_APPROVED",
+        "AUTHORITY_ISSUER_INVALID",
+        "AUTHORITY_NOT_FROZEN",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-34-baseline-wrong-eval",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "BASELINE_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-35-revoked-evidence",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "EVIDENCE_REVOKED",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-36-unknown-permission",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RUNTIME_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-37-wrong-runtime-commit",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RUNTIME_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-38-restore-target-mismatch",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_UNSAFE",
+        "RESTORE_OWNER_OR_RUNTIME_BINDING"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-39-graduation-self-certification",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "C22_CANNOT_CERTIFY",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-40-reviewer-conflict",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_REVIEWER_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-41-real-world-spoof",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DATASET_REGISTRY_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-42-duplicate-dataset-layer",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DATASET_LINEAGE_DIGEST:datasets[1]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-43-missing-day",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_RECORD_COUNT"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-44-duplicate-day-number",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_EVIDENCE_CONTENT_BINDING:days[1]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-45-wrong-phase-gate",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_PHASE_GATE:days[14]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-46-evidence-subject-mismatch",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_EVIDENCE_BINDING:days[0]"
+      ]
+    },
+    {
+      "actual": "REVIEW_REQUIRED",
+      "attack_id": "NR-47-graduation-evidence-incomplete",
+      "expected": "REVIEW_REQUIRED",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_EVIDENCE_SET_INCOMPLETE",
+        "GRADUATION_RECOMMENDATION_NOT_DERIVED"
+      ]
+    },
+    {
+      "actual": "REVIEW_REQUIRED",
+      "attack_id": "NR-48-stop-receipt-unknown",
+      "expected": "REVIEW_REQUIRED",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_NOT_DERIVED",
+        "STOP_RECEIPT_UNKNOWN"
+      ]
+    },
+    {
+      "actual": "REVIEW_REQUIRED",
+      "attack_id": "NR-49-restore-unknown",
+      "expected": "REVIEW_REQUIRED",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_NOT_DERIVED",
+        "RESTORE_INCOMPLETE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-50-d21-wrong-kind",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "D21_KIND_technical",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-51-day-wrong-subject-camp-and-refs",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_SUBJECT_CAMP_BINDING:days[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-52-day-stopped-terminal",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DAY_STOPPED_TERMINAL",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-53-all-days-training-no-regression-holdout",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "FROZEN_LAYER_DAY_COVERAGE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-54-cost-only-one-category",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "COST_CATEGORY_COVERAGE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-55-future-stop-receipt",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "STOP_RECEIPT_FROM_FUTURE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-56-future-stop-readback",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "STOP_READBACK_TIME_ORDER"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-57-unregistered-stop-issuer",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "STOP_RECEIPT_ISSUER_AUTHORITY"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-58-unregistered-readback-observer",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "STOP_READBACK_OBSERVER_AUTHORITY"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-59-fake-backup-ref",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RESTORE_BACKUP_REF"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-60-fake-checkpoint-ref",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RESTORE_CHECKPOINT_REF"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-61-future-eval",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "EVAL_FROM_FUTURE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-62-future-baseline",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "BASELINE_FROM_FUTURE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-63-future-dataset",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DATASET_FROM_FUTURE:datasets[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-64-short-unbound-day-evidence-digest",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SHA256:evidence_registry[0].content_digest"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-65-offline-external-applied",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_UNSAFE",
+        "OFFLINE_EXTERNAL_EFFECT_APPLIED",
+        "STOP_EFFECT_READBACK_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "REVIEW_REQUIRED",
+      "attack_id": "NR-66-effect-unknown",
+      "expected": "REVIEW_REQUIRED",
+      "passed": true,
+      "reasons": [
+        "EFFECT_STATUS_UNKNOWN",
+        "GRADUATION_RECOMMENDATION_NOT_DERIVED"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-67-cost-wrong-day",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "COST_DAY_REF"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-68-security-matrix-missing-slice",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SECURITY_MATRIX_COVERAGE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-69-security-wrong-day-gate",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SECURITY_DAY_GATE_BINDING:security_matrix[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-70-task-subject-mismatch",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "TASK_BINDING:days[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-71-trial-grader-mismatch",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "TRIAL_BINDING:days[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-72-recovery-owner-unknown",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RECOVERY_OWNER:recovery_registry[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-73-restore-before-readback",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RESTORE_TIME_ORDER"
+      ]
+    },
+    {
+      "actual": "REVIEW_REQUIRED",
+      "attack_id": "NR-74-graduation-proposal-not-derived",
+      "expected": "REVIEW_REQUIRED",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_NOT_DERIVED"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-75-camp-expired-at-evaluation",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "CAMP_TIME_WINDOW"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-76-graduation-expired",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_TIME_ORDER"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-77-revoked-at-with-pass-status",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "REVOCATION_STATUS_CONTRADICTION:evidence_registry[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-78-stop-observer-equals-issuer",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "STOP_READBACK_INDEPENDENCE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-79-arbitrary-sandbox-enums",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "RUNTIME_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-80-empty-authority-scope",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTHORITY_SCOPE_TYPE_OR_EMPTY",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-81-budget-self-expansion",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "CAMP_FROZEN_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-82-revoked-holdout",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DATASET_REGISTRY_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-83-orphan-dataset-parent",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DATASET_REGISTRY_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-84-all-costs-zero-with-resealed-evidence",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "COST_LEDGER_ALL_ZERO"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-85-security-evidence-reused-across-slices",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SECURITY_EVIDENCE_REUSED"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-86-outer-layer-injection",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCHEMA_EXACT:trial"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-87-internal-applied-vs-clear-readback",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_RECOMMENDATION_UNSAFE",
+        "STOP_EFFECT_READBACK_CONTRADICTION"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-88-authority-ref-root-tamper",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTHORITY_REF_MISMATCH"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-89-authority-action-drift",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTHORITY_ACTION_SCOPE_NOT_APPROVED",
+        "AUTHORITY_APPROVED_DIGEST_MISMATCH",
+        "AUTHORITY_NOT_FROZEN",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-90-authority-scope-extra",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "AUTHORITY_ACTION_SCOPE_NOT_APPROVED",
+        "AUTHORITY_APPROVED_DIGEST_MISMATCH",
+        "AUTHORITY_NOT_FROZEN",
+        "GRADUATION_RECOMMENDATION_UNSAFE"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-91-camp-starts-in-future",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "CAMP_TIME_WINDOW"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-92-graduation-issued-in-future",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_TIME_ORDER"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-93-graduation-effective-revocation",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "GRADUATION_REVOKED"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-94-stop-illegal-admission-enum",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "STOP_READBACK_ENUM"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-95-stop-illegal-effect-enum",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "STOP_READBACK_ENUM"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-96-dataset-lineage-cycle",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DATASET_REGISTRY_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-97-cost-evidence-reuse",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "COST_MEASUREMENT_EVIDENCE_BINDING"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-98-cost-evidence-missing",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "COST_EVIDENCE_REF"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-99-security-evidence-slice-swap",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SECURITY_EVIDENCE_CONTENT_BINDING:security_matrix[0]"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-100-outer-security-slices-injection",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "SCHEMA_EXACT:trial"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-101-principal-kind-self-resealed",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "PRINCIPAL_REGISTRY_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-102-owner-role-swap",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "REVIEW_INDEPENDENCE_BROKEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-103-eval-self-resealed",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "EVAL_NOT_FROZEN"
+      ]
+    },
+    {
+      "actual": "FAIL",
+      "attack_id": "NR-104-dataset-registry-self-resealed",
+      "expected": "FAIL",
+      "passed": true,
+      "reasons": [
+        "DATASET_REGISTRY_NOT_FROZEN"
+      ]
+    }
+  ],
+  "authority_root_digest": "sha256:a7134ba60dddae9ef4b2571efe7074ed55f41ffd65e6b3890e47b93dcd41f067",
+  "escaped_count": 0,
+  "external_side_effect_count": 0,
+  "passed_count": 104,
+  "real_world_count": 0,
+  "runner_uses_attack_metadata": false,
+  "schema_version": "c22.negative-regression.v2.2",
+  "suite_digest": "sha256:b59853dea1c59b03a528f2dfc499516054a3090aff2d25b377ff09d1a386ae10"
+}

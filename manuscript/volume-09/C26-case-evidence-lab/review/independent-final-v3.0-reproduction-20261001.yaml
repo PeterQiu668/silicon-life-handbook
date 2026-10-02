@@ -1,0 +1,144 @@
+schema_version: c23.v3.0-independent-final-reproduction.v1
+performed_on: "2026-10-01"
+role: non_author_final_reviewer
+author_files_modified: false
+
+fresh_temp:
+  count: 2
+  roots:
+    - /tmp/c23-v30-final-a.9DLH4m
+    - /tmp/c23-v30-final-b.x1nPw3
+  builder_started_from_source: true
+  byte_identical: true
+  compared_files:
+    input.json: dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55
+    root.json: fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2
+    result.json: f80c718b45d18aef880422167afbe221d8145c8a3ff08a2a8bdb7b2531434ebe
+    author-v30.json: 68eb320fc6b5e317a5b29bef14d7b0bbb409b6754eca8c41a2a70ca85320d42a
+    independent-v30.json: 4952845e14dd6523baf0439e25be022dc44895008df8d3697be16341cee9d9f6
+    replay-v29.json: 96c610f89b46b07a9027465b53be43ab2dc6efced57783ca2e20aab08c0d0a25
+
+trusted_files:
+  builder_sha256: 6cd3990665a8549413153a400a821156b82aa5e4fe29d6658eca91be70756211
+  runner_sha256: bbc3de6cebd20e4ad97d1519b38f4449aaa38a6442e4c0a5d9e9d519190d6053
+  verifier_sha256: 9462aa1e6f68b90b9d2c7e1fd6ef413e020cae219553e274988eea5106741061
+  pin_registry_sha256: 8eb8868ca19e716f333ea1f5a85241ccadd47682fd9a78db171ee28826cdd5ad
+  independent_test_sha256: 203731762ad6b20d058ae32821f961c962b9cee288537b064c4c66fef19990b4
+
+fixed_fixture:
+  trial_count: 32
+  distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+  authority_root_logical_digest: 18b6e3b04b574fd170eb2d746b1cf0d6271877098bec9116cea5fed2e43734d0
+  decision_digest: 7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+
+independent_v30:
+  attack_count: 69
+  secure_attack_count: 69
+  escape_count: 0
+  positive_control_count: 9
+  positive_control_pass_count: 9
+  boundary_demonstration_count: 2
+  boundary_accept_count: 2
+  suite_digest: ccebffdc30d75934e84c7a8add09b6c51538c3dee84ccba1bcef8e0f48fb75dc
+  result_sha256: 4952845e14dd6523baf0439e25be022dc44895008df8d3697be16341cee9d9f6
+
+author_v30_replay:
+  attack_count: 26
+  secure_attack_count: 26
+  escape_count: 0
+  positive_control_count: 7
+  positive_control_pass_count: 7
+  boundary_accept_count: 2
+  suite_digest: f2c2b88bf584927211e66425dc3afda44ca1b59f941d8486e65463c2786d2da9
+
+independent_v29_replay:
+  attack_count: 45
+  secure_attack_count: 45
+  escape_count: 0
+  positive_control_count: 6
+  positive_control_pass_count: 6
+  boundary_accept_count: 2
+  suite_digest: 8eaa7bc6f81e3b337dfe7023c4293577e7a7cbe01761db0f2b64fd68f6cdf1d3
+  migrated_i30_i34:
+    I30_private_permissive_result: REJECT
+    I31_private_permissive_source: REJECT
+    I32_private_permissive_root: REJECT
+    I33_monkeypatch_evaluator: REJECT
+    I34_monkeypatch_pin_pending: REJECT
+
+historical_replay:
+  author_79:
+    passed: 79
+    total: 79
+    suite_digest: 752fa50bd404d7d98d9b06fc0b993f6d1ce68e3d7fa7afcd64a2d16b3bd6cc3d
+    output_sha256: 5b2e4688aad94fea95206e8d31e8d6f8216d30d2b044395388ab1644b34244d6
+  author_v23_30:
+    passed: 30
+    total: 30
+    suite_digest: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e
+    output_sha256: fff56bb8c0989fbba2cc646fed2f605b39a981ed7b69b7168f1b080e81a99120
+  author_v24_23:
+    passed: 23
+    total: 23
+    suite_digest: 2be1f87c81246d2c7b4c254f614e4f814535b78f25d2e610c3092334ae2822f4
+    output_sha256: c14f072ca57b238201757b9a34fb17f946052bc4292c1b7af28b3cf47d9a31a0
+  author_v25_25:
+    secure: 25
+    total: 25
+    positive_passed: 2
+    positive_total: 2
+    suite_digest: a585cc114ea403eaf85b7bae49979c0cce1adacdef26f8039abba70315f9492c
+    output_sha256: 262ff164a2eb19ca4cbbc1c030d57ba17bbdffbf9d4480e1f6a599b40770feaa
+  author_v26_24:
+    secure: 24
+    total: 24
+    positive_passed: 2
+    positive_total: 2
+    suite_digest: b853cb9b4ecd4a01346a7e3b0549660455c7abffe747b6412bddcd6f145deb18
+    output_sha256: 1e55a4ee60a8a03533e7c1bb3982baf1bac061045f74cab67cbe83f8a67e6e47
+  v27_v28_object_acceptance_api: RETIRED_PROTOCOL
+  note: "旧对象验收脚本不再作为raw接口通过条件；其攻击意图已由v2.9和v3.0 raw/CLI套件覆盖。"
+
+source_and_structure:
+  evidence_claims: 44
+  chapter_claim_refs: 44
+  unknown_claim_refs: 0
+  source_count: 44
+  unused_source_ids: []
+  frontmatter_status: formal_candidate
+  approval_status: content_candidate_only
+  real_world_practice: REVIEW_REQUIRED
+  self_approval_allowed: false
+  official_h2_sections: [23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.7]
+  chapter_cjk: 18830
+  publication_p1:
+    - "A-C23-01仍含review/runs内部命令路径；不影响本轮事实或机器裁决，但公开出版前应改为维护者提供的冻结复现包接口。"
+
+validation:
+  py_compile: PASS
+  yaml_json_parse: PASS
+  formal_strict: PASS
+  local_links: PASS
+  diff_check: PASS
+  validate_book: STALE_COMPOSITE_ONLY
+  composite_built: false
+
+gates:
+  fact: PASS_WITH_LIMITATIONS
+  cross: PASS_WITH_LIMITATIONS
+  synthetic_machine: PASS_WITH_LIMITATIONS
+  practice: REVIEW_REQUIRED
+  editor: NOT_AUTHORIZED
+  chief_editor: NOT_AUTHORIZED
+  release_candidate: NOT_AUTHORIZED
+
+limits:
+  direct_closure_cell_mutation: OUT_OF_SCOPE_DEMONSTRATED
+  arbitrary_same_process_code_execution: OUT_OF_SCOPE
+  real_case_executed: false
+  real_authorization_and_copyright_reviewed: false
+  real_openclaw_hermes_migration_executed: false
+  real_external_effect_executed: false
+

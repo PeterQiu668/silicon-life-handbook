@@ -1,0 +1,406 @@
+chapter_id: C06
+title: "Agent 的运行容器与系统架构"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c06"
+reviewed_by: null
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  OpenClaw 技术事实锁定 v2026.9.6 / eb377ac。Hermes 架构与 Provider 文档锁定
+  v2026.8.13 对应提交 f80f453ae0679347e38abc917c7f94f717bf96c5；其他官网能力仍按
+  2026-09-30 动态文档处理。Muse 全部为厂商声明。六层与最小可训单体是本书方法论。
+
+evidence_classes:
+  METHODOLOGY: "本书定义的方法，不冒充外部标准"
+  VERSION-FACT: "固定版本、固定提交或固定 release 事实"
+  DYNAMIC-OFFICIAL: "核验日官方动态文档，不回填历史 release"
+  STABLE-PRINCIPLE: "跨平台相对稳定、仍需适用边界的工程原则"
+  VENDOR-CLAIM: "厂商公开说明，未独立验证内部实现或效果"
+
+sources:
+  BOOK-V2:
+    title: "正式出版版三级内容框架 v2"
+    path: "../../../00-正式出版版-三级内容框架-v2.md"
+  C06-CARD:
+    title: "C06 chapter card"
+    path: "../../../docs/editorial/CHAPTER-CARDS.md"
+  C06-PREFLIGHT:
+    title: "C06 runtime architecture preflight"
+    path: "../../../docs/research/C06-runtime-architecture-preflight.md"
+  QUALITY:
+    title: "Book Quality Standard"
+    path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"
+  TERMINOLOGY:
+    title: "Terminology Registry"
+    path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"
+  OC-REL:
+    title: "OpenClaw v2026.9.6 release"
+    url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+  OC-ARCH:
+    title: "OpenClaw Gateway architecture at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/architecture.md"
+  OC-LOOP:
+    title: "OpenClaw Agent loop at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/agent-loop.md"
+  OC-FAILOVER:
+    title: "OpenClaw Model failover at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/model-failover.md"
+  OC-WORKSPACE:
+    title: "OpenClaw Agent workspace at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/agent-workspace.md"
+  OC-SESSION:
+    title: "OpenClaw Session management at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/session.md"
+  OC-MEMORY:
+    title: "OpenClaw Memory at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/memory.md"
+  OC-QUEUE:
+    title: "OpenClaw Command queue at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/queue.md"
+  OC-STEER:
+    title: "OpenClaw Queue steering at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/queue-steering.md"
+  OC-MESSAGES:
+    title: "OpenClaw Messages at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/messages.md"
+  OC-BINDING:
+    title: "OpenClaw Agent bindings at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/agent-bindings.md"
+  OC-PAIRING:
+    title: "OpenClaw Pairing at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/channels/pairing.md"
+  OC-RETRY:
+    title: "OpenClaw Retry at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/retry.md"
+  OC-TOOLS:
+    title: "OpenClaw Tools at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/index.md"
+  OC-BROWSER:
+    title: "OpenClaw Browser at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/browser.md"
+  OC-NODE:
+    title: "OpenClaw Nodes at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/nodes/index.md"
+  OC-WORKER:
+    title: "OpenClaw Cloud workers at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/cloud-workers.md"
+  OC-MCP:
+    title: "OpenClaw MCP at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/mcp.md"
+  OC-NODE-MCP:
+    title: "OpenClaw Node-hosted MCP at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/nodes/mcp-and-skills.md"
+  OC-TRUST:
+    title: "OpenClaw Trust model at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/trust-model.md"
+  OC-PERM:
+    title: "OpenClaw Tool permissions at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/tool-permissions.md"
+  OC-APPROVAL:
+    title: "OpenClaw Exec approvals at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/exec-approvals.md"
+  OC-SANDBOX:
+    title: "OpenClaw Sandbox modes at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/sandboxing/modes-scope-and-backend.md"
+  OC-SECRETS:
+    title: "OpenClaw Secrets runtime model at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/secrets/runtime-model.md"
+  OC-AUDIT:
+    title: "OpenClaw Security audit at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/security/running-the-audit.md"
+  OC-RECOVERY:
+    title: "OpenClaw Restart recovery at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/restart-recovery.md"
+  OC-STATE:
+    title: "OpenClaw Versioned state and guarded upgrades at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/start/why-openclaw/versioned-state-guarded-upgrades.md"
+  OC-TOOLS-RET:
+    title: "Retired TOOLS.md template at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/reference/templates/TOOLS.md"
+  OC-HB-RET:
+    title: "Retired HEARTBEAT.md template at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/reference/templates/HEARTBEAT.md"
+  HE-REL:
+    title: "Hermes Agent v0.20.1 release"
+    url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+  HE-ARCH:
+    title: "Hermes Architecture at v2026.8.13 target commit f80f453"
+    url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/developer-guide/architecture.md"
+  HE-PROVIDER:
+    title: "Hermes Provider Runtime at v2026.8.13 target commit f80f453"
+    url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/developer-guide/provider-runtime.md"
+  MUSE-NEWS:
+    title: "Meta Newsroom Introducing Muse"
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+  MUSE-SEC:
+    title: "Meta AI Research Muse safety"
+    url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+
+claims:
+  - evidence_id: E-C06-001
+    claim: "控制、认知执行、状态、消息、行动、治理六层是本书用于训练和审计的观察模型，不是平台官方共同标准。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_ids: [BOOK-V2, C06-CARD, C06-PREFLIGHT]
+    limitations: "未经跨组织大样本校准；组件可以跨层。"
+  - evidence_id: E-C06-002
+    claim: "OpenClaw 固定版 Gateway 使用带类型的 WebSocket 控制协议并协调客户端、Node、事件与 Agent 接纳。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-REL, OC-ARCH]
+    limitations: "不外推到 Hermes 或后续 OpenClaw。"
+  - evidence_id: E-C06-003
+    claim: "OpenClaw 固定版 Agent Loop 负责上下文准备、模型调用、工具循环、流式事件与持久化。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-LOOP]
+    limitations: "不定义 C08 的训练循环。"
+  - evidence_id: E-C06-004
+    claim: "OpenClaw 固定版先做同 Provider/profile 的有界恢复，再在合格场景使用模型 fallback，且不应把 turn fallback 冒充会话永久选择。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-FAILOVER]
+    limitations: "具体候选链取决于配置；切换可能改变风险与成本。"
+  - evidence_id: E-C06-005
+    claim: "等待接口超时与后台 run 停止不是同一事实。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-LOOP, OC-RECOVERY]
+    limitations: "实际停止接口和工具终止仍需目标环境验证。"
+  - evidence_id: E-C06-006
+    claim: "当次 Context 由指令、Workspace、Session、Skills、工具结果等装配，不等于 Workspace、Session 或 Memory 全量。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-LOOP, OC-WORKSPACE]
+    limitations: "Context 生命周期和 compaction 由 C09/C13 定义。"
+  - evidence_id: E-C06-007
+    claim: "OpenClaw 固定版的 TOOLS.md 与 HEARTBEAT.md 已退役，不作为现行运行载体。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-TOOLS-RET, OC-HB-RET, OC-WORKSPACE]
+    limitations: "历史版本可能不同；C16 定义主动调度。"
+  - evidence_id: E-C06-008
+    claim: "OpenClaw 固定版采用 database-first 的全局和每 Agent SQLite 状态，Workspace 与运行状态库分离。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-STATE, OC-RECOVERY, OC-WORKSPACE]
+    limitations: "表结构、备份和 schema 迁移需事实审校复核。"
+  - evidence_id: E-C06-009
+    claim: "Workspace 是默认工作容器而非硬 Sandbox；未启用隔离时不能据此推断宿主文件不可达。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-WORKSPACE, OC-SANDBOX]
+    limitations: "实际可达范围由工具、宿主权限和 Sandbox 共同决定。"
+  - evidence_id: E-C06-010
+    claim: "OpenClaw Session 由 Gateway 状态持有并按入口规则产生 session key；Session 隔离不等于身份授权。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-SESSION]
+    limitations: "具体 direct/group/automation scope 必须按部署核验。"
+  - evidence_id: E-C06-011
+    claim: "OpenClaw 可使用 Workspace memory 与 memory plugin/index；Memory、Session 和 Context 不是同义词。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-MEMORY, OC-WORKSPACE]
+    limitations: "生命周期和删除由 C13 定义。"
+  - evidence_id: E-C06-012
+    claim: "OpenClaw 固定版 Queue 使用按 Session 串行与 lane 约束的排队语义。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-QUEUE]
+    limitations: "容量、参数和持久性不写成跨版本常量。"
+  - evidence_id: E-C06-013
+    claim: "OpenClaw steer 与 interrupt 不同；steer 不保证中止已运行工具，也不改变权限。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-STEER, OC-QUEUE]
+    limitations: "不外推到其他 Runtime。"
+  - evidence_id: E-C06-014
+    claim: "消息生成、run 完成、持久交付入队和外部 receipt 是不同状态；Channel retry 与模型恢复不能混作一套。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-MESSAGES, OC-RETRY, OC-RECOVERY]
+    limitations: "具体 Channel 支持与 receipt 语义需逐项核验。"
+  - evidence_id: E-C06-015
+    claim: "OpenClaw Pairing 负责准入，Binding 选择 Agent；Binding 不创建 Account 也不授予敏感动作权限。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-PAIRING, OC-BINDING]
+    limitations: "DM 与 Node pairing 是不同机制。"
+  - evidence_id: E-C06-016
+    claim: "OpenClaw 的 Gateway、Channel sender、Provider 与 Node 身份属于不同认证面；一个 Gateway 默认不是敌对多租户边界。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-ARCH, OC-PAIRING, OC-TRUST]
+    limitations: "部署方仍需自己的威胁模型。"
+  - evidence_id: E-C06-017
+    claim: "OpenClaw 工具有效权限由多层 allow/deny 收敛；Plugin 在 Gateway 进程内运行，不应当作默认被 Agent Sandbox 隔离的普通工具。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-TOOLS, OC-PERM]
+    limitations: "C14/C15/C22 分别定义工具、扩展和安全。"
+  - evidence_id: E-C06-018
+    claim: "Gateway 事件用于通知但不等于永久事实账本，断线或缺口后需从持久状态刷新。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-ARCH, OC-MESSAGES, OC-RECOVERY]
+    limitations: "事实冲突仍需 owner 裁决。"
+  - evidence_id: E-C06-019
+    claim: "OpenClaw 重启恢复依赖 durable state；并非全部进程可恢复，PTY 等进程内对象不会自动复活。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-RECOVERY, OC-STATE]
+    limitations: "实际 eligible work 和迁移行为需环境试跑。"
+  - evidence_id: E-C06-020
+    claim: "Hermes v2026.8.13 指向固定提交 f80f453ae0679347e38abc917c7f94f717bf96c5；该提交 Architecture 文档列出多入口进入 AIAgent。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: hermes
+    source_nature: official-doc-fixed-release-commit
+    source_ids: [HE-REL, HE-ARCH]
+    limitations: "只支持文档陈述；不证明各入口与 OpenClaw 同构或真实运行效果。"
+  - evidence_id: E-C06-021
+    claim: "Hermes v2026.8.13 对应提交的 Provider Runtime 文档描述共享 resolver 与 fallback chain。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: hermes
+    source_nature: official-doc-fixed-release-commit
+    source_ids: [HE-PROVIDER, HE-REL]
+    limitations: "不得与 OpenClaw failover 规则互抄；真实 fallback 效果仍需实践门。"
+  - evidence_id: E-C06-022
+    claim: "OpenClaw Browser 可处于隔离 profile、真实已登录浏览器、Node 或远端位置，信任边界不同。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-BROWSER]
+    limitations: "目标环境的 profile 与远端能力需探测。"
+  - evidence_id: E-C06-023
+    claim: "OpenClaw Node 是通过 Gateway 连接的外围执行端点，Node 不是 Gateway，配对也不替代逐命令控制。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-NODE, OC-PERM, OC-APPROVAL]
+    limitations: "具体能力、命令和主机策略动态变化。"
+  - evidence_id: E-C06-024
+    claim: "OpenClaw Cloud Worker 是可回收执行位置，Session/Transcript 等状态继续由 Gateway 事实域拥有。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-WORKER, OC-RECOVERY]
+    limitations: "读者环境是否可用必须先探测。"
+  - evidence_id: E-C06-025
+    claim: "OpenClaw MCP Server 配置不证明健康，需探测；MCP 工具仍受工具与权限策略。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-MCP, OC-NODE-MCP]
+    limitations: "协议、安全和合同细节由 C14 定义。"
+  - evidence_id: E-C06-026
+    claim: "OpenClaw Exec Approval 在实际执行主机生效，并与 Policy/allowlist 共同约束命令。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-APPROVAL, OC-PERM]
+    limitations: "Approval 不是敌对租户隔离，也不能放宽上游 deny。"
+  - evidence_id: E-C06-027
+    claim: "OpenClaw Sandbox 需区分 mode、scope、backend 与 Workspace access；创建者角色提出 sandbox: required 强制要求时，backend 失败不得静默回落 host。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-SANDBOX, OC-PERM]
+    limitations: "Sandbox 不自动隔离 Plugin 或所有 Session 可见性。"
+  - evidence_id: E-C06-028
+    claim: "OpenClaw SecretRef 解析与 sentinel 注入减少明文配置，但不等于秘密的进程隔离或自动清理历史残留。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-SECRETS]
+    limitations: "实际 owner、reload 与残留需部署检查。"
+  - evidence_id: E-C06-029
+    claim: "OpenClaw security audit 是固定版诊断入口；--deep 尝试 live Gateway probe，--fix 只修复文档列出的窄问题。"
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc-fixed-commit
+    source_ids: [OC-AUDIT]
+    limitations: "本书另以稳定治理原则规定：无 finding 不构成安全证明，也不替代 C22 威胁模型和独立红队。"
+  - evidence_id: E-C06-030
+    claim: "最小可训单体以接纳、受限执行、证据、停止、故障暴露和恢复闭环定义，不以安装项最少定义。"
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: author-method
+    source_ids: [BOOK-V2, C06-CARD, C06-PREFLIGHT, QUALITY]
+    limitations: "需由独立实践门在目标环境试跑。"
+  - evidence_id: E-C06-031
+    claim: "Meta 对 Muse 专属 VM、runtime cell、Sentinel、凭证代理和受控 Browser 的说明属于厂商声明；Meta 同时保留 Prompt Injection 与计划能力限制。"
+    class: VENDOR-CLAIM
+    stability: frontier
+    scope: muse
+    source_nature: vendor-claim
+    source_ids: [MUSE-NEWS, MUSE-SEC]
+    limitations: "未独立验证内部实现、隔离效果、普及范围或性能。"
+
+open_questions:
+  - id: U-C06-01
+    question: "Hermes f80f453 的多入口与 fallback 文档事实，在目标 Runtime 中是否按预期工作并具备怎样的恢复语义？"
+    owner: practice-reviewer
+  - id: U-C06-02
+    question: "目标读者环境是否提供 OpenClaw Cloud Worker、Node 与相应 receipt 能力？"
+    owner: practice-reviewer
+  - id: U-C06-03
+    question: "两项练习的停止、UNKNOWN 对账和清理能否在隔离环境复现？"
+    owner: practice-reviewer
+
+review_requirements:
+  fact_review: unassigned
+  practice_review: unassigned
+  cross_review: unassigned
+  editorial_review: unassigned

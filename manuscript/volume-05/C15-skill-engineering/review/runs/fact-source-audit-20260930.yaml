@@ -1,0 +1,164 @@
+schema_version: "1.0"
+record_id: "C12-FACT-SOURCE-AUDIT-20260930"
+chapter_id: "C12"
+reviewed_on: "2026-09-30"
+reviewer: "independent-fact-and-cross-reviewer:legacy_mapping"
+scope: "read-only source, claim, structure, and interface audit"
+author_files_modified: false
+
+summary:
+  sources_total: 41
+  local_sources: 17
+  local_sources_exist: 17
+  external_sources: 24
+  external_http_200: 24
+  claims_total: 28
+  claims_unique: 28
+  chapter_claim_references_closed: 28
+  orphan_claim_references: 0
+  ledger_sources_used_by_claims: 36
+  unused_ledger_sources: 5
+  fact_gate: "PASS"
+  cross_gate: "REVIEW_REQUIRED"
+
+fixed_release_anchors:
+  openclaw:
+    release: "v2026.9.6"
+    annotated_tag_sha: "ce5bbdc244ee937246cc1700d1b224d020c3b599"
+    commit_sha: "eb377ac59e6c9fd6c7705028034812becf00271b"
+    verdict: "PASS"
+  hermes:
+    product_version: "v0.20.1"
+    release_tag: "v2026.8.13"
+    annotated_tag_sha: "4e693dc685b5716e7da22656eccc6ece37c5db72"
+    commit_sha: "f80f453ae0679347e38abc917c7f94f717bf96c5"
+    verdict: "PASS"
+
+external_source_reachability:
+  AS-SPEC: {status: 200, identity: "dynamic-standard", support: "PASS"}
+  AS-CLIENT: {status: 200, identity: "dynamic-official-guidance", support: "PASS"}
+  AS-PRACTICE: {status: 200, identity: "dynamic-official-guidance", support: "REVIEW_REQUIRED", limitation: "reachable but unused by any claim"}
+  OC-REL: {status: 200, identity: "fixed-release", support: "PASS"}
+  OC-SKILLS: {status: 200, identity: "fixed-commit", support: "PASS"}
+  OC-CREATE: {status: 200, identity: "fixed-commit", support: "REVIEW_REQUIRED", limitation: "reachable but unused by any claim"}
+  OC-WORKSHOP: {status: 200, identity: "fixed-commit", support: "PASS"}
+  OC-WORKSHOP-LIFECYCLE: {status: 200, identity: "fixed-commit", support: "PASS"}
+  OC-SELF: {status: 200, identity: "fixed-commit", support: "PASS"}
+  OC-PLUGIN: {status: 200, identity: "fixed-commit", support: "PASS"}
+  OC-PLUGIN-CLI: {status: 200, identity: "fixed-commit", support: "PASS"}
+  HE-REL: {status: 200, identity: "fixed-release", support: "PASS"}
+  HE-SKILLS-FIXED: {status: 200, identity: "fixed-tag-document", support: "PASS"}
+  HE-PLUGIN-FIXED: {status: 200, identity: "fixed-tag-document", support: "PASS"}
+  HE-PLUGIN-DYNAMIC: {status: 200, identity: "dynamic-official", support: "PASS", limitation: "valid only as of 2026-09-30; not backfilled into fixed release"}
+  SLSA: {status: 200, identity: "versioned-standard-v1.2", support: "PASS"}
+  SIGSTORE: {status: 200, identity: "dynamic-official-guidance", support: "PASS"}
+  CISA-SBOM:
+    status: 200
+    identity: "official-public-comment-draft-2025-08"
+    support: "PASS"
+    limitation: "public comment draft; not a final government requirement"
+  SPDX: {status: 200, identity: "versioned-standard-3.0.1", support: "PASS"}
+  NIST-SSDF: {status: 200, identity: "versioned-official-guidance-800-218-v1.1", support: "PASS"}
+  TUF: {status: 200, identity: "dynamic-official-security-guidance", support: "PASS"}
+  OWASP-AGENTIC: {status: 200, identity: "official-guidance-2026", support: "PASS", limitation: "C12 attack list is methodized in local preflight"}
+  MUSE-NEWS: {status: 200, identity: "vendor-claim", support: "PASS", limitation: "vendor statement only"}
+  MUSE-SEC: {status: 200, identity: "vendor-claim", support: "PASS", limitation: "vendor statement only"}
+
+local_source_existence:
+  BOOK-V2: true
+  C12-CARD: true
+  QUALITY: true
+  TERMS: true
+  DECISIONS: true
+  C12-PREFLIGHT: true
+  C02: true
+  C05: true
+  C06: true
+  C07: true
+  C08: true
+  C10: true
+  C10-ARCH: true
+  C11: true
+  C11-CONTRACT: true
+  LOCAL-C12-RUN: true
+  LOCAL-C12-SCRIPT: true
+
+unused_ledger_sources:
+  - "AS-PRACTICE"
+  - "C05"
+  - "C10-ARCH"
+  - "C11-CONTRACT"
+  - "OC-CREATE"
+
+openclaw_retired_workspace_files:
+  fixed_commit: "eb377ac59e6c9fd6c7705028034812becf00271b"
+  TOOLS.md:
+    source_path: "docs/reference/templates/TOOLS.md"
+    fixed_source_says_retired: true
+    replacement: "AGENTS.md ## Tools"
+    c12_runtime_claims_using_retired_file: 0
+    verdict: "PASS"
+  HEARTBEAT.md:
+    source_path: "docs/reference/templates/HEARTBEAT.md"
+    fixed_source_says_retired: true
+    runtime_reads_workspace_file: false
+    replacement: "system-owned monitor scratch"
+    c12_runtime_claims_using_retired_file: 0
+    verdict: "PASS"
+
+claim_verdicts:
+  E-C12-001: "PASS"
+  E-C12-002: "PASS"
+  E-C12-003: "PASS"
+  E-C12-004: "PASS"
+  E-C12-005: "PASS"
+  E-C12-006: "PASS"
+  E-C12-007: "PASS"
+  E-C12-008: "PASS"
+  E-C12-009: "PASS"
+  E-C12-010: "PASS"
+  E-C12-011: "PASS"
+  E-C12-012: "PASS"
+  E-C12-013: "PASS"
+  E-C12-014: "PASS"
+  E-C12-015: "PASS"
+  E-C12-016: "PASS"
+  E-C12-017: "PASS"
+  E-C12-018: "PASS"
+  E-C12-019: "PASS"
+  E-C12-020: "PASS"
+  E-C12-021: "PASS"
+  E-C12-022: "PASS"
+  E-C12-023: "PASS"
+  E-C12-024: "PASS"
+  E-C12-025: "PASS"
+  E-C12-026: "PASS"
+  E-C12-027: "PASS"
+  E-C12-028: "PASS"
+
+claim_limitations:
+  E-C12-012: "CISA source is a public comment draft; source title and first chapter mention require correction."
+  E-C12-014: "C02 owns the training/production dual loop; C08 only owns training intervention, rounds, double triangle, stop-training, and candidate evidence details."
+  E-C12-023: "Hermes main documentation is dynamic as of 2026-09-30 and cannot be backfilled into v0.20.1."
+  E-C12-024: "Muse evidence supports vendor claims only."
+  E-C12-025: "Detailed C12 attack list is a local method derived with the preflight; C19 owns the full threat model."
+  E-C12-027: "Author synthetic run record only; no independent practice reproduction."
+  E-C12-028: "Downstream chapters not yet frozen require later regression."
+
+cross_decision_audit:
+  D18_three_artifacts: "PASS"
+  D20_five_drift_types_memory_not_sixth: "PASS"
+  D21_three_layer_completion_evidence: "PASS"
+  D22_security_red_team_cross_cutting_not_fifth_layer: "REVIEW_REQUIRED"
+  D23_c22_seven_sections_and_dependency_boundary: "PASS"
+  d22_conflict_location: "chapter.md 12.7.2"
+  d22_conflict_text: >-
+    “回归集、训练集、留出集、对抗集，真实任务……另行观察”把对抗集写成与规范数据层
+    并列的集合；应改成横跨 training/regression/holdout/representative real-world 的
+    non-compensable security/red-team slice。
+
+review_boundaries:
+  practice_gate: "NOT_REVIEWED"
+  editor_gate: "NOT_REVIEWED"
+  chief_editor_gate: "NOT_REVIEWED"
+  release_candidate_authorized: false

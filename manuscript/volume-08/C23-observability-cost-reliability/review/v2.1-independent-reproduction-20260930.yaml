@@ -1,0 +1,37 @@
+review_id: C20-v2.1-independent-reproduction-20260930
+reviewer_role: non_author_post_fix_reviewer
+verified_on: "2026-09-30"
+fresh_temp_runs: 2
+byte_identical: true
+hashes:
+  input: 9b2314a953585d6691d5f7532efac92da949d332b3597323c8e0fdda25548380
+  results: 3e875dcdbb36e678834271eb980517a628535e3ede579827c3be34c179e9e78a
+  summary: 367f58c1aee55d5ecab9a8d6edcc50902b10c1931183bf7dd99bdd3249dbad24
+  negative_results: 95ec684e7e067346a53dbd43c405da87c19430e5201317e37c0b1f4783540984
+baseline:
+  trial_count: 24
+  distribution: {PASS: 4, FAIL: 16, REVIEW_REQUIRED: 4}
+  layers: {training: 4, regression: 4, holdout: 16, representative_real_world: 0}
+  security_red_team_count: 7
+  external_side_effect_count: 0
+  decision_digest: 6af7d47b0874a7de639a4e7d085b023decbfe787d12da12d7a15d5e03fcf8bbf
+negative_regression:
+  control_count: 46
+  passed_count: 46
+  failed_count: 0
+independent_near_neighbor_attacks:
+  - {id: technical_error_claim_unknown, actual: FAIL, reason: TECHNICAL_TERMINAL_FAILED}
+  - {id: delivery_not_delivered_claim_unknown, actual: FAIL, reason: DELIVERY_FAILED}
+  - {id: acceptance_fail_claim_unknown, actual: FAIL, reason: ACCEPTANCE_FAILED}
+  - {id: recovery_failed_unclaimed, actual: FAIL, reason: RECOVERY_FAILED}
+  - {id: negative_retry_attempts, actual: SCHEMA_REJECT}
+  - {id: negative_external_effect_count, actual: SCHEMA_REJECT}
+  - {id: sampling_rate_gt_one, actual: SCHEMA_REJECT}
+  - {id: event_invalid_timestamp, actual: SCHEMA_REJECT}
+  - {id: event_duplicate_sequence, actual: SCHEMA_REJECT}
+  - {id: duplicate_evidence_refs, actual: SCHEMA_REJECT}
+gate:
+  fact_gate: PASS_WITH_LIMITATIONS
+  cross_gate: PASS_WITH_LIMITATIONS
+  synthetic_machine_control: PASS
+  practice_gate: REVIEW_REQUIRED

@@ -1,0 +1,50 @@
+review_id: C21-v2.2-independent-fact-cross-review-20261001
+reviewed_on: "2026-10-01"
+runner: review/v2.2-independent-negative-tests.py
+expected_decision: FAIL
+attack_count: 9
+matched_count: 0
+fail_open_count: 9
+attacks:
+  - id: unapproved_canary_to_limited_stage_escalation
+    expected: FAIL
+    actual: PASS
+    reasons: []
+  - id: unapproved_rollout_budget_expansion
+    expected: FAIL
+    actual: PASS
+    reasons: []
+  - id: self_expanded_baseline_and_candidate_permissions
+    expected: FAIL
+    actual: PASS
+    reasons: []
+  - id: zero_trial_ledger_claims_release_pass
+    expected: FAIL
+    actual: PASS
+    reasons: []
+  - id: internal_effect_self_attests_authorized_without_authority_ref
+    expected: FAIL
+    actual: PASS
+    reasons: []
+  - id: active_webhook_without_authority_or_manifest
+    expected: FAIL
+    actual: PASS
+    reasons: []
+  - id: scenario_claims_holdout_while_trial_ledger_remains_training
+    expected: FAIL
+    actual: PASS
+    reasons: []
+  - id: scenario_task_and_trial_ids_unbound_to_trial_ledger
+    expected: FAIL
+    actual: PASS
+    reasons: []
+  - id: scenario_self_claims_security_coverage
+    expected: FAIL
+    actual: PASS
+    reasons: []
+gate_decision:
+  draft: PASS
+  fact: REVIEW_REQUIRED
+  cross: REVIEW_REQUIRED
+  practice: REVIEW_REQUIRED
+  release_candidate_authorized: false

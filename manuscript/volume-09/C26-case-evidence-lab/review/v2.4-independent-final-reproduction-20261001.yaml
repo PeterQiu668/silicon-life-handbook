@@ -1,0 +1,56 @@
+review_id: C23-v2.4-independent-final-reproduction-20261001
+chapter_id: C23
+reviewed_on: "2026-10-01"
+environment: offline_synthetic_fresh_temp
+real_world_execution: false
+external_side_effects: 0
+
+baseline:
+  distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+  decision_digest: ac4c02f3f9da54c934e489d07a730265e32c17e276bc556ae3076da54781ed45
+  persisted_result_verifier: PASS
+
+replayed_suites:
+  author_negative_79: {secure: 79, total: 79, result: PASS}
+  v2_3_remediation_30: {secure: 30, total: 30, result: PASS}
+  historical_independent_18:
+    raw_script: {secure: 17, total: 18, process_exit: 1}
+    v2_4_contract: {secure: 18, total: 18, result: PASS}
+    note: "I18 is rejected before semantic evaluation by the newer closed schema/root contract; its obsolete script admitted only FAIL. This is a safe REJECT, not an escape."
+  original_independent_19: {secure: 19, total: 19, result: PASS}
+  author_v2_4_23: {secure: 23, total: 23, result: PASS}
+
+independent_unannounced_suite:
+  attack_count: 15
+  secure_attack_count: 2
+  escape_count: 13
+  legal_new_root_control: PASS
+  suite_digest: 58144ac176ac8ba2a7ed65c230315294c45f95b194fc3ce4d1c0f3cbc5c2562e
+  tests:
+    - {id: K01_PARALLEL_CONTRADICTORY_D21_EVIDENCE, coverage: "P0-01/P0-05", expected: [FAIL, REJECT], actual: PASS, secure: false}
+    - {id: K02_DUPLICATE_PRINCIPAL_SEMANTIC_TRUTH, coverage: P0-01, expected: [FAIL, REJECT], actual: PASS, secure: false}
+    - {id: K03_UNPROJECTED_REVOKED_RELEASE_TWIN, coverage: P0-01, expected: [FAIL, REJECT], actual: PASS, secure: false}
+    - {id: K04_UNPROJECTED_REVOKED_BUDGET_TWIN, coverage: P0-01, expected: [FAIL, REJECT], actual: PASS, secure: false}
+    - {id: K05_D21_PRECEDES_SUPPORTING_ARTIFACTS, coverage: "P0-02/P0-05", expected: [FAIL, REVIEW_REQUIRED, REJECT], actual: PASS, secure: false}
+    - {id: K06_FAILURE_PRECEDES_ITS_TRIAL, coverage: "P0-02/P0-03", expected: [FAIL, REVIEW_REQUIRED, REJECT], actual: PASS, secure: false}
+    - {id: K07_FAILURE_LOG_PAYLOAD_NOT_CLOSED, coverage: P0-03, expected: [FAIL, REJECT], actual: FAIL, secure: true}
+    - {id: K08_COHERENT_EXTERNAL_EFFECT, coverage: P0-04, expected: [FAIL, REJECT], actual: FAIL, secure: true}
+    - {id: K09_ADAPTER_EVIDENCE_WRONG_KIND, coverage: P0-06, expected: [FAIL, REVIEW_REQUIRED, REJECT], actual: PASS, secure: false}
+    - {id: K10_EQUAL_TOTAL_UNFAIR_COST_COMPOSITION, coverage: fairness, expected: [FAIL, REJECT], actual: PASS, secure: false}
+    - {id: K11_MIGRATION_CONTRACT_NOT_BOUND_TO_BUDGET, coverage: "P0-06/fairness", expected: [FAIL, REJECT], actual: PASS, secure: false}
+    - {id: K12_VENDOR_SOURCE_SYNTHETIC_IDENTITY_MISMATCH, coverage: case_identity, expected: [FAIL, REVIEW_REQUIRED, REJECT], actual: PASS, secure: false}
+    - {id: K13_RESULT_DUPLICATE_TOP_LEVEL_COUNT, coverage: "P0-07/full-result-digest", expected: [REJECT], actual: ACCEPTED, secure: false}
+    - {id: K14_RESULT_DUPLICATE_NESTED_VERDICT, coverage: "P0-07/full-result-digest", expected: [REJECT], actual: ACCEPTED, secure: false}
+    - {id: K15_RESULT_DUPLICATE_PROVENANCE_ROOT, coverage: "P0-07/full-result-digest", expected: [REJECT], actual: ACCEPTED, secure: false}
+    - {id: K16_LEGAL_NEW_ROOT_PASS_CONTROL, coverage: legal_repin, expected: [PASS], actual: PASS, secure: true}
+
+interpretation:
+  deterministic_fixture: PASS
+  previous_declared_regressions: PASS
+  non_total_rejection: PASS
+  semantic_generalization: FAIL
+  raw_result_serialization_integrity: FAIL
+  fact_gate: FAIL
+  cross_gate: FAIL
+  synthetic_machine_control_gate: FAIL
+  real_practice_gate: REVIEW_REQUIRED

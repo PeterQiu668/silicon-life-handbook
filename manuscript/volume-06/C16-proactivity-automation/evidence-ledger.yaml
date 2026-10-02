@@ -1,0 +1,127 @@
+---
+chapter_id: C16
+title: "主动性、自动化与通知工程"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c16"
+reviewed_by: null
+approval_status: unapproved
+self_approval: false
+scope_note: >-
+  OpenClaw 锁定 v2026.9.6 / eb377ac59e6c9fd6c7705028034812becf00271b；
+  Hermes 固定发行锚点为 0.20.1 / v2026.8.13，Cron/Gateway scheduler/
+  session heartbeat 页面按 2026-09-30 动态官方文档处理；Muse 只作 VENDOR-CLAIM。
+  作者实验为离线确定性合成运行，不证明任何真实调度、投递或生产恢复。
+
+evidence_classes:
+  METHODOLOGY: "本书定义的方法、字段、状态与实验合同"
+  VERSION-FACT: "固定 release/tag/commit 支持的产品事实"
+  DYNAMIC-OFFICIAL: "核验日官方动态文档，不能回填固定发行"
+  VENDOR-CLAIM: "闭源厂商公开自述，未独立验证内部机制或效果"
+  LOCAL-VALIDATION: "本地合成运行，只在声明夹具与合同范围内有效"
+
+sources:
+  BOOK-V2: {title: "正式出版版三级内容框架 v2", path: "../../../00-正式出版版-三级内容框架-v2.md"}
+  QUALITY: {title: "Book Quality Standard", path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"}
+  C16-CARD: {title: "C16 chapter card", path: "../../../docs/editorial/CHAPTER-CARDS.md"}
+  TERMS: {title: "Terminology Registry", path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml"}
+  DECISIONS: {title: "Decisions D18/D20/D21/D22/D23", path: "../../../docs/DECISIONS.md"}
+  C16-PREFLIGHT: {title: "C16 proactivity automation preflight", path: "../../../docs/research/C16-proactivity-automation-preflight.md"}
+  C06: {title: "C06 runtime architecture", path: "../../volume-02/C06-runtime-architecture/chapter.md"}
+  C07: {title: "C07 evaluation system", path: "../../volume-03/C07-evaluation-system/chapter.md"}
+  C09: {title: "C09 interaction system", path: "../../volume-03/C09-interaction-system/chapter.md"}
+  C13: {title: "C13 context memory", path: "../../volume-05/C13-context-memory/chapter.md"}
+  C14: {title: "C14 tool MCP engineering", path: "../../volume-05/C14-tool-mcp-engineering/chapter.md"}
+  C15: {title: "C15 skill engineering", path: "../../volume-05/C15-skill-engineering/chapter.md"}
+  C17-PREFLIGHT: {title: "C17 autonomy authorization preflight", path: "../../../docs/research/C17-autonomy-authorization-preflight.md"}
+  C21-PREFLIGHT: {title: "C21 A2A artifact trust preflight", path: "../../../docs/research/C21-a2a-artifact-trust-preflight.md"}
+  C22-PREFLIGHT: {title: "C22 security trust boundary preflight", path: "../../../docs/research/C22-security-trust-boundary-preflight.md"}
+  C23-PREFLIGHT: {title: "C23 observability cost reliability preflight", path: "../../../docs/research/C23-observability-cost-reliability-preflight.md"}
+  C24-PREFLIGHT: {title: "C24 governance release lifecycle preflight", path: "../../../docs/research/C24-governance-release-lifecycle-preflight.md"}
+  C25-PREFLIGHT: {title: "C25 thirty-day training camp preflight", path: "../../../docs/research/C25-thirty-day-training-camp-preflight.md"}
+  OC-REL:
+    title: "OpenClaw v2026.9.6"
+    url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+  OC-HB:
+    title: "OpenClaw Heartbeat at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/heartbeat.md"
+  OC-HB-RETIRED:
+    title: "OpenClaw retired HEARTBEAT template at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/reference/templates/HEARTBEAT.md"
+  OC-AUTO:
+    title: "OpenClaw Automation overview at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/automation/index.md"
+  OC-CRON:
+    title: "OpenClaw Automations at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/automation/cron-jobs.md"
+  OC-HOOKS:
+    title: "OpenClaw Hooks at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/automation/hooks.md"
+  OC-STANDING:
+    title: "OpenClaw Standing Orders at eb377ac"
+    url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/automation/standing-orders.md"
+  HE-REL:
+    title: "Hermes Agent v2026.8.13 / 0.20.1"
+    url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+  HE-CRON:
+    title: "Hermes Scheduled Tasks dynamic documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/"
+  HE-CRON-INT:
+    title: "Hermes Cron Internals dynamic documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/developer-guide/cron-internals"
+  HE-HB:
+    title: "Hermes Session Heartbeats dynamic documentation"
+    url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/heartbeat"
+  MUSE-DESIGN:
+    title: "How We Designed Muse"
+    url: "https://introducing.muse.ai/"
+  MUSE-NEWS:
+    title: "Meta Introducing Muse"
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+  MUSE-SEC:
+    title: "Meta Security and safety for AI agents with Muse"
+    url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+  LOCAL-C16-INPUT: {title: "C16 synthetic automation input", path: "review/runs/synthetic-automation-input.yaml"}
+  LOCAL-C16-RUN: {title: "C16 synthetic automation results", path: "review/runs/synthetic-automation-results.yaml"}
+  LOCAL-C16-SCRIPT: {title: "C16 deterministic automation harness", path: "review/runs/run-automation-harness.py"}
+
+claims:
+  - {evidence_id: E-C16-001, claim: "受控主动性由有意义信号、既定目标、当前权限和安静策略共同约束，不以唤醒或通知频率衡量。", class: METHODOLOGY, stability: stable, source_ids: [TERMS, C16-PREFLIGHT], limitations: "任务域权重和阈值需实例化。"}
+  - {evidence_id: E-C16-002, claim: "触发资格、授权资格与净价值资格必须分开裁决，任一安全或授权硬失败不能被价值分数抵消。", class: METHODOLOGY, stability: stable, source_ids: [C16-PREFLIGHT, C17-PREFLIGHT, QUALITY], limitations: "净价值是本书排序方法，不是平台算法。"}
+  - {evidence_id: E-C16-003, claim: "Trigger 只说明为什么开始判断，不产生 authority，也不证明 completion。", class: METHODOLOGY, stability: stable, source_ids: [C06, C09, C16-PREFLIGHT, DECISIONS], limitations: "具体事件身份由平台与安全控制核验。"}
+  - {evidence_id: E-C16-004, claim: "Heartbeat、Cron、Event、Queue、Hook、Webhook、Manual 与 Standing Order 是不同机制，复合自动化需逐项治理。", class: METHODOLOGY, stability: stable, source_ids: [TERMS, C06, C16-PREFLIGHT], limitations: "Standing Order 是 OpenClaw 产品对象。"}
+  - {evidence_id: E-C16-005, claim: "静默可以是已观察、已判断且有证据的正确输出，但不得掩盖遗漏或高严重度升级。", class: METHODOLOGY, stability: stable, source_ids: [TERMS, C16-PREFLIGHT], limitations: "需用留出/回放/抽查估计遗漏。"}
+  - {evidence_id: E-C16-006, claim: "去重、重放防护、合并、冷却、静默时段与暂停解决不同问题，不能由一个 throttle 字段替代。", class: METHODOLOGY, stability: stable, source_ids: [C16-PREFLIGHT, C14], limitations: "具体窗口随任务域变化。"}
+  - {evidence_id: E-C16-007, claim: "定时路径应保存 IANA 时区、日历版本、DST、misfire、catch-up、最大追赶和 schedule version。", class: METHODOLOGY, stability: stable, source_ids: [C16-PREFLIGHT], limitations: "不是任何平台统一 schema。"}
+  - {evidence_id: E-C16-008, claim: "原始 UNKNOWN 是证据状态，最终只能补证、FAIL 或 REVIEW_REQUIRED；副作用未知时不得盲重放。", class: METHODOLOGY, stability: stable, source_ids: [C06, C07, C14, C16-PREFLIGHT, DECISIONS], limitations: "若同时发生安全硬失败可直接 FAIL。"}
+  - {evidence_id: E-C16-009, claim: "完成需分离技术执行、交付/目标端可见和业务验收/环境终态，任一单一 success 不足以推出完成。", class: METHODOLOGY, stability: project-controlled, source_ids: [DECISIONS, C09, C21-PREFLIGHT, C23-PREFLIGHT], limitations: "无投递要求的任务应显式标 NOT_REQUIRED。"}
+  - {evidence_id: E-C16-010, claim: "停止请求与停止确认、暂停与取消、熔断与恢复必须分离；重启不证明恢复。", class: METHODOLOGY, stability: stable, source_ids: [C06, C14, C16-PREFLIGHT, C24-PREFLIGHT], limitations: "真实执行面需实际 stop receipt。"}
+  - {evidence_id: E-C16-011, claim: "sentinel 不得与被监控对象共享唯一 Gateway、Provider、credential、network 或 datastore 故障组合。", class: METHODOLOGY, stability: stable, source_ids: [C16-PREFLIGHT, C22-PREFLIGHT, C23-PREFLIGHT], limitations: "隔离程度需按风险由后章冻结。"}
+  - {evidence_id: E-C16-012, claim: "Webhook 应在业务处理前验证大小/方法、来源、签名、时间窗、nonce/event id、tenant 和重放，再入受控队列并回读权威状态。", class: METHODOLOGY, stability: stable, source_ids: [C16-PREFLIGHT, C22-PREFLIGHT], limitations: "具体签名算法属于集成事实。"}
+  - {evidence_id: E-C16-013, claim: "Hook 是宿主生命周期内回调，可能共享 Gateway 信任边界；可发现或可加载不证明实际触发或安全。", class: METHODOLOGY, stability: stable, source_ids: [TERMS, OC-HOOKS, C15], limitations: "生命周期点和隔离随版本。"}
+  - {evidence_id: E-C16-014, claim: "OpenClaw 固定版把 Standing Order 称为授予 permanent operating authority 的持久对象；本书将其治理为可撤销、有限 scope、需 owner/review/expiry/stop/version 与 C17 再认证的持续授权。", class: METHODOLOGY, stability: stable, source_ids: [TERMS, OC-STANDING, C17-PREFLIGHT], limitations: "前半句是 OpenClaw 版本事实，后半句是本书更严格治理；不得把 permanent 解释为无限、不可撤销或跨版本继续。"}
+  - {evidence_id: E-C16-015, claim: "OpenClaw 固定版 Heartbeat 是 system-owned automation，指令位于 system-owned monitor scratch。", class: VERSION-FACT, stability: versioned, source_ids: [OC-REL, OC-HB], limitations: "只适用于 eb377ac；本地 desired/actual state 需实测。"}
+  - {evidence_id: E-C16-016, claim: "OpenClaw v2026.9.6 固定提交已退役 HEARTBEAT.md，Runtime 不再将它作为当前 Heartbeat 指令载体。", class: VERSION-FACT, stability: versioned, source_ids: [OC-HB-RETIRED], limitations: "本机是否完成历史迁移未知。"}
+  - {evidence_id: E-C16-017, claim: "OpenClaw 固定版区分 scheduled jobs、Heartbeat、Hooks 与 Standing Orders 等自动化机制。", class: VERSION-FACT, stability: versioned, source_ids: [OC-AUTO, OC-CRON, OC-HOOKS, OC-STANDING], limitations: "产品对象不自动决定业务选型。"}
+  - {evidence_id: E-C16-018, claim: "Hermes v2026.8.13/0.20.1 只作为固定发行锚点，Cron、Cron internals 与 session heartbeat 页面按 2026-09-30 动态官方事实处理。", class: DYNAMIC-OFFICIAL, stability: dynamic, source_ids: [HE-REL, HE-CRON, HE-CRON-INT, HE-HB], limitations: "不得倒填为固定发行逐项能力，印前复核。"}
+  - {evidence_id: E-C16-019, claim: "Hermes 动态文档将 provider 触发与 execution/delivery 分离，并描述 claim、misfire/catch-up 与 session heartbeat 等语义。", class: DYNAMIC-OFFICIAL, stability: dynamic, source_ids: [HE-CRON, HE-CRON-INT, HE-HB], limitations: "未完成固定源码或目标实机验证。"}
+  - {evidence_id: E-C16-020, claim: "Meta 公开材料称 Muse 会在后台工作、过滤结果价值、在有意义变化或需要输入时通知，并提供主动性/批准控制。", class: VENDOR-CLAIM, stability: dynamic, source_ids: [MUSE-DESIGN, MUSE-NEWS, MUSE-SEC], limitations: "不支持内部调度、去重、遗漏率或安全效果推断。"}
+  - {evidence_id: E-C16-021, claim: "有效提案率、噪音率、遗漏率、首次有用反应延迟、升级准确率、完整交付率和故障隔离覆盖是 C16 局部指标，不是生产 SLO。", class: METHODOLOGY, stability: project-controlled, source_ids: [C16-PREFLIGHT, C23-PREFLIGHT], limitations: "窗口和阈值由 C23/业务 owner 冻结。"}
+  - {evidence_id: E-C16-022, claim: "程序性反馈只能进入训练候选，不能在线自动修改通知阈值、Standing Order、授权或工具策略。", class: METHODOLOGY, stability: stable, source_ids: [C13, C15, C16-PREFLIGHT, C25-PREFLIGHT], limitations: "改进治理主定义属于 C18。"}
+  - {evidence_id: E-C16-023, claim: "C16 恰好交付信号路由表、自动化状态机和通知策略三件母产物，指标、审批、熔断与恢复嵌入其内。", class: METHODOLOGY, stability: project-controlled, source_ids: [BOOK-V2, C16-CARD, DECISIONS], limitations: "练习和运行材料不是第四件母产物。"}
+  - {evidence_id: E-C16-024, claim: "C16 向 C17 输出所需授权参数，向 C22 输出攻击面，向 C23 输出事件与局部指标，向 C24 输出状态/恢复前置，向 C25 输出练习。", class: METHODOLOGY, stability: project-controlled, source_ids: [C16-PREFLIGHT, C17-PREFLIGHT, C22-PREFLIGHT, C23-PREFLIGHT, C24-PREFLIGHT, C25-PREFLIGHT], limitations: "下游主定义权不得在 C16 重写。"}
+  - {evidence_id: E-C16-025, claim: "作者状态化离线合成实验从来源、时间、重放、审批、停止、证据ID、effect ledger、通知预算、故障域与恢复探针推导30个唯一task/trial，分布为18 PASS、6 FAIL、6 REVIEW_REQUIRED，三触发路径一致且外部副作用为零。", class: LOCAL-VALIDATION, stability: reproducible-fixture, source_ids: [LOCAL-C16-INPUT, LOCAL-C16-RUN, LOCAL-C16-SCRIPT], limitations: "不是实际scheduler、平台、通知或恢复证明，post-fix仍需独立回归。"}
+  - {evidence_id: E-C16-026, claim: "作者状态化合成实验中有证据的静默可PASS、共享唯一故障域和无读回盲重试必FAIL、原始副作用UNKNOWN和权威状态不可读映射REVIEW_REQUIRED。", class: LOCAL-VALIDATION, stability: reproducible-fixture, source_ids: [LOCAL-C16-RUN, LOCAL-C16-SCRIPT], limitations: "规则夹具由作者设计，需独立实践复核。"}
+  - {evidence_id: E-C16-027, claim: "训练与评测数据只采用 training、regression、holdout、representative real-world 四层；security/red-team 是横跨四层的非补偿切片，不是第五层。", class: METHODOLOGY, stability: project-controlled, source_ids: [DECISIONS, C07, QUALITY], limitations: "各层数据集与真实任务抽样仍需按任务域实例化。"}
+
+open_issues:
+  - {issue_id: O-C16-001, status: REVIEW_REQUIRED, item: "OpenClaw 固定版 Heartbeat/Cron/Event/manual 的目标环境全链尚未实机运行。", owner: "independent-practice-reviewer"}
+  - {issue_id: O-C16-002, status: REVIEW_REQUIRED, item: "本机历史 HEARTBEAT.md 是否已迁移到 system-owned monitor scratch 未核验。", owner: "runtime-owner"}
+  - {issue_id: O-C16-003, status: REVIEW_REQUIRED, item: "Hermes 动态 Cron/Gateway/Session Heartbeat 与 0.20.1 固定源码未逐项对照。", owner: "evidence-reviewer"}
+  - {issue_id: O-C16-004, status: REVIEW_REQUIRED, item: "三件母产物和状态机尚未经过独立实践门与真实停止/恢复验证。", owner: "practice-reviewer"}
+  - {issue_id: O-C16-005, status: REVIEW_REQUIRED, item: "sentinel 的风险分级隔离与生产指标阈值待 C22/C23/C24 冻结。", owner: "C22-C24"}
+  - {issue_id: O-C16-006, status: REVIEW_REQUIRED, item: "Muse 内部调度、去重、遗漏率、状态机和安全效果未知。", owner: "evidence-reviewer"}
+
+change_log:
+  - {version: "0.1.0", date: "2026-09-30", change: "建立 C16 方法、平台与作者离线合成运行证据。", status: drafting}

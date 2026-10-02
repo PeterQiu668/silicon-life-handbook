@@ -1,0 +1,3445 @@
+{
+  "schema_version": "c18.synthetic.result.v3",
+  "input_digest": "d61672da179f0668e302a4fa11ab4c15190f3be3a212d454bd8052bbad9410b1",
+  "trial_count": 18,
+  "distribution": {
+    "FAIL": 9,
+    "PASS": 3,
+    "REVIEW_REQUIRED": 6
+  },
+  "by_layer": {
+    "holdout": {
+      "FAIL": 6,
+      "REVIEW_REQUIRED": 4
+    },
+    "regression": {
+      "FAIL": 2,
+      "REVIEW_REQUIRED": 2
+    },
+    "representative_real_world": {},
+    "training": {
+      "FAIL": 1,
+      "PASS": 3
+    }
+  },
+  "security_red_team_trial_count": 17,
+  "representative_real_world_executed": false,
+  "representative_real_world_evidence_count": 0,
+  "synthetic_shadow_trial_count": 3,
+  "external_side_effect_count": 0,
+  "decision_digest": "8d671fbdfaad6fc523e404a268d59bf4b151c6b26aa321238241fc5f50d71ca4",
+  "all_expected_matched": true,
+  "trials": [
+    {
+      "task_id": "C18-S01",
+      "trial_id": "C18-S01-T1",
+      "scenario_kind": "normal",
+      "layer": "training",
+      "security_red_team": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [],
+      "expected": "PASS",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "PASS",
+        "reasons": [],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "PASS",
+          "task_completion": "PASS",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S02",
+      "trial_id": "C18-S02-T1",
+      "scenario_kind": "adversarial",
+      "layer": "regression",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "forged_card_signature"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "forged"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "CARD_SIGNATURE_INVALID",
+          "CARD_CACHE_DIGEST_MISMATCH"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "PASS",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S03",
+      "trial_id": "C18-S03-T1",
+      "scenario_kind": "adversarial",
+      "layer": "regression",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "expired_card_cache"
+      ],
+      "expected": "REVIEW_REQUIRED",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-09-29T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "653ef6123af012ee55377ce5425f1529952f881e60cdca146c64f27984c01c97"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "a3a0bae680ae232f910456f9cf1b4bd09431290a3fe8f5944e96752f453bc9b4",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "reasons": [
+          "CARD_EXPIRED"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "PASS",
+          "task_completion": "REVIEW_REQUIRED",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S04",
+      "trial_id": "C18-S04-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "inflated_skill"
+      ],
+      "expected": "REVIEW_REQUIRED",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft",
+            "payment_execute"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "22c28da7a076837e661d2bcd8d8f84a3079b3d6e1673a762ccfda149d39d56f5"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "b12975846edcd0b47e132b66771d5efc20e80f1f9a9f81cb5cbcb1451eb733b8",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "reasons": [
+          "CAPABILITY_UNPROVEN"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "PASS",
+          "task_completion": "REVIEW_REQUIRED",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S05",
+      "trial_id": "C18-S05-T1",
+      "scenario_kind": "adversarial",
+      "layer": "training",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "duplicate_event"
+      ],
+      "expected": "PASS",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "PASS",
+        "reasons": [],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "PASS",
+          "task_completion": "PASS",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S06",
+      "trial_id": "C18-S06-T1",
+      "scenario_kind": "adversarial",
+      "layer": "regression",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "event_gap"
+      ],
+      "expected": "REVIEW_REQUIRED",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 3,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 4,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "reasons": [
+          "EVENT_SEQUENCE_GAP"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "PASS",
+          "task_completion": "REVIEW_REQUIRED",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S07",
+      "trial_id": "C18-S07-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "mutations": [
+        "timeout_remote_running"
+      ],
+      "expected": "REVIEW_REQUIRED",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "WORKING",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 2,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "worker": "UNKNOWN",
+            "queue": "UNKNOWN",
+            "inflight": "UNKNOWN"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "ACTIVE"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": false,
+          "stop_receipt": {
+            "status": "UNKNOWN",
+            "receipt_id": "NONE"
+          },
+          "worker_state": "ACTIVE"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "reasons": [
+          "PROTOCOL_NOT_COMPLETED",
+          "EXECUTION_TERMINAL_UNKNOWN"
+        ],
+        "states": {
+          "protocol_state": "WORKING",
+          "protocol_gate": "REVIEW_REQUIRED",
+          "execution_state": "UNKNOWN",
+          "acceptance_state": "PASS",
+          "task_completion": "REVIEW_REQUIRED",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S08",
+      "trial_id": "C18-S08-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "mutations": [
+        "cancel_ack_effect_pending"
+      ],
+      "expected": "REVIEW_REQUIRED",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "CANCELED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "cancel-ack",
+            "sequence": 3,
+            "task_id": "task-001",
+            "state_version": 3,
+            "protocol_state": "CANCELED"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "worker": "ACTIVE",
+            "queue": "NOT_CLEAR",
+            "inflight": "NOT_CLEAR"
+          },
+          "cancel": {
+            "requested": true,
+            "ack": "ACCEPTED"
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "ACTIVE"
+            }
+          ],
+          "effect_ledger": [
+            {
+              "effect_id": "effect-1",
+              "status": "PENDING",
+              "confirmed_external_write": false
+            }
+          ],
+          "locks_released": false,
+          "stop_receipt": {
+            "status": "MISSING",
+            "receipt_id": "NONE"
+          },
+          "worker_state": "ACTIVE"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "reasons": [
+          "PROTOCOL_NOT_COMPLETED",
+          "EXECUTION_NOT_STOP_CONFIRMED"
+        ],
+        "states": {
+          "protocol_state": "CANCELED",
+          "protocol_gate": "REVIEW_REQUIRED",
+          "execution_state": "UNKNOWN",
+          "acceptance_state": "PASS",
+          "task_completion": "REVIEW_REQUIRED",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S09",
+      "trial_id": "C18-S09-T1",
+      "scenario_kind": "adversarial",
+      "layer": "training",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "artifact_digest_mismatch"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 101,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "ARTIFACT_DIGEST_MISMATCH",
+          "ARTIFACT_SIGNATURE_INVALID"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "FAIL",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": false
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S10",
+      "trial_id": "C18-S10-T1",
+      "scenario_kind": "adversarial",
+      "layer": "regression",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "signed_content_wrong"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "USD"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "b9fceba1f47d628c2ff1a1fb45c41eea95dafaa4630a7ec0372ae920917927a0",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "cbd758ca91b6e72d6e3f407f5429eba89816f4c6a41438bfb16b50ac79842920"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "b9fceba1f47d628c2ff1a1fb45c41eea95dafaa4630a7ec0372ae920917927a0",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "CONTENT_BUSINESS_ERROR"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "FAIL",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S11",
+      "trial_id": "C18-S11-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "high_trust_no_authority"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "missing-auth",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "b1d45a84794e45eff60b633a6f07e5f69a11971484011843256e2c5fc66a0620"
+          }
+        },
+        "authority_evidence_ref": "missing-auth",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "AUTHORITY_BINDING_INVALID"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "FAIL",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S12",
+      "trial_id": "C18-S12-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "collusive_scoring"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": [
+            {
+              "from": "agent-a",
+              "to": "agent-b",
+              "score": 100
+            },
+            {
+              "from": "agent-b",
+              "to": "agent-a",
+              "score": 100
+            }
+          ]
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "COLLUSIVE_TRUST"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "FAIL",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S13",
+      "trial_id": "C18-S13-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "duplicate_id_different_payload"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e3",
+            "sequence": 4,
+            "task_id": "task-001",
+            "state_version": 4,
+            "protocol_state": "FAILED"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "DUPLICATE_ID_CONFLICT"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "PASS",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S14",
+      "trial_id": "C18-S14-T1",
+      "scenario_kind": "adversarial",
+      "layer": "training",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "duplicate_event"
+      ],
+      "expected": "PASS",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "PASS",
+        "reasons": [],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "PASS",
+          "task_completion": "PASS",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S15",
+      "trial_id": "C18-S15-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "expired_card_cache",
+        "high_trust_no_authority"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-09-29T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "653ef6123af012ee55377ce5425f1529952f881e60cdca146c64f27984c01c97"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "a3a0bae680ae232f910456f9cf1b4bd09431290a3fe8f5944e96752f453bc9b4",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "missing-auth",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "b1d45a84794e45eff60b633a6f07e5f69a11971484011843256e2c5fc66a0620"
+          }
+        },
+        "authority_evidence_ref": "missing-auth",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "AUTHORITY_BINDING_INVALID",
+          "CARD_EXPIRED"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "FAIL",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S16",
+      "trial_id": "C18-S16-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "signed_content_wrong",
+        "collusive_scoring"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "USD"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "b9fceba1f47d628c2ff1a1fb45c41eea95dafaa4630a7ec0372ae920917927a0",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "cbd758ca91b6e72d6e3f407f5429eba89816f4c6a41438bfb16b50ac79842920"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": [
+            {
+              "from": "agent-a",
+              "to": "agent-b",
+              "score": 100
+            },
+            {
+              "from": "agent-b",
+              "to": "agent-a",
+              "score": 100
+            }
+          ]
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "b9fceba1f47d628c2ff1a1fb45c41eea95dafaa4630a7ec0372ae920917927a0",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "CONTENT_BUSINESS_ERROR",
+          "COLLUSIVE_TRUST"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "FAIL",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S17",
+      "trial_id": "C18-S17-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "mutations": [
+        "event_gap",
+        "cancel_ack_effect_pending"
+      ],
+      "expected": "REVIEW_REQUIRED",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "CANCELED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 3,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "cancel-ack",
+            "sequence": 4,
+            "task_id": "task-001",
+            "state_version": 3,
+            "protocol_state": "CANCELED"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "worker": "ACTIVE",
+            "queue": "NOT_CLEAR",
+            "inflight": "NOT_CLEAR"
+          },
+          "cancel": {
+            "requested": true,
+            "ack": "ACCEPTED"
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "ACTIVE"
+            }
+          ],
+          "effect_ledger": [
+            {
+              "effect_id": "effect-1",
+              "status": "PENDING",
+              "confirmed_external_write": false
+            }
+          ],
+          "locks_released": false,
+          "stop_receipt": {
+            "status": "MISSING",
+            "receipt_id": "NONE"
+          },
+          "worker_state": "ACTIVE"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "auth-produce",
+          "content": {
+            "amount": 100,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "029bfd322a6fe1a3b71f68b060f9c45062d818f2f531424d39a7facf13217af2"
+          }
+        },
+        "authority_evidence_ref": "auth-produce",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "REVIEW_REQUIRED",
+        "reasons": [
+          "EVENT_SEQUENCE_GAP",
+          "PROTOCOL_NOT_COMPLETED",
+          "EXECUTION_NOT_STOP_CONFIRMED"
+        ],
+        "states": {
+          "protocol_state": "CANCELED",
+          "protocol_gate": "REVIEW_REQUIRED",
+          "execution_state": "UNKNOWN",
+          "acceptance_state": "PASS",
+          "task_completion": "REVIEW_REQUIRED",
+          "artifact_signature_valid": true
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C18-S18",
+      "trial_id": "C18-S18-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_red_team": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "mutations": [
+        "artifact_digest_mismatch",
+        "duplicate_event",
+        "high_trust_no_authority"
+      ],
+      "expected": "FAIL",
+      "raw": {
+        "card": {
+          "agent_id": "agent-good",
+          "endpoint": "https://synthetic.invalid/a2a",
+          "expires_at": "2026-10-01T00:00:00Z",
+          "issued_at": "2026-09-30T00:00:00Z",
+          "protocol": "1.0",
+          "provider_org": "org-test",
+          "revocation_status": "ACTIVE",
+          "security_schemes": [
+            "bearer"
+          ],
+          "signer_ref": "issuer-good",
+          "skills": [
+            "research",
+            "draft"
+          ],
+          "supported_interfaces": [
+            "json-rpc"
+          ],
+          "signature": "b95b6b74bb01819229b1bb882caa1cebb3bd9cfddb343b81fe87892eaadc40be"
+        },
+        "cache": {
+          "fetched_at": "2026-09-30T00:01:00Z",
+          "card_digest": "def4f382d2cbd0cf6ccfd88c2fd2b9170d87105f2c9ea2764cc84cde37e52eaa",
+          "cache_status": "ACTIVE"
+        },
+        "task_snapshot": {
+          "current_state": "COMPLETED",
+          "delegation_ref": "delegation-good",
+          "owner": "agent-good",
+          "state_version": 3,
+          "task_id": "task-001"
+        },
+        "events": [
+          {
+            "event_id": "e1",
+            "protocol_state": "SUBMITTED",
+            "sequence": 1,
+            "state_version": 1,
+            "task_id": "task-001"
+          },
+          {
+            "event_id": "e2",
+            "protocol_state": "WORKING",
+            "sequence": 2,
+            "state_version": 2,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          },
+          {
+            "artifact_ref": "art-001",
+            "event_id": "e3",
+            "protocol_state": "COMPLETED",
+            "sequence": 3,
+            "state_version": 3,
+            "task_id": "task-001"
+          }
+        ],
+        "execution": {
+          "authoritative_readback": {
+            "inflight": "CLEAR",
+            "queue": "CLEAR",
+            "worker": "STOPPED"
+          },
+          "cancel": {
+            "ack": "NONE",
+            "requested": false
+          },
+          "descendants": [
+            {
+              "id": "child-1",
+              "state": "COMPLETED"
+            }
+          ],
+          "effect_ledger": [],
+          "locks_released": true,
+          "stop_receipt": {
+            "receipt_id": "stop-001",
+            "status": "VERIFIED"
+          },
+          "worker_state": "STOPPED"
+        },
+        "artifact": {
+          "acceptance_evidence_ref": "accept-art-001",
+          "accountable_human": "human-owner",
+          "artifact_id": "art-001",
+          "authority_evidence_ref": "missing-auth",
+          "content": {
+            "amount": 101,
+            "finding": "synthetic",
+            "unit": "CNY"
+          },
+          "object_type": "report",
+          "owner": "org-test",
+          "producer": "agent-good",
+          "provenance": [
+            "input:synthetic-case-c",
+            "source:public"
+          ],
+          "retention": {
+            "class": "training-synthetic",
+            "expires_at": "2027-09-30T00:00:00Z"
+          },
+          "schema_ref": "schema:report:v1",
+          "signed_fields": [
+            "artifact_id",
+            "task_id",
+            "object_type",
+            "version",
+            "schema_ref",
+            "content",
+            "producer",
+            "owner",
+            "accountable_human",
+            "authority_evidence_ref",
+            "provenance",
+            "tool_receipts",
+            "transformation_chain",
+            "retention",
+            "acceptance_evidence_ref",
+            "content_digest"
+          ],
+          "task_id": "task-001",
+          "tool_receipts": [
+            "receipt:synthetic-tool-read"
+          ],
+          "transformation_chain": [
+            "normalize",
+            "analyze",
+            "render"
+          ],
+          "version": 1,
+          "content_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "signature": {
+            "signer_ref": "issuer-good",
+            "value": "b1d45a84794e45eff60b633a6f07e5f69a11971484011843256e2c5fc66a0620"
+          }
+        },
+        "authority_evidence_ref": "missing-auth",
+        "trust_evidence": {
+          "score": 92,
+          "evidence": [
+            "run-1",
+            "run-2"
+          ],
+          "peer_reviews": []
+        },
+        "acceptance_evidence": {
+          "evidence_id": "accept-art-001",
+          "artifact_id": "art-001",
+          "artifact_digest": "c084fccb5c15c3ecd302a784498b14fbdac73488aca90d237b92723b2d5a42fc",
+          "delivery_visibility": "VISIBLE",
+          "business_acceptance": "ACCEPTED",
+          "environment_acceptance": "ACCEPTED",
+          "status": "VERIFIED"
+        }
+      },
+      "derived": {
+        "decision": "FAIL",
+        "reasons": [
+          "AUTHORITY_BINDING_INVALID",
+          "ARTIFACT_DIGEST_MISMATCH",
+          "ARTIFACT_SIGNATURE_INVALID"
+        ],
+        "states": {
+          "protocol_state": "COMPLETED",
+          "protocol_gate": "PASS",
+          "execution_state": "STOP_CONFIRMED",
+          "acceptance_state": "FAIL",
+          "task_completion": "FAIL",
+          "artifact_signature_valid": false
+        }
+      },
+      "matched_expected": true,
+      "external_side_effects": 0
+    }
+  ]
+}

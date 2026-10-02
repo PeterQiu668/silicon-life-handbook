@@ -1,0 +1,32 @@
+review_id: C23-v2.1-independent-reproduction-20260930
+reviewer_role: non_author_fact_cross_reviewer
+verified_on: "2026-09-30"
+author_v2_1_baseline:
+  trial_count: 17
+  distribution: {PASS: 2, FAIL: 11, REVIEW_REQUIRED: 4}
+  author_negative_controls_passed: 67
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+  decision_digest: cc8ad34ba895d91fa997139e3e9408bf2845e5fb1e7e03904bd5e0c7d5784204
+independent_attacks:
+  - {id: revoked_baseline_release, expected: FAIL, actual: PASS}
+  - {id: revoked_candidate_release, expected: FAIL, actual: PASS}
+  - {id: reviewer_without_reviewer_role, expected: FAIL, actual: PASS}
+  - {id: effect_revoked_ignored, expected: FAIL, actual: PASS}
+  - {id: internal_effect_receipt_readback_mismatch, expected: FAIL, actual: PASS}
+  - {id: revoked_budgets, expected: FAIL, actual: REVIEW_REQUIRED}
+  - {id: unreviewed_adapter_difference, expected: REVIEW_REQUIRED, actual: PASS}
+  - {id: unbound_scenario_task_evidence_ids, expected: FAIL, actual: PASS}
+  - {id: fake_failure_distribution, expected: FAIL, actual: PASS}
+  - {id: publication_after_evaluation_time, expected: FAIL, actual: PASS}
+summary:
+  attack_count: 10
+  matched_count: 0
+  pass_fail_open_count: 9
+  revoked_downgraded_to_review_required_count: 1
+  all_expected_matched: false
+gate:
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED
+  p0_open: [P0-C23-v2.2-01, P0-C23-v2.2-02, P0-C23-v2.2-03, P0-C23-v2.2-04]

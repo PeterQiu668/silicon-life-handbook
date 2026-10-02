@@ -1,0 +1,332 @@
+chapter_id: C03
+title: "什么叫真正的强"
+status: drafting
+ledger_version: "0.1.0"
+verified_on: "2026-09-30"
+prepared_by: "chapter-author-agent:c03"
+reviewed_by: "c03-evidence-cross-review-agent"
+approval_status: unapproved
+scope_note: >-
+  本账本区分外部事实、平台版本事实、本书方法论和待验证判断。
+  drafting 不代表证据已经独立复核，章节作者不得自我批准。
+
+evidence_classes:
+  STABLE-PRINCIPLE: "跨平台、跨版本仍较稳定的工程原则"
+  VERSION-FACT: "只对指定版本与核验日期成立的事实"
+  OFFICIAL-DOC: "来自项目、标准组织或机构的官方材料"
+  VENDOR-CLAIM: "来自厂商公开材料、尚未获得充分独立复现的主张"
+  LOCAL-VERIFIED: "在声明环境中完成过本地复核的观察"
+  METHODOLOGY: "本书提出或统一的工作方法，不冒充行业标准"
+  INFERENCE: "由来源与观察推得，必须保留推断边界"
+  OPEN-QUESTION: "证据不足，尚不能下结论"
+
+claims:
+  - evidence_id: E-C03-001
+    claim: "Agent 评测不应只看最终答案，还应检查任务结果、轨迹、工具调用与环境终态。"
+    label: SOURCE-BASED
+    research_fact_type: STABLE-PRINCIPLE
+    class: STABLE-PRINCIPLE
+    stability: stable
+    scope: general
+    source_nature: research
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Anthropic: Demystifying evals for AI agents"
+        url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+        checked_at: "2026-09-30"
+      - title: "OpenAI: Evaluate agent workflows"
+        url: "https://developers.openai.com/api/docs/guides/agent-evals"
+        checked_at: "2026-09-30"
+    applicability: "用于支持七维评估和 TEV 需要过程与终态证据。"
+    limitations: "不同任务所需轨迹粒度不同；不得要求记录模型不可见的内部推理。"
+    recheck_trigger: "主要来源撤回、评测指南发生原则性修订。"
+
+  - evidence_id: E-C03-002
+    claim: "多次运行、完整失败集合和多个评审视角通常比单次演示更能支持能力判断。"
+    label: SOURCE-BASED
+    research_fact_type: STABLE-PRINCIPLE
+    class: STABLE-PRINCIPLE
+    stability: stable
+    scope: general
+    source_nature: research
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "Anthropic: Demystifying evals for AI agents"
+        url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+        checked_at: "2026-09-30"
+      - title: "OpenAI: Working with evals"
+        url: "https://developers.openai.com/api/docs/guides/evals"
+        checked_at: "2026-09-30"
+    applicability: "用于反对把最好一次当成稳定能力。"
+    limitations: "本章不据此规定通用样本量、置信区间或 grader 数量；这些由 C07 按任务设计。"
+    recheck_trigger: "C07 冻结本书正式统计协议。"
+
+  - evidence_id: E-C03-003
+    claim: "公开基准和单一评分可能被针对性优化、污染或规避，因此需要治理评测完整性。"
+    label: SOURCE-BASED
+    research_fact_type: OFFICIAL-DOC
+    class: OFFICIAL-DOC
+    stability: frontier
+    scope: general
+    source_nature: official-doc
+    source_grade: A
+    verified_on: "2026-09-30"
+    sources:
+      - title: "NIST: Cheating on AI agent evaluations"
+        url: "https://www.nist.gov/caisi/cheating-ai-agent-evaluations"
+        checked_at: "2026-09-30"
+      - title: "NIST CAISI: Guidelines"
+        url: "https://www.nist.gov/caisi/guidelines"
+        checked_at: "2026-09-30"
+    applicability: "支持评测隔离、预先冻结标准、保留完整运行与限制领先声明。"
+    limitations: "NIST 材料不直接定义本书七维或 MAT-L0—MAT-L5；其中自动化基准指南在核验日仍标为 Initial Public Draft，不得写成正式强制标准。"
+    recheck_trigger: "NIST 发布替代指南或页面出现重大更新。"
+
+  - evidence_id: E-C03-004
+    claim: "公平的 Agent 比较必须声明并控制任务、资源预算与风险边界。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: research
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "本书正式框架 v2，第 3 章"
+        path: "../../../00-正式出版版-三级内容框架-v2.md"
+      - title: "历史实验方案设计"
+        path: "../../../../openclaw-silicon-life-handbook/volume-04/模块6-实验方案设计.md"
+      - title: "NIST CAISI: Guidelines"
+        url: "https://www.nist.gov/caisi/guidelines"
+        checked_at: "2026-09-30"
+    applicability: "全书相对优势和跨平台比较的前置合同。"
+    limitations: "三前提是本书统一的方法论表达，不声称是外部机构发布的同名标准。"
+    recheck_trigger: "全书比较协议变更或 C07 发现无法执行的定义冲突。"
+
+  - evidence_id: E-C03-005
+    claim: "质量、泛化、安全、稳定、效率、协作、可治理构成本书的七维强者标准。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: research
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "本书正式框架 v2，第 3 章"
+        path: "../../../00-正式出版版-三级内容框架-v2.md"
+      - title: "历史材料映射，第 3 章"
+        path: "../../../docs/research/legacy-content-map.md"
+    applicability: "全书用于能力剖面、基线与交接的受控词表。"
+    limitations: "七维刻度尚无跨行业大样本校准；不得称为国家、行业或平台官方标准。"
+    recheck_trigger: "C27 认证试点或跨案例实测发现维度不可区分、不可操作或存在系统性遗漏。"
+
+  - evidence_id: E-C03-006
+    claim: "三证法（TEV）在正式版统一为过程证据、产物证据和效果证据。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: research
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "历史三证验真模块"
+        path: "../../../../openclaw-silicon-life-handbook/volume-06/模块3-三证验真-没有证据就不是完成.md"
+      - title: "历史材料映射，第 3 章"
+        path: "../../../docs/research/legacy-content-map.md"
+    applicability: "覆盖研究、执行、多 Agent 协作和长期任务的证据分类。"
+    limitations: "旧稿的产物、Diff、测试结构是文件型任务案例，不再是正式三证定义；三证齐全也不自动证明因果。"
+    recheck_trigger: "C23 可观测性或 C24 治理章节发现证据分类无法覆盖关键对象。"
+
+  - evidence_id: E-C03-007
+    claim: "全书成熟度统一为 MAT-L0 响应工具至 MAT-L5 可治理组织的总阶梯。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: research
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "本书正式框架 v2，第 3 章"
+        path: "../../../00-正式出版版-三级内容框架-v2.md"
+      - title: "历史进化阶梯"
+        path: "../../../../openclaw-silicon-life-handbook/volume-04/模块1-从入门到业内最佳实践的进化阶梯.md"
+      - title: "历史材料映射，冲突登记"
+        path: "../../../docs/research/legacy-content-map.md"
+    applicability: "作为全书成熟度通用语言；C03 仅定义总阶梯。"
+    limitations: "旧 L1-L5、L1-L6、L0-L6 不再用于正式判级；正式成熟度必须带 MAT- 前缀，其阈值、认证、有效期与晋降级由 C27 定义。"
+    recheck_trigger: "C27 认证试点显示层级缺乏区分度，或书目委员会正式修订总阶梯。"
+
+  - evidence_id: E-C03-008
+    claim: "OpenClaw 可提供任务、工具、成本、错误与可观测性等证据来源，但平台功能本身不等于七维高分。"
+    label: SOURCE-BASED
+    research_fact_type: VERSION-FACT
+    class: VERSION-FACT
+    stability: versioned
+    scope: openclaw
+    source_nature: official-doc
+    source_grade: A
+    verified_on: "2026-09-30"
+    version_scope: "OpenClaw 2026.9.6"
+    sources:
+      - title: "OpenClaw v2026.9.6 release"
+        url: "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6"
+        checked_at: "2026-09-30"
+      - title: "OpenClaw: OpenTelemetry export at eb377ac59e6c9fd6c7705028034812becf00271b"
+        url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/gateway/opentelemetry.md"
+        checked_at: "2026-09-30"
+    applicability: "用于本地基线与证据采集的主实现镜面。"
+    limitations: "具体事件、字段、默认值与覆盖范围随版本变化；有遥测不代表数据完整或系统可治理。"
+    recheck_trigger: "OpenClaw 升级、可观测接口变更、发布前复核。"
+
+  - evidence_id: E-C03-009
+    claim: "Hermes 的开放 Runtime 与正式发布基线使其可作为跨实现迁移的候选；是否迁移成立仍需在相同任务、预算和风险边界下实跑。"
+    label: INFERENCE
+    research_fact_type: INFERENCE
+    class: INFERENCE
+    stability: versioned
+    scope: hermes
+    source_nature: official-doc
+    source_grade: A-
+    verified_on: "2026-09-30"
+    version_scope: "Hermes 0.20.1"
+    sources:
+      - title: "Hermes Agent: Architecture"
+        url: "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture"
+        checked_at: "2026-09-30"
+      - title: "Hermes Agent v0.20.1 (v2026.8.13) release"
+        url: "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13"
+        checked_at: "2026-09-30"
+    applicability: "验证七维与 TEV 不依赖 OpenClaw 特定文件结构。"
+    limitations: "v0.20.1 发布可固定核验，但架构组件来自核验日动态官方文档，尚未逐项固定到该 tag；本章未完成跨 Runtime 实跑，不得把迁移候选写成迁移成功，也不得把 OpenClaw 的组件、文件名、加载时机和权限模型直接套入 Hermes。"
+    recheck_trigger: "Hermes 版本升级或架构文档重大变化。"
+
+  - evidence_id: E-C03-010
+    claim: "Muse 在本章只能作为公开可观察产品行为、安全与审批体验的厂商案例。"
+    label: SOURCE-BASED
+    research_fact_type: VENDOR-CLAIM
+    class: VENDOR-CLAIM
+    stability: frontier
+    scope: muse
+    source_nature: vendor-claim
+    source_grade: B
+    verified_on: "2026-09-30"
+    version_scope: "Meta public materials available on 2026-09-30"
+    sources:
+      - title: "Meta: Introducing Muse"
+        url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+        checked_at: "2026-09-30"
+      - title: "Meta AI Research: Security and safety for AI agents with Muse"
+        url: "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+        checked_at: "2026-09-30"
+    applicability: "可用于讨论托管式审批与用户可见行为。"
+    limitations: "不得评价不可观测内部轨迹，不得把厂商安全叙述改写为独立验证或绝对安全排名。"
+    recheck_trigger: "Muse 发布独立审计、公开技术细节或产品边界发生变化。"
+
+  - evidence_id: E-C03-011
+    claim: "跨平台安全比较离不开共同威胁模型，且只能提出限定范围的相对判断。"
+    label: SOURCE-BASED
+    research_fact_type: STABLE-PRINCIPLE
+    class: STABLE-PRINCIPLE
+    stability: stable
+    scope: general
+    source_nature: research
+    source_grade: A-
+    verified_on: "2026-09-30"
+    sources:
+      - title: "NIST CAISI: Guidelines"
+        url: "https://www.nist.gov/caisi/guidelines"
+        checked_at: "2026-09-30"
+      - title: "Anthropic: Trustworthy agents in practice"
+        url: "https://www.anthropic.com/research/trustworthy-agents"
+        checked_at: "2026-09-30"
+      - title: "平台与前沿证据研究"
+        path: "../../../docs/research/platform-and-frontier-evidence.md"
+    applicability: "支持同风险边界和领先声明红线。"
+    limitations: "不同部署模式的责任边界不可完全等价；不能强行为单一安全总分。"
+    recheck_trigger: "威胁模型、部署环境或授权范围变化。"
+
+  - evidence_id: E-C03-012
+    claim: "高严重度安全、权限或数据失败不得被其他维度平均分抵消。"
+    label: METHODOLOGY
+    research_fact_type: METHODOLOGY
+    class: METHODOLOGY
+    stability: stable
+    scope: general
+    source_nature: research
+    source_grade: author-method
+    verified_on: "2026-09-30"
+    sources:
+      - title: "图书质量标准，验收规则"
+        path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md"
+      - title: "C03 章节卡"
+        path: "../../../docs/editorial/CHAPTER-CARDS.md"
+    applicability: "七维评分、练习和后续认证的硬门禁。"
+    limitations: "具体严重度分类、阈值与豁免由岗位风险政策及 C27 认证程序决定。"
+    recheck_trigger: "全书风险分级或 C27 认证门禁变更。"
+
+  - evidence_id: E-C03-013
+    claim: "C03 的两项练习已在匿名、离线、可回滚的合成环境中完成流程试跑，保存了 20 条公平比较运行和 3 个红队场景。"
+    label: LOCAL-VERIFIED
+    research_fact_type: LOCAL-VERIFIED
+    class: LOCAL-VERIFIED
+    stability: local-run
+    scope: C03-practice-only
+    source_nature: local-run
+    source_grade: B
+    verified_on: "2026-09-30"
+    sources:
+      - title: "C03 独立实践门评审"
+        path: "review/practice-review.md"
+      - title: "C03 合成基线运行集"
+        path: "review/runs/c03-baseline-run-set.yaml"
+      - title: "C03 红队发现"
+        path: "review/runs/red-team-findings.md"
+    applicability: "仅用于说明完整运行、失败分布、公平合同和声明降级流程已被实际走通，并提炼章节中的实践教训。"
+    limitations: "全部材料均为 synthetic-demonstration；没有连接真实 Runtime、客户、身份数据或生产环境，不构成产品基准、跨平台验证、真实效果主张、统计推断或认证。"
+    recheck_trigger: "运行材料变化、正式 Runtime 实跑、C07 评测协议冻结或 C27 认证量表冻结。"
+
+open_questions:
+  - id: OQ-C03-01
+    question: "七维 0-4 观察性刻度能否在不同岗位保持足够的评审一致性？"
+    owner: "C07/C27 editorial owners"
+    required_evidence: "跨岗位盲评、一致性记录、分歧案例和量表修订历史"
+  - id: OQ-C03-02
+    question: "MAT-L0—MAT-L5 在真实 Agent 群体中是否具有可重复的层级区分度？"
+    owner: "C27 certification owner"
+    required_evidence: "多系统试评、边界案例、晋降级复测和外部评审"
+  - id: OQ-C03-03
+    question: "三贯穿案例目前只有合成流程试跑，何时可以从演示案例升级为真实 Runtime 的实证案例？"
+    owner: "C26 case-lab owner"
+    required_evidence: "真实 Runtime 的可复现案例包、完整运行、失败记录、授权与匿名审查，以及与合成试跑的差异说明"
+
+review_requirements:
+  evidence_review:
+    required: true
+    reviewer: c03-evidence-cross-review-agent
+    self_approval_forbidden: true
+    completed_on: "2026-09-30"
+    result: PASS_WITH_LIMITATIONS
+    report: "review/evidence-review.md"
+  practice_review:
+    required: true
+    reviewer: c03-independent-practice-review-agent
+    self_approval_forbidden: true
+    completed_on: "2026-09-30"
+    result: PASS
+    report: "review/practice-review.md"
+    scope: "safe synthetic execution of X-C03-01 and X-C03-02; not a product benchmark or final editorial approval"
+  next_review_triggers:
+    - "OpenClaw 或 Hermes 基线版本变化"
+    - "Muse 发布新的公开安全审计或产品边界"
+    - "C07 冻结正式评测协议"
+    - "C27 冻结正式认证量表"
+    - "出版前两轮事实复核"

@@ -1,0 +1,220 @@
+schema_version: c23.v2.2.independent-reproduction.v1
+review_id: C23-v2.2-independent-fact-cross-control-20261001
+reviewed_on: "2026-10-01"
+reviewer_role: non_author
+scope:
+  chapter_id: C23
+  remediation_version: v2.2
+  author_files_modified: false
+  practice_gate_reviewed: false
+  editor_gate_reviewed: false
+  chief_editor_gate_reviewed: false
+  release_candidate_authorized: false
+
+source_hashes:
+  build_case_fixture_py: 86d154bbcf4dad06b4574d7b4194ebcfae0e9689f3150b59537ad2cb8b93ec7c
+  run_case_harness_py: 7d27a3a2ece9d6292d2689454450301fb099b90b4a60a26cfd685e43736ed536
+  run_negative_regression_py: 13c9f9570609e1e394111bd6b520ca14c361deef79d5c88a284a85c6428040fb
+  frozen_evidence_root_file: 9f59ce991fa5bada37d1cc49082aeecd3d5fa66c0c2ec5ee36fa8e29eeb31258
+  synthetic_case_input: c68f97d08e20c78761b97ada3d607b90efb80cebcd622ea862fff440d353ca6e
+  synthetic_case_results: ddd14cab8e372096154d185b65b6eb6f266fd45fe44e700eb28c245b3035ca6c
+  negative_regression_results: 76d6a2558e5843ab2e92b0bd0602882390765614eac8308ee2efc60d3fb54db0
+  independent_negative_tests_py: 7004f645862ba285ef0996b7f194f8966ea11591c4e895ae34c3c67407229d2a
+  independent_attack_result: b36f6c72fa1e770e6cb16ad725554c90151b52f37993f5875ff20d952b3061f5
+
+fresh_temp_reproduction:
+  directories:
+    - /tmp/c23-v22-a.3G2RS5
+    - /tmp/c23-v22-b.qbDqhk
+  commands:
+    - python3 build-case-fixture.py
+    - >-
+      python3 run-case-harness.py --input synthetic-case-input.yaml
+      --authority-root frozen-evidence-root.yaml --output synthetic-case-results.yaml
+    - >-
+      python3 run-negative-regression.py --input synthetic-case-input.yaml
+      --authority-root frozen-evidence-root.yaml --output negative-regression-results.yaml
+  root_byte_equal: true
+  input_byte_equal: true
+  result_byte_equal: true
+  negative_result_byte_equal: true
+  generated_files_match_author_saved_files: true
+  authority_root_digest: 85d91fc244e253ad423063eab39bf627dc0dc96345800817442b6ba297a67d5f
+  decision_digest: 35dd14b54af6e3c5ab5f24a164b37c8c70d998f60ab7b35c6e1412c413ec2a0e
+  trial_count: 32
+  distribution:
+    PASS: 2
+    FAIL: 23
+    REVIEW_REQUIRED: 7
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+  author_negative_regression:
+    test_count: 79
+    passed_count: 79
+    failed_count: 0
+
+independent_adjacent_reproduction:
+  directories:
+    - /tmp/c23-v22-independent-one.Fk3Ndz
+    - /tmp/c23-v22-independent-two.i4DQiJ
+  byte_equal: true
+  test_count: 18
+  secure_contract_passed_count: 8
+  secure_contract_failed_count: 10
+  all_secure_contracts_passed: false
+  tests:
+    - test_id: I01_PINNED_ROOT_RECORD_RESEAL
+      observed: REJECT
+      secure_contract_passed: true
+      evidence: authority_root independently pinned digest mismatch
+    - test_id: I02_PINNED_ROOT_ORDER_RESEAL
+      observed: REJECT
+      secure_contract_passed: true
+      evidence: authority_root independently pinned digest mismatch
+    - test_id: I03_INPUT_ONLY_RECORD_RESEAL
+      observed: FAIL
+      secure_contract_passed: true
+      evidence: FROZEN_REGISTRY_ROOT_MISMATCH plus reviewer revocation
+    - test_id: I04_SCENARIO_INVENTORY_TRUNCATED
+      observed: PASS
+      secure_contract_passed: false
+      evidence: one PASS scenario can replace the 32-scenario inventory without changing the pinned registry root
+    - test_id: I05_FAILURE_TRIAL_CHERRY_PICKED
+      observed: PASS
+      secure_contract_passed: false
+      evidence: the failing trial and failure ref can both be omitted while two PASS trials remain
+    - test_id: I06_EFFECT_EVIDENCE_OMITTED
+      observed: PASS
+      secure_contract_passed: false
+      evidence: an empty effect_refs list bypasses receipt and readback checks
+    - test_id: I07_FAILURE_ARTIFACT_OMITTED
+      observed: PASS
+      secure_contract_passed: false
+      evidence: the failure artifact need not be in the scenario artifact projection
+    - test_id: I08_ONLY_PUBLIC_ARTIFACT_RETAINED
+      observed: PASS
+      secure_contract_passed: false
+      evidence: required technical, delivery, acceptance, and failure artifact kinds are not enforced in artifact_refs
+    - test_id: I09_CROSS_CASE_AUTHOR_SUBSTITUTED
+      observed: PASS
+      secure_contract_passed: false
+      evidence: an active CASE.AUTHOR principal from S17 can author S01 because author assignment is not case-scoped
+    - test_id: I10_EVALUATION_TIME_UNROOTED_SHIFT
+      observed: PASS
+      secure_contract_passed: false
+      evidence: suite evaluation_time is outside the pinned root and may move while remaining inside authorization windows
+    - test_id: I11_BUILD_ID_UNROOTED_RENAME
+      observed: PASS
+      secure_contract_passed: false
+      evidence: build_id is validated only as an identifier and is absent from result provenance
+    - test_id: I12_SCENARIO_ID_UNROOTED_RENAME
+      observed: PASS
+      secure_contract_passed: false
+      evidence: scenario identity is not pinned to the authority root
+    - test_id: I13_PUBLICATION_REF_UNRESOLVED
+      observed: REVIEW_REQUIRED
+      secure_contract_passed: true
+      evidence: missing publication resolution cannot PASS
+    - test_id: I14_CROSS_CASE_BUDGET_REF
+      observed: FAIL
+      secure_contract_passed: true
+      evidence: migration budget binding catches the cross-case reference
+    - test_id: I15_CROSS_CASE_EFFECT_REF
+      observed: FAIL
+      secure_contract_passed: true
+      evidence: effect case, task, run, and evidence binding catches the cross-case reference
+    - test_id: I16_INPUT_SELF_REPORTS_VERIFIED_REAL
+      observed: REJECT
+      secure_contract_passed: true
+      evidence: offline runner rejects VERIFIED-REAL before verdict generation
+    - test_id: I17_CROSS_CASE_REVIEWER_REF
+      observed: FAIL
+      secure_contract_passed: true
+      evidence: publication reviewer binding catches the cross-case reference
+    - test_id: I18_AUTHORIZED_REPIN_CRITICAL_ADAPTER_SYNONYM
+      observed: REVIEW_REQUIRED
+      secure_contract_passed: false
+      evidence: >-
+        after simulating an operator-authorized new pinned root, the semantically critical
+        PRIVILEGE.BOUNDARY.DIFFERS string misses the free-text token heuristic and is only RR
+
+fact_checks:
+  external_links:
+    checked_on: "2026-10-01"
+    all_http_200: true
+    urls:
+      - https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+      - https://www.nist.gov/caisi/cheating-ai-agent-evaluations
+      - https://github.com/openclaw/openclaw/releases/tag/v2026.9.6
+      - https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13
+      - https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/
+  release_tag_peeling:
+    openclaw:
+      tag: v2026.9.6
+      tag_object: ce5bbdc244ee937246cc1700d1b224d020c3b599
+      peeled_commit: eb377ac59e6c9fd6c7705028034812becf00271b
+      expected_commit_matches: true
+    hermes:
+      tag: v2026.8.13
+      tag_object: 4e693dc685b5716e7da22656eccc6ece37c5db72
+      peeled_commit: f80f453ae0679347e38abc917c7f94f717bf96c5
+      expected_commit_matches: true
+  openclaw_2026_9_4_boundary:
+    historical_marker_line: 486
+    historical_environment_line: 494
+    historical_command_expectation_line: 785
+    current_fixed_baseline_lines: [27, 2552, 2576]
+    finding: PASS_WITH_LIMITATION
+    rationale: >-
+      The 2026.9.4/3a9d69d material is explicitly introduced as RECONSTRUCTED historical
+      material and is separated from the current v2026.9.6/eb377ac baseline. Commands inside
+      that imported block remain non-current examples and must stay under the line-486 warning.
+
+gate_decisions:
+  frozen_fixture_reproduction: PASS
+  author_79_negative_regression: PASS
+  pinned_root_reseal_control: PASS
+  synthetic_machine_control: REVIEW_REQUIRED
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: not_reviewed
+  editor_gate: not_reviewed
+  chief_editor_gate: not_reviewed
+  release_candidate_authorized: false
+
+real_execution_boundary:
+  real_cases_executed: 0
+  real_openclaw_runs: 0
+  real_hermes_runs: 0
+  real_cross_runtime_migrations: 0
+  real_publication_authorizations_verified: 0
+  real_external_effects_executed: 0
+  conclusion: >-
+    The deterministic synthetic fixture is reproducible, but neither it nor this review proves
+    a real case, a real publication authorization, a real platform effect, or a real
+    OpenClaw-to-Hermes migration.
+
+validation:
+  python_compile: PASS
+  reproduction_yaml_parse: PASS
+  review_frontmatter_parse: PASS
+  review_local_links: PASS
+  trailing_whitespace: PASS
+  formal_validator:
+    status: PASS
+    warnings: 0
+    c23_cjk_chars: 23070
+  book_validator:
+    status: REVIEW_REQUIRED
+    markdown_files_scanned: 464
+    local_links_checked: 1591
+    error: complete manuscript is missing or stale
+    attribution: >-
+      The generated complete manuscript is stale relative to concurrent canonical chapter work.
+      This review is limited to C23 review files and therefore did not rebuild or modify the
+      generated full-book artifact.
+  git_diff_check: PASS
+  allowed_scope_files:
+    - v2.2-independent-fact-cross-review.md
+    - v2.2-independent-negative-tests.py
+    - v2.2-independent-reproduction-20261001.yaml

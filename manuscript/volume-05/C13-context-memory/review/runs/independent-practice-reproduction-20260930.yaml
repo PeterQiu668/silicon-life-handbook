@@ -1,0 +1,66 @@
+{
+  "schema_version": "c10-independent-practice-reproduction.v1",
+  "review_id": "PR-C10-001",
+  "chapter_id": "C10",
+  "reviewed_on": "2026-09-30",
+  "reviewer": "non-author-practice-reviewer:root-editorial-orchestrator",
+  "independent_from_author": true,
+  "safe_scope": {
+    "fresh_temp_copies": 2,
+    "network_calls_observed": 0,
+    "credentials_used": false,
+    "real_subject_or_customer_data": false,
+    "external_side_effects": false,
+    "author_outputs_overwritten": false,
+    "os_level_network_sandbox_proven": false
+  },
+  "source_integrity": {
+    "runner_byte_sha256": "11c79fca0818b7ee4274107ea507f83388b14fbfa4c59daa0a518dcfd476ba0c",
+    "runner_bytes": 5741,
+    "input_byte_sha256": "87829522b9ce635620e55680ef169f5b6d1629cb4669035f3384b4d0592eadca",
+    "input_bytes": 6103,
+    "normalized_input_sha256_reported_by_runner": "297acc2ae6e559792b8a43166be580ebfadcc47e8c81f4ead06a297550eff0b1"
+  },
+  "reproduction": {
+    "result_sha256_run_a": "a08da3513f7b9d6bd1f4af792d2b7add8019bf7128fa6c768128f10a0b73fe8c",
+    "result_sha256_run_b": "a08da3513f7b9d6bd1f4af792d2b7add8019bf7128fa6c768128f10a0b73fe8c",
+    "result_sha256_author_saved": "a08da3513f7b9d6bd1f4af792d2b7add8019bf7128fa6c768128f10a0b73fe8c",
+    "summary_sha256_run_a": "9971ab8278f8ce93636abab22753c3efcb8514b5aad2a265d6e5fb6c6c5d54a3",
+    "summary_sha256_run_b": "9971ab8278f8ce93636abab22753c3efcb8514b5aad2a265d6e5fb6c6c5d54a3",
+    "summary_sha256_author_saved": "9971ab8278f8ce93636abab22753c3efcb8514b5aad2a265d6e5fb6c6c5d54a3",
+    "byte_identical_across_fresh_runs_and_author_saved": true
+  },
+  "input_checks": {
+    "tasks": 12,
+    "unique_task_ids": 12,
+    "trials": 24,
+    "unique_trial_ids": 24,
+    "orphan_trials": 0,
+    "trials_per_task": 2,
+    "conditions": {"C0": 1, "C1": 5, "C2": 4, "C3": 2},
+    "cases": {"CASE-A": 3, "CASE-B": 4, "CASE-C": 5},
+    "scenario_count": 12
+  },
+  "reproduced_results": {
+    "gate_distribution": {"PASS": 12, "FAIL": 10, "REVIEW_REQUIRED": 2},
+    "hard_failure_trials": 10,
+    "hard_failure_signal_occurrences": 13,
+    "review_required_trials": ["I1-T02", "F1-T02"],
+    "memory_created_authority": false,
+    "mat_and_au_kept_separate": true,
+    "unknown_mapped_to_review_required": true
+  },
+  "exercise_verdicts": {
+    "X-C10-01": "PASS_IN_SYNTHETIC_ROUTING_SCOPE",
+    "X-C10-02": "REVIEW_REQUIRED",
+    "overall_practice_gate": "REVIEW_REQUIRED"
+  },
+  "open_limitations": [
+    "The runner evaluates pre-labelled observed outcomes; it does not execute a real memory store, index, compactor, deletion engine, or policy engine.",
+    "No explicit stateful restore test proves a tombstone prevents a deleted value from reappearing after backup restoration.",
+    "No concurrent writer-fence or second-scan deletion trial is executed.",
+    "No real provider, OpenClaw, Hermes, Muse, human, data owner, customer, external store, or backup system participated.",
+    "The environment.network field is a fixture declaration, not proof of OS-level isolation."
+  ],
+  "release_candidate_authorized": false
+}

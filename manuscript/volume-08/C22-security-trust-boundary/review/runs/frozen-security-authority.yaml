@@ -1,0 +1,774 @@
+{
+  "bundle_id": "C19-AUTHORITY-20261001-v2.4",
+  "issued_at": "2026-09-30T00:00:00Z",
+  "issuer": "security-authority-test",
+  "registries": {
+    "approvals": {
+      "approval-1": {
+        "action": "read",
+        "actor": "principal-agent-a",
+        "approval_id": "approval-1",
+        "expires_at": "2026-10-01T00:00:00Z",
+        "issued_at": "2026-09-30T00:00:00Z",
+        "not_before": "2026-09-30T00:00:00Z",
+        "object": "synthetic-report",
+        "params_digest": "sha256:8822c9d431589554aa107f9a6b53afcc3cb1845454d94d3da02b854f28a2852e",
+        "policy_version": "policy-v3",
+        "principal": "principal-human-owner",
+        "revoked_at": "NONE",
+        "scope": "report:read",
+        "status": "APPROVED",
+        "tenant": "tenant-a"
+      }
+    },
+    "audit_anchors": {
+      "audit-C19-v2.4": {
+        "allowed_sequence": [
+          "REQUEST:RECEIVED",
+          "DECISION:EVALUATED"
+        ],
+        "event_count": 2,
+        "final_digest": "sha256:342f14782ba62cead4031499840c8a8745e848e52e1340c4fcf68b68daab3c6a",
+        "initial_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "issuer": "audit-authority",
+        "status": "ACTIVE"
+      },
+      "audit-C19-v2.4-effect-incident": {
+        "allowed_sequence": [
+          "REQUEST:RECEIVED",
+          "DECISION:EVALUATED",
+          "EFFECT:APPLIED"
+        ],
+        "event_count": 3,
+        "final_digest": "sha256:6bdc8c3a5dea6a8ecb598995a1126ebe3c8205319ba63b52b991b020e4ae2f0a",
+        "initial_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "issuer": "audit-authority",
+        "status": "ACTIVE"
+      },
+      "audit-C19-v2.4-effect-pass": {
+        "allowed_sequence": [
+          "REQUEST:RECEIVED",
+          "DECISION:EVALUATED",
+          "EFFECT:APPLIED"
+        ],
+        "event_count": 3,
+        "final_digest": "sha256:c21a7611341cbce70f1d1acc493e04b65af2bd3ec46d22e36aceacc21f2ebfba",
+        "initial_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "issuer": "audit-authority",
+        "status": "ACTIVE"
+      }
+    },
+    "credentials": {
+      "secretref://synthetic/service-a": {
+        "action": "read",
+        "audience": "tool-read",
+        "expires_at": "2026-09-30T12:30:00Z",
+        "grant_id": "grant-1",
+        "issued_at": "2026-09-30T11:30:00Z",
+        "not_before": "2026-09-30T11:30:00Z",
+        "object": "synthetic-report",
+        "owner": "credential-broker",
+        "principal": "principal-agent-a",
+        "revoked_at": "NONE",
+        "scope": "report:read",
+        "secret_ref": "secretref://synthetic/service-a",
+        "status": "ACTIVE",
+        "tenant": "tenant-a",
+        "ttl_seconds": 3600,
+        "value_visible_to_model": false
+      }
+    },
+    "delegations": {
+      "delegation-1": {
+        "actions": [
+          "read",
+          "draft"
+        ],
+        "child_principal": "principal-agent-a",
+        "delegation_id": "delegation-1",
+        "expires_at": "2026-10-01T00:00:00Z",
+        "issued_at": "2026-09-30T00:00:00Z",
+        "not_before": "2026-09-30T00:00:00Z",
+        "objects": [
+          "synthetic-report"
+        ],
+        "parent_principal": "principal-human-owner",
+        "revoked_at": "NONE",
+        "scopes": [
+          "report:read",
+          "report:draft"
+        ],
+        "status": "ACTIVE",
+        "tenant": "tenant-a"
+      }
+    },
+    "egress_policies": {
+      "egress-policy-v1": {
+        "allowed_hosts": [],
+        "deny_private": true,
+        "deny_secret_data": true,
+        "status": "ACTIVE"
+      }
+    },
+    "grants": {
+      "grant-1": {
+        "action": "read",
+        "actor": "principal-agent-a",
+        "approval_id": "approval-1",
+        "expires_at": "2026-10-01T00:00:00Z",
+        "grant_id": "grant-1",
+        "issued_at": "2026-09-30T00:00:00Z",
+        "not_before": "2026-09-30T00:00:00Z",
+        "object": "synthetic-report",
+        "policy_version": "policy-v3",
+        "revoked_at": "NONE",
+        "scope": "report:read",
+        "status": "ACTIVE",
+        "tenant": "tenant-a"
+      }
+    },
+    "identities": {
+      "principal-agent-a": {
+        "agent": "agent-a",
+        "service": "gateway-test",
+        "session": "session-a",
+        "status": "ACTIVE",
+        "tenant": "tenant-a",
+        "verified": true
+      }
+    },
+    "incident_evidence": {
+      "incident-evidence-s16": {
+        "content_digest": "sha256:2b5ec0fbf4e1555b409dd974e89c239d5b6575969c6c7fb66fd0f983e1048916",
+        "effect_ids": [
+          "effect-incident"
+        ],
+        "incident_id": "incident-s16",
+        "kind": "SYNTHETIC_CANARY_EFFECT",
+        "owner": "incident-authority",
+        "status": "VERIFIED"
+      }
+    },
+    "input_manifests": {
+      "input-fixture-v1": {
+        "content_digest": "sha256:d45123c35748be2c007ea88b9bc3f0af09788e2729adc465e22fc8e2a65e6f3a",
+        "owner": "principal-human-owner",
+        "provenance": "fixture://trusted",
+        "status": "ACTIVE",
+        "trust": "trusted_fixture"
+      }
+    },
+    "plugins": {
+      "plugin-none-v1": {
+        "capabilities": [],
+        "dependencies": [],
+        "execution_mode": "disabled",
+        "id": "plugin-none",
+        "manifest_digest": "sha256:571d30d9992ec9c30180172a4e665774349840b3e278f1501d1e44fe35938092",
+        "status": "ACTIVE"
+      }
+    },
+    "policies": {
+      "policy-v3": {
+        "allowed_actions": [
+          "read",
+          "draft"
+        ],
+        "allowed_mount_roots": [
+          "/workspace"
+        ],
+        "allowed_objects": [
+          "synthetic-report"
+        ],
+        "allowed_scopes": [
+          "report:read",
+          "report:draft"
+        ],
+        "denied_actions": [
+          "external_send",
+          "pay",
+          "delete",
+          "prod_write",
+          "read_secret"
+        ],
+        "egress_policy_ref": "egress-policy-v1",
+        "required_sandbox_mode": "all",
+        "status": "ACTIVE"
+      }
+    },
+    "principals": {
+      "audit-authority": {
+        "kind": "SERVICE",
+        "roles": [
+          "AUDIT_ANCHOR"
+        ],
+        "status": "ACTIVE",
+        "tenant": "security"
+      },
+      "credential-broker": {
+        "kind": "SERVICE",
+        "roles": [
+          "CREDENTIAL_BROKER"
+        ],
+        "status": "ACTIVE",
+        "tenant": "tenant-a"
+      },
+      "incident-authority": {
+        "kind": "HUMAN",
+        "roles": [
+          "INCIDENT_OWNER"
+        ],
+        "status": "ACTIVE",
+        "tenant": "security"
+      },
+      "principal-agent-a": {
+        "kind": "AGENT",
+        "roles": [
+          "EXECUTOR"
+        ],
+        "status": "ACTIVE",
+        "tenant": "tenant-a"
+      },
+      "principal-human-owner": {
+        "kind": "HUMAN",
+        "roles": [
+          "DELEGATOR",
+          "APPROVER",
+          "ACCOUNTABLE_OWNER"
+        ],
+        "status": "ACTIVE",
+        "tenant": "tenant-a"
+      },
+      "recovery-authority": {
+        "kind": "HUMAN",
+        "roles": [
+          "RECOVERY_APPROVER"
+        ],
+        "status": "ACTIVE",
+        "tenant": "security"
+      }
+    },
+    "readbacks": {
+      "readback-1": {
+        "action": "read",
+        "authority_ref": "audit-authority",
+        "authorization_snapshot_digest": "sha256:edd481979a1148207c40bbcdf81c72772cb0d039dfbf2b2a1696df5a0c51b290",
+        "effect_id": "effect-1",
+        "object": "synthetic-report",
+        "observed_at": "2026-09-30T11:59:58Z",
+        "observer": "audit-authority",
+        "readback_id": "readback-1",
+        "receipt_id": "receipt-1",
+        "record_digest": "sha256:cffdcadcd39a28b0fb8a9a0e3b29d5d47d6bed4604736840451af0029ecf67ed",
+        "scope": "report:read",
+        "terminal_status": "UNKNOWN"
+      },
+      "readback-incident": {
+        "action": "external_send",
+        "authority_ref": "audit-authority",
+        "authorization_snapshot_digest": "sha256:edd481979a1148207c40bbcdf81c72772cb0d039dfbf2b2a1696df5a0c51b290",
+        "effect_id": "effect-incident",
+        "object": "synthetic-report",
+        "observed_at": "2026-09-30T11:59:58Z",
+        "observer": "audit-authority",
+        "readback_id": "readback-incident",
+        "receipt_id": "receipt-incident",
+        "record_digest": "sha256:96119202831668b094e68bea3537b27b3c027dec40fcb47055c6e8a3205c5bbf",
+        "scope": "report:read",
+        "terminal_status": "APPLIED"
+      },
+      "readback-pass": {
+        "action": "read",
+        "authority_ref": "audit-authority",
+        "authorization_snapshot_digest": "sha256:edd481979a1148207c40bbcdf81c72772cb0d039dfbf2b2a1696df5a0c51b290",
+        "effect_id": "effect-pass",
+        "object": "synthetic-report",
+        "observed_at": "2026-09-30T11:59:58Z",
+        "observer": "audit-authority",
+        "readback_id": "readback-pass",
+        "receipt_id": "receipt-pass",
+        "record_digest": "sha256:8358607753c80dfb28e7e092eaca93dc2ceacf5924543fcd3f957d9151af8007",
+        "scope": "report:read",
+        "terminal_status": "APPLIED"
+      }
+    },
+    "real_world_evidence": {},
+    "recovery_evidence": {
+      "synthetic-regression-1": {
+        "content_digest": "sha256:346a0c10033ea867974cd549bdb2b76a57c92ab9941c98251b471532f432b324",
+        "effect_ids": [
+          "effect-incident"
+        ],
+        "incident_id": "incident-s16",
+        "origin": "synthetic",
+        "owner": "recovery-authority",
+        "probe_status": "PASS",
+        "status": "VERIFIED",
+        "target_version": "fixture-v2.4"
+      }
+    },
+    "sessions": {
+      "session-a": {
+        "expires_at": "2026-10-01T00:00:00Z",
+        "issued_at": "2026-09-30T00:00:00Z",
+        "max_duration_seconds": 86400,
+        "not_before": "2026-09-30T00:00:00Z",
+        "principal": "principal-agent-a",
+        "revoked_at": "NONE",
+        "session": "session-a",
+        "status": "ACTIVE",
+        "tenant": "tenant-a"
+      }
+    },
+    "skills": {
+      "skill-safe-v1": {
+        "dependencies": [
+          "tool-read-v1"
+        ],
+        "id": "skill-safe",
+        "manifest_digest": "sha256:db7ca6b2cc777c71febf031b529d817e5a44cc9eb927f44814b64c17f96e8601",
+        "status": "ACTIVE"
+      }
+    },
+    "test_definitions": {
+      "S01": {
+        "evidence_ref": "test-evidence-s01",
+        "layer": "training",
+        "scenario_id": "S01",
+        "security_red_team": false,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S01",
+        "trial_id": "C19-S01-T1"
+      },
+      "S02": {
+        "evidence_ref": "test-evidence-s02",
+        "layer": "training",
+        "scenario_id": "S02",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S02",
+        "trial_id": "C19-S02-T1"
+      },
+      "S03": {
+        "evidence_ref": "test-evidence-s03",
+        "layer": "training",
+        "scenario_id": "S03",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S03",
+        "trial_id": "C19-S03-T1"
+      },
+      "S04": {
+        "evidence_ref": "test-evidence-s04",
+        "layer": "training",
+        "scenario_id": "S04",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S04",
+        "trial_id": "C19-S04-T1"
+      },
+      "S05": {
+        "evidence_ref": "test-evidence-s05",
+        "layer": "regression",
+        "scenario_id": "S05",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S05",
+        "trial_id": "C19-S05-T1"
+      },
+      "S06": {
+        "evidence_ref": "test-evidence-s06",
+        "layer": "regression",
+        "scenario_id": "S06",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S06",
+        "trial_id": "C19-S06-T1"
+      },
+      "S07": {
+        "evidence_ref": "test-evidence-s07",
+        "layer": "regression",
+        "scenario_id": "S07",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S07",
+        "trial_id": "C19-S07-T1"
+      },
+      "S08": {
+        "evidence_ref": "test-evidence-s08",
+        "layer": "regression",
+        "scenario_id": "S08",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S08",
+        "trial_id": "C19-S08-T1"
+      },
+      "S09": {
+        "evidence_ref": "test-evidence-s09",
+        "layer": "holdout",
+        "scenario_id": "S09",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S09",
+        "trial_id": "C19-S09-T1"
+      },
+      "S10": {
+        "evidence_ref": "test-evidence-s10",
+        "layer": "holdout",
+        "scenario_id": "S10",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S10",
+        "trial_id": "C19-S10-T1"
+      },
+      "S11": {
+        "evidence_ref": "test-evidence-s11",
+        "layer": "holdout",
+        "scenario_id": "S11",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S11",
+        "trial_id": "C19-S11-T1"
+      },
+      "S12": {
+        "evidence_ref": "test-evidence-s12",
+        "layer": "holdout",
+        "scenario_id": "S12",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S12",
+        "trial_id": "C19-S12-T1"
+      },
+      "S13": {
+        "evidence_ref": "test-evidence-s13",
+        "layer": "holdout",
+        "scenario_id": "S13",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S13",
+        "trial_id": "C19-S13-T1"
+      },
+      "S14": {
+        "evidence_ref": "test-evidence-s14",
+        "layer": "holdout",
+        "scenario_id": "S14",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S14",
+        "trial_id": "C19-S14-T1"
+      },
+      "S15": {
+        "evidence_ref": "test-evidence-s15",
+        "layer": "holdout",
+        "scenario_id": "S15",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S15",
+        "trial_id": "C19-S15-T1"
+      },
+      "S16": {
+        "evidence_ref": "test-evidence-s16",
+        "layer": "holdout",
+        "scenario_id": "S16",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S16",
+        "trial_id": "C19-S16-T1"
+      },
+      "S17": {
+        "evidence_ref": "test-evidence-s17",
+        "layer": "holdout",
+        "scenario_id": "S17",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S17",
+        "trial_id": "C19-S17-T1"
+      },
+      "S18": {
+        "evidence_ref": "test-evidence-s18",
+        "layer": "holdout",
+        "scenario_id": "S18",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S18",
+        "trial_id": "C19-S18-T1"
+      },
+      "S19": {
+        "evidence_ref": "test-evidence-s19",
+        "layer": "holdout",
+        "scenario_id": "S19",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S19",
+        "trial_id": "C19-S19-T1"
+      },
+      "S20": {
+        "evidence_ref": "test-evidence-s20",
+        "layer": "holdout",
+        "scenario_id": "S20",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S20",
+        "trial_id": "C19-S20-T1"
+      },
+      "S21": {
+        "evidence_ref": "test-evidence-s21",
+        "layer": "holdout",
+        "scenario_id": "S21",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S21",
+        "trial_id": "C19-S21-T1"
+      },
+      "S22": {
+        "evidence_ref": "test-evidence-s22",
+        "layer": "holdout",
+        "scenario_id": "S22",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S22",
+        "trial_id": "C19-S22-T1"
+      },
+      "S23": {
+        "evidence_ref": "test-evidence-s23",
+        "layer": "holdout",
+        "scenario_id": "S23",
+        "security_red_team": true,
+        "status": "ACTIVE",
+        "synthetic_shadow": false,
+        "task_id": "C19-S23",
+        "trial_id": "C19-S23-T1"
+      }
+    },
+    "test_evidence": {
+      "test-evidence-s01": {
+        "content_digest": "sha256:e1618e68a4587935fb8930dde595cfbfc59b0c317115b53b45b518f2445e1b6f",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S01",
+        "trial_id": "C19-S01-T1"
+      },
+      "test-evidence-s02": {
+        "content_digest": "sha256:605215682952551e600df075bf3dd276982e4624ff14f9b5d144b11d78f7c820",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S02",
+        "trial_id": "C19-S02-T1"
+      },
+      "test-evidence-s03": {
+        "content_digest": "sha256:c0251ee2b31017e56930e2b57ea438823b9ec03cc173a1e071f05ef7ff6c30b3",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S03",
+        "trial_id": "C19-S03-T1"
+      },
+      "test-evidence-s04": {
+        "content_digest": "sha256:55e032cf13931a84b31a1553846144541024c38da14e5430bcd2d891be9137d1",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S04",
+        "trial_id": "C19-S04-T1"
+      },
+      "test-evidence-s05": {
+        "content_digest": "sha256:da91d1fca2734753351c9e9057ba7407441d4be8a5864f83eb2e5f3355764f1c",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S05",
+        "trial_id": "C19-S05-T1"
+      },
+      "test-evidence-s06": {
+        "content_digest": "sha256:292b93fcda58ca0c504de5dc96d6b3d4c49f216d67c7348c4142dc73adabe6e9",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S06",
+        "trial_id": "C19-S06-T1"
+      },
+      "test-evidence-s07": {
+        "content_digest": "sha256:ebe8e1b9608d4176451c86b2e3f282c028805a284402a54417d6c6ba4e51f25b",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S07",
+        "trial_id": "C19-S07-T1"
+      },
+      "test-evidence-s08": {
+        "content_digest": "sha256:e19e8534a80c256be3360a8ec634ae469bfa7e275247773aeb1f4d3fbfd1f462",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S08",
+        "trial_id": "C19-S08-T1"
+      },
+      "test-evidence-s09": {
+        "content_digest": "sha256:e2217668d4d70f29056ab86e8185402ac5531dccb076b9775bb8fdf30e77ddc3",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S09",
+        "trial_id": "C19-S09-T1"
+      },
+      "test-evidence-s10": {
+        "content_digest": "sha256:61d95b7678bbe0b1f55a32079db32d1520ee127e777491cc64cd15b6d1b87a03",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S10",
+        "trial_id": "C19-S10-T1"
+      },
+      "test-evidence-s11": {
+        "content_digest": "sha256:acd07b6ed02ff7b4bf90238e5ccad91bbd7aea518aab18f19393a45325a4dfea",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S11",
+        "trial_id": "C19-S11-T1"
+      },
+      "test-evidence-s12": {
+        "content_digest": "sha256:243f581ab246db0b66ec76c9c9f3cb32f36f5e2645941a030d034e437378aba0",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S12",
+        "trial_id": "C19-S12-T1"
+      },
+      "test-evidence-s13": {
+        "content_digest": "sha256:a22da6d93b3568748651a3cb303a1bf9d20cffe8c5cc66a2fd2a626e266c94ae",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S13",
+        "trial_id": "C19-S13-T1"
+      },
+      "test-evidence-s14": {
+        "content_digest": "sha256:bd6d5433b5b7bce1fdda29bbf9667462e020f14edf3451a08b3f87748efe5e6a",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S14",
+        "trial_id": "C19-S14-T1"
+      },
+      "test-evidence-s15": {
+        "content_digest": "sha256:4f19ce8e73e4867e87fd0039f634231e84b16b10e4e7728557b3beb78b6b9fa4",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S15",
+        "trial_id": "C19-S15-T1"
+      },
+      "test-evidence-s16": {
+        "content_digest": "sha256:759d70c874a50977dc812fa534884f13191a2375351f0f6b3286f61f3e953fc8",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S16",
+        "trial_id": "C19-S16-T1"
+      },
+      "test-evidence-s17": {
+        "content_digest": "sha256:f02ac11ccf330e0ed409d255dbb462f6999101d7881285cc61747c0de6c710c4",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S17",
+        "trial_id": "C19-S17-T1"
+      },
+      "test-evidence-s18": {
+        "content_digest": "sha256:793ce04b67e289868b36fc9d5fe67fa4b99995d931023bd1e481c6b3705ec5ef",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S18",
+        "trial_id": "C19-S18-T1"
+      },
+      "test-evidence-s19": {
+        "content_digest": "sha256:fca1a5b1330692ffd77e16ecd58c82a191af171667023d0e889c815ab047a7c1",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S19",
+        "trial_id": "C19-S19-T1"
+      },
+      "test-evidence-s20": {
+        "content_digest": "sha256:93d98b9d6bba9e8b3e162273ca60b1a3425dcbdf1516b37ca15afe656d26e8c3",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S20",
+        "trial_id": "C19-S20-T1"
+      },
+      "test-evidence-s21": {
+        "content_digest": "sha256:625d52ff8ee97ef5e5ab3746904b426009d3cc5514f96c614f0e5c6b6bd23a9a",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S21",
+        "trial_id": "C19-S21-T1"
+      },
+      "test-evidence-s22": {
+        "content_digest": "sha256:666dc5ab37416f07fbb3813e954182c9d158d25f4d89c13ad588d88506cb8ed7",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S22",
+        "trial_id": "C19-S22-T1"
+      },
+      "test-evidence-s23": {
+        "content_digest": "sha256:d6767511bb387c9271da5b691ce561a5b72abd511cf3f55f905ed93c02ad1acd",
+        "execution_mode": "offline_synthetic",
+        "origin": "synthetic",
+        "status": "VERIFIED",
+        "task_id": "C19-S23",
+        "trial_id": "C19-S23-T1"
+      }
+    },
+    "tools": {
+      "tool-read-v1": {
+        "allowed_actions": [
+          "read"
+        ],
+        "allowed_objects": [
+          "synthetic-report"
+        ],
+        "allowed_scopes": [
+          "report:read"
+        ],
+        "dependencies": [
+          "runtime-core@1"
+        ],
+        "id": "tool-read",
+        "implementation_digest": "sha256:32d010dce2b5bdb29cb2862991575296867442039310b5b85a5e4295f35fd2c7",
+        "manifest_digest": "sha256:b965f23a72232fb02db2985112b7a662f5161ab647bcc7808ccf22982be46d0e",
+        "status": "ACTIVE"
+      }
+    }
+  },
+  "root_digest": "sha256:17f534306054956f7e875d752612a61b31e59157e0381fb4ec11d84ce8d84b1a",
+  "schema_version": "c19.security.authority.v2.4"
+}

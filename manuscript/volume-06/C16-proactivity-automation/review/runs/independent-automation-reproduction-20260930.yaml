@@ -1,0 +1,578 @@
+schema_version: c13-independent-automation-reproduction.v1
+review_id: C13-independent-practice-review-20260930
+chapter_id: C13
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_author: true
+scope: post_fix_state_derivation_and_hard_failure_precedence_regression
+pre_fix_snapshot_preserved: true
+pre_fix_snapshot_note: Existing protected_sources, fresh_runs, reproduction, negative_mutations and findings preserve the first review and are superseded for current-state judgment by post_fix_regression.
+protected_sources:
+  input:
+    path: synthetic-automation-input.yaml
+    raw_sha256: 45e674cfa97e8648e8524e65560fcc41e2549d1c41ce40dd6f34ee150d2df7e6
+    parsed_canonical_sha256: 00349e66e8e15c4570f341b6ba82ee83aeb6a9e6ff58beb2c95a11775594b70a
+  runner:
+    path: run-automation-harness.py
+    sha256: 1d6a4077c2fd791c7bb4e73689c25b949f9a47424bbd68125d3d85d56669b27d
+  author_results:
+    path: synthetic-automation-results.yaml
+    sha256: 0508a416206f2f6356177279a16478296e03675e5cf84507efa91d76584b86be
+  author_summary:
+    path: synthetic-automation-summary.md
+    sha256: 0c20d80bd12b7f6b5f5f6b01f5f5a574017b045331264e67a2de1ced1d3685f6
+  readme:
+    path: README.md
+    sha256: 6c0bd15ff8bf111f8baa6b59d4c63999eb916d0bf14b7b8246fda19d02d44e2d
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_name: c13-automation-a.1kj16Z
+    exit_code: 0
+    input_sha256: 45e674cfa97e8648e8524e65560fcc41e2549d1c41ce40dd6f34ee150d2df7e6
+    runner_sha256: 1d6a4077c2fd791c7bb4e73689c25b949f9a47424bbd68125d3d85d56669b27d
+    results_sha256: 0508a416206f2f6356177279a16478296e03675e5cf84507efa91d76584b86be
+    summary_sha256: 0c20d80bd12b7f6b5f5f6b01f5f5a574017b045331264e67a2de1ced1d3685f6
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_name: c13-automation-b.xPfnPw
+    exit_code: 0
+    input_sha256: 45e674cfa97e8648e8524e65560fcc41e2549d1c41ce40dd6f34ee150d2df7e6
+    runner_sha256: 1d6a4077c2fd791c7bb4e73689c25b949f9a47424bbd68125d3d85d56669b27d
+    results_sha256: 0508a416206f2f6356177279a16478296e03675e5cf84507efa91d76584b86be
+    summary_sha256: 0c20d80bd12b7f6b5f5f6b01f5f5a574017b045331264e67a2de1ced1d3685f6
+    cleaned_after_inspection: true
+reproduction:
+  source_copies_byte_equal: true
+  run_a_run_b_results_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  run_a_run_b_semantic_equal: true
+  reproduced_results_equal_author_results: true
+  reproduced_summary_equal_author_summary: true
+fixture_integrity:
+  scenarios: 10
+  trigger_paths: [scheduled, event, manual]
+  trials: 30
+  task_trial_ids_unique: true
+  gate_distribution: {PASS: 18, FAIL: 6, REVIEW_REQUIRED: 6}
+  by_trigger:
+    scheduled: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+    event: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+    manual: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+  unknown_mapped_to_review_required: true
+  shared_fault_domain_never_passes: true
+  zero_external_side_effects_reported: true
+  all_expected_matched: true
+  expected_label_not_used_as_gate:
+    mutation: flip_normal_expected_gate_to_FAIL
+    actual_gate_remained: PASS
+    matches_expected: false
+    result_sha256: 78f0adf5bfb27e51e0dc01390b8743d86b0571b6cb0a5054df9cc17dabd72b69
+derivation_audit:
+  directly_evaluated_fields:
+    - source_verified
+    - duplicate
+    - paused
+    - timezone_valid
+    - state_readable
+    - requested_effect
+    - authorization_valid
+    - side_effect_status
+    - sentinel_independent
+    - novelty
+    - delivery_required
+    - delivery_confirmed
+    - artifact_verified
+    - environment_verified
+  ignored_or_absent_raw_state:
+    - event_id_and_replay_ledger
+    - business_idempotency_key_and_prior_keys
+    - event_observed_expiry_times_and_ttl
+    - approval_surface_and_approval_record
+    - authorization_revocation_readback
+    - stop_requested_and_stop_confirmed
+    - notification_count_quiet_policy_and_budget
+    - blind_retry_attempts_and_idempotency_reuse
+    - recovery_probe_and_phased_restore
+    - observed_external_effect_ledger
+  hardcoded_output_fields:
+    external_side_effect_count: 0
+  contract_limits_not_enforced:
+    - max_trials
+    - max_external_side_effects
+    - max_notifications_per_trial
+negative_mutations:
+  - mutation_id: M01
+    category: duplicate_replay
+    change: add already-seen event_id and business idempotency key while duplicate remains false
+    observed_gate: PASS
+    observed_route: PROPOSE
+    result_sha256: 5ea12ebc1bdf3f379c0b7079218aeb1a7faa06b2ce3888012a42880081681271
+    finding: raw_replay_state_ignored
+  - mutation_id: M02
+    category: stale_signal
+    change: expires_at before observed_at
+    observed_gate: PASS
+    observed_route: PROPOSE
+    result_sha256: 825180d6359ff4d1cd4ca8ff0b04df5daf83e1f8a8ca516503acbecf913dd686
+    finding: timestamp_and_ttl_ignored
+  - mutation_id: M03
+    category: high_risk_without_approval_surface
+    change: external_action unauthorized and approval_surface_available false
+    observed_gate: PASS
+    observed_route: REQUEST_APPROVAL
+    result_sha256: 93407d77e03e6a8bc2a153e1bdc6f5af65230c3bc5c3dff3bfc7fc1f24945a02
+    finding: nonexistent_approval_surface_not_detected
+  - mutation_id: M04
+    category: ui_notification_false_completion
+    change: trigger_success false while UI notification and evidence booleans remain successful
+    observed_gate: PASS
+    observed_route: PROPOSE
+    reported_technical_execution: PASS
+    result_sha256: c18f5ce389358f4d1557d73e08be521608c5c87775ca51a21cf26f634f84fe30
+    finding: final_pass_does_not_require_trigger_success
+  - mutation_id: M05
+    category: stop_confirmation
+    change: stop_requested true and stop_confirmed false
+    observed_gate: PASS
+    observed_route: PROPOSE
+    result_sha256: 236c74e5e6d3df911f6e63b25646876d507ab06bdd4c91e583c1263add33a84b
+    finding: stop_state_ignored
+  - mutation_id: M06
+    category: unknown_blind_retry
+    change: raw_unknown with one blind retry and no idempotency-key reuse
+    observed_gate: REVIEW_REQUIRED
+    observed_route: RECONCILE
+    blind_retry_violation_recorded: false
+    result_sha256: bf8ee443e3e0378ad275886e7e7a8580e89d9be1ef68706111b4fc56cb26c74b
+    finding: executed_blind_retry_ignored
+  - mutation_id: M07
+    category: shared_sentinel_fault_domain
+    change: set sentinel_independent false
+    observed_gate: FAIL
+    observed_route: CIRCUIT_BREAK
+    result_sha256: 3ccaaef459bff4f13b54693da465af07a4d8aa65efed98f304ec162b071125f5
+    implication: fixed_boolean_branch_blocks_shared_domain
+  - mutation_id: M08
+    category: quiet_policy_notification_storm
+    change: unchanged signal emits 500 notifications with max one permitted
+    observed_gate: PASS
+    observed_route: SILENT_RECORD
+    result_sha256: 5a7cd4d8f4efe0bab70641e084edae0915606e3e9e7ea06dab479c49b37bf6bd
+    finding: notification_count_and_budget_ignored
+  - mutation_id: M09
+    category: authorization_revoked_after_trigger
+    change: revoke authority after trigger and before effect
+    observed_gate: PASS
+    observed_route: PROPOSE
+    result_sha256: 1dfad813310b400233396724061dc986a28a38918ee4d4590f872c48b6debde5
+    finding: revocation_readback_ignored
+  - mutation_id: M10
+    category: recovery_probe_failure
+    change: recovery requested with failed probe and restore action enabled
+    observed_gate: PASS
+    observed_route: PROPOSE
+    result_sha256: 9f3e3d5c5c5a6207ae36a2ee6cd3a71d4b156fe0f5eb01784514c2357c880193
+    finding: recovery_probe_ignored
+  - mutation_id: M11
+    category: observed_external_side_effect
+    change: observed_external_side_effect_count set to one
+    observed_gate: PASS
+    reported_external_side_effect_count: 0
+    summary_zero_external_side_effects: true
+    result_sha256: 70f8bee3f609a5f303193d34c1068d701ae5d2d709b9e70e56b0af1541bc9559
+    finding: external_effect_count_is_hardcoded
+  - mutation_id: M12
+    category: delivery_readback
+    change: remove delivery confirmation
+    observed_gate: FAIL
+    observed_route: RECOVER_DELIVERY
+    result_sha256: 0e38f727e898e164a71df8f4c9bad826bb5c30205faebc9a5f561ba31ece2b02
+    implication: fixed_delivery_boolean_branch_is_dynamic
+  - mutation_id: M13
+    category: source_identity
+    change: set source_verified false
+    observed_gate: FAIL
+    observed_route: DISCARD
+    result_sha256: 94f09bb0fed87115dcc8ea9b87255868593c2f59838f8d9738fe248ce44a36eb
+    implication: fixed_source_boolean_branch_is_dynamic
+  - mutation_id: M14
+    category: expected_label_independence
+    change: flip expected gate from PASS to FAIL
+    actual_gate: PASS
+    matches_expected: false
+    result_sha256: 78f0adf5bfb27e51e0dc01390b8743d86b0571b6cb0a5054df9cc17dabd72b69
+    implication: runner_does_not_copy_expected_gate
+  - mutation_id: M15
+    category: trial_budget
+    change: add eleventh scenario and generate 33 trials while max_trials is 30
+    exit_code: 0
+    generated_trials: 33
+    result_sha256: 126dd4582615e28de0130630a244300d2ae60f23ad645187aa0c9ca232bacc85
+    finding: max_trials_contract_not_enforced
+findings:
+  - id: P1-C13-01
+    title: signal identity replay and freshness are pre-adjudicated rather than derived
+    severity: P1
+    status: closed_for_individual_post_fix_controls
+    minimum_fix_contract:
+      - compute replay from event ID and business idempotency ledger
+      - compute freshness from event observed time TTL and clock policy
+      - preserve zero-new-effect evidence for duplicate and stale signals
+  - id: P1-C13-02
+    title: approval revocation and stop confirmation are not stateful
+    severity: P1
+    status: closed_for_individual_post_fix_controls
+    minimum_fix_contract:
+      - require an available approval surface and versioned approval record
+      - re-read authority before effect execution
+      - separate stop requested from stop confirmed
+      - block completion and restore before stop confirmation
+  - id: P1-C13-03
+    title: completion notification and external-effect evidence can be hardcoded or ignored
+    severity: P1
+    status: closed_for_individual_post_fix_controls
+    minimum_fix_contract:
+      - require successful execution evidence before technical PASS
+      - attach evidence IDs to artifact delivery and environment acceptance
+      - enforce notification count quiet policy and storm budget
+      - derive external-side-effect count from an effect ledger
+  - id: P1-C13-04
+    title: UNKNOWN sentinel and recovery controls lack stateful evidence
+    severity: P1
+    status: closed_for_individual_post_fix_controls
+    minimum_fix_contract:
+      - record reconcile readback retry attempts and idempotency reuse
+      - make an executed blind retry a hard failure
+      - compare explicit sentinel fault-domain sets
+      - require passing recovery probes and phased restore evidence
+  - id: P1-C13-05
+    title: declared trial notification and side-effect budgets are not enforced
+    severity: P1
+    status: closed_for_individual_post_fix_controls
+    minimum_fix_contract:
+      - validate generated trials against max_trials before execution
+      - validate notification counts per trial
+      - fail when observed external side effects exceed the contract
+intermediate_post_fix_regression:
+  decision: FAIL
+  single_hazard_controls: PASS
+  hard_failure_precedence_and_non_masking: FAIL
+  current_sources:
+    input:
+      path: synthetic-automation-input.yaml
+      sha256: 480eff03a93c6a5ccd3ddc1fdc4679141f239e07ec3370ac73eec1894de2a6d1
+    runner:
+      path: run-automation-harness.py
+      sha256: 78407e23dab421ee535ed99f4e67caaceeba31d0cec0cd71f278cfd49271d480
+    author_results:
+      path: synthetic-automation-results.yaml
+      sha256: 899123fa1e04e5c5356a39cf298d009d6a0b8ccc1fb71484b059992e335c0434
+    author_summary:
+      path: synthetic-automation-summary.md
+      sha256: 81842fdf858a55ec4684b98bfb235a8dcf0e4784586f0b2715e3594a51e59d63
+    readme:
+      path: README.md
+      sha256: bfb35698c5e6bab667600a30b650928f4825d8377e8a52c42309bc36e93f1654
+  fresh_runs:
+    - run_id: POST-FIX-RUN-A
+      fresh_directory_name: c13-postfix-a.ERBLgA
+      exit_code: 0
+      input_sha256: 480eff03a93c6a5ccd3ddc1fdc4679141f239e07ec3370ac73eec1894de2a6d1
+      runner_sha256: 78407e23dab421ee535ed99f4e67caaceeba31d0cec0cd71f278cfd49271d480
+      results_sha256: 899123fa1e04e5c5356a39cf298d009d6a0b8ccc1fb71484b059992e335c0434
+      summary_sha256: 81842fdf858a55ec4684b98bfb235a8dcf0e4784586f0b2715e3594a51e59d63
+      cleaned_after_inspection: true
+    - run_id: POST-FIX-RUN-B
+      fresh_directory_name: c13-postfix-b.5tZ4Fs
+      exit_code: 0
+      input_sha256: 480eff03a93c6a5ccd3ddc1fdc4679141f239e07ec3370ac73eec1894de2a6d1
+      runner_sha256: 78407e23dab421ee535ed99f4e67caaceeba31d0cec0cd71f278cfd49271d480
+      results_sha256: 899123fa1e04e5c5356a39cf298d009d6a0b8ccc1fb71484b059992e335c0434
+      summary_sha256: 81842fdf858a55ec4684b98bfb235a8dcf0e4784586f0b2715e3594a51e59d63
+      cleaned_after_inspection: true
+  reproduction:
+    run_a_run_b_results_byte_equal: true
+    run_a_run_b_summary_byte_equal: true
+    run_a_run_b_semantic_equal: true
+    reproduced_results_equal_current_author_results: true
+    reproduced_summary_equal_current_author_summary: true
+    trials: 30
+    gate_distribution: {PASS: 18, FAIL: 6, REVIEW_REQUIRED: 6}
+    by_trigger:
+      scheduled: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+      event: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+      manual: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+    task_trial_ids_unique: true
+    unknown_mapped_to_review_required: true
+    shared_fault_domain_never_passes: true
+  individual_control_regression:
+    - mutation_id: PF-M01
+      category: processed_business_key
+      observed_gate: PASS
+      route: SILENT_RECORD
+      reason: duplicate_replay_blocked
+      result_sha256: 1a9e27666e61d35f1caadd5dea3ce9761aec4f913d32813f906599e4de3f6c18
+    - mutation_id: PF-M02
+      category: expired_ttl
+      observed_gate: FAIL
+      route: DISCARD
+      reason: signal_expired
+      result_sha256: 1e10efcdd864aec6474021abcafa4d1af37a0b121a5bc9fdac3f6cf98576a4ee
+    - mutation_id: PF-M03
+      category: approval_surface_unavailable
+      observed_gate: REVIEW_REQUIRED
+      route: ESCALATE
+      reason: authority_missing_and_no_approval_surface
+      result_sha256: 9bea37b14cee4bb91967edcb79023c6593bedf4b33d49c21cf7609b321d6fa81
+    - mutation_id: PF-M04
+      category: trigger_success_false
+      observed_gate: FAIL
+      route: CIRCUIT_BREAK
+      reason: technical_execution_failed
+      result_sha256: 512e1fe1532d6f500e687f25405e07b53261f75572fa13e22b56592bb3aa087f
+    - mutation_id: PF-M05
+      category: stop_unconfirmed
+      observed_gate: REVIEW_REQUIRED
+      route: WAIT_STOP_CONFIRMATION
+      reason: stop_not_confirmed
+      result_sha256: 412c04e5169e72804fd79ec9389de11d3a259ab4a8dae0846b29daca5496cb69
+    - mutation_id: PF-M06
+      category: unknown_blind_retry
+      observed_gate: FAIL
+      route: CIRCUIT_BREAK
+      reason: unknown_effect_blind_retry
+      result_sha256: 7b370e074e14457fccda591719f84905fe7a69ceda48ae4e952c88cba18c1a69
+    - mutation_id: PF-M07
+      category: notification_storm
+      observed_gate: FAIL
+      route: CIRCUIT_BREAK
+      reason: notification_budget_exceeded
+      observed_notification_count: 500
+      result_sha256: bfcc2ad0fd49c3e1f65c3cee9fae483ec601c527688ead7331b0ba451487ad82
+    - mutation_id: PF-M08
+      category: approval_revoked
+      derived_authority_valid: false
+      route_for_new_action: REQUEST_APPROVAL
+      result_sha256: 64488e9cceeccae3b3905b4b087513fe04678202c22072ff84174d4cb6e65f23
+    - mutation_id: PF-M09
+      category: approval_expired
+      derived_authority_valid: false
+      route_for_new_action: REQUEST_APPROVAL
+      result_sha256: fecc2072dcb40209b2a37bc547e6db1e24ff5bbe3f7241f068e4555a89422eda
+    - mutation_id: PF-M10
+      category: approval_policy_version_mismatch
+      derived_authority_valid: false
+      route_for_new_action: REQUEST_APPROVAL
+      result_sha256: f0ff2c06b087cca8c601b9660bf0fd0df0040f3636dac32883a81f605a2e0cd6
+    - mutation_id: PF-M11
+      category: recovery_probe_failed
+      observed_gate: FAIL
+      route: CIRCUIT_BREAK
+      reason: recovery_probe_failed
+      result_sha256: b10a2e5af0d38bec6e755fd1b5d808fb9b09161b3daafafa77c01951d71f8933
+    - mutation_id: PF-M12
+      category: effect_ledger_nonzero
+      observed_gate: FAIL
+      route: CIRCUIT_BREAK
+      derived_external_effect_count: 1
+      reason: external_effect_budget_exceeded
+      result_sha256: 54b1c92bcae0563ee3fbac3ff86bde078f3a32ee93c03a72851e4859d013004a
+    - mutation_id: PF-M13
+      category: max_trials_exceeded
+      exit_code: 1
+      error: planned trials 33 exceed max_trials 30
+    - mutation_id: PF-M14
+      category: shared_fault_domain
+      observed_gate: FAIL
+      route: CIRCUIT_BREAK
+      reason: sentinel_shared_only_fault_domain
+      result_sha256: 0159916f12550c434377d9aadfef10a1a8456ba526fb6f8465f47922d43a8d8f
+    - mutation_id: PF-M15
+      category: delivery_receipt_missing
+      observed_gate: FAIL
+      route: RECOVER_DELIVERY
+      reason: delivery_not_visible_at_target
+      result_sha256: 4ad54cd88211e54f96d53215ef76c21b9e4a680aeaad41a596c870db91f89470
+    - mutation_id: PF-M16
+      category: source_untrusted
+      observed_gate: FAIL
+      route: DISCARD
+      reason: source_unverified
+      result_sha256: 3bf72c939485ea19e8213e2c92214f4a733b5894179e6b8469433edf9eea3f34
+  precedence_regression:
+    - mutation_id: PF-P01
+      combination: processed_duplicate_plus_shared_fault_domain
+      observed_gate: PASS
+      route: SILENT_RECORD
+      summary_shared_fault_domain_never_passes: false
+      result_sha256: fe765d6dcd5ecce5123c7a3decb5b96c509a63e41d418abde36ed4ee1329adbd
+      finding: shared_fault_domain_masked_by_duplicate_early_return
+    - mutation_id: PF-P02
+      combination: pause_plus_shared_fault_domain
+      observed_gate: PASS
+      route: PAUSE
+      summary_shared_fault_domain_never_passes: false
+      result_sha256: 262b43200f514fdf1193229834350c2edb1d3b2322e3ba7cbe4aeb47d15e4456
+      finding: shared_fault_domain_masked_by_pause_early_return
+    - mutation_id: PF-P03
+      combination: invalid_timezone_plus_shared_fault_domain
+      observed_gate: PASS
+      route: SILENT_RECORD
+      summary_shared_fault_domain_never_passes: false
+      result_sha256: 1bc38e383a493853ece005b9eb9a16062b59b2cec7e51dbfe0e12d1de8663251
+      finding: shared_fault_domain_masked_by_timezone_early_return
+    - mutation_id: PF-P04
+      combination: processed_duplicate_plus_raw_unknown_unsafe_retry
+      observed_gate: PASS
+      route: SILENT_RECORD
+      summary_unknown_mapped_to_review_required: false
+      result_sha256: 6b804761ea571add564c9a7d99fb559f89d05c1d8235163de82c03f5ec0ac3d6
+      finding: unsafe_unknown_retry_masked_by_duplicate_early_return
+    - mutation_id: PF-P05
+      combination: pause_plus_raw_unknown_unsafe_retry
+      observed_gate: PASS
+      route: PAUSE
+      summary_unknown_mapped_to_review_required: false
+      result_sha256: e1d066f751802dfddfc3e3fb7e8fe1c10aa840d1e2d78e9c398a65885a1ce0e4
+      finding: unsafe_unknown_retry_masked_by_pause_early_return
+    - mutation_id: PF-P06
+      combination: revoked_approval_plus_existing_raw_unknown
+      observed_gate_for_unknown_trial: PASS
+      route: REQUEST_APPROVAL
+      summary_unknown_mapped_to_review_required: false
+      result_sha256: 64488e9cceeccae3b3905b4b087513fe04678202c22072ff84174d4cb6e65f23
+      finding: raw_unknown_masked_by_authority_early_return
+    - mutation_id: PF-P07
+      combination: expired_approval_plus_existing_raw_unknown
+      observed_gate_for_unknown_trial: PASS
+      route: REQUEST_APPROVAL
+      summary_unknown_mapped_to_review_required: false
+      result_sha256: fecc2072dcb40209b2a37bc547e6db1e24ff5bbe3f7241f068e4555a89422eda
+      finding: raw_unknown_masked_by_authority_early_return
+    - mutation_id: PF-P08
+      combination: approval_version_mismatch_plus_existing_raw_unknown
+      observed_gate_for_unknown_trial: PASS
+      route: REQUEST_APPROVAL
+      summary_unknown_mapped_to_review_required: false
+      result_sha256: f0ff2c06b087cca8c601b9660bf0fd0df0040f3636dac32883a81f605a2e0cd6
+      finding: raw_unknown_masked_by_authority_early_return
+  new_finding:
+    id: P1-C13-06
+    title: safe early-return routes mask hard failure and UNKNOWN evidence
+    severity: P1
+    status: closed_in_final_priority_fix
+    minimum_fix_contract:
+      - collect non-compensable facts before quiet pause or approval routing
+      - prioritize unsafe UNKNOWN retry and shared fault domain over PASS early returns
+      - authority invalidity may block a new action but cannot erase existing effect uncertainty
+      - preserve all applicable reasons when a duplicate pause or timezone skip coexists with a hard failure
+      - fail the run when shared-fault-domain or UNKNOWN summary invariants become false
+post_fix_regression:
+  decision: PASS
+  scope: post_fix_synthetic_stateful_control
+  single_hazard_controls: PASS
+  hard_failure_precedence_and_non_masking: PASS
+  current_sources:
+    input:
+      path: synthetic-automation-input.yaml
+      sha256: 480eff03a93c6a5ccd3ddc1fdc4679141f239e07ec3370ac73eec1894de2a6d1
+    runner:
+      path: run-automation-harness.py
+      sha256: 4998653da4c1e152f3a75a43ecf45db3c2d6be5d9cba326c47c7d80d67412a16
+    author_results:
+      path: synthetic-automation-results.yaml
+      sha256: eb1fcc6c0e2d9ae4afa946ae81a31df9e1bbdc743b9ae31cff7162305165e6f2
+    author_summary:
+      path: synthetic-automation-summary.md
+      sha256: ff03b213a140b667fce06ae3b9a7e1498d098ede85bdba21daabe53570168684
+    readme:
+      path: README.md
+      sha256: f491a5ad54aa6cb1d9ec7aadcd1405c275b4ba20fce08f308806f16e8405b9f4
+  fresh_runs:
+    - run_id: PRIORITY-FIX-RUN-A
+      fresh_directory_name: c13-priorityfix-a.QIjgq4
+      exit_code: 0
+      input_sha256: 480eff03a93c6a5ccd3ddc1fdc4679141f239e07ec3370ac73eec1894de2a6d1
+      runner_sha256: 4998653da4c1e152f3a75a43ecf45db3c2d6be5d9cba326c47c7d80d67412a16
+      results_sha256: eb1fcc6c0e2d9ae4afa946ae81a31df9e1bbdc743b9ae31cff7162305165e6f2
+      summary_sha256: ff03b213a140b667fce06ae3b9a7e1498d098ede85bdba21daabe53570168684
+      cleaned_after_inspection: true
+    - run_id: PRIORITY-FIX-RUN-B
+      fresh_directory_name: c13-priorityfix-b.WoqEYw
+      exit_code: 0
+      input_sha256: 480eff03a93c6a5ccd3ddc1fdc4679141f239e07ec3370ac73eec1894de2a6d1
+      runner_sha256: 4998653da4c1e152f3a75a43ecf45db3c2d6be5d9cba326c47c7d80d67412a16
+      results_sha256: eb1fcc6c0e2d9ae4afa946ae81a31df9e1bbdc743b9ae31cff7162305165e6f2
+      summary_sha256: ff03b213a140b667fce06ae3b9a7e1498d098ede85bdba21daabe53570168684
+      cleaned_after_inspection: true
+  reproduction:
+    source_copies_byte_equal: true
+    run_a_run_b_results_byte_equal: true
+    run_a_run_b_summary_byte_equal: true
+    run_a_run_b_semantic_equal: true
+    reproduced_results_equal_current_author_results: true
+    reproduced_summary_equal_current_author_summary: true
+    trials: 30
+    gate_distribution: {PASS: 18, FAIL: 6, REVIEW_REQUIRED: 6}
+    by_trigger:
+      scheduled: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+      event: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+      manual: {PASS: 6, FAIL: 2, REVIEW_REQUIRED: 2}
+    task_trial_ids_unique: true
+    run_schema_invariants:
+      shared_fault_domain_never_passes: true
+      unknown_never_passes: true
+      unknown_without_other_hard_failure_maps_to_review_required: true
+  final_mutations:
+    - {mutation_id: FF-M01, category: processed_business_key, observed_gate: PASS, route: SILENT_RECORD, result_sha256: 08b32105791e96cd319b2fa509876ecfd2648619f2e61c7cf69b40a7f5f21724}
+    - {mutation_id: FF-M02, category: expired_ttl, observed_gate: FAIL, route: DISCARD, result_sha256: 54faab094af64d9f0a3094bb7b6d9fb53a7f0ca6cf687f987892904db121d7aa}
+    - {mutation_id: FF-M03, category: approval_surface_unavailable, observed_gate: REVIEW_REQUIRED, route: ESCALATE, result_sha256: f2d337a014234e88467f1cce12e6ecc899047358d3b74a4bb47faef445bf6276}
+    - {mutation_id: FF-M04, category: trigger_success_false, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 7ee23d6cabe2524e410e089e2105c7d86b3b5faef4375fad52ace2130031502d}
+    - {mutation_id: FF-M05, category: stop_unconfirmed, observed_gate: REVIEW_REQUIRED, route: WAIT_STOP_CONFIRMATION, result_sha256: 20960c4ca06597cd403e04c65f0e528090cabce1acf4f1902cd606337211825f}
+    - {mutation_id: FF-M06, category: unknown_blind_retry, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 61248f88049ba5a9678c0b98982c79a7363e26b98792f38b2b620a5528ca225e}
+    - {mutation_id: FF-M07, category: notification_storm_500, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 62a9bb07cde6c6aa5a6813c53a19fa030150c00278b775029d489be2c8935da4}
+    - {mutation_id: FF-M08, category: approval_revoked, new_action_route: REQUEST_APPROVAL, raw_unknown_gate: FAIL, result_sha256: 627b8ccafe00f283d0dd6e621ccfb59d14e7860c0e909ecab5cc7aa9dbf4e037}
+    - {mutation_id: FF-M09, category: approval_expired, new_action_route: REQUEST_APPROVAL, raw_unknown_gate: FAIL, result_sha256: 6a946e1db118986c956fe10f6043bd5670c07abeeef94e272c63f82660419418}
+    - {mutation_id: FF-M10, category: approval_version_mismatch, new_action_route: REQUEST_APPROVAL, raw_unknown_gate: FAIL, result_sha256: 49d689893e1e78a07fffbf25fbd7c770fabd828c190a93f21b4576273187f949}
+    - {mutation_id: FF-M11, category: recovery_probe_failed, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 1cdeff05afc1464ddc930dd902bd831edfb41ad13cd6f884b6937fa7e5c69071}
+    - {mutation_id: FF-M12, category: effect_ledger_nonzero, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 9645da742d0026b8ad376c719db21fac5f75272f2e9c04a9f458dda7a9dbfd3d}
+    - {mutation_id: FF-M13, category: max_trials_exceeded, exit_code: 1, error: planned trials 33 exceed max_trials 30}
+    - {mutation_id: FF-M14, category: shared_fault_domain, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: aef68843dad75b61291b49374c1e9a7120be980a9fb0cc530ad63f7c68df77e1}
+    - {mutation_id: FF-M15, category: delivery_receipt_missing, observed_gate: FAIL, route: RECOVER_DELIVERY, result_sha256: bfa21b694f4e59af8ea0817724041a00df7f37c40fb1f52fdb3ff68545c35589}
+    - {mutation_id: FF-M16, category: source_untrusted, observed_gate: FAIL, route: DISCARD, result_sha256: 3b4bddf59807e4fd5f69d145fb2c4fa10ff07ca4fdd75f8be4c1db1242f90147}
+    - {mutation_id: FF-P01, category: duplicate_plus_shared_fault_domain, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 98bb505d862e4a54655b1c2e388442f8a4bc41e91a3d063e910a9c7f77059c4d}
+    - {mutation_id: FF-P02, category: pause_plus_shared_fault_domain, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 40c706b8d71c49c490a94f5c175a3e6e6183f6c320af9c7697a3fc2e37f9d53c}
+    - {mutation_id: FF-P03, category: timezone_plus_shared_fault_domain, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 2b41c9a45c66ebac9a872886f5fb94949395129ab48574e5f90c3a6bea77151d}
+    - {mutation_id: FF-P04, category: duplicate_plus_unsafe_unknown_retry, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: e066599139f866019d21c963584d81db5f77182bbe8c5609cbeaf00879e3de0f}
+    - {mutation_id: FF-P05, category: pause_plus_unsafe_unknown_retry, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 70d4aebb9824c6b74556ea48084f64e9fc8a0cd63949e1a1754e06bc7c9dc84b}
+    - {mutation_id: FF-P06, category: timezone_plus_unsafe_unknown_retry, observed_gate: FAIL, route: CIRCUIT_BREAK, result_sha256: 2ee101eedff5ac24b62e76c3410cbdb503cb520a4d3f4f1e1709f11122ac7fdc}
+  finding_closure:
+    id: P1-C13-06
+    status: closed_for_post_fix_synthetic_stateful_control
+    evidence:
+      - hard failures and existing UNKNOWN are evaluated before duplicate pause timezone and invalid-authority routes
+      - every shared-fault-domain combination is FAIL
+      - every unsafe-UNKNOWN-retry combination is FAIL
+      - invalid authority blocks new action without erasing existing UNKNOWN
+gate_decision:
+  frozen_fixture_reproduction: PASS
+  byte_and_semantic_repeatability: PASS
+  fixed_30_trial_distribution: PASS
+  fixed_unknown_and_shared_fault_domain_routes: PASS
+  post_fix_individual_controls: PASS
+  hard_failure_precedence_and_non_masking: PASS
+  post_fix_synthetic_machine_control: PASS
+  machine_control: PASS
+  machine_control_scope: post_fix_synthetic_stateful_control
+  x_c13_01: REVIEW_REQUIRED
+  x_c13_02: REVIEW_REQUIRED
+  real_runtime_scheduler_delivery_recovery: NOT_RUN
+  overall_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+limitations:
+  - The fixture is deterministic and synthetic; no real scheduler, webhook, channel, model, credential or production state was used.
+  - Pre-fix limitations about pre-adjudicated duplicate, freshness, authority, notification, recovery and effect counts are closed for individual synthetic controls in v2.
+  - The final priority fix closes the observed synthetic masking combinations; this is not evidence for untested combinations or a real Runtime.
+  - X-C13-02 required burst replay stop and phased-recovery workloads were not executed.

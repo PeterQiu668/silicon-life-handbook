@@ -1,0 +1,174 @@
+---
+reproduction_id: C16-v3-final-independent-organization-reproduction-20260930
+chapter_id: C16
+reviewer_role: non_author_independent_reviewer
+verified_on: "2026-09-30"
+scope: "final stateful fact, cross, and synthetic-practice narrow reproduction"
+author_files_modified: false
+historical_reviews_modified: false
+network_used_by_harness: false
+real_credentials_used: false
+external_side_effects: 0
+fact_gate: PASS_WITH_LIMITATIONS
+cross_gate: PASS_WITH_LIMITATIONS
+synthetic_machine_control: PASS
+synthetic_practice_reproduction: PASS
+overall_practice_gate: REVIEW_REQUIRED
+real_platform_practice: REVIEW_REQUIRED
+release_candidate_authorized: false
+
+author_snapshot_hashes_sha256:
+  chapter: "51be6857bc53c439c6534bbe502632c3405797f26e7dac28242374d0cb2069dd"
+  evidence_ledger: "137f4c9cc116fc82ccce9633e62d2d10ab2d3d8fe1ab333826b20567ff521cd3"
+  author_self_check: "d4b83c20650ef5e31cfa0d7292a138921535316f5588fbf0103b49a2d5904fe8"
+  stateful_remediation: "872acfbe156b6dc34c2addc473b28f2c6a0d51327bb281453e5fe31fb53df30e"
+  readme: "808af37d00a03b56af28b2677cde503366f9d09f4c274b85258942a032372678"
+  builder: "5d06b85b63aa1537a3d0511a162726e41b104d82fdd6f863b38f8d5f597b7110"
+  runner: "e779f28014ce4341c59a6fcd724bef1d861e5958ad7bcbb7bfbc3afdddcaedee"
+  input: "e9752e4e93d9a386648609243a0dbfc39b7b6d56c8a2694038f0f180705a232a"
+  results: "249b9ab98d4447e7b3bd621c4546a97c277ea3c8b0c9f38009cf812b0e43129b"
+  summary: "59d406d7fd5caeadb4c26e553aa4370a19a456dce9aa16d196f14a73c756177c"
+
+fresh_temp_double_rebuild:
+  input_sha256_a: "e9752e4e93d9a386648609243a0dbfc39b7b6d56c8a2694038f0f180705a232a"
+  input_sha256_b: "e9752e4e93d9a386648609243a0dbfc39b7b6d56c8a2694038f0f180705a232a"
+  input_sha256_saved: "e9752e4e93d9a386648609243a0dbfc39b7b6d56c8a2694038f0f180705a232a"
+  results_sha256_a: "249b9ab98d4447e7b3bd621c4546a97c277ea3c8b0c9f38009cf812b0e43129b"
+  results_sha256_b: "249b9ab98d4447e7b3bd621c4546a97c277ea3c8b0c9f38009cf812b0e43129b"
+  results_sha256_saved: "249b9ab98d4447e7b3bd621c4546a97c277ea3c8b0c9f38009cf812b0e43129b"
+  summary_sha256_a: "59d406d7fd5caeadb4c26e553aa4370a19a456dce9aa16d196f14a73c756177c"
+  summary_sha256_b: "59d406d7fd5caeadb4c26e553aa4370a19a456dce9aa16d196f14a73c756177c"
+  summary_sha256_saved: "59d406d7fd5caeadb4c26e553aa4370a19a456dce9aa16d196f14a73c756177c"
+  byte_identical_a_b_saved: true
+  semantic_identical: true
+  trial_count: 45
+  unique_task_count: 15
+  distribution: {PASS: 12, FAIL: 27, REVIEW_REQUIRED: 6}
+  author_oracle_matched: 45
+  unique_trial_ids: true
+  unique_trace_digests: true
+  unique_evidence_digests: true
+  representative_real_world_executed: false
+  representative_real_world_trial_count: 0
+  synthetic_shadow_scenario_count: 4
+  synthetic_shadow_trial_count: 12
+  security_red_team_scenario_count: 3
+  security_red_team_trial_count: 9
+  external_effect_count: 0
+  zero_external_effects: true
+  verdict: PASS_FOR_DETERMINISTIC_OFFLINE_SYNTHETIC_REPLAY_ONLY
+
+independent_method:
+  author_expected_consumed_for_attack_verdicts: false
+  author_case_name_consumed_for_attack_verdicts: false
+  method: "mutate raw state, run validate and decide, and compare actual verdict/reason to an independently specified oracle"
+  malformed_request_time_method: "run full CLI in a fresh temp directory and require nonzero exit plus no output file"
+
+independent_attacks:
+  total: 38
+  matched_expected: 38
+  mismatched_expected: 0
+  open_findings: []
+  baseline:
+    - {id: BASE-PASS, expected: PASS, actual: PASS, reason: bounded_contract_satisfied, verdict: PASS}
+  iso_8601:
+    - {id: TIME-NOW-MALFORMED, mutation: "now=not-a-time", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "root.now must be an ISO-8601 timestamp", verdict: PASS}
+    - {id: TIME-NOW-NAIVE, mutation: "timezone-free now", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "root.now must include a timezone", verdict: PASS}
+    - {id: TIME-GRANT-MALFORMED, mutation: "grant expires_at=not-a-time", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "expires_at must be an ISO-8601 timestamp", verdict: PASS}
+    - id: TIME-REQUEST-MALFORMED
+      mutation: "action request requested_at=bad"
+      expected: REJECT_PRE_RESULT
+      actual: REJECT_PRE_RESULT
+      validation_stage: ACCEPTED_AS_STRING
+      decision_stage: "ValueError: action_request.requested_at must be an ISO-8601 timestamp"
+      cli_returncode_nonzero: true
+      output_file_created: false
+      verdict: PASS
+  identity_and_writer:
+    - {id: IDENTITY-ALIAS-COLLISION, mutation: "expert-b and lead-a resolve to principal-lead", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "aliases must resolve one-to-one", verdict: PASS}
+    - {id: WRITER-UNKNOWN-LEASE, mutation: "lease writer alias is unknown", expected: FAIL, actual: FAIL, reason: writer_identity_unresolved, verdict: PASS}
+    - {id: WRITER-UNKNOWN-EVENT, mutation: "write-event writer alias is unknown", expected: FAIL, actual: FAIL, reason: writer_identity_unresolved, verdict: PASS}
+    - {id: WRITER-SAME-BASE-SAME-RESULT, mutation: "two principals write same object/base/result without merge", expected: FAIL, actual: FAIL, reason: unmerged_shared_write_conflict, verdict: PASS}
+  fact_origin:
+    - {id: FACT-MIN-ZERO, mutation: "FACT minimum_independent_origins=0", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "must be positive", verdict: PASS}
+    - {id: FACT-MIN-ONE, mutation: "FACT minimum_independent_origins=1", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "requires at least two independent origins", verdict: PASS}
+    - {id: FACT-MIN-TWO-INDEPENDENT, mutation: "two different origins", expected: PASS, actual: PASS, reason: bounded_contract_satisfied, verdict: PASS}
+    - {id: FACT-TWO-SAME-ORIGIN, mutation: "two refs from one origin", expected: FAIL, actual: FAIL, reason: correlated_consensus_claimed_fact, verdict: PASS}
+  budget_and_cancel:
+    - {id: BUDGET-AT-THRESHOLD-NONE, mutation: "consumed equals threshold; no receipt; work active", expected: FAIL, actual: FAIL, reason: budget_threshold_without_verified_stop, verdict: PASS}
+    - {id: BUDGET-OVER-THRESHOLD-NONE, mutation: "consumed above threshold but below hard limit; no receipt", expected: FAIL, actual: FAIL, reason: budget_threshold_without_verified_stop, verdict: PASS}
+    - {id: BUDGET-AT-THRESHOLD-VERIFIED-NOT-STOPPED, mutation: "verified receipt but work active", expected: FAIL, actual: FAIL, reason: budget_threshold_without_verified_stop, verdict: PASS}
+    - {id: BUDGET-AT-THRESHOLD-VERIFIED-STOPPED, mutation: "verified receipt and all work stopped", expected: PASS, actual: PASS, reason: bounded_contract_satisfied, verdict: PASS}
+    - {id: BUDGET-OVER-LIMIT-EVEN-VERIFIED, mutation: "consumed above hard limit despite verified stop", expected: FAIL, actual: FAIL, reason: budget_limit_exceeded, verdict: PASS}
+    - {id: CANCEL-REQUESTED-NONE, mutation: "cancel requested; receipt NONE; children canceled; readbacks clear", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, reason: cancel_receipt_missing, verdict: PASS}
+  evidence_and_effect:
+    - {id: EVIDENCE-FAILED, mutation: "run evidence status FAILED", expected: FAIL, actual: FAIL, reason: run_evidence_failed, verdict: PASS}
+    - {id: EVIDENCE-UNKNOWN, mutation: "run evidence status UNKNOWN", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, reason: run_evidence_unknown, verdict: PASS}
+    - {id: EFFECT-FAILED, mutation: "effect status FAILED", expected: FAIL, actual: FAIL, reason: effect_failed, verdict: PASS}
+    - {id: EFFECT-UNKNOWN, mutation: "effect status UNKNOWN", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, reason: effect_terminal_unknown, verdict: PASS}
+    - {id: EFFECT-PENDING, mutation: "effect status PENDING", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, reason: effect_terminal_unknown, verdict: PASS}
+    - {id: EVIDENCE-ID-GLOBAL-DUP, mutation: "reuse one evidence_id in another run", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "evidence ids must be globally unique across runs", verdict: PASS}
+    - {id: EXTERNAL-EFFECT-DISALLOWED, mutation: "confirmed APPLIED external write in disallowed environment", expected: FAIL, actual: FAIL, reason: external_effect_contract_violated, derived_effect_count: 1, verdict: PASS}
+  d21_terminal:
+    - {id: D21-TECHNICAL-FAILED, mutation: "reported complete plus technical FAILED", expected: FAIL, actual: FAIL, reason: ghost_success, verdict: PASS}
+    - {id: D21-DELIVERY-MISSING, mutation: "reported complete plus delivery MISSING", expected: FAIL, actual: FAIL, reason: ghost_success, verdict: PASS}
+    - {id: D21-BUSINESS-REJECTED, mutation: "reported complete plus business REJECTED", expected: FAIL, actual: FAIL, reason: ghost_success, verdict: PASS}
+    - {id: D21-TECHNICAL-UNKNOWN, mutation: "reported complete plus technical UNKNOWN", expected: REVIEW_REQUIRED, actual: REVIEW_REQUIRED, reason: terminal_unknown, verdict: PASS}
+  hard_failure_noncompensation:
+    - {id: HARD-UNKNOWN-WRITER-PLUS-EVIDENCE-UNKNOWN, expected: FAIL, actual: FAIL, hard_reason: writer_identity_unresolved, rr_condition: run_evidence_unknown, verdict: PASS}
+    - {id: HARD-BUDGET-LIMIT-PLUS-CANCEL-UNKNOWN, expected: FAIL, actual: FAIL, hard_reason: budget_limit_exceeded, rr_condition: cancel_terminal_unknown, verdict: PASS}
+    - {id: HARD-FACT-PLUS-EFFECT-UNKNOWN, expected: FAIL, actual: FAIL, hard_reason: correlated_consensus_claimed_fact, rr_condition: effect_terminal_unknown, verdict: PASS}
+  d22_and_closed_world:
+    - {id: D22-EXECUTED-TRUE-WITH-ZERO-REAL, expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "executed must match actual run records", verdict: PASS}
+    - {id: D22-SYNTHETIC-CLAIMS-REAL-LAYER, expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: "representative-real-world evidence unresolved", verdict: PASS}
+    - {id: D22-ILLEGAL-FIFTH-LAYER, mutation: "layer=security", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: invalid_enum, verdict: PASS}
+    - {id: CLOSED-WORLD-UNKNOWN-ROOT, mutation: "unknown preapproved field", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: unknown_fields, verdict: PASS}
+    - {id: CLOSED-WORLD-DUP-RUN, mutation: "duplicate run and bindings", expected: REJECT_PRE_RESULT, actual: REJECT_PRE_RESULT, reason: independently_unique, verdict: PASS}
+
+previous_finding_closure:
+  P1_C16_PF_01_shadow_count_and_author_state: CLOSED
+  P1_C16_PF_02_time_and_alias_independence: CLOSED
+  P1_C16_PF_03_writer_and_fact_origin: CLOSED
+  P1_C16_PF_04_budget_stop_and_cancel_receipt: CLOSED
+  P1_C16_PF_05_d21_evidence_and_effect_state: CLOSED
+  P1_C16_PF_06_global_evidence_id_uniqueness: CLOSED
+  new_P0: []
+  new_P1: []
+
+fact_and_structure_audit:
+  chapter_status: drafting
+  approval_status: unapproved
+  self_approval: false
+  formal_dependencies: [C03, C04, C06, C09, C14]
+  claim_count: 25
+  unique_claim_count: 25
+  chapter_reference_count: 25
+  missing_claim_references: []
+  orphan_claim_references: []
+  source_count: 22
+  used_source_count: 22
+  unused_sources: []
+  missing_source_ids: []
+  formal_sections: [16.1, 16.2, 16.3, 16.4, 16.5, 16.6, 16.7]
+  artifact_count: 3
+  exercise_count: 2
+  readme_selfcheck_remediation_hash_and_count_consistency: PASS
+
+retained_limitations:
+  - "Representative real-world trial count is zero."
+  - "Real OpenClaw, Hermes, and A2A runtimes were not executed."
+  - "Production identity, authorization, credentials, concurrent writes, stop and cancel propagation, and environment read-back were not exercised."
+  - "Long-run organization net benefit and recovery cost have no representative real-world evidence."
+
+final_validation:
+  author_snapshot_hashes_unchanged_after_review: PASS
+  reproduction_yaml_parse: PASS
+  review_frontmatter_parse: PASS
+  c16_ledger_yaml_parse: PASS
+  c16_frontmatter_parse: PASS
+  c16_local_links: PASS
+  builder_py_compile: PASS
+  runner_py_compile: PASS
+  book_validator: PASS
+  formal_validator: "PASS with two expected production-progress warnings: C22 package being prepared and two chapter packages missing; C16=18185 CJK with no C16 error"
+  diff_check: PASS

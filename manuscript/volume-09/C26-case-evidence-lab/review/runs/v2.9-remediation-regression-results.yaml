@@ -1,0 +1,337 @@
+{
+  "attack_count": 30,
+  "attacks": [
+    {
+      "expected": "REJECT",
+      "family": "raw-only",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-01_PARSED_RESULT_DICT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "raw-only",
+      "message": "TypeError: authority_root: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-02_PARSED_ROOT_DICT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "raw-only",
+      "message": "TypeError: source: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-03_PARSED_SOURCE_DICT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "raw-only",
+      "message": "TypeError: result: raw JSON bytes, text, or pathlib.Path required; parsed objects are forbidden",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-04_ALL_PARSED_OBJECTS"
+    },
+    {
+      "expected": "REJECT",
+      "family": "retired-api",
+      "message": "AttributeError: module 'c23_v29_author' has no attribute 'verify_result'",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-05_OLD_OBJECT_API_ABSENT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "parser-surface",
+      "message": "AttributeError: module 'c23_v29_author' has no attribute '_ORIGINAL_JSON_LOADS'",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-06_PERMISSIVE_ALIAS_ABSENT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-07_RAW_RESULT_DUPLICATE"
+    },
+    {
+      "expected": "REJECT",
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key schema_version",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-08_RAW_SOURCE_DUPLICATE"
+    },
+    {
+      "expected": "REJECT",
+      "family": "duplicate-json",
+      "message": "ValueError: json: duplicate object key root_digest",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-09_RAW_ROOT_DUPLICATE"
+    },
+    {
+      "expected": "REJECT",
+      "family": "captured-core",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-10_MONKEYPATCH_PUBLIC_EVALUATE"
+    },
+    {
+      "expected": "REJECT",
+      "family": "captured-core",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-11_MONKEYPATCH_INTERNAL_EVALUATOR"
+    },
+    {
+      "expected": "REJECT",
+      "family": "captured-core",
+      "message": "ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-12_MONKEYPATCH_STRICT_PARSER"
+    },
+    {
+      "expected": "REJECT",
+      "family": "captured-core",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-13_MONKEYPATCH_PIN_DIGEST"
+    },
+    {
+      "expected": "REJECT",
+      "family": "captured-core",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-14_INVENT_PIN_GLOBAL_PENDING"
+    },
+    {
+      "expected": "REJECT",
+      "family": "captured-core",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-15_REBIND_PUBLIC_VERIFIER_SAVED_CORE"
+    },
+    {
+      "expected": "REJECT",
+      "family": "pin-authority",
+      "message": "ValueError: pin: concrete authorized pin_id required",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-16_PIN_PENDING"
+    },
+    {
+      "expected": "REJECT",
+      "family": "pin-authority",
+      "message": "ValueError: pin: concrete authorized pin_id required",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-17_PIN_EMPTY"
+    },
+    {
+      "expected": "REJECT",
+      "family": "pin-authority",
+      "message": "ValueError: pin: id is not present in the release-pinned authority registry",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-18_PIN_UNKNOWN"
+    },
+    {
+      "expected": "REJECT",
+      "family": "pin-authority",
+      "message": "ValueError: authority_root: independently pinned digest mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-19_WRONG_AUTHORIZED_PIN_FOR_CURRENT_ROOT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "semantic-replay",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-20_FORGED_RESULT_RESEALED"
+    },
+    {
+      "expected": "REJECT",
+      "family": "semantic-replay",
+      "message": "ValueError: suite: frozen provenance mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-21_SOURCE_CHANGED_ROOT_STALE"
+    },
+    {
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-22_CLI_FORGED_RESULT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: json: duplicate object key verdict",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-23_CLI_DUP_RESULT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: json: duplicate object key schema_version",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-24_CLI_DUP_SOURCE"
+    },
+    {
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: json: duplicate object key root_digest",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-25_CLI_DUP_ROOT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: verify-case-result.py: error: the following arguments are required: --input",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-26_CLI_MISSING_SOURCE"
+    },
+    {
+      "expected": "REJECT",
+      "family": "code-digest",
+      "message": "ValueError: RuntimeError: verifier: runner code digest differs from the trusted release",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-27_CLI_RUNNER_DIGEST_TAMPER"
+    },
+    {
+      "expected": "REJECT",
+      "family": "fresh-cli",
+      "message": "ValueError: ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-28_CALLER_PATCH_CANNOT_CROSS_PROCESS"
+    },
+    {
+      "expected": "REJECT",
+      "family": "reload",
+      "message": "ValueError: result: source semantic replay mismatch",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-29_FRESH_RELOAD_FORGED_RESULT"
+    },
+    {
+      "expected": "REJECT",
+      "family": "parser-surface",
+      "message": "ValueError: json: trailing content forbidden",
+      "observed": "REJECT",
+      "passed": true,
+      "test_id": "V29-30_RAW_TRAILING_DOCUMENT"
+    }
+  ],
+  "authority_root_sha256": "fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2",
+  "baseline_decision_digest": "7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c",
+  "baseline_distribution": {
+    "FAIL": 24,
+    "PASS": 2,
+    "REVIEW_REQUIRED": 6
+  },
+  "escape_count": 0,
+  "escape_ids": [],
+  "input_sha256": "dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55",
+  "limits": {
+    "arbitrary_same_process_code_execution": "out_of_scope",
+    "practice_gate": "REVIEW_REQUIRED",
+    "real_case_executed": false,
+    "real_runtime_migration_executed": false,
+    "trust_boundary": "fixed code digests plus fresh subprocess CLI"
+  },
+  "pin_registry_sha256": "8eb8868ca19e716f333ea1f5a85241ccadd47682fd9a78db171ee28826cdd5ad",
+  "positive_control_count": 8,
+  "positive_control_pass_count": 8,
+  "positive_controls": [
+    {
+      "expected": "PASS",
+      "family": "raw-positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V29-C01_RAW_TEXT"
+    },
+    {
+      "expected": "PASS",
+      "family": "raw-positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V29-C02_RAW_BYTES"
+    },
+    {
+      "expected": "PASS",
+      "family": "raw-positive",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V29-C03_PATH_OBJECTS"
+    },
+    {
+      "expected": "PASS",
+      "family": "fresh-cli",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V29-C04_FRESH_CLI"
+    },
+    {
+      "expected": "PASS",
+      "family": "normalization",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V29-C05_EQUIVALENT_FORMATTING"
+    },
+    {
+      "expected": "PASS",
+      "family": "authorized-repin",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V29-C06_AUTHORIZED_REPIN_RAW"
+    },
+    {
+      "expected": "PASS",
+      "family": "authorized-repin",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V29-C07_AUTHORIZED_REPIN_CLI"
+    },
+    {
+      "expected": "PASS",
+      "family": "captured-core",
+      "message": "",
+      "observed": "PASS",
+      "passed": true,
+      "test_id": "V29-C08_GLOBAL_PATCH_LEGITIMATE_STILL_VERIFIES"
+    }
+  ],
+  "result_sha256": "f80c718b45d18aef880422167afbe221d8145c8a3ff08a2a8bdb7b2531434ebe",
+  "runner_sha256": "bc4d3cde7595603c21481c6c33cd77d4f49b7b8c18191cb9514dea592add40dd",
+  "schema_version": "c23.v2.9.author-remediation-regression.v1",
+  "secure_attack_count": 30,
+  "suite_digest": "4b8fa1a538f73a53381f90a07f7599e9b7074b60a0e43e8d3f1f878a4c228281",
+  "verifier_sha256": "099783ca9736657b5ea3ecc5a4e7a5a135274500ab2ebea18e9799f310485662"
+}

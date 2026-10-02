@@ -1,0 +1,39 @@
+schema_version: c23.v2.5.author-validation.v1
+status: AUTHOR_EVIDENCE_ONLY
+approval_status: unapproved
+fixed_distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+authority_root_logical_digest: b37e64aa09c8b9d38f8686c447eae8c0e4cc1d8c07ed1e259c539e14ab471e5e
+scenario_manifest_digest: 5b49e4e9618d5373b1101e38fd2ea9d80d51d22fde57b04fbff31431fc720fa0
+decision_digest: 39d9b3e439a0c22506a21d21caa0667b7c6d86f497ab43263ccf0de4aec44324
+replays:
+  author_79: {passed: 79, total: 79, suite_digest: de5b6190accb1b9e41b1ec389795a1d8791aaffa532e32e19120bd198c9b9666}
+  remediation_30: {passed: 30, total: 30, suite_digest: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e}
+  remediation_v24_23: {passed: 23, total: 23, suite_digest: 31ca6d821ace14efec3c9abe348dd027730c334d006ee79b0042c89ae89d5c4d}
+  independent_19: {secure: 19, total: 19, escapes: 0, suite_digest: 0eb942717da7f1733a98020054ecc83c5214f7371aed3a5fc03e0737fc6d5ea0}
+  independent_15: {secure: 15, total: 15, escapes: 0, suite_digest: 94e947e7d1970daf18aae4373885700b96b79e5c024d637cf3e40f0a2409e96a}
+  historical_18:
+    native_secure_count: 17
+    total: 18
+    effective_secure_count_under_v25_contract: 18
+    note: I18 observed REJECT under the newer schema/root; the historical script only accepts FAIL.
+  v25_targeted:
+    secure_attacks: 25
+    attacks: 25
+    escapes: 0
+    positive_controls_passed: 2
+    positive_controls: 2
+    suite_digest: 9541856e10e9b9c6d7c5ddb6a08752f514b608d67568f4506ce7fd93ed2b1613
+fresh_temp:
+  rebuilds: 2
+  byte_identical: true
+  files:
+    input: 0a148833280396f627adfae0f91590b6685f63401315a2d8308547e45f939dc3
+    authority_root: 0feacb4aceead0bba38b69508fec0ed4a346ab1e0e9f3386c102e5c371f0afee
+    result: 0c6b2b503b46c833b725e90fcfccc9c8c9cfec11a02d0d90bd31522a484f0a6d
+    v25_regression: abe0d841582f79b8430709ce04c6c7c9f0b064335e2fa02f382795315a6ab987
+limitations:
+  real_case: REVIEW_REQUIRED
+  real_authorization_and_copyright: REVIEW_REQUIRED
+  real_openclaw_hermes_migration: REVIEW_REQUIRED
+  real_platform_effect: REVIEW_REQUIRED
+  muse_internal_mechanism: REVIEW_REQUIRED

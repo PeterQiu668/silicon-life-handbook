@@ -1,0 +1,87 @@
+schema_version: "1.0"
+record_id: "RUN-C09-SYN-001"
+chapter_id: "C09"
+created_at: "2026-09-30T16:00:00+08:00"
+record_type: "deterministic-static-synthetic-fixture"
+status: "drafting"
+independent_practice_review: "REVIEW_REQUIRED"
+disclosure:
+  real_platform_run: false
+  real_accounts: false
+  network_access: false
+  production_writes: false
+  personal_or_customer_data: false
+  claim_limit: "仅验证三件产物、两个检查点、三证与污染门禁的逻辑可执行性。"
+baseline:
+  case: "CASE-B 潮生"
+  task_card:
+    task_id: "TASK-C09-SYN-001"
+    version: "0.1.0"
+    objective: "生成脱敏客户跟进草稿并保存到合成目标环境。"
+    allowed_actions: ["read_fixture", "write_local_fixture", "readback_local_fixture"]
+    prohibited_actions: ["external_send", "real_identity_use", "memory_write", "skill_write"]
+    business_terminal: "草稿包含问题摘要、下一步与人工审批标识。"
+    environment_terminal: "指定夹具文件存在、哈希匹配且状态为 NOT_SENT。"
+    feedback_permission: "METADATA_ONLY"
+  context_package:
+    context_package_id: "CTX-C09-SYN-001"
+    version: "0.1.0"
+    item_count: 3
+    sensitivity: "synthetic"
+    freshness: "current"
+    rights: "exercise-only"
+  checkpoints:
+    - checkpoint_id: "CP-READY"
+      evidence: ["task-card@0.1.0", "context-package@0.1.0", "no-send-capability"]
+      decision: "CONTINUE"
+    - checkpoint_id: "CP-DELIVERY"
+      evidence: ["trajectory-fixture", "draft-fixture-hash", "environment-readback-NOT_SENT"]
+      decision: "PASS"
+  tev:
+    process: "读取三条合成字段，生成草稿，未调用外发工具，保存并读回。"
+    artifact: "草稿 Schema 完整；完整性标识存在。"
+    effect: "合成目标环境读回文件存在且 NOT_SENT。"
+  gate: "PASS"
+  authoring_gate: "REVIEW_REQUIRED"
+injections:
+  - injection_id: "INJ-C09-UI-FALSE-COMPLETE"
+    description: "UI 字段显示 completed，但目标文件不存在且环境读取返回 absent。"
+    detected_at: "CP-DELIVERY"
+    evidence_axes:
+      task_state: "claimed_completed"
+      message_state: "success_banner_visible"
+      artifact_state: "missing"
+      environment_terminal: "not_achieved"
+    expected_gate: "FAIL"
+    observed_gate: "FAIL"
+    rollback: "撤销完成声明；不产生反馈候选。"
+  - injection_id: "INJ-C09-STALE-SENSITIVE"
+    description: "过期政策在执行前被识别；另一个子轮把跨客户 restricted 字段注入候选。"
+    detected_at: "CP-READY and context rights gate"
+    subresults:
+      - condition: "stale_not_consumed"
+        expected_gate: "REVIEW_REQUIRED"
+        observed_gate: "REVIEW_REQUIRED"
+        rollback: "暂停并请求当前版本。"
+      - condition: "cross_customer_sensitive_consumed"
+        expected_gate: "FAIL"
+        observed_gate: "FAIL"
+        rollback: "隔离候选并清理运行副本；通知数据 owner。"
+  - injection_id: "INJ-C09-FULL-GROUP-CHAT"
+    description: "将含大量无关参与者内容的完整群聊当作上下文包。"
+    detected_at: "minimum-necessary and rights gates"
+    expected_gate: "FAIL"
+    observed_gate: "FAIL"
+    rollback: "拒绝整包；由有权人员提取两条必要事实生成新版本。"
+summary:
+  baseline_expected_observed_match: true
+  injection_expected_observed_match: true
+  pass_count: 1
+  fail_count: 3
+  review_required_count: 1
+  unresolved:
+    - "尚未在 OpenClaw 或 Hermes 真实 Runtime 运行。"
+    - "尚无第二位独立实践评审者复跑。"
+    - "未验证真实外部系统读回、缓存清除与 Provider 数据路径。"
+final_gate: "REVIEW_REQUIRED"
+approval: null

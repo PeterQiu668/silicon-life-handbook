@@ -1,0 +1,257 @@
+{
+  "attack_count": 25,
+  "attacks": [
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "expired_limited_certificate",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "lifecycle_kind_current_mismatch",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "future_lifecycle_event",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "material_change_missing_evidence",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "trial_output_evidence_fail",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "artifact_short_unbound_content_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "signature_short_unbound_content_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "trial_output_evidence_revoked",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "artifact_well_formed_wrong_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "signature_well_formed_wrong_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "manifest_short_content_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "holdout_short_content_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "grader_short_content_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "failure_short_content_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "cost_short_content_digest",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "lifecycle_event_before_issue",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "expired_state_before_expiry",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "material_change_evidence_wrong_content",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "lifecycle_evidence_wrong_content",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "trial_output_wrong_trial_binding",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "trial_output_wrong_release_binding",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "state_self_reseal_cannot_change_frozen_fact",
+      "detail": "ValueError: result input semantic source binding",
+      "matched": true,
+      "secure_expected": [
+        "FAIL",
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "source_trusted_clock_tamper",
+      "detail": "ValueError: authority reference or trusted clock mismatch",
+      "matched": true,
+      "secure_expected": [
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "authority_root_literal_tamper",
+      "detail": "ValueError: authority root is not pinned",
+      "matched": true,
+      "secure_expected": [
+        "SCHEMA_REJECT"
+      ]
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "attack_id": "authority_registry_tamper_and_reseal",
+      "detail": "ValueError: authority root is not pinned",
+      "matched": true,
+      "secure_expected": [
+        "SCHEMA_REJECT"
+      ]
+    }
+  ],
+  "authority_root_digest": "sha256:1c768968e30d39195369e517394c3c218829b175d64d219a6e5ff159062fb6ad",
+  "fail_open_count": 0,
+  "matched_count": 25,
+  "schema": "c24.cert.negative-regression.v2.4-compat",
+  "suite_digest": "sha256:d3c3cfa959eda014560d6997beac8eb0bad8d1fa0d1676c235ac43628e792ade"
+}

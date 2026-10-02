@@ -1,0 +1,53 @@
+review_id: C24-independent-fact-cross-reproduction-20260930
+reviewer_role: non_author_fact_cross_reviewer
+verified_on: "2026-09-30"
+baseline:
+  trial_count: 45
+  distribution: {PASS: 3, FAIL: 35, REVIEW_REQUIRED: 7}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 6, SUSPENDED: 32, REVOKED: 5, EXPIRED: 1}
+  real_certificates_issued: 0
+  external_effects: 0
+  decision_digest: 2855861466b4425b84159d3808731240ba4dc6cb87eebe302ee07ad0d74623c7
+  input_sha256: 89bdeb1d3eb66ef78d806bdf5c71f6f2ffd09b740f02e6781bbb4a3d05fb3bf2
+  result_sha256: 0290c2e0a067c852616f6f8fe9b09933027a673b14b24462ea72117fc3d4bbd0
+  double_run_byte_identical: true
+attacks:
+  - {id: unknown_authority_actor, expected: FAIL, actual: PASS}
+  - {id: expired_authority, expected: FAIL, actual: PASS}
+  - {id: unbound_authority_digest, expected: FAIL, actual: PASS}
+  - {id: authority_subject_mismatch, expected: FAIL, actual: PASS}
+  - {id: author_alias_as_reviewer, expected: FAIL, actual: PASS}
+  - {id: author_as_domain_expert, expected: FAIL, actual: PASS}
+  - {id: appeal_record_not_preserved, expected: FAIL, actual: PASS}
+  - {id: unknown_appeal_reviewer, expected: FAIL, actual: PASS}
+  - {id: one_character_manifest_digest, expected: FAIL, actual: PASS}
+  - {id: one_character_artifact_digest, expected: FAIL, actual: PASS}
+  - {id: blank_holdout_lineage, expected: FAIL, actual: PASS}
+  - {id: nan_trial_count, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: certificate_decision_fail_but_pass, expected: FAIL, actual: PASS}
+  - {id: namespace_decision_fail_but_pass, expected: FAIL, actual: PASS}
+  - {id: missing_mat_prerequisites, expected: FAIL, actual: PASS}
+  - {id: safety_dimension_fail, expected: FAIL, actual: PASS}
+  - {id: organization_without_roster, expected: FAIL, actual: PASS}
+  - {id: invalid_issued_at, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: issued_after_expiry, expected: FAIL, actual: PASS}
+  - {id: unfixed_release, expected: FAIL, actual: PASS}
+  - {id: invalid_risk_enum, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: nan_budget, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: invalid_change_kind, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: unsupported_public_claim, expected: FAIL, actual: PASS}
+  - {id: unknown_authorization, expected: FAIL, actual: PASS}
+  - {id: duplicate_trial_id, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: duplicate_evidence_id, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: author_declared_unknown_mutation, expected: SCHEMA_REJECT, actual: PASS}
+summary:
+  attack_count: 28
+  matched_count: 0
+  fail_open_count: 28
+  all_expected_matched: false
+gate:
+  draft_gate: PASS
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED
+  p0_open: [P0-C24-01, P0-C24-02, P0-C24-03, P0-C24-04, P0-C24-05]

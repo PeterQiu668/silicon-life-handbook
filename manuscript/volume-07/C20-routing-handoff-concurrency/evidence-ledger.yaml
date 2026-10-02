@@ -1,0 +1,70 @@
+---
+chapter_id: C20
+title: "路由、让位、交接与并发"
+status: drafting
+verified_on: "2026-09-30"
+approval_status: unapproved
+self_approval: false
+sources:
+  BOOK: {path: "../../../00-正式出版版-三级内容框架-v2.md", title: "framework v2"}
+  QUALITY: {path: "../../../docs/editorial/BOOK-QUALITY-STANDARD.md", title: "quality standard"}
+  CARD: {path: "../../../docs/editorial/CHAPTER-CARDS.md", title: "chapter card"}
+  TERMS: {path: "../../../docs/editorial/TERMINOLOGY-REGISTRY.yaml", title: "terminology"}
+  PREFLIGHT: {path: "../../../docs/research/C20-routing-handoff-concurrency-preflight.md", title: "C20 preflight"}
+  C06: {path: "../../volume-02/C06-runtime-architecture/chapter.md", title: "C06 runtime architecture"}
+  C09: {path: "../../volume-03/C09-interaction-system/chapter.md", title: "C09 interaction system"}
+  C14: {path: "../../volume-05/C14-tool-mcp-engineering/chapter.md", title: "C14 tool engineering"}
+  C17: {path: "../../volume-06/C17-autonomy-authorization/chapter.md", title: "C17 autonomy authorization"}
+  C19: {path: "../C19-multi-agent-organization/chapter.md", title: "C19 multi-agent organization"}
+  A2A-SPEC: {url: "https://a2a-protocol.org/v1.0.0/specification/", title: "A2A 1.0.0 specification"}
+  OC-BIND: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/multi-agent.md", title: "OpenClaw multi-agent fixed"}
+  OC-LANES: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/parallel-specialist-lanes.md", title: "OpenClaw parallel lanes fixed"}
+  OC-HANDOFF: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/subagent-yield-handoff.md", title: "OpenClaw yield handoff fixed"}
+  OC-SESSION: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/session-tool.md", title: "OpenClaw session tool fixed"}
+  OC-OPS: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/subagents/operations.md", title: "OpenClaw subagent operations fixed"}
+  OC-ANNOUNCE: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/tools/subagents/announce.md", title: "OpenClaw announce fixed"}
+  OC-DELEGATE: {url: "https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/docs/concepts/delegate-architecture.md", title: "OpenClaw delegate architecture fixed"}
+  HERMES-FIXED: {url: "https://github.com/NousResearch/hermes-agent/blob/f80f453ae0679347e38abc917c7f94f717bf96c5/website/docs/user-guide/features/delegation.md", title: "Hermes 0.20.1 delegation fixed"}
+  HERMES-DYNAMIC: {url: "https://hermes-agent.nousresearch.com/docs/", title: "Hermes dynamic docs"}
+  MUSE: {url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", title: "Muse vendor announcement"}
+  LOCAL-IN: {path: "review/runs/synthetic-routing-input.yaml", title: "synthetic input"}
+  LOCAL-OUT: {path: "review/runs/synthetic-routing-results.yaml", title: "synthetic results"}
+  LOCAL-CAP-DIGEST: {path: "review/runs/capability-digest-regression-results.yaml", title: "capability digest authority regression"}
+claims:
+  - {evidence_id: E-C20-001, claim: "路由必须先过授权、政策、数据位置、最低能力、工具资格、负载和故障域硬门，再做软排序。", class: METHODOLOGY, source_ids: [PREFLIGHT, C17, C14]}
+  - {evidence_id: E-C20-002, claim: "能力、负载、成本、时效、数据位置和连续性应保留可解释维度，不压成不可审计的总分。", class: METHODOLOGY, source_ids: [PREFLIGHT, C19]}
+  - {evidence_id: E-C20-003, claim: "Binding 命中、任务路由与业务授权是不同层。", class: SYSTEM-FACT, source_ids: [C06, C17, OC-BIND]}
+  - {evidence_id: E-C20-004, claim: "沉默、超时、离线和NO_REPLY不构成让位。", class: METHODOLOGY, source_ids: [PREFLIGHT, OC-HANDOFF]}
+  - {evidence_id: E-C20-005, claim: "让位须记录原因、完成/未完成、三证、安全停点、建议目标和回退。", class: METHODOLOGY, source_ids: [PREFLIGHT, C09]}
+  - {evidence_id: E-C20-006, claim: "委托不等于责任转移；子任务结果返回也不自动使父任务完成。", class: METHODOLOGY, source_ids: [PREFLIGHT, C19, OC-SESSION]}
+  - {evidence_id: E-C20-007, claim: "Handoff必须绑定任务/卡片版本、范围、进度、证据、风险、阻塞和下一步。", class: METHODOLOGY, source_ids: [BOOK, CARD, PREFLIGHT]}
+  - {evidence_id: E-C20-008, claim: "Transport ACK、Object ACK和Responsibility ACK证明不同事实，不得互换。", class: METHODOLOGY, source_ids: [PREFLIGHT, A2A-SPEC]}
+  - {evidence_id: E-C20-009, claim: "Responsibility ACK与权威owner的原子更新共同成立后责任才转移。", class: METHODOLOGY, source_ids: [PREFLIGHT, OC-HANDOFF]}
+  - {evidence_id: E-C20-010, claim: "ACK_PENDING或UNKNOWN期间原owner保留责任，避免无人责任区。", class: METHODOLOGY, source_ids: [PREFLIGHT, OC-HANDOFF]}
+  - {evidence_id: E-C20-011, claim: "新版本产生后旧版ACK必须标记STALE，不得用于接管。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C20-012, claim: "Handoff传递秘密引用而非token、cookie、密码或可重放审批。", class: METHODOLOGY, source_ids: [PREFLIGHT, C14, C17]}
+  - {evidence_id: E-C20-013, claim: "并发准入需要冻结输入、独立验收、受控共享状态、可观察取消和预定义Join。", class: METHODOLOGY, source_ids: [PREFLIGHT, C19]}
+  - {evidence_id: E-C20-014, claim: "共享可变对象应按对象或分区使用单写者、CAS或带fencing token的租约。", class: METHODOLOGY, source_ids: [PREFLIGHT, OC-LANES]}
+  - {evidence_id: E-C20-015, claim: "逻辑action/idempotency key在重试间稳定，attempt id每次不同。", class: METHODOLOGY, source_ids: [PREFLIGHT, C14]}
+  - {evidence_id: E-C20-016, claim: "跨系统应按至少一次和可能重复设计，不承诺全局exactly-once。", class: METHODOLOGY, source_ids: [PREFLIGHT, A2A-SPEC, OC-HANDOFF]}
+  - {evidence_id: E-C20-017, claim: "receipt丢失进入UNKNOWN，先查询权威系统再决定是否重试。", class: METHODOLOGY, source_ids: [PREFLIGHT, C14]}
+  - {evidence_id: E-C20-018, claim: "取消是一项请求，不是已停止、回滚或业务完成。", class: METHODOLOGY, source_ids: [PREFLIGHT, C14, A2A-SPEC, OC-OPS]}
+  - {evidence_id: E-C20-019, claim: "Join必须检查必需分支、取消闭合、版本、writer、重复、receipt和三证。", class: METHODOLOGY, source_ids: [PREFLIGHT, C09]}
+  - {evidence_id: E-C20-020, claim: "事实、价值、资源、写入、权限、截止、状态和取消冲突需要不同裁决。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C20-021, claim: "死锁超时触发检查而非owner转移；活锁需要进度指标、路由上限和唯一仲裁。", class: METHODOLOGY, source_ids: [PREFLIGHT]}
+  - {evidence_id: E-C20-022, claim: "单一事实源指每类事实有唯一权威owner，不等于单文件或单数据库。", class: METHODOLOGY, source_ids: [PREFLIGHT, C09]}
+  - {evidence_id: E-C20-023, claim: "OpenClaw固定版Binding决定入口路由，但不证明任务适配或业务授权。", class: IMPLEMENTATION-FACT, source_ids: [OC-BIND, C06]}
+  - {evidence_id: E-C20-024, claim: "OpenClaw固定版接受spawn不等于完成，wait timeout不等于停止。", class: IMPLEMENTATION-FACT, source_ids: [OC-SESSION, OC-OPS]}
+  - {evidence_id: E-C20-025, claim: "OpenClaw固定版以runtime outcome和deliverable存在性约束announce，缺交付物不应静默成功。", class: IMPLEMENTATION-FACT, source_ids: [OC-ANNOUNCE]}
+  - {evidence_id: E-C20-026, claim: "Hermes 0.20.1的delegate为隔离子会话并仅返回最终摘要，工具继承只能收窄；动态文档另栏。", class: IMPLEMENTATION-FACT, source_ids: [HERMES-FIXED, HERMES-DYNAMIC]}
+  - {evidence_id: E-C20-027, claim: "A2A 1.0的取消是尝试，消息/推送可能重复，HTTP成功不等于业务接管。", class: STANDARD-FACT, source_ids: [A2A-SPEC]}
+  - {evidence_id: E-C20-028, claim: "A2A Task/Message/Event/Artifact/Agent Card与信任定义归C18，本章仅保留兼容锚点。", class: SCOPE, source_ids: [BOOK, CARD, PREFLIGHT]}
+  - {evidence_id: E-C20-029, claim: "Muse只可作为厂商公开体验镜面，不能推断其内部路由、交接或并发实现。", class: VENDOR-CLAIM, source_ids: [MUSE, PREFLIGHT]}
+  - {evidence_id: E-C20-030, claim: "C14真实授权实践仍受限，C16事实/交叉已通过但实践待审；两者输入均须保留回归。", class: PROJECT-STATE, source_ids: [PREFLIGHT, C17, C19]}
+  - {evidence_id: E-C20-031, claim: "本章仅有路由策略、Handoff卡、并发合并协议三件母产物。", class: DELIVERABLE, source_ids: [BOOK, CARD]}
+  - {evidence_id: E-C20-032, claim: "状态化作者夹具60 trial分布为12 PASS、45 FAIL、3 REVIEW_REQUIRED，双运行哈希一致且零外部副作用；能力证据观察记录与独立authority的能力、版本、权限、状态和digest精确绑定，14例定向回归保留既有能力负测并证明格式合法但错误的digest会FAIL；真实层为0，十二条未来映射记录只是合成holdout shadow。", class: LOCAL-VERIFICATION, source_ids: [LOCAL-IN, LOCAL-OUT, LOCAL-CAP-DIGEST]}
+open_questions:
+  - {id: OQ-C20-01, question: "C14独立实践门完成后，授权硬门在真实Runtime上的回归结果是什么？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C20-02, question: "C16实践门完成后，CASE-C拓扑与writer/owner分配是否需要调整？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C20-03, question: "OpenClaw与Hermes真实跨Runtime的cancel、receipt与owner切换是否满足本章协议？", disposition: REVIEW_REQUIRED}
+  - {id: OQ-C20-04, question: "Muse内部路由、Handoff和并发机制是否公开到可验证程度？", disposition: REVIEW_REQUIRED}

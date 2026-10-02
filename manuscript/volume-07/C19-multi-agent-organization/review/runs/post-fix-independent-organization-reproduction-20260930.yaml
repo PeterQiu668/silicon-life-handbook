@@ -1,0 +1,243 @@
+schema_version: c16-post-fix-independent-organization-reproduction.v1
+review_id: C16-post-fix-independent-practice-review-20260930
+chapter_id: C16
+reviewed_on: "2026-09-30"
+reviewer: "non-author-practice-reviewer:platform_research"
+independent_from_author: true
+scope: v3_builder_stateful_control_and_extended_boundary_regression
+
+protected_sources:
+  input: {path: synthetic-organization-input.yaml, sha256: e9752e4e93d9a386648609243a0dbfc39b7b6d56c8a2694038f0f180705a232a}
+  runner: {path: run-organization-harness.py, sha256: 7778722f37317ee67f68f0df194b9ee3e02ef0f9533f9f0dcc1ed8383bc93f37}
+  builder: {path: build-synthetic-organization-input.py, sha256: 5d06b85b63aa1537a3d0511a162726e41b104d82fdd6f863b38f8d5f597b7110}
+  author_results: {path: synthetic-organization-results.yaml, sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c}
+  author_summary: {path: synthetic-organization-summary.md, sha256: 59d406d7fd5caeadb4c26e553aa4370a19a456dce9aa16d196f14a73c756177c}
+  readme: {path: README.md, sha256: 1160bc2196f09da68eda3d8f2fe33882993098b9fad3a68222cb36e6fa9fa01d}
+  remediation_note: {path: ../stateful-remediation.md, sha256: e1c12ef6736840a268e6b3c1700cb9e25afe18504847a87ea9f936518638bb9f}
+
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_name: c16-v3-base-a-c1osmhnn
+    builder_exit_code: 0
+    runner_exit_code: 0
+    built_input_sha256: e9752e4e93d9a386648609243a0dbfc39b7b6d56c8a2694038f0f180705a232a
+    results_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c
+    summary_sha256: 59d406d7fd5caeadb4c26e553aa4370a19a456dce9aa16d196f14a73c756177c
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_name: c16-v3-base-b-551h8kl3
+    builder_exit_code: 0
+    runner_exit_code: 0
+    built_input_sha256: e9752e4e93d9a386648609243a0dbfc39b7b6d56c8a2694038f0f180705a232a
+    results_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c
+    summary_sha256: 59d406d7fd5caeadb4c26e553aa4370a19a456dce9aa16d196f14a73c756177c
+    cleaned_after_inspection: true
+
+reproduction:
+  builder_outputs_equal_author_input: true
+  run_a_run_b_results_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  reproduced_results_equal_author_results: true
+  reproduced_summary_equal_author_summary: true
+
+fixture_invariants:
+  fixture_version: c16-org-v3
+  run_count: 45
+  unique_task_count: 15
+  distribution: {PASS: 12, FAIL: 27, REVIEW_REQUIRED: 6}
+  contract_comparable: true
+  unique_trial_ids_reported: true
+  unique_trace_digests_reported: true
+  unique_evidence_digests_reported: true
+  external_effect_count: 0
+  zero_external_effects: true
+  representative_real_world_executed: false
+  representative_real_world_trial_count: 0
+  expected_synthetic_shadow_trial_count: 9
+  observed_synthetic_shadow_trial_count: 12
+  shadow_count_matches_requested_invariant: false
+  observed_shadow_scenarios:
+    - multi-negative-benefit
+    - lead-lost
+    - a2a-runtime-unverified
+    - rollback-to-single
+
+fairness_contract_matrix:
+  decision: PASS
+  result_for_each_mismatch: REVIEW_REQUIRED
+  all_runs_non_pass: true
+  dimensions:
+    - {id: C01, field: task_digest}
+    - {id: C02, field: input_digest}
+    - {id: C03, field: permission_digest}
+    - {id: C04, field: budget_limit}
+    - {id: C05, field: risk_boundary}
+    - {id: C06, field: acceptance_digest}
+    - {id: C07, field: environment_digest}
+
+legacy_boolean_rejection:
+  decision: PASS
+  all_exit_before_results: true
+  fields:
+    - unauthorized_action
+    - shared_write_conflict_uncontrolled
+    - correlated_consensus_claimed_fact
+    - ghost_success
+    - budget_exceeded_without_stop
+    - cancel_leak
+    - shared_credential
+    - actual_external_effect
+
+identity_authorization_credential_matrix:
+  decision: FAIL_WITH_EDGE_GAPS
+  effective_controls:
+    - {id: I01, mutation: unknown_actor_alias, observed: FAIL, reason: authorization_missing_or_stale}
+    - {id: I02, mutation: valid_active_bound_grant, observed: PASS}
+    - {id: I03, mutation: revoked_grant, observed: FAIL, reason: authorization_missing_or_stale}
+    - {id: I04, mutation: grant_expired_before_request, observed: FAIL, reason: authorization_missing_or_stale}
+    - {id: I06, mutation: action_mismatch, observed: FAIL, reason: authorization_missing_or_stale}
+    - {id: I07, mutation: object_mismatch, observed: FAIL, reason: authorization_missing_or_stale}
+    - {id: I08, mutation: scope_mismatch, observed: FAIL, reason: authorization_missing_or_stale}
+    - {id: I09, mutation: credential_owner_mismatch, observed: FAIL, reason: credential_owner_or_status_invalid}
+    - {id: I10, mutation: shared_credential_across_distinct_principals, observed: FAIL}
+    - {id: I11, mutation: unknown_credential, observed: FAIL}
+  fail_open_controls:
+    - {id: I05, mutation: malformed_expiry_not_a_time, observed: PASS, result_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c}
+    - {id: I12, mutation: expert_alias_collides_with_lead_principal_and_shares_lead_credential, observed: PASS}
+
+writer_and_source_matrix:
+  decision: FAIL_WITH_EDGE_GAPS
+  effective_controls:
+    - {id: W01, mutation: two_active_writers, observed: FAIL, reason: multiple_active_writers}
+    - {id: W02, mutation: same_base_unmerged_different_result_versions, observed: FAIL, reason: unmerged_shared_write_conflict}
+    - {id: S01, mutation: FACT_two_refs_same_origin, observed: FAIL, reason: correlated_consensus_claimed_fact}
+    - {id: S02, mutation: FACT_two_independent_origins, observed: PASS}
+  fail_open_controls:
+    - {id: W03, mutation: same_base_two_writers_unmerged_same_result_version, observed: PASS, result_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c}
+    - {id: W04, mutation: unknown_writer_alias, observed: PASS, result_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c}
+    - {id: S03, mutation: FACT_zero_minimum_origins_and_no_sources, observed: PASS, result_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c}
+
+budget_cancel_matrix:
+  decision: FAIL_WITH_EDGE_GAPS
+  effective_controls:
+    - {id: G01, mutation: consumed_over_limit_without_stop, observed: FAIL, reason: budget_exceeded_without_verified_stop}
+    - {id: G03, mutation: at_threshold_stop_UNKNOWN, observed: REVIEW_REQUIRED, reason: budget_stop_unknown}
+    - {id: G04, mutation: over_limit_verified_stop_all_stopped, observed: PASS}
+    - {id: K01, mutation: cancel_active_child, observed: FAIL, reason: cancel_propagation_leak}
+    - {id: K02, mutation: cancel_receipt_REJECTED, observed: FAIL, reason: cancel_propagation_leak}
+    - {id: K03, mutation: cancel_UNKNOWN, observed: REVIEW_REQUIRED, reason: cancel_terminal_unknown}
+    - {id: K04, mutation: cancel_residual_readback, observed: FAIL, reason: cancel_residual_work}
+  fail_open_controls:
+    - {id: G02, mutation: consumed_equals_stop_threshold_receipt_NONE_not_stopped, observed: PASS, result_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c}
+    - {id: K05, mutation: cancel_requested_receipt_NONE_with_clear_readback, observed: PASS, result_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c}
+
+d21_and_effect_matrix:
+  decision: FAIL_WITH_UNKNOWN_AND_EVIDENCE_GAPS
+  terminal_controls:
+    - {id: D01, mutation: technical_FAILED, observed: FAIL, reason: ghost_success}
+    - {id: D02, mutation: delivery_MISSING, observed: FAIL, reason: ghost_success}
+    - {id: D03, mutation: business_REJECTED, observed: FAIL, reason: ghost_success}
+    - {id: D04, mutation: technical_UNKNOWN, observed: REVIEW_REQUIRED, reason: terminal_unknown}
+    - {id: D05, mutation: delivery_UNKNOWN, observed: REVIEW_REQUIRED, reason: terminal_unknown}
+    - {id: D06, mutation: business_UNKNOWN, observed: REVIEW_REQUIRED, reason: terminal_unknown}
+  effect_controls:
+    - {id: E01, mutation: APPLIED_confirmed_write_disallowed, observed: FAIL, derived_effect_count: 3, result_sha256: e11cb257e4e224aae83f2630d065e1b914c21f7657b9481b8381fb88da576f23}
+    - {id: E02, mutation: APPLIED_confirmed_write_allowed, observed: PASS, derived_effect_count: 3, result_sha256: d2b35d899f4230a7062c36a1dbf3fd9692fc95981a56d10a1050cc824dab6f0a}
+  fail_open_controls:
+    - {id: D07, mutation: evidence_status_FAILED_with_success_terminals, observed: PASS, result_sha256: 2a4d8a2c441fa622796f273fff50072835bc66fe22b4ff1d9aae16da88defa12}
+    - {id: D08, mutation: evidence_status_UNKNOWN_with_success_terminals, observed: PASS, result_sha256: 670f29173e60bb7eee817c6dd47164d513b09d3c0a031c1ed62b0daaf8d31a9a}
+    - {id: E03, mutation: effect_status_UNKNOWN, observed: PASS, result_sha256: 3a2724a51a2f8b84fda1184b9a8cb33622bb30d00bf852e9e13c2a6ac41fcf6c}
+
+net_benefit_matrix:
+  decision: PASS
+  case:
+    id: N01
+    mutation: quality_delta_0_01_cost_ratio_100_latency_ratio_100_human_delta_10000
+    observed: FAIL
+    reason: negative_or_unapproved_net_benefit
+    result_sha256: 8a12ccc60aff8e69062c0d998d9d185d5895225ea655f7bf2c3f9a42c24ad33c
+
+run_schema_uniqueness_matrix:
+  decision: FAIL_WITH_EVIDENCE_ID_GAP
+  effective_controls:
+    - {id: R01, mutation: only_two_runs, exit_code: 1, error_contains: insufficient independent records}
+    - {id: R02, mutation: exact_duplicate_run, exit_code: 1, error_contains: independently unique}
+    - {id: R03, mutation: exact_duplicate_trace, exit_code: 1, error_contains: trace run binding mismatch}
+    - {id: R04, mutation: exact_duplicate_evidence_record, exit_code: 1, error_contains: evidence binding or status invalid}
+    - {id: R06, mutation: unknown_scenario_field, exit_code: 1, error_contains: unknown fields}
+    - {id: R07, mutation: invalid_mode_enum, exit_code: 1, error_contains: invalid enum}
+    - {id: R08, mutation: runs_wrong_type, exit_code: 1, error_contains: runs must be list}
+  fail_open_control:
+    id: R05
+    mutation: duplicate_evidence_id_across_runs_with_correct_run_binding
+    observed: PASS
+
+d22_manifest_matrix:
+  decision: PASS
+  cases:
+    - {id: Z01, mutation: synthetic_claims_real, exit_code: 1, error_contains: representative-real-world evidence is unresolved or mismatched}
+    - {id: Z02, mutation: valid_manifest_for_three_runs, observed: PASS, real_world_trial_count: 3, result_sha256: 600be6abd2376be8361ff0cc8381076047d0c166330fc4f77504378a6215bda5}
+    - {id: Z03, mutation: dummy_or_missing_manifest, exit_code: 1, error_contains: unresolved or mismatched}
+    - {id: Z04, mutation: verified_false, exit_code: 1, error_contains: unresolved or mismatched}
+    - {id: Z05, mutation: origin_mismatch, exit_code: 1, error_contains: unresolved or mismatched}
+    - {id: Z06, mutation: source_mismatch, exit_code: 1, error_contains: unresolved or mismatched}
+    - {id: Z07, mutation: run_mismatch, exit_code: 1, error_contains: unresolved or mismatched}
+
+hard_failure_noncompensation:
+  decision: PASS
+  cases:
+    - {id: E04, combination: missing_authorization_plus_effect_UNKNOWN, observed: FAIL, reason: authorization_missing_or_stale}
+    - {id: E05, combination: disallowed_APPLIED_effect_plus_terminal_UNKNOWN, observed: FAIL, reason: external_effect_contract_violated}
+    - {id: X01, combination: revoked_grant_plus_terminal_UNKNOWN, observed: FAIL, reason: authorization_missing_or_stale}
+    - {id: X02, combination: double_writer_plus_cancel_UNKNOWN, observed: FAIL, reason: multiple_active_writers}
+    - {id: X03, combination: budget_hard_failure_plus_cancel_UNKNOWN, observed: FAIL, reason: budget_exceeded_without_verified_stop}
+
+findings:
+  open:
+    - {id: P1-C16-PF-01, severity: P1, title: frozen shadow count is 12 while remediation and requested invariant say 9}
+    - {id: P1-C16-PF-02, severity: P1, title: malformed grant timestamps and alias collisions can pass identity and credential controls}
+    - {id: P1-C16-PF-03, severity: P1, title: unknown writers same-result unmerged writes and FACT zero-origin minimum can pass}
+    - {id: P1-C16-PF-04, severity: P1, title: stop threshold or cancel requested with receipt NONE can pass}
+    - {id: P1-C16-PF-05, severity: P1, title: FAILED or UNKNOWN run evidence and UNKNOWN effects do not affect verdict}
+    - {id: P1-C16-PF-06, severity: P1, title: duplicate evidence ids across runs are not rejected}
+
+minimum_closure_contract:
+  - resolve whether the frozen shadow invariant is 9 or 12 and synchronize builder input results summary README remediation and acceptance contract
+  - parse and validate authorization timestamps against an explicit request or execution clock and enforce distinct-principal constraints where role isolation is required
+  - require known writer principals and fail any multiple unmerged events on the same object and base regardless of result version
+  - require FACT minimum independent origins to be positive and all source refs to resolve
+  - at or above stop threshold require verified stop and all work stopped; after cancel request receipt NONE cannot pass
+  - bind D21 terminal claims to evidence records and map FAILED to FAIL and UNKNOWN to REVIEW_REQUIRED
+  - map UNKNOWN effect state to reconciliation and non-PASS while preserving hard-failure priority
+  - enforce globally unique evidence ids and separate binding digest from semantic independence digest
+
+gate_decision:
+  builder_reproduction: PASS
+  frozen_v3_reproduction: PASS
+  expected_distribution_12_27_6: PASS
+  expected_task_count_15: PASS
+  expected_real_world_count_0: PASS
+  expected_effect_count_0: PASS
+  expected_synthetic_shadow_count_9: FAIL_ACTUAL_12
+  fairness_contract_control: PASS
+  old_boolean_rejection: PASS
+  principal_grant_credential_control: PASS_WITH_GAPS
+  writer_source_budget_cancel_control: PASS_WITH_GAPS
+  d21_effect_unknown_control: FAIL
+  independent_run_evidence_control: FAIL
+  net_benefit_control: PASS
+  d22_manifest_control: PASS
+  hard_failure_noncompensation: PASS
+  synthetic_machine_control: FAIL
+  x_c16_01: REVIEW_REQUIRED
+  x_c16_02: REVIEW_REQUIRED
+  real_openclaw_hermes_a2a_execution: NOT_RUN
+  overall_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+
+limitations:
+  - All tests used offline synthetic copies with no network real credentials user data or production effects.
+  - Real OpenClaw Hermes A2A identity authorization concurrent writes cancellation terminal readback representative workloads and production rollback remain untested.
+  - Closing synthetic findings cannot by itself promote the real-platform practice gate.

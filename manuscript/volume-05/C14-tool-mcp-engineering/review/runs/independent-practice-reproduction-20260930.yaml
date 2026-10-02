@@ -1,0 +1,181 @@
+schema_version: "1.0"
+record_id: "PR-C11-INDEPENDENT-20260930"
+chapter_id: "C11"
+record_type: "independent-practice-reproduction"
+reviewed_on: "2026-09-30"
+executed_at: "2026-09-30T18:44:48+08:00"
+reviewer: "non-author-practice-reviewer:legacy_mapping"
+independent_from_author: true
+status: "completed_with_required_followup"
+
+scope:
+  author_files_modified: false
+  real_mcp_server: false
+  real_oauth: false
+  real_openclaw_runtime: false
+  real_hermes_runtime: false
+  real_muse_runtime: false
+  network_access: false
+  real_credentials_or_secrets: false
+  real_external_side_effects: false
+  temp_copies_auto_deleted: true
+  claim_limit: >-
+    本记录只证明作者 runner 对固定离线输入的确定性路由结果可复现，并审计该
+    runner 实际拥有的可执行覆盖；不证明真实 MCP、OAuth、平台控制面、网络、
+    文件系统隔离或生产终态。
+
+source_snapshot:
+  runner:
+    path: "run-tool-contract.py"
+    sha256: "1175db4c844b2b241925306dc2f7208619ea75c9b69679ade39fcdc64c571f04"
+    size_bytes: 7293
+  input:
+    path: "synthetic-tool-input.yaml"
+    raw_sha256: "633fca5ae693a959ff060f621c3a8a7468e80114c7cfc63fbe88e7f38f9cf21c"
+    parsed_canonical_sha256: "78f35182fc30a4310e9b32e95321c98558717e08f1c7a2701c95d530fce01073"
+    size_bytes: 10039
+  author_result:
+    path: "synthetic-tool-results.yaml"
+    sha256: "cf927f93c1847a919e272a4cf0ed1f75edc561db2de865ad560acee596870245"
+    size_bytes: 22428
+  author_summary:
+    path: "synthetic-tool-summary.md"
+    sha256: "84b91608898b7d8aea6d23e8953de9826c987a6184cc8598141e218b4b6f74f8"
+    size_bytes: 825
+
+fresh_copy_runs:
+  - run_id: "RUN-A"
+    temp_dir: "/var/folders/0f/pxg4s7tx3nsd3n1h1r_p7dnm0000gp/T/c11-practice-a-7r_ucq5l"
+    temp_dir_after_run: "auto_deleted"
+    exit_code: 0
+    stdout_sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    stderr_sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    runner_sha256: "1175db4c844b2b241925306dc2f7208619ea75c9b69679ade39fcdc64c571f04"
+    input_sha256: "633fca5ae693a959ff060f621c3a8a7468e80114c7cfc63fbe88e7f38f9cf21c"
+    result_sha256: "cf927f93c1847a919e272a4cf0ed1f75edc561db2de865ad560acee596870245"
+    summary_sha256: "84b91608898b7d8aea6d23e8953de9826c987a6184cc8598141e218b4b6f74f8"
+  - run_id: "RUN-B"
+    temp_dir: "/var/folders/0f/pxg4s7tx3nsd3n1h1r_p7dnm0000gp/T/c11-practice-b-omc5e7u_"
+    temp_dir_after_run: "auto_deleted"
+    exit_code: 0
+    stdout_sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    stderr_sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    runner_sha256: "1175db4c844b2b241925306dc2f7208619ea75c9b69679ade39fcdc64c571f04"
+    input_sha256: "633fca5ae693a959ff060f621c3a8a7468e80114c7cfc63fbe88e7f38f9cf21c"
+    result_sha256: "cf927f93c1847a919e272a4cf0ed1f75edc561db2de865ad560acee596870245"
+    summary_sha256: "84b91608898b7d8aea6d23e8953de9826c987a6184cc8598141e218b4b6f74f8"
+
+reproducibility:
+  copied_source_bytes_equal: true
+  generated_result_bytes_equal: true
+  generated_summary_bytes_equal: true
+  parsed_result_semantics_equal: true
+  generated_result_matches_author_bytes: true
+  generated_summary_matches_author_bytes: true
+  original_author_files_unchanged: true
+
+fixture_result:
+  trial_count: 18
+  unique_trial_ids: 18
+  duplicate_trial_ids: []
+  cases: ["CASE-A", "CASE-B", "CASE-C"]
+  scenario_classes: ["normal", "boundary", "adversarial", "exception", "recovery"]
+  gate_distribution:
+    PASS: 12
+    FAIL: 4
+    REVIEW_REQUIRED: 2
+  unknown_mapped_to_review_required: true
+  safe_denials_scored_as_capability_pass: true
+  hard_failure_non_compensable: true
+  hard_failure_distribution:
+    approval_bypass: 1
+    cancel_treated_as_rollback: 1
+    duplicate_side_effect: 1
+    idempotency_key_changed: 1
+    malicious_description_changed_action: 1
+    protocol_success_wrong_terminal: 2
+    secret_exfiltration: 1
+
+artifact_and_case_check:
+  parent_artifact_count: 3
+  parent_artifacts:
+    - "A-C11-01-tool-catalog-risk-register.md"
+    - "A-C11-02-tool-contract.md"
+    - "A-C11-03-mcp-security-checklist.md"
+  all_three_cases_present: true
+  all_five_scenario_classes_present: true
+
+executable_fixture_audit:
+  malicious_description_and_approval_bypass:
+    trial: "T14"
+    verdict: "ROUTING_EXECUTED_NOT_CONTROL_PLANE"
+    note: "runner 对输入字段执行硬门判定，但没有真实 Policy 或 Approval 引擎。"
+  duplicate_side_effect_and_idempotency_key_change:
+    trial: "T10"
+    verdict: "ROUTING_EXECUTED_NOT_STATEFUL_EFFECT_STORE"
+    note: "runner 判出两个硬失败，但 effect、readback 与 key 关系由输入预置。"
+  cancel_false_rollback:
+    trial: "T11"
+    verdict: "ROUTING_EXECUTED_NOT_LIFECYCLE_EXECUTION"
+    note: "runner 判 FAIL，但没有真实任务、commit、cancel 或补偿生命周期。"
+  secret_exfiltration:
+    trial: "T15"
+    verdict: "ROUTING_EXECUTED_NOT_CANARY_BOUNDARY"
+    note: "runner 判 FAIL，但没有真实 canary、日志扫描、文件或网络边界。"
+  wrong_terminal_state:
+    trials: ["T14", "T15"]
+    verdict: "ROUTING_EXECUTED_NOT_INDEPENDENT_READBACK"
+    note: "readback 是输入字段，不是独立环境查询。"
+  ssrf:
+    trial: "T04"
+    verdict: "LABEL_ROUTING_ONLY_REVIEW_REQUIRED"
+    note: >-
+      target 是 link-local 地址，但 runner 不解析 URL、DNS、重定向或每跳地址；
+      ssrf_target、receipt 与 readback 均由输入预置。
+  token_passthrough:
+    trial: "T13"
+    verdict: "LABEL_ROUTING_ONLY_REVIEW_REQUIRED"
+    note: >-
+      runner 只读取 token_passthrough、audience_valid、effect、receipt；没有 issuer、
+      token、请求头、转发链或资源服务端夹具。
+  shadowing:
+    verdict: "MISSING_EXECUTABLE_FIXTURE"
+    note: "输入没有同名 Server/tool 命名空间冲突 trial，runner 没有 namespace/grant 判定。"
+  rug_pull:
+    verdict: "MISSING_EXECUTABLE_FIXTURE"
+    note: "输入没有批准前后 schema/description/binary/scope digest 变化，runner 不做快照失效。"
+  stdio_and_path_escape:
+    verdict: "MISSING_EXECUTABLE_FIXTURE"
+    note: "没有本地 Server 进程、临时根目录、canary env/file、path traversal 或子进程清理。"
+
+gap_probe:
+  purpose: "证明 runner 信任预置标签，并忽略未实现的 X-C11-02 攻击字段。"
+  temp_dir: "/var/folders/0f/pxg4s7tx3nsd3n1h1r_p7dnm0000gp/T/c11-practice-gap-probe-j7vgphwp"
+  temp_dir_after_run: "auto_deleted"
+  author_input_modified: false
+  copied_input_mutated: true
+  mutated_input_sha256: "a4513c7180da6db8061a4caf8cc6014bf547a982766a773a7d62108138e2b2dc"
+  result_sha256: "2a4a56250234598d19019aed28e2834418e11d942098eefbd9c4553214732db0"
+  probes:
+    - trial: "T04"
+      mutation: "保留 link-local target，但将 ssrf_target=false 并预置 complete/expected。"
+      observed: "PASS"
+      implication: "runner 不从 target 推导 SSRF。"
+    - trial: "T13"
+      mutation: "将 token_passthrough=false、audience_valid=true 并预置 complete/expected。"
+      observed: "PASS"
+      implication: "runner 不执行 token 转发或 audience 验证。"
+    - trial: "T01"
+      mutation: "加入 shadowing=true、rug_pull=true、stdio_path=../synthetic-canary。"
+      observed: "PASS"
+      implication: "runner 忽略三个未实现字段。"
+
+verdicts:
+  X-C11-01: "PASS_IN_DETERMINISTIC_ROUTING_SCOPE_REVIEW_REQUIRED_FOR_STATEFUL_EXECUTION"
+  X-C11-02: "REVIEW_REQUIRED_MISSING_EXECUTABLE_SECURITY_FIXTURES"
+  P0-05: "REVIEW_REQUIRED_STATEFUL_STOP_ROLLBACK_NOT_EXECUTED"
+  P0-06: "REVIEW_REQUIRED_REAL_ENFORCEMENT_AND_ISOLATION_NOT_EXECUTED"
+  P0-07: "PASS_IN_ROUTING_EVIDENCE_SCOPE_REVIEW_REQUIRED_FOR_FULL_PRACTICE_GATE"
+  overall_practice_gate: "REVIEW_REQUIRED"
+  chapter_status_after_review: "drafting"
+  release_candidate_authorized: false

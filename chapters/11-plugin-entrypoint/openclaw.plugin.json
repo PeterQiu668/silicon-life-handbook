@@ -1,0 +1,197 @@
+{
+  "_meta": {
+    "format": "JSON5 — OpenClaw plugin manifest (openclaw.plugin.json)",
+    "spec_url": "docs.openclaw.ai/plugins/manifest",
+    "spec_url_2": "docs.openclaw.ai/plugins/building-plugins",
+    "verified_on": "OpenClaw 2026.9.4 (3a9d69d)",
+    "evidence_files": [
+      "/opt/homebrew/lib/node_modules/openclaw/extensions/memory-lancedb/openclaw.plugin.json",
+      "/opt/homebrew/lib/node_modules/openclaw/extensions/feishu/openclaw.plugin.json",
+      "/opt/homebrew/lib/node_modules/openclaw/extensions/lobster/openclaw.plugin.json",
+      "/opt/homebrew/lib/node_modules/openclaw/extensions/device-pair/openclaw.plugin.json",
+      "/opt/homebrew/lib/node_modules/openclaw/extensions/open-prose/openclaw.plugin.json"
+    ],
+    "license": "MIT — Copyright (c) 2026 OpenClaw Foundation",
+    "json5_runtime_dep_note": "openclaw plugin-runtime-deps 必须含 json5 — see openclaw/openclaw#77461",
+    "generated_section": "openclaw.install (openclaw plugins build 写入；手写会被覆盖)"
+  },
+
+  "id": "silicon-life-training",
+  "name": "硅基生命训练学",
+  "description": "将 v5.0 行业标准版《硅基生命训练学》7 大协议、教练机制、双三角、三省制、Trust Score、Merit Ledger、SLCP、OODA Loop 全部打包为可安装的 OpenClaw plugin。",
+  "kind": "feature",
+  "categories": ["training", "governance", "orchestration"],
+  "exposure": ["configured", "setup", "docs"],
+
+  "contracts": {
+    "tools": [
+      "silicon_life.trainer",
+      "silicon_life.mentor",
+      "silicon_life.health_check",
+      "silicon_life.trust_score",
+      "silicon_life.merit_ledger",
+      "silicon_life.three_stage_review",
+      "silicon_life.response_yield",
+      "silicon_life.ooda_observe",
+      "silicon_life.ooda_orient",
+      "silicon_life.ooda_decide",
+      "silicon_life.ooda_act",
+      "silicon_life.autonomous_goal_generator"
+    ],
+    "hooks": [
+      "before-tool-call",
+      "after-tool-call",
+      "first-response",
+      "on-startup",
+      "on-drift-detect"
+    ],
+    "hooks_status_note": "hooks 字段在 docs.openclaw.ai/plugins/building-plugins 设计文档存在；2026.9.4 stock plugin manifest 未见实例；本节为 RFC 草案 (⏳ 待 OpenClaw 主仓合并)",
+    "channels": []
+  },
+
+  "activation": {
+    "onStartup": false,
+    "onEvent": "first-message",
+    "lazyLoad": true,
+    "lazyLoad_note": "lazyLoad 字段在 docs.openclaw.ai 未明确列出；推断命名；待 RFC 确认 (⏳)"
+  },
+
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "paradigm": {
+        "type": "string",
+        "enum": ["reactive", "proactive-evolution"],
+        "default": "proactive-evolution",
+        "description": "训虾派（原黑话）→ Proactive Evolution Paradigm；本章启用 v5.0 主动进化范式"
+      },
+      "proactiveness": {
+        "type": "string",
+        "enum": ["respond-only", "propose-with-approval", "autonomous-goal-generation"],
+        "default": "propose-with-approval",
+        "description": "主动性边界三档（优势 3）：仅响应 / 提案待批准 / 自主生成目标"
+      },
+      "protocols": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "SOUL": { "type": "boolean", "default": true, "description": "灵魂协议" },
+          "USER": { "type": "boolean", "default": true, "description": "用户协议" },
+          "AGENTS": { "type": "boolean", "default": true, "description": "智能体协议" },
+          "TOOLS": { "type": "boolean", "default": true, "description": "工具协议" },
+          "IDENTITY": { "type": "boolean", "default": true, "description": "身份协议" },
+          "HEARTBEAT": { "type": "boolean", "default": true, "description": "心跳协议" },
+          "MEMORY": { "type": "boolean", "default": true, "description": "记忆协议" }
+        },
+        "description": "7 大协议启用矩阵；默认全开"
+      },
+      "mentor": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "enabled": { "type": "boolean", "default": true, "description": "导师智能体（原：教练虾）启用" },
+          "model": { "type": "string", "default": "anthropic/claude-sonnet-4", "description": "教练模型选择" },
+          "maxIterations": { "type": "number", "minimum": 1, "maximum": 20, "default": 5 }
+        }
+      },
+      "governance": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "trustScoreThreshold": { "type": "number", "minimum": 0, "maximum": 100, "default": 70 },
+          "meritLedgerPath": { "type": "string", "default": "~/.openclaw/merit/silicon-life-training.jsonl" },
+          "threeStageReview": { "type": "boolean", "default": true, "description": "三省制启用（提案/复审/裁决）" }
+        }
+      },
+      "drift": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "documentDriftCheck": { "type": "boolean", "default": true, "description": "文档漂移监测（优势 2）" },
+          "personalityDriftCheck": { "type": "boolean", "default": true },
+          "weeklyHealthCheckCron": { "type": "string", "default": "0 9 * * 1", "description": "每周一 9 点跑体检" }
+        }
+      },
+      "ooda": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "enabled": { "type": "boolean", "default": true, "description": "OODA 循环启用（优势 5）" },
+          "autonomousGoalGeneration": { "type": "boolean", "default": false, "description": "自主目标生成；开启后 agent 可自主生成目标（Response → Proposal）" },
+          "goalApprovalTimeout": { "type": "number", "default": 3600, "description": "目标提案等待批准超时（秒）" }
+        }
+      },
+      "slcp": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "antiFragileTriptych": { "type": "boolean", "default": true, "description": "反脆弱三层（优势 1）" },
+          "responseYieldProtocol": { "type": "boolean", "default": true, "description": "让位协议（优势 1）" }
+        }
+      }
+    },
+    "required": ["paradigm", "proactiveness"]
+  },
+
+  "uiHints": {
+    "paradigm": {
+      "label": "训练学范式",
+      "help": "Reactive 被动响应 / Proactive Evolution 主动进化；v5.0 默认后者"
+    },
+    "proactiveness": {
+      "label": "主动性边界",
+      "help": "三档：仅响应 / 提案待批准 / 自主生成目标（详见第 5 章）",
+      "advanced": false
+    },
+    "mentor.model": {
+      "label": "教练模型",
+      "placeholder": "anthropic/claude-sonnet-4",
+      "help": "导师智能体使用的模型 ID",
+      "advanced": true
+    },
+    "governance.trustScoreThreshold": {
+      "label": "信任分阈值",
+      "help": "低于此分数触发整改单（Remediation Ticket）",
+      "advanced": true
+    },
+    "governance.meritLedgerPath": {
+      "label": "功绩账本路径",
+      "placeholder": "~/.openclaw/merit/silicon-life-training.jsonl",
+      "advanced": true
+    },
+    "drift.weeklyHealthCheckCron": {
+      "label": "每周体检 Cron",
+      "help": "默认每周一 9:00",
+      "advanced": true
+    },
+    "ooda.autonomousGoalGeneration": {
+      "label": "自主目标生成（高风险）",
+      "help": "开启后 agent 将从 Response 型进化到 Proposal 型；详见第 8 章",
+      "advanced": true
+    }
+  },
+
+  "entry": "./dist/index.js",
+  "skills": [
+    "./skills/silicon-life-training",
+    "./skills/dual-triangle-coach",
+    "./skills/three-stage-review",
+    "./skills/anti-fragile-triptych",
+    "./skills/ooda-loop"
+  ],
+  "channels": [],
+  "capabilityCatalogEntry": null,
+
+  "openclaw.install": {
+    "package": "bluesilicon/openclaw-plugin-silicon-life-training",
+    "version": "5.0.0",
+    "channel": "stable",
+    "publishedAt": "2026-09-27T00:00:00Z",
+    "author": "蓝血智能体生态 (Blue-Blood Agent Ecosystem)",
+    "homepage": "https://github.com/bluesilicon/openclaw-plugin-silicon-life-training",
+    "license": "MIT",
+    "sha256": "PLACEHOLDER_BUILD_WILL_REPLACE",
+    "activationRequest": "PLACEHOLDER_BUILD_WILL_REPLACE"
+  }
+}

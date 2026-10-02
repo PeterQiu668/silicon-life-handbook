@@ -1,0 +1,517 @@
+{
+  "attack_count": 43,
+  "attacks": [
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-001"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-002"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-003"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-004"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-005"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-006"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-007"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-008"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-009"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-record-binding",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-010"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-equal-time",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-011"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-prerequisite",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-012"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-prerequisite",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-013"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-review",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-014"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-review",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-015"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "causal-review",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-016"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "principal-shadow",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V26-017"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "principal-shadow",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V26-018"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "identity-normalization",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V26-019"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "identity-normalization",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V26-020"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "escape": false,
+      "family": "identity-collision",
+      "message": "principal alias collision",
+      "reasons": [
+        "principal alias collision"
+      ],
+      "secure": true,
+      "test_id": "V26-021"
+    },
+    {
+      "actual": "SCHEMA_REJECT",
+      "escape": false,
+      "family": "identity-cycle",
+      "message": "principal alias collision",
+      "reasons": [
+        "principal alias collision"
+      ],
+      "secure": true,
+      "test_id": "V26-022"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "principal-root",
+      "message": "",
+      "reasons": [
+        "CERTIFICATE_SIGNER_INVALID_AT_CERTIFICATE_TIME",
+        "ISSUANCE_AUTHORITY_INVALID_AT_CERTIFICATE_TIME"
+      ],
+      "secure": true,
+      "test_id": "V26-023"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "event-root",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-024"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "event-root",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-025"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "event-equal-time",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-026"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "event-predecessor",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-027"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "event-kind",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-028"
+    },
+    {
+      "actual": "FAIL",
+      "escape": false,
+      "family": "event-cross-scenario",
+      "message": "",
+      "reasons": [
+        "CAUSAL_EVENT_DAG_INVALID"
+      ],
+      "secure": true,
+      "test_id": "V26-029"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "principal-root-reseal",
+      "message": "authority root is not pinned",
+      "reasons": [
+        "authority root is not pinned"
+      ],
+      "secure": true,
+      "test_id": "V26-030"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "principal-root-alias-reseal",
+      "message": "authority root is not pinned",
+      "reasons": [
+        "authority root is not pinned"
+      ],
+      "secure": true,
+      "test_id": "V26-031"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "event-root-reseal",
+      "message": "authority root is not pinned",
+      "reasons": [
+        "authority root is not pinned"
+      ],
+      "secure": true,
+      "test_id": "V26-032"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "event-root-remove",
+      "message": "authority root is not pinned",
+      "reasons": [
+        "authority root is not pinned"
+      ],
+      "secure": true,
+      "test_id": "V26-033"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "verifier-required-root",
+      "message": "verify_result() missing 2 required positional arguments: 'authority' and 'source'",
+      "reasons": [
+        "verify_result() missing 2 required positional arguments: 'authority' and 'source'"
+      ],
+      "secure": true,
+      "test_id": "V26-034"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "verifier-required-root",
+      "message": "trusted result verification requires authority and source",
+      "reasons": [
+        "trusted result verification requires authority and source"
+      ],
+      "secure": true,
+      "test_id": "V26-035"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "verifier-required-root",
+      "message": "trusted result verification requires authority and source",
+      "reasons": [
+        "trusted result verification requires authority and source"
+      ],
+      "secure": true,
+      "test_id": "V26-036"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "verifier-root-source-swap",
+      "message": "authority closed-world schema violation",
+      "reasons": [
+        "authority closed-world schema violation"
+      ],
+      "secure": true,
+      "test_id": "V26-037"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "verifier-semantic-replay",
+      "message": "result independent semantic authority mismatch",
+      "reasons": [
+        "result independent semantic authority mismatch"
+      ],
+      "secure": true,
+      "test_id": "V26-038"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "verifier-source-binding",
+      "message": "authority reference or trusted clock mismatch",
+      "reasons": [
+        "authority reference or trusted clock mismatch"
+      ],
+      "secure": true,
+      "test_id": "V26-039"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "verifier-root-binding",
+      "message": "authority root is not pinned",
+      "reasons": [
+        "authority root is not pinned"
+      ],
+      "secure": true,
+      "test_id": "V26-040"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "json duplicate key: schema",
+      "reasons": [
+        "json duplicate key: schema"
+      ],
+      "secure": true,
+      "test_id": "V26-041"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "json duplicate key: schema",
+      "reasons": [
+        "json duplicate key: schema"
+      ],
+      "secure": true,
+      "test_id": "V26-042"
+    },
+    {
+      "actual": "REJECT",
+      "escape": false,
+      "family": "duplicate-json",
+      "message": "json duplicate key: schema",
+      "reasons": [
+        "json duplicate key: schema"
+      ],
+      "secure": true,
+      "test_id": "V26-043"
+    }
+  ],
+  "escape_count": 0,
+  "positive_controls": [
+    {
+      "decision": "PASS",
+      "lifecycle": "LIMITED",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P01_LIMITED"
+    },
+    {
+      "decision": "PASS",
+      "lifecycle": "ACTIVE",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P02_ACTIVE"
+    },
+    {
+      "decision": "PASS",
+      "lifecycle": "EXPIRED",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P03_EXPIRED"
+    },
+    {
+      "decision": "PASS",
+      "lifecycle": "LIMITED",
+      "passed": true,
+      "reasons": [],
+      "test_id": "P04_SHORT_WINDOW"
+    }
+  ],
+  "positive_count": 4,
+  "positive_pass_count": 4,
+  "schema": "c24.cert.v2.6-author-regression.v1",
+  "secure_count": 43,
+  "suite_digest": "sha256:ad32cb542b1e8858b2384f5885ff62e9b8d0bf213e6f60c5ac3a3a2ecf549d10"
+}

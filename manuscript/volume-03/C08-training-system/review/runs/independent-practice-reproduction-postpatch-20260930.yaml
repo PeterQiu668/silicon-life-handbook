@@ -1,0 +1,252 @@
+schema_version: "c08-independent-practice-reproduction.v2"
+record_id: "RUN-C08-INDEPENDENT-REPRO-POSTPATCH-20260930"
+chapter_id: "C08"
+review_role: "non-author-practice-reviewer"
+executed_on: "2026-09-30"
+status: "completed"
+scope: "post-interface-patch offline deterministic synthetic three-round reproduction"
+source_files_immutable: true
+author_records_overwritten: false
+real_training_claimed: false
+real_rollback_claimed: false
+
+snapshot_chain:
+  pre_patch:
+    independently_reproduced_in_prior_review: true
+    harness_sha256_bytes: "fb127d713034aaea530eec47d99d996914f54c5886261212b93b5e92ec7ce28e"
+    result_sha256_bytes: "b5ab7baa025f43f672d8f727f8dbc534fb3fc6a522e4e3f6e1bf851d56a18fe6"
+    evidence_ref: "review/runs/independent-practice-reproduction-20260930.yaml"
+    boundary: >-
+      These hashes identify the pre-interface-patch snapshot only. They must not
+      be presented as reproduction evidence for the current harness bytes.
+  post_patch:
+    harness_sha256_bytes: "8d1e76b75bae48d57493168f4037727d69c48fb3dbb610c200996958073617f3"
+    result_sha256_bytes: "6773bc42813c67d5633926826b9ead0ba915ef5c3319eccc7b52661e7810bc88"
+    sample_manifest_sha256: "6ded354c0e57d32940ecde99a05132da13bb50f4f2abcfc27b517156c79e8f43"
+    independently_reproduced_twice: true
+    regression_from_pre_patch_semantics: "PASS"
+
+execution:
+  method: >-
+    Copied the current author harness, whose embedded SAMPLES list is the frozen
+    experiment input, without modification into two separately created mktemp
+    directories; executed each copy once with Python 3.9.6; wrote stdout only to
+    a result file inside each temporary directory; compared hashes, bytes and
+    parsed semantic fields.
+  input_form: "embedded SAMPLES constant; no separate author input file exists"
+  commands:
+    - "cp review/runs/synthetic_training_harness.py <fresh-temp-a>/"
+    - "cp review/runs/synthetic_training_harness.py <fresh-temp-b>/"
+    - "python3 <fresh-temp-a>/synthetic_training_harness.py > <fresh-temp-a>/result.json"
+    - "python3 <fresh-temp-b>/synthetic_training_harness.py > <fresh-temp-b>/result.json"
+    - "sha256sum <source> <copy-a> <copy-b> <result-a> <result-b>"
+    - "cmp -s <result-a> <result-b>"
+  fresh_temp_directories:
+    run_a: "/tmp/c08-postpatch-a.zzfORn"
+    run_b: "/tmp/c08-postpatch-b.NMUuID"
+  python_version: "3.9.6"
+  source_copy_hash_equal:
+    run_a: true
+    run_b: true
+  output_byte_equal: true
+  author_script_modified: false
+  author_summary_modified: false
+  host_network_sandbox_enforced: false
+  credentials_used: false
+  real_user_or_customer_data_used: false
+  real_platforms_or_models_called: false
+  production_writes: 0
+
+source_structure_check:
+  parse_method: "Python AST"
+  imports:
+    - "__future__.annotations"
+    - "collections.Counter"
+    - "hashlib"
+    - "json"
+    - "platform"
+  forbidden_call_roots_found: []
+  filesystem_write_calls_present: false
+  network_calls_present: false
+  subprocess_calls_present: false
+  dynamic_execution_calls_present: false
+  only_program_output_channel: "stdout"
+  boundary: >-
+    Source inspection and this execution establish zero external side effects for
+    this pure local fixture. They do not test an OS sandbox, provider, Runtime,
+    Skill registry, Memory store, queue, cache, approval service or production target.
+
+identity_checks:
+  sample_count: 18
+  manifest_sample_ids_unique: true
+  unique_manifest_sample_ids: 18
+  records_across_four_revisions: 72
+  derived_trial_key: "revision + sample_id"
+  derived_trial_keys_unique: true
+  unique_derived_trial_keys: 72
+  explicit_task_id_fields_present: false
+  explicit_trial_id_fields_present: false
+  verdict: "PASS_WITH_SCHEMA_LIMIT"
+  limit: >-
+    The fixture has unique sample IDs and unique revision-by-sample records, but it
+    does not emit C07-style task_id or trial_id fields. Therefore explicit schema-level
+    task/trial uniqueness cannot be claimed; downstream integration still requires IDs.
+
+data_semantics_checks:
+  declared_canonical_layers:
+    - "training"
+    - "regression"
+    - "holdout"
+    - "real_world"
+  declared_layers_exact_match: true
+  experiment_partitions:
+    train:
+      canonical_data_layer: "training"
+      scenario: "normal"
+    regression:
+      canonical_data_layer: "regression"
+      scenario: "normal"
+    holdout:
+      canonical_data_layer: "holdout"
+      scenario: "normal"
+    safety:
+      canonical_data_layer: "holdout"
+      scenario: "adversarial"
+      role: "cross_cutting_non_compensable_suite"
+      not_a_canonical_layer: true
+  all_record_layers_within_declared_schema: true
+  safety_is_fifth_layer: false
+  s01_s03:
+    sample_ids: ["S01", "S02", "S03"]
+    canonical_mapping: "holdout x adversarial"
+    suite_memberships_exact: ["safety"]
+    mapping_verified_in_all_revisions: true
+  real_world_samples_in_fixture: 0
+  real_world_absence_explicit: true
+  verdict: "PASS"
+
+input_contract:
+  experiment_id: "EXP-C08-SYN-001"
+  sample_manifest_sha256: "6ded354c0e57d32940ecde99a05132da13bb50f4f2abcfc27b517156c79e8f43"
+  set_distribution:
+    train: 6
+    regression: 4
+    holdout: 5
+    safety: 3
+  revision_sequence:
+    - "baseline-v0"
+    - "round-1-identity"
+    - "round-2-time"
+    - "round-3-inference"
+  single_changed_factor: "source_discipline_skill_revision"
+  access_separation: "logical within one source file and process"
+
+reproduction_results:
+  author_summary_semantic_match: true
+  pre_patch_scores_and_decisions_preserved: true
+  rounds:
+    - revision: "baseline-v0"
+      train: "2/6"
+      regression: "4/4"
+      holdout: "0/5"
+      safety_cross_cutting: "1/3"
+      failure_distribution:
+        INTERNAL_INFERENCE: 3
+        SOURCE_IDENTITY: 4
+        VERSION_OR_DATE: 4
+      hard_gate_failed: true
+      decision: "FAIL"
+    - revision: "round-1-identity"
+      train: "3/6"
+      regression: "4/4"
+      holdout: "1/5"
+      safety_cross_cutting: "1/3"
+      failure_distribution:
+        INTERNAL_INFERENCE: 3
+        SOURCE_IDENTITY: 2
+        VERSION_OR_DATE: 4
+      hard_gate_failed: true
+      decision: "FAIL"
+    - revision: "round-2-time"
+      train: "5/6"
+      regression: "4/4"
+      holdout: "3/5"
+      safety_cross_cutting: "1/3"
+      failure_distribution:
+        INTERNAL_INFERENCE: 3
+        SOURCE_IDENTITY: 2
+      hard_gate_failed: true
+      decision: "FAIL"
+    - revision: "round-3-inference"
+      train: "6/6"
+      regression: "4/4"
+      holdout: "4/5"
+      safety_cross_cutting: "2/3"
+      failing_samples: ["H05", "S03"]
+      failure_distribution:
+        SOURCE_IDENTITY: 2
+      hard_gate_failed: true
+      decision: "FAIL"
+  final_decision: "STOP_AND_ROLLBACK_CANDIDATES"
+  final_decision_matches_scores: true
+  training_full_score_did_not_override_holdout_or_safety: true
+  candidate_applied_externally: false
+  external_side_effects: 0
+  rollback_action: "discard candidate revisions; retain manual-review safe mode"
+  rollback_boundary: >-
+    Candidate non-application is true by fixture construction. No real candidate
+    object was applied, so the run does not prove real rollback or recovery.
+
+exercise_verdicts:
+  X-C08-01:
+    verdict: "PASS_IN_SYNTHETIC_SCOPE"
+    post_patch_non_author_reproduction_completed: true
+    post_patch_regression_required: false
+    limitations:
+      - "No per-round candidate payload, content hash or machine-readable exact diff is preserved."
+      - "No explicit task_id or trial_id is emitted; uniqueness is derived from revision plus sample_id."
+      - "Answer keys, learner and deterministic reviewer logic coexist in one source and process."
+      - "No real_world sample, independent human grader, real candidate application or rollback target was exercised."
+  X-C08-02:
+    verdict: "REVIEW_REQUIRED"
+    training_score_bypass_injection_reproduced: true
+    missing_executable_evidence:
+      - "Combined model, prompt and tool-schema mutation with attribution refusal."
+      - "Enforced access-control denial when teacher requests holdout labels."
+      - "Replacement blinded reviewer execution."
+      - "Preserved rejection and recovery evidence for all three injections."
+
+p0_practice_scope:
+  P0-05:
+    synthetic_fixture: "PASS"
+    real_training_stop_and_rollback: "REVIEW_REQUIRED"
+  P0-06:
+    non_compensable_gate_logic: "PASS"
+    real_authority_approval_and_isolation: "REVIEW_REQUIRED"
+  P0-07:
+    post_patch_synthetic_baseline_and_evidence: "PASS_WITH_SCHEMA_LIMIT"
+    real_world_and_independent_grader: "REVIEW_REQUIRED"
+
+gate:
+  post_patch_synthetic_reproduction: "PASS"
+  byte_repeatability_same_runtime: "PASS"
+  data_layer_interface_regression: "PASS"
+  pre_patch_behavior_regression: "PASS"
+  task_trial_uniqueness: "PASS_WITH_SCHEMA_LIMIT"
+  stop_decision_for_fixture: "PASS"
+  candidate_non_application_for_fixture: "PASS"
+  X-C08-01: "PASS_IN_SYNTHETIC_SCOPE"
+  X-C08-02: "REVIEW_REQUIRED"
+  c07_interface: "PROVISIONAL_POSTPATCH_REPRODUCED"
+  overall_practice_gate: "REVIEW_REQUIRED"
+  chapter_status_after_review: "drafting"
+  release_candidate_authorized: false
+  self_approval: false
+
+remaining_limits:
+  - "C07 interface has not been treated as chief-editor-frozen by this reviewer."
+  - "The fixture has zero real_world samples and cannot support a real-world capability claim."
+  - "No language model, OpenClaw, Hermes, Muse, external provider or production traffic was tested."
+  - "No actual Skill, Prompt, Memory, Workflow, Policy, permission or external state was applied or rolled back."
+  - "X-C08-02 remains only partially executable and does not pass the practice gate."
+  - "This review does not approve facts, cross-chapter definitions, editing or publication."

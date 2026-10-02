@@ -1,0 +1,61 @@
+schema_version: c23.v2.6.independent-final-reproduction.v1
+reviewed_on: "2026-10-01"
+review_role: non_author_independent_reviewer
+fresh_temp_roots:
+  - /tmp/c23-v26-final-a.ohghnH
+  - /tmp/c23-v26-final-b.izML4n
+fresh_temp_rebuild_count: 2
+all_outputs_byte_identical: true
+fixed_fixture:
+  trial_count: 32
+  distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+  authority_root_logical_digest: fd38490b98633d870ddffa904a2e631fbf870edecaf10879ed531efd9159f8f9
+  decision_digest: bced04f6cb46f23cbdbdde8341688876971efa407dc348d44b0ef2699f11eaa5
+replayed_suites:
+  author_79: {passed: 79, total: 79, digest: 752fa50bd404d7d98d9b06fc0b993f6d1ce68e3d7fa7afcd64a2d16b3bd6cc3d}
+  remediation_30: {passed: 30, total: 30, digest: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e}
+  v2_4_author_23: {passed: 23, total: 23, digest: 31ca6d821ace14efec3c9abe348dd027730c334d006ee79b0042c89ae89d5c4d}
+  v2_5_author_25: {secure: 25, total: 25, escapes: 0, positive_controls: "2/2", digest: a585cc114ea403eaf85b7bae49979c0cce1adacdef26f8039abba70315f9492c}
+  v2_6_author_24: {secure: 24, total: 24, escapes: 0, positive_controls: "2/2", digest: b853cb9b4ecd4a01346a7e3b0549660455c7abffe747b6412bddcd6f145deb18}
+  legacy_18:
+    old_oracle_passed: 17
+    total: 18
+    safe_interpretation: "I18 is rejected by the newer authority-root contract; the legacy oracle only accepts FAIL."
+  historical_19: {secure: 19, total: 19, escapes: 0, digest: 0860c8207d1d9451d03e5582ad5cd0137abbfd38f09a2786a2665e0d7e5412ba}
+  independent_15: {secure: 15, total: 15, escapes: 0, digest: 110e85f226b5966639366cd9447b0bb6434a04e61fe9f943562e97b7d32e6e85}
+  independent_36: {secure: 36, total: 36, escapes: 0, positive_controls: "2/2", digest: 4e4ba68206cb6536f0f1addf23fa386aebb78451ab2af3a1870b3be4e5238fa4}
+unannounced_suite:
+  attack_count: 24
+  secure_attack_count: 22
+  escape_count: 2
+  escape_ids:
+    - U20_RESULT_FAIL_TO_PASS_COHERENT_REHASH
+    - U21_RESULT_RR_TO_PASS_COHERENT_REHASH
+  positive_control_count: 2
+  positive_control_pass_count: 2
+  suite_digest: e3bc55def6f9f0f43d9cc1101160d7da6002a30811d654d9983171c0cfa66da0
+file_hashes:
+  synthetic_case_input: 446753fb0246489902f09703623bdd863bec3e11ed95dc693d9fbe59b5fdade1
+  frozen_evidence_root: faed30627b1cce6c4ef5d36ae7c0b2c2acda1a70dd8b3f2fd1d3bf9ea2df3baa
+  synthetic_case_result: 82526700ff913232cf5cb0d6c56440e953c256e2afc8172be6ef8ac67a700aed
+  independent_test_program: 10963785176e6b3fe4e3697419e6a7ae71da75796e0104ee9100710702f2c6dd
+  independent_test_result: 2f0fca29efd35edfe1068b43f71f7d8f178c90ef2a5d34d55a99969c1946447b
+  author_79_result: 5b2e4688aad94fea95206e8d31e8d6f8216d30d2b044395388ab1644b34244d6
+  author_30_result: fff56bb8c0989fbba2cc646fed2f605b39a981ed7b69b7168f1b080e81a99120
+  author_23_result: 1e7be3b3d180ab9533855f629e8ce9f0479f89c7e78a7ab251c4bddd10c08c23
+  author_25_result: 064384656a22dd65976506eac2d817943b2f68d5c1d848b756c60b9d0793a9ad
+  author_24_result: 7b02b8e4d39790119d9e2f921281290cf1e2a245125eae05f6e315bf60928c8b
+  historical_18_result: ace6b722b29a9bbd3e22da3c08417992e388deaa34a94c6f6af0db566670cee7
+  historical_19_result: 836ec34fa1f8f88f23ee47bcc2a95b8b20bc4b674a5579104c981001c5d9c335
+  independent_15_result: b5b5197bd595fd5ffd162ad9879e0e20f8ec0e6aa345d953f4d179e2037a748f
+  independent_36_result: 4d62d6146c71c02ec75e3d7d61f847111008bd7148e4059376c464cf1761485b
+limits:
+  real_case_executed: false
+  real_openclaw_hermes_migration_executed: false
+  external_effect_executed: false
+  fact_gate: FAIL
+  cross_gate: FAIL
+  synthetic_machine_control_gate: FAIL
+  practice_gate: REVIEW_REQUIRED
+  chief_editor_gate: NOT_AUTHORIZED
+  release_candidate_authorized: false

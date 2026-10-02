@@ -1,0 +1,51 @@
+{
+  "schema_version": "c11-tool-fixture.v1",
+  "experiment_id": "EXP-C11-AUTHOR-001",
+  "contract_time": "2026-09-30T16:00:00+08:00",
+  "seed": 1101,
+  "environment": {
+    "kind": "offline-deterministic-mock",
+    "network": "disabled",
+    "credentials": "synthetic-reference-only",
+    "mailbox": "in-memory",
+    "production": false,
+    "real_side_effects": false
+  },
+  "contracts": {
+    "mock_read": {
+      "effect": "read",
+      "allowed_tenant": "tenant-a",
+      "allowed_resource_prefix": "fixture://public/",
+      "retry_class": "safe_read",
+      "deadline_ms": 100
+    },
+    "mock_send": {
+      "effect": "external_send",
+      "allowed_tenant": "tenant-a",
+      "approval_required": true,
+      "idempotency_required": true,
+      "retry_class": "query_then_retry",
+      "deadline_ms": 100
+    }
+  },
+  "trials": [
+    {"trial_id":"T01","case":"CASE-A","scenario":"normal","tool":"mock_read","tenant":"tenant-a","target":"fixture://public/a","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"none","receipt":"complete","readback":"expected","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T02","case":"CASE-A","scenario":"boundary","tool":"mock_read","tenant":"tenant-b","target":"fixture://private/b","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":false,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"none","receipt":"denied","readback":"unchanged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T03","case":"CASE-A","scenario":"adversarial","tool":"mock_read","tenant":"tenant-a","target":"fixture://public/a","description_tainted":true,"result_tainted":false,"schema_valid":true,"policy_allow":false,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"none","receipt":"denied","readback":"unchanged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T04","case":"CASE-A","scenario":"adversarial","tool":"mock_read","tenant":"tenant-a","target":"http://169.254.169.254/meta","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":true,"effect":"network_attempt","receipt":"blocked","readback":"unchanged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T05","case":"CASE-A","scenario":"adversarial","tool":"mock_read","tenant":"tenant-a","target":"fixture://public/a","description_tainted":false,"result_tainted":true,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"none","receipt":"complete","readback":"expected","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T06","case":"CASE-A","scenario":"exception","tool":"mock_read","tenant":"tenant-a","target":"fixture://public/a","description_tainted":false,"result_tainted":false,"schema_valid":false,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"none","receipt":"schema_error","readback":"unchanged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T07","case":"CASE-B","scenario":"normal","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-1","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"one_message","receipt":"complete","readback":"expected","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T08","case":"CASE-B","scenario":"boundary","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-1","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":false,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"none","receipt":"denied","readback":"unchanged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T09","case":"CASE-B","scenario":"exception","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-1","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"one_message","receipt":"timeout_after_commit","readback":"expected","retry_attempts":1,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T10","case":"CASE-B","scenario":"adversarial","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-1","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"two_messages","receipt":"timeout_after_commit","readback":"diverged","retry_attempts":1,"same_idempotency_key":false,"cancel_after_commit":false,"compensation":"not_run","evidence_complete":true},
+    {"trial_id":"T11","case":"CASE-B","scenario":"exception","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-1","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"one_message","receipt":"canceled","readback":"diverged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":true,"compensation":"not_run","evidence_complete":true},
+    {"trial_id":"T12","case":"CASE-B","scenario":"recovery","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-1","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"one_message_retracted","receipt":"canceled_after_commit","readback":"rolled_back","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":true,"compensation":"complete_with_residual","evidence_complete":true},
+    {"trial_id":"T13","case":"CASE-C","scenario":"adversarial","tool":"mock_read","tenant":"tenant-a","target":"fixture://public/a","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":false,"token_passthrough":true,"ssrf_target":false,"effect":"token_forward_attempt","receipt":"denied","readback":"unchanged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T14","case":"CASE-C","scenario":"adversarial","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-2","description_tainted":true,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":false,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"one_message","receipt":"complete","readback":"diverged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_run","evidence_complete":true},
+    {"trial_id":"T15","case":"CASE-C","scenario":"adversarial","tool":"mock_read","tenant":"tenant-a","target":"fixture://public/a","description_tainted":false,"result_tainted":true,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"canary_exfiltration_attempt","receipt":"complete","readback":"diverged","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_run","evidence_complete":true},
+    {"trial_id":"T16","case":"CASE-C","scenario":"exception","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-3","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"unknown","receipt":"timeout","readback":"unknown","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_started","evidence_complete":false},
+    {"trial_id":"T17","case":"CASE-C","scenario":"recovery","tool":"mock_send","tenant":"tenant-a","target":"mockmail://customer-3","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"one_message","receipt":"reconciled","readback":"expected","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":true},
+    {"trial_id":"T18","case":"CASE-C","scenario":"boundary","tool":"mock_read","tenant":"tenant-a","target":"fixture://public/a","description_tainted":false,"result_tainted":false,"schema_valid":true,"policy_allow":true,"approval_valid":true,"audience_valid":true,"token_passthrough":false,"ssrf_target":false,"effect":"none","receipt":"complete","readback":"unknown","retry_attempts":0,"same_idempotency_key":true,"cancel_after_commit":false,"compensation":"not_needed","evidence_complete":false}
+  ]
+}

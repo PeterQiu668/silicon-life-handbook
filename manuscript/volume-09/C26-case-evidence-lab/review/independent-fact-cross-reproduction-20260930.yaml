@@ -1,0 +1,37 @@
+review_id: C23-independent-fact-cross-reproduction-20260930
+reviewer_role: non_author_fact_cross_reviewer
+verified_on: "2026-09-30"
+baseline:
+  trial_count: 17
+  distribution: {PASS: 2, FAIL: 11, REVIEW_REQUIRED: 4}
+  real_claims_accepted: 0
+  external_effects: 0
+  decision_digest: d4caa20f3bd57a9b96c25a4d929248d19ca8d8cf7c13589ecd4f48ca933c4430
+  input_sha256: 5b8444c41fcd9df068e7b39613c9480c89e2f38d695c4f22756235b06b0c9bfa
+  result_sha256: 6ee6b2ba279dbb687c4455a10a6e7f31275d71cf8869e745e1eba9ed40d4f529
+attacks:
+  - {id: unknown_nested_field, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: duplicate_evidence_ids, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: baseline_latest, expected: FAIL, actual: PASS}
+  - {id: fake_input_digest, expected: FAIL, actual: PASS}
+  - {id: invalid_risk, expected: SCHEMA_REJECT, actual: PASS}
+  - {id: reproducer_alias_author, expected: FAIL, actual: PASS}
+  - {id: unversioned_environment, expected: FAIL, actual: PASS}
+  - {id: copyright_failed, expected: FAIL, actual: PASS}
+  - {id: sources_unauthorized, expected: FAIL, actual: PASS}
+  - {id: fake_artifact_digest, expected: FAIL, actual: PASS}
+  - {id: d21_invalid_enum, expected: SCHEMA_REJECT, actual: REVIEW_REQUIRED}
+  - {id: fake_redaction_map, expected: FAIL, actual: PASS}
+  - {id: case_identity_authorization_selfassert, expected: FAIL, actual: PASS}
+  - {id: invalid_public_mapping, expected: FAIL, actual: PASS}
+  - {id: nonunique_task_ids, expected: SCHEMA_REJECT, actual: PASS}
+summary:
+  attack_count: 15
+  pass_fail_open_count: 14
+  invalid_enum_not_rejected_count: 1
+  all_expected_matched: false
+gate:
+  fact_gate: REVIEW_REQUIRED
+  cross_gate: REVIEW_REQUIRED
+  practice_gate: REVIEW_REQUIRED
+  p0_open: [P0-C23-01, P0-C23-02, P0-C23-03, P0-C23-04]

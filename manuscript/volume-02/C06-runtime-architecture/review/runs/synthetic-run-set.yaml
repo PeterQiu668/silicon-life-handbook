@@ -1,0 +1,557 @@
+{
+  "runs": [
+    {
+      "actual_output": {
+        "real_user_file_touched": false,
+        "sibling_read_succeeded": true,
+        "workspace_cwd": true
+      },
+      "category": "boundary",
+      "duration_ms": 0,
+      "expected": {
+        "sibling_read_succeeded": false
+      },
+      "failure_preserved": true,
+      "objective": "反证 Workspace 不是 Sandbox",
+      "run_id": "RUN-C06-WORKSPACE-BASELINE",
+      "started_at": "2026-09-30T08:52:02.523985+00:00",
+      "steps": [
+        "把 cwd 切到临时 Workspace",
+        "读取临时根目录中的兄弟文件"
+      ],
+      "verdict": "FAIL"
+    },
+    {
+      "actual_output": {
+        "candidate_under_allowed_root": false,
+        "decision": "deny",
+        "open_attempted_after_deny": false
+      },
+      "category": "recovery",
+      "duration_ms": 0,
+      "expected": {
+        "decision": "deny",
+        "open_attempted_after_deny": false
+      },
+      "failure_preserved": false,
+      "objective": "验证候选强制路径边界拒绝越界",
+      "run_id": "RUN-C06-SANDBOX-GUARD",
+      "started_at": "2026-09-30T08:52:02.524323+00:00",
+      "steps": [
+        "解析候选路径",
+        "比较允许根",
+        "拒绝后不执行 open"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "artifact_sha256": "e1a944e44b53696fb0cdcb8d50a67c17e89d03bca3ebca110a68ea8bcdfc9ac1",
+        "artifact_verified": true,
+        "business_end_state": "local_draft_verified",
+        "delivery_required": false,
+        "input": {
+          "customer_id": "SYN-001",
+          "status": "needs-review"
+        },
+        "provider": "mock-primary",
+        "real_external_side_effects": 0,
+        "system_end_state": "run_and_artifact_verified",
+        "tool_receipt": "TOOL-LOCAL-WRITE-001"
+      },
+      "category": "normal",
+      "duration_ms": 0,
+      "expected": {
+        "artifact_verified": true,
+        "real_external_side_effects": 0
+      },
+      "failure_preserved": false,
+      "objective": "执行最小单体本地草稿基线",
+      "run_id": "RUN-C06-X01-NORMAL",
+      "started_at": "2026-09-30T08:52:02.524470+00:00",
+      "steps": [
+        "读取内存合成输入",
+        "生成本地草稿",
+        "回读并计算摘要",
+        "模拟无投递要求终态"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "authorization_ref": null,
+        "behavior_layer": "refused",
+        "binding": {
+          "selected_agent": "case-b-agent",
+          "sender": "synthetic-user"
+        },
+        "decision": "deny",
+        "effective_policy": "deny_external_send_without_parameter_bound_approval",
+        "enforcement_layer": "denied",
+        "outbox_count": 0
+      },
+      "category": "adversarial",
+      "duration_ms": 0,
+      "expected": {
+        "decision": "deny",
+        "outbox_count": 0
+      },
+      "failure_preserved": false,
+      "objective": "验证正确 Binding 不授予外发权限",
+      "run_id": "RUN-C06-X01-BINDING-DENY",
+      "started_at": "2026-09-30T08:52:02.524473+00:00",
+      "steps": [
+        "Binding 选择 Agent",
+        "查询授权引用",
+        "强制 Policy 决策",
+        "确认 outbox 为空"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "observer_timeout": true,
+        "process_still_running": true,
+        "run_stopped": false
+      },
+      "category": "boundary",
+      "duration_ms": 54,
+      "expected": {
+        "observer_timeout": true,
+        "process_still_running": true
+      },
+      "failure_preserved": false,
+      "objective": "验证等待 timeout 不等于 run stop",
+      "run_id": "RUN-C06-WAIT-TIMEOUT",
+      "started_at": "2026-09-30T08:52:02.579219+00:00",
+      "steps": [
+        "启动最长 1.5 秒本地只等待进程",
+        "等待 50ms",
+        "读取实际进程状态"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "guidance_sha256": "78f2c736932ea7058994ea52bfa150ceee61c0b380d52809bd20d6d82aaa429f",
+        "interrupt_signal_sent": false,
+        "process_still_running": true
+      },
+      "category": "boundary",
+      "duration_ms": 0,
+      "expected": {
+        "interrupt_signal_sent": false,
+        "process_still_running": true
+      },
+      "failure_preserved": false,
+      "objective": "验证 steer 不等于 interrupt",
+      "run_id": "RUN-C06-STEER-NOT-INTERRUPT",
+      "started_at": "2026-09-30T08:52:02.579271+00:00",
+      "steps": [
+        "登记 steer guidance",
+        "不发送终止信号",
+        "读取实际进程状态"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "returncode_observed": true,
+        "stop_confirmed": true,
+        "stop_requested": true,
+        "tool_running": false
+      },
+      "category": "recovery",
+      "duration_ms": 2,
+      "expected": {
+        "stop_confirmed": true,
+        "tool_running": false
+      },
+      "failure_preserved": false,
+      "objective": "命中实际执行进程并确认停止",
+      "run_id": "RUN-C06-INTERRUPT-CONFIRMED",
+      "started_at": "2026-09-30T08:52:02.580814+00:00",
+      "steps": [
+        "发送 terminate 到实际进程",
+        "等待退出",
+        "读取 returncode"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "actual_provider": "mock-approved-fallback",
+        "attempt_count": 3,
+        "attempts": [
+          {
+            "attempt": 1,
+            "provider": "mock-primary",
+            "result": "429"
+          },
+          {
+            "attempt": 2,
+            "provider": "mock-primary",
+            "result": "503"
+          },
+          {
+            "attempt": 3,
+            "provider": "mock-approved-fallback",
+            "result": "success"
+          }
+        ]
+      },
+      "category": "abnormal",
+      "duration_ms": 0,
+      "expected": {
+        "actual_provider": "mock-approved-fallback",
+        "attempt_count": 3
+      },
+      "failure_preserved": false,
+      "objective": "验证有界恢复与已批准 fallback",
+      "run_id": "RUN-C06-PROVIDER-AUTO",
+      "started_at": "2026-09-30T08:52:02.580887+00:00",
+      "steps": [
+        "primary 返回 429",
+        "primary 返回 503",
+        "进入批准 fallback",
+        "披露实际 Provider"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "actual_provider": null,
+        "attempts": [
+          {
+            "attempt": 1,
+            "provider": "mock-primary",
+            "result": "503"
+          }
+        ],
+        "terminal_error": "503"
+      },
+      "category": "boundary",
+      "duration_ms": 0,
+      "expected": {
+        "actual_provider": null,
+        "terminal_error": "503"
+      },
+      "failure_preserved": false,
+      "objective": "验证 strict 失败可见且不静默切换",
+      "run_id": "RUN-C06-PROVIDER-STRICT",
+      "started_at": "2026-09-30T08:52:02.580891+00:00",
+      "steps": [
+        "固定 mock-primary",
+        "注入 503",
+        "禁止 fallback"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "apply_count_known_only_to_fixture": 1,
+        "automatic_retry_blocked": true,
+        "initial_status": "RAW-UNKNOWN",
+        "receipt_visible_to_caller": false
+      },
+      "category": "abnormal",
+      "duration_ms": 0,
+      "expected": {
+        "automatic_retry_blocked": true,
+        "initial_status": "RAW-UNKNOWN"
+      },
+      "failure_preserved": true,
+      "objective": "保留副作用后 Provider 中断的未决基线",
+      "run_id": "RUN-C06-PROVIDER-SIDE-EFFECT-UNKNOWN",
+      "started_at": "2026-09-30T08:52:02.580895+00:00",
+      "steps": [
+        "应用一次合成副作用",
+        "注入 Provider timeout",
+        "停止自动重试",
+        "标 RAW-UNKNOWN"
+      ],
+      "verdict": "REVIEW_REQUIRED"
+    },
+    {
+      "actual_output": {
+        "apply_count": 1,
+        "duplicate_blocked": true,
+        "initial_status": "RAW-UNKNOWN",
+        "reconciliation_receipt": {
+          "apply_count": 1,
+          "receipt": "LOCAL-EFFECT-001"
+        },
+        "second_status": "idempotent_existing_receipt"
+      },
+      "category": "recovery",
+      "duration_ms": 0,
+      "expected": {
+        "apply_count": 1,
+        "duplicate_blocked": true,
+        "initial_status": "RAW-UNKNOWN"
+      },
+      "failure_preserved": false,
+      "objective": "验证副作用后 Provider 中断时先对账且不重复",
+      "run_id": "RUN-C06-PROVIDER-SIDE-EFFECT-RECONCILE",
+      "started_at": "2026-09-30T08:52:02.580898+00:00",
+      "steps": [
+        "应用一次合成副作用",
+        "注入 Provider timeout",
+        "标 RAW-UNKNOWN",
+        "读取本地 effect ledger",
+        "用同 idempotency key 验证重复被阻断"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "capacity_rejection_explicit": true,
+        "pending_after_restart": [
+          "MSG-2"
+        ],
+        "second_writer_allowed": false,
+        "silent_drop_count": 0,
+        "writer_after_restart": "RUN-1"
+      },
+      "category": "recovery",
+      "duration_ms": 0,
+      "expected": {
+        "second_writer_allowed": false,
+        "silent_drop_count": 0,
+        "writer_after_restart": "RUN-1"
+      },
+      "failure_preserved": false,
+      "objective": "验证 Queue 单 writer、容量拒绝与持久恢复",
+      "run_id": "RUN-C06-QUEUE-RESTART",
+      "started_at": "2026-09-30T08:52:02.581255+00:00",
+      "steps": [
+        "建立两个隔离 Session",
+        "拒绝同 Session 第二 writer",
+        "第三 Session 显式容量拒绝",
+        "持久化快照",
+        "重载并核对原 writer/pending"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "disconnect_stage": "BEFORE_CALL",
+        "external_query_result": "known_not_applied",
+        "gateway_host_fallback": false,
+        "initial_effect_status": "known_not_applied",
+        "real_node_used": false,
+        "retried_before_reconciliation": false
+      },
+      "category": "abnormal",
+      "duration_ms": 0,
+      "expected": {
+        "external_query_result": "known_not_applied",
+        "gateway_host_fallback": false,
+        "retried_before_reconciliation": false
+      },
+      "failure_preserved": false,
+      "objective": "Node 在 BEFORE_CALL 断开",
+      "run_id": "RUN-C06-NODE-1",
+      "started_at": "2026-09-30T08:52:02.581262+00:00",
+      "steps": [
+        "固定一次性 synthetic-node 身份",
+        "在 BEFORE_CALL 注入断开",
+        "禁止 Gateway host fallback",
+        "查询合成外部 ledger",
+        "以原 call id 对账"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "disconnect_stage": "AFTER_APPROVAL_BEFORE_EXEC",
+        "external_query_result": "known_not_applied",
+        "gateway_host_fallback": false,
+        "initial_effect_status": "known_not_applied",
+        "real_node_used": false,
+        "retried_before_reconciliation": false
+      },
+      "category": "abnormal",
+      "duration_ms": 0,
+      "expected": {
+        "external_query_result": "known_not_applied",
+        "gateway_host_fallback": false,
+        "retried_before_reconciliation": false
+      },
+      "failure_preserved": false,
+      "objective": "Node 在 AFTER_APPROVAL_BEFORE_EXEC 断开",
+      "run_id": "RUN-C06-NODE-2",
+      "started_at": "2026-09-30T08:52:02.581265+00:00",
+      "steps": [
+        "固定一次性 synthetic-node 身份",
+        "在 AFTER_APPROVAL_BEFORE_EXEC 注入断开",
+        "禁止 Gateway host fallback",
+        "查询合成外部 ledger",
+        "以原 call id 对账"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "disconnect_stage": "DURING_EXEC",
+        "external_query_completed": false,
+        "gateway_host_fallback": false,
+        "initial_effect_status": "RAW-UNKNOWN",
+        "retried_before_reconciliation": false
+      },
+      "category": "abnormal",
+      "duration_ms": 0,
+      "expected": {
+        "gateway_host_fallback": false,
+        "initial_effect_status": "RAW-UNKNOWN",
+        "retried_before_reconciliation": false
+      },
+      "failure_preserved": true,
+      "objective": "保留 Node 在 DURING_EXEC 断开后的未决状态",
+      "run_id": "RUN-C06-NODE-3-UNKNOWN",
+      "started_at": "2026-09-30T08:52:02.581267+00:00",
+      "steps": [
+        "固定 synthetic-node 身份",
+        "在 DURING_EXEC 注入断开",
+        "禁止 Gateway host fallback",
+        "停止自动重试",
+        "标 RAW-UNKNOWN"
+      ],
+      "verdict": "REVIEW_REQUIRED"
+    },
+    {
+      "actual_output": {
+        "disconnect_stage": "DURING_EXEC",
+        "external_query_result": "known_applied",
+        "gateway_host_fallback": false,
+        "initial_effect_status": "RAW-UNKNOWN",
+        "real_node_used": false,
+        "retried_before_reconciliation": false
+      },
+      "category": "recovery",
+      "duration_ms": 0,
+      "expected": {
+        "external_query_result": "known_applied",
+        "gateway_host_fallback": false,
+        "retried_before_reconciliation": false
+      },
+      "failure_preserved": false,
+      "objective": "Node 在 DURING_EXEC 断开",
+      "run_id": "RUN-C06-NODE-3-RECONCILE",
+      "started_at": "2026-09-30T08:52:02.581269+00:00",
+      "steps": [
+        "固定一次性 synthetic-node 身份",
+        "在 DURING_EXEC 注入断开",
+        "禁止 Gateway host fallback",
+        "查询合成外部 ledger",
+        "以原 call id 对账"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "actual_output": {
+        "disconnect_stage": "AFTER_RESULT_BEFORE_RECEIPT",
+        "external_query_completed": false,
+        "gateway_host_fallback": false,
+        "initial_effect_status": "RAW-UNKNOWN",
+        "retried_before_reconciliation": false
+      },
+      "category": "abnormal",
+      "duration_ms": 0,
+      "expected": {
+        "gateway_host_fallback": false,
+        "initial_effect_status": "RAW-UNKNOWN",
+        "retried_before_reconciliation": false
+      },
+      "failure_preserved": true,
+      "objective": "保留 Node 在 AFTER_RESULT_BEFORE_RECEIPT 断开后的未决状态",
+      "run_id": "RUN-C06-NODE-4-UNKNOWN",
+      "started_at": "2026-09-30T08:52:02.581270+00:00",
+      "steps": [
+        "固定 synthetic-node 身份",
+        "在 AFTER_RESULT_BEFORE_RECEIPT 注入断开",
+        "禁止 Gateway host fallback",
+        "停止自动重试",
+        "标 RAW-UNKNOWN"
+      ],
+      "verdict": "REVIEW_REQUIRED"
+    },
+    {
+      "actual_output": {
+        "disconnect_stage": "AFTER_RESULT_BEFORE_RECEIPT",
+        "external_query_result": "known_applied",
+        "gateway_host_fallback": false,
+        "initial_effect_status": "RAW-UNKNOWN",
+        "real_node_used": false,
+        "retried_before_reconciliation": false
+      },
+      "category": "recovery",
+      "duration_ms": 0,
+      "expected": {
+        "external_query_result": "known_applied",
+        "gateway_host_fallback": false,
+        "retried_before_reconciliation": false
+      },
+      "failure_preserved": false,
+      "objective": "Node 在 AFTER_RESULT_BEFORE_RECEIPT 断开",
+      "run_id": "RUN-C06-NODE-4-RECONCILE",
+      "started_at": "2026-09-30T08:52:02.581272+00:00",
+      "steps": [
+        "固定一次性 synthetic-node 身份",
+        "在 AFTER_RESULT_BEFORE_RECEIPT 注入断开",
+        "禁止 Gateway host fallback",
+        "查询合成外部 ledger",
+        "以原 call id 对账"
+      ],
+      "verdict": "PASS"
+    }
+  ],
+  "summary": {
+    "baseline_failures_preserved": [
+      "RUN-C06-WORKSPACE-BASELINE",
+      "RUN-C06-PROVIDER-SIDE-EFFECT-UNKNOWN",
+      "RUN-C06-NODE-3-UNKNOWN",
+      "RUN-C06-NODE-4-UNKNOWN"
+    ],
+    "cleanup": {
+      "artifact_hash": "e1a944e44b53696fb0cdcb8d50a67c17e89d03bca3ebca110a68ea8bcdfc9ac1",
+      "real_external_side_effects": 0,
+      "temporary_root_removed_after_run": true
+    },
+    "duration_ms": 59,
+    "environment": {
+      "network_calls": 0,
+      "os_family": "Darwin",
+      "python": "3.9.6",
+      "real_credentials": 0,
+      "real_external_side_effects": 0,
+      "real_node_probed": false,
+      "real_openclaw_runtime_probed": false
+    },
+    "generated_at": "2026-09-30T08:52:02.581757+00:00",
+    "nonpass_samples_preserved": [
+      "RUN-C06-WORKSPACE-BASELINE",
+      "RUN-C06-PROVIDER-SIDE-EFFECT-UNKNOWN",
+      "RUN-C06-NODE-3-UNKNOWN",
+      "RUN-C06-NODE-4-UNKNOWN"
+    ],
+    "overall": "PASS_IN_SYNTHETIC_SCOPE",
+    "raw_unknown_runs": [
+      "RUN-C06-PROVIDER-SIDE-EFFECT-UNKNOWN",
+      "RUN-C06-PROVIDER-SIDE-EFFECT-RECONCILE",
+      "RUN-C06-NODE-3-UNKNOWN",
+      "RUN-C06-NODE-3-RECONCILE",
+      "RUN-C06-NODE-4-UNKNOWN",
+      "RUN-C06-NODE-4-RECONCILE"
+    ],
+    "real_runtime_verdict": "REVIEW_REQUIRED",
+    "run_count": 18,
+    "schema_version": "1.0",
+    "scope": "synthetic-local-only",
+    "verdict_counts": {
+      "FAIL": 1,
+      "PASS": 14,
+      "REVIEW_REQUIRED": 3
+    }
+  }
+}

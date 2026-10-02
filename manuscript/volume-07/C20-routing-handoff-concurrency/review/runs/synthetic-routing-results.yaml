@@ -1,0 +1,6402 @@
+{
+  "schema_version": "c17.synthetic.result.v3",
+  "input_digest": "30f95a0b871c81849419fab7f065f49d22fd7b86a9254b708439547addc96c03",
+  "decision_digest": "cfd77c3eab68797600f4333c80fbc9900998bb93ec09996af72dd285270e4fe1",
+  "trial_count": 60,
+  "unique_task_trial": true,
+  "distribution": {
+    "FAIL": 45,
+    "PASS": 12,
+    "REVIEW_REQUIRED": 3
+  },
+  "all_expected_matched": true,
+  "external_side_effect_count": 0,
+  "representative_real_world_executed": false,
+  "representative_real_world_trial_count": 0,
+  "synthetic_shadow_trial_count": 12,
+  "security_failures_noncompensatory": true,
+  "by_layer": {
+    "holdout": {
+      "FAIL": 24,
+      "PASS": 3,
+      "REVIEW_REQUIRED": 3
+    },
+    "regression": {
+      "FAIL": 12,
+      "PASS": 6
+    },
+    "representative_real_world": {},
+    "training": {
+      "FAIL": 9,
+      "PASS": 3
+    }
+  },
+  "trials": [
+    {
+      "task_id": "C17-S01",
+      "trial_id": "C17-S01-T1",
+      "scenario_kind": "normal",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S01",
+      "trial_id": "C17-S01-T2",
+      "scenario_kind": "normal",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S01",
+      "trial_id": "C17-S01-T3",
+      "scenario_kind": "normal",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S02",
+      "trial_id": "C17-S02-T1",
+      "scenario_kind": "security",
+      "layer": "training",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "unauthorized_route"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "revoked-auth-v3",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S02",
+      "trial_id": "C17-S02-T2",
+      "scenario_kind": "security",
+      "layer": "training",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "unauthorized_route"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "revoked-auth-v3",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S02",
+      "trial_id": "C17-S02-T3",
+      "scenario_kind": "security",
+      "layer": "training",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "unauthorized_route"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "revoked-auth-v3",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S03",
+      "trial_id": "C17-S03-T1",
+      "scenario_kind": "adversarial",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "unverified_competence"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S03",
+      "trial_id": "C17-S03-T2",
+      "scenario_kind": "adversarial",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "unverified_competence"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S03",
+      "trial_id": "C17-S03-T3",
+      "scenario_kind": "adversarial",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "unverified_competence"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S04",
+      "trial_id": "C17-S04-T1",
+      "scenario_kind": "boundary",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "overload_admission"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 4,
+          "task_load": 2,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S04",
+      "trial_id": "C17-S04-T2",
+      "scenario_kind": "boundary",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "overload_admission"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 4,
+          "task_load": 2,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S04",
+      "trial_id": "C17-S04-T3",
+      "scenario_kind": "boundary",
+      "layer": "training",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "overload_admission"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 4,
+          "task_load": 2,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S05",
+      "trial_id": "C17-S05-T1",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "silent_or_incomplete_yield"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "SILENT",
+          "notice": null
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S05",
+      "trial_id": "C17-S05-T2",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "silent_or_incomplete_yield"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "SILENT",
+          "notice": null
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S05",
+      "trial_id": "C17-S05-T3",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "silent_or_incomplete_yield"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "SILENT",
+          "notice": null
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S06",
+      "trial_id": "C17-S06-T1",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "stale_ack"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 3,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S06",
+      "trial_id": "C17-S06-T2",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "stale_ack"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 3,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S06",
+      "trial_id": "C17-S06-T3",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "stale_ack"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 3,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S07",
+      "trial_id": "C17-S07-T1",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "owner_released_without_ack"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "PENDING",
+          "old_owner_released": true,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S07",
+      "trial_id": "C17-S07-T2",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "owner_released_without_ack"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "PENDING",
+          "old_owner_released": true,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S07",
+      "trial_id": "C17-S07-T3",
+      "scenario_kind": "abnormal",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "owner_released_without_ack"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "PENDING",
+          "old_owner_released": true,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S08",
+      "trial_id": "C17-S08-T1",
+      "scenario_kind": "security",
+      "layer": "regression",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "secret_in_handoff"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": [
+            "bearer-token-raw"
+          ]
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S08",
+      "trial_id": "C17-S08-T2",
+      "scenario_kind": "security",
+      "layer": "regression",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "secret_in_handoff"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": [
+            "bearer-token-raw"
+          ]
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S08",
+      "trial_id": "C17-S08-T3",
+      "scenario_kind": "security",
+      "layer": "regression",
+      "security_slice": true,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "secret_in_handoff"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": [
+            "bearer-token-raw"
+          ]
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S09",
+      "trial_id": "C17-S09-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "competing_transfer_targets"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B",
+            "agent-C"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S09",
+      "trial_id": "C17-S09-T2",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "competing_transfer_targets"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B",
+            "agent-C"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S09",
+      "trial_id": "C17-S09-T3",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "competing_transfer_targets"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B",
+            "agent-C"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S10",
+      "trial_id": "C17-S10-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "double_writer"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          },
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-C",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S10",
+      "trial_id": "C17-S10-T2",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "double_writer"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          },
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-C",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S10",
+      "trial_id": "C17-S10-T3",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "double_writer"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          },
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-C",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S11",
+      "trial_id": "C17-S11-T1",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "duplicate_delivery_applied_twice"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a1",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          },
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a2",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          }
+        ],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S11",
+      "trial_id": "C17-S11-T2",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "duplicate_delivery_applied_twice"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a1",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          },
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a2",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          }
+        ],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S11",
+      "trial_id": "C17-S11-T3",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "duplicate_delivery_applied_twice"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a1",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          },
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a2",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          }
+        ],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S12",
+      "trial_id": "C17-S12-T1",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "REVIEW_REQUIRED",
+      "expected": "REVIEW_REQUIRED",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "receipt_unknown_requires_reconciliation"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "UNKNOWN",
+          "authoritative_readback": "UNKNOWN"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S12",
+      "trial_id": "C17-S12-T2",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "REVIEW_REQUIRED",
+      "expected": "REVIEW_REQUIRED",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "receipt_unknown_requires_reconciliation"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "UNKNOWN",
+          "authoritative_readback": "UNKNOWN"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S12",
+      "trial_id": "C17-S12-T3",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "REVIEW_REQUIRED",
+      "expected": "REVIEW_REQUIRED",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "receipt_unknown_requires_reconciliation"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "UNKNOWN",
+          "authoritative_readback": "UNKNOWN"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S13",
+      "trial_id": "C17-S13-T1",
+      "scenario_kind": "security",
+      "layer": "holdout",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "write_after_cancel"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "REQUESTED",
+          "requested_at": "2026-09-30T10:00:00+08:00",
+          "writes": [
+            {
+              "at": "2026-09-30T10:01:00+08:00",
+              "object": "artifact-A"
+            }
+          ],
+          "all_branches_stopped": false,
+          "locks_released": false,
+          "effects_reconciled": false
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S13",
+      "trial_id": "C17-S13-T2",
+      "scenario_kind": "security",
+      "layer": "holdout",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "write_after_cancel"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "REQUESTED",
+          "requested_at": "2026-09-30T10:00:00+08:00",
+          "writes": [
+            {
+              "at": "2026-09-30T10:01:00+08:00",
+              "object": "artifact-A"
+            }
+          ],
+          "all_branches_stopped": false,
+          "locks_released": false,
+          "effects_reconciled": false
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S13",
+      "trial_id": "C17-S13-T3",
+      "scenario_kind": "security",
+      "layer": "holdout",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "write_after_cancel"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "REQUESTED",
+          "requested_at": "2026-09-30T10:00:00+08:00",
+          "writes": [
+            {
+              "at": "2026-09-30T10:01:00+08:00",
+              "object": "artifact-A"
+            }
+          ],
+          "all_branches_stopped": false,
+          "locks_released": false,
+          "effects_reconciled": false
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S14",
+      "trial_id": "C17-S14-T1",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "deadlock_cycle"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [
+          [
+            "agent-B",
+            "agent-C"
+          ],
+          [
+            "agent-C",
+            "agent-B"
+          ]
+        ],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S14",
+      "trial_id": "C17-S14-T2",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "deadlock_cycle"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [
+          [
+            "agent-B",
+            "agent-C"
+          ],
+          [
+            "agent-C",
+            "agent-B"
+          ]
+        ],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S14",
+      "trial_id": "C17-S14-T3",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "deadlock_cycle"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [
+          [
+            "agent-B",
+            "agent-C"
+          ],
+          [
+            "agent-C",
+            "agent-B"
+          ]
+        ],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S15",
+      "trial_id": "C17-S15-T1",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "livelock_no_progress"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 10,
+          "transition_limit": 8,
+          "progress_delta": 0,
+          "reroute_count": 5,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S15",
+      "trial_id": "C17-S15-T2",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "livelock_no_progress"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 10,
+          "transition_limit": 8,
+          "progress_delta": 0,
+          "reroute_count": 5,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S15",
+      "trial_id": "C17-S15-T3",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "livelock_no_progress"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 10,
+          "transition_limit": 8,
+          "progress_delta": 0,
+          "reroute_count": 5,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S16",
+      "trial_id": "C17-S16-T1",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "missing_required_branch"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A",
+            "worker-B"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S16",
+      "trial_id": "C17-S16-T2",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "missing_required_branch"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A",
+            "worker-B"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S16",
+      "trial_id": "C17-S16-T3",
+      "scenario_kind": "abnormal",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "missing_required_branch"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A",
+            "worker-B"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S17",
+      "trial_id": "C17-S17-T1",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_failed:delivery_visibility",
+        "completion_evidence_failed:business_environment_acceptance",
+        "ghost_success_d21_incomplete"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-failed",
+          "business_environment_acceptance_ref": "d21-accept-rejected"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S17",
+      "trial_id": "C17-S17-T2",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_failed:delivery_visibility",
+        "completion_evidence_failed:business_environment_acceptance",
+        "ghost_success_d21_incomplete"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-failed",
+          "business_environment_acceptance_ref": "d21-accept-rejected"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S17",
+      "trial_id": "C17-S17-T3",
+      "scenario_kind": "adversarial",
+      "layer": "holdout",
+      "security_slice": true,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "FAIL",
+      "expected": "FAIL",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_failed:delivery_visibility",
+        "completion_evidence_failed:business_environment_acceptance",
+        "ghost_success_d21_incomplete"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-failed",
+          "business_environment_acceptance_ref": "d21-accept-rejected"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S18",
+      "trial_id": "C17-S18-T1",
+      "scenario_kind": "recovery",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a1",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          },
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a2",
+            "idempotency_key": "idem-A",
+            "status": "DEDUPED",
+            "confirmed_external_write": false
+          }
+        ],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S18",
+      "trial_id": "C17-S18-T2",
+      "scenario_kind": "recovery",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a1",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          },
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a2",
+            "idempotency_key": "idem-A",
+            "status": "DEDUPED",
+            "confirmed_external_write": false
+          }
+        ],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S18",
+      "trial_id": "C17-S18-T3",
+      "scenario_kind": "recovery",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a1",
+            "idempotency_key": "idem-A",
+            "status": "APPLIED",
+            "confirmed_external_write": false
+          },
+          {
+            "logical_action_id": "send-A",
+            "attempt_id": "a2",
+            "idempotency_key": "idem-A",
+            "status": "DEDUPED",
+            "confirmed_external_write": false
+          }
+        ],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S19",
+      "trial_id": "C17-S19-T1",
+      "scenario_kind": "recovery",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "CANCELLED",
+          "requested_at": "2026-09-30T10:00:00+08:00",
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S19",
+      "trial_id": "C17-S19-T2",
+      "scenario_kind": "recovery",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "CANCELLED",
+          "requested_at": "2026-09-30T10:00:00+08:00",
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S19",
+      "trial_id": "C17-S19-T3",
+      "scenario_kind": "recovery",
+      "layer": "regression",
+      "security_slice": false,
+      "synthetic_shadow": false,
+      "intended_target_layer": null,
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "CANCELLED",
+          "requested_at": "2026-09-30T10:00:00+08:00",
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "COMMITTED",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S20",
+      "trial_id": "C17-S20-T1",
+      "scenario_kind": "recovery",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "UNKNOWN",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S20",
+      "trial_id": "C17-S20-T2",
+      "scenario_kind": "recovery",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "UNKNOWN",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    },
+    {
+      "task_id": "C17-S20",
+      "trial_id": "C17-S20-T3",
+      "scenario_kind": "recovery",
+      "layer": "holdout",
+      "security_slice": false,
+      "synthetic_shadow": true,
+      "intended_target_layer": "representative_real_world",
+      "decision": "PASS",
+      "expected": "PASS",
+      "matched_expected": true,
+      "trace": [
+        "freeze_common_contract",
+        "evaluate_raw_state",
+        "completion_evidence_verified:technical_execution",
+        "completion_evidence_verified:delivery_visibility",
+        "completion_evidence_verified:business_environment_acceptance",
+        "join_verified"
+      ],
+      "state": {
+        "route": {
+          "task_version": 4,
+          "permission_snapshot": "auth-v4",
+          "capability_evidence_refs": [
+            "eval-C17-01"
+          ],
+          "current_load": 1,
+          "task_load": 1,
+          "capacity": 4,
+          "estimated_cost": 2,
+          "execution_location": "local-cn",
+          "allowed_data_locations": [
+            "local-cn"
+          ]
+        },
+        "yield": {
+          "agent_status": "ACTIVE",
+          "notice": {
+            "reason": "not-needed",
+            "completed": [],
+            "not_completed": [],
+            "safe_stop": "none"
+          }
+        },
+        "handoff": {
+          "card_version": 4,
+          "ack_card_version": 4,
+          "transport_ack": "ACCEPTED",
+          "object_ack": "ACCEPTED",
+          "responsibility_ack": "ACCEPTED",
+          "old_owner_released": false,
+          "owner_cas_succeeded": true,
+          "transfer_targets": [
+            "agent-B"
+          ],
+          "accepted_responsibility_owners": [
+            "agent-B"
+          ],
+          "secret_material": []
+        },
+        "writer_leases": [
+          {
+            "object_id": "artifact-A",
+            "writer_id": "agent-B",
+            "generation": 4,
+            "status": "ACTIVE"
+          }
+        ],
+        "effect_ledger": [],
+        "cancel": {
+          "state": "NONE",
+          "requested_at": null,
+          "writes": [],
+          "all_branches_stopped": true,
+          "locks_released": true,
+          "effects_reconciled": true
+        },
+        "wait_edges": [],
+        "progress": {
+          "transition_count": 1,
+          "transition_limit": 8,
+          "progress_delta": 1,
+          "reroute_count": 0,
+          "reroute_limit": 3
+        },
+        "branches": {
+          "required": [
+            "worker-A"
+          ],
+          "completed": [
+            "worker-A"
+          ]
+        },
+        "receipt": {
+          "state": "UNKNOWN",
+          "authoritative_readback": "COMMITTED"
+        },
+        "d21": {
+          "reported_complete": true,
+          "technical_execution_ref": "d21-tech-ok",
+          "delivery_visibility_ref": "d21-delivery-ok",
+          "business_environment_acceptance_ref": "d21-accept-ok"
+        }
+      },
+      "external_side_effects": 0
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+schema: c24.cert.v2.4-independent-final-reproduction.v1
+review_role: non_author
+reviewed_on: '2026-10-01'
+fresh_temp_runs: 2
+byte_identical_across_runs: true
+fixed_fixture:
+  trial_count: 58
+  distribution: {PASS: 4, FAIL: 52, REVIEW_REQUIRED: 2}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 2, SUSPENDED: 2, REVOKED: 52, EXPIRED: 1}
+  authority_root_digest: sha256:ca7cbc05f74ddda8c8a178b7496d23b1fd2f137fa5019606a3a1eb2181a12f92
+  decision_digest: sha256:d9126ac3abaa8899553345d235e9b6b97ad98397087e9d1871b3120d4c330a6e
+artifacts:
+  input: sha256:4a824bb7cd4d423542308ef5dfd13775e237f656cdde68efdb15ed28fe796936
+  authority: sha256:076ed4b14a0729d5b90f4d3d5954865142e90cdc74dbfe74eacf48707b265b2f
+  result: sha256:eb39fc1f35ca39cc797d7095af9bb2a0bfdf235803186b46c4a31d5b5f67756f
+  author_25: sha256:13643ed7c26835d2bbb736ef530e63aca60a52641a45ae6f4a7dd0747e77eff6
+  historical_18_wrapper: sha256:dbb06d80294cfacf5d19ca7922a50473afc55cf188960ae814a95d510dabfad8
+  v23_combined_25_plus_20: sha256:d96c2a9a3995ebf83674976fb10df570d4f478bfea4245aa625f718e78cf9f92
+  prior_independent_21: sha256:0900c0632031abb09f27a6f5a12a3dbb0c8a09c537858a59f7d05358c4214824
+  author_v24_29: sha256:90794b3f884553bf86820ce9622ccecbc9bd765dc013fbe53e8c56912b6d9630
+  independent_v24_29: sha256:a2f6c7a9ebe961c3a50f7ac3432087992657615e042b7e4f007bb9cd833db6d2
+replays:
+  author_25: {matched: 25, total: 25, fail_open: 0}
+  historical_18:
+    semantic_matched: 18
+    blackbox_matched: 18
+    total: 18
+    note: historical wrapper field escape_count denotes the 18 asserted historical cases; semantic_and_blackbox_closed is true
+  old_independent_25: {matched: 25, total: 25, escape: 0}
+  v23_author_near_neighbour_20: {matched: 20, total: 20, escape: 0}
+  prior_independent_21: {secure: 21, total: 21, escape: 0, positive_pass: 2}
+  author_v24_29: {secure: 29, total: 29, escape: 0, positive_pass: 2}
+  independent_v24_29: {secure: 12, total: 29, escape: 17, positive_pass: 3}
+independent_suite_digest: sha256:601d5c5971dbe8bee9021cd89f2d47f2b48c581eb578c0747d495a8ccf2fe2c4
+determinism:
+  compared_files: [input, authority, result, author_25, historical_18_wrapper, v23_combined_25_plus_20, prior_independent_21, author_v24_29, independent_v24_29]
+  all_byte_identical: true
+limits:
+  synthetic_only: true
+  representative_real_world_layer: 0
+  real_openclaw_or_hermes_runtime: false
+  real_certificate: false
+  real_external_effect: false
+  practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_AUTHORIZED
+  chief_gate: NOT_AUTHORIZED
+  release_candidate: NOT_AUTHORIZED

@@ -1,0 +1,175 @@
+schema_version: c17-post-fix-independent-cross-reproduction.v1
+review_id: C17-post-fix-independent-cross-review-20260930
+chapter_id: C17
+reviewed_on: "2026-09-30"
+reviewer: "non-author-cross-reviewer:platform_research"
+independent_from_author: true
+scope: v3_closed_world_d21_d22_and_evidence_binding_regression
+
+protected_sources:
+  input: {path: synthetic-routing-input.yaml, sha256: 596e8420d68698f9b5cf5a02a32ab1e594352088610cd40e7e1ee106e0c771e1}
+  runner: {path: run-routing-harness.py, sha256: dd991e1a48e1793c8917a51809eea3fbab55221917022d694c52f6fdeefcc479}
+  author_results: {path: synthetic-routing-results.yaml, sha256: cf18124ca158b35202f134dbc55aff7590e3e566765a673fc7b15f4eb17bb1f8}
+  author_summary: {path: synthetic-routing-summary.md, sha256: f7ca824f58f0826a19e7887a7319490ecc3e4d76302ac36f45f48cf16c3fe272}
+  readme: {path: README.md, sha256: a9dbda8b8addc1474f214b2fcbfa7466af465eab9503d85ef9af836b69b4a246}
+  remediation_note: {path: ../d21-schema-remediation.md, sha256: 23ab0a1248b7552072a282833931cf408a22aead1dc9c44ac927de530db19b16}
+
+fresh_runs:
+  - run_id: RUN-A
+    fresh_directory_pattern: c17-v3-base-a-*
+    exit_code: 0
+    input_sha256: 596e8420d68698f9b5cf5a02a32ab1e594352088610cd40e7e1ee106e0c771e1
+    runner_sha256: dd991e1a48e1793c8917a51809eea3fbab55221917022d694c52f6fdeefcc479
+    results_sha256: cf18124ca158b35202f134dbc55aff7590e3e566765a673fc7b15f4eb17bb1f8
+    summary_sha256: f7ca824f58f0826a19e7887a7319490ecc3e4d76302ac36f45f48cf16c3fe272
+    cleaned_after_inspection: true
+  - run_id: RUN-B
+    fresh_directory_pattern: c17-v3-base-b-*
+    exit_code: 0
+    input_sha256: 596e8420d68698f9b5cf5a02a32ab1e594352088610cd40e7e1ee106e0c771e1
+    runner_sha256: dd991e1a48e1793c8917a51809eea3fbab55221917022d694c52f6fdeefcc479
+    results_sha256: cf18124ca158b35202f134dbc55aff7590e3e566765a673fc7b15f4eb17bb1f8
+    summary_sha256: f7ca824f58f0826a19e7887a7319490ecc3e4d76302ac36f45f48cf16c3fe272
+    cleaned_after_inspection: true
+
+reproduction:
+  source_copies_byte_equal: true
+  run_a_run_b_results_byte_equal: true
+  run_a_run_b_summary_byte_equal: true
+  reproduced_results_equal_author_results: true
+  reproduced_summary_equal_author_summary: true
+
+fixture_invariants:
+  schema_version: c17.synthetic.v3
+  decision_digest: cfd77c3eab68797600f4333c80fbc9900998bb93ec09996af72dd285270e4fe1
+  scenarios: 20
+  trials: 60
+  task_trial_unique: true
+  distribution: {PASS: 12, FAIL: 45, REVIEW_REQUIRED: 3}
+  external_side_effect_count: 0
+  representative_real_world_executed: false
+  representative_real_world_trial_count: 0
+  synthetic_shadow_trial_count: 12
+  security_failures_noncompensatory: true
+  by_layer:
+    training: {PASS: 3, FAIL: 9}
+    regression: {PASS: 6, FAIL: 12}
+    holdout: {PASS: 3, FAIL: 24, REVIEW_REQUIRED: 3}
+    representative_real_world: {}
+
+closed_world_schema_matrix:
+  decision: PASS
+  rejected_before_results:
+    - {id: M01, mutation: old_reported_complete_and_three_truthy_dummy_fields, error_contains: "d21 missing fields"}
+    - {id: M02, mutation: route_unknown_control_field, error_contains: "route unknown fields"}
+    - {id: M03, mutation: handoff_unknown_control_field, error_contains: "handoff unknown fields"}
+    - {id: M04, mutation: d21_unknown_control_field, error_contains: "d21 unknown fields"}
+    - {id: M05, mutation: state_unknown_control_field, error_contains: "state unknown fields"}
+    - {id: M06, mutation: missing_route_capability_refs, error_contains: "route missing fields"}
+    - {id: M07, mutation: missing_d21_technical_ref, error_contains: "d21 missing fields"}
+    - {id: M08, mutation: route_task_version_wrong_type, error_contains: "must be int"}
+    - {id: M09, mutation: d21_reported_complete_wrong_type, error_contains: "must be bool"}
+    - {id: M10, mutation: unknown_schema_version, error_contains: "unsupported schema_version"}
+    - {id: M11, mutation: unknown_agent_status, error_contains: "unknown agent status"}
+    - {id: M12, mutation: unknown_transport_ack, error_contains: "unknown transport ack"}
+    - {id: M13, mutation: unknown_writer_status, error_contains: "unknown enum"}
+    - {id: M14, mutation: unknown_effect_status, error_contains: "unknown enum"}
+    - {id: M15, mutation: unknown_cancel_state, error_contains: "unknown cancel state"}
+    - {id: M16, mutation: unknown_receipt_state, error_contains: "unknown receipt state"}
+    - {id: M17, mutation: unknown_expected_CLEAR, error_contains: "expected has unknown enum"}
+    - {id: M18, mutation: unknown_scenario_kind, error_contains: "unknown scenario kinds"}
+    - {id: M19, mutation: invalid_D22_layer, error_contains: "invalid D22 layers"}
+    - {id: M43, mutation: duplicate_scenario_id, error_contains: "scenario ids must be unique"}
+
+d21_isolated_matrix:
+  decision: FAIL_WITH_TWO_BINDING_GAPS
+  positive_control:
+    id: D00
+    observed_decision: PASS
+    reason: join_verified
+    result_sha256: d3dcfd359bc97f7a17baa9c5681d678781e8af171046d0d79c786351f446618e
+  effective_controls:
+    - {id: D01, mutation: reference_not_found, observed_decision: FAIL, reason: ghost_success_d21_incomplete, result_sha256: d587518aa8c98ef463a0b022cbd8ad7004c7b672ba1042efdc67e0a4c7293b85}
+    - {id: D02, mutation: layer_mismatch, observed_decision: FAIL, reason: completion_evidence_untrusted, result_sha256: 42b763d5a4c1346d8d646d8ffea399a71d8b6690facb4f88dba61269ce010296}
+    - {id: D04, mutation: empty_source, exit_code: 1, error_contains: "source must be non-empty"}
+    - {id: D05, mutation: terminal_mismatch, observed_decision: FAIL, reason: completion_evidence_failed, result_sha256: b017d5c2afa0bf8b3ffc5ebba35483919035a820cd0abf17e47b9bed7fdb59ec}
+    - {id: D06, mutation: malformed_digest, exit_code: 1, error_contains: "object_digest must be sha256"}
+    - {id: D08, mutation: authoritative_false, observed_decision: FAIL, reason: completion_evidence_untrusted, result_sha256: fece718196c22d49a5c9ee26b9e0f9ffed8d690abd074832750f70893d43cf4f}
+    - {id: D09, mutation: status_FAILED, observed_decision: FAIL, reason: completion_evidence_failed, result_sha256: 909005aa6bc01b6d26daaf4a9a22ec292d2216cedb4b45542ee95a45ced05b2d}
+    - {id: D10, mutation: status_REVOKED, observed_decision: FAIL, reason: completion_evidence_failed, result_sha256: b59dfdf8b6761657267a0a365d3dbc931bfb5403e8b9c7e025c2694c8444c10d}
+    - {id: D11, mutation: status_UNKNOWN, observed_decision: REVIEW_REQUIRED, reason: completion_unknown_requires_reconciliation, result_sha256: 00e2985e97a27d91aa5bd8c5dca2fe08574c0e0e949d64b9510af7c647b95d1d}
+    - {id: D12, mutation: terminal_UNKNOWN, observed_decision: REVIEW_REQUIRED, reason: completion_unknown_requires_reconciliation, result_sha256: 43e45b74e22194fdc10978a4cda485e8671ff43db01f4dd2ee33f992ab6a91fe}
+    - {id: D13, mutation: one_failed_plus_one_unknown, observed_decision: FAIL, reason: ghost_success_d21_incomplete, result_sha256: 2532b2648bd443b89fcac723bb2b7886456a740b5cc49e94aeee8a2af0216d99}
+    - {id: D14, mutation: unauthorized_route_plus_completion_UNKNOWN, observed_decision: FAIL, reason: unauthorized_route, result_sha256: 2f8500f5d50c113f2f4de753fe7fc2482589acb75989d4d42e2f729d5ee1e66e}
+    - {id: D15, mutation: double_writer_plus_completion_UNKNOWN, observed_decision: FAIL, reason: double_writer, result_sha256: 38830f9bc5b62ccfb0f5d5b83f35a4e5e710445f315218e5157f43994f96b1d1}
+    - {id: D16, mutation: third_layer_reference_missing, observed_decision: FAIL, reason: ghost_success_d21_incomplete, result_sha256: e9f1a7f97fa9c7bf94cecdb0ae01a4fbb97820c7b6124485155a59df2da553ee}
+  fail_open_controls:
+    - {id: D03, mutation: wrong_but_nonempty_source, observed_decision: PASS, reason: join_verified, result_sha256: f5673a7642785c66959855f0f7cbee9073ba5d5d3af32f967ead524e567f5e08}
+    - {id: D07, mutation: well_formed_but_wrong_object_digest, observed_decision: PASS, reason: join_verified, result_sha256: a3696c28c676706f2b0f4a2c818214b26f9eec4d1a7851b2cb2725512cb635db}
+
+d22_and_effect_matrix:
+  decision: PASS
+  cases:
+    - {id: M35, mutation: synthetic_claims_representative_real_world, exit_code: 1, error_contains: "synthetic fixture cannot claim"}
+    - {id: M36, mutation: valid_real_world_manifest_binding, exit_code: 0, observed_real_world_trials: 3, result_sha256: d7a012e57ba511c84798453542b48d743c0364d3fef3376b24d76a6650c35776}
+    - {id: M37, mutation: manifest_verified_false, exit_code: 1, error_contains: "verified manifest record"}
+    - {id: M38, mutation: manifest_origin_mismatch, exit_code: 1, error_contains: "verified manifest record"}
+    - {id: M39, mutation: manifest_source_mismatch, exit_code: 1, error_contains: "source/run ids must match"}
+    - {id: M40, mutation: manifest_run_mismatch, exit_code: 1, error_contains: "source/run ids must match"}
+    - {id: M41, mutation: manifest_evidence_missing, exit_code: 1, error_contains: "verified manifest record"}
+    - {id: M42, mutation: allowed_confirmed_external_effects, exit_code: 0, derived_external_effect_count: 27, result_sha256: 036cf53ee4f04af69570d5c6fc54730172aecc5beb7093c6f72087702f2c99e3}
+
+route_capability_evidence:
+  decision: FAIL
+  case:
+    id: M44
+    mutation: replace_capability_evidence_refs_with_unresolved_dummy
+    observed_decision: PASS
+    reason: join_verified
+    result_sha256: b07b6edf98b3812a0e6946a135ffbfa57d88147b27c1fbae96cf3a336cf1b319
+
+findings:
+  closed:
+    - {id: P1-X17-R01, basis: old truthy D21 fields rejected and evidence refs are resolved for existence layer terminal authority and status}
+    - {id: P1-X17-R02, basis: control-plane objects now use closed-world required optional keys strict types and enums}
+    - {id: P1-X17-01, basis: D22 layers shadow counts and real-world manifest are now machine-enforced}
+    - {id: P1-X17-02, basis: decisions derive from raw route handoff writer effect cancel progress branch receipt and D21 state rather than fault labels}
+  open:
+    - id: P1-C17-PF-01
+      severity: P1
+      title: D21 source and digest are shape-checked but not semantically bound to trusted observer task run and target object
+    - id: P1-C17-PF-02
+      severity: P1
+      title: route capability evidence references are accepted when nonempty without registry resolution
+
+minimum_closure_contract:
+  - bind every D21 record to task run attempt layer object and trusted observer or authoritative system identity
+  - compare object digest to canonical target bytes or an independently trusted expected digest instead of regex only
+  - red-team cross-task cross-run evidence replay source alias collision and well-formed wrong digest
+  - resolve capability evidence references against a trusted registry bound to agent capability task class evaluation version scope status expiry and digest
+  - reject unknown expired revoked wrong-agent wrong-capability wrong-task and wrong-version capability evidence and keep UNKNOWN non-PASS
+
+gate_decision:
+  frozen_v3_reproduction: PASS
+  old_truthy_dummy_rejected: PASS
+  closed_world_schema_control: PASS
+  d21_reference_layer_terminal_authoritative_status: PASS
+  d21_unknown_semantics: PASS
+  d21_three_layers_required: PASS
+  d21_hard_failure_noncompensation: PASS
+  d21_source_digest_semantic_binding: FAIL
+  route_capability_evidence_resolution: FAIL
+  d22_real_world_manifest_control: PASS
+  effect_count_derivation: PASS
+  cross_gate: REVIEW_REQUIRED
+  cross_gate_pass_with_limitations_allowed: false
+  blocking_p1: [P1-C17-PF-01, P1-C17-PF-02]
+  real_runtime_practice_gate: REVIEW_REQUIRED
+  editor_gate: NOT_REVIEWED
+  chief_editor_gate: NOT_REVIEWED
+  release_candidate_authorized: false
+
+limitations:
+  - All runs are offline synthetic copies with no network credentials user data or production writes.
+  - Real OpenClaw Hermes A2A channels authorization cross-system cancellation readback and representative workloads were not executed.
+  - Closing the two evidence-binding P1 findings may allow a later cross PASS_WITH_LIMITATIONS but cannot approve the practice gate.

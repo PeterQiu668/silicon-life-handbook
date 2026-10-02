@@ -1,0 +1,396 @@
+{
+  "schema_version": "c20.reliability.negative-regression.v2.1",
+  "control_count": 46,
+  "passed_count": 46,
+  "failed_count": 0,
+  "all_passed": true,
+  "controls": [
+    {
+      "control_id": "N01_wrong_root_version",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:root.schema_version: unsupported"
+    },
+    {
+      "control_id": "N02_unknown_root_field",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:root: missing=[] unknown=['dummy']"
+    },
+    {
+      "control_id": "N03_unknown_scenario_field",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0]: missing=[] unknown=['dummy']"
+    },
+    {
+      "control_id": "N04_unknown_state_field",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state: missing=[] unknown=['dummy']"
+    },
+    {
+      "control_id": "N05_unknown_nested_field",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.task: missing=[] unknown=['dummy']"
+    },
+    {
+      "control_id": "N06_wrong_nested_type",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.retry.attempts: expected int"
+    },
+    {
+      "control_id": "N07_illegal_fifth_layer",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].dataset_layer: invalid"
+    },
+    {
+      "control_id": "N08_synthetic_claims_real_layer",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0]: offline synthetic cannot execute real-world"
+    },
+    {
+      "control_id": "N09_self_filled_real_manifest",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:offline harness rejects any real_world_evidence_manifest"
+    },
+    {
+      "control_id": "N10_duplicate_scenario_id",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[1].scenario_id: duplicate"
+    },
+    {
+      "control_id": "N11_duplicate_task_id",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[1].task_id: duplicate"
+    },
+    {
+      "control_id": "N12_duplicate_trial_id",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[1].trial_id: duplicate"
+    },
+    {
+      "control_id": "N13_duplicate_run_id",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[1].run_id: duplicate"
+    },
+    {
+      "control_id": "N14_cross_run_identity",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.task.run_id: mismatch"
+    },
+    {
+      "control_id": "N15_registry_digest_tamper",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:authorities.authority_registry.auth://c20/S01.digest: canonical mismatch"
+    },
+    {
+      "control_id": "N16_unknown_registry_field",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:authorities.policy_registry.policy://c20/S01: missing=[] unknown=['dummy']"
+    },
+    {
+      "control_id": "N17_missing_technical_terminal",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "TECHNICAL_TERMINAL_UNRESOLVED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "TECHNICAL_TERMINAL_UNRESOLVED",
+        "D21_FALSE_COMPLETION"
+      ]
+    },
+    {
+      "control_id": "N18_delivery_visibility_contradiction",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "DELIVERY_RECEIPT_VISIBILITY_CONTRADICTION",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "DELIVERY_RECEIPT_VISIBILITY_CONTRADICTION",
+        "DELIVERY_STATE_VISIBILITY_CONTRADICTION",
+        "D21_FALSE_COMPLETION"
+      ]
+    },
+    {
+      "control_id": "N19_acceptance_contradiction",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "ACCEPTANCE_CONTRADICTION",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "ACCEPTANCE_CONTRADICTION",
+        "ACCEPTANCE_FAILED",
+        "D21_FALSE_COMPLETION"
+      ]
+    },
+    {
+      "control_id": "N20_wrong_event_digest",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "EVENT_CANONICAL_DIGEST_MISMATCH",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "EVENT_CANONICAL_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "control_id": "N21_unresolved_evidence",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "EVIDENCE_REF_UNRESOLVED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "EVIDENCE_REF_UNRESOLVED"
+      ]
+    },
+    {
+      "control_id": "N22_fake_authority",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "AUTHORITY_ACTOR_MISMATCH",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "AUTHORITY_ACTOR_MISMATCH"
+      ]
+    },
+    {
+      "control_id": "N23_fake_policy",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "REQUEST_OUTSIDE_POLICY",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "REQUEST_OUTSIDE_POLICY"
+      ]
+    },
+    {
+      "control_id": "N24_fake_receipt_readback",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "TOOL_SUCCESS_ENVIRONMENT_DIVERGED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "TOOL_SUCCESS_ENVIRONMENT_DIVERGED",
+        "EFFECT_UNKNOWN"
+      ]
+    },
+    {
+      "control_id": "N25_unanchored_recovery",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "RECOVERY_REF_UNRESOLVED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "RECOVERY_REF_UNRESOLVED"
+      ]
+    },
+    {
+      "control_id": "N26_external_effect",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "OFFLINE_EXTERNAL_EFFECT_DETECTED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "OFFLINE_EXTERNAL_EFFECT_DETECTED"
+      ]
+    },
+    {
+      "control_id": "N27_hard_plus_unknown_noncompensatory",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "OBSERVABILITY_CANARY_LEAK",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "OBSERVABILITY_CANARY_LEAK",
+        "TECHNICAL_TERMINAL_UNKNOWN",
+        "D21_COMPLETION_UNRESOLVED"
+      ]
+    },
+    {
+      "control_id": "N28_unknown_maps_review",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "REVIEW_REQUIRED",
+      "expected_reason": "TECHNICAL_TERMINAL_UNKNOWN",
+      "actual_decision": "REVIEW_REQUIRED",
+      "actual_reasons": [
+        "TECHNICAL_TERMINAL_UNKNOWN",
+        "D21_COMPLETION_UNRESOLVED"
+      ]
+    },
+    {
+      "control_id": "N29_invalid_terminal_enum",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:authorities.technical_terminal_registry.terminal://c20/S01.status: invalid enum"
+    },
+    {
+      "control_id": "N30_expired_authority",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "AUTHORITY_INACTIVE_OR_EXPIRED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "AUTHORITY_INACTIVE_OR_EXPIRED"
+      ]
+    },
+    {
+      "control_id": "N31_wrong_chain_anchor",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "EVENT_CHAIN_ANCHOR_MISMATCH",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "EVENT_CHAIN_ANCHOR_MISMATCH"
+      ]
+    },
+    {
+      "control_id": "N32_wrong_evidence_binding",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "EVENT_EVIDENCE_UNRESOLVED_OR_MISMATCHED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "EVENT_EVIDENCE_UNRESOLVED_OR_MISMATCHED",
+        "EVIDENCE_BINDING_OR_STATUS_INVALID"
+      ]
+    },
+    {
+      "control_id": "N33_recovery_registry_conflict",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "RECOVERY_READBACK_CONTRADICTION",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "RECOVERY_READBACK_CONTRADICTION"
+      ]
+    },
+    {
+      "control_id": "N34_invalid_effect_enum",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:authorities.effect_registry.effect://c20/S01: invalid enum"
+    },
+    {
+      "control_id": "N36_explicit_technical_failure_without_completion_claim",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "TECHNICAL_TERMINAL_FAILED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "TECHNICAL_TERMINAL_FAILED"
+      ]
+    },
+    {
+      "control_id": "N37_explicit_delivery_failure_without_completion_claim",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "DELIVERY_FAILED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "DELIVERY_RECEIPT_VISIBILITY_CONTRADICTION",
+        "DELIVERY_FAILED"
+      ]
+    },
+    {
+      "control_id": "N38_explicit_acceptance_failure_without_completion_claim",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "ACCEPTANCE_FAILED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "ACCEPTANCE_FAILED"
+      ]
+    },
+    {
+      "control_id": "N39_explicit_recovery_failure_without_recovery_claim",
+      "mode": "state_derived_decision",
+      "passed": true,
+      "expected_decision": "FAIL",
+      "expected_reason": "RECOVERY_FAILED",
+      "actual_decision": "FAIL",
+      "actual_reasons": [
+        "RECOVERY_FAILED"
+      ]
+    },
+    {
+      "control_id": "N40_negative_external_observed_count",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:authorities.effect_registry.effect://c20/S01.observed_count: negative"
+    },
+    {
+      "control_id": "N41_negative_retry_attempts",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.retry.attempts: must be finite and nonnegative"
+    },
+    {
+      "control_id": "N42_sampling_rate_out_of_range",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.telemetry.sampling_rate: outside [0,1]"
+    },
+    {
+      "control_id": "N43_invalid_event_occurred_at",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.event_chain[0].occurred_at: invalid timestamp"
+    },
+    {
+      "control_id": "N44_duplicate_event_seq",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.event_chain: seq must be unique contiguous 1..N"
+    },
+    {
+      "control_id": "N45_duplicate_evidence_refs",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.evidence_refs: duplicate"
+    },
+    {
+      "control_id": "N46_nonfinite_cost",
+      "mode": "schema_rejection",
+      "passed": true,
+      "actual": "REJECTED:scenarios[0].state.cost.model_usd: must be finite and nonnegative"
+    },
+    {
+      "control_id": "N35_case_name_and_expected_inert",
+      "mode": "decision_invariance",
+      "passed": true,
+      "actual_decision": "PASS"
+    }
+  ]
+}

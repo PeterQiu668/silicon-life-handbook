@@ -1,0 +1,35 @@
+schema: c24.cert.v2.3-fresh-temp-reproduction.v1
+review_role: author_remediation
+environment: offline_synthetic
+run_count: 2
+fresh_temp_directories: true
+byte_identical_between_runs: true
+saved_artifacts_match_reproduction: true
+artifacts:
+  input:
+    sha256: ffb3cfb77ce07a916ff3ae8784f2008fcc9e145a582ba8be048ae3439c039619
+  authority:
+    sha256: 40cf9bf2f7b6de4f5a75b3a3f0f93a645755f6d5d1357c0f8749fe20fd025a7c
+  result:
+    sha256: 0d617a6d80e45eb1d0d7db541249ef61863a2268499828602765542e538cf432
+  author_negative_25:
+    sha256: 82944bebb72fe49f07aa12bb6c44e7eecb464353883841432dbba07f9302408c
+  final_remediation:
+    sha256: 22e7d6d89909cb18bf94b052b1f45475297d114296be1c3503cee25eb8a9c153
+semantic:
+  trial_count: 58
+  distribution: {PASS: 4, FAIL: 51, REVIEW_REQUIRED: 3}
+  lifecycle_distribution: {ACTIVE: 1, LIMITED: 2, SUSPENDED: 3, REVOKED: 51, EXPIRED: 1}
+  authority_root_digest: "sha256:47c788b9dcd1395f21dfe3019c10d10a0fa4ede74c46f18923103f8ad46040e8"
+  decision_digest: "sha256:00fe7b40ecd9f7eedd6745c8043cf1de6ca8b0ca4b5b234ba9c9cf936f688788"
+  independent_25: {matched: 25, escapes: 0}
+  remediation_20: {matched: 20, escapes: 0}
+  positive_controls: {matched: 2, total: 2}
+  remediation_suite_digest: "sha256:e83911f97c2c3fab74c4cf75bf240c144bf5d103e633edda86e99650bc49890d"
+limits:
+  real_openclaw_or_hermes_executed: false
+  representative_real_world_executed: false
+  real_certificate_issued: false
+  external_effect_executed: false
+  practice_gate: REVIEW_REQUIRED
+  independent_fact_cross_editor_chief_rc: NOT_AUTHORIZED

@@ -1,0 +1,78 @@
+schema_version: c23.v2.9-independent-final-reproduction.v1
+performed_on: "2026-10-01"
+role: non_author_final_reviewer
+author_files_modified: false
+fresh_temp:
+  count: 2
+  roots:
+    - /tmp/c23-v29-independent-a.5GqG1N
+    - /tmp/c23-v29-independent-b.dmCCTw
+  byte_identical: true
+  files:
+    input.json: dd22c661641ced26169a050500c23b7d2c5cd5904cd9ec32dba80c4c21025a55
+    root.json: fd73e15e94a507dfa328adbcd5aea4aec2ec75b8c5db87a5f53cbb474709b2b2
+    result.json: f80c718b45d18aef880422167afbe221d8145c8a3ff08a2a8bdb7b2531434ebe
+    author-v29.json: d0f2220bde275eebd979db9cfe56c9b44dbe558f854bb721eed7c6008188ce48
+    independent-v29.json: 858000ce33ed66338e3bcbb0964d25e5863ae2d644c67325de3debc4e87289c1
+fixed_fixture:
+  trial_count: 32
+  distribution: {PASS: 2, FAIL: 24, REVIEW_REQUIRED: 6}
+  authority_root_logical_digest: 18b6e3b04b574fd170eb2d746b1cf0d6271877098bec9116cea5fed2e43734d0
+  decision_digest: 7293a070771b55f59428898c802f40eaf85c658839e005932911b8721d924e2c
+  accepted_real_claim_count: 0
+  external_effect_count: 0
+independent_suite:
+  test_file_sha256: be39ca462e5511ff98147b1f869da5ce147fb1175084af4388ef4ff3bc6747b9
+  result_file_sha256: 858000ce33ed66338e3bcbb0964d25e5863ae2d644c67325de3debc4e87289c1
+  attack_count: 45
+  secure_attack_count: 43
+  escape_count: 2
+  escape_ids: [F24_PATCH_TRANSITIVE_CANONICAL, F25_PATCH_TRANSITIVE_ROOT_VALIDATOR]
+  boundary_demonstration_count: 2
+  boundary_accept_count: 2
+  positive_control_count: 6
+  positive_control_pass_count: 6
+  suite_digest: d9b2fda94f687aa6b0069f943bfc0863fd0eb75029b262ef313e0bfc49a6bd5b
+  boundary_note: "direct closure-cell mutation is arbitrary same-process code execution and is reported separately; the two P0 escapes require only ordinary module-global rebinding"
+author_and_history_replay:
+  author_79: {status: PASS, passed: 79, total: 79, output_sha256: 5b2e4688aad94fea95206e8d31e8d6f8216d30d2b044395388ab1644b34244d6}
+  author_v23_30: {status: PASS, passed: 30, total: 30, suite_digest: 5afd41e6f8b84e020167c259b369abab29357536166e57b50cd0f2474dcea45e}
+  author_v24_23: {status: PASS, passed: 23, total: 23, suite_digest: 2be1f87c81246d2c7b4c254f614e4f814535b78f25d2e610c3092334ae2822f4}
+  author_v25_25: {status: PASS, passed: 25, total: 25, suite_digest: a585cc114ea403eaf85b7bae49979c0cce1adacdef26f8039abba70315f9492c}
+  author_v26_24: {status: PASS, passed: 24, total: 24, suite_digest: b853cb9b4ecd4a01346a7e3b0549660455c7abffe747b6412bddcd6f145deb18}
+  author_v27_24:
+    attacks: {secure: 24, total: 24}
+    old_positive_controls: {passed: 0, total: 3}
+    status: SAFE_RETIRED_OBJECT_API
+  author_v28: {status: SAFE_RETIRED_OBJECT_API, detail: "old script aborts because verify_result(dict,dict,dict) is absent"}
+  independent_v28:
+    status: SAFE_RETIRED_OBJECT_API_WITH_INTENT_REPLAY
+    direct_script: "aborts at removed verify_result object API"
+    replayed_escape_ids: [I30, I31, I32, I33, I34]
+    replay_result: "5/5 rejected under raw v2.9 interface"
+  author_v29: {status: PASS, attacks: 30, secure: 30, positives: 8, positives_passed: 8, suite_digest: 4b8fa1a538f73a53381f90a07f7599e9b7074b60a0e43e8d3f1f878a4c228281}
+source_and_structure:
+  claims: 44
+  claims_referenced_in_chapter: 44
+  unknown_claim_refs: 0
+  source_count: 44
+  unused_source_ids: [LOCAL-V28-NOTE, LOCAL-V28-REMEDIATION, LOCAL-V28-REPRO]
+  external_urls_http_200: [ANT, NIST, OC, HE, MUSE]
+  frontmatter_status: formal_candidate
+  real_world_practice: REVIEW_REQUIRED
+  official_h2_sections: [23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.7]
+validation:
+  formal_strict: PASS
+  yaml_json: PASS
+  py_compile: PASS
+  local_links: PASS
+  diff_check: PASS
+  validate_book: "FAIL only because composite manuscript is stale; build intentionally not run"
+limits:
+  real_case_executed: false
+  real_authorization_and_copyright_reviewed: false
+  real_openclaw_hermes_migration_executed: false
+  real_external_effect_executed: false
+  practice_gate: REVIEW_REQUIRED
+  chief_editor_rc: NOT_AUTHORIZED
+
